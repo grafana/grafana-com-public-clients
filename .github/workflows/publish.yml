@@ -1,0 +1,28 @@
+name: Publish clients
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: ./scripts/generate.sh
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update clients and publish
+      - name: Report Status
+        if: always()
+        uses: ravsamhq/notify-slack-action@v2
+        with:
+          status: ${{ job.status }}
+          notify_when: 'failure'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.GRAFANA_COM_CI_SLACK_WEBHOOK_URL }}
