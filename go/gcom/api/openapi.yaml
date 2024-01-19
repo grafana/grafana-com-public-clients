@@ -1,0 +1,3337 @@
+openapi: 3.0.0
+info:
+  description: "\nGrafana.com API (or GCOM). This documentation includes all endpoints\
+    \ of GCOM API including the staff ones.\n\nLooking for GCOM API client packages?\
+    \ You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients)\
+    \ repository.\n\nIf you have any questions, please contact us at #grafana_com\
+    \ on Slack or open an issue\nat [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).\n\
+    \nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses\
+    \ are properly typed for the time being.\n- Some request parameter types may not\
+    \ be precise\n      "
+  title: GCOM API
+  version: internal
+  x-commit-sha: development
+  x-generated-at: 2024-01-19T02:18:43.497Z
+servers:
+- description: Main API server
+  url: /api
+security:
+- BearerAuth: []
+tags:
+- description: Everything related to our Hosted Grafana Instances
+  name: instances
+paths:
+  /api-keys:
+    post:
+      operationId: postAllApiKeys
+      parameters:
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postAllApiKeys_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiApiKey'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Creates an API key
+      tags:
+      - api-keys
+  /instances:
+    get:
+      operationId: getInstances
+      parameters:
+      - explode: true
+        in: query
+        name: amInstanceId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: cluster
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: clusterIdIn
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: direction
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: hlInstanceId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: hmInstanceGraphiteId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: hmInstancePromId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: hosted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: idIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: idMin
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: incident
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: includeDeleted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: includePromCurrentActiveSeries
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: includeVersionIssueLink
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: machineLearning
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: machineLearningLogsToken
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: nameIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgAccountManagerId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: orgAccountOwnerId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgIdIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgSlug
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgSlugIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgType
+        required: false
+        schema:
+          enum:
+          - non-staff
+          - vip
+          - fog
+          - staff
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: plan
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: planIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: planNot
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: slug
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: slugIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: trial
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: trialExpiresAtMax
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: trialExpiresAtMin
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: updatedOrCreatedAtMin
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: url
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: usageStatsId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: version
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: versionIn
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: versionNot
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: versionNotIn
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstances_200_response'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get a list of instances
+      tags:
+      - instances
+    post:
+      operationId: postInstances
+      parameters:
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postInstances_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstance'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Create a new instance
+      tags:
+      - instances
+  /instances/{instanceId}:
+    delete:
+      operationId: deleteInstance
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstance'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Deletes an instance
+      tags:
+      - instances
+    get:
+      operationId: getInstance
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: config
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: includeDeleted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstance'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Gets an instance
+      tags:
+      - instances
+    post:
+      operationId: postInstance
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postInstance_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstance'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Updates an instance
+      tags:
+      - instances
+  /orgs/{slugOrId}/api-keys:
+    get:
+      operationId: getApiKeys
+      parameters:
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: direction
+        required: false
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: excludeProvisioned
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: idIn
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: nameIn
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          enum:
+          - id
+          - name
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: role
+        required: false
+        schema:
+          enum:
+          - Viewer
+          - PluginPublisher
+          - MetricsPublisher
+          - EasyStart
+          - Editor
+          - Admin
+          - SSO Access
+          - None
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: roleIn
+        required: false
+        schema:
+          items:
+            enum:
+            - Viewer
+            - PluginPublisher
+            - MetricsPublisher
+            - EasyStart
+            - Editor
+            - Admin
+            - SSO Access
+            - None
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiApiKeyListResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get an organization's API keys
+      tags:
+      - orgs
+    post:
+      operationId: postApiKeys
+      parameters:
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postApiKeys_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiApiKey'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Create an API key.
+      tags:
+      - orgs
+  /orgs/{slugOrId}/api-keys/{name}:
+    delete:
+      operationId: delApiKey
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Delete an API key by name
+      tags:
+      - orgs
+    get:
+      operationId: getApiKey
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiApiKey'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get an API key by name
+      tags:
+      - orgs
+  /orgs/{slug}/instances:
+    get:
+      operationId: getOrgInstances
+      parameters:
+      - explode: false
+        in: path
+        name: slug
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: cluster
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: direction
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: idIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: includeDeleted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: nameIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: plan
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: planIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: planNot
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: slug
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: slugIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: url
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: urlIn
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstances_200_response'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get the list of instances belonging to the org
+      tags:
+      - orgs
+  /v1/accesspolicies:
+    get:
+      operationId: getAccessPolicies
+      parameters:
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageCursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: realmIdentifier
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: realmType
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get a list of access policies
+      tags:
+      - accesspolicies
+    post:
+      operationId: postAccessPolicies
+      parameters:
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postAccessPolicies_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Create a new access policy
+      tags:
+      - accesspolicies
+  /v1/accesspolicies/config:
+    get:
+      operationId: getConfig
+      parameters:
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get details about the Cloud Access Policy API
+      tags:
+      - accesspolicies
+  /v1/accesspolicies/{id}:
+    delete:
+      operationId: deleteAccessPolicy
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Delete an access policy
+      tags:
+      - accesspolicies
+    get:
+      operationId: getAccessPolicy
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get an access policy
+      tags:
+      - accesspolicies
+    post:
+      operationId: postAccessPolicy
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postAccessPolicy_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Update an access policy
+      tags:
+      - accesspolicies
+  /v1/tokens:
+    get:
+      operationId: getTokens
+      parameters:
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: accessPolicyId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: accessPolicyIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: accessPolicyName
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: accessPolicyRealmIdentifier
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: accessPolicyRealmType
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: accessPolicyStatus
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: expiresAfter
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: expiresBefore
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageCursor
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get a list of tokens
+      tags:
+      - tokens
+    post:
+      operationId: postTokens
+      parameters:
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postTokens_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Create a new token
+      tags:
+      - tokens
+  /v1/tokens/{id}:
+    delete:
+      operationId: deleteToken
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Delete a token
+      tags:
+      - tokens
+    get:
+      operationId: getToken
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get info for a specific token
+      tags:
+      - tokens
+    post:
+      operationId: postToken
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: region
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postToken_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Update a token
+      tags:
+      - tokens
+components:
+  schemas:
+    FormattedApiApiKeyListResponse:
+      example:
+        cursor: 9.301444243932576
+        nextCursor: 3.616076749251911
+        total: 5.962133916683182
+        pages: 5.637376656633329
+        orderBy: orderBy
+        pageSize: 2.3021358869347655
+        links:
+        - rel: rel
+          href: href
+        - rel: rel
+          href: href
+        page: 7.061401241503109
+        items:
+        - orgSlug: orgSlug
+          createdAt: createdAt
+          orgName: orgName
+          instanceId: 1.4658129805029452
+          role: Admin
+          firstUsed: firstUsed
+          name: name
+          links:
+          - rel: self
+            href: href
+          - rel: self
+            href: href
+          id: 0.8008281904610115
+          orgId: 6.027456183070403
+          updatedAt: updatedAt
+          token: token
+        - orgSlug: orgSlug
+          createdAt: createdAt
+          orgName: orgName
+          instanceId: 1.4658129805029452
+          role: Admin
+          firstUsed: firstUsed
+          name: name
+          links:
+          - rel: self
+            href: href
+          - rel: self
+            href: href
+          id: 0.8008281904610115
+          orgId: 6.027456183070403
+          updatedAt: updatedAt
+          token: token
+        direction: asc
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/items_inner'
+          title: items
+          type: array
+        orderBy:
+          title: orderBy
+          type: string
+        direction:
+          enum:
+          - asc
+          - desc
+          title: direction
+          type: string
+        total:
+          title: total
+          type: number
+        pages:
+          title: pages
+          type: number
+        pageSize:
+          title: pageSize
+          type: number
+        page:
+          title: page
+          type: number
+        cursor:
+          title: cursor
+          type: number
+        nextCursor:
+          title: nextCursor
+          type: number
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner_1'
+          title: links
+          type: array
+      required:
+      - items
+      type: object
+    FormattedApiApiKey:
+      example:
+        orgSlug: orgSlug
+        createdAt: createdAt
+        orgName: orgName
+        instanceId: 1.4658129805029452
+        role: Admin
+        firstUsed: firstUsed
+        name: name
+        links:
+        - rel: self
+          href: href
+        - rel: self
+          href: href
+        id: 0.8008281904610115
+        orgId: 6.027456183070403
+        updatedAt: updatedAt
+        token: token
+      properties:
+        id:
+          title: id
+          type: number
+        orgId:
+          title: orgId
+          type: number
+        orgSlug:
+          title: orgSlug
+          type: string
+        orgName:
+          title: orgName
+          type: string
+        instanceId:
+          nullable: true
+          title: instanceId
+          type: number
+        name:
+          title: name
+          type: string
+        role:
+          enum:
+          - Admin
+          - EasyStart
+          - Editor
+          - MetricsPublisher
+          - None
+          - PluginPublisher
+          - SSO Access
+          - Viewer
+          title: role
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+        firstUsed:
+          nullable: true
+          title: firstUsed
+          type: string
+        token:
+          title: token
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner'
+          title: links
+          type: array
+      required:
+      - createdAt
+      - firstUsed
+      - id
+      - instanceId
+      - links
+      - name
+      - orgId
+      - orgName
+      - orgSlug
+      - role
+      - updatedAt
+      type: object
+    FormattedApiInstance:
+      example:
+        orgSlug: orgSlug
+        amInstanceGeneratorUrlDatasource: amInstanceGeneratorUrlDatasource
+        hmInstancePromName: hmInstancePromName
+        hmInstanceGraphiteCurrentUsage: 5.025004791520295
+        hlInstanceCurrentUsage: 1.1730742509559433
+        dailyViewerCnt: 1.4894159098541704
+        hmInstanceGraphiteType: hmInstanceGraphiteType
+        hlInstanceId: 4.965218492984954
+        customAuth: true
+        planName: planName
+        hmInstanceGraphiteStatus: active
+        currentActiveEditorUsers: 3.616076749251911
+        ssl: true
+        trial: 6.778324963048013
+        createdAt: createdAt
+        hmInstancePromCurrentActiveSeries: ""
+        runningVersion: runningVersion
+        userQuota: 6.878052220127876
+        amInstanceId: 1.4658129805029452
+        id: 6.438423552598547
+        amInstanceGeneratorUrl: amInstanceGeneratorUrl
+        hpInstanceStatus: active
+        plan: free
+        slug: slug
+        updatedAt: updatedAt
+        agentManagementInstanceId: 5.944895607614016
+        orgName: orgName
+        updatedBy: updatedBy
+        alertCnt: 0.8008281904610115
+        htInstanceName: htInstanceName
+        trialExpiresAt: trialExpiresAt
+        amInstanceUrl: amInstanceUrl
+        billingActiveUsers: 5.962133916683182
+        datasourceCnts: "{}"
+        billingGrafanaActiveUsers: 5.637376656633329
+        hmInstancePromStatus: active
+        version: version
+        billingStartDate: billingStartDate
+        customDomain: true
+        dailyUserCnt: 1.0246457001441578
+        amInstanceName: amInstanceName
+        hlInstanceStatus: active
+        amInstanceStatus: active
+        clusterSlug: clusterSlug
+        dashboardQuota: 7.457744773683766
+        regionPublicName: regionPublicName
+        htInstanceUrl: htInstanceUrl
+        billingEndDate: billingEndDate
+        name: name
+        hlInstanceUrl: hlInstanceUrl
+        support: true
+        hmInstancePromId: 6.683562403749608
+        status: active
+        description: description
+        clusterId: 7.061401241503109
+        dailyEditorCnt: 1.2315135367772556
+        orgId: 1.284659006116532
+        hmInstanceGraphiteId: 9.965781217890562
+        alertQuota: 6.027456183070403
+        machineLearning: 6.965117697638846
+        currentActiveViewerUsers: 4.145608029883936
+        hlInstanceName: hlInstanceName
+        hmInstanceGraphiteName: hmInstanceGraphiteName
+        hpInstanceName: hpInstanceName
+        provider: provider
+        clusterName: clusterName
+        currentActiveAdminUsers: 9.301444243932576
+        currentActiveUsers: 2.027123023002322
+        htInstanceId: 8.762042012749001
+        hpInstanceUrl: hpInstanceUrl
+        dailyAdminCnt: 7.386281948385884
+        regionSlug: regionSlug
+        dashboardCnt: 6.84685269835264
+        htInstanceStatus: active
+        hmInstanceGraphiteUrl: hmInstanceGraphiteUrl
+        url: url
+        billingOnCallActiveUsers: 2.3021358869347655
+        hmInstancePromUrl: hmInstancePromUrl
+        providerRegion: providerRegion
+        createdBy: createdBy
+        regionId: 2.8841621266687802
+        hpInstanceId: 9.018348186070783
+        hmInstancePromCurrentUsage: 9.369310271410669
+        incident: 3.5571952270680973
+        gateway: gateway
+      properties:
+        alertCnt:
+          title: alertCnt
+          type: number
+        alertQuota:
+          title: alertQuota
+          type: number
+        amInstanceGeneratorUrl:
+          title: amInstanceGeneratorUrl
+          type: string
+        amInstanceGeneratorUrlDatasource:
+          title: amInstanceGeneratorUrlDatasource
+          type: string
+        amInstanceId:
+          title: amInstanceId
+          type: number
+        amInstanceName:
+          title: amInstanceName
+          type: string
+        amInstanceStatus:
+          enum:
+          - active
+          - deleted
+          - suspended
+          - unknown
+          title: amInstanceStatus
+          type: string
+        amInstanceUrl:
+          title: amInstanceUrl
+          type: string
+        billingActiveUsers:
+          title: billingActiveUsers
+          type: number
+        billingEndDate:
+          title: billingEndDate
+          type: string
+        billingGrafanaActiveUsers:
+          title: billingGrafanaActiveUsers
+          type: number
+        billingOnCallActiveUsers:
+          title: billingOnCallActiveUsers
+          type: number
+        billingStartDate:
+          title: billingStartDate
+          type: string
+        clusterId:
+          title: clusterId
+          type: number
+        clusterName:
+          title: clusterName
+          type: string
+        clusterSlug:
+          title: clusterSlug
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        createdBy:
+          title: createdBy
+          type: string
+        currentActiveAdminUsers:
+          title: currentActiveAdminUsers
+          type: number
+        currentActiveEditorUsers:
+          title: currentActiveEditorUsers
+          type: number
+        currentActiveUsers:
+          title: currentActiveUsers
+          type: number
+        currentActiveViewerUsers:
+          title: currentActiveViewerUsers
+          type: number
+        customAuth:
+          title: customAuth
+          type: boolean
+        customDomain:
+          title: customDomain
+          type: boolean
+        dailyAdminCnt:
+          title: dailyAdminCnt
+          type: number
+        dailyEditorCnt:
+          title: dailyEditorCnt
+          type: number
+        dailyUserCnt:
+          title: dailyUserCnt
+          type: number
+        dailyViewerCnt:
+          title: dailyViewerCnt
+          type: number
+        dashboardCnt:
+          title: dashboardCnt
+          type: number
+        dashboardQuota:
+          title: dashboardQuota
+          type: number
+        datasourceCnts:
+          title: datasourceCnts
+          type: object
+        description:
+          title: description
+          type: string
+        gateway:
+          title: gateway
+          type: string
+        hlInstanceCurrentUsage:
+          title: hlInstanceCurrentUsage
+          type: number
+        hlInstanceId:
+          title: hlInstanceId
+          type: number
+        hlInstanceName:
+          title: hlInstanceName
+          type: string
+        hlInstanceStatus:
+          enum:
+          - active
+          - deleted
+          - suspended
+          - unknown
+          title: hlInstanceStatus
+          type: string
+        hlInstanceUrl:
+          title: hlInstanceUrl
+          type: string
+        hmInstanceGraphiteCurrentUsage:
+          title: hmInstanceGraphiteCurrentUsage
+          type: number
+        hmInstanceGraphiteId:
+          title: hmInstanceGraphiteId
+          type: number
+        hmInstanceGraphiteName:
+          title: hmInstanceGraphiteName
+          type: string
+        hmInstanceGraphiteStatus:
+          enum:
+          - active
+          - deleted
+          - suspended
+          - unknown
+          title: hmInstanceGraphiteStatus
+          type: string
+        hmInstanceGraphiteType:
+          title: hmInstanceGraphiteType
+          type: string
+        hmInstanceGraphiteUrl:
+          title: hmInstanceGraphiteUrl
+          type: string
+        hmInstancePromCurrentActiveSeries:
+          nullable: true
+          title: hmInstancePromCurrentActiveSeries
+        hmInstancePromCurrentUsage:
+          title: hmInstancePromCurrentUsage
+          type: number
+        hmInstancePromId:
+          title: hmInstancePromId
+          type: number
+        hmInstancePromName:
+          title: hmInstancePromName
+          type: string
+        hmInstancePromStatus:
+          enum:
+          - active
+          - deleted
+          - suspended
+          - unknown
+          title: hmInstancePromStatus
+          type: string
+        hmInstancePromUrl:
+          title: hmInstancePromUrl
+          type: string
+        htInstanceId:
+          title: htInstanceId
+          type: number
+        htInstanceName:
+          title: htInstanceName
+          type: string
+        htInstanceStatus:
+          enum:
+          - active
+          - deleted
+          - suspended
+          - unknown
+          title: htInstanceStatus
+          type: string
+        htInstanceUrl:
+          title: htInstanceUrl
+          type: string
+        hpInstanceId:
+          title: hpInstanceId
+          type: number
+        hpInstanceName:
+          title: hpInstanceName
+          type: string
+        hpInstanceStatus:
+          enum:
+          - active
+          - deleted
+          - suspended
+          - unknown
+          title: hpInstanceStatus
+          type: string
+        hpInstanceUrl:
+          title: hpInstanceUrl
+          type: string
+        id:
+          title: id
+          type: number
+        incident:
+          title: incident
+          type: number
+        machineLearning:
+          title: machineLearning
+          type: number
+        name:
+          title: name
+          type: string
+        orgId:
+          title: orgId
+          type: number
+        orgName:
+          title: orgName
+          type: string
+        orgSlug:
+          title: orgSlug
+          type: string
+        plan:
+          enum:
+          - free
+          - gcloud
+          - trial
+          title: plan
+          type: string
+        planName:
+          title: planName
+          type: string
+        regionId:
+          title: regionId
+          type: number
+        regionSlug:
+          title: regionSlug
+          type: string
+        regionPublicName:
+          title: regionPublicName
+          type: string
+        provider:
+          title: provider
+          type: string
+        providerRegion:
+          title: providerRegion
+          type: string
+        runningVersion:
+          title: runningVersion
+          type: string
+        slug:
+          title: slug
+          type: string
+        ssl:
+          title: ssl
+          type: boolean
+        status:
+          enum:
+          - active
+          - archived
+          - archiving
+          - deleted
+          - deleting
+          - migrated
+          - migrating
+          - paused
+          - pending
+          - restoring
+          - starting
+          - suspended
+          - suspending
+          - unknown
+          title: status
+          type: string
+        support:
+          title: support
+          type: boolean
+        trial:
+          title: trial
+          type: number
+        trialExpiresAt:
+          nullable: true
+          title: trialExpiresAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+        updatedBy:
+          nullable: true
+          title: updatedBy
+          type: string
+        url:
+          title: url
+          type: string
+        userQuota:
+          title: userQuota
+          type: number
+        version:
+          title: version
+          type: string
+        agentManagementInstanceId:
+          title: agentManagementInstanceId
+          type: number
+      required:
+      - agentManagementInstanceId
+      - alertCnt
+      - alertQuota
+      - amInstanceGeneratorUrl
+      - amInstanceGeneratorUrlDatasource
+      - amInstanceId
+      - amInstanceName
+      - amInstanceStatus
+      - amInstanceUrl
+      - billingActiveUsers
+      - billingEndDate
+      - billingGrafanaActiveUsers
+      - billingOnCallActiveUsers
+      - billingStartDate
+      - clusterId
+      - clusterName
+      - clusterSlug
+      - createdAt
+      - createdBy
+      - currentActiveAdminUsers
+      - currentActiveEditorUsers
+      - currentActiveUsers
+      - currentActiveViewerUsers
+      - customAuth
+      - customDomain
+      - dailyAdminCnt
+      - dailyEditorCnt
+      - dailyUserCnt
+      - dailyViewerCnt
+      - dashboardCnt
+      - dashboardQuota
+      - datasourceCnts
+      - description
+      - gateway
+      - hlInstanceCurrentUsage
+      - hlInstanceId
+      - hlInstanceName
+      - hlInstanceStatus
+      - hlInstanceUrl
+      - hmInstanceGraphiteCurrentUsage
+      - hmInstanceGraphiteId
+      - hmInstanceGraphiteName
+      - hmInstanceGraphiteStatus
+      - hmInstanceGraphiteType
+      - hmInstanceGraphiteUrl
+      - hmInstancePromCurrentActiveSeries
+      - hmInstancePromCurrentUsage
+      - hmInstancePromId
+      - hmInstancePromName
+      - hmInstancePromStatus
+      - hmInstancePromUrl
+      - hpInstanceId
+      - hpInstanceName
+      - hpInstanceStatus
+      - hpInstanceUrl
+      - htInstanceId
+      - htInstanceName
+      - htInstanceStatus
+      - htInstanceUrl
+      - id
+      - incident
+      - machineLearning
+      - name
+      - orgId
+      - orgName
+      - orgSlug
+      - plan
+      - planName
+      - provider
+      - providerRegion
+      - regionId
+      - regionPublicName
+      - regionSlug
+      - runningVersion
+      - slug
+      - ssl
+      - status
+      - support
+      - trial
+      - trialExpiresAt
+      - updatedAt
+      - updatedBy
+      - url
+      - userQuota
+      - version
+      type: object
+    postAllApiKeys_request:
+      properties:
+        name:
+          type: string
+        org:
+          type: string
+        role:
+          enum:
+          - Viewer
+          - PluginPublisher
+          - MetricsPublisher
+          - EasyStart
+          - Editor
+          - Admin
+          - SSO Access
+          - None
+          type: string
+      required:
+      - name
+      - org
+      - role
+      type: object
+    postAllApiKeys_401_response:
+      example:
+        code: InvalidCredentials
+        message: message
+      properties:
+        message:
+          type: string
+        code:
+          enum:
+          - InvalidCredentials
+          type: string
+      type: object
+    postAllApiKeys_403_response:
+      example:
+        code: Forbidden
+        message: message
+      properties:
+        message:
+          type: string
+        code:
+          enum:
+          - Forbidden
+          type: string
+      type: object
+    postAllApiKeys_409_response:
+      example:
+        code: Conflict
+        message: message
+      properties:
+        message:
+          type: string
+        code:
+          enum:
+          - Conflict
+          type: string
+      type: object
+    postAllApiKeys_503_response:
+      example:
+        code: ServiceUnavailable
+        message: message
+      properties:
+        message:
+          type: string
+        code:
+          enum:
+          - ServiceUnavailable
+          type: string
+      type: object
+    getInstances_200_response:
+      example:
+        total: 6.704019297950036
+        pages: 3.353193347011243
+        orderBy: orderBy
+        pageSize: 3.0937452626664474
+        page: 7.143538047012306
+        items:
+        - orgSlug: orgSlug
+          amInstanceGeneratorUrlDatasource: amInstanceGeneratorUrlDatasource
+          hmInstancePromName: hmInstancePromName
+          hmInstanceGraphiteCurrentUsage: 5.025004791520295
+          hlInstanceCurrentUsage: 1.1730742509559433
+          dailyViewerCnt: 1.4894159098541704
+          hmInstanceGraphiteType: hmInstanceGraphiteType
+          hlInstanceId: 4.965218492984954
+          customAuth: true
+          planName: planName
+          hmInstanceGraphiteStatus: active
+          currentActiveEditorUsers: 3.616076749251911
+          ssl: true
+          trial: 6.778324963048013
+          createdAt: createdAt
+          hmInstancePromCurrentActiveSeries: ""
+          runningVersion: runningVersion
+          userQuota: 6.878052220127876
+          amInstanceId: 1.4658129805029452
+          id: 6.438423552598547
+          amInstanceGeneratorUrl: amInstanceGeneratorUrl
+          hpInstanceStatus: active
+          plan: free
+          slug: slug
+          updatedAt: updatedAt
+          agentManagementInstanceId: 5.944895607614016
+          orgName: orgName
+          updatedBy: updatedBy
+          alertCnt: 0.8008281904610115
+          htInstanceName: htInstanceName
+          trialExpiresAt: trialExpiresAt
+          amInstanceUrl: amInstanceUrl
+          billingActiveUsers: 5.962133916683182
+          datasourceCnts: "{}"
+          billingGrafanaActiveUsers: 5.637376656633329
+          hmInstancePromStatus: active
+          version: version
+          billingStartDate: billingStartDate
+          customDomain: true
+          dailyUserCnt: 1.0246457001441578
+          amInstanceName: amInstanceName
+          hlInstanceStatus: active
+          amInstanceStatus: active
+          clusterSlug: clusterSlug
+          dashboardQuota: 7.457744773683766
+          regionPublicName: regionPublicName
+          htInstanceUrl: htInstanceUrl
+          billingEndDate: billingEndDate
+          name: name
+          hlInstanceUrl: hlInstanceUrl
+          support: true
+          hmInstancePromId: 6.683562403749608
+          status: active
+          description: description
+          clusterId: 7.061401241503109
+          dailyEditorCnt: 1.2315135367772556
+          orgId: 1.284659006116532
+          hmInstanceGraphiteId: 9.965781217890562
+          alertQuota: 6.027456183070403
+          machineLearning: 6.965117697638846
+          currentActiveViewerUsers: 4.145608029883936
+          hlInstanceName: hlInstanceName
+          hmInstanceGraphiteName: hmInstanceGraphiteName
+          hpInstanceName: hpInstanceName
+          provider: provider
+          clusterName: clusterName
+          currentActiveAdminUsers: 9.301444243932576
+          currentActiveUsers: 2.027123023002322
+          htInstanceId: 8.762042012749001
+          hpInstanceUrl: hpInstanceUrl
+          dailyAdminCnt: 7.386281948385884
+          regionSlug: regionSlug
+          dashboardCnt: 6.84685269835264
+          htInstanceStatus: active
+          hmInstanceGraphiteUrl: hmInstanceGraphiteUrl
+          url: url
+          billingOnCallActiveUsers: 2.3021358869347655
+          hmInstancePromUrl: hmInstancePromUrl
+          providerRegion: providerRegion
+          createdBy: createdBy
+          regionId: 2.8841621266687802
+          hpInstanceId: 9.018348186070783
+          hmInstancePromCurrentUsage: 9.369310271410669
+          incident: 3.5571952270680973
+          gateway: gateway
+        - orgSlug: orgSlug
+          amInstanceGeneratorUrlDatasource: amInstanceGeneratorUrlDatasource
+          hmInstancePromName: hmInstancePromName
+          hmInstanceGraphiteCurrentUsage: 5.025004791520295
+          hlInstanceCurrentUsage: 1.1730742509559433
+          dailyViewerCnt: 1.4894159098541704
+          hmInstanceGraphiteType: hmInstanceGraphiteType
+          hlInstanceId: 4.965218492984954
+          customAuth: true
+          planName: planName
+          hmInstanceGraphiteStatus: active
+          currentActiveEditorUsers: 3.616076749251911
+          ssl: true
+          trial: 6.778324963048013
+          createdAt: createdAt
+          hmInstancePromCurrentActiveSeries: ""
+          runningVersion: runningVersion
+          userQuota: 6.878052220127876
+          amInstanceId: 1.4658129805029452
+          id: 6.438423552598547
+          amInstanceGeneratorUrl: amInstanceGeneratorUrl
+          hpInstanceStatus: active
+          plan: free
+          slug: slug
+          updatedAt: updatedAt
+          agentManagementInstanceId: 5.944895607614016
+          orgName: orgName
+          updatedBy: updatedBy
+          alertCnt: 0.8008281904610115
+          htInstanceName: htInstanceName
+          trialExpiresAt: trialExpiresAt
+          amInstanceUrl: amInstanceUrl
+          billingActiveUsers: 5.962133916683182
+          datasourceCnts: "{}"
+          billingGrafanaActiveUsers: 5.637376656633329
+          hmInstancePromStatus: active
+          version: version
+          billingStartDate: billingStartDate
+          customDomain: true
+          dailyUserCnt: 1.0246457001441578
+          amInstanceName: amInstanceName
+          hlInstanceStatus: active
+          amInstanceStatus: active
+          clusterSlug: clusterSlug
+          dashboardQuota: 7.457744773683766
+          regionPublicName: regionPublicName
+          htInstanceUrl: htInstanceUrl
+          billingEndDate: billingEndDate
+          name: name
+          hlInstanceUrl: hlInstanceUrl
+          support: true
+          hmInstancePromId: 6.683562403749608
+          status: active
+          description: description
+          clusterId: 7.061401241503109
+          dailyEditorCnt: 1.2315135367772556
+          orgId: 1.284659006116532
+          hmInstanceGraphiteId: 9.965781217890562
+          alertQuota: 6.027456183070403
+          machineLearning: 6.965117697638846
+          currentActiveViewerUsers: 4.145608029883936
+          hlInstanceName: hlInstanceName
+          hmInstanceGraphiteName: hmInstanceGraphiteName
+          hpInstanceName: hpInstanceName
+          provider: provider
+          clusterName: clusterName
+          currentActiveAdminUsers: 9.301444243932576
+          currentActiveUsers: 2.027123023002322
+          htInstanceId: 8.762042012749001
+          hpInstanceUrl: hpInstanceUrl
+          dailyAdminCnt: 7.386281948385884
+          regionSlug: regionSlug
+          dashboardCnt: 6.84685269835264
+          htInstanceStatus: active
+          hmInstanceGraphiteUrl: hmInstanceGraphiteUrl
+          url: url
+          billingOnCallActiveUsers: 2.3021358869347655
+          hmInstancePromUrl: hmInstancePromUrl
+          providerRegion: providerRegion
+          createdBy: createdBy
+          regionId: 2.8841621266687802
+          hpInstanceId: 9.018348186070783
+          hmInstancePromCurrentUsage: 9.369310271410669
+          incident: 3.5571952270680973
+          gateway: gateway
+        direction: asc
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/FormattedApiInstance'
+          title: items
+          type: array
+        orderBy:
+          title: orderBy
+          type: string
+        direction:
+          enum:
+          - asc
+          - desc
+          title: direction
+          type: string
+        total:
+          title: total
+          type: number
+        pages:
+          title: pages
+          type: number
+        pageSize:
+          title: pageSize
+          type: number
+        page:
+          title: page
+          type: number
+      required:
+      - direction
+      - items
+      - orderBy
+      - page
+      - pageSize
+      - pages
+      - total
+      type: object
+    postInstances_request:
+      properties:
+        adminUserInstance:
+          type: boolean
+        alertQuota:
+          type: integer
+        alerts:
+          type: boolean
+        amCluster:
+          type: string
+        billingEndDate:
+          format: date-time
+          type: string
+        billingStartDate:
+          format: date-time
+          type: string
+        cluster:
+          type: string
+        createTemporaryLicenseIfMissing:
+          type: boolean
+        dashboardQuota:
+          type: integer
+        description:
+          type: string
+        graphite:
+          type: boolean
+        hlCluster:
+          type: string
+        hlInstanceId:
+          type: integer
+        hmGraphiteCluster:
+          type: string
+        hmGraphiteType:
+          enum:
+          - graphite
+          - graphite-shared
+          - graphite-v5
+          type: string
+        hmPromCluster:
+          type: string
+        hosted:
+          type: boolean
+        htCluster:
+          type: string
+        incident:
+          type: boolean
+        issueLink:
+          type: string
+        k6OrgId:
+          type: integer
+        logs:
+          type: boolean
+        machineLearning:
+          type: boolean
+        machineLearningLogsToken:
+          type: string
+        multitenant:
+          type: boolean
+        name:
+          type: string
+        org:
+          type: string
+        plan:
+          enum:
+          - free
+          - free-trial
+          - gcloud
+          - enterprise
+          - advanced
+          - payg
+          - trial
+          - logsdemo
+          - starter
+          - starter-prom
+          - basic
+          - basic-prom
+          - bundled
+          - fog
+          type: string
+        plugins:
+          items:
+            type: string
+          type: array
+        prometheus:
+          type: boolean
+        publicInstance:
+          type: boolean
+        reasonType:
+          enum:
+          - bug
+          - securityVulnerability
+          - customerUpgradeShy
+          - customerBreaksUseCase
+          - customerRequest
+          - other
+          type: string
+        region:
+          type: string
+        skipOrgConflictCheck:
+          type: boolean
+        slug:
+          type: string
+        trial:
+          type: boolean
+        trialExpiresAt:
+          format: date-time
+          type: string
+        url:
+          type: string
+        usernameOrEmail:
+          type: string
+        userQuota:
+          type: integer
+        version:
+          type: string
+        waitForReadiness:
+          default: true
+          type: boolean
+      required:
+      - name
+      type: object
+    getInstance_404_response:
+      example:
+        code: NotFound
+        message: message
+      properties:
+        message:
+          type: string
+        code:
+          enum:
+          - NotFound
+          type: string
+      type: object
+    postInstance_request:
+      properties:
+        alertQuota:
+          type: integer
+        alerts:
+          type: boolean
+        billingEndDate:
+          format: date-time
+          type: string
+        billingStartDate:
+          format: date-time
+          type: string
+        dashboardQuota:
+          type: integer
+        description:
+          type: string
+        gateway:
+          enum:
+          - nginx
+          - istio
+          type: string
+        graphite:
+          type: boolean
+        hlInstanceId:
+          type: integer
+        hosted:
+          type: boolean
+        incident:
+          type: boolean
+        issueLink:
+          type: string
+        k6OrgId:
+          type: integer
+        logs:
+          type: boolean
+        machineLearning:
+          type: boolean
+        machineLearningLogsToken:
+          type: string
+        name:
+          type: string
+        noRestart:
+          type: boolean
+        plan:
+          type: string
+        prometheus:
+          type: boolean
+        reasonType:
+          enum:
+          - bug
+          - securityVulnerability
+          - customerUpgradeShy
+          - customerBreaksUseCase
+          - customerRequest
+          - other
+          type: string
+        skipOrgConflictCheck:
+          type: boolean
+        slug:
+          type: string
+        trial:
+          type: boolean
+        trialExpiresAt:
+          format: date-time
+          type: string
+        url:
+          type: string
+        userQuota:
+          type: integer
+        version:
+          type: string
+      type: object
+    postApiKeys_request:
+      properties:
+        name:
+          type: string
+        role:
+          enum:
+          - Viewer
+          - PluginPublisher
+          - MetricsPublisher
+          - EasyStart
+          - Editor
+          - Admin
+          - SSO Access
+          - None
+          type: string
+      required:
+      - name
+      - role
+      type: object
+    postAccessPolicies_request_attributes_lokiQueryPolicy:
+      properties:
+        maxEntriesLimitPerQuery:
+          type: integer
+        maxQueryBytesRead:
+          type: string
+        maxQueryInterval:
+          type: string
+        maxQueryLength:
+          type: string
+        maxQueryLookback:
+          type: string
+        maxQueryTime:
+          type: string
+        minimumLabelsNumber:
+          type: integer
+        requiredLabels:
+          items:
+            type: string
+          type: array
+      type: object
+    postAccessPolicies_request_attributes:
+      properties:
+        lokiQueryPolicy:
+          $ref: '#/components/schemas/postAccessPolicies_request_attributes_lokiQueryPolicy'
+      type: object
+    postAccessPolicies_request_conditions:
+      properties:
+        allowedSubnets:
+          items:
+            type: string
+          type: array
+      type: object
+    postAccessPolicies_request_realms_inner_labelPolicies_inner:
+      properties:
+        selector:
+          type: string
+      required:
+      - selector
+      type: object
+    postAccessPolicies_request_realms_inner:
+      properties:
+        identifier:
+          type: string
+        labelPolicies:
+          items:
+            $ref: '#/components/schemas/postAccessPolicies_request_realms_inner_labelPolicies_inner'
+          type: array
+        type:
+          enum:
+          - stack
+          - org
+          type: string
+      required:
+      - identifier
+      - type
+      type: object
+    postAccessPolicies_request:
+      properties:
+        attributes:
+          $ref: '#/components/schemas/postAccessPolicies_request_attributes'
+        conditions:
+          $ref: '#/components/schemas/postAccessPolicies_request_conditions'
+        displayName:
+          type: string
+        name:
+          type: string
+        realms:
+          items:
+            $ref: '#/components/schemas/postAccessPolicies_request_realms_inner'
+          minLength: 1
+          type: array
+        scopes:
+          items:
+            type: string
+          minLength: 1
+          type: array
+      required:
+      - name
+      - realms
+      - scopes
+      type: object
+    postAccessPolicy_request:
+      properties:
+        attributes:
+          $ref: '#/components/schemas/postAccessPolicies_request_attributes'
+        conditions:
+          $ref: '#/components/schemas/postAccessPolicies_request_conditions'
+        displayName:
+          type: string
+        realms:
+          items:
+            $ref: '#/components/schemas/postAccessPolicies_request_realms_inner'
+          minLength: 1
+          type: array
+        scopes:
+          items:
+            type: string
+          minLength: 1
+          type: array
+        status:
+          type: string
+      type: object
+    postTokens_request:
+      properties:
+        accessPolicyId:
+          type: string
+        displayName:
+          type: string
+        expiresAt:
+          format: date-time
+          type: string
+        name:
+          type: string
+      required:
+      - accessPolicyId
+      - name
+      type: object
+    postToken_request:
+      properties:
+        displayName:
+          type: string
+      type: object
+    links_inner:
+      example:
+        rel: self
+        href: href
+      properties:
+        rel:
+          default: self
+          title: rel
+          type: string
+        href:
+          title: href
+          type: string
+      required:
+      - href
+      - rel
+      type: object
+    items_inner:
+      example:
+        orgSlug: orgSlug
+        createdAt: createdAt
+        orgName: orgName
+        instanceId: 1.4658129805029452
+        role: Admin
+        firstUsed: firstUsed
+        name: name
+        links:
+        - rel: self
+          href: href
+        - rel: self
+          href: href
+        id: 0.8008281904610115
+        orgId: 6.027456183070403
+        updatedAt: updatedAt
+        token: token
+      properties:
+        id:
+          title: id
+          type: number
+        orgId:
+          title: orgId
+          type: number
+        orgSlug:
+          title: orgSlug
+          type: string
+        orgName:
+          title: orgName
+          type: string
+        instanceId:
+          nullable: true
+          title: instanceId
+          type: number
+        name:
+          title: name
+          type: string
+        role:
+          enum:
+          - Admin
+          - EasyStart
+          - Editor
+          - MetricsPublisher
+          - None
+          - PluginPublisher
+          - SSO Access
+          - Viewer
+          title: role
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+        firstUsed:
+          nullable: true
+          title: firstUsed
+          type: string
+        token:
+          title: token
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner'
+          title: links
+          type: array
+      required:
+      - createdAt
+      - firstUsed
+      - id
+      - instanceId
+      - links
+      - name
+      - orgId
+      - orgName
+      - orgSlug
+      - role
+      - updatedAt
+      type: object
+    links_inner_1:
+      example:
+        rel: rel
+        href: href
+      properties:
+        rel:
+          title: rel
+          type: string
+        href:
+          title: href
+          type: string
+      required:
+      - href
+      - rel
+      type: object
+  securitySchemes:
+    BearerAuth:
+      scheme: bearer
+      type: http
