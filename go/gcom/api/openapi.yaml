@@ -11,7 +11,7 @@ info:
   title: GCOM API
   version: internal
   x-commit-sha: development
-  x-generated-at: 2024-01-19T02:18:43.497Z
+  x-generated-at: 2024-01-23T12:48:18.310Z
 servers:
 - description: Main API server
   url: /api
@@ -680,6 +680,489 @@ paths:
       summary: Updates an instance
       tags:
       - instances
+  /instances/{instanceId}/api/serviceaccounts:
+    post:
+      operationId: postInstanceServiceAccounts
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postInstanceServiceAccounts_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrafanaServiceAccount'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Creates a service account on a Grafana instance
+      tags:
+      - instances
+  /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens:
+    post:
+      operationId: postInstanceServiceAccountTokens
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: serviceAccountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postInstanceServiceAccountTokens_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrafanaServiceAccountToken'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Creates a service account token on a Grafana instance
+      tags:
+      - instances
+  /instances/{instanceId}/plugins:
+    get:
+      operationId: getInstancePlugins
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: direction
+        required: false
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          enum:
+          - instanceId
+          - pluginId
+          - pluginSlug
+          - pluginName
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstancePlugins_200_response'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      tags:
+      - instances
+    post:
+      operationId: postInstancePlugins
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postInstancePlugins_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstancePlugin'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      tags:
+      - instances
+  /instances/{instanceId}/plugins/{pluginSlugOrId}:
+    delete:
+      operationId: deleteInstancePlugin
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: pluginSlugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstancePlugin'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      tags:
+      - instances
+    get:
+      operationId: getInstancePlugin
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: pluginSlugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstancePlugin'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      tags:
+      - instances
+    post:
+      operationId: postInstancePlugin
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: pluginSlugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postInstancePlugin_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstancePlugin'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      tags:
+      - instances
+  /orgs/{slugOrId}:
+    get:
+      operationId: getOrg
+      parameters:
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiOrg'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      tags:
+      - orgs
   /orgs/{slugOrId}/api-keys:
     get:
       operationId: getApiKeys
@@ -1145,6 +1628,142 @@ paths:
       summary: Get the list of instances belonging to the org
       tags:
       - orgs
+  /plugins/{slug}:
+    get:
+      operationId: getPlugin
+      parameters:
+      - explode: false
+        in: path
+        name: slug
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: version
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiPlugin'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Fetches a plugin by slug or id
+      tags:
+      - plugins
+  /stack-regions:
+    get:
+      operationId: getStackRegions
+      parameters:
+      - explode: true
+        in: query
+        name: direction
+        required: false
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: idIn
+        required: false
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          enum:
+          - id
+          - createdAt
+          - updatedAt
+          - sortOrder
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: provider
+        required: false
+        schema:
+          enum:
+          - gcp
+          - azure
+          - aws
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: slug
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: slugIn
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getStackRegions_200_response'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      tags:
+      - stack-regions
   /v1/accesspolicies:
     get:
       operationId: getAccessPolicies
@@ -2104,6 +2723,77 @@ components:
       - role
       - updatedAt
       type: object
+    FormattedApiInstancePlugin:
+      example:
+        createdAt: createdAt
+        instanceId: 6.027456183070403
+        pluginSlug: pluginSlug
+        pluginName: pluginName
+        latestVersion: latestVersion
+        pluginId: 1.4658129805029452
+        instanceSlug: instanceSlug
+        links:
+        - rel: self
+          href: href
+        - rel: self
+          href: href
+        id: 0.8008281904610115
+        version: version
+        instanceUrl: instanceUrl
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: number
+        instanceId:
+          title: instanceId
+          type: number
+        instanceUrl:
+          title: instanceUrl
+          type: string
+        instanceSlug:
+          title: instanceSlug
+          type: string
+        pluginId:
+          title: pluginId
+          type: number
+        pluginSlug:
+          title: pluginSlug
+          type: string
+        pluginName:
+          title: pluginName
+          type: string
+        version:
+          title: version
+          type: string
+        latestVersion:
+          title: latestVersion
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner'
+          title: links
+          type: array
+      required:
+      - createdAt
+      - id
+      - instanceId
+      - instanceSlug
+      - instanceUrl
+      - latestVersion
+      - links
+      - pluginId
+      - pluginName
+      - pluginSlug
+      - version
+      type: object
     FormattedApiInstance:
       example:
         orgSlug: orgSlug
@@ -2586,6 +3276,1718 @@ components:
       - userQuota
       - version
       type: object
+    GrafanaServiceAccount:
+      example:
+        role: role
+        avatarUrl: avatarUrl
+        name: name
+        tokens: 6.027456183070403
+        id: 0.8008281904610115
+        isDisabled: true
+        login: login
+      properties:
+        id:
+          title: id
+          type: number
+        name:
+          title: name
+          type: string
+        login:
+          title: login
+          type: string
+        isDisabled:
+          title: isDisabled
+          type: boolean
+        role:
+          title: role
+          type: string
+        tokens:
+          title: tokens
+          type: number
+        avatarUrl:
+          title: avatarUrl
+          type: string
+      required:
+      - avatarUrl
+      - id
+      - isDisabled
+      - login
+      - name
+      - role
+      - tokens
+      type: object
+    GrafanaServiceAccountToken:
+      example:
+        name: name
+        id: 0.8008281904610115
+        token: token
+      properties:
+        id:
+          title: id
+          type: number
+        name:
+          title: name
+          type: string
+        token:
+          title: token
+          type: string
+      required:
+      - id
+      - name
+      - token
+      type: object
+    FormattedApiOrg:
+      example:
+        accountManagerName: accountManagerName
+        hmGraphiteInstanceCnt: 1.9626702727164813
+        hpTier2Min: 5.6644160867523485
+        hmCurrentPrometheusUsage: 5.962133916683182
+        intacctCustomerUrl: intacctCustomerUrl
+        k6IPUsage: 2.9679475177256287
+        accountOwnerUsername: accountOwnerUsername
+        k6IPOverageAmount: 6.683562403749608
+        irmTier3Rate: 7.92839742024475
+        hmGraphiteTier1Rate: 5.299143560275359
+        geInstancesTier3Min: 4.1661834558007
+        happinessChangedAt: happinessChangedAt
+        userQuota: 4.678947989005849
+        hmBillingEndDate: hmBillingEndDate
+        irmOverageWarnDate: irmOverageWarnDate
+        hlRetentionTier3Min: 4.332304821875894
+        hmTier3Min: 1.8268702177058116
+        spendCommitCreditBalance: 3.0205796992916243
+        hgOnCallUsage: 1.7325933120207193
+        geUsersTier2Rate: 6.918231485891953
+        irmTier3Min: 7.726998920545485
+        geUsersIncludedUsage: 9.456612101333725
+        tags:
+        - tags
+        - tags
+        hlRetentionBillingStartDate: hlRetentionBillingStartDate
+        htInstanceCnt: 0.8851374739011653
+        happinessExpiredAt: happinessExpiredAt
+        geInstancesOverageWarnDate: geInstancesOverageWarnDate
+        k6VuhTier1Rate: 4.4935252719377825
+        htBilledToDate: htBilledToDate
+        geInstancesBilledToDate: geInstancesBilledToDate
+        zendeskId: 8.969578798196912
+        supportPlan: supportPlan
+        hgOverageWarnDate: hgOverageWarnDate
+        geUsersBilledToDate: geUsersBilledToDate
+        hlRetentionBillingEndDate: hlRetentionBillingEndDate
+        k6IPBilledToDate: k6IPBilledToDate
+        k6IPBillingStartDate: k6IPBillingStartDate
+        hmBilledToDate: hmBilledToDate
+        hgTier3Min: 8.251625748923757
+        hmTier2Rate: 9.254183946267839
+        hgTier3Rate: 4.459605034958679
+        hlUsage: 8.675064425986758
+        hpBilledToDate: hpBilledToDate
+        hlOverageAmount: 2.3021358869347655
+        htTier1Rate: 2.535258963197524
+        irmBillingEndDate: irmBillingEndDate
+        slackSupportChannel: slackSupportChannel
+        k6OrgId: 3.2588565619047607
+        emergencySupport: true
+        hlBilledToDate: hlBilledToDate
+        awsMarketplaceSupport: 3.0269458094096646
+        trialStartDate: trialStartDate
+        cancellationReason: cancellationReason
+        hmGraphiteIncludedUsage: 0.4182561061793122
+        k6IPTier2Rate: 2.058822123984536
+        k6IPCurrentUsage: 9.369310271410669
+        geUsersOverageWarnDate: geUsersOverageWarnDate
+        reseller: reseller
+        hlRetentionTier2Rate: 7.203794749804894
+        htOverageAmount: 1.4894159098541704
+        hgBillingEndDate: hgBillingEndDate
+        hlTier3Rate: 3.804112695731078
+        memberCnt: 6.878052220127876
+        hmFirstApproachingLimitDate: 2000-01-23T04:56:07.000+00:00
+        hgBilledToDate: hgBilledToDate
+        estimatedArr: 5.533258397034986
+        hlQueryToIngestRatio: 5.877124706116695
+        happinessCreatedAt: happinessCreatedAt
+        hmGraphiteOverageWarnDate: hmGraphiteOverageWarnDate
+        hmGraphiteBillingEndDate: hmGraphiteBillingEndDate
+        hpTier2Rate: 1.5970080735609526
+        geInstancesTier2Min: 6.176386745020588
+        irmCurrentUsage: 6.84685269835264
+        hgPluginUsersOverageRate: 5.296102445648278
+        hlTier1Rate: 7.835035282970782
+        irmTier2Rate: 7.3718573971919445
+        subscriptions:
+          next: ""
+          current:
+            product: ""
+            endDate: ""
+            payload: "{}"
+            publicName: ""
+            enterprisePluginsAdded: true
+            isTrial: true
+            plan: ""
+          nextProduct: ""
+        isContractedLicenseAutoProvision: true
+        feO11yUsage: 0.4867146239815201
+        geUsersOverageAmount: 3.5571952270680973
+        irmTier2Min: 9.785002165136461
+        hlOverageWarnDate: hlOverageWarnDate
+        geUsersBillingStartDate: geUsersBillingStartDate
+        k6IPIncludedUsage: 6.458262756685686
+        feO11yBilledToDate: feO11yBilledToDate
+        htCurrentUsage: 1.0246457001441578
+        createdAt: createdAt
+        pluginSignatureType: pluginSignatureType
+        hlBillingStartDate: hlBillingStartDate
+        geUsersCurrentUsage: 6.438423552598547
+        hlTier3Min: 2.380090174313445
+        slug: slug
+        geUsersUsage: 0.36062689002149373
+        trialLengthDays: 8.250639315618633
+        geUsersTier3Rate: 4.637509675190766
+        hmGraphiteBilledToDate: hmGraphiteBilledToDate
+        hmCurrentGraphiteUsage: 5.637376656633329
+        hgGrafanaUsage: 2.9409642974827896
+        feO11yTier2Min: 7.3842318535314
+        irmBillingStartDate: irmBillingStartDate
+        k6IPBillingEndDate: k6IPBillingEndDate
+        totalOverageAmount: 6.778324963048013
+        hmFirstOverageDate: 2000-01-23T04:56:07.000+00:00
+        name: name
+        hlInstanceCnt: 7.143538047012306
+        hlRetentionTier2Min: 0.35262192099236644
+        hmTier1Rate: 4.573936264232251
+        hlRetentionCurrentUsage: 7.386281948385884
+        wpPlan: wpPlan
+        htIncludedUsage: 0.58919091925136
+        feO11yTier1Rate: 0.7012260588964747
+        hmPrometheusInstanceCnt: 5.573385265048522
+        hpOverageWarnDate: hpOverageWarnDate
+        privacy: privacy
+        htTier3Min: 6.966044574347761
+        hlIncludedUsage: 9.897492629215506
+        hmOverageWarnDate: hmOverageWarnDate
+        licenseUnconfiguredCnt: 3.353193347011243
+        intacctCustomerId: 6.519180951018382
+        happinessReasonCode: happinessReasonCode
+        hlCurrentUsage: 7.061401241503109
+        hgInstanceLimit: 6.628464275087742
+        hlBillingEndDate: hlBillingEndDate
+        hlRetentionTier1Rate: 0.4833312865174044
+        hlRetentionUsage: 9.386524999783381
+        hpCurrentUsage: 1.1730742509559433
+        retainedStackId: 7.273019311111276
+        k6IPTier1Rate: 4.141296055235948
+        irmIncludedUsage: 1.0639121808530916
+        hmGraphiteCurrentUsage: 2.027123023002322
+        hpUsage: 5.974942028545841
+        htOverageWarnDate: htOverageWarnDate
+        createdBy: createdBy
+        geInstancesTier3Rate: 2.026856458177285
+        hmGraphiteUsage: 3.111202833403195
+        hpTier1Rate: 3.812761638325517
+        k6VuhCurrentUsage: 5.025004791520295
+        awsCustomerId: awsCustomerId
+        hpIncludedUsage: 1.2555055362323109
+        grafanaCloud: 0.8774076871421566
+        hlRetentionIncludedUsage: 4.518309517874243
+        happinessRating: happinessRating
+        k6VuhOverageWarnDate: k6VuhOverageWarnDate
+        geInstancesTier2Rate: 2.0981949483881577
+        contractType: contractType
+        hmGraphiteTier3Rate: 3.7814124730767915
+        k6VuhTier3Min: 2.9805393113464476
+        irmTier1Rate: 3.2841216543560217
+        geInstancesBillingEndDate: geInstancesBillingEndDate
+        feO11yTier3Min: 4.943637496515336
+        geInstancesOverageAmount: 1.284659006116532
+        hlTier2Rate: 3.1497903714250555
+        k6IPTier3Rate: 0.8411762798681321
+        hgDatasourceCnts: "{}"
+        hmGraphiteTier2Min: 5.312489704336296
+        id: 4.078845849666752
+        gcloudMonthlyCost: 0.5199002018724985
+        cancellationNotes: cancellationNotes
+        resellerName: resellerName
+        geUsersTier3Min: 0.11859130807119977
+        hgBillingStartDate: hgBillingStartDate
+        hpBillingStartDate: hpBillingStartDate
+        hmBillingStartDate: hmBillingStartDate
+        k6VuhBilledToDate: k6VuhBilledToDate
+        feO11yOverageAmount: 9.018348186070783
+        htTier2Min: 6.173804034172511
+        resellerId: 9.702963800023566
+        cancellationClientNotes: cancellationClientNotes
+        htTier3Rate: 9.806951670467935
+        allowGCloudTrial: true
+        hgOverageAmount: 9.301444243932576
+        k6IPOverageWarnDate: k6IPOverageWarnDate
+        geUsersTier2Min: 7.88722683998926
+        slackSupport: 2.8841621266687802
+        hlRetentionOverageWarnDate: hlRetentionOverageWarnDate
+        licenseCnt: 5.944895607614016
+        hpBillingEndDate: hpBillingEndDate
+        feO11yTier2Rate: 6.749525837406151
+        salesforceLeadId: salesforceLeadId
+        k6VuhTier2Min: 3.209082285545927
+        hmIncludedSeries: 8.28965939814297
+        irmUsage: 9.402167524121316
+        hlInstanceLimit: 1.041444916118296
+        hpOverageAmount: 4.965218492984954
+        accountManagerId: 0.8008281904610115
+        salesforceAccountId: salesforceAccountId
+        cancellationDate: cancellationDate
+        feO11yCurrentUsage: 8.762042012749001
+        k6IPTier3Min: 6.4280627569296165
+        geInstancesIncludedUsage: 7.390706075830692
+        irmOverageAmount: 7.457744773683766
+        avatar: avatar
+        hlRetentionBilledToDate: hlRetentionBilledToDate
+        salesforceCustomOrgId: salesforceCustomOrgId
+        url: url
+        contractTypeId: 2.4669941706755685
+        netPromoterScore: 7.740351818741173
+        k6VuhIncludedUsage: 1.7045651386993
+        happinessUserName: happinessUserName
+        hgPluginUsersIncludedUsage: 3.8156682252305574
+        referredBy: referredBy
+        hlRetentionOverageAmount: 1.2315135367772556
+        hlTier2Min: 0.4768402382624515
+        geUsersBillingEndDate: geUsersBillingEndDate
+        ubersmithClientId: 7.058770351582356
+        hmGraphiteTier2Rate: 8.37823741034869
+        trialNoticeDate: trialNoticeDate
+        feO11yIncludedUsage: 5.747795090145878
+        geInstancesTier1Rate: 1.0502890910539986
+        irmBilledToDate: irmBilledToDate
+        hgCurrentActiveUsers: 0.43431398824148815
+        k6IPTier2Min: 8.910869026866926
+        hmGraphiteBillingStartDate: hmGraphiteBillingStartDate
+        hmAverageDpm: 6.623518433804886
+        msaSignedBy: msaSignedBy
+        hmOverageAmount: 1.4658129805029452
+        k6VuhBillingEndDate: k6VuhBillingEndDate
+        geInstancesCurrentUsage: 6.965117697638846
+        hmInstanceLimit: 4.258773108174356
+        links:
+        - rel: rel
+          href: href
+        - rel: rel
+          href: href
+        accountManagerUsername: accountManagerUsername
+        updatedAt: updatedAt
+        happinessNote: happinessNote
+        htTier2Rate: 4.8789878742268815
+        updatedBy: updatedBy
+        hgIntegrationCnts: "{}"
+        hgTier2Min: 4.86315908102884
+        k6VuhTier2Rate: 8.262795412896967
+        htUsage: 1.3949519358941398
+        hgTier1Rate: 5.507386964179881
+        accountOwnerId: 6.027456183070403
+        hmGraphiteTier3Min: 7.606863723092579
+        msaSignedAt: msaSignedAt
+        k6VuhUsage: 8.276461147928103
+        geInstancesUsage: 3.196820582978078
+        prevCommittedArr: 4.652396432933246
+        hpTier3Rate: 5.7911894223693885
+        hgActiveUsers: 3.616076749251911
+        hmTier2Min: 8.863729185622827
+        hmGraphiteOverageAmount: 4.145608029883936
+        hgInstanceCnt: 3.0937452626664474
+        k6VuhOverageAmount: 9.965781217890562
+        checksPerMonth: 0.2025324113236393
+        hgUsage: 3.901545264248647
+        feO11yBillingEndDate: feO11yBillingEndDate
+        htBillingEndDate: htBillingEndDate
+        k6VuhTier3Rate: 9.146339979307802
+        licenseConfiguredCnt: 6.704019297950036
+        feO11yTier3Rate: 0.30134145536422907
+        projectedOverageAmount: 7.04836565559697
+        geUsersTier1Rate: 9.721723570087065
+        geInstancesBillingStartDate: geInstancesBillingStartDate
+        spendCommitCreditTotal: 3.0576100241049344
+        feO11yOverageWarnDate: feO11yOverageWarnDate
+        hgTier2Rate: 6.073898085781152
+        hlRetentionTier3Rate: 2.7977867356748476
+        accountOwnerName: accountOwnerName
+        hmTier3Rate: 3.502657762086401
+        hmCurrentUsage: 8.761432466225475
+        enterprisePlugins: 9.132027271330688
+        committedArr: 0.10263654006109402
+        hpTier3Min: 4.372688051310086
+        irmStatus: 3.8008573585058016
+        k6VuhUnits: 4.010300976654761
+        k6VuhBillingStartDate: k6VuhBillingStartDate
+        trialEndDate: trialEndDate
+        hmUsage: 9.183123594773994
+        hgIncludedUsers: 7.933506881737151
+        feO11yBillingStartDate: feO11yBillingStartDate
+        creditApproved: 7.260521264802104
+        htBillingStartDate: htBillingStartDate
+      properties:
+        tags:
+          items:
+            type: string
+          title: tags
+          type: array
+        accountManagerId:
+          title: accountManagerId
+          type: number
+        accountManagerUsername:
+          title: accountManagerUsername
+          type: string
+        accountManagerName:
+          title: accountManagerName
+          type: string
+        awsCustomerId:
+          title: awsCustomerId
+          type: string
+        accountOwnerId:
+          title: accountOwnerId
+          type: number
+        accountOwnerUsername:
+          title: accountOwnerUsername
+          type: string
+        accountOwnerName:
+          title: accountOwnerName
+          type: string
+        hmBillingStartDate:
+          nullable: true
+          title: hmBillingStartDate
+          type: string
+        hmBillingEndDate:
+          nullable: true
+          title: hmBillingEndDate
+          type: string
+        hmBilledToDate:
+          nullable: true
+          title: hmBilledToDate
+          type: string
+        hmOverageWarnDate:
+          nullable: true
+          title: hmOverageWarnDate
+          type: string
+        hmOverageAmount:
+          title: hmOverageAmount
+          type: number
+        hmCurrentPrometheusUsage:
+          title: hmCurrentPrometheusUsage
+          type: number
+        hmCurrentGraphiteUsage:
+          title: hmCurrentGraphiteUsage
+          type: number
+        hlBillingStartDate:
+          nullable: true
+          title: hlBillingStartDate
+          type: string
+        hlBillingEndDate:
+          nullable: true
+          title: hlBillingEndDate
+          type: string
+        hlBilledToDate:
+          nullable: true
+          title: hlBilledToDate
+          type: string
+        hlOverageWarnDate:
+          nullable: true
+          title: hlOverageWarnDate
+          type: string
+        hlOverageAmount:
+          title: hlOverageAmount
+          type: number
+        hlCurrentUsage:
+          title: hlCurrentUsage
+          type: number
+        hgBillingStartDate:
+          nullable: true
+          title: hgBillingStartDate
+          type: string
+        hgBillingEndDate:
+          nullable: true
+          title: hgBillingEndDate
+          type: string
+        hgBilledToDate:
+          nullable: true
+          title: hgBilledToDate
+          type: string
+        hgOverageWarnDate:
+          nullable: true
+          title: hgOverageWarnDate
+          type: string
+        hgOverageAmount:
+          title: hgOverageAmount
+          type: number
+        hgActiveUsers:
+          title: hgActiveUsers
+          type: number
+        hgDatasourceCnts:
+          title: hgDatasourceCnts
+          type: object
+        hgIntegrationCnts:
+          title: hgIntegrationCnts
+          type: object
+        hmGraphiteBillingStartDate:
+          nullable: true
+          title: hmGraphiteBillingStartDate
+          type: string
+        hmGraphiteBillingEndDate:
+          nullable: true
+          title: hmGraphiteBillingEndDate
+          type: string
+        hmGraphiteBilledToDate:
+          nullable: true
+          title: hmGraphiteBilledToDate
+          type: string
+        hmGraphiteOverageWarnDate:
+          nullable: true
+          title: hmGraphiteOverageWarnDate
+          type: string
+        hmGraphiteCurrentUsage:
+          title: hmGraphiteCurrentUsage
+          type: number
+        hmGraphiteOverageAmount:
+          title: hmGraphiteOverageAmount
+          type: number
+        hlRetentionBillingStartDate:
+          nullable: true
+          title: hlRetentionBillingStartDate
+          type: string
+        hlRetentionBillingEndDate:
+          nullable: true
+          title: hlRetentionBillingEndDate
+          type: string
+        hlRetentionBilledToDate:
+          nullable: true
+          title: hlRetentionBilledToDate
+          type: string
+        hlRetentionOverageWarnDate:
+          nullable: true
+          title: hlRetentionOverageWarnDate
+          type: string
+        hlRetentionCurrentUsage:
+          title: hlRetentionCurrentUsage
+          type: number
+        hlRetentionOverageAmount:
+          title: hlRetentionOverageAmount
+          type: number
+        htBillingStartDate:
+          nullable: true
+          title: htBillingStartDate
+          type: string
+        htBillingEndDate:
+          nullable: true
+          title: htBillingEndDate
+          type: string
+        htBilledToDate:
+          nullable: true
+          title: htBilledToDate
+          type: string
+        htOverageWarnDate:
+          nullable: true
+          title: htOverageWarnDate
+          type: string
+        htCurrentUsage:
+          title: htCurrentUsage
+          type: number
+        htOverageAmount:
+          title: htOverageAmount
+          type: number
+        irmBillingStartDate:
+          nullable: true
+          title: irmBillingStartDate
+          type: string
+        irmBillingEndDate:
+          nullable: true
+          title: irmBillingEndDate
+          type: string
+        irmBilledToDate:
+          nullable: true
+          title: irmBilledToDate
+          type: string
+        irmOverageWarnDate:
+          nullable: true
+          title: irmOverageWarnDate
+          type: string
+        irmCurrentUsage:
+          title: irmCurrentUsage
+          type: number
+        irmOverageAmount:
+          title: irmOverageAmount
+          type: number
+        hpBillingStartDate:
+          nullable: true
+          title: hpBillingStartDate
+          type: string
+        hpBillingEndDate:
+          nullable: true
+          title: hpBillingEndDate
+          type: string
+        hpBilledToDate:
+          nullable: true
+          title: hpBilledToDate
+          type: string
+        hpOverageWarnDate:
+          nullable: true
+          title: hpOverageWarnDate
+          type: string
+        hpCurrentUsage:
+          title: hpCurrentUsage
+          type: number
+        hpOverageAmount:
+          title: hpOverageAmount
+          type: number
+        k6VuhBillingStartDate:
+          nullable: true
+          title: k6VuhBillingStartDate
+          type: string
+        k6VuhBillingEndDate:
+          nullable: true
+          title: k6VuhBillingEndDate
+          type: string
+        k6VuhBilledToDate:
+          nullable: true
+          title: k6VuhBilledToDate
+          type: string
+        k6VuhOverageWarnDate:
+          nullable: true
+          title: k6VuhOverageWarnDate
+          type: string
+        k6VuhCurrentUsage:
+          title: k6VuhCurrentUsage
+          type: number
+        k6VuhOverageAmount:
+          title: k6VuhOverageAmount
+          type: number
+        k6IPBillingStartDate:
+          nullable: true
+          title: k6IPBillingStartDate
+          type: string
+        k6IPBillingEndDate:
+          nullable: true
+          title: k6IPBillingEndDate
+          type: string
+        k6IPBilledToDate:
+          nullable: true
+          title: k6IPBilledToDate
+          type: string
+        k6IPOverageWarnDate:
+          nullable: true
+          title: k6IPOverageWarnDate
+          type: string
+        k6IPCurrentUsage:
+          title: k6IPCurrentUsage
+          type: number
+        k6IPOverageAmount:
+          title: k6IPOverageAmount
+          type: number
+        feO11yBillingStartDate:
+          nullable: true
+          title: feO11yBillingStartDate
+          type: string
+        feO11yBillingEndDate:
+          nullable: true
+          title: feO11yBillingEndDate
+          type: string
+        feO11yBilledToDate:
+          nullable: true
+          title: feO11yBilledToDate
+          type: string
+        feO11yOverageWarnDate:
+          nullable: true
+          title: feO11yOverageWarnDate
+          type: string
+        feO11yCurrentUsage:
+          title: feO11yCurrentUsage
+          type: number
+        feO11yOverageAmount:
+          title: feO11yOverageAmount
+          type: number
+        geUsersBillingStartDate:
+          nullable: true
+          title: geUsersBillingStartDate
+          type: string
+        geUsersBillingEndDate:
+          nullable: true
+          title: geUsersBillingEndDate
+          type: string
+        geUsersBilledToDate:
+          nullable: true
+          title: geUsersBilledToDate
+          type: string
+        geUsersOverageWarnDate:
+          nullable: true
+          title: geUsersOverageWarnDate
+          type: string
+        geUsersCurrentUsage:
+          title: geUsersCurrentUsage
+          type: number
+        geUsersOverageAmount:
+          title: geUsersOverageAmount
+          type: number
+        geInstancesBillingStartDate:
+          nullable: true
+          title: geInstancesBillingStartDate
+          type: string
+        geInstancesBillingEndDate:
+          nullable: true
+          title: geInstancesBillingEndDate
+          type: string
+        geInstancesBilledToDate:
+          nullable: true
+          title: geInstancesBilledToDate
+          type: string
+        geInstancesOverageWarnDate:
+          nullable: true
+          title: geInstancesOverageWarnDate
+          type: string
+        geInstancesCurrentUsage:
+          title: geInstancesCurrentUsage
+          type: number
+        geInstancesOverageAmount:
+          title: geInstancesOverageAmount
+          type: number
+        salesforceAccountId:
+          title: salesforceAccountId
+          type: string
+        salesforceLeadId:
+          title: salesforceLeadId
+          type: string
+        salesforceCustomOrgId:
+          title: salesforceCustomOrgId
+          type: string
+        slackSupport:
+          title: slackSupport
+          type: number
+        slackSupportChannel:
+          title: slackSupportChannel
+          type: string
+        totalOverageAmount:
+          title: totalOverageAmount
+          type: number
+        memberCnt:
+          title: memberCnt
+          type: number
+        licenseCnt:
+          title: licenseCnt
+          type: number
+        licenseConfiguredCnt:
+          title: licenseConfiguredCnt
+          type: number
+        licenseUnconfiguredCnt:
+          title: licenseUnconfiguredCnt
+          type: number
+        hgInstanceCnt:
+          title: hgInstanceCnt
+          type: number
+        hlInstanceCnt:
+          title: hlInstanceCnt
+          type: number
+        htInstanceCnt:
+          title: htInstanceCnt
+          type: number
+        ubersmithClientId:
+          title: ubersmithClientId
+          type: number
+        intacctCustomerId:
+          title: intacctCustomerId
+          type: number
+        intacctCustomerUrl:
+          title: intacctCustomerUrl
+          type: string
+        committedArr:
+          title: committedArr
+          type: number
+        prevCommittedArr:
+          title: prevCommittedArr
+          type: number
+        zendeskId:
+          title: zendeskId
+          type: number
+        happinessRating:
+          nullable: true
+          title: happinessRating
+          type: string
+        happinessNote:
+          nullable: true
+          title: happinessNote
+          type: string
+        happinessReasonCode:
+          nullable: true
+          title: happinessReasonCode
+          type: string
+        happinessCreatedAt:
+          nullable: true
+          title: happinessCreatedAt
+          type: string
+        happinessChangedAt:
+          nullable: true
+          title: happinessChangedAt
+          type: string
+        happinessExpiredAt:
+          nullable: true
+          title: happinessExpiredAt
+          type: string
+        happinessUserName:
+          nullable: true
+          title: happinessUserName
+          type: string
+        cancellationClientNotes:
+          nullable: true
+          title: cancellationClientNotes
+          type: string
+        cancellationNotes:
+          nullable: true
+          title: cancellationNotes
+          type: string
+        cancellationReason:
+          title: cancellationReason
+          type: string
+        netPromoterScore:
+          nullable: true
+          title: netPromoterScore
+          type: number
+        hmFirstOverageDate:
+          format: date-time
+          nullable: true
+          type: string
+        hmFirstApproachingLimitDate:
+          format: date-time
+          nullable: true
+          type: string
+        spendCommitCreditBalance:
+          title: spendCommitCreditBalance
+          type: number
+        spendCommitCreditTotal:
+          title: spendCommitCreditTotal
+          type: number
+        projectedOverageAmount:
+          title: projectedOverageAmount
+          type: number
+        estimatedArr:
+          title: estimatedArr
+          type: number
+        referredBy:
+          title: referredBy
+          type: string
+        k6OrgId:
+          title: k6OrgId
+          type: number
+        id:
+          title: id
+          type: number
+        slug:
+          title: slug
+          type: string
+        name:
+          title: name
+          type: string
+        url:
+          title: url
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        createdBy:
+          nullable: true
+          title: createdBy
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+        updatedBy:
+          nullable: true
+          title: updatedBy
+          type: string
+        avatar:
+          nullable: true
+          title: avatar
+          type: string
+        checksPerMonth:
+          title: checksPerMonth
+          type: number
+        wpPlan:
+          title: wpPlan
+          type: string
+        hgInstanceLimit:
+          title: hgInstanceLimit
+          type: number
+        hmInstanceLimit:
+          title: hmInstanceLimit
+          type: number
+        hlInstanceLimit:
+          title: hlInstanceLimit
+          type: number
+        userQuota:
+          title: userQuota
+          type: number
+        supportPlan:
+          title: supportPlan
+          type: string
+        creditApproved:
+          title: creditApproved
+          type: number
+        msaSignedAt:
+          nullable: true
+          title: msaSignedAt
+          type: string
+        msaSignedBy:
+          nullable: true
+          title: msaSignedBy
+          type: string
+        enterprisePlugins:
+          title: enterprisePlugins
+          type: number
+        grafanaCloud:
+          enum:
+          - 0
+          - 1
+          - 11
+          - 14
+          - 15
+          - 2
+          - 31
+          - 4
+          - 41
+          - 6
+          - 9
+          title: grafanaCloud
+          type: number
+        privacy:
+          title: privacy
+          type: string
+        reseller:
+          title: reseller
+          type: string
+        resellerId:
+          nullable: true
+          title: resellerId
+          type: number
+        resellerName:
+          nullable: true
+          title: resellerName
+          type: string
+        emergencySupport:
+          title: emergencySupport
+          type: boolean
+        isContractedLicenseAutoProvision:
+          title: isContractedLicenseAutoProvision
+          type: boolean
+        gcloudMonthlyCost:
+          title: gcloudMonthlyCost
+          type: number
+        hgIncludedUsers:
+          title: hgIncludedUsers
+          type: number
+        hgTier1Rate:
+          title: hgTier1Rate
+          type: number
+        hgTier2Min:
+          title: hgTier2Min
+          type: number
+        hgTier2Rate:
+          title: hgTier2Rate
+          type: number
+        hgTier3Min:
+          title: hgTier3Min
+          type: number
+        hgTier3Rate:
+          title: hgTier3Rate
+          type: number
+        hgUsage:
+          title: hgUsage
+          type: number
+        hgCurrentActiveUsers:
+          title: hgCurrentActiveUsers
+          type: number
+        hgGrafanaUsage:
+          title: hgGrafanaUsage
+          type: number
+        hgOnCallUsage:
+          title: hgOnCallUsage
+          type: number
+        hmIncludedSeries:
+          title: hmIncludedSeries
+          type: number
+        hmAverageDpm:
+          title: hmAverageDpm
+          type: number
+        hmTier1Rate:
+          title: hmTier1Rate
+          type: number
+        hmTier2Min:
+          title: hmTier2Min
+          type: number
+        hmTier2Rate:
+          title: hmTier2Rate
+          type: number
+        hmTier3Min:
+          title: hmTier3Min
+          type: number
+        hmTier3Rate:
+          title: hmTier3Rate
+          type: number
+        hmUsage:
+          title: hmUsage
+          type: number
+        hmCurrentUsage:
+          title: hmCurrentUsage
+          type: number
+        hmGraphiteIncludedUsage:
+          title: hmGraphiteIncludedUsage
+          type: number
+        hmGraphiteTier1Rate:
+          title: hmGraphiteTier1Rate
+          type: number
+        hmGraphiteTier2Min:
+          title: hmGraphiteTier2Min
+          type: number
+        hmGraphiteTier2Rate:
+          title: hmGraphiteTier2Rate
+          type: number
+        hmGraphiteTier3Min:
+          title: hmGraphiteTier3Min
+          type: number
+        hmGraphiteTier3Rate:
+          title: hmGraphiteTier3Rate
+          type: number
+        hmGraphiteUsage:
+          title: hmGraphiteUsage
+          type: number
+        hlIncludedUsage:
+          title: hlIncludedUsage
+          type: number
+        hlQueryToIngestRatio:
+          title: hlQueryToIngestRatio
+          type: number
+        hlTier1Rate:
+          title: hlTier1Rate
+          type: number
+        hlTier2Min:
+          title: hlTier2Min
+          type: number
+        hlTier2Rate:
+          title: hlTier2Rate
+          type: number
+        hlTier3Min:
+          title: hlTier3Min
+          type: number
+        hlTier3Rate:
+          title: hlTier3Rate
+          type: number
+        hlUsage:
+          title: hlUsage
+          type: number
+        hlRetentionIncludedUsage:
+          title: hlRetentionIncludedUsage
+          type: number
+        hlRetentionTier1Rate:
+          title: hlRetentionTier1Rate
+          type: number
+        hlRetentionTier2Min:
+          title: hlRetentionTier2Min
+          type: number
+        hlRetentionTier2Rate:
+          title: hlRetentionTier2Rate
+          type: number
+        hlRetentionTier3Min:
+          title: hlRetentionTier3Min
+          type: number
+        hlRetentionTier3Rate:
+          title: hlRetentionTier3Rate
+          type: number
+        hlRetentionUsage:
+          title: hlRetentionUsage
+          type: number
+        htIncludedUsage:
+          title: htIncludedUsage
+          type: number
+        htTier1Rate:
+          title: htTier1Rate
+          type: number
+        htTier2Min:
+          title: htTier2Min
+          type: number
+        htTier2Rate:
+          title: htTier2Rate
+          type: number
+        htTier3Min:
+          title: htTier3Min
+          type: number
+        htTier3Rate:
+          title: htTier3Rate
+          type: number
+        htUsage:
+          title: htUsage
+          type: number
+        hpIncludedUsage:
+          title: hpIncludedUsage
+          type: number
+        hpTier1Rate:
+          title: hpTier1Rate
+          type: number
+        hpTier2Min:
+          title: hpTier2Min
+          type: number
+        hpTier2Rate:
+          title: hpTier2Rate
+          type: number
+        hpTier3Min:
+          title: hpTier3Min
+          type: number
+        hpTier3Rate:
+          title: hpTier3Rate
+          type: number
+        hpUsage:
+          title: hpUsage
+          type: number
+        irmStatus:
+          enum:
+          - 0
+          - 1
+          - 2
+          title: irmStatus
+          type: number
+        irmIncludedUsage:
+          title: irmIncludedUsage
+          type: number
+        irmTier1Rate:
+          title: irmTier1Rate
+          type: number
+        irmTier2Min:
+          title: irmTier2Min
+          type: number
+        irmTier2Rate:
+          title: irmTier2Rate
+          type: number
+        irmTier3Min:
+          title: irmTier3Min
+          type: number
+        irmTier3Rate:
+          title: irmTier3Rate
+          type: number
+        irmUsage:
+          title: irmUsage
+          type: number
+        k6VuhIncludedUsage:
+          title: k6VuhIncludedUsage
+          type: number
+        k6VuhTier1Rate:
+          title: k6VuhTier1Rate
+          type: number
+        k6VuhTier2Min:
+          title: k6VuhTier2Min
+          type: number
+        k6VuhTier2Rate:
+          title: k6VuhTier2Rate
+          type: number
+        k6VuhTier3Min:
+          title: k6VuhTier3Min
+          type: number
+        k6VuhTier3Rate:
+          title: k6VuhTier3Rate
+          type: number
+        k6VuhUnits:
+          title: k6VuhUnits
+          type: number
+        k6VuhUsage:
+          title: k6VuhUsage
+          type: number
+        k6IPIncludedUsage:
+          title: k6IPIncludedUsage
+          type: number
+        k6IPTier1Rate:
+          title: k6IPTier1Rate
+          type: number
+        k6IPTier2Min:
+          title: k6IPTier2Min
+          type: number
+        k6IPTier2Rate:
+          title: k6IPTier2Rate
+          type: number
+        k6IPTier3Min:
+          title: k6IPTier3Min
+          type: number
+        k6IPTier3Rate:
+          title: k6IPTier3Rate
+          type: number
+        k6IPUsage:
+          title: k6IPUsage
+          type: number
+        feO11yIncludedUsage:
+          title: feO11yIncludedUsage
+          type: number
+        feO11yTier1Rate:
+          title: feO11yTier1Rate
+          type: number
+        feO11yTier2Min:
+          title: feO11yTier2Min
+          type: number
+        feO11yTier2Rate:
+          title: feO11yTier2Rate
+          type: number
+        feO11yTier3Min:
+          title: feO11yTier3Min
+          type: number
+        feO11yTier3Rate:
+          title: feO11yTier3Rate
+          type: number
+        feO11yUsage:
+          title: feO11yUsage
+          type: number
+        geUsersIncludedUsage:
+          title: geUsersIncludedUsage
+          type: number
+        geUsersTier1Rate:
+          title: geUsersTier1Rate
+          type: number
+        geUsersTier2Min:
+          title: geUsersTier2Min
+          type: number
+        geUsersTier2Rate:
+          title: geUsersTier2Rate
+          type: number
+        geUsersTier3Min:
+          title: geUsersTier3Min
+          type: number
+        geUsersTier3Rate:
+          title: geUsersTier3Rate
+          type: number
+        geUsersUsage:
+          title: geUsersUsage
+          type: number
+        geInstancesIncludedUsage:
+          title: geInstancesIncludedUsage
+          type: number
+        geInstancesTier1Rate:
+          title: geInstancesTier1Rate
+          type: number
+        geInstancesTier2Min:
+          title: geInstancesTier2Min
+          type: number
+        geInstancesTier2Rate:
+          title: geInstancesTier2Rate
+          type: number
+        geInstancesTier3Min:
+          title: geInstancesTier3Min
+          type: number
+        geInstancesTier3Rate:
+          title: geInstancesTier3Rate
+          type: number
+        geInstancesUsage:
+          title: geInstancesUsage
+          type: number
+        hgPluginUsersOverageRate:
+          nullable: true
+          title: hgPluginUsersOverageRate
+          type: number
+        hgPluginUsersIncludedUsage:
+          nullable: true
+          title: hgPluginUsersIncludedUsage
+          type: number
+        hmGraphiteInstanceCnt:
+          title: hmGraphiteInstanceCnt
+          type: number
+        hmPrometheusInstanceCnt:
+          title: hmPrometheusInstanceCnt
+          type: number
+        awsMarketplaceSupport:
+          title: awsMarketplaceSupport
+          type: number
+        trialStartDate:
+          nullable: true
+          title: trialStartDate
+          type: string
+        trialEndDate:
+          nullable: true
+          title: trialEndDate
+          type: string
+        trialLengthDays:
+          nullable: true
+          title: trialLengthDays
+          type: number
+        trialNoticeDate:
+          nullable: true
+          title: trialNoticeDate
+          type: string
+        cancellationDate:
+          nullable: true
+          title: cancellationDate
+          type: string
+        retainedStackId:
+          title: retainedStackId
+          type: number
+        allowGCloudTrial:
+          title: allowGCloudTrial
+          type: boolean
+        pluginSignatureType:
+          title: pluginSignatureType
+          type: string
+        contractType:
+          title: contractType
+          type: string
+        contractTypeId:
+          enum:
+          - 0
+          - 1
+          - 2
+          title: contractTypeId
+          type: number
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner_1'
+          title: links
+          type: array
+        subscriptions:
+          $ref: '#/components/schemas/subscriptions'
+      required:
+      - accountManagerId
+      - accountManagerName
+      - accountManagerUsername
+      - accountOwnerId
+      - accountOwnerName
+      - accountOwnerUsername
+      - allowGCloudTrial
+      - avatar
+      - awsCustomerId
+      - awsMarketplaceSupport
+      - cancellationClientNotes
+      - cancellationDate
+      - cancellationNotes
+      - cancellationReason
+      - checksPerMonth
+      - committedArr
+      - contractType
+      - contractTypeId
+      - createdAt
+      - createdBy
+      - creditApproved
+      - emergencySupport
+      - enterprisePlugins
+      - estimatedArr
+      - feO11yBilledToDate
+      - feO11yBillingEndDate
+      - feO11yBillingStartDate
+      - feO11yCurrentUsage
+      - feO11yIncludedUsage
+      - feO11yOverageAmount
+      - feO11yOverageWarnDate
+      - feO11yTier1Rate
+      - feO11yTier2Min
+      - feO11yTier2Rate
+      - feO11yTier3Min
+      - feO11yTier3Rate
+      - feO11yUsage
+      - gcloudMonthlyCost
+      - geInstancesBilledToDate
+      - geInstancesBillingEndDate
+      - geInstancesBillingStartDate
+      - geInstancesCurrentUsage
+      - geInstancesIncludedUsage
+      - geInstancesOverageAmount
+      - geInstancesOverageWarnDate
+      - geInstancesTier1Rate
+      - geInstancesTier2Min
+      - geInstancesTier2Rate
+      - geInstancesTier3Min
+      - geInstancesTier3Rate
+      - geInstancesUsage
+      - geUsersBilledToDate
+      - geUsersBillingEndDate
+      - geUsersBillingStartDate
+      - geUsersCurrentUsage
+      - geUsersIncludedUsage
+      - geUsersOverageAmount
+      - geUsersOverageWarnDate
+      - geUsersTier1Rate
+      - geUsersTier2Min
+      - geUsersTier2Rate
+      - geUsersTier3Min
+      - geUsersTier3Rate
+      - geUsersUsage
+      - grafanaCloud
+      - happinessChangedAt
+      - happinessCreatedAt
+      - happinessExpiredAt
+      - happinessNote
+      - happinessRating
+      - happinessReasonCode
+      - happinessUserName
+      - hgActiveUsers
+      - hgBilledToDate
+      - hgBillingEndDate
+      - hgBillingStartDate
+      - hgCurrentActiveUsers
+      - hgDatasourceCnts
+      - hgGrafanaUsage
+      - hgIncludedUsers
+      - hgInstanceCnt
+      - hgInstanceLimit
+      - hgIntegrationCnts
+      - hgOnCallUsage
+      - hgOverageAmount
+      - hgOverageWarnDate
+      - hgPluginUsersIncludedUsage
+      - hgPluginUsersOverageRate
+      - hgTier1Rate
+      - hgTier2Min
+      - hgTier2Rate
+      - hgTier3Min
+      - hgTier3Rate
+      - hgUsage
+      - hlBilledToDate
+      - hlBillingEndDate
+      - hlBillingStartDate
+      - hlCurrentUsage
+      - hlIncludedUsage
+      - hlInstanceCnt
+      - hlInstanceLimit
+      - hlOverageAmount
+      - hlOverageWarnDate
+      - hlQueryToIngestRatio
+      - hlRetentionBilledToDate
+      - hlRetentionBillingEndDate
+      - hlRetentionBillingStartDate
+      - hlRetentionCurrentUsage
+      - hlRetentionIncludedUsage
+      - hlRetentionOverageAmount
+      - hlRetentionOverageWarnDate
+      - hlRetentionTier1Rate
+      - hlRetentionTier2Min
+      - hlRetentionTier2Rate
+      - hlRetentionTier3Min
+      - hlRetentionTier3Rate
+      - hlRetentionUsage
+      - hlTier1Rate
+      - hlTier2Min
+      - hlTier2Rate
+      - hlTier3Min
+      - hlTier3Rate
+      - hlUsage
+      - hmAverageDpm
+      - hmBilledToDate
+      - hmBillingEndDate
+      - hmBillingStartDate
+      - hmCurrentGraphiteUsage
+      - hmCurrentPrometheusUsage
+      - hmCurrentUsage
+      - hmFirstApproachingLimitDate
+      - hmFirstOverageDate
+      - hmGraphiteBilledToDate
+      - hmGraphiteBillingEndDate
+      - hmGraphiteBillingStartDate
+      - hmGraphiteCurrentUsage
+      - hmGraphiteIncludedUsage
+      - hmGraphiteInstanceCnt
+      - hmGraphiteOverageAmount
+      - hmGraphiteOverageWarnDate
+      - hmGraphiteTier1Rate
+      - hmGraphiteTier2Min
+      - hmGraphiteTier2Rate
+      - hmGraphiteTier3Min
+      - hmGraphiteTier3Rate
+      - hmGraphiteUsage
+      - hmIncludedSeries
+      - hmInstanceLimit
+      - hmOverageAmount
+      - hmOverageWarnDate
+      - hmPrometheusInstanceCnt
+      - hmTier1Rate
+      - hmTier2Min
+      - hmTier2Rate
+      - hmTier3Min
+      - hmTier3Rate
+      - hmUsage
+      - hpBilledToDate
+      - hpBillingEndDate
+      - hpBillingStartDate
+      - hpCurrentUsage
+      - hpIncludedUsage
+      - hpOverageAmount
+      - hpOverageWarnDate
+      - hpTier1Rate
+      - hpTier2Min
+      - hpTier2Rate
+      - hpTier3Min
+      - hpTier3Rate
+      - hpUsage
+      - htBilledToDate
+      - htBillingEndDate
+      - htBillingStartDate
+      - htCurrentUsage
+      - htIncludedUsage
+      - htInstanceCnt
+      - htOverageAmount
+      - htOverageWarnDate
+      - htTier1Rate
+      - htTier2Min
+      - htTier2Rate
+      - htTier3Min
+      - htTier3Rate
+      - htUsage
+      - id
+      - intacctCustomerId
+      - intacctCustomerUrl
+      - irmBilledToDate
+      - irmBillingEndDate
+      - irmBillingStartDate
+      - irmCurrentUsage
+      - irmIncludedUsage
+      - irmOverageAmount
+      - irmOverageWarnDate
+      - irmStatus
+      - irmTier1Rate
+      - irmTier2Min
+      - irmTier2Rate
+      - irmTier3Min
+      - irmTier3Rate
+      - irmUsage
+      - isContractedLicenseAutoProvision
+      - k6IPBilledToDate
+      - k6IPBillingEndDate
+      - k6IPBillingStartDate
+      - k6IPCurrentUsage
+      - k6IPIncludedUsage
+      - k6IPOverageAmount
+      - k6IPOverageWarnDate
+      - k6IPTier1Rate
+      - k6IPTier2Min
+      - k6IPTier2Rate
+      - k6IPTier3Min
+      - k6IPTier3Rate
+      - k6IPUsage
+      - k6OrgId
+      - k6VuhBilledToDate
+      - k6VuhBillingEndDate
+      - k6VuhBillingStartDate
+      - k6VuhCurrentUsage
+      - k6VuhIncludedUsage
+      - k6VuhOverageAmount
+      - k6VuhOverageWarnDate
+      - k6VuhTier1Rate
+      - k6VuhTier2Min
+      - k6VuhTier2Rate
+      - k6VuhTier3Min
+      - k6VuhTier3Rate
+      - k6VuhUnits
+      - k6VuhUsage
+      - licenseCnt
+      - licenseConfiguredCnt
+      - licenseUnconfiguredCnt
+      - links
+      - memberCnt
+      - msaSignedAt
+      - msaSignedBy
+      - name
+      - netPromoterScore
+      - pluginSignatureType
+      - prevCommittedArr
+      - privacy
+      - projectedOverageAmount
+      - referredBy
+      - reseller
+      - resellerId
+      - resellerName
+      - retainedStackId
+      - salesforceAccountId
+      - salesforceCustomOrgId
+      - salesforceLeadId
+      - slackSupport
+      - slackSupportChannel
+      - slug
+      - spendCommitCreditBalance
+      - spendCommitCreditTotal
+      - subscriptions
+      - supportPlan
+      - tags
+      - totalOverageAmount
+      - trialEndDate
+      - trialLengthDays
+      - trialNoticeDate
+      - trialStartDate
+      - ubersmithClientId
+      - updatedAt
+      - updatedBy
+      - url
+      - userQuota
+      - wpPlan
+      - zendeskId
+      type: object
+    FormattedApiPlugin:
+      example:
+        orgSlug: orgSlug
+        featured: 7.061401241503109
+        internal: true
+        typeName: typeName
+        description: description
+        versionSignedByOrgName: versionSignedByOrgName
+        downloadSlug: downloadSlug
+        orgUrl: orgUrl
+        versionStatus: versionStatus
+        orgId: 5.637376656633329
+        requestedPluginVersionId: 1.4658129805029452
+        versionSignedByOrg: versionSignedByOrg
+        createdAt: createdAt
+        downloads: 2.3021358869347655
+        popularity: 9.301444243932576
+        links:
+        - rel: rel
+          href: href
+        - rel: rel
+          href: href
+        id: 0.8008281904610115
+        slug: slug
+        updatedAt: updatedAt
+        orgName: orgName
+        verified: true
+        signatureType: signatureType
+        packages: "{}"
+        version: version
+        userId: 5.962133916683182
+        versionSignatureType: versionSignatureType
+        url: url
+        typeCode: typeCode
+        angularDetected: true
+        name: name
+        typeId: 6.027456183070403
+        status: status
+      properties:
+        status:
+          title: status
+          type: string
+        id:
+          title: id
+          type: number
+        typeId:
+          title: typeId
+          type: number
+        typeName:
+          title: typeName
+          type: string
+        typeCode:
+          title: typeCode
+          type: string
+        slug:
+          title: slug
+          type: string
+        name:
+          title: name
+          type: string
+        description:
+          title: description
+          type: string
+        requestedPluginVersionId:
+          title: requestedPluginVersionId
+          type: number
+        version:
+          title: version
+          type: string
+        versionStatus:
+          title: versionStatus
+          type: string
+        versionSignatureType:
+          title: versionSignatureType
+          type: string
+        versionSignedByOrg:
+          title: versionSignedByOrg
+          type: string
+        versionSignedByOrgName:
+          title: versionSignedByOrgName
+          type: string
+        userId:
+          title: userId
+          type: number
+        orgId:
+          title: orgId
+          type: number
+        orgName:
+          title: orgName
+          type: string
+        orgSlug:
+          title: orgSlug
+          type: string
+        orgUrl:
+          title: orgUrl
+          type: string
+        url:
+          title: url
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          title: updatedAt
+          type: string
+        downloads:
+          title: downloads
+          type: number
+        verified:
+          title: verified
+          type: boolean
+        featured:
+          title: featured
+          type: number
+        internal:
+          title: internal
+          type: boolean
+        downloadSlug:
+          title: downloadSlug
+          type: string
+        popularity:
+          title: popularity
+          type: number
+        signatureType:
+          title: signatureType
+          type: string
+        packages:
+          title: packages
+          type: object
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner_1'
+          title: links
+          type: array
+        angularDetected:
+          title: angularDetected
+          type: boolean
+      required:
+      - angularDetected
+      - createdAt
+      - description
+      - downloadSlug
+      - downloads
+      - featured
+      - id
+      - internal
+      - links
+      - name
+      - orgId
+      - orgName
+      - orgSlug
+      - orgUrl
+      - packages
+      - popularity
+      - signatureType
+      - slug
+      - status
+      - typeCode
+      - typeId
+      - typeName
+      - updatedAt
+      - url
+      - userId
+      - verified
+      - version
+      - versionSignatureType
+      - versionSignedByOrg
+      - versionSignedByOrgName
+      - versionStatus
+      type: object
+    FormattedApiStackRegion:
+      anyOf:
+      - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf'
+      - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf_1'
     postAllApiKeys_request:
       properties:
         name:
@@ -3076,6 +5478,120 @@ components:
         version:
           type: string
       type: object
+    postInstanceServiceAccounts_request:
+      properties:
+        isDisabled:
+          type: boolean
+        name:
+          type: string
+        role:
+          type: string
+      required:
+      - name
+      - role
+      type: object
+    postInstanceServiceAccountTokens_request:
+      properties:
+        name:
+          type: string
+        secondsToLive:
+          type: integer
+      required:
+      - name
+      type: object
+    getInstancePlugins_200_response:
+      example:
+        total: 5.962133916683182
+        pages: 5.637376656633329
+        orderBy: orderBy
+        pageSize: 2.3021358869347655
+        page: 7.061401241503109
+        items:
+        - createdAt: createdAt
+          instanceId: 6.027456183070403
+          pluginSlug: pluginSlug
+          pluginName: pluginName
+          latestVersion: latestVersion
+          pluginId: 1.4658129805029452
+          instanceSlug: instanceSlug
+          links:
+          - rel: self
+            href: href
+          - rel: self
+            href: href
+          id: 0.8008281904610115
+          version: version
+          instanceUrl: instanceUrl
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: createdAt
+          instanceId: 6.027456183070403
+          pluginSlug: pluginSlug
+          pluginName: pluginName
+          latestVersion: latestVersion
+          pluginId: 1.4658129805029452
+          instanceSlug: instanceSlug
+          links:
+          - rel: self
+            href: href
+          - rel: self
+            href: href
+          id: 0.8008281904610115
+          version: version
+          instanceUrl: instanceUrl
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        direction: asc
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/FormattedApiInstancePlugin'
+          title: items
+          type: array
+        orderBy:
+          title: orderBy
+          type: string
+        direction:
+          enum:
+          - asc
+          - desc
+          title: direction
+          type: string
+        total:
+          title: total
+          type: number
+        pages:
+          title: pages
+          type: number
+        pageSize:
+          title: pageSize
+          type: number
+        page:
+          title: page
+          type: number
+      required:
+      - direction
+      - items
+      - orderBy
+      - page
+      - pageSize
+      - pages
+      - total
+      type: object
+    postInstancePlugins_request:
+      properties:
+        plugin:
+          type: string
+        version:
+          type: string
+      required:
+      - plugin
+      type: object
+    postInstancePlugin_request:
+      properties:
+        noRestart:
+          type: boolean
+        version:
+          type: string
+      type: object
     postApiKeys_request:
       properties:
         name:
@@ -3094,6 +5610,73 @@ components:
       required:
       - name
       - role
+      type: object
+    getStackRegions_200_response:
+      example:
+        total: 1.4658129805029452
+        pages: 5.962133916683182
+        orderBy: orderBy
+        pageSize: 5.637376656633329
+        page: 2.3021358869347655
+        items:
+        - createdAt: createdAt
+          visibility: visibility
+          publicName: publicName
+          provider: aws
+          sortOrder: 6.027456183070403
+          name: name
+          description: description
+          id: 0.8008281904610115
+          slug: slug
+          status: status
+          updatedAt: updatedAt
+        - createdAt: createdAt
+          visibility: visibility
+          publicName: publicName
+          provider: aws
+          sortOrder: 6.027456183070403
+          name: name
+          description: description
+          id: 0.8008281904610115
+          slug: slug
+          status: status
+          updatedAt: updatedAt
+        direction: asc
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/FormattedApiStackRegion'
+          title: items
+          type: array
+        orderBy:
+          title: orderBy
+          type: string
+        direction:
+          enum:
+          - asc
+          - desc
+          title: direction
+          type: string
+        total:
+          title: total
+          type: number
+        pages:
+          title: pages
+          type: number
+        pageSize:
+          title: pageSize
+          type: number
+        page:
+          title: page
+          type: number
+      required:
+      - direction
+      - items
+      - orderBy
+      - page
+      - pageSize
+      - pages
+      - total
       type: object
     postAccessPolicies_request_attributes_lokiQueryPolicy:
       properties:
@@ -3330,6 +5913,525 @@ components:
       required:
       - href
       - rel
+      type: object
+    current:
+      example:
+        product: ""
+        endDate: ""
+        payload: "{}"
+        publicName: ""
+        enterprisePluginsAdded: true
+        isTrial: true
+        plan: ""
+      properties:
+        product:
+          nullable: true
+          title: product
+        isTrial:
+          title: isTrial
+          type: boolean
+        endDate:
+          nullable: true
+          title: endDate
+        payload:
+          title: payload
+          type: object
+        plan:
+          nullable: true
+          title: plan
+        publicName:
+          nullable: true
+          title: publicName
+        enterprisePluginsAdded:
+          title: enterprisePluginsAdded
+          type: boolean
+      required:
+      - endDate
+      - enterprisePluginsAdded
+      - isTrial
+      - payload
+      - plan
+      - product
+      - publicName
+      title: current
+      type: object
+    subscriptions_anyOf:
+      example:
+        next: ""
+        current:
+          product: ""
+          endDate: ""
+          payload: "{}"
+          publicName: ""
+          enterprisePluginsAdded: true
+          isTrial: true
+          plan: ""
+        nextProduct: ""
+      properties:
+        current:
+          $ref: '#/components/schemas/current'
+        nextProduct:
+          nullable: true
+          title: nextProduct
+        next:
+          nullable: true
+          title: next
+      required:
+      - current
+      - next
+      - nextProduct
+      type: object
+    current_1:
+      properties:
+        product:
+          enum:
+          - grafana-cloud-advanced
+          - grafana-cloud-free
+          - grafana-cloud-pro
+          - grafana-cloud-ss-advanced
+          title: product
+          type: string
+        isTrial:
+          title: isTrial
+          type: boolean
+        endDate:
+          format: date-time
+          title: endDate
+          type: string
+        payload:
+          title: payload
+          type: object
+        plan:
+          nullable: true
+          title: plan
+          type: string
+        publicName:
+          nullable: true
+          title: publicName
+          type: string
+        enterprisePluginsAdded:
+          title: enterprisePluginsAdded
+          type: boolean
+      required:
+      - endDate
+      - enterprisePluginsAdded
+      - isTrial
+      - payload
+      - plan
+      - product
+      - publicName
+      title: current
+      type: object
+    next:
+      properties:
+        product:
+          enum:
+          - grafana-cloud-advanced
+          - grafana-cloud-free
+          - grafana-cloud-pro
+          - grafana-cloud-ss-advanced
+          title: product
+          type: string
+        payload:
+          title: payload
+          type: object
+        plan:
+          nullable: true
+          title: plan
+          type: string
+        publicName:
+          nullable: true
+          title: publicName
+          type: string
+      required:
+      - payload
+      - plan
+      - product
+      - publicName
+      title: next
+      type: object
+    subscriptions_anyOf_1:
+      properties:
+        current:
+          $ref: '#/components/schemas/current_1'
+        nextProduct:
+          enum:
+          - grafana-cloud-advanced
+          - grafana-cloud-free
+          - grafana-cloud-pro
+          - grafana-cloud-ss-advanced
+          title: nextProduct
+          type: string
+        next:
+          $ref: '#/components/schemas/next'
+      required:
+      - current
+      - next
+      - nextProduct
+      type: object
+    current_2:
+      properties:
+        product:
+          enum:
+          - grafana-cloud-advanced
+          - grafana-cloud-free
+          - grafana-cloud-pro
+          - grafana-cloud-ss-advanced
+          title: product
+          type: string
+        isTrial:
+          title: isTrial
+          type: boolean
+        endDate:
+          nullable: true
+          title: endDate
+        payload:
+          title: payload
+          type: object
+        plan:
+          nullable: true
+          title: plan
+          type: string
+        publicName:
+          nullable: true
+          title: publicName
+          type: string
+        enterprisePluginsAdded:
+          title: enterprisePluginsAdded
+          type: boolean
+      required:
+      - endDate
+      - enterprisePluginsAdded
+      - isTrial
+      - payload
+      - plan
+      - product
+      - publicName
+      title: current
+      type: object
+    subscriptions_anyOf_2:
+      properties:
+        current:
+          $ref: '#/components/schemas/current_2'
+        nextProduct:
+          nullable: true
+          title: nextProduct
+        next:
+          nullable: true
+          title: next
+      required:
+      - current
+      - next
+      - nextProduct
+      type: object
+    subscriptions:
+      anyOf:
+      - $ref: '#/components/schemas/subscriptions_anyOf'
+      - $ref: '#/components/schemas/subscriptions_anyOf_1'
+      - $ref: '#/components/schemas/subscriptions_anyOf_2'
+      title: subscriptions
+    FormattedApiStackRegion_anyOf:
+      example:
+        createdAt: createdAt
+        visibility: visibility
+        publicName: publicName
+        provider: aws
+        sortOrder: 6.027456183070403
+        name: name
+        description: description
+        id: 0.8008281904610115
+        slug: slug
+        status: status
+        updatedAt: updatedAt
+      properties:
+        id:
+          title: id
+          type: number
+        status:
+          title: status
+          type: string
+        visibility:
+          title: visibility
+          type: string
+        slug:
+          title: slug
+          type: string
+        name:
+          title: name
+          type: string
+        publicName:
+          title: publicName
+          type: string
+        description:
+          title: description
+          type: string
+        provider:
+          enum:
+          - aws
+          - azure
+          - gcp
+          title: provider
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+        sortOrder:
+          title: sortOrder
+          type: number
+      required:
+      - createdAt
+      - description
+      - id
+      - name
+      - provider
+      - publicName
+      - slug
+      - sortOrder
+      - status
+      - updatedAt
+      - visibility
+      type: object
+    FormattedApiStackRegion_anyOf_1:
+      properties:
+        stackStateServiceUrl:
+          title: stackStateServiceUrl
+          type: string
+        syntheticMonitoringApiUrl:
+          title: syntheticMonitoringApiUrl
+          type: string
+        insightsApiUrl:
+          title: insightsApiUrl
+          type: string
+        integrationsApiUrl:
+          title: integrationsApiUrl
+          type: string
+        hostedExportersApiUrl:
+          title: hostedExportersApiUrl
+          type: string
+        machineLearningApiUrl:
+          title: machineLearningApiUrl
+          type: string
+        incidentApiUrl:
+          title: incidentApiUrl
+          type: string
+        oncallApiUrl:
+          title: oncallApiUrl
+          type: string
+        faroEndpointUrl:
+          title: faroEndpointUrl
+          type: string
+        pdcClusterSlug:
+          title: pdcClusterSlug
+          type: string
+        otlpHttpUrl:
+          nullable: true
+          title: otlpHttpUrl
+          type: string
+        authApiUrl:
+          title: authApiUrl
+          type: string
+        authApiTokenSet:
+          title: authApiTokenSet
+          type: boolean
+        hgClusterId:
+          title: hgClusterId
+          type: number
+        hgClusterSlug:
+          title: hgClusterSlug
+          type: string
+        hgClusterName:
+          title: hgClusterName
+          type: string
+        hgClusterUrl:
+          title: hgClusterUrl
+          type: string
+        hmPromClusterId:
+          title: hmPromClusterId
+          type: number
+        hmPromClusterSlug:
+          title: hmPromClusterSlug
+          type: string
+        hmPromClusterName:
+          title: hmPromClusterName
+          type: string
+        hmPromClusterUrl:
+          title: hmPromClusterUrl
+          type: string
+        hmGraphiteClusterId:
+          title: hmGraphiteClusterId
+          type: number
+        hmGraphiteClusterSlug:
+          title: hmGraphiteClusterSlug
+          type: string
+        hmGraphiteClusterName:
+          title: hmGraphiteClusterName
+          type: string
+        hmGraphiteClusterUrl:
+          title: hmGraphiteClusterUrl
+          type: string
+        hlClusterId:
+          title: hlClusterId
+          type: number
+        hlClusterSlug:
+          title: hlClusterSlug
+          type: string
+        hlClusterName:
+          title: hlClusterName
+          type: string
+        hlClusterUrl:
+          title: hlClusterUrl
+          type: string
+        amClusterId:
+          title: amClusterId
+          type: number
+        amClusterSlug:
+          title: amClusterSlug
+          type: string
+        amClusterName:
+          title: amClusterName
+          type: string
+        amClusterUrl:
+          title: amClusterUrl
+          type: string
+        htClusterId:
+          title: htClusterId
+          type: number
+        htClusterSlug:
+          title: htClusterSlug
+          type: string
+        htClusterName:
+          title: htClusterName
+          type: string
+        htClusterUrl:
+          title: htClusterUrl
+          type: string
+        hpClusterId:
+          title: hpClusterId
+          type: number
+        hpClusterSlug:
+          title: hpClusterSlug
+          type: string
+        hpClusterName:
+          title: hpClusterName
+          type: string
+        hpClusterUrl:
+          title: hpClusterUrl
+          type: string
+        agmClusterId:
+          title: agmClusterId
+          type: number
+        agmClusterSlug:
+          title: agmClusterSlug
+          type: string
+        agmClusterName:
+          title: agmClusterName
+          type: string
+        agmClusterUrl:
+          title: agmClusterUrl
+          type: string
+        providerRegion:
+          title: providerRegion
+          type: string
+        id:
+          title: id
+          type: number
+        status:
+          title: status
+          type: string
+        visibility:
+          title: visibility
+          type: string
+        slug:
+          title: slug
+          type: string
+        name:
+          title: name
+          type: string
+        publicName:
+          title: publicName
+          type: string
+        description:
+          title: description
+          type: string
+        provider:
+          enum:
+          - aws
+          - azure
+          - gcp
+          title: provider
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+        sortOrder:
+          title: sortOrder
+          type: number
+      required:
+      - agmClusterId
+      - agmClusterName
+      - agmClusterSlug
+      - agmClusterUrl
+      - amClusterId
+      - amClusterName
+      - amClusterSlug
+      - amClusterUrl
+      - authApiTokenSet
+      - authApiUrl
+      - createdAt
+      - description
+      - faroEndpointUrl
+      - hgClusterId
+      - hgClusterName
+      - hgClusterSlug
+      - hgClusterUrl
+      - hlClusterId
+      - hlClusterName
+      - hlClusterSlug
+      - hlClusterUrl
+      - hmGraphiteClusterId
+      - hmGraphiteClusterName
+      - hmGraphiteClusterSlug
+      - hmGraphiteClusterUrl
+      - hmPromClusterId
+      - hmPromClusterName
+      - hmPromClusterSlug
+      - hmPromClusterUrl
+      - hostedExportersApiUrl
+      - hpClusterId
+      - hpClusterName
+      - hpClusterSlug
+      - hpClusterUrl
+      - htClusterId
+      - htClusterName
+      - htClusterSlug
+      - htClusterUrl
+      - id
+      - incidentApiUrl
+      - insightsApiUrl
+      - integrationsApiUrl
+      - machineLearningApiUrl
+      - name
+      - oncallApiUrl
+      - otlpHttpUrl
+      - pdcClusterSlug
+      - provider
+      - providerRegion
+      - publicName
+      - slug
+      - sortOrder
+      - stackStateServiceUrl
+      - status
+      - syntheticMonitoringApiUrl
+      - updatedAt
+      - visibility
       type: object
   securitySchemes:
     BearerAuth:
