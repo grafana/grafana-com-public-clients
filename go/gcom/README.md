@@ -96,25 +96,15 @@ Class | Method | HTTP request | Description
 *AccesspoliciesAPI* | [**PostAccessPolicy**](docs/AccesspoliciesAPI.md#postaccesspolicy) | **Post** /v1/accesspolicies/{id} | Update an access policy
 *ApiKeysAPI* | [**PostAllApiKeys**](docs/ApiKeysAPI.md#postallapikeys) | **Post** /api-keys | Creates an API key
 *InstancesAPI* | [**DeleteInstance**](docs/InstancesAPI.md#deleteinstance) | **Delete** /instances/{instanceId} | Deletes an instance
-*InstancesAPI* | [**DeleteInstancePlugin**](docs/InstancesAPI.md#deleteinstanceplugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 *InstancesAPI* | [**GetInstance**](docs/InstancesAPI.md#getinstance) | **Get** /instances/{instanceId} | Gets an instance
-*InstancesAPI* | [**GetInstancePlugin**](docs/InstancesAPI.md#getinstanceplugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
-*InstancesAPI* | [**GetInstancePlugins**](docs/InstancesAPI.md#getinstanceplugins) | **Get** /instances/{instanceId}/plugins | 
 *InstancesAPI* | [**GetInstances**](docs/InstancesAPI.md#getinstances) | **Get** /instances | Get a list of instances
 *InstancesAPI* | [**PostInstance**](docs/InstancesAPI.md#postinstance) | **Post** /instances/{instanceId} | Updates an instance
-*InstancesAPI* | [**PostInstancePlugin**](docs/InstancesAPI.md#postinstanceplugin) | **Post** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
-*InstancesAPI* | [**PostInstancePlugins**](docs/InstancesAPI.md#postinstanceplugins) | **Post** /instances/{instanceId}/plugins | 
-*InstancesAPI* | [**PostInstanceServiceAccountTokens**](docs/InstancesAPI.md#postinstanceserviceaccounttokens) | **Post** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Creates a service account token on a Grafana instance
-*InstancesAPI* | [**PostInstanceServiceAccounts**](docs/InstancesAPI.md#postinstanceserviceaccounts) | **Post** /instances/{instanceId}/api/serviceaccounts | Creates a service account on a Grafana instance
 *InstancesAPI* | [**PostInstances**](docs/InstancesAPI.md#postinstances) | **Post** /instances | Create a new instance
 *OrgsAPI* | [**DelApiKey**](docs/OrgsAPI.md#delapikey) | **Delete** /orgs/{slugOrId}/api-keys/{name} | Delete an API key by name
 *OrgsAPI* | [**GetApiKey**](docs/OrgsAPI.md#getapikey) | **Get** /orgs/{slugOrId}/api-keys/{name} | Get an API key by name
 *OrgsAPI* | [**GetApiKeys**](docs/OrgsAPI.md#getapikeys) | **Get** /orgs/{slugOrId}/api-keys | Get an organization&#39;s API keys
-*OrgsAPI* | [**GetOrg**](docs/OrgsAPI.md#getorg) | **Get** /orgs/{slugOrId} | 
 *OrgsAPI* | [**GetOrgInstances**](docs/OrgsAPI.md#getorginstances) | **Get** /orgs/{slug}/instances | Get the list of instances belonging to the org
 *OrgsAPI* | [**PostApiKeys**](docs/OrgsAPI.md#postapikeys) | **Post** /orgs/{slugOrId}/api-keys | Create an API key.
-*PluginsAPI* | [**GetPlugin**](docs/PluginsAPI.md#getplugin) | **Get** /plugins/{slug} | Fetches a plugin by slug or id
-*StackRegionsAPI* | [**GetStackRegions**](docs/StackRegionsAPI.md#getstackregions) | **Get** /stack-regions | 
 *TokensAPI* | [**DeleteToken**](docs/TokensAPI.md#deletetoken) | **Delete** /v1/tokens/{id} | Delete a token
 *TokensAPI* | [**GetToken**](docs/TokensAPI.md#gettoken) | **Get** /v1/tokens/{id} | Get info for a specific token
 *TokensAPI* | [**GetTokens**](docs/TokensAPI.md#gettokens) | **Get** /v1/tokens | Get a list of tokens
@@ -124,28 +114,14 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [Current](docs/Current.md)
- - [Current1](docs/Current1.md)
- - [Current2](docs/Current2.md)
  - [FormattedApiApiKey](docs/FormattedApiApiKey.md)
  - [FormattedApiApiKeyListResponse](docs/FormattedApiApiKeyListResponse.md)
  - [FormattedApiInstance](docs/FormattedApiInstance.md)
- - [FormattedApiInstancePlugin](docs/FormattedApiInstancePlugin.md)
- - [FormattedApiOrg](docs/FormattedApiOrg.md)
- - [FormattedApiPlugin](docs/FormattedApiPlugin.md)
- - [FormattedApiStackRegion](docs/FormattedApiStackRegion.md)
- - [FormattedApiStackRegionAnyOf](docs/FormattedApiStackRegionAnyOf.md)
- - [FormattedApiStackRegionAnyOf1](docs/FormattedApiStackRegionAnyOf1.md)
  - [GetInstance404Response](docs/GetInstance404Response.md)
- - [GetInstancePlugins200Response](docs/GetInstancePlugins200Response.md)
  - [GetInstances200Response](docs/GetInstances200Response.md)
- - [GetStackRegions200Response](docs/GetStackRegions200Response.md)
- - [GrafanaServiceAccount](docs/GrafanaServiceAccount.md)
- - [GrafanaServiceAccountToken](docs/GrafanaServiceAccountToken.md)
  - [ItemsInner](docs/ItemsInner.md)
  - [LinksInner](docs/LinksInner.md)
  - [LinksInner1](docs/LinksInner1.md)
- - [Next](docs/Next.md)
  - [PostAccessPoliciesRequest](docs/PostAccessPoliciesRequest.md)
  - [PostAccessPoliciesRequestAttributes](docs/PostAccessPoliciesRequestAttributes.md)
  - [PostAccessPoliciesRequestAttributesLokiQueryPolicy](docs/PostAccessPoliciesRequestAttributesLokiQueryPolicy.md)
@@ -159,18 +135,10 @@ Class | Method | HTTP request | Description
  - [PostAllApiKeys503Response](docs/PostAllApiKeys503Response.md)
  - [PostAllApiKeysRequest](docs/PostAllApiKeysRequest.md)
  - [PostApiKeysRequest](docs/PostApiKeysRequest.md)
- - [PostInstancePluginRequest](docs/PostInstancePluginRequest.md)
- - [PostInstancePluginsRequest](docs/PostInstancePluginsRequest.md)
  - [PostInstanceRequest](docs/PostInstanceRequest.md)
- - [PostInstanceServiceAccountTokensRequest](docs/PostInstanceServiceAccountTokensRequest.md)
- - [PostInstanceServiceAccountsRequest](docs/PostInstanceServiceAccountsRequest.md)
  - [PostInstancesRequest](docs/PostInstancesRequest.md)
  - [PostTokenRequest](docs/PostTokenRequest.md)
  - [PostTokensRequest](docs/PostTokensRequest.md)
- - [Subscriptions](docs/Subscriptions.md)
- - [SubscriptionsAnyOf](docs/SubscriptionsAnyOf.md)
- - [SubscriptionsAnyOf1](docs/SubscriptionsAnyOf1.md)
- - [SubscriptionsAnyOf2](docs/SubscriptionsAnyOf2.md)
 
 
 ## Documentation For Authorization
