@@ -7,3 +7,4 @@
 !.yarn/versions
 node_modules
 gha-creds*
+openapi-generator-cli.jar
