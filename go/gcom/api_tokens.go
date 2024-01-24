@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 // TokensAPIService TokensAPI service
 type TokensAPIService service
 
 type ApiDeleteTokenRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *TokensAPIService
-	id string
-	region *string
+	id         string
+	region     *string
 	xRequestId *string
-	orgId *int32
+	orgId      *int32
 }
 
 func (r ApiDeleteTokenRequest) Region(region string) ApiDeleteTokenRequest {
@@ -61,8 +60,8 @@ DeleteToken Delete a token
 func (a *TokensAPIService) DeleteToken(ctx context.Context, id string) ApiDeleteTokenRequest {
 	return ApiDeleteTokenRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -70,10 +69,10 @@ func (a *TokensAPIService) DeleteToken(ctx context.Context, id string) ApiDelete
 //  @return map[string]interface{}
 func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensAPIService.DeleteToken")
@@ -145,8 +144,8 @@ func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (map[stri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -156,8 +155,8 @@ func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (map[stri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -167,8 +166,8 @@ func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (map[stri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -178,8 +177,8 @@ func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (map[stri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -189,8 +188,8 @@ func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (map[stri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -208,11 +207,11 @@ func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (map[stri
 }
 
 type ApiGetTokenRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *TokensAPIService
-	id string
-	region *string
-	orgId *int32
+	id         string
+	region     *string
+	orgId      *int32
 }
 
 func (r ApiGetTokenRequest) Region(region string) ApiGetTokenRequest {
@@ -239,8 +238,8 @@ GetToken Get info for a specific token
 func (a *TokensAPIService) GetToken(ctx context.Context, id string) ApiGetTokenRequest {
 	return ApiGetTokenRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -248,10 +247,10 @@ func (a *TokensAPIService) GetToken(ctx context.Context, id string) ApiGetTokenR
 //  @return map[string]interface{}
 func (a *TokensAPIService) GetTokenExecute(r ApiGetTokenRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensAPIService.GetToken")
@@ -319,8 +318,8 @@ func (a *TokensAPIService) GetTokenExecute(r ApiGetTokenRequest) (map[string]int
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -330,8 +329,8 @@ func (a *TokensAPIService) GetTokenExecute(r ApiGetTokenRequest) (map[string]int
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -341,8 +340,8 @@ func (a *TokensAPIService) GetTokenExecute(r ApiGetTokenRequest) (map[string]int
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -352,8 +351,8 @@ func (a *TokensAPIService) GetTokenExecute(r ApiGetTokenRequest) (map[string]int
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -371,21 +370,21 @@ func (a *TokensAPIService) GetTokenExecute(r ApiGetTokenRequest) (map[string]int
 }
 
 type ApiGetTokensRequest struct {
-	ctx context.Context
-	ApiService *TokensAPIService
-	region *string
-	accessPolicyId *string
-	accessPolicyIds *string
-	accessPolicyName *string
+	ctx                         context.Context
+	ApiService                  *TokensAPIService
+	region                      *string
+	accessPolicyId              *string
+	accessPolicyIds             *string
+	accessPolicyName            *string
 	accessPolicyRealmIdentifier *string
-	accessPolicyRealmType *string
-	accessPolicyStatus *string
-	expiresAfter *string
-	expiresBefore *string
-	name *string
-	orgId *int32
-	pageCursor *string
-	pageSize *int32
+	accessPolicyRealmType       *string
+	accessPolicyStatus          *string
+	expiresAfter                *string
+	expiresBefore               *string
+	name                        *string
+	orgId                       *int32
+	pageCursor                  *string
+	pageSize                    *int32
 }
 
 func (r ApiGetTokensRequest) Region(region string) ApiGetTokensRequest {
@@ -466,7 +465,7 @@ GetTokens Get a list of tokens
 func (a *TokensAPIService) GetTokens(ctx context.Context) ApiGetTokensRequest {
 	return ApiGetTokensRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -474,10 +473,10 @@ func (a *TokensAPIService) GetTokens(ctx context.Context) ApiGetTokensRequest {
 //  @return map[string]interface{}
 func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensAPIService.GetTokens")
@@ -577,8 +576,8 @@ func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) (map[string]i
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -588,8 +587,8 @@ func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) (map[string]i
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -599,8 +598,8 @@ func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) (map[string]i
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -618,13 +617,13 @@ func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) (map[string]i
 }
 
 type ApiPostTokenRequest struct {
-	ctx context.Context
-	ApiService *TokensAPIService
-	id string
-	region *string
-	xRequestId *string
+	ctx              context.Context
+	ApiService       *TokensAPIService
+	id               string
+	region           *string
+	xRequestId       *string
 	postTokenRequest *PostTokenRequest
-	orgId *int32
+	orgId            *int32
 }
 
 func (r ApiPostTokenRequest) Region(region string) ApiPostTokenRequest {
@@ -661,8 +660,8 @@ PostToken Update a token
 func (a *TokensAPIService) PostToken(ctx context.Context, id string) ApiPostTokenRequest {
 	return ApiPostTokenRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -670,10 +669,10 @@ func (a *TokensAPIService) PostToken(ctx context.Context, id string) ApiPostToke
 //  @return map[string]interface{}
 func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensAPIService.PostToken")
@@ -750,8 +749,8 @@ func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (map[string]i
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -761,8 +760,8 @@ func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (map[string]i
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -772,8 +771,8 @@ func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (map[string]i
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -783,8 +782,8 @@ func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (map[string]i
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -794,8 +793,8 @@ func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (map[string]i
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -813,12 +812,12 @@ func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (map[string]i
 }
 
 type ApiPostTokensRequest struct {
-	ctx context.Context
-	ApiService *TokensAPIService
-	region *string
-	xRequestId *string
+	ctx               context.Context
+	ApiService        *TokensAPIService
+	region            *string
+	xRequestId        *string
 	postTokensRequest *PostTokensRequest
-	orgId *int32
+	orgId             *int32
 }
 
 func (r ApiPostTokensRequest) Region(region string) ApiPostTokensRequest {
@@ -854,7 +853,7 @@ PostTokens Create a new token
 func (a *TokensAPIService) PostTokens(ctx context.Context) ApiPostTokensRequest {
 	return ApiPostTokensRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -862,10 +861,10 @@ func (a *TokensAPIService) PostTokens(ctx context.Context) ApiPostTokensRequest 
 //  @return map[string]interface{}
 func (a *TokensAPIService) PostTokensExecute(r ApiPostTokensRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensAPIService.PostTokens")
@@ -941,8 +940,8 @@ func (a *TokensAPIService) PostTokensExecute(r ApiPostTokensRequest) (map[string
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -952,8 +951,8 @@ func (a *TokensAPIService) PostTokensExecute(r ApiPostTokensRequest) (map[string
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -963,8 +962,8 @@ func (a *TokensAPIService) PostTokensExecute(r ApiPostTokensRequest) (map[string
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -974,8 +973,8 @@ func (a *TokensAPIService) PostTokensExecute(r ApiPostTokensRequest) (map[string
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

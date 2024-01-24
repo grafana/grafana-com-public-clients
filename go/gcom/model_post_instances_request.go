@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -11,10 +11,10 @@ API version: internal
 package gcom
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the PostInstancesRequest type satisfies the MappedNullable interface at compile time
@@ -22,48 +22,48 @@ var _ MappedNullable = &PostInstancesRequest{}
 
 // PostInstancesRequest struct for PostInstancesRequest
 type PostInstancesRequest struct {
-	AdminUserInstance *bool `json:"adminUserInstance,omitempty"`
-	AlertQuota *int32 `json:"alertQuota,omitempty"`
-	Alerts *bool `json:"alerts,omitempty"`
-	AmCluster *string `json:"amCluster,omitempty"`
-	BillingEndDate *time.Time `json:"billingEndDate,omitempty"`
-	BillingStartDate *time.Time `json:"billingStartDate,omitempty"`
-	Cluster *string `json:"cluster,omitempty"`
-	CreateTemporaryLicenseIfMissing *bool `json:"createTemporaryLicenseIfMissing,omitempty"`
-	DashboardQuota *int32 `json:"dashboardQuota,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Graphite *bool `json:"graphite,omitempty"`
-	HlCluster *string `json:"hlCluster,omitempty"`
-	HlInstanceId *int32 `json:"hlInstanceId,omitempty"`
-	HmGraphiteCluster *string `json:"hmGraphiteCluster,omitempty"`
-	HmGraphiteType *string `json:"hmGraphiteType,omitempty"`
-	HmPromCluster *string `json:"hmPromCluster,omitempty"`
-	Hosted *bool `json:"hosted,omitempty"`
-	HtCluster *string `json:"htCluster,omitempty"`
-	Incident *bool `json:"incident,omitempty"`
-	IssueLink *string `json:"issueLink,omitempty"`
-	K6OrgId *int32 `json:"k6OrgId,omitempty"`
-	Logs *bool `json:"logs,omitempty"`
-	MachineLearning *bool `json:"machineLearning,omitempty"`
-	MachineLearningLogsToken *string `json:"machineLearningLogsToken,omitempty"`
-	Multitenant *bool `json:"multitenant,omitempty"`
-	Name string `json:"name"`
-	Org *string `json:"org,omitempty"`
-	Plan *string `json:"plan,omitempty"`
-	Plugins []string `json:"plugins,omitempty"`
-	Prometheus *bool `json:"prometheus,omitempty"`
-	PublicInstance *bool `json:"publicInstance,omitempty"`
-	ReasonType *string `json:"reasonType,omitempty"`
-	Region *string `json:"region,omitempty"`
-	SkipOrgConflictCheck *bool `json:"skipOrgConflictCheck,omitempty"`
-	Slug *string `json:"slug,omitempty"`
-	Trial *bool `json:"trial,omitempty"`
-	TrialExpiresAt *time.Time `json:"trialExpiresAt,omitempty"`
-	Url *string `json:"url,omitempty"`
-	UsernameOrEmail *string `json:"usernameOrEmail,omitempty"`
-	UserQuota *int32 `json:"userQuota,omitempty"`
-	Version *string `json:"version,omitempty"`
-	WaitForReadiness *bool `json:"waitForReadiness,omitempty"`
+	AdminUserInstance               *bool      `json:"adminUserInstance,omitempty"`
+	AlertQuota                      *int32     `json:"alertQuota,omitempty"`
+	Alerts                          *bool      `json:"alerts,omitempty"`
+	AmCluster                       *string    `json:"amCluster,omitempty"`
+	BillingEndDate                  *time.Time `json:"billingEndDate,omitempty"`
+	BillingStartDate                *time.Time `json:"billingStartDate,omitempty"`
+	Cluster                         *string    `json:"cluster,omitempty"`
+	CreateTemporaryLicenseIfMissing *bool      `json:"createTemporaryLicenseIfMissing,omitempty"`
+	DashboardQuota                  *int32     `json:"dashboardQuota,omitempty"`
+	Description                     *string    `json:"description,omitempty"`
+	Graphite                        *bool      `json:"graphite,omitempty"`
+	HlCluster                       *string    `json:"hlCluster,omitempty"`
+	HlInstanceId                    *int32     `json:"hlInstanceId,omitempty"`
+	HmGraphiteCluster               *string    `json:"hmGraphiteCluster,omitempty"`
+	HmGraphiteType                  *string    `json:"hmGraphiteType,omitempty"`
+	HmPromCluster                   *string    `json:"hmPromCluster,omitempty"`
+	Hosted                          *bool      `json:"hosted,omitempty"`
+	HtCluster                       *string    `json:"htCluster,omitempty"`
+	Incident                        *bool      `json:"incident,omitempty"`
+	IssueLink                       *string    `json:"issueLink,omitempty"`
+	K6OrgId                         *int32     `json:"k6OrgId,omitempty"`
+	Logs                            *bool      `json:"logs,omitempty"`
+	MachineLearning                 *bool      `json:"machineLearning,omitempty"`
+	MachineLearningLogsToken        *string    `json:"machineLearningLogsToken,omitempty"`
+	Multitenant                     *bool      `json:"multitenant,omitempty"`
+	Name                            string     `json:"name"`
+	Org                             *string    `json:"org,omitempty"`
+	Plan                            *string    `json:"plan,omitempty"`
+	Plugins                         []string   `json:"plugins,omitempty"`
+	Prometheus                      *bool      `json:"prometheus,omitempty"`
+	PublicInstance                  *bool      `json:"publicInstance,omitempty"`
+	ReasonType                      *string    `json:"reasonType,omitempty"`
+	Region                          *string    `json:"region,omitempty"`
+	SkipOrgConflictCheck            *bool      `json:"skipOrgConflictCheck,omitempty"`
+	Slug                            *string    `json:"slug,omitempty"`
+	Trial                           *bool      `json:"trial,omitempty"`
+	TrialExpiresAt                  *time.Time `json:"trialExpiresAt,omitempty"`
+	Url                             *string    `json:"url,omitempty"`
+	UsernameOrEmail                 *string    `json:"usernameOrEmail,omitempty"`
+	UserQuota                       *int32     `json:"userQuota,omitempty"`
+	Version                         *string    `json:"version,omitempty"`
+	WaitForReadiness                *bool      `json:"waitForReadiness,omitempty"`
 }
 
 type _PostInstancesRequest PostInstancesRequest
@@ -1427,7 +1427,7 @@ func (o *PostInstancesRequest) SetWaitForReadiness(v bool) {
 }
 
 func (o PostInstancesRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1576,10 +1576,10 @@ func (o *PostInstancesRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -1635,5 +1635,3 @@ func (v *NullablePostInstancesRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

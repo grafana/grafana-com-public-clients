@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -16,19 +16,18 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
 )
-
 
 // OrgsAPIService OrgsAPI service
 type OrgsAPIService service
 
 type ApiDelApiKeyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *OrgsAPIService
-	name string
-	slugOrId string
+	name       string
+	slugOrId   string
 	xRequestId *string
 }
 
@@ -52,18 +51,18 @@ DelApiKey Delete an API key by name
 func (a *OrgsAPIService) DelApiKey(ctx context.Context, name string, slugOrId string) ApiDelApiKeyRequest {
 	return ApiDelApiKeyRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
-		slugOrId: slugOrId,
+		ctx:        ctx,
+		name:       name,
+		slugOrId:   slugOrId,
 	}
 }
 
 // Execute executes the request
 func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.DelApiKey")
@@ -129,8 +128,8 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -140,8 +139,8 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -151,8 +150,8 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -162,8 +161,8 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -173,8 +172,8 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -183,10 +182,10 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 }
 
 type ApiGetApiKeyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *OrgsAPIService
-	name string
-	slugOrId string
+	name       string
+	slugOrId   string
 }
 
 func (r ApiGetApiKeyRequest) Execute() (*FormattedApiApiKey, *http.Response, error) {
@@ -204,9 +203,9 @@ GetApiKey Get an API key by name
 func (a *OrgsAPIService) GetApiKey(ctx context.Context, name string, slugOrId string) ApiGetApiKeyRequest {
 	return ApiGetApiKeyRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
-		slugOrId: slugOrId,
+		ctx:        ctx,
+		name:       name,
+		slugOrId:   slugOrId,
 	}
 }
 
@@ -214,10 +213,10 @@ func (a *OrgsAPIService) GetApiKey(ctx context.Context, name string, slugOrId st
 //  @return FormattedApiApiKey
 func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiApiKey, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiApiKey
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiApiKey
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.GetApiKey")
@@ -279,8 +278,8 @@ func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -290,8 +289,8 @@ func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -301,8 +300,8 @@ func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -312,8 +311,8 @@ func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -331,18 +330,18 @@ func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiA
 }
 
 type ApiGetApiKeysRequest struct {
-	ctx context.Context
-	ApiService *OrgsAPIService
-	slugOrId string
-	direction *string
+	ctx                context.Context
+	ApiService         *OrgsAPIService
+	slugOrId           string
+	direction          *string
 	excludeProvisioned *bool
-	id *int32
-	idIn *[]int32
-	name *string
-	nameIn *[]string
-	orderBy *string
-	role *string
-	roleIn *[]string
+	id                 *int32
+	idIn               *[]int32
+	name               *string
+	nameIn             *[]string
+	orderBy            *string
+	role               *string
+	roleIn             *[]string
 }
 
 func (r ApiGetApiKeysRequest) Direction(direction string) ApiGetApiKeysRequest {
@@ -404,8 +403,8 @@ GetApiKeys Get an organization's API keys
 func (a *OrgsAPIService) GetApiKeys(ctx context.Context, slugOrId string) ApiGetApiKeysRequest {
 	return ApiGetApiKeysRequest{
 		ApiService: a,
-		ctx: ctx,
-		slugOrId: slugOrId,
+		ctx:        ctx,
+		slugOrId:   slugOrId,
 	}
 }
 
@@ -413,10 +412,10 @@ func (a *OrgsAPIService) GetApiKeys(ctx context.Context, slugOrId string) ApiGet
 //  @return FormattedApiApiKeyListResponse
 func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedApiApiKeyListResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiApiKeyListResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiApiKeyListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.GetApiKeys")
@@ -528,8 +527,8 @@ func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -539,8 +538,8 @@ func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -550,8 +549,8 @@ func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -561,8 +560,8 @@ func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedAp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -580,9 +579,9 @@ func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedAp
 }
 
 type ApiGetOrgRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *OrgsAPIService
-	slugOrId string
+	slugOrId   string
 }
 
 func (r ApiGetOrgRequest) Execute() (*FormattedApiOrg, *http.Response, error) {
@@ -599,8 +598,8 @@ GetOrg Method for GetOrg
 func (a *OrgsAPIService) GetOrg(ctx context.Context, slugOrId string) ApiGetOrgRequest {
 	return ApiGetOrgRequest{
 		ApiService: a,
-		ctx: ctx,
-		slugOrId: slugOrId,
+		ctx:        ctx,
+		slugOrId:   slugOrId,
 	}
 }
 
@@ -608,10 +607,10 @@ func (a *OrgsAPIService) GetOrg(ctx context.Context, slugOrId string) ApiGetOrgR
 //  @return FormattedApiOrg
 func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrg, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiOrg
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiOrg
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.GetOrg")
@@ -672,8 +671,8 @@ func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrg, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -683,8 +682,8 @@ func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrg, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -702,24 +701,24 @@ func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrg, *h
 }
 
 type ApiGetOrgInstancesRequest struct {
-	ctx context.Context
-	ApiService *OrgsAPIService
-	slug string
-	cluster *string
-	direction *string
-	id *string
-	idIn *string
+	ctx            context.Context
+	ApiService     *OrgsAPIService
+	slug           string
+	cluster        *string
+	direction      *string
+	id             *string
+	idIn           *string
 	includeDeleted *bool
-	name *string
-	nameIn *string
-	orderBy *string
-	plan *string
-	planIn *string
-	planNot *string
-	slug2 *string
-	slugIn *string
-	url *string
-	urlIn *string
+	name           *string
+	nameIn         *string
+	orderBy        *string
+	plan           *string
+	planIn         *string
+	planNot        *string
+	slug2          *string
+	slugIn         *string
+	url            *string
+	urlIn          *string
 }
 
 func (r ApiGetOrgInstancesRequest) Cluster(cluster string) ApiGetOrgInstancesRequest {
@@ -811,8 +810,8 @@ GetOrgInstances Get the list of instances belonging to the org
 func (a *OrgsAPIService) GetOrgInstances(ctx context.Context, slug string) ApiGetOrgInstancesRequest {
 	return ApiGetOrgInstancesRequest{
 		ApiService: a,
-		ctx: ctx,
-		slug: slug,
+		ctx:        ctx,
+		slug:       slug,
 	}
 }
 
@@ -820,10 +819,10 @@ func (a *OrgsAPIService) GetOrgInstances(ctx context.Context, slug string) ApiGe
 //  @return GetInstances200Response
 func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*GetInstances200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetInstances200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetInstances200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.GetOrgInstances")
@@ -929,8 +928,8 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -940,8 +939,8 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -951,8 +950,8 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -962,8 +961,8 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -981,10 +980,10 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 }
 
 type ApiPostApiKeysRequest struct {
-	ctx context.Context
-	ApiService *OrgsAPIService
-	slugOrId string
-	xRequestId *string
+	ctx                context.Context
+	ApiService         *OrgsAPIService
+	slugOrId           string
+	xRequestId         *string
 	postApiKeysRequest *PostApiKeysRequest
 }
 
@@ -1012,8 +1011,8 @@ PostApiKeys Create an API key.
 func (a *OrgsAPIService) PostApiKeys(ctx context.Context, slugOrId string) ApiPostApiKeysRequest {
 	return ApiPostApiKeysRequest{
 		ApiService: a,
-		ctx: ctx,
-		slugOrId: slugOrId,
+		ctx:        ctx,
+		slugOrId:   slugOrId,
 	}
 }
 
@@ -1021,10 +1020,10 @@ func (a *OrgsAPIService) PostApiKeys(ctx context.Context, slugOrId string) ApiPo
 //  @return FormattedApiApiKey
 func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*FormattedApiApiKey, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiApiKey
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiApiKey
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.PostApiKeys")
@@ -1094,8 +1093,8 @@ func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*Formatted
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1105,8 +1104,8 @@ func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*Formatted
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1116,8 +1115,8 @@ func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*Formatted
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1127,8 +1126,8 @@ func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*Formatted
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1138,8 +1137,8 @@ func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*Formatted
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

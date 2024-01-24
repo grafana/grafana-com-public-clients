@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -11,8 +11,8 @@ API version: internal
 package gcom
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,13 +21,13 @@ var _ MappedNullable = &Current2{}
 
 // Current2 struct for Current2
 type Current2 struct {
-	Product string `json:"product"`
-	IsTrial bool `json:"isTrial"`
-	EndDate interface{} `json:"endDate"`
-	Payload map[string]interface{} `json:"payload"`
-	Plan NullableString `json:"plan"`
-	PublicName NullableString `json:"publicName"`
-	EnterprisePluginsAdded bool `json:"enterprisePluginsAdded"`
+	Product                string                 `json:"product"`
+	IsTrial                bool                   `json:"isTrial"`
+	EndDate                interface{}            `json:"endDate"`
+	Payload                map[string]interface{} `json:"payload"`
+	Plan                   NullableString         `json:"plan"`
+	PublicName             NullableString         `json:"publicName"`
+	EnterprisePluginsAdded bool                   `json:"enterprisePluginsAdded"`
 }
 
 type _Current2 Current2
@@ -231,7 +231,7 @@ func (o *Current2) SetEnterprisePluginsAdded(v bool) {
 }
 
 func (o Current2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,10 +271,10 @@ func (o *Current2) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -330,5 +330,3 @@ func (v *NullableCurrent2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

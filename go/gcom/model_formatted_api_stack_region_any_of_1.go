@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -11,8 +11,8 @@ API version: internal
 package gcom
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,63 +21,63 @@ var _ MappedNullable = &FormattedApiStackRegionAnyOf1{}
 
 // FormattedApiStackRegionAnyOf1 struct for FormattedApiStackRegionAnyOf1
 type FormattedApiStackRegionAnyOf1 struct {
-	StackStateServiceUrl string `json:"stackStateServiceUrl"`
-	SyntheticMonitoringApiUrl string `json:"syntheticMonitoringApiUrl"`
-	InsightsApiUrl string `json:"insightsApiUrl"`
-	IntegrationsApiUrl string `json:"integrationsApiUrl"`
-	HostedExportersApiUrl string `json:"hostedExportersApiUrl"`
-	MachineLearningApiUrl string `json:"machineLearningApiUrl"`
-	IncidentApiUrl string `json:"incidentApiUrl"`
-	OncallApiUrl string `json:"oncallApiUrl"`
-	FaroEndpointUrl string `json:"faroEndpointUrl"`
-	PdcClusterSlug string `json:"pdcClusterSlug"`
-	OtlpHttpUrl NullableString `json:"otlpHttpUrl"`
-	AuthApiUrl string `json:"authApiUrl"`
-	AuthApiTokenSet bool `json:"authApiTokenSet"`
-	HgClusterId float32 `json:"hgClusterId"`
-	HgClusterSlug string `json:"hgClusterSlug"`
-	HgClusterName string `json:"hgClusterName"`
-	HgClusterUrl string `json:"hgClusterUrl"`
-	HmPromClusterId float32 `json:"hmPromClusterId"`
-	HmPromClusterSlug string `json:"hmPromClusterSlug"`
-	HmPromClusterName string `json:"hmPromClusterName"`
-	HmPromClusterUrl string `json:"hmPromClusterUrl"`
-	HmGraphiteClusterId float32 `json:"hmGraphiteClusterId"`
-	HmGraphiteClusterSlug string `json:"hmGraphiteClusterSlug"`
-	HmGraphiteClusterName string `json:"hmGraphiteClusterName"`
-	HmGraphiteClusterUrl string `json:"hmGraphiteClusterUrl"`
-	HlClusterId float32 `json:"hlClusterId"`
-	HlClusterSlug string `json:"hlClusterSlug"`
-	HlClusterName string `json:"hlClusterName"`
-	HlClusterUrl string `json:"hlClusterUrl"`
-	AmClusterId float32 `json:"amClusterId"`
-	AmClusterSlug string `json:"amClusterSlug"`
-	AmClusterName string `json:"amClusterName"`
-	AmClusterUrl string `json:"amClusterUrl"`
-	HtClusterId float32 `json:"htClusterId"`
-	HtClusterSlug string `json:"htClusterSlug"`
-	HtClusterName string `json:"htClusterName"`
-	HtClusterUrl string `json:"htClusterUrl"`
-	HpClusterId float32 `json:"hpClusterId"`
-	HpClusterSlug string `json:"hpClusterSlug"`
-	HpClusterName string `json:"hpClusterName"`
-	HpClusterUrl string `json:"hpClusterUrl"`
-	AgmClusterId float32 `json:"agmClusterId"`
-	AgmClusterSlug string `json:"agmClusterSlug"`
-	AgmClusterName string `json:"agmClusterName"`
-	AgmClusterUrl string `json:"agmClusterUrl"`
-	ProviderRegion string `json:"providerRegion"`
-	Id float32 `json:"id"`
-	Status string `json:"status"`
-	Visibility string `json:"visibility"`
-	Slug string `json:"slug"`
-	Name string `json:"name"`
-	PublicName string `json:"publicName"`
-	Description string `json:"description"`
-	Provider string `json:"provider"`
-	CreatedAt string `json:"createdAt"`
-	UpdatedAt NullableString `json:"updatedAt"`
-	SortOrder float32 `json:"sortOrder"`
+	StackStateServiceUrl      string         `json:"stackStateServiceUrl"`
+	SyntheticMonitoringApiUrl string         `json:"syntheticMonitoringApiUrl"`
+	InsightsApiUrl            string         `json:"insightsApiUrl"`
+	IntegrationsApiUrl        string         `json:"integrationsApiUrl"`
+	HostedExportersApiUrl     string         `json:"hostedExportersApiUrl"`
+	MachineLearningApiUrl     string         `json:"machineLearningApiUrl"`
+	IncidentApiUrl            string         `json:"incidentApiUrl"`
+	OncallApiUrl              string         `json:"oncallApiUrl"`
+	FaroEndpointUrl           string         `json:"faroEndpointUrl"`
+	PdcClusterSlug            string         `json:"pdcClusterSlug"`
+	OtlpHttpUrl               NullableString `json:"otlpHttpUrl"`
+	AuthApiUrl                string         `json:"authApiUrl"`
+	AuthApiTokenSet           bool           `json:"authApiTokenSet"`
+	HgClusterId               float32        `json:"hgClusterId"`
+	HgClusterSlug             string         `json:"hgClusterSlug"`
+	HgClusterName             string         `json:"hgClusterName"`
+	HgClusterUrl              string         `json:"hgClusterUrl"`
+	HmPromClusterId           float32        `json:"hmPromClusterId"`
+	HmPromClusterSlug         string         `json:"hmPromClusterSlug"`
+	HmPromClusterName         string         `json:"hmPromClusterName"`
+	HmPromClusterUrl          string         `json:"hmPromClusterUrl"`
+	HmGraphiteClusterId       float32        `json:"hmGraphiteClusterId"`
+	HmGraphiteClusterSlug     string         `json:"hmGraphiteClusterSlug"`
+	HmGraphiteClusterName     string         `json:"hmGraphiteClusterName"`
+	HmGraphiteClusterUrl      string         `json:"hmGraphiteClusterUrl"`
+	HlClusterId               float32        `json:"hlClusterId"`
+	HlClusterSlug             string         `json:"hlClusterSlug"`
+	HlClusterName             string         `json:"hlClusterName"`
+	HlClusterUrl              string         `json:"hlClusterUrl"`
+	AmClusterId               float32        `json:"amClusterId"`
+	AmClusterSlug             string         `json:"amClusterSlug"`
+	AmClusterName             string         `json:"amClusterName"`
+	AmClusterUrl              string         `json:"amClusterUrl"`
+	HtClusterId               float32        `json:"htClusterId"`
+	HtClusterSlug             string         `json:"htClusterSlug"`
+	HtClusterName             string         `json:"htClusterName"`
+	HtClusterUrl              string         `json:"htClusterUrl"`
+	HpClusterId               float32        `json:"hpClusterId"`
+	HpClusterSlug             string         `json:"hpClusterSlug"`
+	HpClusterName             string         `json:"hpClusterName"`
+	HpClusterUrl              string         `json:"hpClusterUrl"`
+	AgmClusterId              float32        `json:"agmClusterId"`
+	AgmClusterSlug            string         `json:"agmClusterSlug"`
+	AgmClusterName            string         `json:"agmClusterName"`
+	AgmClusterUrl             string         `json:"agmClusterUrl"`
+	ProviderRegion            string         `json:"providerRegion"`
+	Id                        float32        `json:"id"`
+	Status                    string         `json:"status"`
+	Visibility                string         `json:"visibility"`
+	Slug                      string         `json:"slug"`
+	Name                      string         `json:"name"`
+	PublicName                string         `json:"publicName"`
+	Description               string         `json:"description"`
+	Provider                  string         `json:"provider"`
+	CreatedAt                 string         `json:"createdAt"`
+	UpdatedAt                 NullableString `json:"updatedAt"`
+	SortOrder                 float32        `json:"sortOrder"`
 }
 
 type _FormattedApiStackRegionAnyOf1 FormattedApiStackRegionAnyOf1
@@ -1529,7 +1529,7 @@ func (o *FormattedApiStackRegionAnyOf1) SetSortOrder(v float32) {
 }
 
 func (o FormattedApiStackRegionAnyOf1) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1667,10 +1667,10 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -1726,5 +1726,3 @@ func (v *NullableFormattedApiStackRegionAnyOf1) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

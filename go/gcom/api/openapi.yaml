@@ -3416,17 +3416,7 @@ components:
         hgPluginUsersOverageRate: 5.296102445648278
         hlTier1Rate: 7.835035282970782
         irmTier2Rate: 7.3718573971919445
-        subscriptions:
-          next: ""
-          current:
-            product: ""
-            endDate: ""
-            payload: "{}"
-            publicName: ""
-            enterprisePluginsAdded: true
-            isTrial: true
-            plan: ""
-          nextProduct: ""
+        subscriptions: null
         isContractedLicenseAutoProvision: true
         feO11yUsage: 0.4867146239815201
         geUsersOverageAmount: 3.5571952270680973
@@ -5011,9 +5001,6 @@ components:
       - role
       type: object
     postAllApiKeys_401_response:
-      example:
-        code: InvalidCredentials
-        message: message
       properties:
         message:
           type: string
@@ -5023,9 +5010,6 @@ components:
           type: string
       type: object
     postAllApiKeys_403_response:
-      example:
-        code: Forbidden
-        message: message
       properties:
         message:
           type: string
@@ -5035,9 +5019,6 @@ components:
           type: string
       type: object
     postAllApiKeys_409_response:
-      example:
-        code: Conflict
-        message: message
       properties:
         message:
           type: string
@@ -5047,9 +5028,6 @@ components:
           type: string
       type: object
     postAllApiKeys_503_response:
-      example:
-        code: ServiceUnavailable
-        message: message
       properties:
         message:
           type: string
@@ -5395,9 +5373,6 @@ components:
       - name
       type: object
     getInstance_404_response:
-      example:
-        code: NotFound
-        message: message
       properties:
         message:
           type: string
@@ -5613,34 +5588,14 @@ components:
       type: object
     getStackRegions_200_response:
       example:
-        total: 1.4658129805029452
-        pages: 5.962133916683182
+        total: 0.8008281904610115
+        pages: 6.027456183070403
         orderBy: orderBy
-        pageSize: 5.637376656633329
-        page: 2.3021358869347655
+        pageSize: 1.4658129805029452
+        page: 5.962133916683182
         items:
-        - createdAt: createdAt
-          visibility: visibility
-          publicName: publicName
-          provider: aws
-          sortOrder: 6.027456183070403
-          name: name
-          description: description
-          id: 0.8008281904610115
-          slug: slug
-          status: status
-          updatedAt: updatedAt
-        - createdAt: createdAt
-          visibility: visibility
-          publicName: publicName
-          provider: aws
-          sortOrder: 6.027456183070403
-          name: name
-          description: description
-          id: 0.8008281904610115
-          slug: slug
-          status: status
-          updatedAt: updatedAt
+        - null
+        - null
         direction: asc
       properties:
         items:
@@ -5915,14 +5870,6 @@ components:
       - rel
       type: object
     current:
-      example:
-        product: ""
-        endDate: ""
-        payload: "{}"
-        publicName: ""
-        enterprisePluginsAdded: true
-        isTrial: true
-        plan: ""
       properties:
         product:
           nullable: true
@@ -5956,17 +5903,6 @@ components:
       title: current
       type: object
     subscriptions_anyOf:
-      example:
-        next: ""
-        current:
-          product: ""
-          endDate: ""
-          payload: "{}"
-          publicName: ""
-          enterprisePluginsAdded: true
-          isTrial: true
-          plan: ""
-        nextProduct: ""
       properties:
         current:
           $ref: '#/components/schemas/current'
@@ -6131,18 +6067,6 @@ components:
       - $ref: '#/components/schemas/subscriptions_anyOf_2'
       title: subscriptions
     FormattedApiStackRegion_anyOf:
-      example:
-        createdAt: createdAt
-        visibility: visibility
-        publicName: publicName
-        provider: aws
-        sortOrder: 6.027456183070403
-        name: name
-        description: description
-        id: 0.8008281904610115
-        slug: slug
-        status: status
-        updatedAt: updatedAt
       properties:
         id:
           title: id

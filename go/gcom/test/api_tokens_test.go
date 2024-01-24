@@ -11,10 +11,11 @@ package gcom
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
 )
 
 func Test_gcom_TokensAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_gcom_TokensAPIService(t *testing.T) {
 
 	t.Run("Test TokensAPIService DeleteToken", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -38,7 +39,7 @@ func Test_gcom_TokensAPIService(t *testing.T) {
 
 	t.Run("Test TokensAPIService GetToken", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -52,7 +53,7 @@ func Test_gcom_TokensAPIService(t *testing.T) {
 
 	t.Run("Test TokensAPIService GetTokens", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.TokensAPI.GetTokens(context.Background()).Execute()
 
@@ -64,7 +65,7 @@ func Test_gcom_TokensAPIService(t *testing.T) {
 
 	t.Run("Test TokensAPIService PostToken", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -78,7 +79,7 @@ func Test_gcom_TokensAPIService(t *testing.T) {
 
 	t.Run("Test TokensAPIService PostTokens", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.TokensAPI.PostTokens(context.Background()).Execute()
 

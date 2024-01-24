@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -11,8 +11,8 @@ API version: internal
 package gcom
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,91 +21,91 @@ var _ MappedNullable = &FormattedApiInstance{}
 
 // FormattedApiInstance struct for FormattedApiInstance
 type FormattedApiInstance struct {
-	AlertCnt float32 `json:"alertCnt"`
-	AlertQuota float32 `json:"alertQuota"`
-	AmInstanceGeneratorUrl string `json:"amInstanceGeneratorUrl"`
-	AmInstanceGeneratorUrlDatasource string `json:"amInstanceGeneratorUrlDatasource"`
-	AmInstanceId float32 `json:"amInstanceId"`
-	AmInstanceName string `json:"amInstanceName"`
-	AmInstanceStatus string `json:"amInstanceStatus"`
-	AmInstanceUrl string `json:"amInstanceUrl"`
-	BillingActiveUsers float32 `json:"billingActiveUsers"`
-	BillingEndDate string `json:"billingEndDate"`
-	BillingGrafanaActiveUsers float32 `json:"billingGrafanaActiveUsers"`
-	BillingOnCallActiveUsers float32 `json:"billingOnCallActiveUsers"`
-	BillingStartDate string `json:"billingStartDate"`
-	ClusterId float32 `json:"clusterId"`
-	ClusterName string `json:"clusterName"`
-	ClusterSlug string `json:"clusterSlug"`
-	CreatedAt string `json:"createdAt"`
-	CreatedBy string `json:"createdBy"`
-	CurrentActiveAdminUsers float32 `json:"currentActiveAdminUsers"`
-	CurrentActiveEditorUsers float32 `json:"currentActiveEditorUsers"`
-	CurrentActiveUsers float32 `json:"currentActiveUsers"`
-	CurrentActiveViewerUsers float32 `json:"currentActiveViewerUsers"`
-	CustomAuth bool `json:"customAuth"`
-	CustomDomain bool `json:"customDomain"`
-	DailyAdminCnt float32 `json:"dailyAdminCnt"`
-	DailyEditorCnt float32 `json:"dailyEditorCnt"`
-	DailyUserCnt float32 `json:"dailyUserCnt"`
-	DailyViewerCnt float32 `json:"dailyViewerCnt"`
-	DashboardCnt float32 `json:"dashboardCnt"`
-	DashboardQuota float32 `json:"dashboardQuota"`
-	DatasourceCnts map[string]interface{} `json:"datasourceCnts"`
-	Description string `json:"description"`
-	Gateway string `json:"gateway"`
-	HlInstanceCurrentUsage float32 `json:"hlInstanceCurrentUsage"`
-	HlInstanceId float32 `json:"hlInstanceId"`
-	HlInstanceName string `json:"hlInstanceName"`
-	HlInstanceStatus string `json:"hlInstanceStatus"`
-	HlInstanceUrl string `json:"hlInstanceUrl"`
-	HmInstanceGraphiteCurrentUsage float32 `json:"hmInstanceGraphiteCurrentUsage"`
-	HmInstanceGraphiteId float32 `json:"hmInstanceGraphiteId"`
-	HmInstanceGraphiteName string `json:"hmInstanceGraphiteName"`
-	HmInstanceGraphiteStatus string `json:"hmInstanceGraphiteStatus"`
-	HmInstanceGraphiteType string `json:"hmInstanceGraphiteType"`
-	HmInstanceGraphiteUrl string `json:"hmInstanceGraphiteUrl"`
-	HmInstancePromCurrentActiveSeries interface{} `json:"hmInstancePromCurrentActiveSeries"`
-	HmInstancePromCurrentUsage float32 `json:"hmInstancePromCurrentUsage"`
-	HmInstancePromId float32 `json:"hmInstancePromId"`
-	HmInstancePromName string `json:"hmInstancePromName"`
-	HmInstancePromStatus string `json:"hmInstancePromStatus"`
-	HmInstancePromUrl string `json:"hmInstancePromUrl"`
-	HtInstanceId float32 `json:"htInstanceId"`
-	HtInstanceName string `json:"htInstanceName"`
-	HtInstanceStatus string `json:"htInstanceStatus"`
-	HtInstanceUrl string `json:"htInstanceUrl"`
-	HpInstanceId float32 `json:"hpInstanceId"`
-	HpInstanceName string `json:"hpInstanceName"`
-	HpInstanceStatus string `json:"hpInstanceStatus"`
-	HpInstanceUrl string `json:"hpInstanceUrl"`
-	Id float32 `json:"id"`
-	Incident float32 `json:"incident"`
-	MachineLearning float32 `json:"machineLearning"`
-	Name string `json:"name"`
-	OrgId float32 `json:"orgId"`
-	OrgName string `json:"orgName"`
-	OrgSlug string `json:"orgSlug"`
-	Plan string `json:"plan"`
-	PlanName string `json:"planName"`
-	RegionId float32 `json:"regionId"`
-	RegionSlug string `json:"regionSlug"`
-	RegionPublicName string `json:"regionPublicName"`
-	Provider string `json:"provider"`
-	ProviderRegion string `json:"providerRegion"`
-	RunningVersion string `json:"runningVersion"`
-	Slug string `json:"slug"`
-	Ssl bool `json:"ssl"`
-	Status string `json:"status"`
-	Support bool `json:"support"`
-	Trial float32 `json:"trial"`
-	TrialExpiresAt NullableString `json:"trialExpiresAt"`
-	UpdatedAt NullableString `json:"updatedAt"`
-	UpdatedBy NullableString `json:"updatedBy"`
-	Url string `json:"url"`
-	UserQuota float32 `json:"userQuota"`
-	Version string `json:"version"`
-	AgentManagementInstanceId float32 `json:"agentManagementInstanceId"`
+	AlertCnt                          float32                `json:"alertCnt"`
+	AlertQuota                        float32                `json:"alertQuota"`
+	AmInstanceGeneratorUrl            string                 `json:"amInstanceGeneratorUrl"`
+	AmInstanceGeneratorUrlDatasource  string                 `json:"amInstanceGeneratorUrlDatasource"`
+	AmInstanceId                      float32                `json:"amInstanceId"`
+	AmInstanceName                    string                 `json:"amInstanceName"`
+	AmInstanceStatus                  string                 `json:"amInstanceStatus"`
+	AmInstanceUrl                     string                 `json:"amInstanceUrl"`
+	BillingActiveUsers                float32                `json:"billingActiveUsers"`
+	BillingEndDate                    string                 `json:"billingEndDate"`
+	BillingGrafanaActiveUsers         float32                `json:"billingGrafanaActiveUsers"`
+	BillingOnCallActiveUsers          float32                `json:"billingOnCallActiveUsers"`
+	BillingStartDate                  string                 `json:"billingStartDate"`
+	ClusterId                         float32                `json:"clusterId"`
+	ClusterName                       string                 `json:"clusterName"`
+	ClusterSlug                       string                 `json:"clusterSlug"`
+	CreatedAt                         string                 `json:"createdAt"`
+	CreatedBy                         string                 `json:"createdBy"`
+	CurrentActiveAdminUsers           float32                `json:"currentActiveAdminUsers"`
+	CurrentActiveEditorUsers          float32                `json:"currentActiveEditorUsers"`
+	CurrentActiveUsers                float32                `json:"currentActiveUsers"`
+	CurrentActiveViewerUsers          float32                `json:"currentActiveViewerUsers"`
+	CustomAuth                        bool                   `json:"customAuth"`
+	CustomDomain                      bool                   `json:"customDomain"`
+	DailyAdminCnt                     float32                `json:"dailyAdminCnt"`
+	DailyEditorCnt                    float32                `json:"dailyEditorCnt"`
+	DailyUserCnt                      float32                `json:"dailyUserCnt"`
+	DailyViewerCnt                    float32                `json:"dailyViewerCnt"`
+	DashboardCnt                      float32                `json:"dashboardCnt"`
+	DashboardQuota                    float32                `json:"dashboardQuota"`
+	DatasourceCnts                    map[string]interface{} `json:"datasourceCnts"`
+	Description                       string                 `json:"description"`
+	Gateway                           string                 `json:"gateway"`
+	HlInstanceCurrentUsage            float32                `json:"hlInstanceCurrentUsage"`
+	HlInstanceId                      float32                `json:"hlInstanceId"`
+	HlInstanceName                    string                 `json:"hlInstanceName"`
+	HlInstanceStatus                  string                 `json:"hlInstanceStatus"`
+	HlInstanceUrl                     string                 `json:"hlInstanceUrl"`
+	HmInstanceGraphiteCurrentUsage    float32                `json:"hmInstanceGraphiteCurrentUsage"`
+	HmInstanceGraphiteId              float32                `json:"hmInstanceGraphiteId"`
+	HmInstanceGraphiteName            string                 `json:"hmInstanceGraphiteName"`
+	HmInstanceGraphiteStatus          string                 `json:"hmInstanceGraphiteStatus"`
+	HmInstanceGraphiteType            string                 `json:"hmInstanceGraphiteType"`
+	HmInstanceGraphiteUrl             string                 `json:"hmInstanceGraphiteUrl"`
+	HmInstancePromCurrentActiveSeries interface{}            `json:"hmInstancePromCurrentActiveSeries"`
+	HmInstancePromCurrentUsage        float32                `json:"hmInstancePromCurrentUsage"`
+	HmInstancePromId                  float32                `json:"hmInstancePromId"`
+	HmInstancePromName                string                 `json:"hmInstancePromName"`
+	HmInstancePromStatus              string                 `json:"hmInstancePromStatus"`
+	HmInstancePromUrl                 string                 `json:"hmInstancePromUrl"`
+	HtInstanceId                      float32                `json:"htInstanceId"`
+	HtInstanceName                    string                 `json:"htInstanceName"`
+	HtInstanceStatus                  string                 `json:"htInstanceStatus"`
+	HtInstanceUrl                     string                 `json:"htInstanceUrl"`
+	HpInstanceId                      float32                `json:"hpInstanceId"`
+	HpInstanceName                    string                 `json:"hpInstanceName"`
+	HpInstanceStatus                  string                 `json:"hpInstanceStatus"`
+	HpInstanceUrl                     string                 `json:"hpInstanceUrl"`
+	Id                                float32                `json:"id"`
+	Incident                          float32                `json:"incident"`
+	MachineLearning                   float32                `json:"machineLearning"`
+	Name                              string                 `json:"name"`
+	OrgId                             float32                `json:"orgId"`
+	OrgName                           string                 `json:"orgName"`
+	OrgSlug                           string                 `json:"orgSlug"`
+	Plan                              string                 `json:"plan"`
+	PlanName                          string                 `json:"planName"`
+	RegionId                          float32                `json:"regionId"`
+	RegionSlug                        string                 `json:"regionSlug"`
+	RegionPublicName                  string                 `json:"regionPublicName"`
+	Provider                          string                 `json:"provider"`
+	ProviderRegion                    string                 `json:"providerRegion"`
+	RunningVersion                    string                 `json:"runningVersion"`
+	Slug                              string                 `json:"slug"`
+	Ssl                               bool                   `json:"ssl"`
+	Status                            string                 `json:"status"`
+	Support                           bool                   `json:"support"`
+	Trial                             float32                `json:"trial"`
+	TrialExpiresAt                    NullableString         `json:"trialExpiresAt"`
+	UpdatedAt                         NullableString         `json:"updatedAt"`
+	UpdatedBy                         NullableString         `json:"updatedBy"`
+	Url                               string                 `json:"url"`
+	UserQuota                         float32                `json:"userQuota"`
+	Version                           string                 `json:"version"`
+	AgentManagementInstanceId         float32                `json:"agentManagementInstanceId"`
 }
 
 type _FormattedApiInstance FormattedApiInstance
@@ -2261,7 +2261,7 @@ func (o *FormattedApiInstance) SetAgentManagementInstanceId(v float32) {
 }
 
 func (o FormattedApiInstance) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -2457,10 +2457,10 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -2516,5 +2516,3 @@ func (v *NullableFormattedApiInstance) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

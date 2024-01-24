@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -13,12 +13,11 @@ package gcom
 import (
 	"encoding/json"
 	"fmt"
-	"bytes"
 )
 
 // Subscriptions struct for Subscriptions
 type Subscriptions struct {
-	SubscriptionsAnyOf *SubscriptionsAnyOf
+	SubscriptionsAnyOf  *SubscriptionsAnyOf
 	SubscriptionsAnyOf1 *SubscriptionsAnyOf1
 	SubscriptionsAnyOf2 *SubscriptionsAnyOf2
 }
@@ -27,7 +26,7 @@ type Subscriptions struct {
 func (dst *Subscriptions) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into SubscriptionsAnyOf
-	err = json.Unmarshal(data, &dst.SubscriptionsAnyOf);
+	err = json.Unmarshal(data, &dst.SubscriptionsAnyOf)
 	if err == nil {
 		jsonSubscriptionsAnyOf, _ := json.Marshal(dst.SubscriptionsAnyOf)
 		if string(jsonSubscriptionsAnyOf) == "{}" { // empty struct
@@ -40,7 +39,7 @@ func (dst *Subscriptions) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal JSON data into SubscriptionsAnyOf1
-	err = json.Unmarshal(data, &dst.SubscriptionsAnyOf1);
+	err = json.Unmarshal(data, &dst.SubscriptionsAnyOf1)
 	if err == nil {
 		jsonSubscriptionsAnyOf1, _ := json.Marshal(dst.SubscriptionsAnyOf1)
 		if string(jsonSubscriptionsAnyOf1) == "{}" { // empty struct
@@ -53,7 +52,7 @@ func (dst *Subscriptions) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal JSON data into SubscriptionsAnyOf2
-	err = json.Unmarshal(data, &dst.SubscriptionsAnyOf2);
+	err = json.Unmarshal(data, &dst.SubscriptionsAnyOf2)
 	if err == nil {
 		jsonSubscriptionsAnyOf2, _ := json.Marshal(dst.SubscriptionsAnyOf2)
 		if string(jsonSubscriptionsAnyOf2) == "{}" { // empty struct
@@ -120,5 +119,3 @@ func (v *NullableSubscriptions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

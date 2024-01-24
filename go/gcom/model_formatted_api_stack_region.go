@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -13,12 +13,11 @@ package gcom
 import (
 	"encoding/json"
 	"fmt"
-	"bytes"
 )
 
 // FormattedApiStackRegion struct for FormattedApiStackRegion
 type FormattedApiStackRegion struct {
-	FormattedApiStackRegionAnyOf *FormattedApiStackRegionAnyOf
+	FormattedApiStackRegionAnyOf  *FormattedApiStackRegionAnyOf
 	FormattedApiStackRegionAnyOf1 *FormattedApiStackRegionAnyOf1
 }
 
@@ -26,7 +25,7 @@ type FormattedApiStackRegion struct {
 func (dst *FormattedApiStackRegion) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into FormattedApiStackRegionAnyOf
-	err = json.Unmarshal(data, &dst.FormattedApiStackRegionAnyOf);
+	err = json.Unmarshal(data, &dst.FormattedApiStackRegionAnyOf)
 	if err == nil {
 		jsonFormattedApiStackRegionAnyOf, _ := json.Marshal(dst.FormattedApiStackRegionAnyOf)
 		if string(jsonFormattedApiStackRegionAnyOf) == "{}" { // empty struct
@@ -39,7 +38,7 @@ func (dst *FormattedApiStackRegion) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal JSON data into FormattedApiStackRegionAnyOf1
-	err = json.Unmarshal(data, &dst.FormattedApiStackRegionAnyOf1);
+	err = json.Unmarshal(data, &dst.FormattedApiStackRegionAnyOf1)
 	if err == nil {
 		jsonFormattedApiStackRegionAnyOf1, _ := json.Marshal(dst.FormattedApiStackRegionAnyOf1)
 		if string(jsonFormattedApiStackRegionAnyOf1) == "{}" { // empty struct
@@ -102,5 +101,3 @@ func (v *NullableFormattedApiStackRegion) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

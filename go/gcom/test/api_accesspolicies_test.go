@@ -11,10 +11,11 @@ package gcom
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
 )
 
 func Test_gcom_AccesspoliciesAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_gcom_AccesspoliciesAPIService(t *testing.T) {
 
 	t.Run("Test AccesspoliciesAPIService DeleteAccessPolicy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -38,7 +39,7 @@ func Test_gcom_AccesspoliciesAPIService(t *testing.T) {
 
 	t.Run("Test AccesspoliciesAPIService GetAccessPolicies", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AccesspoliciesAPI.GetAccessPolicies(context.Background()).Execute()
 
@@ -50,7 +51,7 @@ func Test_gcom_AccesspoliciesAPIService(t *testing.T) {
 
 	t.Run("Test AccesspoliciesAPIService GetAccessPolicy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -64,7 +65,7 @@ func Test_gcom_AccesspoliciesAPIService(t *testing.T) {
 
 	t.Run("Test AccesspoliciesAPIService GetConfig", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AccesspoliciesAPI.GetConfig(context.Background()).Execute()
 
@@ -76,7 +77,7 @@ func Test_gcom_AccesspoliciesAPIService(t *testing.T) {
 
 	t.Run("Test AccesspoliciesAPIService PostAccessPolicies", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AccesspoliciesAPI.PostAccessPolicies(context.Background()).Execute()
 
@@ -88,7 +89,7 @@ func Test_gcom_AccesspoliciesAPIService(t *testing.T) {
 
 	t.Run("Test AccesspoliciesAPIService PostAccessPolicy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 

@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -19,20 +19,19 @@ import (
 	"reflect"
 )
 
-
 // StackRegionsAPIService StackRegionsAPI service
 type StackRegionsAPIService service
 
 type ApiGetStackRegionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *StackRegionsAPIService
-	direction *string
-	id *int32
-	idIn *[]int32
-	orderBy *string
-	provider *string
-	slug *string
-	slugIn *[]string
+	direction  *string
+	id         *int32
+	idIn       *[]int32
+	orderBy    *string
+	provider   *string
+	slug       *string
+	slugIn     *[]string
 }
 
 func (r ApiGetStackRegionsRequest) Direction(direction string) ApiGetStackRegionsRequest {
@@ -83,7 +82,7 @@ GetStackRegions Method for GetStackRegions
 func (a *StackRegionsAPIService) GetStackRegions(ctx context.Context) ApiGetStackRegionsRequest {
 	return ApiGetStackRegionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -91,10 +90,10 @@ func (a *StackRegionsAPIService) GetStackRegions(ctx context.Context) ApiGetStac
 //  @return GetStackRegions200Response
 func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequest) (*GetStackRegions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetStackRegions200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetStackRegions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StackRegionsAPIService.GetStackRegions")
@@ -191,8 +190,8 @@ func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -202,8 +201,8 @@ func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -213,8 +212,8 @@ func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -11,10 +11,11 @@ package gcom
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
 )
 
 func Test_gcom_InstancesAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService DeleteInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var instanceId string
 
@@ -38,7 +39,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService DeleteInstancePlugin", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var instanceId string
 		var pluginSlugOrId string
@@ -53,7 +54,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService GetInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var instanceId string
 
@@ -67,7 +68,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService GetInstancePlugin", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var instanceId string
 		var pluginSlugOrId string
@@ -82,7 +83,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService GetInstancePlugins", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var instanceId string
 
@@ -96,7 +97,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService GetInstances", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InstancesAPI.GetInstances(context.Background()).Execute()
 
@@ -108,7 +109,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService PostInstance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var instanceId string
 
@@ -122,7 +123,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService PostInstancePlugin", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var instanceId string
 		var pluginSlugOrId string
@@ -137,7 +138,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService PostInstancePlugins", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var instanceId string
 
@@ -151,7 +152,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService PostInstanceServiceAccountTokens", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var instanceId string
 		var serviceAccountId string
@@ -166,7 +167,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService PostInstanceServiceAccounts", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var instanceId string
 
@@ -180,7 +181,7 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService PostInstances", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InstancesAPI.PostInstances(context.Background()).Execute()
 

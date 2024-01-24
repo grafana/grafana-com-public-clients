@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -16,17 +16,16 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
 	"time"
 )
-
 
 // InstancesAPIService InstancesAPI service
 type InstancesAPIService service
 
 type ApiDeleteInstanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InstancesAPIService
 	instanceId string
 	xRequestId *string
@@ -51,7 +50,7 @@ DeleteInstance Deletes an instance
 func (a *InstancesAPIService) DeleteInstance(ctx context.Context, instanceId string) ApiDeleteInstanceRequest {
 	return ApiDeleteInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		instanceId: instanceId,
 	}
 }
@@ -60,10 +59,10 @@ func (a *InstancesAPIService) DeleteInstance(ctx context.Context, instanceId str
 //  @return FormattedApiInstance
 func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiInstance
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiInstance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.DeleteInstance")
@@ -128,8 +127,8 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -139,8 +138,8 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -150,8 +149,8 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -161,8 +160,8 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -172,8 +171,8 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -191,11 +190,11 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 }
 
 type ApiDeleteInstancePluginRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
-	instanceId string
+	ctx            context.Context
+	ApiService     *InstancesAPIService
+	instanceId     string
 	pluginSlugOrId string
-	xRequestId *string
+	xRequestId     *string
 }
 
 func (r ApiDeleteInstancePluginRequest) XRequestId(xRequestId string) ApiDeleteInstancePluginRequest {
@@ -217,9 +216,9 @@ DeleteInstancePlugin Method for DeleteInstancePlugin
 */
 func (a *InstancesAPIService) DeleteInstancePlugin(ctx context.Context, instanceId string, pluginSlugOrId string) ApiDeleteInstancePluginRequest {
 	return ApiDeleteInstancePluginRequest{
-		ApiService: a,
-		ctx: ctx,
-		instanceId: instanceId,
+		ApiService:     a,
+		ctx:            ctx,
+		instanceId:     instanceId,
 		pluginSlugOrId: pluginSlugOrId,
 	}
 }
@@ -228,10 +227,10 @@ func (a *InstancesAPIService) DeleteInstancePlugin(ctx context.Context, instance
 //  @return FormattedApiInstancePlugin
 func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePluginRequest) (*FormattedApiInstancePlugin, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiInstancePlugin
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiInstancePlugin
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.DeleteInstancePlugin")
@@ -297,8 +296,8 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -308,8 +307,8 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -319,8 +318,8 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -330,8 +329,8 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -341,8 +340,8 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -360,10 +359,10 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 }
 
 type ApiGetInstanceRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
-	instanceId string
-	config *bool
+	ctx            context.Context
+	ApiService     *InstancesAPIService
+	instanceId     string
+	config         *bool
 	includeDeleted *bool
 }
 
@@ -391,7 +390,7 @@ GetInstance Gets an instance
 func (a *InstancesAPIService) GetInstance(ctx context.Context, instanceId string) ApiGetInstanceRequest {
 	return ApiGetInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		instanceId: instanceId,
 	}
 }
@@ -400,10 +399,10 @@ func (a *InstancesAPIService) GetInstance(ctx context.Context, instanceId string
 //  @return FormattedApiInstance
 func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiInstance
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiInstance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetInstance")
@@ -470,8 +469,8 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -481,8 +480,8 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -492,8 +491,8 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -503,8 +502,8 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -522,9 +521,9 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 }
 
 type ApiGetInstancePluginRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
-	instanceId string
+	ctx            context.Context
+	ApiService     *InstancesAPIService
+	instanceId     string
 	pluginSlugOrId string
 }
 
@@ -542,9 +541,9 @@ GetInstancePlugin Method for GetInstancePlugin
 */
 func (a *InstancesAPIService) GetInstancePlugin(ctx context.Context, instanceId string, pluginSlugOrId string) ApiGetInstancePluginRequest {
 	return ApiGetInstancePluginRequest{
-		ApiService: a,
-		ctx: ctx,
-		instanceId: instanceId,
+		ApiService:     a,
+		ctx:            ctx,
+		instanceId:     instanceId,
 		pluginSlugOrId: pluginSlugOrId,
 	}
 }
@@ -553,10 +552,10 @@ func (a *InstancesAPIService) GetInstancePlugin(ctx context.Context, instanceId 
 //  @return FormattedApiInstancePlugin
 func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginRequest) (*FormattedApiInstancePlugin, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiInstancePlugin
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiInstancePlugin
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetInstancePlugin")
@@ -618,8 +617,8 @@ func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -629,8 +628,8 @@ func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -640,8 +639,8 @@ func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -651,8 +650,8 @@ func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -670,11 +669,11 @@ func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginReq
 }
 
 type ApiGetInstancePluginsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InstancesAPIService
 	instanceId string
-	direction *string
-	orderBy *string
+	direction  *string
+	orderBy    *string
 }
 
 func (r ApiGetInstancePluginsRequest) Direction(direction string) ApiGetInstancePluginsRequest {
@@ -701,7 +700,7 @@ GetInstancePlugins Method for GetInstancePlugins
 func (a *InstancesAPIService) GetInstancePlugins(ctx context.Context, instanceId string) ApiGetInstancePluginsRequest {
 	return ApiGetInstancePluginsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		instanceId: instanceId,
 	}
 }
@@ -710,10 +709,10 @@ func (a *InstancesAPIService) GetInstancePlugins(ctx context.Context, instanceId
 //  @return GetInstancePlugins200Response
 func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsRequest) (*GetInstancePlugins200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetInstancePlugins200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetInstancePlugins200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetInstancePlugins")
@@ -780,8 +779,8 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -791,8 +790,8 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -802,8 +801,8 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -813,8 +812,8 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -832,55 +831,55 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 }
 
 type ApiGetInstancesRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
-	amInstanceId *int32
-	cluster *string
-	clusterIdIn *[]int32
-	cursor *int32
-	direction *string
-	hlInstanceId *int32
-	hmInstanceGraphiteId *int32
-	hmInstancePromId *int32
-	hosted *bool
-	id *string
-	idIn *string
-	idMin *int32
-	incident *bool
-	includeDeleted *bool
+	ctx                            context.Context
+	ApiService                     *InstancesAPIService
+	amInstanceId                   *int32
+	cluster                        *string
+	clusterIdIn                    *[]int32
+	cursor                         *int32
+	direction                      *string
+	hlInstanceId                   *int32
+	hmInstanceGraphiteId           *int32
+	hmInstancePromId               *int32
+	hosted                         *bool
+	id                             *string
+	idIn                           *string
+	idMin                          *int32
+	incident                       *bool
+	includeDeleted                 *bool
 	includePromCurrentActiveSeries *bool
-	includeVersionIssueLink *bool
-	machineLearning *bool
-	machineLearningLogsToken *string
-	name *string
-	nameIn *string
-	orderBy *string
-	orgAccountManagerId *int32
-	orgAccountOwnerId *int32
-	orgId *string
-	orgIdIn *string
-	orgSlug *string
-	orgSlugIn *string
-	orgType *string
-	page *int32
-	pageSize *int32
-	plan *string
-	planIn *string
-	planNot *string
-	search *string
-	slug *string
-	slugIn *string
-	status *string
-	trial *bool
-	trialExpiresAtMax *time.Time
-	trialExpiresAtMin *time.Time
-	updatedOrCreatedAtMin *time.Time
-	url *string
-	usageStatsId *string
-	version *string
-	versionIn *[]string
-	versionNot *string
-	versionNotIn *[]string
+	includeVersionIssueLink        *bool
+	machineLearning                *bool
+	machineLearningLogsToken       *string
+	name                           *string
+	nameIn                         *string
+	orderBy                        *string
+	orgAccountManagerId            *int32
+	orgAccountOwnerId              *int32
+	orgId                          *string
+	orgIdIn                        *string
+	orgSlug                        *string
+	orgSlugIn                      *string
+	orgType                        *string
+	page                           *int32
+	pageSize                       *int32
+	plan                           *string
+	planIn                         *string
+	planNot                        *string
+	search                         *string
+	slug                           *string
+	slugIn                         *string
+	status                         *string
+	trial                          *bool
+	trialExpiresAtMax              *time.Time
+	trialExpiresAtMin              *time.Time
+	updatedOrCreatedAtMin          *time.Time
+	url                            *string
+	usageStatsId                   *string
+	version                        *string
+	versionIn                      *[]string
+	versionNot                     *string
+	versionNotIn                   *[]string
 }
 
 func (r ApiGetInstancesRequest) AmInstanceId(amInstanceId int32) ApiGetInstancesRequest {
@@ -1131,7 +1130,7 @@ GetInstances Get a list of instances
 func (a *InstancesAPIService) GetInstances(ctx context.Context) ApiGetInstancesRequest {
 	return ApiGetInstancesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1139,10 +1138,10 @@ func (a *InstancesAPIService) GetInstances(ctx context.Context) ApiGetInstancesR
 //  @return GetInstances200Response
 func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*GetInstances200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetInstances200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetInstances200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetInstances")
@@ -1367,8 +1366,8 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1378,8 +1377,8 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1389,8 +1388,8 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1408,10 +1407,10 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 }
 
 type ApiPostInstanceRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
-	instanceId string
-	xRequestId *string
+	ctx                 context.Context
+	ApiService          *InstancesAPIService
+	instanceId          string
+	xRequestId          *string
 	postInstanceRequest *PostInstanceRequest
 }
 
@@ -1439,7 +1438,7 @@ PostInstance Updates an instance
 func (a *InstancesAPIService) PostInstance(ctx context.Context, instanceId string) ApiPostInstanceRequest {
 	return ApiPostInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		instanceId: instanceId,
 	}
 }
@@ -1448,10 +1447,10 @@ func (a *InstancesAPIService) PostInstance(ctx context.Context, instanceId strin
 //  @return FormattedApiInstance
 func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiInstance
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiInstance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.PostInstance")
@@ -1521,8 +1520,8 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1532,8 +1531,8 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1543,8 +1542,8 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1554,8 +1553,8 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1565,8 +1564,8 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1584,11 +1583,11 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 }
 
 type ApiPostInstancePluginRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
-	instanceId string
-	pluginSlugOrId string
-	xRequestId *string
+	ctx                       context.Context
+	ApiService                *InstancesAPIService
+	instanceId                string
+	pluginSlugOrId            string
+	xRequestId                *string
 	postInstancePluginRequest *PostInstancePluginRequest
 }
 
@@ -1616,9 +1615,9 @@ PostInstancePlugin Method for PostInstancePlugin
 */
 func (a *InstancesAPIService) PostInstancePlugin(ctx context.Context, instanceId string, pluginSlugOrId string) ApiPostInstancePluginRequest {
 	return ApiPostInstancePluginRequest{
-		ApiService: a,
-		ctx: ctx,
-		instanceId: instanceId,
+		ApiService:     a,
+		ctx:            ctx,
+		instanceId:     instanceId,
 		pluginSlugOrId: pluginSlugOrId,
 	}
 }
@@ -1627,10 +1626,10 @@ func (a *InstancesAPIService) PostInstancePlugin(ctx context.Context, instanceId
 //  @return FormattedApiInstancePlugin
 func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginRequest) (*FormattedApiInstancePlugin, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiInstancePlugin
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiInstancePlugin
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.PostInstancePlugin")
@@ -1701,8 +1700,8 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1712,8 +1711,8 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1723,8 +1722,8 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1734,8 +1733,8 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1745,8 +1744,8 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1764,10 +1763,10 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 }
 
 type ApiPostInstancePluginsRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
-	instanceId string
-	xRequestId *string
+	ctx                        context.Context
+	ApiService                 *InstancesAPIService
+	instanceId                 string
+	xRequestId                 *string
 	postInstancePluginsRequest *PostInstancePluginsRequest
 }
 
@@ -1795,7 +1794,7 @@ PostInstancePlugins Method for PostInstancePlugins
 func (a *InstancesAPIService) PostInstancePlugins(ctx context.Context, instanceId string) ApiPostInstancePluginsRequest {
 	return ApiPostInstancePluginsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		instanceId: instanceId,
 	}
 }
@@ -1804,10 +1803,10 @@ func (a *InstancesAPIService) PostInstancePlugins(ctx context.Context, instanceI
 //  @return FormattedApiInstancePlugin
 func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePluginsRequest) (*FormattedApiInstancePlugin, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiInstancePlugin
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiInstancePlugin
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.PostInstancePlugins")
@@ -1877,8 +1876,8 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1888,8 +1887,8 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1899,8 +1898,8 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1910,8 +1909,8 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1921,8 +1920,8 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1940,11 +1939,11 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 }
 
 type ApiPostInstanceServiceAccountTokensRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
-	instanceId string
-	serviceAccountId string
-	xRequestId *string
+	ctx                                     context.Context
+	ApiService                              *InstancesAPIService
+	instanceId                              string
+	serviceAccountId                        string
+	xRequestId                              *string
 	postInstanceServiceAccountTokensRequest *PostInstanceServiceAccountTokensRequest
 }
 
@@ -1972,9 +1971,9 @@ PostInstanceServiceAccountTokens Creates a service account token on a Grafana in
 */
 func (a *InstancesAPIService) PostInstanceServiceAccountTokens(ctx context.Context, instanceId string, serviceAccountId string) ApiPostInstanceServiceAccountTokensRequest {
 	return ApiPostInstanceServiceAccountTokensRequest{
-		ApiService: a,
-		ctx: ctx,
-		instanceId: instanceId,
+		ApiService:       a,
+		ctx:              ctx,
+		instanceId:       instanceId,
 		serviceAccountId: serviceAccountId,
 	}
 }
@@ -1983,10 +1982,10 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokens(ctx context.Conte
 //  @return GrafanaServiceAccountToken
 func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostInstanceServiceAccountTokensRequest) (*GrafanaServiceAccountToken, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GrafanaServiceAccountToken
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GrafanaServiceAccountToken
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.PostInstanceServiceAccountTokens")
@@ -2057,8 +2056,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2068,8 +2067,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2079,8 +2078,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2090,8 +2089,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2101,8 +2100,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2120,10 +2119,10 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 }
 
 type ApiPostInstanceServiceAccountsRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
-	instanceId string
-	xRequestId *string
+	ctx                                context.Context
+	ApiService                         *InstancesAPIService
+	instanceId                         string
+	xRequestId                         *string
 	postInstanceServiceAccountsRequest *PostInstanceServiceAccountsRequest
 }
 
@@ -2151,7 +2150,7 @@ PostInstanceServiceAccounts Creates a service account on a Grafana instance
 func (a *InstancesAPIService) PostInstanceServiceAccounts(ctx context.Context, instanceId string) ApiPostInstanceServiceAccountsRequest {
 	return ApiPostInstanceServiceAccountsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		instanceId: instanceId,
 	}
 }
@@ -2160,10 +2159,10 @@ func (a *InstancesAPIService) PostInstanceServiceAccounts(ctx context.Context, i
 //  @return GrafanaServiceAccount
 func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstanceServiceAccountsRequest) (*GrafanaServiceAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GrafanaServiceAccount
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GrafanaServiceAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.PostInstanceServiceAccounts")
@@ -2233,8 +2232,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2244,8 +2243,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2255,8 +2254,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2266,8 +2265,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2277,8 +2276,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2296,9 +2295,9 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 }
 
 type ApiPostInstancesRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
-	xRequestId *string
+	ctx                  context.Context
+	ApiService           *InstancesAPIService
+	xRequestId           *string
 	postInstancesRequest *PostInstancesRequest
 }
 
@@ -2325,7 +2324,7 @@ PostInstances Create a new instance
 func (a *InstancesAPIService) PostInstances(ctx context.Context) ApiPostInstancesRequest {
 	return ApiPostInstancesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -2333,10 +2332,10 @@ func (a *InstancesAPIService) PostInstances(ctx context.Context) ApiPostInstance
 //  @return FormattedApiInstance
 func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiInstance
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiInstance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.PostInstances")
@@ -2405,8 +2404,8 @@ func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2416,8 +2415,8 @@ func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2427,8 +2426,8 @@ func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2438,8 +2437,8 @@ func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

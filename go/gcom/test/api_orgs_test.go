@@ -11,10 +11,11 @@ package gcom
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
 )
 
 func Test_gcom_OrgsAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 	t.Run("Test OrgsAPIService DelApiKey", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 		var slugOrId string
@@ -38,7 +39,7 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 	t.Run("Test OrgsAPIService GetApiKey", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 		var slugOrId string
@@ -53,7 +54,7 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 	t.Run("Test OrgsAPIService GetApiKeys", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var slugOrId string
 
@@ -67,7 +68,7 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 	t.Run("Test OrgsAPIService GetOrg", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var slugOrId string
 
@@ -81,7 +82,7 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 	t.Run("Test OrgsAPIService GetOrgInstances", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var slug string
 
@@ -95,7 +96,7 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 	t.Run("Test OrgsAPIService PostApiKeys", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var slugOrId string
 

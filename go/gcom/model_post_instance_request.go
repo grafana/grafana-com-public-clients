@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -20,34 +20,34 @@ var _ MappedNullable = &PostInstanceRequest{}
 
 // PostInstanceRequest struct for PostInstanceRequest
 type PostInstanceRequest struct {
-	AlertQuota *int32 `json:"alertQuota,omitempty"`
-	Alerts *bool `json:"alerts,omitempty"`
-	BillingEndDate *time.Time `json:"billingEndDate,omitempty"`
-	BillingStartDate *time.Time `json:"billingStartDate,omitempty"`
-	DashboardQuota *int32 `json:"dashboardQuota,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Gateway *string `json:"gateway,omitempty"`
-	Graphite *bool `json:"graphite,omitempty"`
-	HlInstanceId *int32 `json:"hlInstanceId,omitempty"`
-	Hosted *bool `json:"hosted,omitempty"`
-	Incident *bool `json:"incident,omitempty"`
-	IssueLink *string `json:"issueLink,omitempty"`
-	K6OrgId *int32 `json:"k6OrgId,omitempty"`
-	Logs *bool `json:"logs,omitempty"`
-	MachineLearning *bool `json:"machineLearning,omitempty"`
-	MachineLearningLogsToken *string `json:"machineLearningLogsToken,omitempty"`
-	Name *string `json:"name,omitempty"`
-	NoRestart *bool `json:"noRestart,omitempty"`
-	Plan *string `json:"plan,omitempty"`
-	Prometheus *bool `json:"prometheus,omitempty"`
-	ReasonType *string `json:"reasonType,omitempty"`
-	SkipOrgConflictCheck *bool `json:"skipOrgConflictCheck,omitempty"`
-	Slug *string `json:"slug,omitempty"`
-	Trial *bool `json:"trial,omitempty"`
-	TrialExpiresAt *time.Time `json:"trialExpiresAt,omitempty"`
-	Url *string `json:"url,omitempty"`
-	UserQuota *int32 `json:"userQuota,omitempty"`
-	Version *string `json:"version,omitempty"`
+	AlertQuota               *int32     `json:"alertQuota,omitempty"`
+	Alerts                   *bool      `json:"alerts,omitempty"`
+	BillingEndDate           *time.Time `json:"billingEndDate,omitempty"`
+	BillingStartDate         *time.Time `json:"billingStartDate,omitempty"`
+	DashboardQuota           *int32     `json:"dashboardQuota,omitempty"`
+	Description              *string    `json:"description,omitempty"`
+	Gateway                  *string    `json:"gateway,omitempty"`
+	Graphite                 *bool      `json:"graphite,omitempty"`
+	HlInstanceId             *int32     `json:"hlInstanceId,omitempty"`
+	Hosted                   *bool      `json:"hosted,omitempty"`
+	Incident                 *bool      `json:"incident,omitempty"`
+	IssueLink                *string    `json:"issueLink,omitempty"`
+	K6OrgId                  *int32     `json:"k6OrgId,omitempty"`
+	Logs                     *bool      `json:"logs,omitempty"`
+	MachineLearning          *bool      `json:"machineLearning,omitempty"`
+	MachineLearningLogsToken *string    `json:"machineLearningLogsToken,omitempty"`
+	Name                     *string    `json:"name,omitempty"`
+	NoRestart                *bool      `json:"noRestart,omitempty"`
+	Plan                     *string    `json:"plan,omitempty"`
+	Prometheus               *bool      `json:"prometheus,omitempty"`
+	ReasonType               *string    `json:"reasonType,omitempty"`
+	SkipOrgConflictCheck     *bool      `json:"skipOrgConflictCheck,omitempty"`
+	Slug                     *string    `json:"slug,omitempty"`
+	Trial                    *bool      `json:"trial,omitempty"`
+	TrialExpiresAt           *time.Time `json:"trialExpiresAt,omitempty"`
+	Url                      *string    `json:"url,omitempty"`
+	UserQuota                *int32     `json:"userQuota,omitempty"`
+	Version                  *string    `json:"version,omitempty"`
 }
 
 // NewPostInstanceRequest instantiates a new PostInstanceRequest object
@@ -964,7 +964,7 @@ func (o *PostInstanceRequest) SetVersion(v string) {
 }
 
 func (o PostInstanceRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1095,5 +1095,3 @@ func (v *NullablePostInstanceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

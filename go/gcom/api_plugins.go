@@ -1,7 +1,7 @@
 /*
 GCOM API
 
- Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise       
+ Grafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.  Looking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.  If you have any questions, please contact us at #grafana_com on Slack or open an issue at [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: internal
 */
@@ -19,15 +19,14 @@ import (
 	"strings"
 )
 
-
 // PluginsAPIService PluginsAPI service
 type PluginsAPIService service
 
 type ApiGetPluginRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PluginsAPIService
-	slug string
-	version *string
+	slug       string
+	version    *string
 }
 
 func (r ApiGetPluginRequest) Version(version string) ApiGetPluginRequest {
@@ -49,8 +48,8 @@ GetPlugin Fetches a plugin by slug or id
 func (a *PluginsAPIService) GetPlugin(ctx context.Context, slug string) ApiGetPluginRequest {
 	return ApiGetPluginRequest{
 		ApiService: a,
-		ctx: ctx,
-		slug: slug,
+		ctx:        ctx,
+		slug:       slug,
 	}
 }
 
@@ -58,10 +57,10 @@ func (a *PluginsAPIService) GetPlugin(ctx context.Context, slug string) ApiGetPl
 //  @return FormattedApiPlugin
 func (a *PluginsAPIService) GetPluginExecute(r ApiGetPluginRequest) (*FormattedApiPlugin, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FormattedApiPlugin
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiPlugin
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PluginsAPIService.GetPlugin")
@@ -125,8 +124,8 @@ func (a *PluginsAPIService) GetPluginExecute(r ApiGetPluginRequest) (*FormattedA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -136,8 +135,8 @@ func (a *PluginsAPIService) GetPluginExecute(r ApiGetPluginRequest) (*FormattedA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
