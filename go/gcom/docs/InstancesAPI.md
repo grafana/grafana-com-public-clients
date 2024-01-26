@@ -5,9 +5,16 @@ All URIs are relative to */api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteInstance**](InstancesAPI.md#DeleteInstance) | **Delete** /instances/{instanceId} | Deletes an instance
+[**DeleteInstancePlugin**](InstancesAPI.md#DeleteInstancePlugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 [**GetInstance**](InstancesAPI.md#GetInstance) | **Get** /instances/{instanceId} | Gets an instance
+[**GetInstancePlugin**](InstancesAPI.md#GetInstancePlugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
+[**GetInstancePlugins**](InstancesAPI.md#GetInstancePlugins) | **Get** /instances/{instanceId}/plugins | 
 [**GetInstances**](InstancesAPI.md#GetInstances) | **Get** /instances | Get a list of instances
 [**PostInstance**](InstancesAPI.md#PostInstance) | **Post** /instances/{instanceId} | Updates an instance
+[**PostInstancePlugin**](InstancesAPI.md#PostInstancePlugin) | **Post** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
+[**PostInstancePlugins**](InstancesAPI.md#PostInstancePlugins) | **Post** /instances/{instanceId}/plugins | 
+[**PostInstanceServiceAccountTokens**](InstancesAPI.md#PostInstanceServiceAccountTokens) | **Post** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Creates a service account token on a Grafana instance
+[**PostInstanceServiceAccounts**](InstancesAPI.md#PostInstanceServiceAccounts) | **Post** /instances/{instanceId}/api/serviceaccounts | Creates a service account on a Grafana instance
 [**PostInstances**](InstancesAPI.md#PostInstances) | **Post** /instances | Create a new instance
 
 
@@ -82,6 +89,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeleteInstancePlugin
+
+> FormattedApiInstancePlugin DeleteInstancePlugin(ctx, instanceId, pluginSlugOrId).XRequestId(xRequestId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	pluginSlugOrId := "pluginSlugOrId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.DeleteInstancePlugin(context.Background(), instanceId, pluginSlugOrId).XRequestId(xRequestId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.DeleteInstancePlugin``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteInstancePlugin`: FormattedApiInstancePlugin
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.DeleteInstancePlugin`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+**pluginSlugOrId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteInstancePluginRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+
+### Return type
+
+[**FormattedApiInstancePlugin**](FormattedApiInstancePlugin.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetInstance
 
 > FormattedApiInstance GetInstance(ctx, instanceId).Config(config).IncludeDeleted(includeDeleted).Execute()
@@ -139,6 +219,149 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FormattedApiInstance**](FormattedApiInstance.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInstancePlugin
+
+> FormattedApiInstancePlugin GetInstancePlugin(ctx, instanceId, pluginSlugOrId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	pluginSlugOrId := "pluginSlugOrId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.GetInstancePlugin(context.Background(), instanceId, pluginSlugOrId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstancePlugin``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetInstancePlugin`: FormattedApiInstancePlugin
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.GetInstancePlugin`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+**pluginSlugOrId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInstancePluginRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**FormattedApiInstancePlugin**](FormattedApiInstancePlugin.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInstancePlugins
+
+> GetInstancePlugins200Response GetInstancePlugins(ctx, instanceId).Direction(direction).OrderBy(orderBy).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	direction := "direction_example" // string |  (optional)
+	orderBy := "orderBy_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.GetInstancePlugins(context.Background(), instanceId).Direction(direction).OrderBy(orderBy).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstancePlugins``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetInstancePlugins`: GetInstancePlugins200Response
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.GetInstancePlugins`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInstancePluginsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **direction** | **string** |  | 
+ **orderBy** | **string** |  | 
+
+### Return type
+
+[**GetInstancePlugins200Response**](GetInstancePlugins200Response.md)
 
 ### Authorization
 
@@ -368,6 +591,300 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FormattedApiInstance**](FormattedApiInstance.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostInstancePlugin
+
+> FormattedApiInstancePlugin PostInstancePlugin(ctx, instanceId, pluginSlugOrId).XRequestId(xRequestId).PostInstancePluginRequest(postInstancePluginRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	pluginSlugOrId := "pluginSlugOrId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	postInstancePluginRequest := *openapiclient.NewPostInstancePluginRequest() // PostInstancePluginRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.PostInstancePlugin(context.Background(), instanceId, pluginSlugOrId).XRequestId(xRequestId).PostInstancePluginRequest(postInstancePluginRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstancePlugin``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostInstancePlugin`: FormattedApiInstancePlugin
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstancePlugin`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+**pluginSlugOrId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostInstancePluginRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **postInstancePluginRequest** | [**PostInstancePluginRequest**](PostInstancePluginRequest.md) |  | 
+
+### Return type
+
+[**FormattedApiInstancePlugin**](FormattedApiInstancePlugin.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostInstancePlugins
+
+> FormattedApiInstancePlugin PostInstancePlugins(ctx, instanceId).XRequestId(xRequestId).PostInstancePluginsRequest(postInstancePluginsRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	postInstancePluginsRequest := *openapiclient.NewPostInstancePluginsRequest("Plugin_example") // PostInstancePluginsRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.PostInstancePlugins(context.Background(), instanceId).XRequestId(xRequestId).PostInstancePluginsRequest(postInstancePluginsRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstancePlugins``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostInstancePlugins`: FormattedApiInstancePlugin
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstancePlugins`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostInstancePluginsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **postInstancePluginsRequest** | [**PostInstancePluginsRequest**](PostInstancePluginsRequest.md) |  | 
+
+### Return type
+
+[**FormattedApiInstancePlugin**](FormattedApiInstancePlugin.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostInstanceServiceAccountTokens
+
+> GrafanaServiceAccountToken PostInstanceServiceAccountTokens(ctx, instanceId, serviceAccountId).XRequestId(xRequestId).PostInstanceServiceAccountTokensRequest(postInstanceServiceAccountTokensRequest).Execute()
+
+Creates a service account token on a Grafana instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	serviceAccountId := "serviceAccountId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	postInstanceServiceAccountTokensRequest := *openapiclient.NewPostInstanceServiceAccountTokensRequest("Name_example") // PostInstanceServiceAccountTokensRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.PostInstanceServiceAccountTokens(context.Background(), instanceId, serviceAccountId).XRequestId(xRequestId).PostInstanceServiceAccountTokensRequest(postInstanceServiceAccountTokensRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstanceServiceAccountTokens``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostInstanceServiceAccountTokens`: GrafanaServiceAccountToken
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstanceServiceAccountTokens`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+**serviceAccountId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostInstanceServiceAccountTokensRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **postInstanceServiceAccountTokensRequest** | [**PostInstanceServiceAccountTokensRequest**](PostInstanceServiceAccountTokensRequest.md) |  | 
+
+### Return type
+
+[**GrafanaServiceAccountToken**](GrafanaServiceAccountToken.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostInstanceServiceAccounts
+
+> GrafanaServiceAccount PostInstanceServiceAccounts(ctx, instanceId).XRequestId(xRequestId).PostInstanceServiceAccountsRequest(postInstanceServiceAccountsRequest).Execute()
+
+Creates a service account on a Grafana instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	postInstanceServiceAccountsRequest := *openapiclient.NewPostInstanceServiceAccountsRequest("Name_example", "Role_example") // PostInstanceServiceAccountsRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.PostInstanceServiceAccounts(context.Background(), instanceId).XRequestId(xRequestId).PostInstanceServiceAccountsRequest(postInstanceServiceAccountsRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstanceServiceAccounts``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostInstanceServiceAccounts`: GrafanaServiceAccount
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstanceServiceAccounts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostInstanceServiceAccountsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **postInstanceServiceAccountsRequest** | [**PostInstanceServiceAccountsRequest**](PostInstanceServiceAccountsRequest.md) |  | 
+
+### Return type
+
+[**GrafanaServiceAccount**](GrafanaServiceAccount.md)
 
 ### Authorization
 
