@@ -27,7 +27,10 @@ type PostAccessPoliciesRequestAttributesLokiQueryPolicy struct {
 	MaxQueryTime            *string  `json:"maxQueryTime,omitempty"`
 	MinimumLabelsNumber     *int32   `json:"minimumLabelsNumber,omitempty"`
 	RequiredLabels          []string `json:"requiredLabels,omitempty"`
+	AdditionalProperties    map[string]interface{}
 }
+
+type _PostAccessPoliciesRequestAttributesLokiQueryPolicy PostAccessPoliciesRequestAttributesLokiQueryPolicy
 
 // NewPostAccessPoliciesRequestAttributesLokiQueryPolicy instantiates a new PostAccessPoliciesRequestAttributesLokiQueryPolicy object
 // This constructor will assign default values to properties that have it defined,
@@ -336,7 +339,40 @@ func (o PostAccessPoliciesRequestAttributesLokiQueryPolicy) ToMap() (map[string]
 	if !IsNil(o.RequiredLabels) {
 		toSerialize["requiredLabels"] = o.RequiredLabels
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnmarshalJSON(data []byte) (err error) {
+	varPostAccessPoliciesRequestAttributesLokiQueryPolicy := _PostAccessPoliciesRequestAttributesLokiQueryPolicy{}
+
+	err = json.Unmarshal(data, &varPostAccessPoliciesRequestAttributesLokiQueryPolicy)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostAccessPoliciesRequestAttributesLokiQueryPolicy(varPostAccessPoliciesRequestAttributesLokiQueryPolicy)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "maxEntriesLimitPerQuery")
+		delete(additionalProperties, "maxQueryBytesRead")
+		delete(additionalProperties, "maxQueryInterval")
+		delete(additionalProperties, "maxQueryLength")
+		delete(additionalProperties, "maxQueryLookback")
+		delete(additionalProperties, "maxQueryTime")
+		delete(additionalProperties, "minimumLabelsNumber")
+		delete(additionalProperties, "requiredLabels")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePostAccessPoliciesRequestAttributesLokiQueryPolicy struct {

@@ -19,8 +19,11 @@ var _ MappedNullable = &PostTokenRequest{}
 
 // PostTokenRequest struct for PostTokenRequest
 type PostTokenRequest struct {
-	DisplayName *string `json:"displayName,omitempty"`
+	DisplayName          *string `json:"displayName,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PostTokenRequest PostTokenRequest
 
 // NewPostTokenRequest instantiates a new PostTokenRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -84,7 +87,33 @@ func (o PostTokenRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DisplayName) {
 		toSerialize["displayName"] = o.DisplayName
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PostTokenRequest) UnmarshalJSON(data []byte) (err error) {
+	varPostTokenRequest := _PostTokenRequest{}
+
+	err = json.Unmarshal(data, &varPostTokenRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostTokenRequest(varPostTokenRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "displayName")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePostTokenRequest struct {

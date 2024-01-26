@@ -48,7 +48,10 @@ type PostInstanceRequest struct {
 	Url                      *string    `json:"url,omitempty"`
 	UserQuota                *int32     `json:"userQuota,omitempty"`
 	Version                  *string    `json:"version,omitempty"`
+	AdditionalProperties     map[string]interface{}
 }
+
+type _PostInstanceRequest PostInstanceRequest
 
 // NewPostInstanceRequest instantiates a new PostInstanceRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -1057,7 +1060,60 @@ func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PostInstanceRequest) UnmarshalJSON(data []byte) (err error) {
+	varPostInstanceRequest := _PostInstanceRequest{}
+
+	err = json.Unmarshal(data, &varPostInstanceRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostInstanceRequest(varPostInstanceRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "alertQuota")
+		delete(additionalProperties, "alerts")
+		delete(additionalProperties, "billingEndDate")
+		delete(additionalProperties, "billingStartDate")
+		delete(additionalProperties, "dashboardQuota")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "gateway")
+		delete(additionalProperties, "graphite")
+		delete(additionalProperties, "hlInstanceId")
+		delete(additionalProperties, "hosted")
+		delete(additionalProperties, "incident")
+		delete(additionalProperties, "issueLink")
+		delete(additionalProperties, "k6OrgId")
+		delete(additionalProperties, "logs")
+		delete(additionalProperties, "machineLearning")
+		delete(additionalProperties, "machineLearningLogsToken")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "noRestart")
+		delete(additionalProperties, "plan")
+		delete(additionalProperties, "prometheus")
+		delete(additionalProperties, "reasonType")
+		delete(additionalProperties, "skipOrgConflictCheck")
+		delete(additionalProperties, "slug")
+		delete(additionalProperties, "trial")
+		delete(additionalProperties, "trialExpiresAt")
+		delete(additionalProperties, "url")
+		delete(additionalProperties, "userQuota")
+		delete(additionalProperties, "version")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePostInstanceRequest struct {

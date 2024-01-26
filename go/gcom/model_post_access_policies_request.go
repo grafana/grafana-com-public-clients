@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 )
@@ -21,12 +20,13 @@ var _ MappedNullable = &PostAccessPoliciesRequest{}
 
 // PostAccessPoliciesRequest struct for PostAccessPoliciesRequest
 type PostAccessPoliciesRequest struct {
-	Attributes  *PostAccessPoliciesRequestAttributes   `json:"attributes,omitempty"`
-	Conditions  *PostAccessPoliciesRequestConditions   `json:"conditions,omitempty"`
-	DisplayName *string                                `json:"displayName,omitempty"`
-	Name        string                                 `json:"name"`
-	Realms      []PostAccessPoliciesRequestRealmsInner `json:"realms"`
-	Scopes      []string                               `json:"scopes"`
+	Attributes           *PostAccessPoliciesRequestAttributes   `json:"attributes,omitempty"`
+	Conditions           *PostAccessPoliciesRequestConditions   `json:"conditions,omitempty"`
+	DisplayName          *string                                `json:"displayName,omitempty"`
+	Name                 string                                 `json:"name"`
+	Realms               []PostAccessPoliciesRequestRealmsInner `json:"realms"`
+	Scopes               []string                               `json:"scopes"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PostAccessPoliciesRequest PostAccessPoliciesRequest
@@ -241,6 +241,11 @@ func (o PostAccessPoliciesRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["realms"] = o.Realms
 	toSerialize["scopes"] = o.Scopes
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -270,15 +275,25 @@ func (o *PostAccessPoliciesRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varPostAccessPoliciesRequest := _PostAccessPoliciesRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostAccessPoliciesRequest)
+	err = json.Unmarshal(data, &varPostAccessPoliciesRequest)
 
 	if err != nil {
 		return err
 	}
 
 	*o = PostAccessPoliciesRequest(varPostAccessPoliciesRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "attributes")
+		delete(additionalProperties, "conditions")
+		delete(additionalProperties, "displayName")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "realms")
+		delete(additionalProperties, "scopes")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

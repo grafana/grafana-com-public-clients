@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 )
@@ -21,7 +20,8 @@ var _ MappedNullable = &PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner{}
 
 // PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner struct for PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner
 type PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner struct {
-	Selector string `json:"selector"`
+	Selector             string `json:"selector"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner
@@ -79,6 +79,11 @@ func (o PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner) MarshalJSON() ([
 func (o PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["selector"] = o.Selector
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -106,15 +111,20 @@ func (o *PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner) UnmarshalJSON(d
 
 	varPostAccessPoliciesRequestRealmsInnerLabelPoliciesInner := _PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostAccessPoliciesRequestRealmsInnerLabelPoliciesInner)
+	err = json.Unmarshal(data, &varPostAccessPoliciesRequestRealmsInnerLabelPoliciesInner)
 
 	if err != nil {
 		return err
 	}
 
 	*o = PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner(varPostAccessPoliciesRequestRealmsInnerLabelPoliciesInner)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "selector")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

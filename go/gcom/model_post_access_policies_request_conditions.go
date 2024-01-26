@@ -19,8 +19,11 @@ var _ MappedNullable = &PostAccessPoliciesRequestConditions{}
 
 // PostAccessPoliciesRequestConditions struct for PostAccessPoliciesRequestConditions
 type PostAccessPoliciesRequestConditions struct {
-	AllowedSubnets []string `json:"allowedSubnets,omitempty"`
+	AllowedSubnets       []string `json:"allowedSubnets,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PostAccessPoliciesRequestConditions PostAccessPoliciesRequestConditions
 
 // NewPostAccessPoliciesRequestConditions instantiates a new PostAccessPoliciesRequestConditions object
 // This constructor will assign default values to properties that have it defined,
@@ -84,7 +87,33 @@ func (o PostAccessPoliciesRequestConditions) ToMap() (map[string]interface{}, er
 	if !IsNil(o.AllowedSubnets) {
 		toSerialize["allowedSubnets"] = o.AllowedSubnets
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PostAccessPoliciesRequestConditions) UnmarshalJSON(data []byte) (err error) {
+	varPostAccessPoliciesRequestConditions := _PostAccessPoliciesRequestConditions{}
+
+	err = json.Unmarshal(data, &varPostAccessPoliciesRequestConditions)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostAccessPoliciesRequestConditions(varPostAccessPoliciesRequestConditions)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "allowedSubnets")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePostAccessPoliciesRequestConditions struct {

@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 )
@@ -21,9 +20,10 @@ var _ MappedNullable = &PostAllApiKeysRequest{}
 
 // PostAllApiKeysRequest struct for PostAllApiKeysRequest
 type PostAllApiKeysRequest struct {
-	Name string `json:"name"`
-	Org  string `json:"org"`
-	Role string `json:"role"`
+	Name                 string `json:"name"`
+	Org                  string `json:"org"`
+	Role                 string `json:"role"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PostAllApiKeysRequest PostAllApiKeysRequest
@@ -133,6 +133,11 @@ func (o PostAllApiKeysRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["org"] = o.Org
 	toSerialize["role"] = o.Role
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -162,15 +167,22 @@ func (o *PostAllApiKeysRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varPostAllApiKeysRequest := _PostAllApiKeysRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostAllApiKeysRequest)
+	err = json.Unmarshal(data, &varPostAllApiKeysRequest)
 
 	if err != nil {
 		return err
 	}
 
 	*o = PostAllApiKeysRequest(varPostAllApiKeysRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "org")
+		delete(additionalProperties, "role")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

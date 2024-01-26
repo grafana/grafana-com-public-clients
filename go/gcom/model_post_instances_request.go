@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -64,6 +63,7 @@ type PostInstancesRequest struct {
 	UserQuota                       *int32     `json:"userQuota,omitempty"`
 	Version                         *string    `json:"version,omitempty"`
 	WaitForReadiness                *bool      `json:"waitForReadiness,omitempty"`
+	AdditionalProperties            map[string]interface{}
 }
 
 type _PostInstancesRequest PostInstancesRequest
@@ -1560,6 +1560,11 @@ func (o PostInstancesRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.WaitForReadiness) {
 		toSerialize["waitForReadiness"] = o.WaitForReadiness
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -1587,15 +1592,61 @@ func (o *PostInstancesRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varPostInstancesRequest := _PostInstancesRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostInstancesRequest)
+	err = json.Unmarshal(data, &varPostInstancesRequest)
 
 	if err != nil {
 		return err
 	}
 
 	*o = PostInstancesRequest(varPostInstancesRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "adminUserInstance")
+		delete(additionalProperties, "alertQuota")
+		delete(additionalProperties, "alerts")
+		delete(additionalProperties, "amCluster")
+		delete(additionalProperties, "billingEndDate")
+		delete(additionalProperties, "billingStartDate")
+		delete(additionalProperties, "cluster")
+		delete(additionalProperties, "createTemporaryLicenseIfMissing")
+		delete(additionalProperties, "dashboardQuota")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "graphite")
+		delete(additionalProperties, "hlCluster")
+		delete(additionalProperties, "hlInstanceId")
+		delete(additionalProperties, "hmGraphiteCluster")
+		delete(additionalProperties, "hmGraphiteType")
+		delete(additionalProperties, "hmPromCluster")
+		delete(additionalProperties, "hosted")
+		delete(additionalProperties, "htCluster")
+		delete(additionalProperties, "incident")
+		delete(additionalProperties, "issueLink")
+		delete(additionalProperties, "k6OrgId")
+		delete(additionalProperties, "logs")
+		delete(additionalProperties, "machineLearning")
+		delete(additionalProperties, "machineLearningLogsToken")
+		delete(additionalProperties, "multitenant")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "org")
+		delete(additionalProperties, "plan")
+		delete(additionalProperties, "plugins")
+		delete(additionalProperties, "prometheus")
+		delete(additionalProperties, "publicInstance")
+		delete(additionalProperties, "reasonType")
+		delete(additionalProperties, "region")
+		delete(additionalProperties, "skipOrgConflictCheck")
+		delete(additionalProperties, "slug")
+		delete(additionalProperties, "trial")
+		delete(additionalProperties, "trialExpiresAt")
+		delete(additionalProperties, "url")
+		delete(additionalProperties, "usernameOrEmail")
+		delete(additionalProperties, "userQuota")
+		delete(additionalProperties, "version")
+		delete(additionalProperties, "waitForReadiness")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

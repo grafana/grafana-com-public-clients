@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 )
@@ -21,9 +20,10 @@ var _ MappedNullable = &PostAccessPoliciesRequestRealmsInner{}
 
 // PostAccessPoliciesRequestRealmsInner struct for PostAccessPoliciesRequestRealmsInner
 type PostAccessPoliciesRequestRealmsInner struct {
-	Identifier    string                                                   `json:"identifier"`
-	LabelPolicies []PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner `json:"labelPolicies,omitempty"`
-	Type          string                                                   `json:"type"`
+	Identifier           string                                                   `json:"identifier"`
+	LabelPolicies        []PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner `json:"labelPolicies,omitempty"`
+	Type                 string                                                   `json:"type"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PostAccessPoliciesRequestRealmsInner PostAccessPoliciesRequestRealmsInner
@@ -142,6 +142,11 @@ func (o PostAccessPoliciesRequestRealmsInner) ToMap() (map[string]interface{}, e
 		toSerialize["labelPolicies"] = o.LabelPolicies
 	}
 	toSerialize["type"] = o.Type
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -170,15 +175,22 @@ func (o *PostAccessPoliciesRequestRealmsInner) UnmarshalJSON(data []byte) (err e
 
 	varPostAccessPoliciesRequestRealmsInner := _PostAccessPoliciesRequestRealmsInner{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostAccessPoliciesRequestRealmsInner)
+	err = json.Unmarshal(data, &varPostAccessPoliciesRequestRealmsInner)
 
 	if err != nil {
 		return err
 	}
 
 	*o = PostAccessPoliciesRequestRealmsInner(varPostAccessPoliciesRequestRealmsInner)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "identifier")
+		delete(additionalProperties, "labelPolicies")
+		delete(additionalProperties, "type")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

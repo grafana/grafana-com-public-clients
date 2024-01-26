@@ -19,9 +19,12 @@ var _ MappedNullable = &PostAllApiKeys403Response{}
 
 // PostAllApiKeys403Response struct for PostAllApiKeys403Response
 type PostAllApiKeys403Response struct {
-	Message *string `json:"message,omitempty"`
-	Code    *string `json:"code,omitempty"`
+	Message              *string `json:"message,omitempty"`
+	Code                 *string `json:"code,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PostAllApiKeys403Response PostAllApiKeys403Response
 
 // NewPostAllApiKeys403Response instantiates a new PostAllApiKeys403Response object
 // This constructor will assign default values to properties that have it defined,
@@ -120,7 +123,34 @@ func (o PostAllApiKeys403Response) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PostAllApiKeys403Response) UnmarshalJSON(data []byte) (err error) {
+	varPostAllApiKeys403Response := _PostAllApiKeys403Response{}
+
+	err = json.Unmarshal(data, &varPostAllApiKeys403Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostAllApiKeys403Response(varPostAllApiKeys403Response)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "code")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePostAllApiKeys403Response struct {

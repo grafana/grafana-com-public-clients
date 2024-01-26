@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -22,10 +21,11 @@ var _ MappedNullable = &PostTokensRequest{}
 
 // PostTokensRequest struct for PostTokensRequest
 type PostTokensRequest struct {
-	AccessPolicyId string     `json:"accessPolicyId"`
-	DisplayName    *string    `json:"displayName,omitempty"`
-	ExpiresAt      *time.Time `json:"expiresAt,omitempty"`
-	Name           string     `json:"name"`
+	AccessPolicyId       string     `json:"accessPolicyId"`
+	DisplayName          *string    `json:"displayName,omitempty"`
+	ExpiresAt            *time.Time `json:"expiresAt,omitempty"`
+	Name                 string     `json:"name"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PostTokensRequest PostTokensRequest
@@ -179,6 +179,11 @@ func (o PostTokensRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["expiresAt"] = o.ExpiresAt
 	}
 	toSerialize["name"] = o.Name
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -207,15 +212,23 @@ func (o *PostTokensRequest) UnmarshalJSON(data []byte) (err error) {
 
 	varPostTokensRequest := _PostTokensRequest{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varPostTokensRequest)
+	err = json.Unmarshal(data, &varPostTokensRequest)
 
 	if err != nil {
 		return err
 	}
 
 	*o = PostTokensRequest(varPostTokensRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "accessPolicyId")
+		delete(additionalProperties, "displayName")
+		delete(additionalProperties, "expiresAt")
+		delete(additionalProperties, "name")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

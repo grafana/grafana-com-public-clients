@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 )
@@ -106,6 +105,7 @@ type FormattedApiInstance struct {
 	UserQuota                         float32                `json:"userQuota"`
 	Version                           string                 `json:"version"`
 	AgentManagementInstanceId         float32                `json:"agentManagementInstanceId"`
+	AdditionalProperties              map[string]interface{}
 }
 
 type _FormattedApiInstance FormattedApiInstance
@@ -2357,6 +2357,11 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["userQuota"] = o.UserQuota
 	toSerialize["version"] = o.Version
 	toSerialize["agentManagementInstanceId"] = o.AgentManagementInstanceId
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -2468,15 +2473,104 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 
 	varFormattedApiInstance := _FormattedApiInstance{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFormattedApiInstance)
+	err = json.Unmarshal(data, &varFormattedApiInstance)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FormattedApiInstance(varFormattedApiInstance)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "alertCnt")
+		delete(additionalProperties, "alertQuota")
+		delete(additionalProperties, "amInstanceGeneratorUrl")
+		delete(additionalProperties, "amInstanceGeneratorUrlDatasource")
+		delete(additionalProperties, "amInstanceId")
+		delete(additionalProperties, "amInstanceName")
+		delete(additionalProperties, "amInstanceStatus")
+		delete(additionalProperties, "amInstanceUrl")
+		delete(additionalProperties, "billingActiveUsers")
+		delete(additionalProperties, "billingEndDate")
+		delete(additionalProperties, "billingGrafanaActiveUsers")
+		delete(additionalProperties, "billingOnCallActiveUsers")
+		delete(additionalProperties, "billingStartDate")
+		delete(additionalProperties, "clusterId")
+		delete(additionalProperties, "clusterName")
+		delete(additionalProperties, "clusterSlug")
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "createdBy")
+		delete(additionalProperties, "currentActiveAdminUsers")
+		delete(additionalProperties, "currentActiveEditorUsers")
+		delete(additionalProperties, "currentActiveUsers")
+		delete(additionalProperties, "currentActiveViewerUsers")
+		delete(additionalProperties, "customAuth")
+		delete(additionalProperties, "customDomain")
+		delete(additionalProperties, "dailyAdminCnt")
+		delete(additionalProperties, "dailyEditorCnt")
+		delete(additionalProperties, "dailyUserCnt")
+		delete(additionalProperties, "dailyViewerCnt")
+		delete(additionalProperties, "dashboardCnt")
+		delete(additionalProperties, "dashboardQuota")
+		delete(additionalProperties, "datasourceCnts")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "gateway")
+		delete(additionalProperties, "hlInstanceCurrentUsage")
+		delete(additionalProperties, "hlInstanceId")
+		delete(additionalProperties, "hlInstanceName")
+		delete(additionalProperties, "hlInstanceStatus")
+		delete(additionalProperties, "hlInstanceUrl")
+		delete(additionalProperties, "hmInstanceGraphiteCurrentUsage")
+		delete(additionalProperties, "hmInstanceGraphiteId")
+		delete(additionalProperties, "hmInstanceGraphiteName")
+		delete(additionalProperties, "hmInstanceGraphiteStatus")
+		delete(additionalProperties, "hmInstanceGraphiteType")
+		delete(additionalProperties, "hmInstanceGraphiteUrl")
+		delete(additionalProperties, "hmInstancePromCurrentActiveSeries")
+		delete(additionalProperties, "hmInstancePromCurrentUsage")
+		delete(additionalProperties, "hmInstancePromId")
+		delete(additionalProperties, "hmInstancePromName")
+		delete(additionalProperties, "hmInstancePromStatus")
+		delete(additionalProperties, "hmInstancePromUrl")
+		delete(additionalProperties, "htInstanceId")
+		delete(additionalProperties, "htInstanceName")
+		delete(additionalProperties, "htInstanceStatus")
+		delete(additionalProperties, "htInstanceUrl")
+		delete(additionalProperties, "hpInstanceId")
+		delete(additionalProperties, "hpInstanceName")
+		delete(additionalProperties, "hpInstanceStatus")
+		delete(additionalProperties, "hpInstanceUrl")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "incident")
+		delete(additionalProperties, "machineLearning")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "orgSlug")
+		delete(additionalProperties, "plan")
+		delete(additionalProperties, "planName")
+		delete(additionalProperties, "regionId")
+		delete(additionalProperties, "regionSlug")
+		delete(additionalProperties, "regionPublicName")
+		delete(additionalProperties, "provider")
+		delete(additionalProperties, "providerRegion")
+		delete(additionalProperties, "runningVersion")
+		delete(additionalProperties, "slug")
+		delete(additionalProperties, "ssl")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "support")
+		delete(additionalProperties, "trial")
+		delete(additionalProperties, "trialExpiresAt")
+		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "updatedBy")
+		delete(additionalProperties, "url")
+		delete(additionalProperties, "userQuota")
+		delete(additionalProperties, "version")
+		delete(additionalProperties, "agentManagementInstanceId")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

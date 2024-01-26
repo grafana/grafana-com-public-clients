@@ -19,8 +19,11 @@ var _ MappedNullable = &PostAccessPoliciesRequestAttributes{}
 
 // PostAccessPoliciesRequestAttributes struct for PostAccessPoliciesRequestAttributes
 type PostAccessPoliciesRequestAttributes struct {
-	LokiQueryPolicy *PostAccessPoliciesRequestAttributesLokiQueryPolicy `json:"lokiQueryPolicy,omitempty"`
+	LokiQueryPolicy      *PostAccessPoliciesRequestAttributesLokiQueryPolicy `json:"lokiQueryPolicy,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PostAccessPoliciesRequestAttributes PostAccessPoliciesRequestAttributes
 
 // NewPostAccessPoliciesRequestAttributes instantiates a new PostAccessPoliciesRequestAttributes object
 // This constructor will assign default values to properties that have it defined,
@@ -84,7 +87,33 @@ func (o PostAccessPoliciesRequestAttributes) ToMap() (map[string]interface{}, er
 	if !IsNil(o.LokiQueryPolicy) {
 		toSerialize["lokiQueryPolicy"] = o.LokiQueryPolicy
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PostAccessPoliciesRequestAttributes) UnmarshalJSON(data []byte) (err error) {
+	varPostAccessPoliciesRequestAttributes := _PostAccessPoliciesRequestAttributes{}
+
+	err = json.Unmarshal(data, &varPostAccessPoliciesRequestAttributes)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostAccessPoliciesRequestAttributes(varPostAccessPoliciesRequestAttributes)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "lokiQueryPolicy")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePostAccessPoliciesRequestAttributes struct {

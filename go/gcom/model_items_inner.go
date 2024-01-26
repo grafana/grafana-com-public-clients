@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 )
@@ -21,18 +20,19 @@ var _ MappedNullable = &ItemsInner{}
 
 // ItemsInner struct for ItemsInner
 type ItemsInner struct {
-	Id         float32         `json:"id"`
-	OrgId      float32         `json:"orgId"`
-	OrgSlug    string          `json:"orgSlug"`
-	OrgName    string          `json:"orgName"`
-	InstanceId NullableFloat32 `json:"instanceId"`
-	Name       string          `json:"name"`
-	Role       string          `json:"role"`
-	CreatedAt  string          `json:"createdAt"`
-	UpdatedAt  NullableString  `json:"updatedAt"`
-	FirstUsed  NullableString  `json:"firstUsed"`
-	Token      *string         `json:"token,omitempty"`
-	Links      []LinksInner    `json:"links"`
+	Id                   float32         `json:"id"`
+	OrgId                float32         `json:"orgId"`
+	OrgSlug              string          `json:"orgSlug"`
+	OrgName              string          `json:"orgName"`
+	InstanceId           NullableFloat32 `json:"instanceId"`
+	Name                 string          `json:"name"`
+	Role                 string          `json:"role"`
+	CreatedAt            string          `json:"createdAt"`
+	UpdatedAt            NullableString  `json:"updatedAt"`
+	FirstUsed            NullableString  `json:"firstUsed"`
+	Token                *string         `json:"token,omitempty"`
+	Links                []LinksInner    `json:"links"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _ItemsInner ItemsInner
@@ -391,6 +391,11 @@ func (o ItemsInner) ToMap() (map[string]interface{}, error) {
 		toSerialize["token"] = o.Token
 	}
 	toSerialize["links"] = o.Links
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -428,15 +433,31 @@ func (o *ItemsInner) UnmarshalJSON(data []byte) (err error) {
 
 	varItemsInner := _ItemsInner{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varItemsInner)
+	err = json.Unmarshal(data, &varItemsInner)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ItemsInner(varItemsInner)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "orgSlug")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "instanceId")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "role")
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "firstUsed")
+		delete(additionalProperties, "token")
+		delete(additionalProperties, "links")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

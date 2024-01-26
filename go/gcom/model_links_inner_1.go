@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 )
@@ -21,8 +20,9 @@ var _ MappedNullable = &LinksInner1{}
 
 // LinksInner1 struct for LinksInner1
 type LinksInner1 struct {
-	Rel  string `json:"rel"`
-	Href string `json:"href"`
+	Rel                  string `json:"rel"`
+	Href                 string `json:"href"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _LinksInner1 LinksInner1
@@ -106,6 +106,11 @@ func (o LinksInner1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["rel"] = o.Rel
 	toSerialize["href"] = o.Href
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -134,15 +139,21 @@ func (o *LinksInner1) UnmarshalJSON(data []byte) (err error) {
 
 	varLinksInner1 := _LinksInner1{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLinksInner1)
+	err = json.Unmarshal(data, &varLinksInner1)
 
 	if err != nil {
 		return err
 	}
 
 	*o = LinksInner1(varLinksInner1)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "rel")
+		delete(additionalProperties, "href")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 )
@@ -21,16 +20,17 @@ var _ MappedNullable = &FormattedApiApiKeyListResponse{}
 
 // FormattedApiApiKeyListResponse struct for FormattedApiApiKeyListResponse
 type FormattedApiApiKeyListResponse struct {
-	Items      []ItemsInner  `json:"items"`
-	OrderBy    *string       `json:"orderBy,omitempty"`
-	Direction  *string       `json:"direction,omitempty"`
-	Total      *float32      `json:"total,omitempty"`
-	Pages      *float32      `json:"pages,omitempty"`
-	PageSize   *float32      `json:"pageSize,omitempty"`
-	Page       *float32      `json:"page,omitempty"`
-	Cursor     *float32      `json:"cursor,omitempty"`
-	NextCursor *float32      `json:"nextCursor,omitempty"`
-	Links      []LinksInner1 `json:"links,omitempty"`
+	Items                []ItemsInner  `json:"items"`
+	OrderBy              *string       `json:"orderBy,omitempty"`
+	Direction            *string       `json:"direction,omitempty"`
+	Total                *float32      `json:"total,omitempty"`
+	Pages                *float32      `json:"pages,omitempty"`
+	PageSize             *float32      `json:"pageSize,omitempty"`
+	Page                 *float32      `json:"page,omitempty"`
+	Cursor               *float32      `json:"cursor,omitempty"`
+	NextCursor           *float32      `json:"nextCursor,omitempty"`
+	Links                []LinksInner1 `json:"links,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _FormattedApiApiKeyListResponse FormattedApiApiKeyListResponse
@@ -403,6 +403,11 @@ func (o FormattedApiApiKeyListResponse) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.Links) {
 		toSerialize["links"] = o.Links
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -430,15 +435,29 @@ func (o *FormattedApiApiKeyListResponse) UnmarshalJSON(data []byte) (err error) 
 
 	varFormattedApiApiKeyListResponse := _FormattedApiApiKeyListResponse{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFormattedApiApiKeyListResponse)
+	err = json.Unmarshal(data, &varFormattedApiApiKeyListResponse)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FormattedApiApiKeyListResponse(varFormattedApiApiKeyListResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "items")
+		delete(additionalProperties, "orderBy")
+		delete(additionalProperties, "direction")
+		delete(additionalProperties, "total")
+		delete(additionalProperties, "pages")
+		delete(additionalProperties, "pageSize")
+		delete(additionalProperties, "page")
+		delete(additionalProperties, "cursor")
+		delete(additionalProperties, "nextCursor")
+		delete(additionalProperties, "links")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

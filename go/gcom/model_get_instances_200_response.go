@@ -11,7 +11,6 @@ API version: internal
 package gcom
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 )
@@ -21,13 +20,14 @@ var _ MappedNullable = &GetInstances200Response{}
 
 // GetInstances200Response struct for GetInstances200Response
 type GetInstances200Response struct {
-	Items     []FormattedApiInstance `json:"items"`
-	OrderBy   string                 `json:"orderBy"`
-	Direction string                 `json:"direction"`
-	Total     float32                `json:"total"`
-	Pages     float32                `json:"pages"`
-	PageSize  float32                `json:"pageSize"`
-	Page      float32                `json:"page"`
+	Items                []FormattedApiInstance `json:"items"`
+	OrderBy              string                 `json:"orderBy"`
+	Direction            string                 `json:"direction"`
+	Total                float32                `json:"total"`
+	Pages                float32                `json:"pages"`
+	PageSize             float32                `json:"pageSize"`
+	Page                 float32                `json:"page"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _GetInstances200Response GetInstances200Response
@@ -241,6 +241,11 @@ func (o GetInstances200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize["pages"] = o.Pages
 	toSerialize["pageSize"] = o.PageSize
 	toSerialize["page"] = o.Page
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -274,15 +279,26 @@ func (o *GetInstances200Response) UnmarshalJSON(data []byte) (err error) {
 
 	varGetInstances200Response := _GetInstances200Response{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varGetInstances200Response)
+	err = json.Unmarshal(data, &varGetInstances200Response)
 
 	if err != nil {
 		return err
 	}
 
 	*o = GetInstances200Response(varGetInstances200Response)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "items")
+		delete(additionalProperties, "orderBy")
+		delete(additionalProperties, "direction")
+		delete(additionalProperties, "total")
+		delete(additionalProperties, "pages")
+		delete(additionalProperties, "pageSize")
+		delete(additionalProperties, "page")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

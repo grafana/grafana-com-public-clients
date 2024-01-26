@@ -19,9 +19,12 @@ var _ MappedNullable = &GetInstance404Response{}
 
 // GetInstance404Response struct for GetInstance404Response
 type GetInstance404Response struct {
-	Message *string `json:"message,omitempty"`
-	Code    *string `json:"code,omitempty"`
+	Message              *string `json:"message,omitempty"`
+	Code                 *string `json:"code,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _GetInstance404Response GetInstance404Response
 
 // NewGetInstance404Response instantiates a new GetInstance404Response object
 // This constructor will assign default values to properties that have it defined,
@@ -120,7 +123,34 @@ func (o GetInstance404Response) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *GetInstance404Response) UnmarshalJSON(data []byte) (err error) {
+	varGetInstance404Response := _GetInstance404Response{}
+
+	err = json.Unmarshal(data, &varGetInstance404Response)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GetInstance404Response(varGetInstance404Response)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "message")
+		delete(additionalProperties, "code")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableGetInstance404Response struct {

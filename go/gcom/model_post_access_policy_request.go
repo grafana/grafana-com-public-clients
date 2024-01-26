@@ -19,13 +19,16 @@ var _ MappedNullable = &PostAccessPolicyRequest{}
 
 // PostAccessPolicyRequest struct for PostAccessPolicyRequest
 type PostAccessPolicyRequest struct {
-	Attributes  *PostAccessPoliciesRequestAttributes   `json:"attributes,omitempty"`
-	Conditions  *PostAccessPoliciesRequestConditions   `json:"conditions,omitempty"`
-	DisplayName *string                                `json:"displayName,omitempty"`
-	Realms      []PostAccessPoliciesRequestRealmsInner `json:"realms,omitempty"`
-	Scopes      []string                               `json:"scopes,omitempty"`
-	Status      *string                                `json:"status,omitempty"`
+	Attributes           *PostAccessPoliciesRequestAttributes   `json:"attributes,omitempty"`
+	Conditions           *PostAccessPoliciesRequestConditions   `json:"conditions,omitempty"`
+	DisplayName          *string                                `json:"displayName,omitempty"`
+	Realms               []PostAccessPoliciesRequestRealmsInner `json:"realms,omitempty"`
+	Scopes               []string                               `json:"scopes,omitempty"`
+	Status               *string                                `json:"status,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _PostAccessPolicyRequest PostAccessPolicyRequest
 
 // NewPostAccessPolicyRequest instantiates a new PostAccessPolicyRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -264,7 +267,38 @@ func (o PostAccessPolicyRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *PostAccessPolicyRequest) UnmarshalJSON(data []byte) (err error) {
+	varPostAccessPolicyRequest := _PostAccessPolicyRequest{}
+
+	err = json.Unmarshal(data, &varPostAccessPolicyRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostAccessPolicyRequest(varPostAccessPolicyRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "attributes")
+		delete(additionalProperties, "conditions")
+		delete(additionalProperties, "displayName")
+		delete(additionalProperties, "realms")
+		delete(additionalProperties, "scopes")
+		delete(additionalProperties, "status")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullablePostAccessPolicyRequest struct {
