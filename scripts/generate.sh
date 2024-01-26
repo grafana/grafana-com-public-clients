@@ -14,7 +14,8 @@ java -jar openapi-generator-cli.jar generate \
   --git-user-id grafana \
   --git-repo-id grafana-com-public-clients/go \
   -p packageName=gcom \
-  -p isGoSubmodule=true
+  -p isGoSubmodule=true \
+  -p disallowAdditionalPropertiesIfNotPresent=false
 
 if ! command -v goimports &> /dev/null
 then
