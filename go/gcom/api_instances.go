@@ -849,6 +849,8 @@ type ApiGetInstancesRequest struct {
 	includeDeleted                 *bool
 	includePromCurrentActiveSeries *bool
 	includeVersionIssueLink        *bool
+	llmIsOptIn                     *bool
+	llmOptInChangedBy              *string
 	machineLearning                *bool
 	machineLearningLogsToken       *string
 	name                           *string
@@ -959,6 +961,16 @@ func (r ApiGetInstancesRequest) IncludePromCurrentActiveSeries(includePromCurren
 
 func (r ApiGetInstancesRequest) IncludeVersionIssueLink(includeVersionIssueLink bool) ApiGetInstancesRequest {
 	r.includeVersionIssueLink = &includeVersionIssueLink
+	return r
+}
+
+func (r ApiGetInstancesRequest) LlmIsOptIn(llmIsOptIn bool) ApiGetInstancesRequest {
+	r.llmIsOptIn = &llmIsOptIn
+	return r
+}
+
+func (r ApiGetInstancesRequest) LlmOptInChangedBy(llmOptInChangedBy string) ApiGetInstancesRequest {
+	r.llmOptInChangedBy = &llmOptInChangedBy
 	return r
 }
 
@@ -1210,6 +1222,12 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	}
 	if r.includeVersionIssueLink != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeVersionIssueLink", r.includeVersionIssueLink, "")
+	}
+	if r.llmIsOptIn != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "llmIsOptIn", r.llmIsOptIn, "")
+	}
+	if r.llmOptInChangedBy != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "llmOptInChangedBy", r.llmOptInChangedBy, "")
 	}
 	if r.machineLearning != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "machineLearning", r.machineLearning, "")

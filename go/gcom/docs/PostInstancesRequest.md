@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **Incident** | Pointer to **bool** |  | [optional] 
 **IssueLink** | Pointer to **string** |  | [optional] 
 **K6OrgId** | Pointer to **int32** |  | [optional] 
+**LlmIsOptIn** | Pointer to **bool** |  | [optional] 
+**LlmOptInChangedBy** | Pointer to **string** |  | [optional] 
 **Logs** | Pointer to **bool** |  | [optional] 
 **MachineLearning** | Pointer to **bool** |  | [optional] 
 **MachineLearningLogsToken** | Pointer to **string** |  | [optional] 
@@ -590,6 +592,56 @@ SetK6OrgId sets K6OrgId field to given value.
 `func (o *PostInstancesRequest) HasK6OrgId() bool`
 
 HasK6OrgId returns a boolean if a field has been set.
+
+### GetLlmIsOptIn
+
+`func (o *PostInstancesRequest) GetLlmIsOptIn() bool`
+
+GetLlmIsOptIn returns the LlmIsOptIn field if non-nil, zero value otherwise.
+
+### GetLlmIsOptInOk
+
+`func (o *PostInstancesRequest) GetLlmIsOptInOk() (*bool, bool)`
+
+GetLlmIsOptInOk returns a tuple with the LlmIsOptIn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLlmIsOptIn
+
+`func (o *PostInstancesRequest) SetLlmIsOptIn(v bool)`
+
+SetLlmIsOptIn sets LlmIsOptIn field to given value.
+
+### HasLlmIsOptIn
+
+`func (o *PostInstancesRequest) HasLlmIsOptIn() bool`
+
+HasLlmIsOptIn returns a boolean if a field has been set.
+
+### GetLlmOptInChangedBy
+
+`func (o *PostInstancesRequest) GetLlmOptInChangedBy() string`
+
+GetLlmOptInChangedBy returns the LlmOptInChangedBy field if non-nil, zero value otherwise.
+
+### GetLlmOptInChangedByOk
+
+`func (o *PostInstancesRequest) GetLlmOptInChangedByOk() (*string, bool)`
+
+GetLlmOptInChangedByOk returns a tuple with the LlmOptInChangedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLlmOptInChangedBy
+
+`func (o *PostInstancesRequest) SetLlmOptInChangedBy(v string)`
+
+SetLlmOptInChangedBy sets LlmOptInChangedBy field to given value.
+
+### HasLlmOptInChangedBy
+
+`func (o *PostInstancesRequest) HasLlmOptInChangedBy() bool`
+
+HasLlmOptInChangedBy returns a boolean if a field has been set.
 
 ### GetLogs
 

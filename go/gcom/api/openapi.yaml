@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: 2ebf1ad
-  x-generated-at: 2024-01-31T17:57:20.867Z
+  x-commit-sha: e24087a
+  x-generated-at: 2024-01-31T18:46:31.346Z
 servers:
 - description: Main API server
   url: /api
@@ -190,6 +190,20 @@ paths:
         required: false
         schema:
           type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: llmIsOptIn
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: llmOptInChangedBy
+        required: false
+        schema:
+          type: string
         style: form
       - explode: true
         in: query
@@ -5306,6 +5320,10 @@ components:
           type: string
         k6OrgId:
           type: integer
+        llmIsOptIn:
+          type: boolean
+        llmOptInChangedBy:
+          type: string
         logs:
           type: boolean
         machineLearning:
@@ -5419,6 +5437,10 @@ components:
           type: string
         k6OrgId:
           type: integer
+        llmIsOptIn:
+          type: boolean
+        llmOptInChangedBy:
+          type: string
         logs:
           type: boolean
         machineLearning:

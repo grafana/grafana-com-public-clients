@@ -42,6 +42,8 @@ type PostInstancesRequest struct {
 	Incident                        *bool      `json:"incident,omitempty"`
 	IssueLink                       *string    `json:"issueLink,omitempty"`
 	K6OrgId                         *int32     `json:"k6OrgId,omitempty"`
+	LlmIsOptIn                      *bool      `json:"llmIsOptIn,omitempty"`
+	LlmOptInChangedBy               *string    `json:"llmOptInChangedBy,omitempty"`
 	Logs                            *bool      `json:"logs,omitempty"`
 	MachineLearning                 *bool      `json:"machineLearning,omitempty"`
 	MachineLearningLogsToken        *string    `json:"machineLearningLogsToken,omitempty"`
@@ -760,6 +762,70 @@ func (o *PostInstancesRequest) HasK6OrgId() bool {
 // SetK6OrgId gets a reference to the given int32 and assigns it to the K6OrgId field.
 func (o *PostInstancesRequest) SetK6OrgId(v int32) {
 	o.K6OrgId = &v
+}
+
+// GetLlmIsOptIn returns the LlmIsOptIn field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetLlmIsOptIn() bool {
+	if o == nil || IsNil(o.LlmIsOptIn) {
+		var ret bool
+		return ret
+	}
+	return *o.LlmIsOptIn
+}
+
+// GetLlmIsOptInOk returns a tuple with the LlmIsOptIn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetLlmIsOptInOk() (*bool, bool) {
+	if o == nil || IsNil(o.LlmIsOptIn) {
+		return nil, false
+	}
+	return o.LlmIsOptIn, true
+}
+
+// HasLlmIsOptIn returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasLlmIsOptIn() bool {
+	if o != nil && !IsNil(o.LlmIsOptIn) {
+		return true
+	}
+
+	return false
+}
+
+// SetLlmIsOptIn gets a reference to the given bool and assigns it to the LlmIsOptIn field.
+func (o *PostInstancesRequest) SetLlmIsOptIn(v bool) {
+	o.LlmIsOptIn = &v
+}
+
+// GetLlmOptInChangedBy returns the LlmOptInChangedBy field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetLlmOptInChangedBy() string {
+	if o == nil || IsNil(o.LlmOptInChangedBy) {
+		var ret string
+		return ret
+	}
+	return *o.LlmOptInChangedBy
+}
+
+// GetLlmOptInChangedByOk returns a tuple with the LlmOptInChangedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetLlmOptInChangedByOk() (*string, bool) {
+	if o == nil || IsNil(o.LlmOptInChangedBy) {
+		return nil, false
+	}
+	return o.LlmOptInChangedBy, true
+}
+
+// HasLlmOptInChangedBy returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasLlmOptInChangedBy() bool {
+	if o != nil && !IsNil(o.LlmOptInChangedBy) {
+		return true
+	}
+
+	return false
+}
+
+// SetLlmOptInChangedBy gets a reference to the given string and assigns it to the LlmOptInChangedBy field.
+func (o *PostInstancesRequest) SetLlmOptInChangedBy(v string) {
+	o.LlmOptInChangedBy = &v
 }
 
 // GetLogs returns the Logs field value if set, zero value otherwise.
@@ -1499,6 +1565,12 @@ func (o PostInstancesRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.K6OrgId) {
 		toSerialize["k6OrgId"] = o.K6OrgId
 	}
+	if !IsNil(o.LlmIsOptIn) {
+		toSerialize["llmIsOptIn"] = o.LlmIsOptIn
+	}
+	if !IsNil(o.LlmOptInChangedBy) {
+		toSerialize["llmOptInChangedBy"] = o.LlmOptInChangedBy
+	}
 	if !IsNil(o.Logs) {
 		toSerialize["logs"] = o.Logs
 	}
@@ -1624,6 +1696,8 @@ func (o *PostInstancesRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "incident")
 		delete(additionalProperties, "issueLink")
 		delete(additionalProperties, "k6OrgId")
+		delete(additionalProperties, "llmIsOptIn")
+		delete(additionalProperties, "llmOptInChangedBy")
 		delete(additionalProperties, "logs")
 		delete(additionalProperties, "machineLearning")
 		delete(additionalProperties, "machineLearningLogsToken")

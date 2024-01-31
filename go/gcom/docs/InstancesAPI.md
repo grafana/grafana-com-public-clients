@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ## GetInstances
 
-> GetInstances200Response GetInstances(ctx).AmInstanceId(amInstanceId).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).HlInstanceId(hlInstanceId).HmInstanceGraphiteId(hmInstanceGraphiteId).HmInstancePromId(hmInstancePromId).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).Incident(incident).IncludeDeleted(includeDeleted).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).IncludeVersionIssueLink(includeVersionIssueLink).MachineLearning(machineLearning).MachineLearningLogsToken(machineLearningLogsToken).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgAccountManagerId(orgAccountManagerId).OrgAccountOwnerId(orgAccountOwnerId).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).OrgType(orgType).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Search(search).Slug(slug).SlugIn(slugIn).Status(status).Trial(trial).TrialExpiresAtMax(trialExpiresAtMax).TrialExpiresAtMin(trialExpiresAtMin).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).UsageStatsId(usageStatsId).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
+> GetInstances200Response GetInstances(ctx).AmInstanceId(amInstanceId).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).HlInstanceId(hlInstanceId).HmInstanceGraphiteId(hmInstanceGraphiteId).HmInstancePromId(hmInstancePromId).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).Incident(incident).IncludeDeleted(includeDeleted).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).IncludeVersionIssueLink(includeVersionIssueLink).LlmIsOptIn(llmIsOptIn).LlmOptInChangedBy(llmOptInChangedBy).MachineLearning(machineLearning).MachineLearningLogsToken(machineLearningLogsToken).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgAccountManagerId(orgAccountManagerId).OrgAccountOwnerId(orgAccountOwnerId).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).OrgType(orgType).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Search(search).Slug(slug).SlugIn(slugIn).Status(status).Trial(trial).TrialExpiresAtMax(trialExpiresAtMax).TrialExpiresAtMin(trialExpiresAtMin).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).UsageStatsId(usageStatsId).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
 
 Get a list of instances
 
@@ -413,6 +413,8 @@ func main() {
 	includeDeleted := true // bool |  (optional)
 	includePromCurrentActiveSeries := true // bool |  (optional)
 	includeVersionIssueLink := true // bool |  (optional)
+	llmIsOptIn := true // bool |  (optional)
+	llmOptInChangedBy := "llmOptInChangedBy_example" // string |  (optional)
 	machineLearning := true // bool |  (optional)
 	machineLearningLogsToken := "machineLearningLogsToken_example" // string |  (optional)
 	name := "name_example" // string |  (optional)
@@ -447,7 +449,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.GetInstances(context.Background()).AmInstanceId(amInstanceId).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).HlInstanceId(hlInstanceId).HmInstanceGraphiteId(hmInstanceGraphiteId).HmInstancePromId(hmInstancePromId).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).Incident(incident).IncludeDeleted(includeDeleted).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).IncludeVersionIssueLink(includeVersionIssueLink).MachineLearning(machineLearning).MachineLearningLogsToken(machineLearningLogsToken).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgAccountManagerId(orgAccountManagerId).OrgAccountOwnerId(orgAccountOwnerId).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).OrgType(orgType).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Search(search).Slug(slug).SlugIn(slugIn).Status(status).Trial(trial).TrialExpiresAtMax(trialExpiresAtMax).TrialExpiresAtMin(trialExpiresAtMin).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).UsageStatsId(usageStatsId).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
+	resp, r, err := apiClient.InstancesAPI.GetInstances(context.Background()).AmInstanceId(amInstanceId).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).HlInstanceId(hlInstanceId).HmInstanceGraphiteId(hmInstanceGraphiteId).HmInstancePromId(hmInstancePromId).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).Incident(incident).IncludeDeleted(includeDeleted).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).IncludeVersionIssueLink(includeVersionIssueLink).LlmIsOptIn(llmIsOptIn).LlmOptInChangedBy(llmOptInChangedBy).MachineLearning(machineLearning).MachineLearningLogsToken(machineLearningLogsToken).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgAccountManagerId(orgAccountManagerId).OrgAccountOwnerId(orgAccountOwnerId).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).OrgType(orgType).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Search(search).Slug(slug).SlugIn(slugIn).Status(status).Trial(trial).TrialExpiresAtMax(trialExpiresAtMax).TrialExpiresAtMin(trialExpiresAtMin).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).UsageStatsId(usageStatsId).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -484,6 +486,8 @@ Name | Type | Description  | Notes
  **includeDeleted** | **bool** |  | 
  **includePromCurrentActiveSeries** | **bool** |  | 
  **includeVersionIssueLink** | **bool** |  | 
+ **llmIsOptIn** | **bool** |  | 
+ **llmOptInChangedBy** | **string** |  | 
  **machineLearning** | **bool** |  | 
  **machineLearningLogsToken** | **string** |  | 
  **name** | **string** |  | 
