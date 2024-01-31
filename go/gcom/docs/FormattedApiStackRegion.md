@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **IntegrationsApiUrl** | **string** |  | 
 **HostedExportersApiUrl** | **string** |  | 
 **MachineLearningApiUrl** | **string** |  | 
+**LlmGatewayUrl** | **string** |  | 
 **IncidentApiUrl** | **string** |  | 
 **OncallApiUrl** | **string** |  | 
 **FaroEndpointUrl** | **string** |  | 
@@ -66,7 +67,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiStackRegion
 
-`func NewFormattedApiStackRegion(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, ) *FormattedApiStackRegion`
+`func NewFormattedApiStackRegion(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, ) *FormattedApiStackRegion`
 
 NewFormattedApiStackRegion instantiates a new FormattedApiStackRegion object
 This constructor will assign default values to properties that have it defined,
@@ -429,6 +430,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiStackRegion) SetMachineLearningApiUrl(v string)`
 
 SetMachineLearningApiUrl sets MachineLearningApiUrl field to given value.
+
+
+### GetLlmGatewayUrl
+
+`func (o *FormattedApiStackRegion) GetLlmGatewayUrl() string`
+
+GetLlmGatewayUrl returns the LlmGatewayUrl field if non-nil, zero value otherwise.
+
+### GetLlmGatewayUrlOk
+
+`func (o *FormattedApiStackRegion) GetLlmGatewayUrlOk() (*string, bool)`
+
+GetLlmGatewayUrlOk returns a tuple with the LlmGatewayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLlmGatewayUrl
+
+`func (o *FormattedApiStackRegion) SetLlmGatewayUrl(v string)`
+
+SetLlmGatewayUrl sets LlmGatewayUrl field to given value.
 
 
 ### GetIncidentApiUrl

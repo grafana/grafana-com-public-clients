@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: 4fe84b5
-  x-generated-at: 2024-01-31T15:29:39.053Z
+  x-commit-sha: 2ebf1ad
+  x-generated-at: 2024-01-31T17:57:20.867Z
 servers:
 - description: Main API server
   url: /api
@@ -6144,6 +6144,9 @@ components:
         machineLearningApiUrl:
           title: machineLearningApiUrl
           type: string
+        llmGatewayUrl:
+          title: llmGatewayUrl
+          type: string
         incidentApiUrl:
           title: incidentApiUrl
           type: string
@@ -6346,6 +6349,7 @@ components:
       - incidentApiUrl
       - insightsApiUrl
       - integrationsApiUrl
+      - llmGatewayUrl
       - machineLearningApiUrl
       - name
       - oncallApiUrl

@@ -26,6 +26,7 @@ type FormattedApiStackRegionAnyOf1 struct {
 	IntegrationsApiUrl        string         `json:"integrationsApiUrl"`
 	HostedExportersApiUrl     string         `json:"hostedExportersApiUrl"`
 	MachineLearningApiUrl     string         `json:"machineLearningApiUrl"`
+	LlmGatewayUrl             string         `json:"llmGatewayUrl"`
 	IncidentApiUrl            string         `json:"incidentApiUrl"`
 	OncallApiUrl              string         `json:"oncallApiUrl"`
 	FaroEndpointUrl           string         `json:"faroEndpointUrl"`
@@ -86,7 +87,7 @@ type _FormattedApiStackRegionAnyOf1 FormattedApiStackRegionAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
+func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
 	this := FormattedApiStackRegionAnyOf1{}
 	this.StackStateServiceUrl = stackStateServiceUrl
 	this.SyntheticMonitoringApiUrl = syntheticMonitoringApiUrl
@@ -94,6 +95,7 @@ func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMoni
 	this.IntegrationsApiUrl = integrationsApiUrl
 	this.HostedExportersApiUrl = hostedExportersApiUrl
 	this.MachineLearningApiUrl = machineLearningApiUrl
+	this.LlmGatewayUrl = llmGatewayUrl
 	this.IncidentApiUrl = incidentApiUrl
 	this.OncallApiUrl = oncallApiUrl
 	this.FaroEndpointUrl = faroEndpointUrl
@@ -298,6 +300,30 @@ func (o *FormattedApiStackRegionAnyOf1) GetMachineLearningApiUrlOk() (*string, b
 // SetMachineLearningApiUrl sets field value
 func (o *FormattedApiStackRegionAnyOf1) SetMachineLearningApiUrl(v string) {
 	o.MachineLearningApiUrl = v
+}
+
+// GetLlmGatewayUrl returns the LlmGatewayUrl field value
+func (o *FormattedApiStackRegionAnyOf1) GetLlmGatewayUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.LlmGatewayUrl
+}
+
+// GetLlmGatewayUrlOk returns a tuple with the LlmGatewayUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetLlmGatewayUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.LlmGatewayUrl, true
+}
+
+// SetLlmGatewayUrl sets field value
+func (o *FormattedApiStackRegionAnyOf1) SetLlmGatewayUrl(v string) {
+	o.LlmGatewayUrl = v
 }
 
 // GetIncidentApiUrl returns the IncidentApiUrl field value
@@ -1544,6 +1570,7 @@ func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize["integrationsApiUrl"] = o.IntegrationsApiUrl
 	toSerialize["hostedExportersApiUrl"] = o.HostedExportersApiUrl
 	toSerialize["machineLearningApiUrl"] = o.MachineLearningApiUrl
+	toSerialize["llmGatewayUrl"] = o.LlmGatewayUrl
 	toSerialize["incidentApiUrl"] = o.IncidentApiUrl
 	toSerialize["oncallApiUrl"] = o.OncallApiUrl
 	toSerialize["faroEndpointUrl"] = o.FaroEndpointUrl
@@ -1614,6 +1641,7 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		"integrationsApiUrl",
 		"hostedExportersApiUrl",
 		"machineLearningApiUrl",
+		"llmGatewayUrl",
 		"incidentApiUrl",
 		"oncallApiUrl",
 		"faroEndpointUrl",
@@ -1700,6 +1728,7 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "integrationsApiUrl")
 		delete(additionalProperties, "hostedExportersApiUrl")
 		delete(additionalProperties, "machineLearningApiUrl")
+		delete(additionalProperties, "llmGatewayUrl")
 		delete(additionalProperties, "incidentApiUrl")
 		delete(additionalProperties, "oncallApiUrl")
 		delete(additionalProperties, "faroEndpointUrl")

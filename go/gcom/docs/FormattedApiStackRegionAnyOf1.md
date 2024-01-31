@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **IntegrationsApiUrl** | **string** |  | 
 **HostedExportersApiUrl** | **string** |  | 
 **MachineLearningApiUrl** | **string** |  | 
+**LlmGatewayUrl** | **string** |  | 
 **IncidentApiUrl** | **string** |  | 
 **OncallApiUrl** | **string** |  | 
 **FaroEndpointUrl** | **string** |  | 
@@ -66,7 +67,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiStackRegionAnyOf1
 
-`func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, ) *FormattedApiStackRegionAnyOf1`
+`func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, ) *FormattedApiStackRegionAnyOf1`
 
 NewFormattedApiStackRegionAnyOf1 instantiates a new FormattedApiStackRegionAnyOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -199,6 +200,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiStackRegionAnyOf1) SetMachineLearningApiUrl(v string)`
 
 SetMachineLearningApiUrl sets MachineLearningApiUrl field to given value.
+
+
+### GetLlmGatewayUrl
+
+`func (o *FormattedApiStackRegionAnyOf1) GetLlmGatewayUrl() string`
+
+GetLlmGatewayUrl returns the LlmGatewayUrl field if non-nil, zero value otherwise.
+
+### GetLlmGatewayUrlOk
+
+`func (o *FormattedApiStackRegionAnyOf1) GetLlmGatewayUrlOk() (*string, bool)`
+
+GetLlmGatewayUrlOk returns a tuple with the LlmGatewayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLlmGatewayUrl
+
+`func (o *FormattedApiStackRegionAnyOf1) SetLlmGatewayUrl(v string)`
+
+SetLlmGatewayUrl sets LlmGatewayUrl field to given value.
 
 
 ### GetIncidentApiUrl
