@@ -270,7 +270,6 @@ Name | Type | Description | Notes
 **TrialNoticeDate** | Pointer to **NullableString** |  | [optional] 
 **CancellationDate** | Pointer to **NullableString** |  | [optional] 
 **RetainedStackId** | Pointer to **float32** |  | [optional] 
-**AllowGCloudTrial** | Pointer to **bool** |  | [optional] 
 **PluginSignatureType** | Pointer to **string** |  | [optional] 
 **ContractType** | Pointer to **string** |  | [optional] 
 **ContractTypeId** | Pointer to **float32** |  | [optional] 
@@ -7735,31 +7734,6 @@ SetRetainedStackId sets RetainedStackId field to given value.
 `func (o *FormattedApiOrg) HasRetainedStackId() bool`
 
 HasRetainedStackId returns a boolean if a field has been set.
-
-### GetAllowGCloudTrial
-
-`func (o *FormattedApiOrg) GetAllowGCloudTrial() bool`
-
-GetAllowGCloudTrial returns the AllowGCloudTrial field if non-nil, zero value otherwise.
-
-### GetAllowGCloudTrialOk
-
-`func (o *FormattedApiOrg) GetAllowGCloudTrialOk() (*bool, bool)`
-
-GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAllowGCloudTrial
-
-`func (o *FormattedApiOrg) SetAllowGCloudTrial(v bool)`
-
-SetAllowGCloudTrial sets AllowGCloudTrial field to given value.
-
-### HasAllowGCloudTrial
-
-`func (o *FormattedApiOrg) HasAllowGCloudTrial() bool`
-
-HasAllowGCloudTrial returns a boolean if a field has been set.
 
 ### GetPluginSignatureType
 

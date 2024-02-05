@@ -3657,7 +3657,6 @@ components:
         resellerId: 9.702963800023566
         cancellationClientNotes: cancellationClientNotes
         htTier3Rate: 9.806951670467935
-        allowGCloudTrial: true
         hgOverageAmount: 9.301444243932576
         k6IPOverageWarnDate: k6IPOverageWarnDate
         geUsersTier2Min: 6.918231485891953
@@ -4659,9 +4658,6 @@ components:
         retainedStackId:
           title: retainedStackId
           type: number
-        allowGCloudTrial:
-          title: allowGCloudTrial
-          type: boolean
         pluginSignatureType:
           title: pluginSignatureType
           type: string

@@ -286,7 +286,6 @@ type FormattedApiOrg struct {
 	TrialNoticeDate                  NullableString         `json:"trialNoticeDate,omitempty"`
 	CancellationDate                 NullableString         `json:"cancellationDate,omitempty"`
 	RetainedStackId                  *float32               `json:"retainedStackId,omitempty"`
-	AllowGCloudTrial                 *bool                  `json:"allowGCloudTrial,omitempty"`
 	PluginSignatureType              *string                `json:"pluginSignatureType,omitempty"`
 	ContractType                     *string                `json:"contractType,omitempty"`
 	ContractTypeId                   *float32               `json:"contractTypeId,omitempty"`
@@ -9695,38 +9694,6 @@ func (o *FormattedApiOrg) SetRetainedStackId(v float32) {
 	o.RetainedStackId = &v
 }
 
-// GetAllowGCloudTrial returns the AllowGCloudTrial field value if set, zero value otherwise.
-func (o *FormattedApiOrg) GetAllowGCloudTrial() bool {
-	if o == nil || IsNil(o.AllowGCloudTrial) {
-		var ret bool
-		return ret
-	}
-	return *o.AllowGCloudTrial
-}
-
-// GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrg) GetAllowGCloudTrialOk() (*bool, bool) {
-	if o == nil || IsNil(o.AllowGCloudTrial) {
-		return nil, false
-	}
-	return o.AllowGCloudTrial, true
-}
-
-// HasAllowGCloudTrial returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasAllowGCloudTrial() bool {
-	if o != nil && !IsNil(o.AllowGCloudTrial) {
-		return true
-	}
-
-	return false
-}
-
-// SetAllowGCloudTrial gets a reference to the given bool and assigns it to the AllowGCloudTrial field.
-func (o *FormattedApiOrg) SetAllowGCloudTrial(v bool) {
-	o.AllowGCloudTrial = &v
-}
-
 // GetPluginSignatureType returns the PluginSignatureType field value if set, zero value otherwise.
 func (o *FormattedApiOrg) GetPluginSignatureType() string {
 	if o == nil || IsNil(o.PluginSignatureType) {
@@ -10695,9 +10662,6 @@ func (o FormattedApiOrg) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.RetainedStackId) {
 		toSerialize["retainedStackId"] = o.RetainedStackId
 	}
-	if !IsNil(o.AllowGCloudTrial) {
-		toSerialize["allowGCloudTrial"] = o.AllowGCloudTrial
-	}
 	if !IsNil(o.PluginSignatureType) {
 		toSerialize["pluginSignatureType"] = o.PluginSignatureType
 	}
@@ -11001,7 +10965,6 @@ func (o *FormattedApiOrg) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "trialNoticeDate")
 		delete(additionalProperties, "cancellationDate")
 		delete(additionalProperties, "retainedStackId")
-		delete(additionalProperties, "allowGCloudTrial")
 		delete(additionalProperties, "pluginSignatureType")
 		delete(additionalProperties, "contractType")
 		delete(additionalProperties, "contractTypeId")
