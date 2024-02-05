@@ -8107,10 +8107,6 @@
             "type": "number",
             "title": "retainedStackId"
           },
-          "allowGCloudTrial": {
-            "type": "boolean",
-            "title": "allowGCloudTrial"
-          },
           "pluginSignatureType": {
             "type": "string",
             "title": "pluginSignatureType"
