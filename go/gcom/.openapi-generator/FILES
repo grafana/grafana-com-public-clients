@@ -21,7 +21,7 @@ docs/FormattedApiApiKey.md
 docs/FormattedApiApiKeyListResponse.md
 docs/FormattedApiInstance.md
 docs/FormattedApiInstancePlugin.md
-docs/FormattedApiOrg.md
+docs/FormattedApiOrgPublic.md
 docs/FormattedApiPlugin.md
 docs/FormattedApiStackRegion.md
 docs/FormattedApiStackRegionAnyOf.md
@@ -77,7 +77,7 @@ model_formatted_api_api_key.go
 model_formatted_api_api_key_list_response.go
 model_formatted_api_instance.go
 model_formatted_api_instance_plugin.go
-model_formatted_api_org.go
+model_formatted_api_org_public.go
 model_formatted_api_plugin.go
 model_formatted_api_stack_region.go
 model_formatted_api_stack_region_any_of.go

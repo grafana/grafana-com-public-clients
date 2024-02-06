@@ -584,7 +584,7 @@ type ApiGetOrgRequest struct {
 	slugOrId   string
 }
 
-func (r ApiGetOrgRequest) Execute() (*FormattedApiOrg, *http.Response, error) {
+func (r ApiGetOrgRequest) Execute() (*FormattedApiOrgPublic, *http.Response, error) {
 	return r.ApiService.GetOrgExecute(r)
 }
 
@@ -604,13 +604,13 @@ func (a *OrgsAPIService) GetOrg(ctx context.Context, slugOrId string) ApiGetOrgR
 }
 
 // Execute executes the request
-//  @return FormattedApiOrg
-func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrg, *http.Response, error) {
+//  @return FormattedApiOrgPublic
+func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrgPublic, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *FormattedApiOrg
+		localVarReturnValue *FormattedApiOrgPublic
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.GetOrg")

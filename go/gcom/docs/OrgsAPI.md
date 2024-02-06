@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ## GetOrg
 
-> FormattedApiOrg GetOrg(ctx, slugOrId).Execute()
+> FormattedApiOrgPublic GetOrg(ctx, slugOrId).Execute()
 
 
 
@@ -269,7 +269,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrgsAPI.GetOrg``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetOrg`: FormattedApiOrg
+	// response from `GetOrg`: FormattedApiOrgPublic
 	fmt.Fprintf(os.Stdout, "Response from `OrgsAPI.GetOrg`: %v\n", resp)
 }
 ```
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FormattedApiOrg**](FormattedApiOrg.md)
+[**FormattedApiOrgPublic**](FormattedApiOrgPublic.md)
 
 ### Authorization
 

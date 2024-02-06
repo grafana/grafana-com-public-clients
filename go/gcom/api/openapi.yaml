@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: b79e1eb
-  x-generated-at: 2024-02-06T13:20:47.484Z
+  x-commit-sha: 72b9a71
+  x-generated-at: 2024-02-06T15:34:59.265Z
 servers:
 - description: Main API server
   url: /api
@@ -1161,7 +1161,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiOrg'
+                $ref: '#/components/schemas/FormattedApiOrgPublic'
           description: OK
         "404":
           content:
@@ -3350,734 +3350,158 @@ components:
       - key
       - name
       type: object
-    FormattedApiOrg:
+    FormattedApiOrgPublic:
       example:
-        accountManagerName: accountManagerName
-        hmGraphiteInstanceCnt: 5.573385265048522
-        hpTier2Min: 5.6644160867523485
-        hmCurrentPrometheusUsage: 5.962133916683182
-        intacctCustomerUrl: intacctCustomerUrl
-        k6IPUsage: 2.9679475177256287
-        accountOwnerUsername: accountOwnerUsername
-        k6IPOverageAmount: 6.683562403749608
-        irmTier3Rate: 7.92839742024475
-        hmGraphiteTier1Rate: 5.299143560275359
-        geInstancesTier3Min: 2.026856458177285
-        happinessChangedAt: happinessChangedAt
-        userQuota: 4.678947989005849
-        hmBillingEndDate: hmBillingEndDate
-        irmOverageWarnDate: irmOverageWarnDate
-        hlRetentionTier3Min: 4.332304821875894
-        hmTier3Min: 1.8268702177058116
-        spendCommitCreditBalance: 3.0205796992916243
-        hgOnCallUsage: 1.7325933120207193
-        geUsersTier2Rate: 0.11859130807119977
-        irmTier3Min: 7.726998920545485
-        geUsersIncludedUsage: 9.721723570087065
-        tags:
-        - tags
-        - tags
-        hlRetentionBillingStartDate: hlRetentionBillingStartDate
-        htInstanceCnt: 0.8851374739011653
-        happinessExpiredAt: happinessExpiredAt
-        geInstancesOverageWarnDate: geInstancesOverageWarnDate
-        k6VuhTier1Rate: 4.4935252719377825
-        htBilledToDate: htBilledToDate
-        geInstancesBilledToDate: geInstancesBilledToDate
-        zendeskId: 8.969578798196912
+        grafanaCloud: 3.616076749251911
+        hmGraphiteInstanceCnt: 5.7911894223693885
+        hlRetentionIncludedUsage: 3.0576100241049344
+        hpTier2Min: 5.507386964179881
+        geInstancesTier2Rate: 1.3949519358941398
+        contractType: contractType
+        hmGraphiteTier3Rate: 3.0937452626664474
+        k6IPUsage: 7.835035282970782
+        k6VuhTier3Min: 8.761432466225475
+        irmTier1Rate: 2.9409642974827896
+        irmTier3Rate: 4.573936264232251
+        feO11yTier3Min: 8.675064425986758
+        hmGraphiteTier1Rate: 6.878052220127876
+        geInstancesTier3Min: 1.2555055362323109
+        userQuota: 2.3021358869347655
+        hlTier2Rate: 4.652396432933246
+        k6IPTier3Rate: 5.877124706116695
+        hmGraphiteTier2Min: 5.944895607614016
+        id: 0.8008281904610115
+        hlRetentionTier3Min: 4.078845849666752
+        gcloudMonthlyCost: 4.145608029883936
+        hmTier3Min: 3.5571952270680973
+        resellerName: resellerName
+        hgOnCallUsage: 9.965781217890562
+        geUsersTier2Rate: 9.386524999783381
+        geUsersTier3Min: 0.58919091925136
+        irmTier3Min: 6.623518433804886
+        geUsersIncludedUsage: 7.203794749804894
+        htTier2Min: 4.678947989005849
+        resellerId: 2.027123023002322
+        htTier3Rate: 0.8774076871421566
+        k6VuhTier1Rate: 1.8268702177058116
+        allowGCloudTrial: true
         supportPlan: supportPlan
-        hgOverageWarnDate: hgOverageWarnDate
-        geUsersBilledToDate: geUsersBilledToDate
-        hlRetentionBillingEndDate: hlRetentionBillingEndDate
-        k6IPBilledToDate: k6IPBilledToDate
-        k6IPBillingStartDate: k6IPBillingStartDate
-        hmBilledToDate: hmBilledToDate
-        hgTier3Min: 8.251625748923757
-        hmTier2Rate: 9.254183946267839
-        hgTier3Rate: 4.459605034958679
-        hlUsage: 8.675064425986758
-        hpBilledToDate: hpBilledToDate
-        hlOverageAmount: 2.3021358869347655
-        htTier1Rate: 2.535258963197524
-        irmBillingEndDate: irmBillingEndDate
-        slackSupportChannel: slackSupportChannel
-        k6OrgId: 3.2588565619047607
+        geUsersTier2Min: 2.7977867356748476
+        hgTier3Min: 6.84685269835264
+        hmTier2Rate: 6.438423552598547
+        feO11yTier2Rate: 3.804112695731078
+        hgTier3Rate: 7.457744773683766
+        hlUsage: 3.0205796992916243
+        htTier1Rate: 1.041444916118296
+        k6VuhTier2Min: 3.502657762086401
+        hmIncludedSeries: 9.369310271410669
+        irmUsage: 8.863729185622827
+        hlInstanceLimit: 5.637376656633329
         emergencySupport: true
-        hlBilledToDate: hlBilledToDate
-        awsMarketplaceSupport: 8.250639315618633
+        cancellationDate: cancellationDate
+        awsMarketplaceSupport: 3.8008573585058016
         trialStartDate: trialStartDate
-        cancellationReason: cancellationReason
-        hmGraphiteIncludedUsage: 0.4182561061793122
-        k6IPTier2Rate: 2.058822123984536
-        k6IPCurrentUsage: 9.369310271410669
-        geUsersOverageWarnDate: geUsersOverageWarnDate
+        hmGraphiteIncludedUsage: 6.778324963048013
+        k6IPTier2Rate: 3.111202833403195
         reseller: reseller
-        hlRetentionTier2Rate: 7.203794749804894
-        htOverageAmount: 1.4894159098541704
-        hgBillingEndDate: hgBillingEndDate
-        hlTier3Rate: 3.804112695731078
-        memberCnt: 6.878052220127876
-        hmFirstApproachingLimitDate: 2000-01-23T04:56:07.000+00:00
-        hgBilledToDate: hgBilledToDate
-        estimatedArr: 5.533258397034986
-        hlQueryToIngestRatio: 5.877124706116695
-        happinessCreatedAt: happinessCreatedAt
-        hmGraphiteOverageWarnDate: hmGraphiteOverageWarnDate
-        hmGraphiteBillingEndDate: hmGraphiteBillingEndDate
-        hpTier2Rate: 1.5970080735609526
-        geInstancesTier2Min: 2.0981949483881577
-        irmCurrentUsage: 6.84685269835264
-        hgPluginUsersOverageRate: 3.8156682252305574
-        hlTier1Rate: 7.835035282970782
-        irmTier2Rate: 7.3718573971919445
+        hlRetentionTier2Rate: 3.2588565619047607
+        k6IPTier3Min: 9.897492629215506
+        geInstancesIncludedUsage: 4.8789878742268815
+        hlTier3Rate: 7.740351818741173
+        avatar: avatar
+        url: url
+        contractTypeId: 9.785002165136461
+        k6VuhIncludedUsage: 9.254183946267839
+        hlQueryToIngestRatio: 7.058770351582356
+        hgPluginUsersIncludedUsage: 4.372688051310086
+        hpTier2Rate: 4.86315908102884
+        geInstancesTier2Min: 9.806951670467935
+        hlTier2Min: 0.10263654006109402
+        hgPluginUsersOverageRate: 1.5970080735609526
+        hlTier1Rate: 6.519180951018382
+        irmTier2Rate: 8.28965939814297
         subscriptions: null
         isContractedLicenseAutoProvision: true
-        feO11yUsage: 9.456612101333725
-        geUsersOverageAmount: 3.5571952270680973
-        irmTier2Min: 9.785002165136461
-        hlOverageWarnDate: hlOverageWarnDate
-        geUsersBillingStartDate: geUsersBillingStartDate
-        k6IPIncludedUsage: 6.458262756685686
-        feO11yBilledToDate: feO11yBilledToDate
-        htCurrentUsage: 1.0246457001441578
-        createdAt: createdAt
-        pluginSignatureType: pluginSignatureType
-        hlBillingStartDate: hlBillingStartDate
-        geUsersCurrentUsage: 6.438423552598547
-        hlTier3Min: 2.380090174313445
-        slug: slug
-        geUsersUsage: 7.390706075830692
-        trialLengthDays: 7.273019311111276
-        geUsersTier3Rate: 0.36062689002149373
-        hmGraphiteBilledToDate: hmGraphiteBilledToDate
-        hmCurrentGraphiteUsage: 5.637376656633329
-        hgGrafanaUsage: 2.9409642974827896
-        feO11yTier2Min: 7.3842318535314
-        irmBillingStartDate: irmBillingStartDate
-        k6IPBillingEndDate: k6IPBillingEndDate
-        totalOverageAmount: 6.778324963048013
-        hmFirstOverageDate: 2000-01-23T04:56:07.000+00:00
-        name: name
-        hlInstanceCnt: 7.143538047012306
-        hlRetentionTier2Min: 0.35262192099236644
-        feO11yUnits: 0.4867146239815201
-        hmTier1Rate: 4.573936264232251
-        hlRetentionCurrentUsage: 7.386281948385884
-        wpPlan: wpPlan
-        htIncludedUsage: 0.58919091925136
-        feO11yTier1Rate: 0.7012260588964747
-        hmPrometheusInstanceCnt: 3.0269458094096646
-        hpOverageWarnDate: hpOverageWarnDate
-        privacy: privacy
-        htTier3Min: 6.966044574347761
-        hlIncludedUsage: 9.897492629215506
-        hmOverageWarnDate: hmOverageWarnDate
-        licenseUnconfiguredCnt: 3.353193347011243
-        intacctCustomerId: 6.519180951018382
-        happinessReasonCode: happinessReasonCode
-        hlCurrentUsage: 7.061401241503109
-        hgInstanceLimit: 6.628464275087742
-        hlBillingEndDate: hlBillingEndDate
-        hlRetentionTier1Rate: 0.4833312865174044
-        hlRetentionUsage: 9.386524999783381
-        hpCurrentUsage: 1.1730742509559433
-        retainedStackId: 2.4669941706755685
-        k6IPTier1Rate: 4.141296055235948
-        irmIncludedUsage: 1.0639121808530916
-        hmGraphiteCurrentUsage: 2.027123023002322
-        hpUsage: 5.974942028545841
-        htOverageWarnDate: htOverageWarnDate
-        createdBy: createdBy
-        geInstancesTier3Rate: 3.196820582978078
-        hmGraphiteUsage: 3.111202833403195
-        hpTier1Rate: 3.812761638325517
-        k6VuhCurrentUsage: 5.025004791520295
-        awsCustomerId: awsCustomerId
-        hpIncludedUsage: 1.2555055362323109
-        grafanaCloud: 0.8774076871421566
-        hlRetentionIncludedUsage: 4.518309517874243
-        happinessRating: happinessRating
-        k6VuhOverageWarnDate: k6VuhOverageWarnDate
-        geInstancesTier2Rate: 4.1661834558007
-        contractType: contractType
-        hmGraphiteTier3Rate: 3.7814124730767915
-        k6VuhTier3Min: 2.9805393113464476
-        irmTier1Rate: 3.2841216543560217
-        geInstancesBillingEndDate: geInstancesBillingEndDate
-        feO11yTier3Min: 4.943637496515336
-        geInstancesOverageAmount: 1.284659006116532
-        hlTier2Rate: 3.1497903714250555
-        k6IPTier3Rate: 0.8411762798681321
-        hgDatasourceCnts: "{}"
-        hmGraphiteTier2Min: 5.312489704336296
-        id: 4.078845849666752
-        gcloudMonthlyCost: 0.5199002018724985
-        cancellationNotes: cancellationNotes
-        resellerName: resellerName
-        geUsersTier3Min: 4.637509675190766
-        hgBillingStartDate: hgBillingStartDate
-        hpBillingStartDate: hpBillingStartDate
-        hmBillingStartDate: hmBillingStartDate
-        k6VuhBilledToDate: k6VuhBilledToDate
-        feO11yOverageAmount: 9.018348186070783
-        htTier2Min: 6.173804034172511
-        resellerId: 9.702963800023566
-        cancellationClientNotes: cancellationClientNotes
-        htTier3Rate: 9.806951670467935
-        allowGCloudTrial: true
-        hgOverageAmount: 9.301444243932576
-        k6IPOverageWarnDate: k6IPOverageWarnDate
-        geUsersTier2Min: 6.918231485891953
-        slackSupport: 2.8841621266687802
-        hlRetentionOverageWarnDate: hlRetentionOverageWarnDate
-        licenseCnt: 5.944895607614016
-        hpBillingEndDate: hpBillingEndDate
-        feO11yTier2Rate: 6.749525837406151
-        salesforceLeadId: salesforceLeadId
-        k6VuhTier2Min: 3.209082285545927
-        hmIncludedSeries: 8.28965939814297
-        irmUsage: 9.402167524121316
-        hlInstanceLimit: 1.041444916118296
-        hpOverageAmount: 4.965218492984954
-        accountManagerId: 0.8008281904610115
-        salesforceAccountId: salesforceAccountId
-        cancellationDate: cancellationDate
-        feO11yCurrentUsage: 8.762042012749001
-        k6IPTier3Min: 6.4280627569296165
-        geInstancesIncludedUsage: 1.0502890910539986
-        irmOverageAmount: 7.457744773683766
-        avatar: avatar
-        hlRetentionBilledToDate: hlRetentionBilledToDate
-        salesforceCustomOrgId: salesforceCustomOrgId
-        url: url
-        contractTypeId: 8.782449469456207
-        netPromoterScore: 7.740351818741173
-        k6VuhIncludedUsage: 1.7045651386993
-        happinessUserName: happinessUserName
-        hgPluginUsersIncludedUsage: 1.9626702727164813
-        referredBy: referredBy
-        hlRetentionOverageAmount: 1.2315135367772556
-        hlTier2Min: 0.4768402382624515
-        geUsersBillingEndDate: geUsersBillingEndDate
-        ubersmithClientId: 7.058770351582356
-        hmGraphiteTier2Rate: 8.37823741034869
+        hmGraphiteTier2Rate: 6.704019297950036
+        feO11yUsage: 0.35262192099236644
         trialNoticeDate: trialNoticeDate
-        feO11yIncludedUsage: 5.747795090145878
-        geInstancesTier1Rate: 6.176386745020588
-        irmBilledToDate: irmBilledToDate
-        hgCurrentActiveUsers: 0.43431398824148815
-        k6IPTier2Min: 8.910869026866926
-        hmGraphiteBillingStartDate: hmGraphiteBillingStartDate
-        hmAverageDpm: 6.623518433804886
+        feO11yIncludedUsage: 0.4768402382624515
+        geInstancesTier1Rate: 6.966044574347761
+        irmTier2Min: 1.7325933120207193
+        hgCurrentActiveUsers: 4.965218492984954
+        k6IPIncludedUsage: 8.37823741034869
+        k6IPTier2Min: 3.7814124730767915
+        hmAverageDpm: 6.683562403749608
+        createdAt: createdAt
         msaSignedBy: msaSignedBy
-        hmOverageAmount: 1.4658129805029452
-        k6VuhBillingEndDate: k6VuhBillingEndDate
-        geInstancesCurrentUsage: 6.965117697638846
-        hmInstanceLimit: 4.258773108174356
+        pluginSignatureType: pluginSignatureType
+        hmInstanceLimit: 5.962133916683182
         links:
         - rel: rel
           href: href
         - rel: rel
           href: href
-        accountManagerUsername: accountManagerUsername
+        hlTier3Min: 8.969578798196912
+        slug: slug
         updatedAt: updatedAt
-        happinessNote: happinessNote
-        htTier2Rate: 4.8789878742268815
+        htTier2Rate: 7.260521264802104
         updatedBy: updatedBy
-        hgIntegrationCnts: "{}"
-        hgTier2Min: 4.86315908102884
-        k6VuhTier2Rate: 8.262795412896967
-        htUsage: 1.3949519358941398
-        hgTier1Rate: 5.507386964179881
-        accountOwnerId: 6.027456183070403
-        hmGraphiteTier3Min: 7.606863723092579
+        geUsersUsage: 6.173804034172511
+        hgTier2Min: 1.0246457001441578
+        k6VuhTier2Rate: 9.183123594773994
+        trialLengthDays: 1.0639121808530916
+        htUsage: 9.702963800023566
+        geUsersTier3Rate: 2.535258963197524
+        hgTier1Rate: 1.2315135367772556
+        hgGrafanaUsage: 5.025004791520295
+        feO11yTier2Min: 2.380090174313445
+        hmGraphiteTier3Min: 3.353193347011243
         msaSignedAt: msaSignedAt
-        k6VuhUsage: 8.276461147928103
-        geInstancesUsage: 5.296102445648278
-        prevCommittedArr: 4.652396432933246
-        hpTier3Rate: 5.7911894223693885
-        hgActiveUsers: 3.616076749251911
-        hmTier2Min: 8.863729185622827
-        hmGraphiteOverageAmount: 4.145608029883936
-        hgInstanceCnt: 3.0937452626664474
-        k6VuhOverageAmount: 9.965781217890562
-        checksPerMonth: 0.2025324113236393
-        hgUsage: 3.901545264248647
-        feO11yBillingEndDate: feO11yBillingEndDate
-        htBillingEndDate: htBillingEndDate
-        k6VuhTier3Rate: 9.146339979307802
-        licenseConfiguredCnt: 6.704019297950036
-        feO11yTier3Rate: 0.30134145536422907
-        projectedOverageAmount: 7.04836565559697
-        geUsersTier1Rate: 7.88722683998926
-        geInstancesBillingStartDate: geInstancesBillingStartDate
-        spendCommitCreditTotal: 3.0576100241049344
-        feO11yOverageWarnDate: feO11yOverageWarnDate
-        hgTier2Rate: 6.073898085781152
-        hlRetentionTier3Rate: 2.7977867356748476
-        accountOwnerName: accountOwnerName
-        hmTier3Rate: 3.502657762086401
-        hmCurrentUsage: 8.761432466225475
-        enterprisePlugins: 9.132027271330688
-        committedArr: 0.10263654006109402
-        hpTier3Min: 4.372688051310086
-        irmStatus: 3.8008573585058016
-        k6VuhUnits: 4.010300976654761
-        k6VuhBillingStartDate: k6VuhBillingStartDate
+        name: name
+        k6VuhUsage: 5.312489704336296
+        hlRetentionTier2Min: 5.533258397034986
+        feO11yUnits: 0.4833312865174044
+        hmTier1Rate: 8.762042012749001
+        geInstancesUsage: 5.6644160867523485
+        wpPlan: wpPlan
+        htIncludedUsage: 4.258773108174356
+        hpTier3Rate: 8.251625748923757
+        hmTier2Min: 9.018348186070783
+        feO11yTier1Rate: 3.1497903714250555
+        hmPrometheusInstanceCnt: 5.974942028545841
+        privacy: privacy
+        checksPerMonth: 6.027456183070403
+        hgUsage: 1.1730742509559433
+        htTier3Min: 9.132027271330688
+        hlIncludedUsage: 0.8851374739011653
+        k6VuhTier3Rate: 0.4182561061793122
+        feO11yTier3Rate: 4.518309517874243
+        geUsersTier1Rate: 4.332304821875894
+        hgTier2Rate: 1.4894159098541704
+        hlRetentionTier3Rate: 0.2025324113236393
+        hmTier3Rate: 6.965117697638846
+        hgInstanceLimit: 1.4658129805029452
+        hmCurrentUsage: 2.8841621266687802
+        enterprisePlugins: 9.301444243932576
+        hlRetentionTier1Rate: 7.04836565559697
+        hlRetentionUsage: 6.628464275087742
+        hpTier3Min: 6.073898085781152
+        irmStatus: 3.901545264248647
+        k6VuhUnits: 5.299143560275359
+        retainedStackId: 3.2841216543560217
+        k6IPTier1Rate: 7.606863723092579
+        irmIncludedUsage: 0.43431398824148815
+        hpUsage: 4.459605034958679
         trialEndDate: trialEndDate
-        hmUsage: 9.183123594773994
-        hgIncludedUsers: 7.933506881737151
-        feO11yBillingStartDate: feO11yBillingStartDate
-        creditApproved: 7.260521264802104
-        htBillingStartDate: htBillingStartDate
+        createdBy: createdBy
+        geInstancesTier3Rate: 3.812761638325517
+        hmGraphiteUsage: 7.143538047012306
+        hpTier1Rate: 7.933506881737151
+        hmUsage: 1.284659006116532
+        hgIncludedUsers: 7.386281948385884
+        creditApproved: 7.061401241503109
+        hpIncludedUsage: 0.5199002018724985
       properties:
-        tags:
-          items:
-            type: string
-          title: tags
-          type: array
-        accountManagerId:
-          title: accountManagerId
-          type: number
-        accountManagerUsername:
-          title: accountManagerUsername
-          type: string
-        accountManagerName:
-          title: accountManagerName
-          type: string
-        awsCustomerId:
-          title: awsCustomerId
-          type: string
-        accountOwnerId:
-          title: accountOwnerId
-          type: number
-        accountOwnerUsername:
-          title: accountOwnerUsername
-          type: string
-        accountOwnerName:
-          title: accountOwnerName
-          type: string
-        hmBillingStartDate:
-          nullable: true
-          title: hmBillingStartDate
-          type: string
-        hmBillingEndDate:
-          nullable: true
-          title: hmBillingEndDate
-          type: string
-        hmBilledToDate:
-          nullable: true
-          title: hmBilledToDate
-          type: string
-        hmOverageWarnDate:
-          nullable: true
-          title: hmOverageWarnDate
-          type: string
-        hmOverageAmount:
-          title: hmOverageAmount
-          type: number
-        hmCurrentPrometheusUsage:
-          title: hmCurrentPrometheusUsage
-          type: number
-        hmCurrentGraphiteUsage:
-          title: hmCurrentGraphiteUsage
-          type: number
-        hlBillingStartDate:
-          nullable: true
-          title: hlBillingStartDate
-          type: string
-        hlBillingEndDate:
-          nullable: true
-          title: hlBillingEndDate
-          type: string
-        hlBilledToDate:
-          nullable: true
-          title: hlBilledToDate
-          type: string
-        hlOverageWarnDate:
-          nullable: true
-          title: hlOverageWarnDate
-          type: string
-        hlOverageAmount:
-          title: hlOverageAmount
-          type: number
-        hlCurrentUsage:
-          title: hlCurrentUsage
-          type: number
-        hgBillingStartDate:
-          nullable: true
-          title: hgBillingStartDate
-          type: string
-        hgBillingEndDate:
-          nullable: true
-          title: hgBillingEndDate
-          type: string
-        hgBilledToDate:
-          nullable: true
-          title: hgBilledToDate
-          type: string
-        hgOverageWarnDate:
-          nullable: true
-          title: hgOverageWarnDate
-          type: string
-        hgOverageAmount:
-          title: hgOverageAmount
-          type: number
-        hgActiveUsers:
-          title: hgActiveUsers
-          type: number
-        hgDatasourceCnts:
-          title: hgDatasourceCnts
-          type: object
-        hgIntegrationCnts:
-          title: hgIntegrationCnts
-          type: object
-        hmGraphiteBillingStartDate:
-          nullable: true
-          title: hmGraphiteBillingStartDate
-          type: string
-        hmGraphiteBillingEndDate:
-          nullable: true
-          title: hmGraphiteBillingEndDate
-          type: string
-        hmGraphiteBilledToDate:
-          nullable: true
-          title: hmGraphiteBilledToDate
-          type: string
-        hmGraphiteOverageWarnDate:
-          nullable: true
-          title: hmGraphiteOverageWarnDate
-          type: string
-        hmGraphiteCurrentUsage:
-          title: hmGraphiteCurrentUsage
-          type: number
-        hmGraphiteOverageAmount:
-          title: hmGraphiteOverageAmount
-          type: number
-        hlRetentionBillingStartDate:
-          nullable: true
-          title: hlRetentionBillingStartDate
-          type: string
-        hlRetentionBillingEndDate:
-          nullable: true
-          title: hlRetentionBillingEndDate
-          type: string
-        hlRetentionBilledToDate:
-          nullable: true
-          title: hlRetentionBilledToDate
-          type: string
-        hlRetentionOverageWarnDate:
-          nullable: true
-          title: hlRetentionOverageWarnDate
-          type: string
-        hlRetentionCurrentUsage:
-          title: hlRetentionCurrentUsage
-          type: number
-        hlRetentionOverageAmount:
-          title: hlRetentionOverageAmount
-          type: number
-        htBillingStartDate:
-          nullable: true
-          title: htBillingStartDate
-          type: string
-        htBillingEndDate:
-          nullable: true
-          title: htBillingEndDate
-          type: string
-        htBilledToDate:
-          nullable: true
-          title: htBilledToDate
-          type: string
-        htOverageWarnDate:
-          nullable: true
-          title: htOverageWarnDate
-          type: string
-        htCurrentUsage:
-          title: htCurrentUsage
-          type: number
-        htOverageAmount:
-          title: htOverageAmount
-          type: number
-        irmBillingStartDate:
-          nullable: true
-          title: irmBillingStartDate
-          type: string
-        irmBillingEndDate:
-          nullable: true
-          title: irmBillingEndDate
-          type: string
-        irmBilledToDate:
-          nullable: true
-          title: irmBilledToDate
-          type: string
-        irmOverageWarnDate:
-          nullable: true
-          title: irmOverageWarnDate
-          type: string
-        irmCurrentUsage:
-          title: irmCurrentUsage
-          type: number
-        irmOverageAmount:
-          title: irmOverageAmount
-          type: number
-        hpBillingStartDate:
-          nullable: true
-          title: hpBillingStartDate
-          type: string
-        hpBillingEndDate:
-          nullable: true
-          title: hpBillingEndDate
-          type: string
-        hpBilledToDate:
-          nullable: true
-          title: hpBilledToDate
-          type: string
-        hpOverageWarnDate:
-          nullable: true
-          title: hpOverageWarnDate
-          type: string
-        hpCurrentUsage:
-          title: hpCurrentUsage
-          type: number
-        hpOverageAmount:
-          title: hpOverageAmount
-          type: number
-        k6VuhBillingStartDate:
-          nullable: true
-          title: k6VuhBillingStartDate
-          type: string
-        k6VuhBillingEndDate:
-          nullable: true
-          title: k6VuhBillingEndDate
-          type: string
-        k6VuhBilledToDate:
-          nullable: true
-          title: k6VuhBilledToDate
-          type: string
-        k6VuhOverageWarnDate:
-          nullable: true
-          title: k6VuhOverageWarnDate
-          type: string
-        k6VuhCurrentUsage:
-          title: k6VuhCurrentUsage
-          type: number
-        k6VuhOverageAmount:
-          title: k6VuhOverageAmount
-          type: number
-        k6IPBillingStartDate:
-          nullable: true
-          title: k6IPBillingStartDate
-          type: string
-        k6IPBillingEndDate:
-          nullable: true
-          title: k6IPBillingEndDate
-          type: string
-        k6IPBilledToDate:
-          nullable: true
-          title: k6IPBilledToDate
-          type: string
-        k6IPOverageWarnDate:
-          nullable: true
-          title: k6IPOverageWarnDate
-          type: string
-        k6IPCurrentUsage:
-          title: k6IPCurrentUsage
-          type: number
-        k6IPOverageAmount:
-          title: k6IPOverageAmount
-          type: number
-        feO11yBillingStartDate:
-          nullable: true
-          title: feO11yBillingStartDate
-          type: string
-        feO11yBillingEndDate:
-          nullable: true
-          title: feO11yBillingEndDate
-          type: string
-        feO11yBilledToDate:
-          nullable: true
-          title: feO11yBilledToDate
-          type: string
-        feO11yOverageWarnDate:
-          nullable: true
-          title: feO11yOverageWarnDate
-          type: string
-        feO11yCurrentUsage:
-          title: feO11yCurrentUsage
-          type: number
-        feO11yOverageAmount:
-          title: feO11yOverageAmount
-          type: number
-        geUsersBillingStartDate:
-          nullable: true
-          title: geUsersBillingStartDate
-          type: string
-        geUsersBillingEndDate:
-          nullable: true
-          title: geUsersBillingEndDate
-          type: string
-        geUsersBilledToDate:
-          nullable: true
-          title: geUsersBilledToDate
-          type: string
-        geUsersOverageWarnDate:
-          nullable: true
-          title: geUsersOverageWarnDate
-          type: string
-        geUsersCurrentUsage:
-          title: geUsersCurrentUsage
-          type: number
-        geUsersOverageAmount:
-          title: geUsersOverageAmount
-          type: number
-        geInstancesBillingStartDate:
-          nullable: true
-          title: geInstancesBillingStartDate
-          type: string
-        geInstancesBillingEndDate:
-          nullable: true
-          title: geInstancesBillingEndDate
-          type: string
-        geInstancesBilledToDate:
-          nullable: true
-          title: geInstancesBilledToDate
-          type: string
-        geInstancesOverageWarnDate:
-          nullable: true
-          title: geInstancesOverageWarnDate
-          type: string
-        geInstancesCurrentUsage:
-          title: geInstancesCurrentUsage
-          type: number
-        geInstancesOverageAmount:
-          title: geInstancesOverageAmount
-          type: number
-        salesforceAccountId:
-          title: salesforceAccountId
-          type: string
-        salesforceLeadId:
-          title: salesforceLeadId
-          type: string
-        salesforceCustomOrgId:
-          title: salesforceCustomOrgId
-          type: string
-        slackSupport:
-          title: slackSupport
-          type: number
-        slackSupportChannel:
-          title: slackSupportChannel
-          type: string
-        totalOverageAmount:
-          title: totalOverageAmount
-          type: number
-        memberCnt:
-          title: memberCnt
-          type: number
-        licenseCnt:
-          title: licenseCnt
-          type: number
-        licenseConfiguredCnt:
-          title: licenseConfiguredCnt
-          type: number
-        licenseUnconfiguredCnt:
-          title: licenseUnconfiguredCnt
-          type: number
-        hgInstanceCnt:
-          title: hgInstanceCnt
-          type: number
-        hlInstanceCnt:
-          title: hlInstanceCnt
-          type: number
-        htInstanceCnt:
-          title: htInstanceCnt
-          type: number
-        ubersmithClientId:
-          title: ubersmithClientId
-          type: number
-        intacctCustomerId:
-          title: intacctCustomerId
-          type: number
-        intacctCustomerUrl:
-          title: intacctCustomerUrl
-          type: string
-        committedArr:
-          title: committedArr
-          type: number
-        prevCommittedArr:
-          title: prevCommittedArr
-          type: number
-        zendeskId:
-          title: zendeskId
-          type: number
-        happinessRating:
-          nullable: true
-          title: happinessRating
-          type: string
-        happinessNote:
-          nullable: true
-          title: happinessNote
-          type: string
-        happinessReasonCode:
-          nullable: true
-          title: happinessReasonCode
-          type: string
-        happinessCreatedAt:
-          nullable: true
-          title: happinessCreatedAt
-          type: string
-        happinessChangedAt:
-          nullable: true
-          title: happinessChangedAt
-          type: string
-        happinessExpiredAt:
-          nullable: true
-          title: happinessExpiredAt
-          type: string
-        happinessUserName:
-          nullable: true
-          title: happinessUserName
-          type: string
-        cancellationClientNotes:
-          nullable: true
-          title: cancellationClientNotes
-          type: string
-        cancellationNotes:
-          nullable: true
-          title: cancellationNotes
-          type: string
-        cancellationReason:
-          title: cancellationReason
-          type: string
-        netPromoterScore:
-          nullable: true
-          title: netPromoterScore
-          type: number
-        hmFirstOverageDate:
-          format: date-time
-          nullable: true
-          type: string
-        hmFirstApproachingLimitDate:
-          format: date-time
-          nullable: true
-          type: string
-        spendCommitCreditBalance:
-          title: spendCommitCreditBalance
-          type: number
-        spendCommitCreditTotal:
-          title: spendCommitCreditTotal
-          type: number
-        projectedOverageAmount:
-          title: projectedOverageAmount
-          type: number
-        estimatedArr:
-          title: estimatedArr
-          type: number
-        referredBy:
-          title: referredBy
-          type: string
-        k6OrgId:
-          title: k6OrgId
-          type: number
         id:
           title: id
           type: number
@@ -4550,22 +3974,11 @@ components:
         subscriptions:
           $ref: '#/components/schemas/subscriptions'
       required:
-      - accountManagerId
-      - accountManagerName
-      - accountManagerUsername
-      - accountOwnerId
-      - accountOwnerName
-      - accountOwnerUsername
       - allowGCloudTrial
       - avatar
-      - awsCustomerId
       - awsMarketplaceSupport
-      - cancellationClientNotes
       - cancellationDate
-      - cancellationNotes
-      - cancellationReason
       - checksPerMonth
-      - committedArr
       - contractType
       - contractTypeId
       - createdAt
@@ -4573,14 +3986,7 @@ components:
       - creditApproved
       - emergencySupport
       - enterprisePlugins
-      - estimatedArr
-      - feO11yBilledToDate
-      - feO11yBillingEndDate
-      - feO11yBillingStartDate
-      - feO11yCurrentUsage
       - feO11yIncludedUsage
-      - feO11yOverageAmount
-      - feO11yOverageWarnDate
       - feO11yTier1Rate
       - feO11yTier2Min
       - feO11yTier2Rate
@@ -4589,26 +3995,14 @@ components:
       - feO11yUnits
       - feO11yUsage
       - gcloudMonthlyCost
-      - geInstancesBilledToDate
-      - geInstancesBillingEndDate
-      - geInstancesBillingStartDate
-      - geInstancesCurrentUsage
       - geInstancesIncludedUsage
-      - geInstancesOverageAmount
-      - geInstancesOverageWarnDate
       - geInstancesTier1Rate
       - geInstancesTier2Min
       - geInstancesTier2Rate
       - geInstancesTier3Min
       - geInstancesTier3Rate
       - geInstancesUsage
-      - geUsersBilledToDate
-      - geUsersBillingEndDate
-      - geUsersBillingStartDate
-      - geUsersCurrentUsage
       - geUsersIncludedUsage
-      - geUsersOverageAmount
-      - geUsersOverageWarnDate
       - geUsersTier1Rate
       - geUsersTier2Min
       - geUsersTier2Rate
@@ -4616,27 +4010,11 @@ components:
       - geUsersTier3Rate
       - geUsersUsage
       - grafanaCloud
-      - happinessChangedAt
-      - happinessCreatedAt
-      - happinessExpiredAt
-      - happinessNote
-      - happinessRating
-      - happinessReasonCode
-      - happinessUserName
-      - hgActiveUsers
-      - hgBilledToDate
-      - hgBillingEndDate
-      - hgBillingStartDate
       - hgCurrentActiveUsers
-      - hgDatasourceCnts
       - hgGrafanaUsage
       - hgIncludedUsers
-      - hgInstanceCnt
       - hgInstanceLimit
-      - hgIntegrationCnts
       - hgOnCallUsage
-      - hgOverageAmount
-      - hgOverageWarnDate
       - hgPluginUsersIncludedUsage
       - hgPluginUsersOverageRate
       - hgTier1Rate
@@ -4645,23 +4023,10 @@ components:
       - hgTier3Min
       - hgTier3Rate
       - hgUsage
-      - hlBilledToDate
-      - hlBillingEndDate
-      - hlBillingStartDate
-      - hlCurrentUsage
       - hlIncludedUsage
-      - hlInstanceCnt
       - hlInstanceLimit
-      - hlOverageAmount
-      - hlOverageWarnDate
       - hlQueryToIngestRatio
-      - hlRetentionBilledToDate
-      - hlRetentionBillingEndDate
-      - hlRetentionBillingStartDate
-      - hlRetentionCurrentUsage
       - hlRetentionIncludedUsage
-      - hlRetentionOverageAmount
-      - hlRetentionOverageWarnDate
       - hlRetentionTier1Rate
       - hlRetentionTier2Min
       - hlRetentionTier2Rate
@@ -4675,22 +4040,9 @@ components:
       - hlTier3Rate
       - hlUsage
       - hmAverageDpm
-      - hmBilledToDate
-      - hmBillingEndDate
-      - hmBillingStartDate
-      - hmCurrentGraphiteUsage
-      - hmCurrentPrometheusUsage
       - hmCurrentUsage
-      - hmFirstApproachingLimitDate
-      - hmFirstOverageDate
-      - hmGraphiteBilledToDate
-      - hmGraphiteBillingEndDate
-      - hmGraphiteBillingStartDate
-      - hmGraphiteCurrentUsage
       - hmGraphiteIncludedUsage
       - hmGraphiteInstanceCnt
-      - hmGraphiteOverageAmount
-      - hmGraphiteOverageWarnDate
       - hmGraphiteTier1Rate
       - hmGraphiteTier2Min
       - hmGraphiteTier2Rate
@@ -4699,8 +4051,6 @@ components:
       - hmGraphiteUsage
       - hmIncludedSeries
       - hmInstanceLimit
-      - hmOverageAmount
-      - hmOverageWarnDate
       - hmPrometheusInstanceCnt
       - hmTier1Rate
       - hmTier2Min
@@ -4708,27 +4058,14 @@ components:
       - hmTier3Min
       - hmTier3Rate
       - hmUsage
-      - hpBilledToDate
-      - hpBillingEndDate
-      - hpBillingStartDate
-      - hpCurrentUsage
       - hpIncludedUsage
-      - hpOverageAmount
-      - hpOverageWarnDate
       - hpTier1Rate
       - hpTier2Min
       - hpTier2Rate
       - hpTier3Min
       - hpTier3Rate
       - hpUsage
-      - htBilledToDate
-      - htBillingEndDate
-      - htBillingStartDate
-      - htCurrentUsage
       - htIncludedUsage
-      - htInstanceCnt
-      - htOverageAmount
-      - htOverageWarnDate
       - htTier1Rate
       - htTier2Min
       - htTier2Rate
@@ -4736,15 +4073,7 @@ components:
       - htTier3Rate
       - htUsage
       - id
-      - intacctCustomerId
-      - intacctCustomerUrl
-      - irmBilledToDate
-      - irmBillingEndDate
-      - irmBillingStartDate
-      - irmCurrentUsage
       - irmIncludedUsage
-      - irmOverageAmount
-      - irmOverageWarnDate
       - irmStatus
       - irmTier1Rate
       - irmTier2Min
@@ -4753,27 +4082,14 @@ components:
       - irmTier3Rate
       - irmUsage
       - isContractedLicenseAutoProvision
-      - k6IPBilledToDate
-      - k6IPBillingEndDate
-      - k6IPBillingStartDate
-      - k6IPCurrentUsage
       - k6IPIncludedUsage
-      - k6IPOverageAmount
-      - k6IPOverageWarnDate
       - k6IPTier1Rate
       - k6IPTier2Min
       - k6IPTier2Rate
       - k6IPTier3Min
       - k6IPTier3Rate
       - k6IPUsage
-      - k6OrgId
-      - k6VuhBilledToDate
-      - k6VuhBillingEndDate
-      - k6VuhBillingStartDate
-      - k6VuhCurrentUsage
       - k6VuhIncludedUsage
-      - k6VuhOverageAmount
-      - k6VuhOverageWarnDate
       - k6VuhTier1Rate
       - k6VuhTier2Min
       - k6VuhTier2Rate
@@ -4781,47 +4097,28 @@ components:
       - k6VuhTier3Rate
       - k6VuhUnits
       - k6VuhUsage
-      - licenseCnt
-      - licenseConfiguredCnt
-      - licenseUnconfiguredCnt
       - links
-      - memberCnt
       - msaSignedAt
       - msaSignedBy
       - name
-      - netPromoterScore
       - pluginSignatureType
-      - prevCommittedArr
       - privacy
-      - projectedOverageAmount
-      - referredBy
       - reseller
       - resellerId
       - resellerName
       - retainedStackId
-      - salesforceAccountId
-      - salesforceCustomOrgId
-      - salesforceLeadId
-      - slackSupport
-      - slackSupportChannel
       - slug
-      - spendCommitCreditBalance
-      - spendCommitCreditTotal
       - subscriptions
       - supportPlan
-      - tags
-      - totalOverageAmount
       - trialEndDate
       - trialLengthDays
       - trialNoticeDate
       - trialStartDate
-      - ubersmithClientId
       - updatedAt
       - updatedBy
       - url
       - userQuota
       - wpPlan
-      - zendeskId
       type: object
     FormattedApiPlugin:
       example:

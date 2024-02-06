@@ -131,7 +131,7 @@ Class | Method | HTTP request | Description
  - [FormattedApiApiKeyListResponse](docs/FormattedApiApiKeyListResponse.md)
  - [FormattedApiInstance](docs/FormattedApiInstance.md)
  - [FormattedApiInstancePlugin](docs/FormattedApiInstancePlugin.md)
- - [FormattedApiOrg](docs/FormattedApiOrg.md)
+ - [FormattedApiOrgPublic](docs/FormattedApiOrgPublic.md)
  - [FormattedApiPlugin](docs/FormattedApiPlugin.md)
  - [FormattedApiStackRegion](docs/FormattedApiStackRegion.md)
  - [FormattedApiStackRegionAnyOf](docs/FormattedApiStackRegionAnyOf.md)
