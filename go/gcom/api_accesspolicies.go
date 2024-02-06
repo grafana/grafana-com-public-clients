@@ -259,7 +259,7 @@ func (r ApiGetAccessPoliciesRequest) Status(status string) ApiGetAccessPoliciesR
 	return r
 }
 
-func (r ApiGetAccessPoliciesRequest) Execute() ([]AuthAccessPolicy, *http.Response, error) {
+func (r ApiGetAccessPoliciesRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.GetAccessPoliciesExecute(r)
 }
 
@@ -277,13 +277,13 @@ func (a *AccesspoliciesAPIService) GetAccessPolicies(ctx context.Context) ApiGet
 }
 
 // Execute executes the request
-//  @return []AuthAccessPolicy
-func (a *AccesspoliciesAPIService) GetAccessPoliciesExecute(r ApiGetAccessPoliciesRequest) ([]AuthAccessPolicy, *http.Response, error) {
+//  @return map[string]interface{}
+func (a *AccesspoliciesAPIService) GetAccessPoliciesExecute(r ApiGetAccessPoliciesRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue []AuthAccessPolicy
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccesspoliciesAPIService.GetAccessPolicies")
@@ -426,7 +426,7 @@ func (r ApiGetAccessPolicyRequest) OrgId(orgId int32) ApiGetAccessPolicyRequest 
 	return r
 }
 
-func (r ApiGetAccessPolicyRequest) Execute() (*AuthAccessPolicy, *http.Response, error) {
+func (r ApiGetAccessPolicyRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.GetAccessPolicyExecute(r)
 }
 
@@ -446,13 +446,13 @@ func (a *AccesspoliciesAPIService) GetAccessPolicy(ctx context.Context, id strin
 }
 
 // Execute executes the request
-//  @return AuthAccessPolicy
-func (a *AccesspoliciesAPIService) GetAccessPolicyExecute(r ApiGetAccessPolicyRequest) (*AuthAccessPolicy, *http.Response, error) {
+//  @return map[string]interface{}
+func (a *AccesspoliciesAPIService) GetAccessPolicyExecute(r ApiGetAccessPolicyRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *AuthAccessPolicy
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccesspoliciesAPIService.GetAccessPolicy")
@@ -717,7 +717,7 @@ func (r ApiPostAccessPoliciesRequest) OrgId(orgId int32) ApiPostAccessPoliciesRe
 	return r
 }
 
-func (r ApiPostAccessPoliciesRequest) Execute() (*AuthAccessPolicy, *http.Response, error) {
+func (r ApiPostAccessPoliciesRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.PostAccessPoliciesExecute(r)
 }
 
@@ -735,13 +735,13 @@ func (a *AccesspoliciesAPIService) PostAccessPolicies(ctx context.Context) ApiPo
 }
 
 // Execute executes the request
-//  @return AuthAccessPolicy
-func (a *AccesspoliciesAPIService) PostAccessPoliciesExecute(r ApiPostAccessPoliciesRequest) (*AuthAccessPolicy, *http.Response, error) {
+//  @return map[string]interface{}
+func (a *AccesspoliciesAPIService) PostAccessPoliciesExecute(r ApiPostAccessPoliciesRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *AuthAccessPolicy
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccesspoliciesAPIService.PostAccessPolicies")
@@ -898,7 +898,7 @@ func (r ApiPostAccessPolicyRequest) OrgId(orgId int32) ApiPostAccessPolicyReques
 	return r
 }
 
-func (r ApiPostAccessPolicyRequest) Execute() (*AuthAccessPolicy, *http.Response, error) {
+func (r ApiPostAccessPolicyRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.PostAccessPolicyExecute(r)
 }
 
@@ -918,13 +918,13 @@ func (a *AccesspoliciesAPIService) PostAccessPolicy(ctx context.Context, id stri
 }
 
 // Execute executes the request
-//  @return AuthAccessPolicy
-func (a *AccesspoliciesAPIService) PostAccessPolicyExecute(r ApiPostAccessPolicyRequest) (*AuthAccessPolicy, *http.Response, error) {
+//  @return map[string]interface{}
+func (a *AccesspoliciesAPIService) PostAccessPolicyExecute(r ApiPostAccessPolicyRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *AuthAccessPolicy
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccesspoliciesAPIService.PostAccessPolicy")

@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ## GetToken
 
-> AuthToken GetToken(ctx, id).Region(region).OrgId(orgId).Execute()
+> map[string]interface{} GetToken(ctx, id).Region(region).OrgId(orgId).Execute()
 
 Get info for a specific token
 
@@ -116,7 +116,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TokensAPI.GetToken``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetToken`: AuthToken
+	// response from `GetToken`: map[string]interface{}
 	fmt.Fprintf(os.Stdout, "Response from `TokensAPI.GetToken`: %v\n", resp)
 }
 ```
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthToken**](AuthToken.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## GetTokens
 
-> []AuthToken GetTokens(ctx).Region(region).AccessPolicyId(accessPolicyId).AccessPolicyIds(accessPolicyIds).AccessPolicyName(accessPolicyName).AccessPolicyRealmIdentifier(accessPolicyRealmIdentifier).AccessPolicyRealmType(accessPolicyRealmType).AccessPolicyStatus(accessPolicyStatus).ExpiresAfter(expiresAfter).ExpiresBefore(expiresBefore).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).Execute()
+> map[string]interface{} GetTokens(ctx).Region(region).AccessPolicyId(accessPolicyId).AccessPolicyIds(accessPolicyIds).AccessPolicyName(accessPolicyName).AccessPolicyRealmIdentifier(accessPolicyRealmIdentifier).AccessPolicyRealmType(accessPolicyRealmType).AccessPolicyStatus(accessPolicyStatus).ExpiresAfter(expiresAfter).ExpiresBefore(expiresBefore).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).Execute()
 
 Get a list of tokens
 
@@ -198,7 +198,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TokensAPI.GetTokens``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTokens`: []AuthToken
+	// response from `GetTokens`: map[string]interface{}
 	fmt.Fprintf(os.Stdout, "Response from `TokensAPI.GetTokens`: %v\n", resp)
 }
 ```
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]AuthToken**](AuthToken.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 ## PostToken
 
-> AuthToken PostToken(ctx, id).Region(region).XRequestId(xRequestId).PostTokenRequest(postTokenRequest).OrgId(orgId).Execute()
+> map[string]interface{} PostToken(ctx, id).Region(region).XRequestId(xRequestId).PostTokenRequest(postTokenRequest).OrgId(orgId).Execute()
 
 Update a token
 
@@ -278,7 +278,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TokensAPI.PostToken``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostToken`: AuthToken
+	// response from `PostToken`: map[string]interface{}
 	fmt.Fprintf(os.Stdout, "Response from `TokensAPI.PostToken`: %v\n", resp)
 }
 ```
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthToken**](AuthToken.md)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ## PostTokens
 
-> AuthTokenWithSecret PostTokens(ctx).Region(region).XRequestId(xRequestId).PostTokensRequest(postTokensRequest).OrgId(orgId).Execute()
+> map[string]interface{} PostTokens(ctx).Region(region).XRequestId(xRequestId).PostTokensRequest(postTokensRequest).OrgId(orgId).Execute()
 
 Create a new token
 
@@ -353,7 +353,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TokensAPI.PostTokens``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostTokens`: AuthTokenWithSecret
+	// response from `PostTokens`: map[string]interface{}
 	fmt.Fprintf(os.Stdout, "Response from `TokensAPI.PostTokens`: %v\n", resp)
 }
 ```
@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthTokenWithSecret**](AuthTokenWithSecret.md)
+**map[string]interface{}**
 
 ### Authorization
 

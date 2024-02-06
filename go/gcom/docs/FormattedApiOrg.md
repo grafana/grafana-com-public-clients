@@ -4,283 +4,284 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tags** | Pointer to **[]string** |  | [optional] 
-**AccountManagerId** | Pointer to **float32** |  | [optional] 
-**AccountManagerUsername** | Pointer to **string** |  | [optional] 
-**AccountManagerName** | Pointer to **string** |  | [optional] 
-**AwsCustomerId** | Pointer to **string** |  | [optional] 
-**AccountOwnerId** | Pointer to **float32** |  | [optional] 
-**AccountOwnerUsername** | Pointer to **string** |  | [optional] 
-**AccountOwnerName** | Pointer to **string** |  | [optional] 
-**HmBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**HmBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**HmBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**HmOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**HmOverageAmount** | Pointer to **float32** |  | [optional] 
-**HmCurrentPrometheusUsage** | Pointer to **float32** |  | [optional] 
-**HmCurrentGraphiteUsage** | Pointer to **float32** |  | [optional] 
-**HlBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**HlBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**HlBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**HlOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**HlOverageAmount** | Pointer to **float32** |  | [optional] 
-**HlCurrentUsage** | Pointer to **float32** |  | [optional] 
-**HgBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**HgBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**HgBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**HgOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**HgOverageAmount** | Pointer to **float32** |  | [optional] 
-**HgActiveUsers** | Pointer to **float32** |  | [optional] 
-**HgDatasourceCnts** | Pointer to **map[string]interface{}** |  | [optional] 
-**HgIntegrationCnts** | Pointer to **map[string]interface{}** |  | [optional] 
-**HmGraphiteBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**HmGraphiteBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**HmGraphiteBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**HmGraphiteOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**HmGraphiteCurrentUsage** | Pointer to **float32** |  | [optional] 
-**HmGraphiteOverageAmount** | Pointer to **float32** |  | [optional] 
-**HlRetentionBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**HlRetentionBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**HlRetentionBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**HlRetentionOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**HlRetentionCurrentUsage** | Pointer to **float32** |  | [optional] 
-**HlRetentionOverageAmount** | Pointer to **float32** |  | [optional] 
-**HtBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**HtBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**HtBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**HtOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**HtCurrentUsage** | Pointer to **float32** |  | [optional] 
-**HtOverageAmount** | Pointer to **float32** |  | [optional] 
-**IrmBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**IrmBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**IrmBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**IrmOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**IrmCurrentUsage** | Pointer to **float32** |  | [optional] 
-**IrmOverageAmount** | Pointer to **float32** |  | [optional] 
-**HpBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**HpBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**HpBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**HpOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**HpCurrentUsage** | Pointer to **float32** |  | [optional] 
-**HpOverageAmount** | Pointer to **float32** |  | [optional] 
-**K6VuhBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**K6VuhBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**K6VuhBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**K6VuhOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**K6VuhCurrentUsage** | Pointer to **float32** |  | [optional] 
-**K6VuhOverageAmount** | Pointer to **float32** |  | [optional] 
-**K6IPBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**K6IPBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**K6IPBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**K6IPOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**K6IPCurrentUsage** | Pointer to **float32** |  | [optional] 
-**K6IPOverageAmount** | Pointer to **float32** |  | [optional] 
-**FeO11yBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**FeO11yBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**FeO11yBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**FeO11yOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**FeO11yCurrentUsage** | Pointer to **float32** |  | [optional] 
-**FeO11yOverageAmount** | Pointer to **float32** |  | [optional] 
-**GeUsersBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**GeUsersBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**GeUsersBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**GeUsersOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**GeUsersCurrentUsage** | Pointer to **float32** |  | [optional] 
-**GeUsersOverageAmount** | Pointer to **float32** |  | [optional] 
-**GeInstancesBillingStartDate** | Pointer to **NullableString** |  | [optional] 
-**GeInstancesBillingEndDate** | Pointer to **NullableString** |  | [optional] 
-**GeInstancesBilledToDate** | Pointer to **NullableString** |  | [optional] 
-**GeInstancesOverageWarnDate** | Pointer to **NullableString** |  | [optional] 
-**GeInstancesCurrentUsage** | Pointer to **float32** |  | [optional] 
-**GeInstancesOverageAmount** | Pointer to **float32** |  | [optional] 
-**SalesforceAccountId** | Pointer to **string** |  | [optional] 
-**SalesforceLeadId** | Pointer to **string** |  | [optional] 
-**SalesforceCustomOrgId** | Pointer to **string** |  | [optional] 
-**SlackSupport** | Pointer to **float32** |  | [optional] 
-**SlackSupportChannel** | Pointer to **string** |  | [optional] 
-**TotalOverageAmount** | Pointer to **float32** |  | [optional] 
-**MemberCnt** | Pointer to **float32** |  | [optional] 
-**LicenseCnt** | Pointer to **float32** |  | [optional] 
-**LicenseConfiguredCnt** | Pointer to **float32** |  | [optional] 
-**LicenseUnconfiguredCnt** | Pointer to **float32** |  | [optional] 
-**HgInstanceCnt** | Pointer to **float32** |  | [optional] 
-**HlInstanceCnt** | Pointer to **float32** |  | [optional] 
-**HtInstanceCnt** | Pointer to **float32** |  | [optional] 
-**UbersmithClientId** | Pointer to **float32** |  | [optional] 
-**IntacctCustomerId** | Pointer to **float32** |  | [optional] 
-**IntacctCustomerUrl** | Pointer to **string** |  | [optional] 
-**CommittedArr** | Pointer to **float32** |  | [optional] 
-**PrevCommittedArr** | Pointer to **float32** |  | [optional] 
-**ZendeskId** | Pointer to **float32** |  | [optional] 
-**HappinessRating** | Pointer to **NullableString** |  | [optional] 
-**HappinessNote** | Pointer to **NullableString** |  | [optional] 
-**HappinessReasonCode** | Pointer to **NullableString** |  | [optional] 
-**HappinessCreatedAt** | Pointer to **NullableString** |  | [optional] 
-**HappinessChangedAt** | Pointer to **NullableString** |  | [optional] 
-**HappinessExpiredAt** | Pointer to **NullableString** |  | [optional] 
-**HappinessUserName** | Pointer to **NullableString** |  | [optional] 
-**CancellationClientNotes** | Pointer to **NullableString** |  | [optional] 
-**CancellationNotes** | Pointer to **NullableString** |  | [optional] 
-**CancellationReason** | Pointer to **string** |  | [optional] 
-**NetPromoterScore** | Pointer to **NullableFloat32** |  | [optional] 
-**HmFirstOverageDate** | Pointer to **NullableTime** |  | [optional] 
-**HmFirstApproachingLimitDate** | Pointer to **NullableTime** |  | [optional] 
-**SpendCommitCreditBalance** | Pointer to **float32** |  | [optional] 
-**SpendCommitCreditTotal** | Pointer to **float32** |  | [optional] 
-**ProjectedOverageAmount** | Pointer to **float32** |  | [optional] 
-**EstimatedArr** | Pointer to **float32** |  | [optional] 
-**ReferredBy** | Pointer to **string** |  | [optional] 
-**K6OrgId** | Pointer to **float32** |  | [optional] 
-**Id** | Pointer to **float32** |  | [optional] 
-**Slug** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**Url** | Pointer to **string** |  | [optional] 
-**CreatedAt** | Pointer to **string** |  | [optional] 
-**CreatedBy** | Pointer to **NullableString** |  | [optional] 
-**UpdatedAt** | Pointer to **NullableString** |  | [optional] 
-**UpdatedBy** | Pointer to **NullableString** |  | [optional] 
-**Avatar** | Pointer to **NullableString** |  | [optional] 
-**ChecksPerMonth** | Pointer to **float32** |  | [optional] 
-**WpPlan** | Pointer to **string** |  | [optional] 
-**HgInstanceLimit** | Pointer to **float32** |  | [optional] 
-**HmInstanceLimit** | Pointer to **float32** |  | [optional] 
-**HlInstanceLimit** | Pointer to **float32** |  | [optional] 
-**UserQuota** | Pointer to **float32** |  | [optional] 
-**SupportPlan** | Pointer to **string** |  | [optional] 
-**CreditApproved** | Pointer to **float32** |  | [optional] 
-**MsaSignedAt** | Pointer to **NullableString** |  | [optional] 
-**MsaSignedBy** | Pointer to **NullableString** |  | [optional] 
-**EnterprisePlugins** | Pointer to **float32** |  | [optional] 
-**GrafanaCloud** | Pointer to **float32** |  | [optional] 
-**Privacy** | Pointer to **string** |  | [optional] 
-**Reseller** | Pointer to **string** |  | [optional] 
-**ResellerId** | Pointer to **NullableFloat32** |  | [optional] 
-**ResellerName** | Pointer to **NullableString** |  | [optional] 
-**EmergencySupport** | Pointer to **bool** |  | [optional] 
-**IsContractedLicenseAutoProvision** | Pointer to **bool** |  | [optional] 
-**GcloudMonthlyCost** | Pointer to **float32** |  | [optional] 
-**HgIncludedUsers** | Pointer to **float32** |  | [optional] 
-**HgTier1Rate** | Pointer to **float32** |  | [optional] 
-**HgTier2Min** | Pointer to **float32** |  | [optional] 
-**HgTier2Rate** | Pointer to **float32** |  | [optional] 
-**HgTier3Min** | Pointer to **float32** |  | [optional] 
-**HgTier3Rate** | Pointer to **float32** |  | [optional] 
-**HgUsage** | Pointer to **float32** |  | [optional] 
-**HgCurrentActiveUsers** | Pointer to **float32** |  | [optional] 
-**HgGrafanaUsage** | Pointer to **float32** |  | [optional] 
-**HgOnCallUsage** | Pointer to **float32** |  | [optional] 
-**HmIncludedSeries** | Pointer to **float32** |  | [optional] 
-**HmAverageDpm** | Pointer to **float32** |  | [optional] 
-**HmTier1Rate** | Pointer to **float32** |  | [optional] 
-**HmTier2Min** | Pointer to **float32** |  | [optional] 
-**HmTier2Rate** | Pointer to **float32** |  | [optional] 
-**HmTier3Min** | Pointer to **float32** |  | [optional] 
-**HmTier3Rate** | Pointer to **float32** |  | [optional] 
-**HmUsage** | Pointer to **float32** |  | [optional] 
-**HmCurrentUsage** | Pointer to **float32** |  | [optional] 
-**HmGraphiteIncludedUsage** | Pointer to **float32** |  | [optional] 
-**HmGraphiteTier1Rate** | Pointer to **float32** |  | [optional] 
-**HmGraphiteTier2Min** | Pointer to **float32** |  | [optional] 
-**HmGraphiteTier2Rate** | Pointer to **float32** |  | [optional] 
-**HmGraphiteTier3Min** | Pointer to **float32** |  | [optional] 
-**HmGraphiteTier3Rate** | Pointer to **float32** |  | [optional] 
-**HmGraphiteUsage** | Pointer to **float32** |  | [optional] 
-**HlIncludedUsage** | Pointer to **float32** |  | [optional] 
-**HlQueryToIngestRatio** | Pointer to **float32** |  | [optional] 
-**HlTier1Rate** | Pointer to **float32** |  | [optional] 
-**HlTier2Min** | Pointer to **float32** |  | [optional] 
-**HlTier2Rate** | Pointer to **float32** |  | [optional] 
-**HlTier3Min** | Pointer to **float32** |  | [optional] 
-**HlTier3Rate** | Pointer to **float32** |  | [optional] 
-**HlUsage** | Pointer to **float32** |  | [optional] 
-**HlRetentionIncludedUsage** | Pointer to **float32** |  | [optional] 
-**HlRetentionTier1Rate** | Pointer to **float32** |  | [optional] 
-**HlRetentionTier2Min** | Pointer to **float32** |  | [optional] 
-**HlRetentionTier2Rate** | Pointer to **float32** |  | [optional] 
-**HlRetentionTier3Min** | Pointer to **float32** |  | [optional] 
-**HlRetentionTier3Rate** | Pointer to **float32** |  | [optional] 
-**HlRetentionUsage** | Pointer to **float32** |  | [optional] 
-**HtIncludedUsage** | Pointer to **float32** |  | [optional] 
-**HtTier1Rate** | Pointer to **float32** |  | [optional] 
-**HtTier2Min** | Pointer to **float32** |  | [optional] 
-**HtTier2Rate** | Pointer to **float32** |  | [optional] 
-**HtTier3Min** | Pointer to **float32** |  | [optional] 
-**HtTier3Rate** | Pointer to **float32** |  | [optional] 
-**HtUsage** | Pointer to **float32** |  | [optional] 
-**HpIncludedUsage** | Pointer to **float32** |  | [optional] 
-**HpTier1Rate** | Pointer to **float32** |  | [optional] 
-**HpTier2Min** | Pointer to **float32** |  | [optional] 
-**HpTier2Rate** | Pointer to **float32** |  | [optional] 
-**HpTier3Min** | Pointer to **float32** |  | [optional] 
-**HpTier3Rate** | Pointer to **float32** |  | [optional] 
-**HpUsage** | Pointer to **float32** |  | [optional] 
-**IrmStatus** | Pointer to **float32** |  | [optional] 
-**IrmIncludedUsage** | Pointer to **float32** |  | [optional] 
-**IrmTier1Rate** | Pointer to **float32** |  | [optional] 
-**IrmTier2Min** | Pointer to **float32** |  | [optional] 
-**IrmTier2Rate** | Pointer to **float32** |  | [optional] 
-**IrmTier3Min** | Pointer to **float32** |  | [optional] 
-**IrmTier3Rate** | Pointer to **float32** |  | [optional] 
-**IrmUsage** | Pointer to **float32** |  | [optional] 
-**K6VuhIncludedUsage** | Pointer to **float32** |  | [optional] 
-**K6VuhTier1Rate** | Pointer to **float32** |  | [optional] 
-**K6VuhTier2Min** | Pointer to **float32** |  | [optional] 
-**K6VuhTier2Rate** | Pointer to **float32** |  | [optional] 
-**K6VuhTier3Min** | Pointer to **float32** |  | [optional] 
-**K6VuhTier3Rate** | Pointer to **float32** |  | [optional] 
-**K6VuhUnits** | Pointer to **float32** |  | [optional] 
-**K6VuhUsage** | Pointer to **float32** |  | [optional] 
-**K6IPIncludedUsage** | Pointer to **float32** |  | [optional] 
-**K6IPTier1Rate** | Pointer to **float32** |  | [optional] 
-**K6IPTier2Min** | Pointer to **float32** |  | [optional] 
-**K6IPTier2Rate** | Pointer to **float32** |  | [optional] 
-**K6IPTier3Min** | Pointer to **float32** |  | [optional] 
-**K6IPTier3Rate** | Pointer to **float32** |  | [optional] 
-**K6IPUsage** | Pointer to **float32** |  | [optional] 
-**FeO11yIncludedUsage** | Pointer to **float32** |  | [optional] 
-**FeO11yTier1Rate** | Pointer to **float32** |  | [optional] 
-**FeO11yTier2Min** | Pointer to **float32** |  | [optional] 
-**FeO11yTier2Rate** | Pointer to **float32** |  | [optional] 
-**FeO11yTier3Min** | Pointer to **float32** |  | [optional] 
-**FeO11yTier3Rate** | Pointer to **float32** |  | [optional] 
-**FeO11yUnits** | Pointer to **float32** |  | [optional] 
-**FeO11yUsage** | Pointer to **float32** |  | [optional] 
-**GeUsersIncludedUsage** | Pointer to **float32** |  | [optional] 
-**GeUsersTier1Rate** | Pointer to **float32** |  | [optional] 
-**GeUsersTier2Min** | Pointer to **float32** |  | [optional] 
-**GeUsersTier2Rate** | Pointer to **float32** |  | [optional] 
-**GeUsersTier3Min** | Pointer to **float32** |  | [optional] 
-**GeUsersTier3Rate** | Pointer to **float32** |  | [optional] 
-**GeUsersUsage** | Pointer to **float32** |  | [optional] 
-**GeInstancesIncludedUsage** | Pointer to **float32** |  | [optional] 
-**GeInstancesTier1Rate** | Pointer to **float32** |  | [optional] 
-**GeInstancesTier2Min** | Pointer to **float32** |  | [optional] 
-**GeInstancesTier2Rate** | Pointer to **float32** |  | [optional] 
-**GeInstancesTier3Min** | Pointer to **float32** |  | [optional] 
-**GeInstancesTier3Rate** | Pointer to **float32** |  | [optional] 
-**GeInstancesUsage** | Pointer to **float32** |  | [optional] 
-**HgPluginUsersOverageRate** | Pointer to **NullableFloat32** |  | [optional] 
-**HgPluginUsersIncludedUsage** | Pointer to **NullableFloat32** |  | [optional] 
-**HmGraphiteInstanceCnt** | Pointer to **float32** |  | [optional] 
-**HmPrometheusInstanceCnt** | Pointer to **float32** |  | [optional] 
-**AwsMarketplaceSupport** | Pointer to **float32** |  | [optional] 
-**TrialStartDate** | Pointer to **NullableString** |  | [optional] 
-**TrialEndDate** | Pointer to **NullableString** |  | [optional] 
-**TrialLengthDays** | Pointer to **NullableFloat32** |  | [optional] 
-**TrialNoticeDate** | Pointer to **NullableString** |  | [optional] 
-**CancellationDate** | Pointer to **NullableString** |  | [optional] 
-**RetainedStackId** | Pointer to **float32** |  | [optional] 
-**PluginSignatureType** | Pointer to **string** |  | [optional] 
-**ContractType** | Pointer to **string** |  | [optional] 
-**ContractTypeId** | Pointer to **float32** |  | [optional] 
-**Links** | Pointer to [**[]LinksInner1**](LinksInner1.md) |  | [optional] 
-**Subscriptions** | Pointer to [**Subscriptions**](Subscriptions.md) |  | [optional] 
+**Tags** | **[]string** |  | 
+**AccountManagerId** | **float32** |  | 
+**AccountManagerUsername** | **string** |  | 
+**AccountManagerName** | **string** |  | 
+**AwsCustomerId** | **string** |  | 
+**AccountOwnerId** | **float32** |  | 
+**AccountOwnerUsername** | **string** |  | 
+**AccountOwnerName** | **string** |  | 
+**HmBillingStartDate** | **NullableString** |  | 
+**HmBillingEndDate** | **NullableString** |  | 
+**HmBilledToDate** | **NullableString** |  | 
+**HmOverageWarnDate** | **NullableString** |  | 
+**HmOverageAmount** | **float32** |  | 
+**HmCurrentPrometheusUsage** | **float32** |  | 
+**HmCurrentGraphiteUsage** | **float32** |  | 
+**HlBillingStartDate** | **NullableString** |  | 
+**HlBillingEndDate** | **NullableString** |  | 
+**HlBilledToDate** | **NullableString** |  | 
+**HlOverageWarnDate** | **NullableString** |  | 
+**HlOverageAmount** | **float32** |  | 
+**HlCurrentUsage** | **float32** |  | 
+**HgBillingStartDate** | **NullableString** |  | 
+**HgBillingEndDate** | **NullableString** |  | 
+**HgBilledToDate** | **NullableString** |  | 
+**HgOverageWarnDate** | **NullableString** |  | 
+**HgOverageAmount** | **float32** |  | 
+**HgActiveUsers** | **float32** |  | 
+**HgDatasourceCnts** | **map[string]interface{}** |  | 
+**HgIntegrationCnts** | **map[string]interface{}** |  | 
+**HmGraphiteBillingStartDate** | **NullableString** |  | 
+**HmGraphiteBillingEndDate** | **NullableString** |  | 
+**HmGraphiteBilledToDate** | **NullableString** |  | 
+**HmGraphiteOverageWarnDate** | **NullableString** |  | 
+**HmGraphiteCurrentUsage** | **float32** |  | 
+**HmGraphiteOverageAmount** | **float32** |  | 
+**HlRetentionBillingStartDate** | **NullableString** |  | 
+**HlRetentionBillingEndDate** | **NullableString** |  | 
+**HlRetentionBilledToDate** | **NullableString** |  | 
+**HlRetentionOverageWarnDate** | **NullableString** |  | 
+**HlRetentionCurrentUsage** | **float32** |  | 
+**HlRetentionOverageAmount** | **float32** |  | 
+**HtBillingStartDate** | **NullableString** |  | 
+**HtBillingEndDate** | **NullableString** |  | 
+**HtBilledToDate** | **NullableString** |  | 
+**HtOverageWarnDate** | **NullableString** |  | 
+**HtCurrentUsage** | **float32** |  | 
+**HtOverageAmount** | **float32** |  | 
+**IrmBillingStartDate** | **NullableString** |  | 
+**IrmBillingEndDate** | **NullableString** |  | 
+**IrmBilledToDate** | **NullableString** |  | 
+**IrmOverageWarnDate** | **NullableString** |  | 
+**IrmCurrentUsage** | **float32** |  | 
+**IrmOverageAmount** | **float32** |  | 
+**HpBillingStartDate** | **NullableString** |  | 
+**HpBillingEndDate** | **NullableString** |  | 
+**HpBilledToDate** | **NullableString** |  | 
+**HpOverageWarnDate** | **NullableString** |  | 
+**HpCurrentUsage** | **float32** |  | 
+**HpOverageAmount** | **float32** |  | 
+**K6VuhBillingStartDate** | **NullableString** |  | 
+**K6VuhBillingEndDate** | **NullableString** |  | 
+**K6VuhBilledToDate** | **NullableString** |  | 
+**K6VuhOverageWarnDate** | **NullableString** |  | 
+**K6VuhCurrentUsage** | **float32** |  | 
+**K6VuhOverageAmount** | **float32** |  | 
+**K6IPBillingStartDate** | **NullableString** |  | 
+**K6IPBillingEndDate** | **NullableString** |  | 
+**K6IPBilledToDate** | **NullableString** |  | 
+**K6IPOverageWarnDate** | **NullableString** |  | 
+**K6IPCurrentUsage** | **float32** |  | 
+**K6IPOverageAmount** | **float32** |  | 
+**FeO11yBillingStartDate** | **NullableString** |  | 
+**FeO11yBillingEndDate** | **NullableString** |  | 
+**FeO11yBilledToDate** | **NullableString** |  | 
+**FeO11yOverageWarnDate** | **NullableString** |  | 
+**FeO11yCurrentUsage** | **float32** |  | 
+**FeO11yOverageAmount** | **float32** |  | 
+**GeUsersBillingStartDate** | **NullableString** |  | 
+**GeUsersBillingEndDate** | **NullableString** |  | 
+**GeUsersBilledToDate** | **NullableString** |  | 
+**GeUsersOverageWarnDate** | **NullableString** |  | 
+**GeUsersCurrentUsage** | **float32** |  | 
+**GeUsersOverageAmount** | **float32** |  | 
+**GeInstancesBillingStartDate** | **NullableString** |  | 
+**GeInstancesBillingEndDate** | **NullableString** |  | 
+**GeInstancesBilledToDate** | **NullableString** |  | 
+**GeInstancesOverageWarnDate** | **NullableString** |  | 
+**GeInstancesCurrentUsage** | **float32** |  | 
+**GeInstancesOverageAmount** | **float32** |  | 
+**SalesforceAccountId** | **string** |  | 
+**SalesforceLeadId** | **string** |  | 
+**SalesforceCustomOrgId** | **string** |  | 
+**SlackSupport** | **float32** |  | 
+**SlackSupportChannel** | **string** |  | 
+**TotalOverageAmount** | **float32** |  | 
+**MemberCnt** | **float32** |  | 
+**LicenseCnt** | **float32** |  | 
+**LicenseConfiguredCnt** | **float32** |  | 
+**LicenseUnconfiguredCnt** | **float32** |  | 
+**HgInstanceCnt** | **float32** |  | 
+**HlInstanceCnt** | **float32** |  | 
+**HtInstanceCnt** | **float32** |  | 
+**UbersmithClientId** | **float32** |  | 
+**IntacctCustomerId** | **float32** |  | 
+**IntacctCustomerUrl** | **string** |  | 
+**CommittedArr** | **float32** |  | 
+**PrevCommittedArr** | **float32** |  | 
+**ZendeskId** | **float32** |  | 
+**HappinessRating** | **NullableString** |  | 
+**HappinessNote** | **NullableString** |  | 
+**HappinessReasonCode** | **NullableString** |  | 
+**HappinessCreatedAt** | **NullableString** |  | 
+**HappinessChangedAt** | **NullableString** |  | 
+**HappinessExpiredAt** | **NullableString** |  | 
+**HappinessUserName** | **NullableString** |  | 
+**CancellationClientNotes** | **NullableString** |  | 
+**CancellationNotes** | **NullableString** |  | 
+**CancellationReason** | **string** |  | 
+**NetPromoterScore** | **NullableFloat32** |  | 
+**HmFirstOverageDate** | **NullableTime** |  | 
+**HmFirstApproachingLimitDate** | **NullableTime** |  | 
+**SpendCommitCreditBalance** | **float32** |  | 
+**SpendCommitCreditTotal** | **float32** |  | 
+**ProjectedOverageAmount** | **float32** |  | 
+**EstimatedArr** | **float32** |  | 
+**ReferredBy** | **string** |  | 
+**K6OrgId** | **float32** |  | 
+**Id** | **float32** |  | 
+**Slug** | **string** |  | 
+**Name** | **string** |  | 
+**Url** | **string** |  | 
+**CreatedAt** | **string** |  | 
+**CreatedBy** | **NullableString** |  | 
+**UpdatedAt** | **NullableString** |  | 
+**UpdatedBy** | **NullableString** |  | 
+**Avatar** | **NullableString** |  | 
+**ChecksPerMonth** | **float32** |  | 
+**WpPlan** | **string** |  | 
+**HgInstanceLimit** | **float32** |  | 
+**HmInstanceLimit** | **float32** |  | 
+**HlInstanceLimit** | **float32** |  | 
+**UserQuota** | **float32** |  | 
+**SupportPlan** | **string** |  | 
+**CreditApproved** | **float32** |  | 
+**MsaSignedAt** | **NullableString** |  | 
+**MsaSignedBy** | **NullableString** |  | 
+**EnterprisePlugins** | **float32** |  | 
+**GrafanaCloud** | **float32** |  | 
+**Privacy** | **string** |  | 
+**Reseller** | **string** |  | 
+**ResellerId** | **NullableFloat32** |  | 
+**ResellerName** | **NullableString** |  | 
+**EmergencySupport** | **bool** |  | 
+**IsContractedLicenseAutoProvision** | **bool** |  | 
+**GcloudMonthlyCost** | **float32** |  | 
+**HgIncludedUsers** | **float32** |  | 
+**HgTier1Rate** | **float32** |  | 
+**HgTier2Min** | **float32** |  | 
+**HgTier2Rate** | **float32** |  | 
+**HgTier3Min** | **float32** |  | 
+**HgTier3Rate** | **float32** |  | 
+**HgUsage** | **float32** |  | 
+**HgCurrentActiveUsers** | **float32** |  | 
+**HgGrafanaUsage** | **float32** |  | 
+**HgOnCallUsage** | **float32** |  | 
+**HmIncludedSeries** | **float32** |  | 
+**HmAverageDpm** | **float32** |  | 
+**HmTier1Rate** | **float32** |  | 
+**HmTier2Min** | **float32** |  | 
+**HmTier2Rate** | **float32** |  | 
+**HmTier3Min** | **float32** |  | 
+**HmTier3Rate** | **float32** |  | 
+**HmUsage** | **float32** |  | 
+**HmCurrentUsage** | **float32** |  | 
+**HmGraphiteIncludedUsage** | **float32** |  | 
+**HmGraphiteTier1Rate** | **float32** |  | 
+**HmGraphiteTier2Min** | **float32** |  | 
+**HmGraphiteTier2Rate** | **float32** |  | 
+**HmGraphiteTier3Min** | **float32** |  | 
+**HmGraphiteTier3Rate** | **float32** |  | 
+**HmGraphiteUsage** | **float32** |  | 
+**HlIncludedUsage** | **float32** |  | 
+**HlQueryToIngestRatio** | **float32** |  | 
+**HlTier1Rate** | **float32** |  | 
+**HlTier2Min** | **float32** |  | 
+**HlTier2Rate** | **float32** |  | 
+**HlTier3Min** | **float32** |  | 
+**HlTier3Rate** | **float32** |  | 
+**HlUsage** | **float32** |  | 
+**HlRetentionIncludedUsage** | **float32** |  | 
+**HlRetentionTier1Rate** | **float32** |  | 
+**HlRetentionTier2Min** | **float32** |  | 
+**HlRetentionTier2Rate** | **float32** |  | 
+**HlRetentionTier3Min** | **float32** |  | 
+**HlRetentionTier3Rate** | **float32** |  | 
+**HlRetentionUsage** | **float32** |  | 
+**HtIncludedUsage** | **float32** |  | 
+**HtTier1Rate** | **float32** |  | 
+**HtTier2Min** | **float32** |  | 
+**HtTier2Rate** | **float32** |  | 
+**HtTier3Min** | **float32** |  | 
+**HtTier3Rate** | **float32** |  | 
+**HtUsage** | **float32** |  | 
+**HpIncludedUsage** | **float32** |  | 
+**HpTier1Rate** | **float32** |  | 
+**HpTier2Min** | **float32** |  | 
+**HpTier2Rate** | **float32** |  | 
+**HpTier3Min** | **float32** |  | 
+**HpTier3Rate** | **float32** |  | 
+**HpUsage** | **float32** |  | 
+**IrmStatus** | **float32** |  | 
+**IrmIncludedUsage** | **float32** |  | 
+**IrmTier1Rate** | **float32** |  | 
+**IrmTier2Min** | **float32** |  | 
+**IrmTier2Rate** | **float32** |  | 
+**IrmTier3Min** | **float32** |  | 
+**IrmTier3Rate** | **float32** |  | 
+**IrmUsage** | **float32** |  | 
+**K6VuhIncludedUsage** | **float32** |  | 
+**K6VuhTier1Rate** | **float32** |  | 
+**K6VuhTier2Min** | **float32** |  | 
+**K6VuhTier2Rate** | **float32** |  | 
+**K6VuhTier3Min** | **float32** |  | 
+**K6VuhTier3Rate** | **float32** |  | 
+**K6VuhUnits** | **float32** |  | 
+**K6VuhUsage** | **float32** |  | 
+**K6IPIncludedUsage** | **float32** |  | 
+**K6IPTier1Rate** | **float32** |  | 
+**K6IPTier2Min** | **float32** |  | 
+**K6IPTier2Rate** | **float32** |  | 
+**K6IPTier3Min** | **float32** |  | 
+**K6IPTier3Rate** | **float32** |  | 
+**K6IPUsage** | **float32** |  | 
+**FeO11yIncludedUsage** | **float32** |  | 
+**FeO11yTier1Rate** | **float32** |  | 
+**FeO11yTier2Min** | **float32** |  | 
+**FeO11yTier2Rate** | **float32** |  | 
+**FeO11yTier3Min** | **float32** |  | 
+**FeO11yTier3Rate** | **float32** |  | 
+**FeO11yUnits** | **float32** |  | 
+**FeO11yUsage** | **float32** |  | 
+**GeUsersIncludedUsage** | **float32** |  | 
+**GeUsersTier1Rate** | **float32** |  | 
+**GeUsersTier2Min** | **float32** |  | 
+**GeUsersTier2Rate** | **float32** |  | 
+**GeUsersTier3Min** | **float32** |  | 
+**GeUsersTier3Rate** | **float32** |  | 
+**GeUsersUsage** | **float32** |  | 
+**GeInstancesIncludedUsage** | **float32** |  | 
+**GeInstancesTier1Rate** | **float32** |  | 
+**GeInstancesTier2Min** | **float32** |  | 
+**GeInstancesTier2Rate** | **float32** |  | 
+**GeInstancesTier3Min** | **float32** |  | 
+**GeInstancesTier3Rate** | **float32** |  | 
+**GeInstancesUsage** | **float32** |  | 
+**HgPluginUsersOverageRate** | **NullableFloat32** |  | 
+**HgPluginUsersIncludedUsage** | **NullableFloat32** |  | 
+**HmGraphiteInstanceCnt** | **float32** |  | 
+**HmPrometheusInstanceCnt** | **float32** |  | 
+**AwsMarketplaceSupport** | **float32** |  | 
+**TrialStartDate** | **NullableString** |  | 
+**TrialEndDate** | **NullableString** |  | 
+**TrialLengthDays** | **NullableFloat32** |  | 
+**TrialNoticeDate** | **NullableString** |  | 
+**CancellationDate** | **NullableString** |  | 
+**RetainedStackId** | **float32** |  | 
+**AllowGCloudTrial** | **bool** |  | 
+**PluginSignatureType** | **string** |  | 
+**ContractType** | **string** |  | 
+**ContractTypeId** | **float32** |  | 
+**Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
+**Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
 
 ## Methods
 
 ### NewFormattedApiOrg
 
-`func NewFormattedApiOrg() *FormattedApiOrg`
+`func NewFormattedApiOrg(tags []string, accountManagerId float32, accountManagerUsername string, accountManagerName string, awsCustomerId string, accountOwnerId float32, accountOwnerUsername string, accountOwnerName string, hmBillingStartDate NullableString, hmBillingEndDate NullableString, hmBilledToDate NullableString, hmOverageWarnDate NullableString, hmOverageAmount float32, hmCurrentPrometheusUsage float32, hmCurrentGraphiteUsage float32, hlBillingStartDate NullableString, hlBillingEndDate NullableString, hlBilledToDate NullableString, hlOverageWarnDate NullableString, hlOverageAmount float32, hlCurrentUsage float32, hgBillingStartDate NullableString, hgBillingEndDate NullableString, hgBilledToDate NullableString, hgOverageWarnDate NullableString, hgOverageAmount float32, hgActiveUsers float32, hgDatasourceCnts map[string]interface{}, hgIntegrationCnts map[string]interface{}, hmGraphiteBillingStartDate NullableString, hmGraphiteBillingEndDate NullableString, hmGraphiteBilledToDate NullableString, hmGraphiteOverageWarnDate NullableString, hmGraphiteCurrentUsage float32, hmGraphiteOverageAmount float32, hlRetentionBillingStartDate NullableString, hlRetentionBillingEndDate NullableString, hlRetentionBilledToDate NullableString, hlRetentionOverageWarnDate NullableString, hlRetentionCurrentUsage float32, hlRetentionOverageAmount float32, htBillingStartDate NullableString, htBillingEndDate NullableString, htBilledToDate NullableString, htOverageWarnDate NullableString, htCurrentUsage float32, htOverageAmount float32, irmBillingStartDate NullableString, irmBillingEndDate NullableString, irmBilledToDate NullableString, irmOverageWarnDate NullableString, irmCurrentUsage float32, irmOverageAmount float32, hpBillingStartDate NullableString, hpBillingEndDate NullableString, hpBilledToDate NullableString, hpOverageWarnDate NullableString, hpCurrentUsage float32, hpOverageAmount float32, k6VuhBillingStartDate NullableString, k6VuhBillingEndDate NullableString, k6VuhBilledToDate NullableString, k6VuhOverageWarnDate NullableString, k6VuhCurrentUsage float32, k6VuhOverageAmount float32, k6IPBillingStartDate NullableString, k6IPBillingEndDate NullableString, k6IPBilledToDate NullableString, k6IPOverageWarnDate NullableString, k6IPCurrentUsage float32, k6IPOverageAmount float32, feO11yBillingStartDate NullableString, feO11yBillingEndDate NullableString, feO11yBilledToDate NullableString, feO11yOverageWarnDate NullableString, feO11yCurrentUsage float32, feO11yOverageAmount float32, geUsersBillingStartDate NullableString, geUsersBillingEndDate NullableString, geUsersBilledToDate NullableString, geUsersOverageWarnDate NullableString, geUsersCurrentUsage float32, geUsersOverageAmount float32, geInstancesBillingStartDate NullableString, geInstancesBillingEndDate NullableString, geInstancesBilledToDate NullableString, geInstancesOverageWarnDate NullableString, geInstancesCurrentUsage float32, geInstancesOverageAmount float32, salesforceAccountId string, salesforceLeadId string, salesforceCustomOrgId string, slackSupport float32, slackSupportChannel string, totalOverageAmount float32, memberCnt float32, licenseCnt float32, licenseConfiguredCnt float32, licenseUnconfiguredCnt float32, hgInstanceCnt float32, hlInstanceCnt float32, htInstanceCnt float32, ubersmithClientId float32, intacctCustomerId float32, intacctCustomerUrl string, committedArr float32, prevCommittedArr float32, zendeskId float32, happinessRating NullableString, happinessNote NullableString, happinessReasonCode NullableString, happinessCreatedAt NullableString, happinessChangedAt NullableString, happinessExpiredAt NullableString, happinessUserName NullableString, cancellationClientNotes NullableString, cancellationNotes NullableString, cancellationReason string, netPromoterScore NullableFloat32, hmFirstOverageDate NullableTime, hmFirstApproachingLimitDate NullableTime, spendCommitCreditBalance float32, spendCommitCreditTotal float32, projectedOverageAmount float32, estimatedArr float32, referredBy string, k6OrgId float32, id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, isContractedLicenseAutoProvision bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11yIncludedUsage float32, feO11yTier1Rate float32, feO11yTier2Min float32, feO11yTier2Rate float32, feO11yTier3Min float32, feO11yTier3Rate float32, feO11yUnits float32, feO11yUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, hmGraphiteInstanceCnt float32, hmPrometheusInstanceCnt float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial bool, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions, ) *FormattedApiOrg`
 
 NewFormattedApiOrg instantiates a new FormattedApiOrg object
 This constructor will assign default values to properties that have it defined,
@@ -314,11 +315,6 @@ and a boolean to check if the value has been set.
 
 SetTags sets Tags field to given value.
 
-### HasTags
-
-`func (o *FormattedApiOrg) HasTags() bool`
-
-HasTags returns a boolean if a field has been set.
 
 ### GetAccountManagerId
 
@@ -339,11 +335,6 @@ and a boolean to check if the value has been set.
 
 SetAccountManagerId sets AccountManagerId field to given value.
 
-### HasAccountManagerId
-
-`func (o *FormattedApiOrg) HasAccountManagerId() bool`
-
-HasAccountManagerId returns a boolean if a field has been set.
 
 ### GetAccountManagerUsername
 
@@ -364,11 +355,6 @@ and a boolean to check if the value has been set.
 
 SetAccountManagerUsername sets AccountManagerUsername field to given value.
 
-### HasAccountManagerUsername
-
-`func (o *FormattedApiOrg) HasAccountManagerUsername() bool`
-
-HasAccountManagerUsername returns a boolean if a field has been set.
 
 ### GetAccountManagerName
 
@@ -389,11 +375,6 @@ and a boolean to check if the value has been set.
 
 SetAccountManagerName sets AccountManagerName field to given value.
 
-### HasAccountManagerName
-
-`func (o *FormattedApiOrg) HasAccountManagerName() bool`
-
-HasAccountManagerName returns a boolean if a field has been set.
 
 ### GetAwsCustomerId
 
@@ -414,11 +395,6 @@ and a boolean to check if the value has been set.
 
 SetAwsCustomerId sets AwsCustomerId field to given value.
 
-### HasAwsCustomerId
-
-`func (o *FormattedApiOrg) HasAwsCustomerId() bool`
-
-HasAwsCustomerId returns a boolean if a field has been set.
 
 ### GetAccountOwnerId
 
@@ -439,11 +415,6 @@ and a boolean to check if the value has been set.
 
 SetAccountOwnerId sets AccountOwnerId field to given value.
 
-### HasAccountOwnerId
-
-`func (o *FormattedApiOrg) HasAccountOwnerId() bool`
-
-HasAccountOwnerId returns a boolean if a field has been set.
 
 ### GetAccountOwnerUsername
 
@@ -464,11 +435,6 @@ and a boolean to check if the value has been set.
 
 SetAccountOwnerUsername sets AccountOwnerUsername field to given value.
 
-### HasAccountOwnerUsername
-
-`func (o *FormattedApiOrg) HasAccountOwnerUsername() bool`
-
-HasAccountOwnerUsername returns a boolean if a field has been set.
 
 ### GetAccountOwnerName
 
@@ -489,11 +455,6 @@ and a boolean to check if the value has been set.
 
 SetAccountOwnerName sets AccountOwnerName field to given value.
 
-### HasAccountOwnerName
-
-`func (o *FormattedApiOrg) HasAccountOwnerName() bool`
-
-HasAccountOwnerName returns a boolean if a field has been set.
 
 ### GetHmBillingStartDate
 
@@ -514,11 +475,6 @@ and a boolean to check if the value has been set.
 
 SetHmBillingStartDate sets HmBillingStartDate field to given value.
 
-### HasHmBillingStartDate
-
-`func (o *FormattedApiOrg) HasHmBillingStartDate() bool`
-
-HasHmBillingStartDate returns a boolean if a field has been set.
 
 ### SetHmBillingStartDateNil
 
@@ -549,11 +505,6 @@ and a boolean to check if the value has been set.
 
 SetHmBillingEndDate sets HmBillingEndDate field to given value.
 
-### HasHmBillingEndDate
-
-`func (o *FormattedApiOrg) HasHmBillingEndDate() bool`
-
-HasHmBillingEndDate returns a boolean if a field has been set.
 
 ### SetHmBillingEndDateNil
 
@@ -584,11 +535,6 @@ and a boolean to check if the value has been set.
 
 SetHmBilledToDate sets HmBilledToDate field to given value.
 
-### HasHmBilledToDate
-
-`func (o *FormattedApiOrg) HasHmBilledToDate() bool`
-
-HasHmBilledToDate returns a boolean if a field has been set.
 
 ### SetHmBilledToDateNil
 
@@ -619,11 +565,6 @@ and a boolean to check if the value has been set.
 
 SetHmOverageWarnDate sets HmOverageWarnDate field to given value.
 
-### HasHmOverageWarnDate
-
-`func (o *FormattedApiOrg) HasHmOverageWarnDate() bool`
-
-HasHmOverageWarnDate returns a boolean if a field has been set.
 
 ### SetHmOverageWarnDateNil
 
@@ -654,11 +595,6 @@ and a boolean to check if the value has been set.
 
 SetHmOverageAmount sets HmOverageAmount field to given value.
 
-### HasHmOverageAmount
-
-`func (o *FormattedApiOrg) HasHmOverageAmount() bool`
-
-HasHmOverageAmount returns a boolean if a field has been set.
 
 ### GetHmCurrentPrometheusUsage
 
@@ -679,11 +615,6 @@ and a boolean to check if the value has been set.
 
 SetHmCurrentPrometheusUsage sets HmCurrentPrometheusUsage field to given value.
 
-### HasHmCurrentPrometheusUsage
-
-`func (o *FormattedApiOrg) HasHmCurrentPrometheusUsage() bool`
-
-HasHmCurrentPrometheusUsage returns a boolean if a field has been set.
 
 ### GetHmCurrentGraphiteUsage
 
@@ -704,11 +635,6 @@ and a boolean to check if the value has been set.
 
 SetHmCurrentGraphiteUsage sets HmCurrentGraphiteUsage field to given value.
 
-### HasHmCurrentGraphiteUsage
-
-`func (o *FormattedApiOrg) HasHmCurrentGraphiteUsage() bool`
-
-HasHmCurrentGraphiteUsage returns a boolean if a field has been set.
 
 ### GetHlBillingStartDate
 
@@ -729,11 +655,6 @@ and a boolean to check if the value has been set.
 
 SetHlBillingStartDate sets HlBillingStartDate field to given value.
 
-### HasHlBillingStartDate
-
-`func (o *FormattedApiOrg) HasHlBillingStartDate() bool`
-
-HasHlBillingStartDate returns a boolean if a field has been set.
 
 ### SetHlBillingStartDateNil
 
@@ -764,11 +685,6 @@ and a boolean to check if the value has been set.
 
 SetHlBillingEndDate sets HlBillingEndDate field to given value.
 
-### HasHlBillingEndDate
-
-`func (o *FormattedApiOrg) HasHlBillingEndDate() bool`
-
-HasHlBillingEndDate returns a boolean if a field has been set.
 
 ### SetHlBillingEndDateNil
 
@@ -799,11 +715,6 @@ and a boolean to check if the value has been set.
 
 SetHlBilledToDate sets HlBilledToDate field to given value.
 
-### HasHlBilledToDate
-
-`func (o *FormattedApiOrg) HasHlBilledToDate() bool`
-
-HasHlBilledToDate returns a boolean if a field has been set.
 
 ### SetHlBilledToDateNil
 
@@ -834,11 +745,6 @@ and a boolean to check if the value has been set.
 
 SetHlOverageWarnDate sets HlOverageWarnDate field to given value.
 
-### HasHlOverageWarnDate
-
-`func (o *FormattedApiOrg) HasHlOverageWarnDate() bool`
-
-HasHlOverageWarnDate returns a boolean if a field has been set.
 
 ### SetHlOverageWarnDateNil
 
@@ -869,11 +775,6 @@ and a boolean to check if the value has been set.
 
 SetHlOverageAmount sets HlOverageAmount field to given value.
 
-### HasHlOverageAmount
-
-`func (o *FormattedApiOrg) HasHlOverageAmount() bool`
-
-HasHlOverageAmount returns a boolean if a field has been set.
 
 ### GetHlCurrentUsage
 
@@ -894,11 +795,6 @@ and a boolean to check if the value has been set.
 
 SetHlCurrentUsage sets HlCurrentUsage field to given value.
 
-### HasHlCurrentUsage
-
-`func (o *FormattedApiOrg) HasHlCurrentUsage() bool`
-
-HasHlCurrentUsage returns a boolean if a field has been set.
 
 ### GetHgBillingStartDate
 
@@ -919,11 +815,6 @@ and a boolean to check if the value has been set.
 
 SetHgBillingStartDate sets HgBillingStartDate field to given value.
 
-### HasHgBillingStartDate
-
-`func (o *FormattedApiOrg) HasHgBillingStartDate() bool`
-
-HasHgBillingStartDate returns a boolean if a field has been set.
 
 ### SetHgBillingStartDateNil
 
@@ -954,11 +845,6 @@ and a boolean to check if the value has been set.
 
 SetHgBillingEndDate sets HgBillingEndDate field to given value.
 
-### HasHgBillingEndDate
-
-`func (o *FormattedApiOrg) HasHgBillingEndDate() bool`
-
-HasHgBillingEndDate returns a boolean if a field has been set.
 
 ### SetHgBillingEndDateNil
 
@@ -989,11 +875,6 @@ and a boolean to check if the value has been set.
 
 SetHgBilledToDate sets HgBilledToDate field to given value.
 
-### HasHgBilledToDate
-
-`func (o *FormattedApiOrg) HasHgBilledToDate() bool`
-
-HasHgBilledToDate returns a boolean if a field has been set.
 
 ### SetHgBilledToDateNil
 
@@ -1024,11 +905,6 @@ and a boolean to check if the value has been set.
 
 SetHgOverageWarnDate sets HgOverageWarnDate field to given value.
 
-### HasHgOverageWarnDate
-
-`func (o *FormattedApiOrg) HasHgOverageWarnDate() bool`
-
-HasHgOverageWarnDate returns a boolean if a field has been set.
 
 ### SetHgOverageWarnDateNil
 
@@ -1059,11 +935,6 @@ and a boolean to check if the value has been set.
 
 SetHgOverageAmount sets HgOverageAmount field to given value.
 
-### HasHgOverageAmount
-
-`func (o *FormattedApiOrg) HasHgOverageAmount() bool`
-
-HasHgOverageAmount returns a boolean if a field has been set.
 
 ### GetHgActiveUsers
 
@@ -1084,11 +955,6 @@ and a boolean to check if the value has been set.
 
 SetHgActiveUsers sets HgActiveUsers field to given value.
 
-### HasHgActiveUsers
-
-`func (o *FormattedApiOrg) HasHgActiveUsers() bool`
-
-HasHgActiveUsers returns a boolean if a field has been set.
 
 ### GetHgDatasourceCnts
 
@@ -1109,11 +975,6 @@ and a boolean to check if the value has been set.
 
 SetHgDatasourceCnts sets HgDatasourceCnts field to given value.
 
-### HasHgDatasourceCnts
-
-`func (o *FormattedApiOrg) HasHgDatasourceCnts() bool`
-
-HasHgDatasourceCnts returns a boolean if a field has been set.
 
 ### GetHgIntegrationCnts
 
@@ -1134,11 +995,6 @@ and a boolean to check if the value has been set.
 
 SetHgIntegrationCnts sets HgIntegrationCnts field to given value.
 
-### HasHgIntegrationCnts
-
-`func (o *FormattedApiOrg) HasHgIntegrationCnts() bool`
-
-HasHgIntegrationCnts returns a boolean if a field has been set.
 
 ### GetHmGraphiteBillingStartDate
 
@@ -1159,11 +1015,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteBillingStartDate sets HmGraphiteBillingStartDate field to given value.
 
-### HasHmGraphiteBillingStartDate
-
-`func (o *FormattedApiOrg) HasHmGraphiteBillingStartDate() bool`
-
-HasHmGraphiteBillingStartDate returns a boolean if a field has been set.
 
 ### SetHmGraphiteBillingStartDateNil
 
@@ -1194,11 +1045,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteBillingEndDate sets HmGraphiteBillingEndDate field to given value.
 
-### HasHmGraphiteBillingEndDate
-
-`func (o *FormattedApiOrg) HasHmGraphiteBillingEndDate() bool`
-
-HasHmGraphiteBillingEndDate returns a boolean if a field has been set.
 
 ### SetHmGraphiteBillingEndDateNil
 
@@ -1229,11 +1075,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteBilledToDate sets HmGraphiteBilledToDate field to given value.
 
-### HasHmGraphiteBilledToDate
-
-`func (o *FormattedApiOrg) HasHmGraphiteBilledToDate() bool`
-
-HasHmGraphiteBilledToDate returns a boolean if a field has been set.
 
 ### SetHmGraphiteBilledToDateNil
 
@@ -1264,11 +1105,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteOverageWarnDate sets HmGraphiteOverageWarnDate field to given value.
 
-### HasHmGraphiteOverageWarnDate
-
-`func (o *FormattedApiOrg) HasHmGraphiteOverageWarnDate() bool`
-
-HasHmGraphiteOverageWarnDate returns a boolean if a field has been set.
 
 ### SetHmGraphiteOverageWarnDateNil
 
@@ -1299,11 +1135,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteCurrentUsage sets HmGraphiteCurrentUsage field to given value.
 
-### HasHmGraphiteCurrentUsage
-
-`func (o *FormattedApiOrg) HasHmGraphiteCurrentUsage() bool`
-
-HasHmGraphiteCurrentUsage returns a boolean if a field has been set.
 
 ### GetHmGraphiteOverageAmount
 
@@ -1324,11 +1155,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteOverageAmount sets HmGraphiteOverageAmount field to given value.
 
-### HasHmGraphiteOverageAmount
-
-`func (o *FormattedApiOrg) HasHmGraphiteOverageAmount() bool`
-
-HasHmGraphiteOverageAmount returns a boolean if a field has been set.
 
 ### GetHlRetentionBillingStartDate
 
@@ -1349,11 +1175,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionBillingStartDate sets HlRetentionBillingStartDate field to given value.
 
-### HasHlRetentionBillingStartDate
-
-`func (o *FormattedApiOrg) HasHlRetentionBillingStartDate() bool`
-
-HasHlRetentionBillingStartDate returns a boolean if a field has been set.
 
 ### SetHlRetentionBillingStartDateNil
 
@@ -1384,11 +1205,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionBillingEndDate sets HlRetentionBillingEndDate field to given value.
 
-### HasHlRetentionBillingEndDate
-
-`func (o *FormattedApiOrg) HasHlRetentionBillingEndDate() bool`
-
-HasHlRetentionBillingEndDate returns a boolean if a field has been set.
 
 ### SetHlRetentionBillingEndDateNil
 
@@ -1419,11 +1235,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionBilledToDate sets HlRetentionBilledToDate field to given value.
 
-### HasHlRetentionBilledToDate
-
-`func (o *FormattedApiOrg) HasHlRetentionBilledToDate() bool`
-
-HasHlRetentionBilledToDate returns a boolean if a field has been set.
 
 ### SetHlRetentionBilledToDateNil
 
@@ -1454,11 +1265,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionOverageWarnDate sets HlRetentionOverageWarnDate field to given value.
 
-### HasHlRetentionOverageWarnDate
-
-`func (o *FormattedApiOrg) HasHlRetentionOverageWarnDate() bool`
-
-HasHlRetentionOverageWarnDate returns a boolean if a field has been set.
 
 ### SetHlRetentionOverageWarnDateNil
 
@@ -1489,11 +1295,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionCurrentUsage sets HlRetentionCurrentUsage field to given value.
 
-### HasHlRetentionCurrentUsage
-
-`func (o *FormattedApiOrg) HasHlRetentionCurrentUsage() bool`
-
-HasHlRetentionCurrentUsage returns a boolean if a field has been set.
 
 ### GetHlRetentionOverageAmount
 
@@ -1514,11 +1315,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionOverageAmount sets HlRetentionOverageAmount field to given value.
 
-### HasHlRetentionOverageAmount
-
-`func (o *FormattedApiOrg) HasHlRetentionOverageAmount() bool`
-
-HasHlRetentionOverageAmount returns a boolean if a field has been set.
 
 ### GetHtBillingStartDate
 
@@ -1539,11 +1335,6 @@ and a boolean to check if the value has been set.
 
 SetHtBillingStartDate sets HtBillingStartDate field to given value.
 
-### HasHtBillingStartDate
-
-`func (o *FormattedApiOrg) HasHtBillingStartDate() bool`
-
-HasHtBillingStartDate returns a boolean if a field has been set.
 
 ### SetHtBillingStartDateNil
 
@@ -1574,11 +1365,6 @@ and a boolean to check if the value has been set.
 
 SetHtBillingEndDate sets HtBillingEndDate field to given value.
 
-### HasHtBillingEndDate
-
-`func (o *FormattedApiOrg) HasHtBillingEndDate() bool`
-
-HasHtBillingEndDate returns a boolean if a field has been set.
 
 ### SetHtBillingEndDateNil
 
@@ -1609,11 +1395,6 @@ and a boolean to check if the value has been set.
 
 SetHtBilledToDate sets HtBilledToDate field to given value.
 
-### HasHtBilledToDate
-
-`func (o *FormattedApiOrg) HasHtBilledToDate() bool`
-
-HasHtBilledToDate returns a boolean if a field has been set.
 
 ### SetHtBilledToDateNil
 
@@ -1644,11 +1425,6 @@ and a boolean to check if the value has been set.
 
 SetHtOverageWarnDate sets HtOverageWarnDate field to given value.
 
-### HasHtOverageWarnDate
-
-`func (o *FormattedApiOrg) HasHtOverageWarnDate() bool`
-
-HasHtOverageWarnDate returns a boolean if a field has been set.
 
 ### SetHtOverageWarnDateNil
 
@@ -1679,11 +1455,6 @@ and a boolean to check if the value has been set.
 
 SetHtCurrentUsage sets HtCurrentUsage field to given value.
 
-### HasHtCurrentUsage
-
-`func (o *FormattedApiOrg) HasHtCurrentUsage() bool`
-
-HasHtCurrentUsage returns a boolean if a field has been set.
 
 ### GetHtOverageAmount
 
@@ -1704,11 +1475,6 @@ and a boolean to check if the value has been set.
 
 SetHtOverageAmount sets HtOverageAmount field to given value.
 
-### HasHtOverageAmount
-
-`func (o *FormattedApiOrg) HasHtOverageAmount() bool`
-
-HasHtOverageAmount returns a boolean if a field has been set.
 
 ### GetIrmBillingStartDate
 
@@ -1729,11 +1495,6 @@ and a boolean to check if the value has been set.
 
 SetIrmBillingStartDate sets IrmBillingStartDate field to given value.
 
-### HasIrmBillingStartDate
-
-`func (o *FormattedApiOrg) HasIrmBillingStartDate() bool`
-
-HasIrmBillingStartDate returns a boolean if a field has been set.
 
 ### SetIrmBillingStartDateNil
 
@@ -1764,11 +1525,6 @@ and a boolean to check if the value has been set.
 
 SetIrmBillingEndDate sets IrmBillingEndDate field to given value.
 
-### HasIrmBillingEndDate
-
-`func (o *FormattedApiOrg) HasIrmBillingEndDate() bool`
-
-HasIrmBillingEndDate returns a boolean if a field has been set.
 
 ### SetIrmBillingEndDateNil
 
@@ -1799,11 +1555,6 @@ and a boolean to check if the value has been set.
 
 SetIrmBilledToDate sets IrmBilledToDate field to given value.
 
-### HasIrmBilledToDate
-
-`func (o *FormattedApiOrg) HasIrmBilledToDate() bool`
-
-HasIrmBilledToDate returns a boolean if a field has been set.
 
 ### SetIrmBilledToDateNil
 
@@ -1834,11 +1585,6 @@ and a boolean to check if the value has been set.
 
 SetIrmOverageWarnDate sets IrmOverageWarnDate field to given value.
 
-### HasIrmOverageWarnDate
-
-`func (o *FormattedApiOrg) HasIrmOverageWarnDate() bool`
-
-HasIrmOverageWarnDate returns a boolean if a field has been set.
 
 ### SetIrmOverageWarnDateNil
 
@@ -1869,11 +1615,6 @@ and a boolean to check if the value has been set.
 
 SetIrmCurrentUsage sets IrmCurrentUsage field to given value.
 
-### HasIrmCurrentUsage
-
-`func (o *FormattedApiOrg) HasIrmCurrentUsage() bool`
-
-HasIrmCurrentUsage returns a boolean if a field has been set.
 
 ### GetIrmOverageAmount
 
@@ -1894,11 +1635,6 @@ and a boolean to check if the value has been set.
 
 SetIrmOverageAmount sets IrmOverageAmount field to given value.
 
-### HasIrmOverageAmount
-
-`func (o *FormattedApiOrg) HasIrmOverageAmount() bool`
-
-HasIrmOverageAmount returns a boolean if a field has been set.
 
 ### GetHpBillingStartDate
 
@@ -1919,11 +1655,6 @@ and a boolean to check if the value has been set.
 
 SetHpBillingStartDate sets HpBillingStartDate field to given value.
 
-### HasHpBillingStartDate
-
-`func (o *FormattedApiOrg) HasHpBillingStartDate() bool`
-
-HasHpBillingStartDate returns a boolean if a field has been set.
 
 ### SetHpBillingStartDateNil
 
@@ -1954,11 +1685,6 @@ and a boolean to check if the value has been set.
 
 SetHpBillingEndDate sets HpBillingEndDate field to given value.
 
-### HasHpBillingEndDate
-
-`func (o *FormattedApiOrg) HasHpBillingEndDate() bool`
-
-HasHpBillingEndDate returns a boolean if a field has been set.
 
 ### SetHpBillingEndDateNil
 
@@ -1989,11 +1715,6 @@ and a boolean to check if the value has been set.
 
 SetHpBilledToDate sets HpBilledToDate field to given value.
 
-### HasHpBilledToDate
-
-`func (o *FormattedApiOrg) HasHpBilledToDate() bool`
-
-HasHpBilledToDate returns a boolean if a field has been set.
 
 ### SetHpBilledToDateNil
 
@@ -2024,11 +1745,6 @@ and a boolean to check if the value has been set.
 
 SetHpOverageWarnDate sets HpOverageWarnDate field to given value.
 
-### HasHpOverageWarnDate
-
-`func (o *FormattedApiOrg) HasHpOverageWarnDate() bool`
-
-HasHpOverageWarnDate returns a boolean if a field has been set.
 
 ### SetHpOverageWarnDateNil
 
@@ -2059,11 +1775,6 @@ and a boolean to check if the value has been set.
 
 SetHpCurrentUsage sets HpCurrentUsage field to given value.
 
-### HasHpCurrentUsage
-
-`func (o *FormattedApiOrg) HasHpCurrentUsage() bool`
-
-HasHpCurrentUsage returns a boolean if a field has been set.
 
 ### GetHpOverageAmount
 
@@ -2084,11 +1795,6 @@ and a boolean to check if the value has been set.
 
 SetHpOverageAmount sets HpOverageAmount field to given value.
 
-### HasHpOverageAmount
-
-`func (o *FormattedApiOrg) HasHpOverageAmount() bool`
-
-HasHpOverageAmount returns a boolean if a field has been set.
 
 ### GetK6VuhBillingStartDate
 
@@ -2109,11 +1815,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhBillingStartDate sets K6VuhBillingStartDate field to given value.
 
-### HasK6VuhBillingStartDate
-
-`func (o *FormattedApiOrg) HasK6VuhBillingStartDate() bool`
-
-HasK6VuhBillingStartDate returns a boolean if a field has been set.
 
 ### SetK6VuhBillingStartDateNil
 
@@ -2144,11 +1845,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhBillingEndDate sets K6VuhBillingEndDate field to given value.
 
-### HasK6VuhBillingEndDate
-
-`func (o *FormattedApiOrg) HasK6VuhBillingEndDate() bool`
-
-HasK6VuhBillingEndDate returns a boolean if a field has been set.
 
 ### SetK6VuhBillingEndDateNil
 
@@ -2179,11 +1875,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhBilledToDate sets K6VuhBilledToDate field to given value.
 
-### HasK6VuhBilledToDate
-
-`func (o *FormattedApiOrg) HasK6VuhBilledToDate() bool`
-
-HasK6VuhBilledToDate returns a boolean if a field has been set.
 
 ### SetK6VuhBilledToDateNil
 
@@ -2214,11 +1905,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhOverageWarnDate sets K6VuhOverageWarnDate field to given value.
 
-### HasK6VuhOverageWarnDate
-
-`func (o *FormattedApiOrg) HasK6VuhOverageWarnDate() bool`
-
-HasK6VuhOverageWarnDate returns a boolean if a field has been set.
 
 ### SetK6VuhOverageWarnDateNil
 
@@ -2249,11 +1935,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhCurrentUsage sets K6VuhCurrentUsage field to given value.
 
-### HasK6VuhCurrentUsage
-
-`func (o *FormattedApiOrg) HasK6VuhCurrentUsage() bool`
-
-HasK6VuhCurrentUsage returns a boolean if a field has been set.
 
 ### GetK6VuhOverageAmount
 
@@ -2274,11 +1955,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhOverageAmount sets K6VuhOverageAmount field to given value.
 
-### HasK6VuhOverageAmount
-
-`func (o *FormattedApiOrg) HasK6VuhOverageAmount() bool`
-
-HasK6VuhOverageAmount returns a boolean if a field has been set.
 
 ### GetK6IPBillingStartDate
 
@@ -2299,11 +1975,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPBillingStartDate sets K6IPBillingStartDate field to given value.
 
-### HasK6IPBillingStartDate
-
-`func (o *FormattedApiOrg) HasK6IPBillingStartDate() bool`
-
-HasK6IPBillingStartDate returns a boolean if a field has been set.
 
 ### SetK6IPBillingStartDateNil
 
@@ -2334,11 +2005,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPBillingEndDate sets K6IPBillingEndDate field to given value.
 
-### HasK6IPBillingEndDate
-
-`func (o *FormattedApiOrg) HasK6IPBillingEndDate() bool`
-
-HasK6IPBillingEndDate returns a boolean if a field has been set.
 
 ### SetK6IPBillingEndDateNil
 
@@ -2369,11 +2035,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPBilledToDate sets K6IPBilledToDate field to given value.
 
-### HasK6IPBilledToDate
-
-`func (o *FormattedApiOrg) HasK6IPBilledToDate() bool`
-
-HasK6IPBilledToDate returns a boolean if a field has been set.
 
 ### SetK6IPBilledToDateNil
 
@@ -2404,11 +2065,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPOverageWarnDate sets K6IPOverageWarnDate field to given value.
 
-### HasK6IPOverageWarnDate
-
-`func (o *FormattedApiOrg) HasK6IPOverageWarnDate() bool`
-
-HasK6IPOverageWarnDate returns a boolean if a field has been set.
 
 ### SetK6IPOverageWarnDateNil
 
@@ -2439,11 +2095,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPCurrentUsage sets K6IPCurrentUsage field to given value.
 
-### HasK6IPCurrentUsage
-
-`func (o *FormattedApiOrg) HasK6IPCurrentUsage() bool`
-
-HasK6IPCurrentUsage returns a boolean if a field has been set.
 
 ### GetK6IPOverageAmount
 
@@ -2464,11 +2115,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPOverageAmount sets K6IPOverageAmount field to given value.
 
-### HasK6IPOverageAmount
-
-`func (o *FormattedApiOrg) HasK6IPOverageAmount() bool`
-
-HasK6IPOverageAmount returns a boolean if a field has been set.
 
 ### GetFeO11yBillingStartDate
 
@@ -2489,11 +2135,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yBillingStartDate sets FeO11yBillingStartDate field to given value.
 
-### HasFeO11yBillingStartDate
-
-`func (o *FormattedApiOrg) HasFeO11yBillingStartDate() bool`
-
-HasFeO11yBillingStartDate returns a boolean if a field has been set.
 
 ### SetFeO11yBillingStartDateNil
 
@@ -2524,11 +2165,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yBillingEndDate sets FeO11yBillingEndDate field to given value.
 
-### HasFeO11yBillingEndDate
-
-`func (o *FormattedApiOrg) HasFeO11yBillingEndDate() bool`
-
-HasFeO11yBillingEndDate returns a boolean if a field has been set.
 
 ### SetFeO11yBillingEndDateNil
 
@@ -2559,11 +2195,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yBilledToDate sets FeO11yBilledToDate field to given value.
 
-### HasFeO11yBilledToDate
-
-`func (o *FormattedApiOrg) HasFeO11yBilledToDate() bool`
-
-HasFeO11yBilledToDate returns a boolean if a field has been set.
 
 ### SetFeO11yBilledToDateNil
 
@@ -2594,11 +2225,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yOverageWarnDate sets FeO11yOverageWarnDate field to given value.
 
-### HasFeO11yOverageWarnDate
-
-`func (o *FormattedApiOrg) HasFeO11yOverageWarnDate() bool`
-
-HasFeO11yOverageWarnDate returns a boolean if a field has been set.
 
 ### SetFeO11yOverageWarnDateNil
 
@@ -2629,11 +2255,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yCurrentUsage sets FeO11yCurrentUsage field to given value.
 
-### HasFeO11yCurrentUsage
-
-`func (o *FormattedApiOrg) HasFeO11yCurrentUsage() bool`
-
-HasFeO11yCurrentUsage returns a boolean if a field has been set.
 
 ### GetFeO11yOverageAmount
 
@@ -2654,11 +2275,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yOverageAmount sets FeO11yOverageAmount field to given value.
 
-### HasFeO11yOverageAmount
-
-`func (o *FormattedApiOrg) HasFeO11yOverageAmount() bool`
-
-HasFeO11yOverageAmount returns a boolean if a field has been set.
 
 ### GetGeUsersBillingStartDate
 
@@ -2679,11 +2295,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersBillingStartDate sets GeUsersBillingStartDate field to given value.
 
-### HasGeUsersBillingStartDate
-
-`func (o *FormattedApiOrg) HasGeUsersBillingStartDate() bool`
-
-HasGeUsersBillingStartDate returns a boolean if a field has been set.
 
 ### SetGeUsersBillingStartDateNil
 
@@ -2714,11 +2325,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersBillingEndDate sets GeUsersBillingEndDate field to given value.
 
-### HasGeUsersBillingEndDate
-
-`func (o *FormattedApiOrg) HasGeUsersBillingEndDate() bool`
-
-HasGeUsersBillingEndDate returns a boolean if a field has been set.
 
 ### SetGeUsersBillingEndDateNil
 
@@ -2749,11 +2355,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersBilledToDate sets GeUsersBilledToDate field to given value.
 
-### HasGeUsersBilledToDate
-
-`func (o *FormattedApiOrg) HasGeUsersBilledToDate() bool`
-
-HasGeUsersBilledToDate returns a boolean if a field has been set.
 
 ### SetGeUsersBilledToDateNil
 
@@ -2784,11 +2385,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersOverageWarnDate sets GeUsersOverageWarnDate field to given value.
 
-### HasGeUsersOverageWarnDate
-
-`func (o *FormattedApiOrg) HasGeUsersOverageWarnDate() bool`
-
-HasGeUsersOverageWarnDate returns a boolean if a field has been set.
 
 ### SetGeUsersOverageWarnDateNil
 
@@ -2819,11 +2415,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersCurrentUsage sets GeUsersCurrentUsage field to given value.
 
-### HasGeUsersCurrentUsage
-
-`func (o *FormattedApiOrg) HasGeUsersCurrentUsage() bool`
-
-HasGeUsersCurrentUsage returns a boolean if a field has been set.
 
 ### GetGeUsersOverageAmount
 
@@ -2844,11 +2435,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersOverageAmount sets GeUsersOverageAmount field to given value.
 
-### HasGeUsersOverageAmount
-
-`func (o *FormattedApiOrg) HasGeUsersOverageAmount() bool`
-
-HasGeUsersOverageAmount returns a boolean if a field has been set.
 
 ### GetGeInstancesBillingStartDate
 
@@ -2869,11 +2455,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesBillingStartDate sets GeInstancesBillingStartDate field to given value.
 
-### HasGeInstancesBillingStartDate
-
-`func (o *FormattedApiOrg) HasGeInstancesBillingStartDate() bool`
-
-HasGeInstancesBillingStartDate returns a boolean if a field has been set.
 
 ### SetGeInstancesBillingStartDateNil
 
@@ -2904,11 +2485,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesBillingEndDate sets GeInstancesBillingEndDate field to given value.
 
-### HasGeInstancesBillingEndDate
-
-`func (o *FormattedApiOrg) HasGeInstancesBillingEndDate() bool`
-
-HasGeInstancesBillingEndDate returns a boolean if a field has been set.
 
 ### SetGeInstancesBillingEndDateNil
 
@@ -2939,11 +2515,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesBilledToDate sets GeInstancesBilledToDate field to given value.
 
-### HasGeInstancesBilledToDate
-
-`func (o *FormattedApiOrg) HasGeInstancesBilledToDate() bool`
-
-HasGeInstancesBilledToDate returns a boolean if a field has been set.
 
 ### SetGeInstancesBilledToDateNil
 
@@ -2974,11 +2545,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesOverageWarnDate sets GeInstancesOverageWarnDate field to given value.
 
-### HasGeInstancesOverageWarnDate
-
-`func (o *FormattedApiOrg) HasGeInstancesOverageWarnDate() bool`
-
-HasGeInstancesOverageWarnDate returns a boolean if a field has been set.
 
 ### SetGeInstancesOverageWarnDateNil
 
@@ -3009,11 +2575,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesCurrentUsage sets GeInstancesCurrentUsage field to given value.
 
-### HasGeInstancesCurrentUsage
-
-`func (o *FormattedApiOrg) HasGeInstancesCurrentUsage() bool`
-
-HasGeInstancesCurrentUsage returns a boolean if a field has been set.
 
 ### GetGeInstancesOverageAmount
 
@@ -3034,11 +2595,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesOverageAmount sets GeInstancesOverageAmount field to given value.
 
-### HasGeInstancesOverageAmount
-
-`func (o *FormattedApiOrg) HasGeInstancesOverageAmount() bool`
-
-HasGeInstancesOverageAmount returns a boolean if a field has been set.
 
 ### GetSalesforceAccountId
 
@@ -3059,11 +2615,6 @@ and a boolean to check if the value has been set.
 
 SetSalesforceAccountId sets SalesforceAccountId field to given value.
 
-### HasSalesforceAccountId
-
-`func (o *FormattedApiOrg) HasSalesforceAccountId() bool`
-
-HasSalesforceAccountId returns a boolean if a field has been set.
 
 ### GetSalesforceLeadId
 
@@ -3084,11 +2635,6 @@ and a boolean to check if the value has been set.
 
 SetSalesforceLeadId sets SalesforceLeadId field to given value.
 
-### HasSalesforceLeadId
-
-`func (o *FormattedApiOrg) HasSalesforceLeadId() bool`
-
-HasSalesforceLeadId returns a boolean if a field has been set.
 
 ### GetSalesforceCustomOrgId
 
@@ -3109,11 +2655,6 @@ and a boolean to check if the value has been set.
 
 SetSalesforceCustomOrgId sets SalesforceCustomOrgId field to given value.
 
-### HasSalesforceCustomOrgId
-
-`func (o *FormattedApiOrg) HasSalesforceCustomOrgId() bool`
-
-HasSalesforceCustomOrgId returns a boolean if a field has been set.
 
 ### GetSlackSupport
 
@@ -3134,11 +2675,6 @@ and a boolean to check if the value has been set.
 
 SetSlackSupport sets SlackSupport field to given value.
 
-### HasSlackSupport
-
-`func (o *FormattedApiOrg) HasSlackSupport() bool`
-
-HasSlackSupport returns a boolean if a field has been set.
 
 ### GetSlackSupportChannel
 
@@ -3159,11 +2695,6 @@ and a boolean to check if the value has been set.
 
 SetSlackSupportChannel sets SlackSupportChannel field to given value.
 
-### HasSlackSupportChannel
-
-`func (o *FormattedApiOrg) HasSlackSupportChannel() bool`
-
-HasSlackSupportChannel returns a boolean if a field has been set.
 
 ### GetTotalOverageAmount
 
@@ -3184,11 +2715,6 @@ and a boolean to check if the value has been set.
 
 SetTotalOverageAmount sets TotalOverageAmount field to given value.
 
-### HasTotalOverageAmount
-
-`func (o *FormattedApiOrg) HasTotalOverageAmount() bool`
-
-HasTotalOverageAmount returns a boolean if a field has been set.
 
 ### GetMemberCnt
 
@@ -3209,11 +2735,6 @@ and a boolean to check if the value has been set.
 
 SetMemberCnt sets MemberCnt field to given value.
 
-### HasMemberCnt
-
-`func (o *FormattedApiOrg) HasMemberCnt() bool`
-
-HasMemberCnt returns a boolean if a field has been set.
 
 ### GetLicenseCnt
 
@@ -3234,11 +2755,6 @@ and a boolean to check if the value has been set.
 
 SetLicenseCnt sets LicenseCnt field to given value.
 
-### HasLicenseCnt
-
-`func (o *FormattedApiOrg) HasLicenseCnt() bool`
-
-HasLicenseCnt returns a boolean if a field has been set.
 
 ### GetLicenseConfiguredCnt
 
@@ -3259,11 +2775,6 @@ and a boolean to check if the value has been set.
 
 SetLicenseConfiguredCnt sets LicenseConfiguredCnt field to given value.
 
-### HasLicenseConfiguredCnt
-
-`func (o *FormattedApiOrg) HasLicenseConfiguredCnt() bool`
-
-HasLicenseConfiguredCnt returns a boolean if a field has been set.
 
 ### GetLicenseUnconfiguredCnt
 
@@ -3284,11 +2795,6 @@ and a boolean to check if the value has been set.
 
 SetLicenseUnconfiguredCnt sets LicenseUnconfiguredCnt field to given value.
 
-### HasLicenseUnconfiguredCnt
-
-`func (o *FormattedApiOrg) HasLicenseUnconfiguredCnt() bool`
-
-HasLicenseUnconfiguredCnt returns a boolean if a field has been set.
 
 ### GetHgInstanceCnt
 
@@ -3309,11 +2815,6 @@ and a boolean to check if the value has been set.
 
 SetHgInstanceCnt sets HgInstanceCnt field to given value.
 
-### HasHgInstanceCnt
-
-`func (o *FormattedApiOrg) HasHgInstanceCnt() bool`
-
-HasHgInstanceCnt returns a boolean if a field has been set.
 
 ### GetHlInstanceCnt
 
@@ -3334,11 +2835,6 @@ and a boolean to check if the value has been set.
 
 SetHlInstanceCnt sets HlInstanceCnt field to given value.
 
-### HasHlInstanceCnt
-
-`func (o *FormattedApiOrg) HasHlInstanceCnt() bool`
-
-HasHlInstanceCnt returns a boolean if a field has been set.
 
 ### GetHtInstanceCnt
 
@@ -3359,11 +2855,6 @@ and a boolean to check if the value has been set.
 
 SetHtInstanceCnt sets HtInstanceCnt field to given value.
 
-### HasHtInstanceCnt
-
-`func (o *FormattedApiOrg) HasHtInstanceCnt() bool`
-
-HasHtInstanceCnt returns a boolean if a field has been set.
 
 ### GetUbersmithClientId
 
@@ -3384,11 +2875,6 @@ and a boolean to check if the value has been set.
 
 SetUbersmithClientId sets UbersmithClientId field to given value.
 
-### HasUbersmithClientId
-
-`func (o *FormattedApiOrg) HasUbersmithClientId() bool`
-
-HasUbersmithClientId returns a boolean if a field has been set.
 
 ### GetIntacctCustomerId
 
@@ -3409,11 +2895,6 @@ and a boolean to check if the value has been set.
 
 SetIntacctCustomerId sets IntacctCustomerId field to given value.
 
-### HasIntacctCustomerId
-
-`func (o *FormattedApiOrg) HasIntacctCustomerId() bool`
-
-HasIntacctCustomerId returns a boolean if a field has been set.
 
 ### GetIntacctCustomerUrl
 
@@ -3434,11 +2915,6 @@ and a boolean to check if the value has been set.
 
 SetIntacctCustomerUrl sets IntacctCustomerUrl field to given value.
 
-### HasIntacctCustomerUrl
-
-`func (o *FormattedApiOrg) HasIntacctCustomerUrl() bool`
-
-HasIntacctCustomerUrl returns a boolean if a field has been set.
 
 ### GetCommittedArr
 
@@ -3459,11 +2935,6 @@ and a boolean to check if the value has been set.
 
 SetCommittedArr sets CommittedArr field to given value.
 
-### HasCommittedArr
-
-`func (o *FormattedApiOrg) HasCommittedArr() bool`
-
-HasCommittedArr returns a boolean if a field has been set.
 
 ### GetPrevCommittedArr
 
@@ -3484,11 +2955,6 @@ and a boolean to check if the value has been set.
 
 SetPrevCommittedArr sets PrevCommittedArr field to given value.
 
-### HasPrevCommittedArr
-
-`func (o *FormattedApiOrg) HasPrevCommittedArr() bool`
-
-HasPrevCommittedArr returns a boolean if a field has been set.
 
 ### GetZendeskId
 
@@ -3509,11 +2975,6 @@ and a boolean to check if the value has been set.
 
 SetZendeskId sets ZendeskId field to given value.
 
-### HasZendeskId
-
-`func (o *FormattedApiOrg) HasZendeskId() bool`
-
-HasZendeskId returns a boolean if a field has been set.
 
 ### GetHappinessRating
 
@@ -3534,11 +2995,6 @@ and a boolean to check if the value has been set.
 
 SetHappinessRating sets HappinessRating field to given value.
 
-### HasHappinessRating
-
-`func (o *FormattedApiOrg) HasHappinessRating() bool`
-
-HasHappinessRating returns a boolean if a field has been set.
 
 ### SetHappinessRatingNil
 
@@ -3569,11 +3025,6 @@ and a boolean to check if the value has been set.
 
 SetHappinessNote sets HappinessNote field to given value.
 
-### HasHappinessNote
-
-`func (o *FormattedApiOrg) HasHappinessNote() bool`
-
-HasHappinessNote returns a boolean if a field has been set.
 
 ### SetHappinessNoteNil
 
@@ -3604,11 +3055,6 @@ and a boolean to check if the value has been set.
 
 SetHappinessReasonCode sets HappinessReasonCode field to given value.
 
-### HasHappinessReasonCode
-
-`func (o *FormattedApiOrg) HasHappinessReasonCode() bool`
-
-HasHappinessReasonCode returns a boolean if a field has been set.
 
 ### SetHappinessReasonCodeNil
 
@@ -3639,11 +3085,6 @@ and a boolean to check if the value has been set.
 
 SetHappinessCreatedAt sets HappinessCreatedAt field to given value.
 
-### HasHappinessCreatedAt
-
-`func (o *FormattedApiOrg) HasHappinessCreatedAt() bool`
-
-HasHappinessCreatedAt returns a boolean if a field has been set.
 
 ### SetHappinessCreatedAtNil
 
@@ -3674,11 +3115,6 @@ and a boolean to check if the value has been set.
 
 SetHappinessChangedAt sets HappinessChangedAt field to given value.
 
-### HasHappinessChangedAt
-
-`func (o *FormattedApiOrg) HasHappinessChangedAt() bool`
-
-HasHappinessChangedAt returns a boolean if a field has been set.
 
 ### SetHappinessChangedAtNil
 
@@ -3709,11 +3145,6 @@ and a boolean to check if the value has been set.
 
 SetHappinessExpiredAt sets HappinessExpiredAt field to given value.
 
-### HasHappinessExpiredAt
-
-`func (o *FormattedApiOrg) HasHappinessExpiredAt() bool`
-
-HasHappinessExpiredAt returns a boolean if a field has been set.
 
 ### SetHappinessExpiredAtNil
 
@@ -3744,11 +3175,6 @@ and a boolean to check if the value has been set.
 
 SetHappinessUserName sets HappinessUserName field to given value.
 
-### HasHappinessUserName
-
-`func (o *FormattedApiOrg) HasHappinessUserName() bool`
-
-HasHappinessUserName returns a boolean if a field has been set.
 
 ### SetHappinessUserNameNil
 
@@ -3779,11 +3205,6 @@ and a boolean to check if the value has been set.
 
 SetCancellationClientNotes sets CancellationClientNotes field to given value.
 
-### HasCancellationClientNotes
-
-`func (o *FormattedApiOrg) HasCancellationClientNotes() bool`
-
-HasCancellationClientNotes returns a boolean if a field has been set.
 
 ### SetCancellationClientNotesNil
 
@@ -3814,11 +3235,6 @@ and a boolean to check if the value has been set.
 
 SetCancellationNotes sets CancellationNotes field to given value.
 
-### HasCancellationNotes
-
-`func (o *FormattedApiOrg) HasCancellationNotes() bool`
-
-HasCancellationNotes returns a boolean if a field has been set.
 
 ### SetCancellationNotesNil
 
@@ -3849,11 +3265,6 @@ and a boolean to check if the value has been set.
 
 SetCancellationReason sets CancellationReason field to given value.
 
-### HasCancellationReason
-
-`func (o *FormattedApiOrg) HasCancellationReason() bool`
-
-HasCancellationReason returns a boolean if a field has been set.
 
 ### GetNetPromoterScore
 
@@ -3874,11 +3285,6 @@ and a boolean to check if the value has been set.
 
 SetNetPromoterScore sets NetPromoterScore field to given value.
 
-### HasNetPromoterScore
-
-`func (o *FormattedApiOrg) HasNetPromoterScore() bool`
-
-HasNetPromoterScore returns a boolean if a field has been set.
 
 ### SetNetPromoterScoreNil
 
@@ -3909,11 +3315,6 @@ and a boolean to check if the value has been set.
 
 SetHmFirstOverageDate sets HmFirstOverageDate field to given value.
 
-### HasHmFirstOverageDate
-
-`func (o *FormattedApiOrg) HasHmFirstOverageDate() bool`
-
-HasHmFirstOverageDate returns a boolean if a field has been set.
 
 ### SetHmFirstOverageDateNil
 
@@ -3944,11 +3345,6 @@ and a boolean to check if the value has been set.
 
 SetHmFirstApproachingLimitDate sets HmFirstApproachingLimitDate field to given value.
 
-### HasHmFirstApproachingLimitDate
-
-`func (o *FormattedApiOrg) HasHmFirstApproachingLimitDate() bool`
-
-HasHmFirstApproachingLimitDate returns a boolean if a field has been set.
 
 ### SetHmFirstApproachingLimitDateNil
 
@@ -3979,11 +3375,6 @@ and a boolean to check if the value has been set.
 
 SetSpendCommitCreditBalance sets SpendCommitCreditBalance field to given value.
 
-### HasSpendCommitCreditBalance
-
-`func (o *FormattedApiOrg) HasSpendCommitCreditBalance() bool`
-
-HasSpendCommitCreditBalance returns a boolean if a field has been set.
 
 ### GetSpendCommitCreditTotal
 
@@ -4004,11 +3395,6 @@ and a boolean to check if the value has been set.
 
 SetSpendCommitCreditTotal sets SpendCommitCreditTotal field to given value.
 
-### HasSpendCommitCreditTotal
-
-`func (o *FormattedApiOrg) HasSpendCommitCreditTotal() bool`
-
-HasSpendCommitCreditTotal returns a boolean if a field has been set.
 
 ### GetProjectedOverageAmount
 
@@ -4029,11 +3415,6 @@ and a boolean to check if the value has been set.
 
 SetProjectedOverageAmount sets ProjectedOverageAmount field to given value.
 
-### HasProjectedOverageAmount
-
-`func (o *FormattedApiOrg) HasProjectedOverageAmount() bool`
-
-HasProjectedOverageAmount returns a boolean if a field has been set.
 
 ### GetEstimatedArr
 
@@ -4054,11 +3435,6 @@ and a boolean to check if the value has been set.
 
 SetEstimatedArr sets EstimatedArr field to given value.
 
-### HasEstimatedArr
-
-`func (o *FormattedApiOrg) HasEstimatedArr() bool`
-
-HasEstimatedArr returns a boolean if a field has been set.
 
 ### GetReferredBy
 
@@ -4079,11 +3455,6 @@ and a boolean to check if the value has been set.
 
 SetReferredBy sets ReferredBy field to given value.
 
-### HasReferredBy
-
-`func (o *FormattedApiOrg) HasReferredBy() bool`
-
-HasReferredBy returns a boolean if a field has been set.
 
 ### GetK6OrgId
 
@@ -4104,11 +3475,6 @@ and a boolean to check if the value has been set.
 
 SetK6OrgId sets K6OrgId field to given value.
 
-### HasK6OrgId
-
-`func (o *FormattedApiOrg) HasK6OrgId() bool`
-
-HasK6OrgId returns a boolean if a field has been set.
 
 ### GetId
 
@@ -4129,11 +3495,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *FormattedApiOrg) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetSlug
 
@@ -4154,11 +3515,6 @@ and a boolean to check if the value has been set.
 
 SetSlug sets Slug field to given value.
 
-### HasSlug
-
-`func (o *FormattedApiOrg) HasSlug() bool`
-
-HasSlug returns a boolean if a field has been set.
 
 ### GetName
 
@@ -4179,11 +3535,6 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
-
-`func (o *FormattedApiOrg) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetUrl
 
@@ -4204,11 +3555,6 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
-
-`func (o *FormattedApiOrg) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -4229,11 +3575,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
-### HasCreatedAt
-
-`func (o *FormattedApiOrg) HasCreatedAt() bool`
-
-HasCreatedAt returns a boolean if a field has been set.
 
 ### GetCreatedBy
 
@@ -4254,11 +3595,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedBy sets CreatedBy field to given value.
 
-### HasCreatedBy
-
-`func (o *FormattedApiOrg) HasCreatedBy() bool`
-
-HasCreatedBy returns a boolean if a field has been set.
 
 ### SetCreatedByNil
 
@@ -4289,11 +3625,6 @@ and a boolean to check if the value has been set.
 
 SetUpdatedAt sets UpdatedAt field to given value.
 
-### HasUpdatedAt
-
-`func (o *FormattedApiOrg) HasUpdatedAt() bool`
-
-HasUpdatedAt returns a boolean if a field has been set.
 
 ### SetUpdatedAtNil
 
@@ -4324,11 +3655,6 @@ and a boolean to check if the value has been set.
 
 SetUpdatedBy sets UpdatedBy field to given value.
 
-### HasUpdatedBy
-
-`func (o *FormattedApiOrg) HasUpdatedBy() bool`
-
-HasUpdatedBy returns a boolean if a field has been set.
 
 ### SetUpdatedByNil
 
@@ -4359,11 +3685,6 @@ and a boolean to check if the value has been set.
 
 SetAvatar sets Avatar field to given value.
 
-### HasAvatar
-
-`func (o *FormattedApiOrg) HasAvatar() bool`
-
-HasAvatar returns a boolean if a field has been set.
 
 ### SetAvatarNil
 
@@ -4394,11 +3715,6 @@ and a boolean to check if the value has been set.
 
 SetChecksPerMonth sets ChecksPerMonth field to given value.
 
-### HasChecksPerMonth
-
-`func (o *FormattedApiOrg) HasChecksPerMonth() bool`
-
-HasChecksPerMonth returns a boolean if a field has been set.
 
 ### GetWpPlan
 
@@ -4419,11 +3735,6 @@ and a boolean to check if the value has been set.
 
 SetWpPlan sets WpPlan field to given value.
 
-### HasWpPlan
-
-`func (o *FormattedApiOrg) HasWpPlan() bool`
-
-HasWpPlan returns a boolean if a field has been set.
 
 ### GetHgInstanceLimit
 
@@ -4444,11 +3755,6 @@ and a boolean to check if the value has been set.
 
 SetHgInstanceLimit sets HgInstanceLimit field to given value.
 
-### HasHgInstanceLimit
-
-`func (o *FormattedApiOrg) HasHgInstanceLimit() bool`
-
-HasHgInstanceLimit returns a boolean if a field has been set.
 
 ### GetHmInstanceLimit
 
@@ -4469,11 +3775,6 @@ and a boolean to check if the value has been set.
 
 SetHmInstanceLimit sets HmInstanceLimit field to given value.
 
-### HasHmInstanceLimit
-
-`func (o *FormattedApiOrg) HasHmInstanceLimit() bool`
-
-HasHmInstanceLimit returns a boolean if a field has been set.
 
 ### GetHlInstanceLimit
 
@@ -4494,11 +3795,6 @@ and a boolean to check if the value has been set.
 
 SetHlInstanceLimit sets HlInstanceLimit field to given value.
 
-### HasHlInstanceLimit
-
-`func (o *FormattedApiOrg) HasHlInstanceLimit() bool`
-
-HasHlInstanceLimit returns a boolean if a field has been set.
 
 ### GetUserQuota
 
@@ -4519,11 +3815,6 @@ and a boolean to check if the value has been set.
 
 SetUserQuota sets UserQuota field to given value.
 
-### HasUserQuota
-
-`func (o *FormattedApiOrg) HasUserQuota() bool`
-
-HasUserQuota returns a boolean if a field has been set.
 
 ### GetSupportPlan
 
@@ -4544,11 +3835,6 @@ and a boolean to check if the value has been set.
 
 SetSupportPlan sets SupportPlan field to given value.
 
-### HasSupportPlan
-
-`func (o *FormattedApiOrg) HasSupportPlan() bool`
-
-HasSupportPlan returns a boolean if a field has been set.
 
 ### GetCreditApproved
 
@@ -4569,11 +3855,6 @@ and a boolean to check if the value has been set.
 
 SetCreditApproved sets CreditApproved field to given value.
 
-### HasCreditApproved
-
-`func (o *FormattedApiOrg) HasCreditApproved() bool`
-
-HasCreditApproved returns a boolean if a field has been set.
 
 ### GetMsaSignedAt
 
@@ -4594,11 +3875,6 @@ and a boolean to check if the value has been set.
 
 SetMsaSignedAt sets MsaSignedAt field to given value.
 
-### HasMsaSignedAt
-
-`func (o *FormattedApiOrg) HasMsaSignedAt() bool`
-
-HasMsaSignedAt returns a boolean if a field has been set.
 
 ### SetMsaSignedAtNil
 
@@ -4629,11 +3905,6 @@ and a boolean to check if the value has been set.
 
 SetMsaSignedBy sets MsaSignedBy field to given value.
 
-### HasMsaSignedBy
-
-`func (o *FormattedApiOrg) HasMsaSignedBy() bool`
-
-HasMsaSignedBy returns a boolean if a field has been set.
 
 ### SetMsaSignedByNil
 
@@ -4664,11 +3935,6 @@ and a boolean to check if the value has been set.
 
 SetEnterprisePlugins sets EnterprisePlugins field to given value.
 
-### HasEnterprisePlugins
-
-`func (o *FormattedApiOrg) HasEnterprisePlugins() bool`
-
-HasEnterprisePlugins returns a boolean if a field has been set.
 
 ### GetGrafanaCloud
 
@@ -4689,11 +3955,6 @@ and a boolean to check if the value has been set.
 
 SetGrafanaCloud sets GrafanaCloud field to given value.
 
-### HasGrafanaCloud
-
-`func (o *FormattedApiOrg) HasGrafanaCloud() bool`
-
-HasGrafanaCloud returns a boolean if a field has been set.
 
 ### GetPrivacy
 
@@ -4714,11 +3975,6 @@ and a boolean to check if the value has been set.
 
 SetPrivacy sets Privacy field to given value.
 
-### HasPrivacy
-
-`func (o *FormattedApiOrg) HasPrivacy() bool`
-
-HasPrivacy returns a boolean if a field has been set.
 
 ### GetReseller
 
@@ -4739,11 +3995,6 @@ and a boolean to check if the value has been set.
 
 SetReseller sets Reseller field to given value.
 
-### HasReseller
-
-`func (o *FormattedApiOrg) HasReseller() bool`
-
-HasReseller returns a boolean if a field has been set.
 
 ### GetResellerId
 
@@ -4764,11 +4015,6 @@ and a boolean to check if the value has been set.
 
 SetResellerId sets ResellerId field to given value.
 
-### HasResellerId
-
-`func (o *FormattedApiOrg) HasResellerId() bool`
-
-HasResellerId returns a boolean if a field has been set.
 
 ### SetResellerIdNil
 
@@ -4799,11 +4045,6 @@ and a boolean to check if the value has been set.
 
 SetResellerName sets ResellerName field to given value.
 
-### HasResellerName
-
-`func (o *FormattedApiOrg) HasResellerName() bool`
-
-HasResellerName returns a boolean if a field has been set.
 
 ### SetResellerNameNil
 
@@ -4834,11 +4075,6 @@ and a boolean to check if the value has been set.
 
 SetEmergencySupport sets EmergencySupport field to given value.
 
-### HasEmergencySupport
-
-`func (o *FormattedApiOrg) HasEmergencySupport() bool`
-
-HasEmergencySupport returns a boolean if a field has been set.
 
 ### GetIsContractedLicenseAutoProvision
 
@@ -4859,11 +4095,6 @@ and a boolean to check if the value has been set.
 
 SetIsContractedLicenseAutoProvision sets IsContractedLicenseAutoProvision field to given value.
 
-### HasIsContractedLicenseAutoProvision
-
-`func (o *FormattedApiOrg) HasIsContractedLicenseAutoProvision() bool`
-
-HasIsContractedLicenseAutoProvision returns a boolean if a field has been set.
 
 ### GetGcloudMonthlyCost
 
@@ -4884,11 +4115,6 @@ and a boolean to check if the value has been set.
 
 SetGcloudMonthlyCost sets GcloudMonthlyCost field to given value.
 
-### HasGcloudMonthlyCost
-
-`func (o *FormattedApiOrg) HasGcloudMonthlyCost() bool`
-
-HasGcloudMonthlyCost returns a boolean if a field has been set.
 
 ### GetHgIncludedUsers
 
@@ -4909,11 +4135,6 @@ and a boolean to check if the value has been set.
 
 SetHgIncludedUsers sets HgIncludedUsers field to given value.
 
-### HasHgIncludedUsers
-
-`func (o *FormattedApiOrg) HasHgIncludedUsers() bool`
-
-HasHgIncludedUsers returns a boolean if a field has been set.
 
 ### GetHgTier1Rate
 
@@ -4934,11 +4155,6 @@ and a boolean to check if the value has been set.
 
 SetHgTier1Rate sets HgTier1Rate field to given value.
 
-### HasHgTier1Rate
-
-`func (o *FormattedApiOrg) HasHgTier1Rate() bool`
-
-HasHgTier1Rate returns a boolean if a field has been set.
 
 ### GetHgTier2Min
 
@@ -4959,11 +4175,6 @@ and a boolean to check if the value has been set.
 
 SetHgTier2Min sets HgTier2Min field to given value.
 
-### HasHgTier2Min
-
-`func (o *FormattedApiOrg) HasHgTier2Min() bool`
-
-HasHgTier2Min returns a boolean if a field has been set.
 
 ### GetHgTier2Rate
 
@@ -4984,11 +4195,6 @@ and a boolean to check if the value has been set.
 
 SetHgTier2Rate sets HgTier2Rate field to given value.
 
-### HasHgTier2Rate
-
-`func (o *FormattedApiOrg) HasHgTier2Rate() bool`
-
-HasHgTier2Rate returns a boolean if a field has been set.
 
 ### GetHgTier3Min
 
@@ -5009,11 +4215,6 @@ and a boolean to check if the value has been set.
 
 SetHgTier3Min sets HgTier3Min field to given value.
 
-### HasHgTier3Min
-
-`func (o *FormattedApiOrg) HasHgTier3Min() bool`
-
-HasHgTier3Min returns a boolean if a field has been set.
 
 ### GetHgTier3Rate
 
@@ -5034,11 +4235,6 @@ and a boolean to check if the value has been set.
 
 SetHgTier3Rate sets HgTier3Rate field to given value.
 
-### HasHgTier3Rate
-
-`func (o *FormattedApiOrg) HasHgTier3Rate() bool`
-
-HasHgTier3Rate returns a boolean if a field has been set.
 
 ### GetHgUsage
 
@@ -5059,11 +4255,6 @@ and a boolean to check if the value has been set.
 
 SetHgUsage sets HgUsage field to given value.
 
-### HasHgUsage
-
-`func (o *FormattedApiOrg) HasHgUsage() bool`
-
-HasHgUsage returns a boolean if a field has been set.
 
 ### GetHgCurrentActiveUsers
 
@@ -5084,11 +4275,6 @@ and a boolean to check if the value has been set.
 
 SetHgCurrentActiveUsers sets HgCurrentActiveUsers field to given value.
 
-### HasHgCurrentActiveUsers
-
-`func (o *FormattedApiOrg) HasHgCurrentActiveUsers() bool`
-
-HasHgCurrentActiveUsers returns a boolean if a field has been set.
 
 ### GetHgGrafanaUsage
 
@@ -5109,11 +4295,6 @@ and a boolean to check if the value has been set.
 
 SetHgGrafanaUsage sets HgGrafanaUsage field to given value.
 
-### HasHgGrafanaUsage
-
-`func (o *FormattedApiOrg) HasHgGrafanaUsage() bool`
-
-HasHgGrafanaUsage returns a boolean if a field has been set.
 
 ### GetHgOnCallUsage
 
@@ -5134,11 +4315,6 @@ and a boolean to check if the value has been set.
 
 SetHgOnCallUsage sets HgOnCallUsage field to given value.
 
-### HasHgOnCallUsage
-
-`func (o *FormattedApiOrg) HasHgOnCallUsage() bool`
-
-HasHgOnCallUsage returns a boolean if a field has been set.
 
 ### GetHmIncludedSeries
 
@@ -5159,11 +4335,6 @@ and a boolean to check if the value has been set.
 
 SetHmIncludedSeries sets HmIncludedSeries field to given value.
 
-### HasHmIncludedSeries
-
-`func (o *FormattedApiOrg) HasHmIncludedSeries() bool`
-
-HasHmIncludedSeries returns a boolean if a field has been set.
 
 ### GetHmAverageDpm
 
@@ -5184,11 +4355,6 @@ and a boolean to check if the value has been set.
 
 SetHmAverageDpm sets HmAverageDpm field to given value.
 
-### HasHmAverageDpm
-
-`func (o *FormattedApiOrg) HasHmAverageDpm() bool`
-
-HasHmAverageDpm returns a boolean if a field has been set.
 
 ### GetHmTier1Rate
 
@@ -5209,11 +4375,6 @@ and a boolean to check if the value has been set.
 
 SetHmTier1Rate sets HmTier1Rate field to given value.
 
-### HasHmTier1Rate
-
-`func (o *FormattedApiOrg) HasHmTier1Rate() bool`
-
-HasHmTier1Rate returns a boolean if a field has been set.
 
 ### GetHmTier2Min
 
@@ -5234,11 +4395,6 @@ and a boolean to check if the value has been set.
 
 SetHmTier2Min sets HmTier2Min field to given value.
 
-### HasHmTier2Min
-
-`func (o *FormattedApiOrg) HasHmTier2Min() bool`
-
-HasHmTier2Min returns a boolean if a field has been set.
 
 ### GetHmTier2Rate
 
@@ -5259,11 +4415,6 @@ and a boolean to check if the value has been set.
 
 SetHmTier2Rate sets HmTier2Rate field to given value.
 
-### HasHmTier2Rate
-
-`func (o *FormattedApiOrg) HasHmTier2Rate() bool`
-
-HasHmTier2Rate returns a boolean if a field has been set.
 
 ### GetHmTier3Min
 
@@ -5284,11 +4435,6 @@ and a boolean to check if the value has been set.
 
 SetHmTier3Min sets HmTier3Min field to given value.
 
-### HasHmTier3Min
-
-`func (o *FormattedApiOrg) HasHmTier3Min() bool`
-
-HasHmTier3Min returns a boolean if a field has been set.
 
 ### GetHmTier3Rate
 
@@ -5309,11 +4455,6 @@ and a boolean to check if the value has been set.
 
 SetHmTier3Rate sets HmTier3Rate field to given value.
 
-### HasHmTier3Rate
-
-`func (o *FormattedApiOrg) HasHmTier3Rate() bool`
-
-HasHmTier3Rate returns a boolean if a field has been set.
 
 ### GetHmUsage
 
@@ -5334,11 +4475,6 @@ and a boolean to check if the value has been set.
 
 SetHmUsage sets HmUsage field to given value.
 
-### HasHmUsage
-
-`func (o *FormattedApiOrg) HasHmUsage() bool`
-
-HasHmUsage returns a boolean if a field has been set.
 
 ### GetHmCurrentUsage
 
@@ -5359,11 +4495,6 @@ and a boolean to check if the value has been set.
 
 SetHmCurrentUsage sets HmCurrentUsage field to given value.
 
-### HasHmCurrentUsage
-
-`func (o *FormattedApiOrg) HasHmCurrentUsage() bool`
-
-HasHmCurrentUsage returns a boolean if a field has been set.
 
 ### GetHmGraphiteIncludedUsage
 
@@ -5384,11 +4515,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteIncludedUsage sets HmGraphiteIncludedUsage field to given value.
 
-### HasHmGraphiteIncludedUsage
-
-`func (o *FormattedApiOrg) HasHmGraphiteIncludedUsage() bool`
-
-HasHmGraphiteIncludedUsage returns a boolean if a field has been set.
 
 ### GetHmGraphiteTier1Rate
 
@@ -5409,11 +4535,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteTier1Rate sets HmGraphiteTier1Rate field to given value.
 
-### HasHmGraphiteTier1Rate
-
-`func (o *FormattedApiOrg) HasHmGraphiteTier1Rate() bool`
-
-HasHmGraphiteTier1Rate returns a boolean if a field has been set.
 
 ### GetHmGraphiteTier2Min
 
@@ -5434,11 +4555,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteTier2Min sets HmGraphiteTier2Min field to given value.
 
-### HasHmGraphiteTier2Min
-
-`func (o *FormattedApiOrg) HasHmGraphiteTier2Min() bool`
-
-HasHmGraphiteTier2Min returns a boolean if a field has been set.
 
 ### GetHmGraphiteTier2Rate
 
@@ -5459,11 +4575,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteTier2Rate sets HmGraphiteTier2Rate field to given value.
 
-### HasHmGraphiteTier2Rate
-
-`func (o *FormattedApiOrg) HasHmGraphiteTier2Rate() bool`
-
-HasHmGraphiteTier2Rate returns a boolean if a field has been set.
 
 ### GetHmGraphiteTier3Min
 
@@ -5484,11 +4595,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteTier3Min sets HmGraphiteTier3Min field to given value.
 
-### HasHmGraphiteTier3Min
-
-`func (o *FormattedApiOrg) HasHmGraphiteTier3Min() bool`
-
-HasHmGraphiteTier3Min returns a boolean if a field has been set.
 
 ### GetHmGraphiteTier3Rate
 
@@ -5509,11 +4615,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteTier3Rate sets HmGraphiteTier3Rate field to given value.
 
-### HasHmGraphiteTier3Rate
-
-`func (o *FormattedApiOrg) HasHmGraphiteTier3Rate() bool`
-
-HasHmGraphiteTier3Rate returns a boolean if a field has been set.
 
 ### GetHmGraphiteUsage
 
@@ -5534,11 +4635,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteUsage sets HmGraphiteUsage field to given value.
 
-### HasHmGraphiteUsage
-
-`func (o *FormattedApiOrg) HasHmGraphiteUsage() bool`
-
-HasHmGraphiteUsage returns a boolean if a field has been set.
 
 ### GetHlIncludedUsage
 
@@ -5559,11 +4655,6 @@ and a boolean to check if the value has been set.
 
 SetHlIncludedUsage sets HlIncludedUsage field to given value.
 
-### HasHlIncludedUsage
-
-`func (o *FormattedApiOrg) HasHlIncludedUsage() bool`
-
-HasHlIncludedUsage returns a boolean if a field has been set.
 
 ### GetHlQueryToIngestRatio
 
@@ -5584,11 +4675,6 @@ and a boolean to check if the value has been set.
 
 SetHlQueryToIngestRatio sets HlQueryToIngestRatio field to given value.
 
-### HasHlQueryToIngestRatio
-
-`func (o *FormattedApiOrg) HasHlQueryToIngestRatio() bool`
-
-HasHlQueryToIngestRatio returns a boolean if a field has been set.
 
 ### GetHlTier1Rate
 
@@ -5609,11 +4695,6 @@ and a boolean to check if the value has been set.
 
 SetHlTier1Rate sets HlTier1Rate field to given value.
 
-### HasHlTier1Rate
-
-`func (o *FormattedApiOrg) HasHlTier1Rate() bool`
-
-HasHlTier1Rate returns a boolean if a field has been set.
 
 ### GetHlTier2Min
 
@@ -5634,11 +4715,6 @@ and a boolean to check if the value has been set.
 
 SetHlTier2Min sets HlTier2Min field to given value.
 
-### HasHlTier2Min
-
-`func (o *FormattedApiOrg) HasHlTier2Min() bool`
-
-HasHlTier2Min returns a boolean if a field has been set.
 
 ### GetHlTier2Rate
 
@@ -5659,11 +4735,6 @@ and a boolean to check if the value has been set.
 
 SetHlTier2Rate sets HlTier2Rate field to given value.
 
-### HasHlTier2Rate
-
-`func (o *FormattedApiOrg) HasHlTier2Rate() bool`
-
-HasHlTier2Rate returns a boolean if a field has been set.
 
 ### GetHlTier3Min
 
@@ -5684,11 +4755,6 @@ and a boolean to check if the value has been set.
 
 SetHlTier3Min sets HlTier3Min field to given value.
 
-### HasHlTier3Min
-
-`func (o *FormattedApiOrg) HasHlTier3Min() bool`
-
-HasHlTier3Min returns a boolean if a field has been set.
 
 ### GetHlTier3Rate
 
@@ -5709,11 +4775,6 @@ and a boolean to check if the value has been set.
 
 SetHlTier3Rate sets HlTier3Rate field to given value.
 
-### HasHlTier3Rate
-
-`func (o *FormattedApiOrg) HasHlTier3Rate() bool`
-
-HasHlTier3Rate returns a boolean if a field has been set.
 
 ### GetHlUsage
 
@@ -5734,11 +4795,6 @@ and a boolean to check if the value has been set.
 
 SetHlUsage sets HlUsage field to given value.
 
-### HasHlUsage
-
-`func (o *FormattedApiOrg) HasHlUsage() bool`
-
-HasHlUsage returns a boolean if a field has been set.
 
 ### GetHlRetentionIncludedUsage
 
@@ -5759,11 +4815,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionIncludedUsage sets HlRetentionIncludedUsage field to given value.
 
-### HasHlRetentionIncludedUsage
-
-`func (o *FormattedApiOrg) HasHlRetentionIncludedUsage() bool`
-
-HasHlRetentionIncludedUsage returns a boolean if a field has been set.
 
 ### GetHlRetentionTier1Rate
 
@@ -5784,11 +4835,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionTier1Rate sets HlRetentionTier1Rate field to given value.
 
-### HasHlRetentionTier1Rate
-
-`func (o *FormattedApiOrg) HasHlRetentionTier1Rate() bool`
-
-HasHlRetentionTier1Rate returns a boolean if a field has been set.
 
 ### GetHlRetentionTier2Min
 
@@ -5809,11 +4855,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionTier2Min sets HlRetentionTier2Min field to given value.
 
-### HasHlRetentionTier2Min
-
-`func (o *FormattedApiOrg) HasHlRetentionTier2Min() bool`
-
-HasHlRetentionTier2Min returns a boolean if a field has been set.
 
 ### GetHlRetentionTier2Rate
 
@@ -5834,11 +4875,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionTier2Rate sets HlRetentionTier2Rate field to given value.
 
-### HasHlRetentionTier2Rate
-
-`func (o *FormattedApiOrg) HasHlRetentionTier2Rate() bool`
-
-HasHlRetentionTier2Rate returns a boolean if a field has been set.
 
 ### GetHlRetentionTier3Min
 
@@ -5859,11 +4895,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionTier3Min sets HlRetentionTier3Min field to given value.
 
-### HasHlRetentionTier3Min
-
-`func (o *FormattedApiOrg) HasHlRetentionTier3Min() bool`
-
-HasHlRetentionTier3Min returns a boolean if a field has been set.
 
 ### GetHlRetentionTier3Rate
 
@@ -5884,11 +4915,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionTier3Rate sets HlRetentionTier3Rate field to given value.
 
-### HasHlRetentionTier3Rate
-
-`func (o *FormattedApiOrg) HasHlRetentionTier3Rate() bool`
-
-HasHlRetentionTier3Rate returns a boolean if a field has been set.
 
 ### GetHlRetentionUsage
 
@@ -5909,11 +4935,6 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionUsage sets HlRetentionUsage field to given value.
 
-### HasHlRetentionUsage
-
-`func (o *FormattedApiOrg) HasHlRetentionUsage() bool`
-
-HasHlRetentionUsage returns a boolean if a field has been set.
 
 ### GetHtIncludedUsage
 
@@ -5934,11 +4955,6 @@ and a boolean to check if the value has been set.
 
 SetHtIncludedUsage sets HtIncludedUsage field to given value.
 
-### HasHtIncludedUsage
-
-`func (o *FormattedApiOrg) HasHtIncludedUsage() bool`
-
-HasHtIncludedUsage returns a boolean if a field has been set.
 
 ### GetHtTier1Rate
 
@@ -5959,11 +4975,6 @@ and a boolean to check if the value has been set.
 
 SetHtTier1Rate sets HtTier1Rate field to given value.
 
-### HasHtTier1Rate
-
-`func (o *FormattedApiOrg) HasHtTier1Rate() bool`
-
-HasHtTier1Rate returns a boolean if a field has been set.
 
 ### GetHtTier2Min
 
@@ -5984,11 +4995,6 @@ and a boolean to check if the value has been set.
 
 SetHtTier2Min sets HtTier2Min field to given value.
 
-### HasHtTier2Min
-
-`func (o *FormattedApiOrg) HasHtTier2Min() bool`
-
-HasHtTier2Min returns a boolean if a field has been set.
 
 ### GetHtTier2Rate
 
@@ -6009,11 +5015,6 @@ and a boolean to check if the value has been set.
 
 SetHtTier2Rate sets HtTier2Rate field to given value.
 
-### HasHtTier2Rate
-
-`func (o *FormattedApiOrg) HasHtTier2Rate() bool`
-
-HasHtTier2Rate returns a boolean if a field has been set.
 
 ### GetHtTier3Min
 
@@ -6034,11 +5035,6 @@ and a boolean to check if the value has been set.
 
 SetHtTier3Min sets HtTier3Min field to given value.
 
-### HasHtTier3Min
-
-`func (o *FormattedApiOrg) HasHtTier3Min() bool`
-
-HasHtTier3Min returns a boolean if a field has been set.
 
 ### GetHtTier3Rate
 
@@ -6059,11 +5055,6 @@ and a boolean to check if the value has been set.
 
 SetHtTier3Rate sets HtTier3Rate field to given value.
 
-### HasHtTier3Rate
-
-`func (o *FormattedApiOrg) HasHtTier3Rate() bool`
-
-HasHtTier3Rate returns a boolean if a field has been set.
 
 ### GetHtUsage
 
@@ -6084,11 +5075,6 @@ and a boolean to check if the value has been set.
 
 SetHtUsage sets HtUsage field to given value.
 
-### HasHtUsage
-
-`func (o *FormattedApiOrg) HasHtUsage() bool`
-
-HasHtUsage returns a boolean if a field has been set.
 
 ### GetHpIncludedUsage
 
@@ -6109,11 +5095,6 @@ and a boolean to check if the value has been set.
 
 SetHpIncludedUsage sets HpIncludedUsage field to given value.
 
-### HasHpIncludedUsage
-
-`func (o *FormattedApiOrg) HasHpIncludedUsage() bool`
-
-HasHpIncludedUsage returns a boolean if a field has been set.
 
 ### GetHpTier1Rate
 
@@ -6134,11 +5115,6 @@ and a boolean to check if the value has been set.
 
 SetHpTier1Rate sets HpTier1Rate field to given value.
 
-### HasHpTier1Rate
-
-`func (o *FormattedApiOrg) HasHpTier1Rate() bool`
-
-HasHpTier1Rate returns a boolean if a field has been set.
 
 ### GetHpTier2Min
 
@@ -6159,11 +5135,6 @@ and a boolean to check if the value has been set.
 
 SetHpTier2Min sets HpTier2Min field to given value.
 
-### HasHpTier2Min
-
-`func (o *FormattedApiOrg) HasHpTier2Min() bool`
-
-HasHpTier2Min returns a boolean if a field has been set.
 
 ### GetHpTier2Rate
 
@@ -6184,11 +5155,6 @@ and a boolean to check if the value has been set.
 
 SetHpTier2Rate sets HpTier2Rate field to given value.
 
-### HasHpTier2Rate
-
-`func (o *FormattedApiOrg) HasHpTier2Rate() bool`
-
-HasHpTier2Rate returns a boolean if a field has been set.
 
 ### GetHpTier3Min
 
@@ -6209,11 +5175,6 @@ and a boolean to check if the value has been set.
 
 SetHpTier3Min sets HpTier3Min field to given value.
 
-### HasHpTier3Min
-
-`func (o *FormattedApiOrg) HasHpTier3Min() bool`
-
-HasHpTier3Min returns a boolean if a field has been set.
 
 ### GetHpTier3Rate
 
@@ -6234,11 +5195,6 @@ and a boolean to check if the value has been set.
 
 SetHpTier3Rate sets HpTier3Rate field to given value.
 
-### HasHpTier3Rate
-
-`func (o *FormattedApiOrg) HasHpTier3Rate() bool`
-
-HasHpTier3Rate returns a boolean if a field has been set.
 
 ### GetHpUsage
 
@@ -6259,11 +5215,6 @@ and a boolean to check if the value has been set.
 
 SetHpUsage sets HpUsage field to given value.
 
-### HasHpUsage
-
-`func (o *FormattedApiOrg) HasHpUsage() bool`
-
-HasHpUsage returns a boolean if a field has been set.
 
 ### GetIrmStatus
 
@@ -6284,11 +5235,6 @@ and a boolean to check if the value has been set.
 
 SetIrmStatus sets IrmStatus field to given value.
 
-### HasIrmStatus
-
-`func (o *FormattedApiOrg) HasIrmStatus() bool`
-
-HasIrmStatus returns a boolean if a field has been set.
 
 ### GetIrmIncludedUsage
 
@@ -6309,11 +5255,6 @@ and a boolean to check if the value has been set.
 
 SetIrmIncludedUsage sets IrmIncludedUsage field to given value.
 
-### HasIrmIncludedUsage
-
-`func (o *FormattedApiOrg) HasIrmIncludedUsage() bool`
-
-HasIrmIncludedUsage returns a boolean if a field has been set.
 
 ### GetIrmTier1Rate
 
@@ -6334,11 +5275,6 @@ and a boolean to check if the value has been set.
 
 SetIrmTier1Rate sets IrmTier1Rate field to given value.
 
-### HasIrmTier1Rate
-
-`func (o *FormattedApiOrg) HasIrmTier1Rate() bool`
-
-HasIrmTier1Rate returns a boolean if a field has been set.
 
 ### GetIrmTier2Min
 
@@ -6359,11 +5295,6 @@ and a boolean to check if the value has been set.
 
 SetIrmTier2Min sets IrmTier2Min field to given value.
 
-### HasIrmTier2Min
-
-`func (o *FormattedApiOrg) HasIrmTier2Min() bool`
-
-HasIrmTier2Min returns a boolean if a field has been set.
 
 ### GetIrmTier2Rate
 
@@ -6384,11 +5315,6 @@ and a boolean to check if the value has been set.
 
 SetIrmTier2Rate sets IrmTier2Rate field to given value.
 
-### HasIrmTier2Rate
-
-`func (o *FormattedApiOrg) HasIrmTier2Rate() bool`
-
-HasIrmTier2Rate returns a boolean if a field has been set.
 
 ### GetIrmTier3Min
 
@@ -6409,11 +5335,6 @@ and a boolean to check if the value has been set.
 
 SetIrmTier3Min sets IrmTier3Min field to given value.
 
-### HasIrmTier3Min
-
-`func (o *FormattedApiOrg) HasIrmTier3Min() bool`
-
-HasIrmTier3Min returns a boolean if a field has been set.
 
 ### GetIrmTier3Rate
 
@@ -6434,11 +5355,6 @@ and a boolean to check if the value has been set.
 
 SetIrmTier3Rate sets IrmTier3Rate field to given value.
 
-### HasIrmTier3Rate
-
-`func (o *FormattedApiOrg) HasIrmTier3Rate() bool`
-
-HasIrmTier3Rate returns a boolean if a field has been set.
 
 ### GetIrmUsage
 
@@ -6459,11 +5375,6 @@ and a boolean to check if the value has been set.
 
 SetIrmUsage sets IrmUsage field to given value.
 
-### HasIrmUsage
-
-`func (o *FormattedApiOrg) HasIrmUsage() bool`
-
-HasIrmUsage returns a boolean if a field has been set.
 
 ### GetK6VuhIncludedUsage
 
@@ -6484,11 +5395,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhIncludedUsage sets K6VuhIncludedUsage field to given value.
 
-### HasK6VuhIncludedUsage
-
-`func (o *FormattedApiOrg) HasK6VuhIncludedUsage() bool`
-
-HasK6VuhIncludedUsage returns a boolean if a field has been set.
 
 ### GetK6VuhTier1Rate
 
@@ -6509,11 +5415,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhTier1Rate sets K6VuhTier1Rate field to given value.
 
-### HasK6VuhTier1Rate
-
-`func (o *FormattedApiOrg) HasK6VuhTier1Rate() bool`
-
-HasK6VuhTier1Rate returns a boolean if a field has been set.
 
 ### GetK6VuhTier2Min
 
@@ -6534,11 +5435,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhTier2Min sets K6VuhTier2Min field to given value.
 
-### HasK6VuhTier2Min
-
-`func (o *FormattedApiOrg) HasK6VuhTier2Min() bool`
-
-HasK6VuhTier2Min returns a boolean if a field has been set.
 
 ### GetK6VuhTier2Rate
 
@@ -6559,11 +5455,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhTier2Rate sets K6VuhTier2Rate field to given value.
 
-### HasK6VuhTier2Rate
-
-`func (o *FormattedApiOrg) HasK6VuhTier2Rate() bool`
-
-HasK6VuhTier2Rate returns a boolean if a field has been set.
 
 ### GetK6VuhTier3Min
 
@@ -6584,11 +5475,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhTier3Min sets K6VuhTier3Min field to given value.
 
-### HasK6VuhTier3Min
-
-`func (o *FormattedApiOrg) HasK6VuhTier3Min() bool`
-
-HasK6VuhTier3Min returns a boolean if a field has been set.
 
 ### GetK6VuhTier3Rate
 
@@ -6609,11 +5495,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhTier3Rate sets K6VuhTier3Rate field to given value.
 
-### HasK6VuhTier3Rate
-
-`func (o *FormattedApiOrg) HasK6VuhTier3Rate() bool`
-
-HasK6VuhTier3Rate returns a boolean if a field has been set.
 
 ### GetK6VuhUnits
 
@@ -6634,11 +5515,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhUnits sets K6VuhUnits field to given value.
 
-### HasK6VuhUnits
-
-`func (o *FormattedApiOrg) HasK6VuhUnits() bool`
-
-HasK6VuhUnits returns a boolean if a field has been set.
 
 ### GetK6VuhUsage
 
@@ -6659,11 +5535,6 @@ and a boolean to check if the value has been set.
 
 SetK6VuhUsage sets K6VuhUsage field to given value.
 
-### HasK6VuhUsage
-
-`func (o *FormattedApiOrg) HasK6VuhUsage() bool`
-
-HasK6VuhUsage returns a boolean if a field has been set.
 
 ### GetK6IPIncludedUsage
 
@@ -6684,11 +5555,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPIncludedUsage sets K6IPIncludedUsage field to given value.
 
-### HasK6IPIncludedUsage
-
-`func (o *FormattedApiOrg) HasK6IPIncludedUsage() bool`
-
-HasK6IPIncludedUsage returns a boolean if a field has been set.
 
 ### GetK6IPTier1Rate
 
@@ -6709,11 +5575,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPTier1Rate sets K6IPTier1Rate field to given value.
 
-### HasK6IPTier1Rate
-
-`func (o *FormattedApiOrg) HasK6IPTier1Rate() bool`
-
-HasK6IPTier1Rate returns a boolean if a field has been set.
 
 ### GetK6IPTier2Min
 
@@ -6734,11 +5595,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPTier2Min sets K6IPTier2Min field to given value.
 
-### HasK6IPTier2Min
-
-`func (o *FormattedApiOrg) HasK6IPTier2Min() bool`
-
-HasK6IPTier2Min returns a boolean if a field has been set.
 
 ### GetK6IPTier2Rate
 
@@ -6759,11 +5615,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPTier2Rate sets K6IPTier2Rate field to given value.
 
-### HasK6IPTier2Rate
-
-`func (o *FormattedApiOrg) HasK6IPTier2Rate() bool`
-
-HasK6IPTier2Rate returns a boolean if a field has been set.
 
 ### GetK6IPTier3Min
 
@@ -6784,11 +5635,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPTier3Min sets K6IPTier3Min field to given value.
 
-### HasK6IPTier3Min
-
-`func (o *FormattedApiOrg) HasK6IPTier3Min() bool`
-
-HasK6IPTier3Min returns a boolean if a field has been set.
 
 ### GetK6IPTier3Rate
 
@@ -6809,11 +5655,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPTier3Rate sets K6IPTier3Rate field to given value.
 
-### HasK6IPTier3Rate
-
-`func (o *FormattedApiOrg) HasK6IPTier3Rate() bool`
-
-HasK6IPTier3Rate returns a boolean if a field has been set.
 
 ### GetK6IPUsage
 
@@ -6834,11 +5675,6 @@ and a boolean to check if the value has been set.
 
 SetK6IPUsage sets K6IPUsage field to given value.
 
-### HasK6IPUsage
-
-`func (o *FormattedApiOrg) HasK6IPUsage() bool`
-
-HasK6IPUsage returns a boolean if a field has been set.
 
 ### GetFeO11yIncludedUsage
 
@@ -6859,11 +5695,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yIncludedUsage sets FeO11yIncludedUsage field to given value.
 
-### HasFeO11yIncludedUsage
-
-`func (o *FormattedApiOrg) HasFeO11yIncludedUsage() bool`
-
-HasFeO11yIncludedUsage returns a boolean if a field has been set.
 
 ### GetFeO11yTier1Rate
 
@@ -6884,11 +5715,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yTier1Rate sets FeO11yTier1Rate field to given value.
 
-### HasFeO11yTier1Rate
-
-`func (o *FormattedApiOrg) HasFeO11yTier1Rate() bool`
-
-HasFeO11yTier1Rate returns a boolean if a field has been set.
 
 ### GetFeO11yTier2Min
 
@@ -6909,11 +5735,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yTier2Min sets FeO11yTier2Min field to given value.
 
-### HasFeO11yTier2Min
-
-`func (o *FormattedApiOrg) HasFeO11yTier2Min() bool`
-
-HasFeO11yTier2Min returns a boolean if a field has been set.
 
 ### GetFeO11yTier2Rate
 
@@ -6934,11 +5755,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yTier2Rate sets FeO11yTier2Rate field to given value.
 
-### HasFeO11yTier2Rate
-
-`func (o *FormattedApiOrg) HasFeO11yTier2Rate() bool`
-
-HasFeO11yTier2Rate returns a boolean if a field has been set.
 
 ### GetFeO11yTier3Min
 
@@ -6959,11 +5775,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yTier3Min sets FeO11yTier3Min field to given value.
 
-### HasFeO11yTier3Min
-
-`func (o *FormattedApiOrg) HasFeO11yTier3Min() bool`
-
-HasFeO11yTier3Min returns a boolean if a field has been set.
 
 ### GetFeO11yTier3Rate
 
@@ -6984,11 +5795,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yTier3Rate sets FeO11yTier3Rate field to given value.
 
-### HasFeO11yTier3Rate
-
-`func (o *FormattedApiOrg) HasFeO11yTier3Rate() bool`
-
-HasFeO11yTier3Rate returns a boolean if a field has been set.
 
 ### GetFeO11yUnits
 
@@ -7009,11 +5815,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yUnits sets FeO11yUnits field to given value.
 
-### HasFeO11yUnits
-
-`func (o *FormattedApiOrg) HasFeO11yUnits() bool`
-
-HasFeO11yUnits returns a boolean if a field has been set.
 
 ### GetFeO11yUsage
 
@@ -7034,11 +5835,6 @@ and a boolean to check if the value has been set.
 
 SetFeO11yUsage sets FeO11yUsage field to given value.
 
-### HasFeO11yUsage
-
-`func (o *FormattedApiOrg) HasFeO11yUsage() bool`
-
-HasFeO11yUsage returns a boolean if a field has been set.
 
 ### GetGeUsersIncludedUsage
 
@@ -7059,11 +5855,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersIncludedUsage sets GeUsersIncludedUsage field to given value.
 
-### HasGeUsersIncludedUsage
-
-`func (o *FormattedApiOrg) HasGeUsersIncludedUsage() bool`
-
-HasGeUsersIncludedUsage returns a boolean if a field has been set.
 
 ### GetGeUsersTier1Rate
 
@@ -7084,11 +5875,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersTier1Rate sets GeUsersTier1Rate field to given value.
 
-### HasGeUsersTier1Rate
-
-`func (o *FormattedApiOrg) HasGeUsersTier1Rate() bool`
-
-HasGeUsersTier1Rate returns a boolean if a field has been set.
 
 ### GetGeUsersTier2Min
 
@@ -7109,11 +5895,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersTier2Min sets GeUsersTier2Min field to given value.
 
-### HasGeUsersTier2Min
-
-`func (o *FormattedApiOrg) HasGeUsersTier2Min() bool`
-
-HasGeUsersTier2Min returns a boolean if a field has been set.
 
 ### GetGeUsersTier2Rate
 
@@ -7134,11 +5915,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersTier2Rate sets GeUsersTier2Rate field to given value.
 
-### HasGeUsersTier2Rate
-
-`func (o *FormattedApiOrg) HasGeUsersTier2Rate() bool`
-
-HasGeUsersTier2Rate returns a boolean if a field has been set.
 
 ### GetGeUsersTier3Min
 
@@ -7159,11 +5935,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersTier3Min sets GeUsersTier3Min field to given value.
 
-### HasGeUsersTier3Min
-
-`func (o *FormattedApiOrg) HasGeUsersTier3Min() bool`
-
-HasGeUsersTier3Min returns a boolean if a field has been set.
 
 ### GetGeUsersTier3Rate
 
@@ -7184,11 +5955,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersTier3Rate sets GeUsersTier3Rate field to given value.
 
-### HasGeUsersTier3Rate
-
-`func (o *FormattedApiOrg) HasGeUsersTier3Rate() bool`
-
-HasGeUsersTier3Rate returns a boolean if a field has been set.
 
 ### GetGeUsersUsage
 
@@ -7209,11 +5975,6 @@ and a boolean to check if the value has been set.
 
 SetGeUsersUsage sets GeUsersUsage field to given value.
 
-### HasGeUsersUsage
-
-`func (o *FormattedApiOrg) HasGeUsersUsage() bool`
-
-HasGeUsersUsage returns a boolean if a field has been set.
 
 ### GetGeInstancesIncludedUsage
 
@@ -7234,11 +5995,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesIncludedUsage sets GeInstancesIncludedUsage field to given value.
 
-### HasGeInstancesIncludedUsage
-
-`func (o *FormattedApiOrg) HasGeInstancesIncludedUsage() bool`
-
-HasGeInstancesIncludedUsage returns a boolean if a field has been set.
 
 ### GetGeInstancesTier1Rate
 
@@ -7259,11 +6015,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesTier1Rate sets GeInstancesTier1Rate field to given value.
 
-### HasGeInstancesTier1Rate
-
-`func (o *FormattedApiOrg) HasGeInstancesTier1Rate() bool`
-
-HasGeInstancesTier1Rate returns a boolean if a field has been set.
 
 ### GetGeInstancesTier2Min
 
@@ -7284,11 +6035,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesTier2Min sets GeInstancesTier2Min field to given value.
 
-### HasGeInstancesTier2Min
-
-`func (o *FormattedApiOrg) HasGeInstancesTier2Min() bool`
-
-HasGeInstancesTier2Min returns a boolean if a field has been set.
 
 ### GetGeInstancesTier2Rate
 
@@ -7309,11 +6055,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesTier2Rate sets GeInstancesTier2Rate field to given value.
 
-### HasGeInstancesTier2Rate
-
-`func (o *FormattedApiOrg) HasGeInstancesTier2Rate() bool`
-
-HasGeInstancesTier2Rate returns a boolean if a field has been set.
 
 ### GetGeInstancesTier3Min
 
@@ -7334,11 +6075,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesTier3Min sets GeInstancesTier3Min field to given value.
 
-### HasGeInstancesTier3Min
-
-`func (o *FormattedApiOrg) HasGeInstancesTier3Min() bool`
-
-HasGeInstancesTier3Min returns a boolean if a field has been set.
 
 ### GetGeInstancesTier3Rate
 
@@ -7359,11 +6095,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesTier3Rate sets GeInstancesTier3Rate field to given value.
 
-### HasGeInstancesTier3Rate
-
-`func (o *FormattedApiOrg) HasGeInstancesTier3Rate() bool`
-
-HasGeInstancesTier3Rate returns a boolean if a field has been set.
 
 ### GetGeInstancesUsage
 
@@ -7384,11 +6115,6 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesUsage sets GeInstancesUsage field to given value.
 
-### HasGeInstancesUsage
-
-`func (o *FormattedApiOrg) HasGeInstancesUsage() bool`
-
-HasGeInstancesUsage returns a boolean if a field has been set.
 
 ### GetHgPluginUsersOverageRate
 
@@ -7409,11 +6135,6 @@ and a boolean to check if the value has been set.
 
 SetHgPluginUsersOverageRate sets HgPluginUsersOverageRate field to given value.
 
-### HasHgPluginUsersOverageRate
-
-`func (o *FormattedApiOrg) HasHgPluginUsersOverageRate() bool`
-
-HasHgPluginUsersOverageRate returns a boolean if a field has been set.
 
 ### SetHgPluginUsersOverageRateNil
 
@@ -7444,11 +6165,6 @@ and a boolean to check if the value has been set.
 
 SetHgPluginUsersIncludedUsage sets HgPluginUsersIncludedUsage field to given value.
 
-### HasHgPluginUsersIncludedUsage
-
-`func (o *FormattedApiOrg) HasHgPluginUsersIncludedUsage() bool`
-
-HasHgPluginUsersIncludedUsage returns a boolean if a field has been set.
 
 ### SetHgPluginUsersIncludedUsageNil
 
@@ -7479,11 +6195,6 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteInstanceCnt sets HmGraphiteInstanceCnt field to given value.
 
-### HasHmGraphiteInstanceCnt
-
-`func (o *FormattedApiOrg) HasHmGraphiteInstanceCnt() bool`
-
-HasHmGraphiteInstanceCnt returns a boolean if a field has been set.
 
 ### GetHmPrometheusInstanceCnt
 
@@ -7504,11 +6215,6 @@ and a boolean to check if the value has been set.
 
 SetHmPrometheusInstanceCnt sets HmPrometheusInstanceCnt field to given value.
 
-### HasHmPrometheusInstanceCnt
-
-`func (o *FormattedApiOrg) HasHmPrometheusInstanceCnt() bool`
-
-HasHmPrometheusInstanceCnt returns a boolean if a field has been set.
 
 ### GetAwsMarketplaceSupport
 
@@ -7529,11 +6235,6 @@ and a boolean to check if the value has been set.
 
 SetAwsMarketplaceSupport sets AwsMarketplaceSupport field to given value.
 
-### HasAwsMarketplaceSupport
-
-`func (o *FormattedApiOrg) HasAwsMarketplaceSupport() bool`
-
-HasAwsMarketplaceSupport returns a boolean if a field has been set.
 
 ### GetTrialStartDate
 
@@ -7554,11 +6255,6 @@ and a boolean to check if the value has been set.
 
 SetTrialStartDate sets TrialStartDate field to given value.
 
-### HasTrialStartDate
-
-`func (o *FormattedApiOrg) HasTrialStartDate() bool`
-
-HasTrialStartDate returns a boolean if a field has been set.
 
 ### SetTrialStartDateNil
 
@@ -7589,11 +6285,6 @@ and a boolean to check if the value has been set.
 
 SetTrialEndDate sets TrialEndDate field to given value.
 
-### HasTrialEndDate
-
-`func (o *FormattedApiOrg) HasTrialEndDate() bool`
-
-HasTrialEndDate returns a boolean if a field has been set.
 
 ### SetTrialEndDateNil
 
@@ -7624,11 +6315,6 @@ and a boolean to check if the value has been set.
 
 SetTrialLengthDays sets TrialLengthDays field to given value.
 
-### HasTrialLengthDays
-
-`func (o *FormattedApiOrg) HasTrialLengthDays() bool`
-
-HasTrialLengthDays returns a boolean if a field has been set.
 
 ### SetTrialLengthDaysNil
 
@@ -7659,11 +6345,6 @@ and a boolean to check if the value has been set.
 
 SetTrialNoticeDate sets TrialNoticeDate field to given value.
 
-### HasTrialNoticeDate
-
-`func (o *FormattedApiOrg) HasTrialNoticeDate() bool`
-
-HasTrialNoticeDate returns a boolean if a field has been set.
 
 ### SetTrialNoticeDateNil
 
@@ -7694,11 +6375,6 @@ and a boolean to check if the value has been set.
 
 SetCancellationDate sets CancellationDate field to given value.
 
-### HasCancellationDate
-
-`func (o *FormattedApiOrg) HasCancellationDate() bool`
-
-HasCancellationDate returns a boolean if a field has been set.
 
 ### SetCancellationDateNil
 
@@ -7729,11 +6405,26 @@ and a boolean to check if the value has been set.
 
 SetRetainedStackId sets RetainedStackId field to given value.
 
-### HasRetainedStackId
 
-`func (o *FormattedApiOrg) HasRetainedStackId() bool`
+### GetAllowGCloudTrial
 
-HasRetainedStackId returns a boolean if a field has been set.
+`func (o *FormattedApiOrg) GetAllowGCloudTrial() bool`
+
+GetAllowGCloudTrial returns the AllowGCloudTrial field if non-nil, zero value otherwise.
+
+### GetAllowGCloudTrialOk
+
+`func (o *FormattedApiOrg) GetAllowGCloudTrialOk() (*bool, bool)`
+
+GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowGCloudTrial
+
+`func (o *FormattedApiOrg) SetAllowGCloudTrial(v bool)`
+
+SetAllowGCloudTrial sets AllowGCloudTrial field to given value.
+
 
 ### GetPluginSignatureType
 
@@ -7754,11 +6445,6 @@ and a boolean to check if the value has been set.
 
 SetPluginSignatureType sets PluginSignatureType field to given value.
 
-### HasPluginSignatureType
-
-`func (o *FormattedApiOrg) HasPluginSignatureType() bool`
-
-HasPluginSignatureType returns a boolean if a field has been set.
 
 ### GetContractType
 
@@ -7779,11 +6465,6 @@ and a boolean to check if the value has been set.
 
 SetContractType sets ContractType field to given value.
 
-### HasContractType
-
-`func (o *FormattedApiOrg) HasContractType() bool`
-
-HasContractType returns a boolean if a field has been set.
 
 ### GetContractTypeId
 
@@ -7804,11 +6485,6 @@ and a boolean to check if the value has been set.
 
 SetContractTypeId sets ContractTypeId field to given value.
 
-### HasContractTypeId
-
-`func (o *FormattedApiOrg) HasContractTypeId() bool`
-
-HasContractTypeId returns a boolean if a field has been set.
 
 ### GetLinks
 
@@ -7829,11 +6505,6 @@ and a boolean to check if the value has been set.
 
 SetLinks sets Links field to given value.
 
-### HasLinks
-
-`func (o *FormattedApiOrg) HasLinks() bool`
-
-HasLinks returns a boolean if a field has been set.
 
 ### GetSubscriptions
 
@@ -7854,11 +6525,6 @@ and a boolean to check if the value has been set.
 
 SetSubscriptions sets Subscriptions field to given value.
 
-### HasSubscriptions
-
-`func (o *FormattedApiOrg) HasSubscriptions() bool`
-
-HasSubscriptions returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

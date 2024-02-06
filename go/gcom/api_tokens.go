@@ -224,7 +224,7 @@ func (r ApiGetTokenRequest) OrgId(orgId int32) ApiGetTokenRequest {
 	return r
 }
 
-func (r ApiGetTokenRequest) Execute() (*AuthToken, *http.Response, error) {
+func (r ApiGetTokenRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.GetTokenExecute(r)
 }
 
@@ -244,13 +244,13 @@ func (a *TokensAPIService) GetToken(ctx context.Context, id string) ApiGetTokenR
 }
 
 // Execute executes the request
-//  @return AuthToken
-func (a *TokensAPIService) GetTokenExecute(r ApiGetTokenRequest) (*AuthToken, *http.Response, error) {
+//  @return map[string]interface{}
+func (a *TokensAPIService) GetTokenExecute(r ApiGetTokenRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *AuthToken
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensAPIService.GetToken")
@@ -452,7 +452,7 @@ func (r ApiGetTokensRequest) PageSize(pageSize int32) ApiGetTokensRequest {
 	return r
 }
 
-func (r ApiGetTokensRequest) Execute() ([]AuthToken, *http.Response, error) {
+func (r ApiGetTokensRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.GetTokensExecute(r)
 }
 
@@ -470,13 +470,13 @@ func (a *TokensAPIService) GetTokens(ctx context.Context) ApiGetTokensRequest {
 }
 
 // Execute executes the request
-//  @return []AuthToken
-func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) ([]AuthToken, *http.Response, error) {
+//  @return map[string]interface{}
+func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue []AuthToken
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensAPIService.GetTokens")
@@ -646,7 +646,7 @@ func (r ApiPostTokenRequest) OrgId(orgId int32) ApiPostTokenRequest {
 	return r
 }
 
-func (r ApiPostTokenRequest) Execute() (*AuthToken, *http.Response, error) {
+func (r ApiPostTokenRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.PostTokenExecute(r)
 }
 
@@ -666,13 +666,13 @@ func (a *TokensAPIService) PostToken(ctx context.Context, id string) ApiPostToke
 }
 
 // Execute executes the request
-//  @return AuthToken
-func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (*AuthToken, *http.Response, error) {
+//  @return map[string]interface{}
+func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *AuthToken
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensAPIService.PostToken")
@@ -840,7 +840,7 @@ func (r ApiPostTokensRequest) OrgId(orgId int32) ApiPostTokensRequest {
 	return r
 }
 
-func (r ApiPostTokensRequest) Execute() (*AuthTokenWithSecret, *http.Response, error) {
+func (r ApiPostTokensRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.PostTokensExecute(r)
 }
 
@@ -858,13 +858,13 @@ func (a *TokensAPIService) PostTokens(ctx context.Context) ApiPostTokensRequest 
 }
 
 // Execute executes the request
-//  @return AuthTokenWithSecret
-func (a *TokensAPIService) PostTokensExecute(r ApiPostTokensRequest) (*AuthTokenWithSecret, *http.Response, error) {
+//  @return map[string]interface{}
+func (a *TokensAPIService) PostTokensExecute(r ApiPostTokensRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *AuthTokenWithSecret
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensAPIService.PostTokens")

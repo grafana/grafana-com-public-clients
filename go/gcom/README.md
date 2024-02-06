@@ -124,16 +124,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AuthAccessPolicy](docs/AuthAccessPolicy.md)
- - [AuthAccessPolicyAttributes](docs/AuthAccessPolicyAttributes.md)
- - [AuthAccessPolicyAttributesLokiQueryPolicy](docs/AuthAccessPolicyAttributesLokiQueryPolicy.md)
- - [AuthAccessPolicyAttributesPdcConfiguration](docs/AuthAccessPolicyAttributesPdcConfiguration.md)
- - [AuthAccessPolicyConditions](docs/AuthAccessPolicyConditions.md)
- - [AuthAccessPolicyConditionsAllowedSubnetsInner](docs/AuthAccessPolicyConditionsAllowedSubnetsInner.md)
- - [AuthAccessPolicyRealmsInner](docs/AuthAccessPolicyRealmsInner.md)
- - [AuthAccessPolicyRealmsInnerLabelPoliciesInner](docs/AuthAccessPolicyRealmsInnerLabelPoliciesInner.md)
- - [AuthToken](docs/AuthToken.md)
- - [AuthTokenWithSecret](docs/AuthTokenWithSecret.md)
  - [Current](docs/Current.md)
  - [Current1](docs/Current1.md)
  - [Current2](docs/Current2.md)
@@ -150,8 +140,8 @@ Class | Method | HTTP request | Description
  - [GetInstancePlugins200Response](docs/GetInstancePlugins200Response.md)
  - [GetInstances200Response](docs/GetInstances200Response.md)
  - [GetStackRegions200Response](docs/GetStackRegions200Response.md)
- - [GrafanaNewApiKeyResult](docs/GrafanaNewApiKeyResult.md)
- - [GrafanaServiceAccountDTO](docs/GrafanaServiceAccountDTO.md)
+ - [GrafanaServiceAccount](docs/GrafanaServiceAccount.md)
+ - [GrafanaServiceAccountToken](docs/GrafanaServiceAccountToken.md)
  - [ItemsInner](docs/ItemsInner.md)
  - [LinksInner](docs/LinksInner.md)
  - [LinksInner1](docs/LinksInner1.md)

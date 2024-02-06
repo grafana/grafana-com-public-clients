@@ -12,6 +12,7 @@ package gcom
 
 import (
 	"encoding/json"
+	"fmt"
 	"time"
 )
 
@@ -20,277 +21,278 @@ var _ MappedNullable = &FormattedApiOrg{}
 
 // FormattedApiOrg struct for FormattedApiOrg
 type FormattedApiOrg struct {
-	Tags                             []string               `json:"tags,omitempty"`
-	AccountManagerId                 *float32               `json:"accountManagerId,omitempty"`
-	AccountManagerUsername           *string                `json:"accountManagerUsername,omitempty"`
-	AccountManagerName               *string                `json:"accountManagerName,omitempty"`
-	AwsCustomerId                    *string                `json:"awsCustomerId,omitempty"`
-	AccountOwnerId                   *float32               `json:"accountOwnerId,omitempty"`
-	AccountOwnerUsername             *string                `json:"accountOwnerUsername,omitempty"`
-	AccountOwnerName                 *string                `json:"accountOwnerName,omitempty"`
-	HmBillingStartDate               NullableString         `json:"hmBillingStartDate,omitempty"`
-	HmBillingEndDate                 NullableString         `json:"hmBillingEndDate,omitempty"`
-	HmBilledToDate                   NullableString         `json:"hmBilledToDate,omitempty"`
-	HmOverageWarnDate                NullableString         `json:"hmOverageWarnDate,omitempty"`
-	HmOverageAmount                  *float32               `json:"hmOverageAmount,omitempty"`
-	HmCurrentPrometheusUsage         *float32               `json:"hmCurrentPrometheusUsage,omitempty"`
-	HmCurrentGraphiteUsage           *float32               `json:"hmCurrentGraphiteUsage,omitempty"`
-	HlBillingStartDate               NullableString         `json:"hlBillingStartDate,omitempty"`
-	HlBillingEndDate                 NullableString         `json:"hlBillingEndDate,omitempty"`
-	HlBilledToDate                   NullableString         `json:"hlBilledToDate,omitempty"`
-	HlOverageWarnDate                NullableString         `json:"hlOverageWarnDate,omitempty"`
-	HlOverageAmount                  *float32               `json:"hlOverageAmount,omitempty"`
-	HlCurrentUsage                   *float32               `json:"hlCurrentUsage,omitempty"`
-	HgBillingStartDate               NullableString         `json:"hgBillingStartDate,omitempty"`
-	HgBillingEndDate                 NullableString         `json:"hgBillingEndDate,omitempty"`
-	HgBilledToDate                   NullableString         `json:"hgBilledToDate,omitempty"`
-	HgOverageWarnDate                NullableString         `json:"hgOverageWarnDate,omitempty"`
-	HgOverageAmount                  *float32               `json:"hgOverageAmount,omitempty"`
-	HgActiveUsers                    *float32               `json:"hgActiveUsers,omitempty"`
-	HgDatasourceCnts                 map[string]interface{} `json:"hgDatasourceCnts,omitempty"`
-	HgIntegrationCnts                map[string]interface{} `json:"hgIntegrationCnts,omitempty"`
-	HmGraphiteBillingStartDate       NullableString         `json:"hmGraphiteBillingStartDate,omitempty"`
-	HmGraphiteBillingEndDate         NullableString         `json:"hmGraphiteBillingEndDate,omitempty"`
-	HmGraphiteBilledToDate           NullableString         `json:"hmGraphiteBilledToDate,omitempty"`
-	HmGraphiteOverageWarnDate        NullableString         `json:"hmGraphiteOverageWarnDate,omitempty"`
-	HmGraphiteCurrentUsage           *float32               `json:"hmGraphiteCurrentUsage,omitempty"`
-	HmGraphiteOverageAmount          *float32               `json:"hmGraphiteOverageAmount,omitempty"`
-	HlRetentionBillingStartDate      NullableString         `json:"hlRetentionBillingStartDate,omitempty"`
-	HlRetentionBillingEndDate        NullableString         `json:"hlRetentionBillingEndDate,omitempty"`
-	HlRetentionBilledToDate          NullableString         `json:"hlRetentionBilledToDate,omitempty"`
-	HlRetentionOverageWarnDate       NullableString         `json:"hlRetentionOverageWarnDate,omitempty"`
-	HlRetentionCurrentUsage          *float32               `json:"hlRetentionCurrentUsage,omitempty"`
-	HlRetentionOverageAmount         *float32               `json:"hlRetentionOverageAmount,omitempty"`
-	HtBillingStartDate               NullableString         `json:"htBillingStartDate,omitempty"`
-	HtBillingEndDate                 NullableString         `json:"htBillingEndDate,omitempty"`
-	HtBilledToDate                   NullableString         `json:"htBilledToDate,omitempty"`
-	HtOverageWarnDate                NullableString         `json:"htOverageWarnDate,omitempty"`
-	HtCurrentUsage                   *float32               `json:"htCurrentUsage,omitempty"`
-	HtOverageAmount                  *float32               `json:"htOverageAmount,omitempty"`
-	IrmBillingStartDate              NullableString         `json:"irmBillingStartDate,omitempty"`
-	IrmBillingEndDate                NullableString         `json:"irmBillingEndDate,omitempty"`
-	IrmBilledToDate                  NullableString         `json:"irmBilledToDate,omitempty"`
-	IrmOverageWarnDate               NullableString         `json:"irmOverageWarnDate,omitempty"`
-	IrmCurrentUsage                  *float32               `json:"irmCurrentUsage,omitempty"`
-	IrmOverageAmount                 *float32               `json:"irmOverageAmount,omitempty"`
-	HpBillingStartDate               NullableString         `json:"hpBillingStartDate,omitempty"`
-	HpBillingEndDate                 NullableString         `json:"hpBillingEndDate,omitempty"`
-	HpBilledToDate                   NullableString         `json:"hpBilledToDate,omitempty"`
-	HpOverageWarnDate                NullableString         `json:"hpOverageWarnDate,omitempty"`
-	HpCurrentUsage                   *float32               `json:"hpCurrentUsage,omitempty"`
-	HpOverageAmount                  *float32               `json:"hpOverageAmount,omitempty"`
-	K6VuhBillingStartDate            NullableString         `json:"k6VuhBillingStartDate,omitempty"`
-	K6VuhBillingEndDate              NullableString         `json:"k6VuhBillingEndDate,omitempty"`
-	K6VuhBilledToDate                NullableString         `json:"k6VuhBilledToDate,omitempty"`
-	K6VuhOverageWarnDate             NullableString         `json:"k6VuhOverageWarnDate,omitempty"`
-	K6VuhCurrentUsage                *float32               `json:"k6VuhCurrentUsage,omitempty"`
-	K6VuhOverageAmount               *float32               `json:"k6VuhOverageAmount,omitempty"`
-	K6IPBillingStartDate             NullableString         `json:"k6IPBillingStartDate,omitempty"`
-	K6IPBillingEndDate               NullableString         `json:"k6IPBillingEndDate,omitempty"`
-	K6IPBilledToDate                 NullableString         `json:"k6IPBilledToDate,omitempty"`
-	K6IPOverageWarnDate              NullableString         `json:"k6IPOverageWarnDate,omitempty"`
-	K6IPCurrentUsage                 *float32               `json:"k6IPCurrentUsage,omitempty"`
-	K6IPOverageAmount                *float32               `json:"k6IPOverageAmount,omitempty"`
-	FeO11yBillingStartDate           NullableString         `json:"feO11yBillingStartDate,omitempty"`
-	FeO11yBillingEndDate             NullableString         `json:"feO11yBillingEndDate,omitempty"`
-	FeO11yBilledToDate               NullableString         `json:"feO11yBilledToDate,omitempty"`
-	FeO11yOverageWarnDate            NullableString         `json:"feO11yOverageWarnDate,omitempty"`
-	FeO11yCurrentUsage               *float32               `json:"feO11yCurrentUsage,omitempty"`
-	FeO11yOverageAmount              *float32               `json:"feO11yOverageAmount,omitempty"`
-	GeUsersBillingStartDate          NullableString         `json:"geUsersBillingStartDate,omitempty"`
-	GeUsersBillingEndDate            NullableString         `json:"geUsersBillingEndDate,omitempty"`
-	GeUsersBilledToDate              NullableString         `json:"geUsersBilledToDate,omitempty"`
-	GeUsersOverageWarnDate           NullableString         `json:"geUsersOverageWarnDate,omitempty"`
-	GeUsersCurrentUsage              *float32               `json:"geUsersCurrentUsage,omitempty"`
-	GeUsersOverageAmount             *float32               `json:"geUsersOverageAmount,omitempty"`
-	GeInstancesBillingStartDate      NullableString         `json:"geInstancesBillingStartDate,omitempty"`
-	GeInstancesBillingEndDate        NullableString         `json:"geInstancesBillingEndDate,omitempty"`
-	GeInstancesBilledToDate          NullableString         `json:"geInstancesBilledToDate,omitempty"`
-	GeInstancesOverageWarnDate       NullableString         `json:"geInstancesOverageWarnDate,omitempty"`
-	GeInstancesCurrentUsage          *float32               `json:"geInstancesCurrentUsage,omitempty"`
-	GeInstancesOverageAmount         *float32               `json:"geInstancesOverageAmount,omitempty"`
-	SalesforceAccountId              *string                `json:"salesforceAccountId,omitempty"`
-	SalesforceLeadId                 *string                `json:"salesforceLeadId,omitempty"`
-	SalesforceCustomOrgId            *string                `json:"salesforceCustomOrgId,omitempty"`
-	SlackSupport                     *float32               `json:"slackSupport,omitempty"`
-	SlackSupportChannel              *string                `json:"slackSupportChannel,omitempty"`
-	TotalOverageAmount               *float32               `json:"totalOverageAmount,omitempty"`
-	MemberCnt                        *float32               `json:"memberCnt,omitempty"`
-	LicenseCnt                       *float32               `json:"licenseCnt,omitempty"`
-	LicenseConfiguredCnt             *float32               `json:"licenseConfiguredCnt,omitempty"`
-	LicenseUnconfiguredCnt           *float32               `json:"licenseUnconfiguredCnt,omitempty"`
-	HgInstanceCnt                    *float32               `json:"hgInstanceCnt,omitempty"`
-	HlInstanceCnt                    *float32               `json:"hlInstanceCnt,omitempty"`
-	HtInstanceCnt                    *float32               `json:"htInstanceCnt,omitempty"`
-	UbersmithClientId                *float32               `json:"ubersmithClientId,omitempty"`
-	IntacctCustomerId                *float32               `json:"intacctCustomerId,omitempty"`
-	IntacctCustomerUrl               *string                `json:"intacctCustomerUrl,omitempty"`
-	CommittedArr                     *float32               `json:"committedArr,omitempty"`
-	PrevCommittedArr                 *float32               `json:"prevCommittedArr,omitempty"`
-	ZendeskId                        *float32               `json:"zendeskId,omitempty"`
-	HappinessRating                  NullableString         `json:"happinessRating,omitempty"`
-	HappinessNote                    NullableString         `json:"happinessNote,omitempty"`
-	HappinessReasonCode              NullableString         `json:"happinessReasonCode,omitempty"`
-	HappinessCreatedAt               NullableString         `json:"happinessCreatedAt,omitempty"`
-	HappinessChangedAt               NullableString         `json:"happinessChangedAt,omitempty"`
-	HappinessExpiredAt               NullableString         `json:"happinessExpiredAt,omitempty"`
-	HappinessUserName                NullableString         `json:"happinessUserName,omitempty"`
-	CancellationClientNotes          NullableString         `json:"cancellationClientNotes,omitempty"`
-	CancellationNotes                NullableString         `json:"cancellationNotes,omitempty"`
-	CancellationReason               *string                `json:"cancellationReason,omitempty"`
-	NetPromoterScore                 NullableFloat32        `json:"netPromoterScore,omitempty"`
-	HmFirstOverageDate               NullableTime           `json:"hmFirstOverageDate,omitempty"`
-	HmFirstApproachingLimitDate      NullableTime           `json:"hmFirstApproachingLimitDate,omitempty"`
-	SpendCommitCreditBalance         *float32               `json:"spendCommitCreditBalance,omitempty"`
-	SpendCommitCreditTotal           *float32               `json:"spendCommitCreditTotal,omitempty"`
-	ProjectedOverageAmount           *float32               `json:"projectedOverageAmount,omitempty"`
-	EstimatedArr                     *float32               `json:"estimatedArr,omitempty"`
-	ReferredBy                       *string                `json:"referredBy,omitempty"`
-	K6OrgId                          *float32               `json:"k6OrgId,omitempty"`
-	Id                               *float32               `json:"id,omitempty"`
-	Slug                             *string                `json:"slug,omitempty"`
-	Name                             *string                `json:"name,omitempty"`
-	Url                              *string                `json:"url,omitempty"`
-	CreatedAt                        *string                `json:"createdAt,omitempty"`
-	CreatedBy                        NullableString         `json:"createdBy,omitempty"`
-	UpdatedAt                        NullableString         `json:"updatedAt,omitempty"`
-	UpdatedBy                        NullableString         `json:"updatedBy,omitempty"`
-	Avatar                           NullableString         `json:"avatar,omitempty"`
-	ChecksPerMonth                   *float32               `json:"checksPerMonth,omitempty"`
-	WpPlan                           *string                `json:"wpPlan,omitempty"`
-	HgInstanceLimit                  *float32               `json:"hgInstanceLimit,omitempty"`
-	HmInstanceLimit                  *float32               `json:"hmInstanceLimit,omitempty"`
-	HlInstanceLimit                  *float32               `json:"hlInstanceLimit,omitempty"`
-	UserQuota                        *float32               `json:"userQuota,omitempty"`
-	SupportPlan                      *string                `json:"supportPlan,omitempty"`
-	CreditApproved                   *float32               `json:"creditApproved,omitempty"`
-	MsaSignedAt                      NullableString         `json:"msaSignedAt,omitempty"`
-	MsaSignedBy                      NullableString         `json:"msaSignedBy,omitempty"`
-	EnterprisePlugins                *float32               `json:"enterprisePlugins,omitempty"`
-	GrafanaCloud                     *float32               `json:"grafanaCloud,omitempty"`
-	Privacy                          *string                `json:"privacy,omitempty"`
-	Reseller                         *string                `json:"reseller,omitempty"`
-	ResellerId                       NullableFloat32        `json:"resellerId,omitempty"`
-	ResellerName                     NullableString         `json:"resellerName,omitempty"`
-	EmergencySupport                 *bool                  `json:"emergencySupport,omitempty"`
-	IsContractedLicenseAutoProvision *bool                  `json:"isContractedLicenseAutoProvision,omitempty"`
-	GcloudMonthlyCost                *float32               `json:"gcloudMonthlyCost,omitempty"`
-	HgIncludedUsers                  *float32               `json:"hgIncludedUsers,omitempty"`
-	HgTier1Rate                      *float32               `json:"hgTier1Rate,omitempty"`
-	HgTier2Min                       *float32               `json:"hgTier2Min,omitempty"`
-	HgTier2Rate                      *float32               `json:"hgTier2Rate,omitempty"`
-	HgTier3Min                       *float32               `json:"hgTier3Min,omitempty"`
-	HgTier3Rate                      *float32               `json:"hgTier3Rate,omitempty"`
-	HgUsage                          *float32               `json:"hgUsage,omitempty"`
-	HgCurrentActiveUsers             *float32               `json:"hgCurrentActiveUsers,omitempty"`
-	HgGrafanaUsage                   *float32               `json:"hgGrafanaUsage,omitempty"`
-	HgOnCallUsage                    *float32               `json:"hgOnCallUsage,omitempty"`
-	HmIncludedSeries                 *float32               `json:"hmIncludedSeries,omitempty"`
-	HmAverageDpm                     *float32               `json:"hmAverageDpm,omitempty"`
-	HmTier1Rate                      *float32               `json:"hmTier1Rate,omitempty"`
-	HmTier2Min                       *float32               `json:"hmTier2Min,omitempty"`
-	HmTier2Rate                      *float32               `json:"hmTier2Rate,omitempty"`
-	HmTier3Min                       *float32               `json:"hmTier3Min,omitempty"`
-	HmTier3Rate                      *float32               `json:"hmTier3Rate,omitempty"`
-	HmUsage                          *float32               `json:"hmUsage,omitempty"`
-	HmCurrentUsage                   *float32               `json:"hmCurrentUsage,omitempty"`
-	HmGraphiteIncludedUsage          *float32               `json:"hmGraphiteIncludedUsage,omitempty"`
-	HmGraphiteTier1Rate              *float32               `json:"hmGraphiteTier1Rate,omitempty"`
-	HmGraphiteTier2Min               *float32               `json:"hmGraphiteTier2Min,omitempty"`
-	HmGraphiteTier2Rate              *float32               `json:"hmGraphiteTier2Rate,omitempty"`
-	HmGraphiteTier3Min               *float32               `json:"hmGraphiteTier3Min,omitempty"`
-	HmGraphiteTier3Rate              *float32               `json:"hmGraphiteTier3Rate,omitempty"`
-	HmGraphiteUsage                  *float32               `json:"hmGraphiteUsage,omitempty"`
-	HlIncludedUsage                  *float32               `json:"hlIncludedUsage,omitempty"`
-	HlQueryToIngestRatio             *float32               `json:"hlQueryToIngestRatio,omitempty"`
-	HlTier1Rate                      *float32               `json:"hlTier1Rate,omitempty"`
-	HlTier2Min                       *float32               `json:"hlTier2Min,omitempty"`
-	HlTier2Rate                      *float32               `json:"hlTier2Rate,omitempty"`
-	HlTier3Min                       *float32               `json:"hlTier3Min,omitempty"`
-	HlTier3Rate                      *float32               `json:"hlTier3Rate,omitempty"`
-	HlUsage                          *float32               `json:"hlUsage,omitempty"`
-	HlRetentionIncludedUsage         *float32               `json:"hlRetentionIncludedUsage,omitempty"`
-	HlRetentionTier1Rate             *float32               `json:"hlRetentionTier1Rate,omitempty"`
-	HlRetentionTier2Min              *float32               `json:"hlRetentionTier2Min,omitempty"`
-	HlRetentionTier2Rate             *float32               `json:"hlRetentionTier2Rate,omitempty"`
-	HlRetentionTier3Min              *float32               `json:"hlRetentionTier3Min,omitempty"`
-	HlRetentionTier3Rate             *float32               `json:"hlRetentionTier3Rate,omitempty"`
-	HlRetentionUsage                 *float32               `json:"hlRetentionUsage,omitempty"`
-	HtIncludedUsage                  *float32               `json:"htIncludedUsage,omitempty"`
-	HtTier1Rate                      *float32               `json:"htTier1Rate,omitempty"`
-	HtTier2Min                       *float32               `json:"htTier2Min,omitempty"`
-	HtTier2Rate                      *float32               `json:"htTier2Rate,omitempty"`
-	HtTier3Min                       *float32               `json:"htTier3Min,omitempty"`
-	HtTier3Rate                      *float32               `json:"htTier3Rate,omitempty"`
-	HtUsage                          *float32               `json:"htUsage,omitempty"`
-	HpIncludedUsage                  *float32               `json:"hpIncludedUsage,omitempty"`
-	HpTier1Rate                      *float32               `json:"hpTier1Rate,omitempty"`
-	HpTier2Min                       *float32               `json:"hpTier2Min,omitempty"`
-	HpTier2Rate                      *float32               `json:"hpTier2Rate,omitempty"`
-	HpTier3Min                       *float32               `json:"hpTier3Min,omitempty"`
-	HpTier3Rate                      *float32               `json:"hpTier3Rate,omitempty"`
-	HpUsage                          *float32               `json:"hpUsage,omitempty"`
-	IrmStatus                        *float32               `json:"irmStatus,omitempty"`
-	IrmIncludedUsage                 *float32               `json:"irmIncludedUsage,omitempty"`
-	IrmTier1Rate                     *float32               `json:"irmTier1Rate,omitempty"`
-	IrmTier2Min                      *float32               `json:"irmTier2Min,omitempty"`
-	IrmTier2Rate                     *float32               `json:"irmTier2Rate,omitempty"`
-	IrmTier3Min                      *float32               `json:"irmTier3Min,omitempty"`
-	IrmTier3Rate                     *float32               `json:"irmTier3Rate,omitempty"`
-	IrmUsage                         *float32               `json:"irmUsage,omitempty"`
-	K6VuhIncludedUsage               *float32               `json:"k6VuhIncludedUsage,omitempty"`
-	K6VuhTier1Rate                   *float32               `json:"k6VuhTier1Rate,omitempty"`
-	K6VuhTier2Min                    *float32               `json:"k6VuhTier2Min,omitempty"`
-	K6VuhTier2Rate                   *float32               `json:"k6VuhTier2Rate,omitempty"`
-	K6VuhTier3Min                    *float32               `json:"k6VuhTier3Min,omitempty"`
-	K6VuhTier3Rate                   *float32               `json:"k6VuhTier3Rate,omitempty"`
-	K6VuhUnits                       *float32               `json:"k6VuhUnits,omitempty"`
-	K6VuhUsage                       *float32               `json:"k6VuhUsage,omitempty"`
-	K6IPIncludedUsage                *float32               `json:"k6IPIncludedUsage,omitempty"`
-	K6IPTier1Rate                    *float32               `json:"k6IPTier1Rate,omitempty"`
-	K6IPTier2Min                     *float32               `json:"k6IPTier2Min,omitempty"`
-	K6IPTier2Rate                    *float32               `json:"k6IPTier2Rate,omitempty"`
-	K6IPTier3Min                     *float32               `json:"k6IPTier3Min,omitempty"`
-	K6IPTier3Rate                    *float32               `json:"k6IPTier3Rate,omitempty"`
-	K6IPUsage                        *float32               `json:"k6IPUsage,omitempty"`
-	FeO11yIncludedUsage              *float32               `json:"feO11yIncludedUsage,omitempty"`
-	FeO11yTier1Rate                  *float32               `json:"feO11yTier1Rate,omitempty"`
-	FeO11yTier2Min                   *float32               `json:"feO11yTier2Min,omitempty"`
-	FeO11yTier2Rate                  *float32               `json:"feO11yTier2Rate,omitempty"`
-	FeO11yTier3Min                   *float32               `json:"feO11yTier3Min,omitempty"`
-	FeO11yTier3Rate                  *float32               `json:"feO11yTier3Rate,omitempty"`
-	FeO11yUnits                      *float32               `json:"feO11yUnits,omitempty"`
-	FeO11yUsage                      *float32               `json:"feO11yUsage,omitempty"`
-	GeUsersIncludedUsage             *float32               `json:"geUsersIncludedUsage,omitempty"`
-	GeUsersTier1Rate                 *float32               `json:"geUsersTier1Rate,omitempty"`
-	GeUsersTier2Min                  *float32               `json:"geUsersTier2Min,omitempty"`
-	GeUsersTier2Rate                 *float32               `json:"geUsersTier2Rate,omitempty"`
-	GeUsersTier3Min                  *float32               `json:"geUsersTier3Min,omitempty"`
-	GeUsersTier3Rate                 *float32               `json:"geUsersTier3Rate,omitempty"`
-	GeUsersUsage                     *float32               `json:"geUsersUsage,omitempty"`
-	GeInstancesIncludedUsage         *float32               `json:"geInstancesIncludedUsage,omitempty"`
-	GeInstancesTier1Rate             *float32               `json:"geInstancesTier1Rate,omitempty"`
-	GeInstancesTier2Min              *float32               `json:"geInstancesTier2Min,omitempty"`
-	GeInstancesTier2Rate             *float32               `json:"geInstancesTier2Rate,omitempty"`
-	GeInstancesTier3Min              *float32               `json:"geInstancesTier3Min,omitempty"`
-	GeInstancesTier3Rate             *float32               `json:"geInstancesTier3Rate,omitempty"`
-	GeInstancesUsage                 *float32               `json:"geInstancesUsage,omitempty"`
-	HgPluginUsersOverageRate         NullableFloat32        `json:"hgPluginUsersOverageRate,omitempty"`
-	HgPluginUsersIncludedUsage       NullableFloat32        `json:"hgPluginUsersIncludedUsage,omitempty"`
-	HmGraphiteInstanceCnt            *float32               `json:"hmGraphiteInstanceCnt,omitempty"`
-	HmPrometheusInstanceCnt          *float32               `json:"hmPrometheusInstanceCnt,omitempty"`
-	AwsMarketplaceSupport            *float32               `json:"awsMarketplaceSupport,omitempty"`
-	TrialStartDate                   NullableString         `json:"trialStartDate,omitempty"`
-	TrialEndDate                     NullableString         `json:"trialEndDate,omitempty"`
-	TrialLengthDays                  NullableFloat32        `json:"trialLengthDays,omitempty"`
-	TrialNoticeDate                  NullableString         `json:"trialNoticeDate,omitempty"`
-	CancellationDate                 NullableString         `json:"cancellationDate,omitempty"`
-	RetainedStackId                  *float32               `json:"retainedStackId,omitempty"`
-	PluginSignatureType              *string                `json:"pluginSignatureType,omitempty"`
-	ContractType                     *string                `json:"contractType,omitempty"`
-	ContractTypeId                   *float32               `json:"contractTypeId,omitempty"`
-	Links                            []LinksInner1          `json:"links,omitempty"`
-	Subscriptions                    *Subscriptions         `json:"subscriptions,omitempty"`
+	Tags                             []string               `json:"tags"`
+	AccountManagerId                 float32                `json:"accountManagerId"`
+	AccountManagerUsername           string                 `json:"accountManagerUsername"`
+	AccountManagerName               string                 `json:"accountManagerName"`
+	AwsCustomerId                    string                 `json:"awsCustomerId"`
+	AccountOwnerId                   float32                `json:"accountOwnerId"`
+	AccountOwnerUsername             string                 `json:"accountOwnerUsername"`
+	AccountOwnerName                 string                 `json:"accountOwnerName"`
+	HmBillingStartDate               NullableString         `json:"hmBillingStartDate"`
+	HmBillingEndDate                 NullableString         `json:"hmBillingEndDate"`
+	HmBilledToDate                   NullableString         `json:"hmBilledToDate"`
+	HmOverageWarnDate                NullableString         `json:"hmOverageWarnDate"`
+	HmOverageAmount                  float32                `json:"hmOverageAmount"`
+	HmCurrentPrometheusUsage         float32                `json:"hmCurrentPrometheusUsage"`
+	HmCurrentGraphiteUsage           float32                `json:"hmCurrentGraphiteUsage"`
+	HlBillingStartDate               NullableString         `json:"hlBillingStartDate"`
+	HlBillingEndDate                 NullableString         `json:"hlBillingEndDate"`
+	HlBilledToDate                   NullableString         `json:"hlBilledToDate"`
+	HlOverageWarnDate                NullableString         `json:"hlOverageWarnDate"`
+	HlOverageAmount                  float32                `json:"hlOverageAmount"`
+	HlCurrentUsage                   float32                `json:"hlCurrentUsage"`
+	HgBillingStartDate               NullableString         `json:"hgBillingStartDate"`
+	HgBillingEndDate                 NullableString         `json:"hgBillingEndDate"`
+	HgBilledToDate                   NullableString         `json:"hgBilledToDate"`
+	HgOverageWarnDate                NullableString         `json:"hgOverageWarnDate"`
+	HgOverageAmount                  float32                `json:"hgOverageAmount"`
+	HgActiveUsers                    float32                `json:"hgActiveUsers"`
+	HgDatasourceCnts                 map[string]interface{} `json:"hgDatasourceCnts"`
+	HgIntegrationCnts                map[string]interface{} `json:"hgIntegrationCnts"`
+	HmGraphiteBillingStartDate       NullableString         `json:"hmGraphiteBillingStartDate"`
+	HmGraphiteBillingEndDate         NullableString         `json:"hmGraphiteBillingEndDate"`
+	HmGraphiteBilledToDate           NullableString         `json:"hmGraphiteBilledToDate"`
+	HmGraphiteOverageWarnDate        NullableString         `json:"hmGraphiteOverageWarnDate"`
+	HmGraphiteCurrentUsage           float32                `json:"hmGraphiteCurrentUsage"`
+	HmGraphiteOverageAmount          float32                `json:"hmGraphiteOverageAmount"`
+	HlRetentionBillingStartDate      NullableString         `json:"hlRetentionBillingStartDate"`
+	HlRetentionBillingEndDate        NullableString         `json:"hlRetentionBillingEndDate"`
+	HlRetentionBilledToDate          NullableString         `json:"hlRetentionBilledToDate"`
+	HlRetentionOverageWarnDate       NullableString         `json:"hlRetentionOverageWarnDate"`
+	HlRetentionCurrentUsage          float32                `json:"hlRetentionCurrentUsage"`
+	HlRetentionOverageAmount         float32                `json:"hlRetentionOverageAmount"`
+	HtBillingStartDate               NullableString         `json:"htBillingStartDate"`
+	HtBillingEndDate                 NullableString         `json:"htBillingEndDate"`
+	HtBilledToDate                   NullableString         `json:"htBilledToDate"`
+	HtOverageWarnDate                NullableString         `json:"htOverageWarnDate"`
+	HtCurrentUsage                   float32                `json:"htCurrentUsage"`
+	HtOverageAmount                  float32                `json:"htOverageAmount"`
+	IrmBillingStartDate              NullableString         `json:"irmBillingStartDate"`
+	IrmBillingEndDate                NullableString         `json:"irmBillingEndDate"`
+	IrmBilledToDate                  NullableString         `json:"irmBilledToDate"`
+	IrmOverageWarnDate               NullableString         `json:"irmOverageWarnDate"`
+	IrmCurrentUsage                  float32                `json:"irmCurrentUsage"`
+	IrmOverageAmount                 float32                `json:"irmOverageAmount"`
+	HpBillingStartDate               NullableString         `json:"hpBillingStartDate"`
+	HpBillingEndDate                 NullableString         `json:"hpBillingEndDate"`
+	HpBilledToDate                   NullableString         `json:"hpBilledToDate"`
+	HpOverageWarnDate                NullableString         `json:"hpOverageWarnDate"`
+	HpCurrentUsage                   float32                `json:"hpCurrentUsage"`
+	HpOverageAmount                  float32                `json:"hpOverageAmount"`
+	K6VuhBillingStartDate            NullableString         `json:"k6VuhBillingStartDate"`
+	K6VuhBillingEndDate              NullableString         `json:"k6VuhBillingEndDate"`
+	K6VuhBilledToDate                NullableString         `json:"k6VuhBilledToDate"`
+	K6VuhOverageWarnDate             NullableString         `json:"k6VuhOverageWarnDate"`
+	K6VuhCurrentUsage                float32                `json:"k6VuhCurrentUsage"`
+	K6VuhOverageAmount               float32                `json:"k6VuhOverageAmount"`
+	K6IPBillingStartDate             NullableString         `json:"k6IPBillingStartDate"`
+	K6IPBillingEndDate               NullableString         `json:"k6IPBillingEndDate"`
+	K6IPBilledToDate                 NullableString         `json:"k6IPBilledToDate"`
+	K6IPOverageWarnDate              NullableString         `json:"k6IPOverageWarnDate"`
+	K6IPCurrentUsage                 float32                `json:"k6IPCurrentUsage"`
+	K6IPOverageAmount                float32                `json:"k6IPOverageAmount"`
+	FeO11yBillingStartDate           NullableString         `json:"feO11yBillingStartDate"`
+	FeO11yBillingEndDate             NullableString         `json:"feO11yBillingEndDate"`
+	FeO11yBilledToDate               NullableString         `json:"feO11yBilledToDate"`
+	FeO11yOverageWarnDate            NullableString         `json:"feO11yOverageWarnDate"`
+	FeO11yCurrentUsage               float32                `json:"feO11yCurrentUsage"`
+	FeO11yOverageAmount              float32                `json:"feO11yOverageAmount"`
+	GeUsersBillingStartDate          NullableString         `json:"geUsersBillingStartDate"`
+	GeUsersBillingEndDate            NullableString         `json:"geUsersBillingEndDate"`
+	GeUsersBilledToDate              NullableString         `json:"geUsersBilledToDate"`
+	GeUsersOverageWarnDate           NullableString         `json:"geUsersOverageWarnDate"`
+	GeUsersCurrentUsage              float32                `json:"geUsersCurrentUsage"`
+	GeUsersOverageAmount             float32                `json:"geUsersOverageAmount"`
+	GeInstancesBillingStartDate      NullableString         `json:"geInstancesBillingStartDate"`
+	GeInstancesBillingEndDate        NullableString         `json:"geInstancesBillingEndDate"`
+	GeInstancesBilledToDate          NullableString         `json:"geInstancesBilledToDate"`
+	GeInstancesOverageWarnDate       NullableString         `json:"geInstancesOverageWarnDate"`
+	GeInstancesCurrentUsage          float32                `json:"geInstancesCurrentUsage"`
+	GeInstancesOverageAmount         float32                `json:"geInstancesOverageAmount"`
+	SalesforceAccountId              string                 `json:"salesforceAccountId"`
+	SalesforceLeadId                 string                 `json:"salesforceLeadId"`
+	SalesforceCustomOrgId            string                 `json:"salesforceCustomOrgId"`
+	SlackSupport                     float32                `json:"slackSupport"`
+	SlackSupportChannel              string                 `json:"slackSupportChannel"`
+	TotalOverageAmount               float32                `json:"totalOverageAmount"`
+	MemberCnt                        float32                `json:"memberCnt"`
+	LicenseCnt                       float32                `json:"licenseCnt"`
+	LicenseConfiguredCnt             float32                `json:"licenseConfiguredCnt"`
+	LicenseUnconfiguredCnt           float32                `json:"licenseUnconfiguredCnt"`
+	HgInstanceCnt                    float32                `json:"hgInstanceCnt"`
+	HlInstanceCnt                    float32                `json:"hlInstanceCnt"`
+	HtInstanceCnt                    float32                `json:"htInstanceCnt"`
+	UbersmithClientId                float32                `json:"ubersmithClientId"`
+	IntacctCustomerId                float32                `json:"intacctCustomerId"`
+	IntacctCustomerUrl               string                 `json:"intacctCustomerUrl"`
+	CommittedArr                     float32                `json:"committedArr"`
+	PrevCommittedArr                 float32                `json:"prevCommittedArr"`
+	ZendeskId                        float32                `json:"zendeskId"`
+	HappinessRating                  NullableString         `json:"happinessRating"`
+	HappinessNote                    NullableString         `json:"happinessNote"`
+	HappinessReasonCode              NullableString         `json:"happinessReasonCode"`
+	HappinessCreatedAt               NullableString         `json:"happinessCreatedAt"`
+	HappinessChangedAt               NullableString         `json:"happinessChangedAt"`
+	HappinessExpiredAt               NullableString         `json:"happinessExpiredAt"`
+	HappinessUserName                NullableString         `json:"happinessUserName"`
+	CancellationClientNotes          NullableString         `json:"cancellationClientNotes"`
+	CancellationNotes                NullableString         `json:"cancellationNotes"`
+	CancellationReason               string                 `json:"cancellationReason"`
+	NetPromoterScore                 NullableFloat32        `json:"netPromoterScore"`
+	HmFirstOverageDate               NullableTime           `json:"hmFirstOverageDate"`
+	HmFirstApproachingLimitDate      NullableTime           `json:"hmFirstApproachingLimitDate"`
+	SpendCommitCreditBalance         float32                `json:"spendCommitCreditBalance"`
+	SpendCommitCreditTotal           float32                `json:"spendCommitCreditTotal"`
+	ProjectedOverageAmount           float32                `json:"projectedOverageAmount"`
+	EstimatedArr                     float32                `json:"estimatedArr"`
+	ReferredBy                       string                 `json:"referredBy"`
+	K6OrgId                          float32                `json:"k6OrgId"`
+	Id                               float32                `json:"id"`
+	Slug                             string                 `json:"slug"`
+	Name                             string                 `json:"name"`
+	Url                              string                 `json:"url"`
+	CreatedAt                        string                 `json:"createdAt"`
+	CreatedBy                        NullableString         `json:"createdBy"`
+	UpdatedAt                        NullableString         `json:"updatedAt"`
+	UpdatedBy                        NullableString         `json:"updatedBy"`
+	Avatar                           NullableString         `json:"avatar"`
+	ChecksPerMonth                   float32                `json:"checksPerMonth"`
+	WpPlan                           string                 `json:"wpPlan"`
+	HgInstanceLimit                  float32                `json:"hgInstanceLimit"`
+	HmInstanceLimit                  float32                `json:"hmInstanceLimit"`
+	HlInstanceLimit                  float32                `json:"hlInstanceLimit"`
+	UserQuota                        float32                `json:"userQuota"`
+	SupportPlan                      string                 `json:"supportPlan"`
+	CreditApproved                   float32                `json:"creditApproved"`
+	MsaSignedAt                      NullableString         `json:"msaSignedAt"`
+	MsaSignedBy                      NullableString         `json:"msaSignedBy"`
+	EnterprisePlugins                float32                `json:"enterprisePlugins"`
+	GrafanaCloud                     float32                `json:"grafanaCloud"`
+	Privacy                          string                 `json:"privacy"`
+	Reseller                         string                 `json:"reseller"`
+	ResellerId                       NullableFloat32        `json:"resellerId"`
+	ResellerName                     NullableString         `json:"resellerName"`
+	EmergencySupport                 bool                   `json:"emergencySupport"`
+	IsContractedLicenseAutoProvision bool                   `json:"isContractedLicenseAutoProvision"`
+	GcloudMonthlyCost                float32                `json:"gcloudMonthlyCost"`
+	HgIncludedUsers                  float32                `json:"hgIncludedUsers"`
+	HgTier1Rate                      float32                `json:"hgTier1Rate"`
+	HgTier2Min                       float32                `json:"hgTier2Min"`
+	HgTier2Rate                      float32                `json:"hgTier2Rate"`
+	HgTier3Min                       float32                `json:"hgTier3Min"`
+	HgTier3Rate                      float32                `json:"hgTier3Rate"`
+	HgUsage                          float32                `json:"hgUsage"`
+	HgCurrentActiveUsers             float32                `json:"hgCurrentActiveUsers"`
+	HgGrafanaUsage                   float32                `json:"hgGrafanaUsage"`
+	HgOnCallUsage                    float32                `json:"hgOnCallUsage"`
+	HmIncludedSeries                 float32                `json:"hmIncludedSeries"`
+	HmAverageDpm                     float32                `json:"hmAverageDpm"`
+	HmTier1Rate                      float32                `json:"hmTier1Rate"`
+	HmTier2Min                       float32                `json:"hmTier2Min"`
+	HmTier2Rate                      float32                `json:"hmTier2Rate"`
+	HmTier3Min                       float32                `json:"hmTier3Min"`
+	HmTier3Rate                      float32                `json:"hmTier3Rate"`
+	HmUsage                          float32                `json:"hmUsage"`
+	HmCurrentUsage                   float32                `json:"hmCurrentUsage"`
+	HmGraphiteIncludedUsage          float32                `json:"hmGraphiteIncludedUsage"`
+	HmGraphiteTier1Rate              float32                `json:"hmGraphiteTier1Rate"`
+	HmGraphiteTier2Min               float32                `json:"hmGraphiteTier2Min"`
+	HmGraphiteTier2Rate              float32                `json:"hmGraphiteTier2Rate"`
+	HmGraphiteTier3Min               float32                `json:"hmGraphiteTier3Min"`
+	HmGraphiteTier3Rate              float32                `json:"hmGraphiteTier3Rate"`
+	HmGraphiteUsage                  float32                `json:"hmGraphiteUsage"`
+	HlIncludedUsage                  float32                `json:"hlIncludedUsage"`
+	HlQueryToIngestRatio             float32                `json:"hlQueryToIngestRatio"`
+	HlTier1Rate                      float32                `json:"hlTier1Rate"`
+	HlTier2Min                       float32                `json:"hlTier2Min"`
+	HlTier2Rate                      float32                `json:"hlTier2Rate"`
+	HlTier3Min                       float32                `json:"hlTier3Min"`
+	HlTier3Rate                      float32                `json:"hlTier3Rate"`
+	HlUsage                          float32                `json:"hlUsage"`
+	HlRetentionIncludedUsage         float32                `json:"hlRetentionIncludedUsage"`
+	HlRetentionTier1Rate             float32                `json:"hlRetentionTier1Rate"`
+	HlRetentionTier2Min              float32                `json:"hlRetentionTier2Min"`
+	HlRetentionTier2Rate             float32                `json:"hlRetentionTier2Rate"`
+	HlRetentionTier3Min              float32                `json:"hlRetentionTier3Min"`
+	HlRetentionTier3Rate             float32                `json:"hlRetentionTier3Rate"`
+	HlRetentionUsage                 float32                `json:"hlRetentionUsage"`
+	HtIncludedUsage                  float32                `json:"htIncludedUsage"`
+	HtTier1Rate                      float32                `json:"htTier1Rate"`
+	HtTier2Min                       float32                `json:"htTier2Min"`
+	HtTier2Rate                      float32                `json:"htTier2Rate"`
+	HtTier3Min                       float32                `json:"htTier3Min"`
+	HtTier3Rate                      float32                `json:"htTier3Rate"`
+	HtUsage                          float32                `json:"htUsage"`
+	HpIncludedUsage                  float32                `json:"hpIncludedUsage"`
+	HpTier1Rate                      float32                `json:"hpTier1Rate"`
+	HpTier2Min                       float32                `json:"hpTier2Min"`
+	HpTier2Rate                      float32                `json:"hpTier2Rate"`
+	HpTier3Min                       float32                `json:"hpTier3Min"`
+	HpTier3Rate                      float32                `json:"hpTier3Rate"`
+	HpUsage                          float32                `json:"hpUsage"`
+	IrmStatus                        float32                `json:"irmStatus"`
+	IrmIncludedUsage                 float32                `json:"irmIncludedUsage"`
+	IrmTier1Rate                     float32                `json:"irmTier1Rate"`
+	IrmTier2Min                      float32                `json:"irmTier2Min"`
+	IrmTier2Rate                     float32                `json:"irmTier2Rate"`
+	IrmTier3Min                      float32                `json:"irmTier3Min"`
+	IrmTier3Rate                     float32                `json:"irmTier3Rate"`
+	IrmUsage                         float32                `json:"irmUsage"`
+	K6VuhIncludedUsage               float32                `json:"k6VuhIncludedUsage"`
+	K6VuhTier1Rate                   float32                `json:"k6VuhTier1Rate"`
+	K6VuhTier2Min                    float32                `json:"k6VuhTier2Min"`
+	K6VuhTier2Rate                   float32                `json:"k6VuhTier2Rate"`
+	K6VuhTier3Min                    float32                `json:"k6VuhTier3Min"`
+	K6VuhTier3Rate                   float32                `json:"k6VuhTier3Rate"`
+	K6VuhUnits                       float32                `json:"k6VuhUnits"`
+	K6VuhUsage                       float32                `json:"k6VuhUsage"`
+	K6IPIncludedUsage                float32                `json:"k6IPIncludedUsage"`
+	K6IPTier1Rate                    float32                `json:"k6IPTier1Rate"`
+	K6IPTier2Min                     float32                `json:"k6IPTier2Min"`
+	K6IPTier2Rate                    float32                `json:"k6IPTier2Rate"`
+	K6IPTier3Min                     float32                `json:"k6IPTier3Min"`
+	K6IPTier3Rate                    float32                `json:"k6IPTier3Rate"`
+	K6IPUsage                        float32                `json:"k6IPUsage"`
+	FeO11yIncludedUsage              float32                `json:"feO11yIncludedUsage"`
+	FeO11yTier1Rate                  float32                `json:"feO11yTier1Rate"`
+	FeO11yTier2Min                   float32                `json:"feO11yTier2Min"`
+	FeO11yTier2Rate                  float32                `json:"feO11yTier2Rate"`
+	FeO11yTier3Min                   float32                `json:"feO11yTier3Min"`
+	FeO11yTier3Rate                  float32                `json:"feO11yTier3Rate"`
+	FeO11yUnits                      float32                `json:"feO11yUnits"`
+	FeO11yUsage                      float32                `json:"feO11yUsage"`
+	GeUsersIncludedUsage             float32                `json:"geUsersIncludedUsage"`
+	GeUsersTier1Rate                 float32                `json:"geUsersTier1Rate"`
+	GeUsersTier2Min                  float32                `json:"geUsersTier2Min"`
+	GeUsersTier2Rate                 float32                `json:"geUsersTier2Rate"`
+	GeUsersTier3Min                  float32                `json:"geUsersTier3Min"`
+	GeUsersTier3Rate                 float32                `json:"geUsersTier3Rate"`
+	GeUsersUsage                     float32                `json:"geUsersUsage"`
+	GeInstancesIncludedUsage         float32                `json:"geInstancesIncludedUsage"`
+	GeInstancesTier1Rate             float32                `json:"geInstancesTier1Rate"`
+	GeInstancesTier2Min              float32                `json:"geInstancesTier2Min"`
+	GeInstancesTier2Rate             float32                `json:"geInstancesTier2Rate"`
+	GeInstancesTier3Min              float32                `json:"geInstancesTier3Min"`
+	GeInstancesTier3Rate             float32                `json:"geInstancesTier3Rate"`
+	GeInstancesUsage                 float32                `json:"geInstancesUsage"`
+	HgPluginUsersOverageRate         NullableFloat32        `json:"hgPluginUsersOverageRate"`
+	HgPluginUsersIncludedUsage       NullableFloat32        `json:"hgPluginUsersIncludedUsage"`
+	HmGraphiteInstanceCnt            float32                `json:"hmGraphiteInstanceCnt"`
+	HmPrometheusInstanceCnt          float32                `json:"hmPrometheusInstanceCnt"`
+	AwsMarketplaceSupport            float32                `json:"awsMarketplaceSupport"`
+	TrialStartDate                   NullableString         `json:"trialStartDate"`
+	TrialEndDate                     NullableString         `json:"trialEndDate"`
+	TrialLengthDays                  NullableFloat32        `json:"trialLengthDays"`
+	TrialNoticeDate                  NullableString         `json:"trialNoticeDate"`
+	CancellationDate                 NullableString         `json:"cancellationDate"`
+	RetainedStackId                  float32                `json:"retainedStackId"`
+	AllowGCloudTrial                 bool                   `json:"allowGCloudTrial"`
+	PluginSignatureType              string                 `json:"pluginSignatureType"`
+	ContractType                     string                 `json:"contractType"`
+	ContractTypeId                   float32                `json:"contractTypeId"`
+	Links                            []LinksInner1          `json:"links"`
+	Subscriptions                    Subscriptions          `json:"subscriptions"`
 	AdditionalProperties             map[string]interface{}
 }
 
@@ -300,8 +302,280 @@ type _FormattedApiOrg FormattedApiOrg
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrg() *FormattedApiOrg {
+func NewFormattedApiOrg(tags []string, accountManagerId float32, accountManagerUsername string, accountManagerName string, awsCustomerId string, accountOwnerId float32, accountOwnerUsername string, accountOwnerName string, hmBillingStartDate NullableString, hmBillingEndDate NullableString, hmBilledToDate NullableString, hmOverageWarnDate NullableString, hmOverageAmount float32, hmCurrentPrometheusUsage float32, hmCurrentGraphiteUsage float32, hlBillingStartDate NullableString, hlBillingEndDate NullableString, hlBilledToDate NullableString, hlOverageWarnDate NullableString, hlOverageAmount float32, hlCurrentUsage float32, hgBillingStartDate NullableString, hgBillingEndDate NullableString, hgBilledToDate NullableString, hgOverageWarnDate NullableString, hgOverageAmount float32, hgActiveUsers float32, hgDatasourceCnts map[string]interface{}, hgIntegrationCnts map[string]interface{}, hmGraphiteBillingStartDate NullableString, hmGraphiteBillingEndDate NullableString, hmGraphiteBilledToDate NullableString, hmGraphiteOverageWarnDate NullableString, hmGraphiteCurrentUsage float32, hmGraphiteOverageAmount float32, hlRetentionBillingStartDate NullableString, hlRetentionBillingEndDate NullableString, hlRetentionBilledToDate NullableString, hlRetentionOverageWarnDate NullableString, hlRetentionCurrentUsage float32, hlRetentionOverageAmount float32, htBillingStartDate NullableString, htBillingEndDate NullableString, htBilledToDate NullableString, htOverageWarnDate NullableString, htCurrentUsage float32, htOverageAmount float32, irmBillingStartDate NullableString, irmBillingEndDate NullableString, irmBilledToDate NullableString, irmOverageWarnDate NullableString, irmCurrentUsage float32, irmOverageAmount float32, hpBillingStartDate NullableString, hpBillingEndDate NullableString, hpBilledToDate NullableString, hpOverageWarnDate NullableString, hpCurrentUsage float32, hpOverageAmount float32, k6VuhBillingStartDate NullableString, k6VuhBillingEndDate NullableString, k6VuhBilledToDate NullableString, k6VuhOverageWarnDate NullableString, k6VuhCurrentUsage float32, k6VuhOverageAmount float32, k6IPBillingStartDate NullableString, k6IPBillingEndDate NullableString, k6IPBilledToDate NullableString, k6IPOverageWarnDate NullableString, k6IPCurrentUsage float32, k6IPOverageAmount float32, feO11yBillingStartDate NullableString, feO11yBillingEndDate NullableString, feO11yBilledToDate NullableString, feO11yOverageWarnDate NullableString, feO11yCurrentUsage float32, feO11yOverageAmount float32, geUsersBillingStartDate NullableString, geUsersBillingEndDate NullableString, geUsersBilledToDate NullableString, geUsersOverageWarnDate NullableString, geUsersCurrentUsage float32, geUsersOverageAmount float32, geInstancesBillingStartDate NullableString, geInstancesBillingEndDate NullableString, geInstancesBilledToDate NullableString, geInstancesOverageWarnDate NullableString, geInstancesCurrentUsage float32, geInstancesOverageAmount float32, salesforceAccountId string, salesforceLeadId string, salesforceCustomOrgId string, slackSupport float32, slackSupportChannel string, totalOverageAmount float32, memberCnt float32, licenseCnt float32, licenseConfiguredCnt float32, licenseUnconfiguredCnt float32, hgInstanceCnt float32, hlInstanceCnt float32, htInstanceCnt float32, ubersmithClientId float32, intacctCustomerId float32, intacctCustomerUrl string, committedArr float32, prevCommittedArr float32, zendeskId float32, happinessRating NullableString, happinessNote NullableString, happinessReasonCode NullableString, happinessCreatedAt NullableString, happinessChangedAt NullableString, happinessExpiredAt NullableString, happinessUserName NullableString, cancellationClientNotes NullableString, cancellationNotes NullableString, cancellationReason string, netPromoterScore NullableFloat32, hmFirstOverageDate NullableTime, hmFirstApproachingLimitDate NullableTime, spendCommitCreditBalance float32, spendCommitCreditTotal float32, projectedOverageAmount float32, estimatedArr float32, referredBy string, k6OrgId float32, id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, isContractedLicenseAutoProvision bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11yIncludedUsage float32, feO11yTier1Rate float32, feO11yTier2Min float32, feO11yTier2Rate float32, feO11yTier3Min float32, feO11yTier3Rate float32, feO11yUnits float32, feO11yUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, hmGraphiteInstanceCnt float32, hmPrometheusInstanceCnt float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial bool, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrg {
 	this := FormattedApiOrg{}
+	this.Tags = tags
+	this.AccountManagerId = accountManagerId
+	this.AccountManagerUsername = accountManagerUsername
+	this.AccountManagerName = accountManagerName
+	this.AwsCustomerId = awsCustomerId
+	this.AccountOwnerId = accountOwnerId
+	this.AccountOwnerUsername = accountOwnerUsername
+	this.AccountOwnerName = accountOwnerName
+	this.HmBillingStartDate = hmBillingStartDate
+	this.HmBillingEndDate = hmBillingEndDate
+	this.HmBilledToDate = hmBilledToDate
+	this.HmOverageWarnDate = hmOverageWarnDate
+	this.HmOverageAmount = hmOverageAmount
+	this.HmCurrentPrometheusUsage = hmCurrentPrometheusUsage
+	this.HmCurrentGraphiteUsage = hmCurrentGraphiteUsage
+	this.HlBillingStartDate = hlBillingStartDate
+	this.HlBillingEndDate = hlBillingEndDate
+	this.HlBilledToDate = hlBilledToDate
+	this.HlOverageWarnDate = hlOverageWarnDate
+	this.HlOverageAmount = hlOverageAmount
+	this.HlCurrentUsage = hlCurrentUsage
+	this.HgBillingStartDate = hgBillingStartDate
+	this.HgBillingEndDate = hgBillingEndDate
+	this.HgBilledToDate = hgBilledToDate
+	this.HgOverageWarnDate = hgOverageWarnDate
+	this.HgOverageAmount = hgOverageAmount
+	this.HgActiveUsers = hgActiveUsers
+	this.HgDatasourceCnts = hgDatasourceCnts
+	this.HgIntegrationCnts = hgIntegrationCnts
+	this.HmGraphiteBillingStartDate = hmGraphiteBillingStartDate
+	this.HmGraphiteBillingEndDate = hmGraphiteBillingEndDate
+	this.HmGraphiteBilledToDate = hmGraphiteBilledToDate
+	this.HmGraphiteOverageWarnDate = hmGraphiteOverageWarnDate
+	this.HmGraphiteCurrentUsage = hmGraphiteCurrentUsage
+	this.HmGraphiteOverageAmount = hmGraphiteOverageAmount
+	this.HlRetentionBillingStartDate = hlRetentionBillingStartDate
+	this.HlRetentionBillingEndDate = hlRetentionBillingEndDate
+	this.HlRetentionBilledToDate = hlRetentionBilledToDate
+	this.HlRetentionOverageWarnDate = hlRetentionOverageWarnDate
+	this.HlRetentionCurrentUsage = hlRetentionCurrentUsage
+	this.HlRetentionOverageAmount = hlRetentionOverageAmount
+	this.HtBillingStartDate = htBillingStartDate
+	this.HtBillingEndDate = htBillingEndDate
+	this.HtBilledToDate = htBilledToDate
+	this.HtOverageWarnDate = htOverageWarnDate
+	this.HtCurrentUsage = htCurrentUsage
+	this.HtOverageAmount = htOverageAmount
+	this.IrmBillingStartDate = irmBillingStartDate
+	this.IrmBillingEndDate = irmBillingEndDate
+	this.IrmBilledToDate = irmBilledToDate
+	this.IrmOverageWarnDate = irmOverageWarnDate
+	this.IrmCurrentUsage = irmCurrentUsage
+	this.IrmOverageAmount = irmOverageAmount
+	this.HpBillingStartDate = hpBillingStartDate
+	this.HpBillingEndDate = hpBillingEndDate
+	this.HpBilledToDate = hpBilledToDate
+	this.HpOverageWarnDate = hpOverageWarnDate
+	this.HpCurrentUsage = hpCurrentUsage
+	this.HpOverageAmount = hpOverageAmount
+	this.K6VuhBillingStartDate = k6VuhBillingStartDate
+	this.K6VuhBillingEndDate = k6VuhBillingEndDate
+	this.K6VuhBilledToDate = k6VuhBilledToDate
+	this.K6VuhOverageWarnDate = k6VuhOverageWarnDate
+	this.K6VuhCurrentUsage = k6VuhCurrentUsage
+	this.K6VuhOverageAmount = k6VuhOverageAmount
+	this.K6IPBillingStartDate = k6IPBillingStartDate
+	this.K6IPBillingEndDate = k6IPBillingEndDate
+	this.K6IPBilledToDate = k6IPBilledToDate
+	this.K6IPOverageWarnDate = k6IPOverageWarnDate
+	this.K6IPCurrentUsage = k6IPCurrentUsage
+	this.K6IPOverageAmount = k6IPOverageAmount
+	this.FeO11yBillingStartDate = feO11yBillingStartDate
+	this.FeO11yBillingEndDate = feO11yBillingEndDate
+	this.FeO11yBilledToDate = feO11yBilledToDate
+	this.FeO11yOverageWarnDate = feO11yOverageWarnDate
+	this.FeO11yCurrentUsage = feO11yCurrentUsage
+	this.FeO11yOverageAmount = feO11yOverageAmount
+	this.GeUsersBillingStartDate = geUsersBillingStartDate
+	this.GeUsersBillingEndDate = geUsersBillingEndDate
+	this.GeUsersBilledToDate = geUsersBilledToDate
+	this.GeUsersOverageWarnDate = geUsersOverageWarnDate
+	this.GeUsersCurrentUsage = geUsersCurrentUsage
+	this.GeUsersOverageAmount = geUsersOverageAmount
+	this.GeInstancesBillingStartDate = geInstancesBillingStartDate
+	this.GeInstancesBillingEndDate = geInstancesBillingEndDate
+	this.GeInstancesBilledToDate = geInstancesBilledToDate
+	this.GeInstancesOverageWarnDate = geInstancesOverageWarnDate
+	this.GeInstancesCurrentUsage = geInstancesCurrentUsage
+	this.GeInstancesOverageAmount = geInstancesOverageAmount
+	this.SalesforceAccountId = salesforceAccountId
+	this.SalesforceLeadId = salesforceLeadId
+	this.SalesforceCustomOrgId = salesforceCustomOrgId
+	this.SlackSupport = slackSupport
+	this.SlackSupportChannel = slackSupportChannel
+	this.TotalOverageAmount = totalOverageAmount
+	this.MemberCnt = memberCnt
+	this.LicenseCnt = licenseCnt
+	this.LicenseConfiguredCnt = licenseConfiguredCnt
+	this.LicenseUnconfiguredCnt = licenseUnconfiguredCnt
+	this.HgInstanceCnt = hgInstanceCnt
+	this.HlInstanceCnt = hlInstanceCnt
+	this.HtInstanceCnt = htInstanceCnt
+	this.UbersmithClientId = ubersmithClientId
+	this.IntacctCustomerId = intacctCustomerId
+	this.IntacctCustomerUrl = intacctCustomerUrl
+	this.CommittedArr = committedArr
+	this.PrevCommittedArr = prevCommittedArr
+	this.ZendeskId = zendeskId
+	this.HappinessRating = happinessRating
+	this.HappinessNote = happinessNote
+	this.HappinessReasonCode = happinessReasonCode
+	this.HappinessCreatedAt = happinessCreatedAt
+	this.HappinessChangedAt = happinessChangedAt
+	this.HappinessExpiredAt = happinessExpiredAt
+	this.HappinessUserName = happinessUserName
+	this.CancellationClientNotes = cancellationClientNotes
+	this.CancellationNotes = cancellationNotes
+	this.CancellationReason = cancellationReason
+	this.NetPromoterScore = netPromoterScore
+	this.HmFirstOverageDate = hmFirstOverageDate
+	this.HmFirstApproachingLimitDate = hmFirstApproachingLimitDate
+	this.SpendCommitCreditBalance = spendCommitCreditBalance
+	this.SpendCommitCreditTotal = spendCommitCreditTotal
+	this.ProjectedOverageAmount = projectedOverageAmount
+	this.EstimatedArr = estimatedArr
+	this.ReferredBy = referredBy
+	this.K6OrgId = k6OrgId
+	this.Id = id
+	this.Slug = slug
+	this.Name = name
+	this.Url = url
+	this.CreatedAt = createdAt
+	this.CreatedBy = createdBy
+	this.UpdatedAt = updatedAt
+	this.UpdatedBy = updatedBy
+	this.Avatar = avatar
+	this.ChecksPerMonth = checksPerMonth
+	this.WpPlan = wpPlan
+	this.HgInstanceLimit = hgInstanceLimit
+	this.HmInstanceLimit = hmInstanceLimit
+	this.HlInstanceLimit = hlInstanceLimit
+	this.UserQuota = userQuota
+	this.SupportPlan = supportPlan
+	this.CreditApproved = creditApproved
+	this.MsaSignedAt = msaSignedAt
+	this.MsaSignedBy = msaSignedBy
+	this.EnterprisePlugins = enterprisePlugins
+	this.GrafanaCloud = grafanaCloud
+	this.Privacy = privacy
+	this.Reseller = reseller
+	this.ResellerId = resellerId
+	this.ResellerName = resellerName
+	this.EmergencySupport = emergencySupport
+	this.IsContractedLicenseAutoProvision = isContractedLicenseAutoProvision
+	this.GcloudMonthlyCost = gcloudMonthlyCost
+	this.HgIncludedUsers = hgIncludedUsers
+	this.HgTier1Rate = hgTier1Rate
+	this.HgTier2Min = hgTier2Min
+	this.HgTier2Rate = hgTier2Rate
+	this.HgTier3Min = hgTier3Min
+	this.HgTier3Rate = hgTier3Rate
+	this.HgUsage = hgUsage
+	this.HgCurrentActiveUsers = hgCurrentActiveUsers
+	this.HgGrafanaUsage = hgGrafanaUsage
+	this.HgOnCallUsage = hgOnCallUsage
+	this.HmIncludedSeries = hmIncludedSeries
+	this.HmAverageDpm = hmAverageDpm
+	this.HmTier1Rate = hmTier1Rate
+	this.HmTier2Min = hmTier2Min
+	this.HmTier2Rate = hmTier2Rate
+	this.HmTier3Min = hmTier3Min
+	this.HmTier3Rate = hmTier3Rate
+	this.HmUsage = hmUsage
+	this.HmCurrentUsage = hmCurrentUsage
+	this.HmGraphiteIncludedUsage = hmGraphiteIncludedUsage
+	this.HmGraphiteTier1Rate = hmGraphiteTier1Rate
+	this.HmGraphiteTier2Min = hmGraphiteTier2Min
+	this.HmGraphiteTier2Rate = hmGraphiteTier2Rate
+	this.HmGraphiteTier3Min = hmGraphiteTier3Min
+	this.HmGraphiteTier3Rate = hmGraphiteTier3Rate
+	this.HmGraphiteUsage = hmGraphiteUsage
+	this.HlIncludedUsage = hlIncludedUsage
+	this.HlQueryToIngestRatio = hlQueryToIngestRatio
+	this.HlTier1Rate = hlTier1Rate
+	this.HlTier2Min = hlTier2Min
+	this.HlTier2Rate = hlTier2Rate
+	this.HlTier3Min = hlTier3Min
+	this.HlTier3Rate = hlTier3Rate
+	this.HlUsage = hlUsage
+	this.HlRetentionIncludedUsage = hlRetentionIncludedUsage
+	this.HlRetentionTier1Rate = hlRetentionTier1Rate
+	this.HlRetentionTier2Min = hlRetentionTier2Min
+	this.HlRetentionTier2Rate = hlRetentionTier2Rate
+	this.HlRetentionTier3Min = hlRetentionTier3Min
+	this.HlRetentionTier3Rate = hlRetentionTier3Rate
+	this.HlRetentionUsage = hlRetentionUsage
+	this.HtIncludedUsage = htIncludedUsage
+	this.HtTier1Rate = htTier1Rate
+	this.HtTier2Min = htTier2Min
+	this.HtTier2Rate = htTier2Rate
+	this.HtTier3Min = htTier3Min
+	this.HtTier3Rate = htTier3Rate
+	this.HtUsage = htUsage
+	this.HpIncludedUsage = hpIncludedUsage
+	this.HpTier1Rate = hpTier1Rate
+	this.HpTier2Min = hpTier2Min
+	this.HpTier2Rate = hpTier2Rate
+	this.HpTier3Min = hpTier3Min
+	this.HpTier3Rate = hpTier3Rate
+	this.HpUsage = hpUsage
+	this.IrmStatus = irmStatus
+	this.IrmIncludedUsage = irmIncludedUsage
+	this.IrmTier1Rate = irmTier1Rate
+	this.IrmTier2Min = irmTier2Min
+	this.IrmTier2Rate = irmTier2Rate
+	this.IrmTier3Min = irmTier3Min
+	this.IrmTier3Rate = irmTier3Rate
+	this.IrmUsage = irmUsage
+	this.K6VuhIncludedUsage = k6VuhIncludedUsage
+	this.K6VuhTier1Rate = k6VuhTier1Rate
+	this.K6VuhTier2Min = k6VuhTier2Min
+	this.K6VuhTier2Rate = k6VuhTier2Rate
+	this.K6VuhTier3Min = k6VuhTier3Min
+	this.K6VuhTier3Rate = k6VuhTier3Rate
+	this.K6VuhUnits = k6VuhUnits
+	this.K6VuhUsage = k6VuhUsage
+	this.K6IPIncludedUsage = k6IPIncludedUsage
+	this.K6IPTier1Rate = k6IPTier1Rate
+	this.K6IPTier2Min = k6IPTier2Min
+	this.K6IPTier2Rate = k6IPTier2Rate
+	this.K6IPTier3Min = k6IPTier3Min
+	this.K6IPTier3Rate = k6IPTier3Rate
+	this.K6IPUsage = k6IPUsage
+	this.FeO11yIncludedUsage = feO11yIncludedUsage
+	this.FeO11yTier1Rate = feO11yTier1Rate
+	this.FeO11yTier2Min = feO11yTier2Min
+	this.FeO11yTier2Rate = feO11yTier2Rate
+	this.FeO11yTier3Min = feO11yTier3Min
+	this.FeO11yTier3Rate = feO11yTier3Rate
+	this.FeO11yUnits = feO11yUnits
+	this.FeO11yUsage = feO11yUsage
+	this.GeUsersIncludedUsage = geUsersIncludedUsage
+	this.GeUsersTier1Rate = geUsersTier1Rate
+	this.GeUsersTier2Min = geUsersTier2Min
+	this.GeUsersTier2Rate = geUsersTier2Rate
+	this.GeUsersTier3Min = geUsersTier3Min
+	this.GeUsersTier3Rate = geUsersTier3Rate
+	this.GeUsersUsage = geUsersUsage
+	this.GeInstancesIncludedUsage = geInstancesIncludedUsage
+	this.GeInstancesTier1Rate = geInstancesTier1Rate
+	this.GeInstancesTier2Min = geInstancesTier2Min
+	this.GeInstancesTier2Rate = geInstancesTier2Rate
+	this.GeInstancesTier3Min = geInstancesTier3Min
+	this.GeInstancesTier3Rate = geInstancesTier3Rate
+	this.GeInstancesUsage = geInstancesUsage
+	this.HgPluginUsersOverageRate = hgPluginUsersOverageRate
+	this.HgPluginUsersIncludedUsage = hgPluginUsersIncludedUsage
+	this.HmGraphiteInstanceCnt = hmGraphiteInstanceCnt
+	this.HmPrometheusInstanceCnt = hmPrometheusInstanceCnt
+	this.AwsMarketplaceSupport = awsMarketplaceSupport
+	this.TrialStartDate = trialStartDate
+	this.TrialEndDate = trialEndDate
+	this.TrialLengthDays = trialLengthDays
+	this.TrialNoticeDate = trialNoticeDate
+	this.CancellationDate = cancellationDate
+	this.RetainedStackId = retainedStackId
+	this.AllowGCloudTrial = allowGCloudTrial
+	this.PluginSignatureType = pluginSignatureType
+	this.ContractType = contractType
+	this.ContractTypeId = contractTypeId
+	this.Links = links
+	this.Subscriptions = subscriptions
 	return &this
 }
 
@@ -313,272 +587,210 @@ func NewFormattedApiOrgWithDefaults() *FormattedApiOrg {
 	return &this
 }
 
-// GetTags returns the Tags field value if set, zero value otherwise.
+// GetTags returns the Tags field value
 func (o *FormattedApiOrg) GetTags() []string {
-	if o == nil || IsNil(o.Tags) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.Tags
 }
 
-// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// GetTagsOk returns a tuple with the Tags field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetTagsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Tags) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Tags, true
 }
 
-// HasTags returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasTags() bool {
-	if o != nil && !IsNil(o.Tags) {
-		return true
-	}
-
-	return false
-}
-
-// SetTags gets a reference to the given []string and assigns it to the Tags field.
+// SetTags sets field value
 func (o *FormattedApiOrg) SetTags(v []string) {
 	o.Tags = v
 }
 
-// GetAccountManagerId returns the AccountManagerId field value if set, zero value otherwise.
+// GetAccountManagerId returns the AccountManagerId field value
 func (o *FormattedApiOrg) GetAccountManagerId() float32 {
-	if o == nil || IsNil(o.AccountManagerId) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.AccountManagerId
+
+	return o.AccountManagerId
 }
 
-// GetAccountManagerIdOk returns a tuple with the AccountManagerId field value if set, nil otherwise
+// GetAccountManagerIdOk returns a tuple with the AccountManagerId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetAccountManagerIdOk() (*float32, bool) {
-	if o == nil || IsNil(o.AccountManagerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AccountManagerId, true
+	return &o.AccountManagerId, true
 }
 
-// HasAccountManagerId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasAccountManagerId() bool {
-	if o != nil && !IsNil(o.AccountManagerId) {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountManagerId gets a reference to the given float32 and assigns it to the AccountManagerId field.
+// SetAccountManagerId sets field value
 func (o *FormattedApiOrg) SetAccountManagerId(v float32) {
-	o.AccountManagerId = &v
+	o.AccountManagerId = v
 }
 
-// GetAccountManagerUsername returns the AccountManagerUsername field value if set, zero value otherwise.
+// GetAccountManagerUsername returns the AccountManagerUsername field value
 func (o *FormattedApiOrg) GetAccountManagerUsername() string {
-	if o == nil || IsNil(o.AccountManagerUsername) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AccountManagerUsername
+
+	return o.AccountManagerUsername
 }
 
-// GetAccountManagerUsernameOk returns a tuple with the AccountManagerUsername field value if set, nil otherwise
+// GetAccountManagerUsernameOk returns a tuple with the AccountManagerUsername field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetAccountManagerUsernameOk() (*string, bool) {
-	if o == nil || IsNil(o.AccountManagerUsername) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AccountManagerUsername, true
+	return &o.AccountManagerUsername, true
 }
 
-// HasAccountManagerUsername returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasAccountManagerUsername() bool {
-	if o != nil && !IsNil(o.AccountManagerUsername) {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountManagerUsername gets a reference to the given string and assigns it to the AccountManagerUsername field.
+// SetAccountManagerUsername sets field value
 func (o *FormattedApiOrg) SetAccountManagerUsername(v string) {
-	o.AccountManagerUsername = &v
+	o.AccountManagerUsername = v
 }
 
-// GetAccountManagerName returns the AccountManagerName field value if set, zero value otherwise.
+// GetAccountManagerName returns the AccountManagerName field value
 func (o *FormattedApiOrg) GetAccountManagerName() string {
-	if o == nil || IsNil(o.AccountManagerName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AccountManagerName
+
+	return o.AccountManagerName
 }
 
-// GetAccountManagerNameOk returns a tuple with the AccountManagerName field value if set, nil otherwise
+// GetAccountManagerNameOk returns a tuple with the AccountManagerName field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetAccountManagerNameOk() (*string, bool) {
-	if o == nil || IsNil(o.AccountManagerName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AccountManagerName, true
+	return &o.AccountManagerName, true
 }
 
-// HasAccountManagerName returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasAccountManagerName() bool {
-	if o != nil && !IsNil(o.AccountManagerName) {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountManagerName gets a reference to the given string and assigns it to the AccountManagerName field.
+// SetAccountManagerName sets field value
 func (o *FormattedApiOrg) SetAccountManagerName(v string) {
-	o.AccountManagerName = &v
+	o.AccountManagerName = v
 }
 
-// GetAwsCustomerId returns the AwsCustomerId field value if set, zero value otherwise.
+// GetAwsCustomerId returns the AwsCustomerId field value
 func (o *FormattedApiOrg) GetAwsCustomerId() string {
-	if o == nil || IsNil(o.AwsCustomerId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AwsCustomerId
+
+	return o.AwsCustomerId
 }
 
-// GetAwsCustomerIdOk returns a tuple with the AwsCustomerId field value if set, nil otherwise
+// GetAwsCustomerIdOk returns a tuple with the AwsCustomerId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetAwsCustomerIdOk() (*string, bool) {
-	if o == nil || IsNil(o.AwsCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AwsCustomerId, true
+	return &o.AwsCustomerId, true
 }
 
-// HasAwsCustomerId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasAwsCustomerId() bool {
-	if o != nil && !IsNil(o.AwsCustomerId) {
-		return true
-	}
-
-	return false
-}
-
-// SetAwsCustomerId gets a reference to the given string and assigns it to the AwsCustomerId field.
+// SetAwsCustomerId sets field value
 func (o *FormattedApiOrg) SetAwsCustomerId(v string) {
-	o.AwsCustomerId = &v
+	o.AwsCustomerId = v
 }
 
-// GetAccountOwnerId returns the AccountOwnerId field value if set, zero value otherwise.
+// GetAccountOwnerId returns the AccountOwnerId field value
 func (o *FormattedApiOrg) GetAccountOwnerId() float32 {
-	if o == nil || IsNil(o.AccountOwnerId) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.AccountOwnerId
+
+	return o.AccountOwnerId
 }
 
-// GetAccountOwnerIdOk returns a tuple with the AccountOwnerId field value if set, nil otherwise
+// GetAccountOwnerIdOk returns a tuple with the AccountOwnerId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetAccountOwnerIdOk() (*float32, bool) {
-	if o == nil || IsNil(o.AccountOwnerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AccountOwnerId, true
+	return &o.AccountOwnerId, true
 }
 
-// HasAccountOwnerId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasAccountOwnerId() bool {
-	if o != nil && !IsNil(o.AccountOwnerId) {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountOwnerId gets a reference to the given float32 and assigns it to the AccountOwnerId field.
+// SetAccountOwnerId sets field value
 func (o *FormattedApiOrg) SetAccountOwnerId(v float32) {
-	o.AccountOwnerId = &v
+	o.AccountOwnerId = v
 }
 
-// GetAccountOwnerUsername returns the AccountOwnerUsername field value if set, zero value otherwise.
+// GetAccountOwnerUsername returns the AccountOwnerUsername field value
 func (o *FormattedApiOrg) GetAccountOwnerUsername() string {
-	if o == nil || IsNil(o.AccountOwnerUsername) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AccountOwnerUsername
+
+	return o.AccountOwnerUsername
 }
 
-// GetAccountOwnerUsernameOk returns a tuple with the AccountOwnerUsername field value if set, nil otherwise
+// GetAccountOwnerUsernameOk returns a tuple with the AccountOwnerUsername field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetAccountOwnerUsernameOk() (*string, bool) {
-	if o == nil || IsNil(o.AccountOwnerUsername) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AccountOwnerUsername, true
+	return &o.AccountOwnerUsername, true
 }
 
-// HasAccountOwnerUsername returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasAccountOwnerUsername() bool {
-	if o != nil && !IsNil(o.AccountOwnerUsername) {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountOwnerUsername gets a reference to the given string and assigns it to the AccountOwnerUsername field.
+// SetAccountOwnerUsername sets field value
 func (o *FormattedApiOrg) SetAccountOwnerUsername(v string) {
-	o.AccountOwnerUsername = &v
+	o.AccountOwnerUsername = v
 }
 
-// GetAccountOwnerName returns the AccountOwnerName field value if set, zero value otherwise.
+// GetAccountOwnerName returns the AccountOwnerName field value
 func (o *FormattedApiOrg) GetAccountOwnerName() string {
-	if o == nil || IsNil(o.AccountOwnerName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AccountOwnerName
+
+	return o.AccountOwnerName
 }
 
-// GetAccountOwnerNameOk returns a tuple with the AccountOwnerName field value if set, nil otherwise
+// GetAccountOwnerNameOk returns a tuple with the AccountOwnerName field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetAccountOwnerNameOk() (*string, bool) {
-	if o == nil || IsNil(o.AccountOwnerName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AccountOwnerName, true
+	return &o.AccountOwnerName, true
 }
 
-// HasAccountOwnerName returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasAccountOwnerName() bool {
-	if o != nil && !IsNil(o.AccountOwnerName) {
-		return true
-	}
-
-	return false
-}
-
-// SetAccountOwnerName gets a reference to the given string and assigns it to the AccountOwnerName field.
+// SetAccountOwnerName sets field value
 func (o *FormattedApiOrg) SetAccountOwnerName(v string) {
-	o.AccountOwnerName = &v
+	o.AccountOwnerName = v
 }
 
-// GetHmBillingStartDate returns the HmBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHmBillingStartDate returns the HmBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHmBillingStartDate() string {
-	if o == nil || IsNil(o.HmBillingStartDate.Get()) {
+	if o == nil || o.HmBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HmBillingStartDate.Get()
 }
 
-// GetHmBillingStartDateOk returns a tuple with the HmBillingStartDate field value if set, nil otherwise
+// GetHmBillingStartDateOk returns a tuple with the HmBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHmBillingStartDateOk() (*string, bool) {
@@ -588,40 +800,23 @@ func (o *FormattedApiOrg) GetHmBillingStartDateOk() (*string, bool) {
 	return o.HmBillingStartDate.Get(), o.HmBillingStartDate.IsSet()
 }
 
-// HasHmBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmBillingStartDate() bool {
-	if o != nil && o.HmBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHmBillingStartDate gets a reference to the given NullableString and assigns it to the HmBillingStartDate field.
+// SetHmBillingStartDate sets field value
 func (o *FormattedApiOrg) SetHmBillingStartDate(v string) {
 	o.HmBillingStartDate.Set(&v)
 }
 
-// SetHmBillingStartDateNil sets the value for HmBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetHmBillingStartDateNil() {
-	o.HmBillingStartDate.Set(nil)
-}
-
-// UnsetHmBillingStartDate ensures that no value is present for HmBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHmBillingStartDate() {
-	o.HmBillingStartDate.Unset()
-}
-
-// GetHmBillingEndDate returns the HmBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHmBillingEndDate returns the HmBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHmBillingEndDate() string {
-	if o == nil || IsNil(o.HmBillingEndDate.Get()) {
+	if o == nil || o.HmBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HmBillingEndDate.Get()
 }
 
-// GetHmBillingEndDateOk returns a tuple with the HmBillingEndDate field value if set, nil otherwise
+// GetHmBillingEndDateOk returns a tuple with the HmBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHmBillingEndDateOk() (*string, bool) {
@@ -631,40 +826,23 @@ func (o *FormattedApiOrg) GetHmBillingEndDateOk() (*string, bool) {
 	return o.HmBillingEndDate.Get(), o.HmBillingEndDate.IsSet()
 }
 
-// HasHmBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmBillingEndDate() bool {
-	if o != nil && o.HmBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHmBillingEndDate gets a reference to the given NullableString and assigns it to the HmBillingEndDate field.
+// SetHmBillingEndDate sets field value
 func (o *FormattedApiOrg) SetHmBillingEndDate(v string) {
 	o.HmBillingEndDate.Set(&v)
 }
 
-// SetHmBillingEndDateNil sets the value for HmBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetHmBillingEndDateNil() {
-	o.HmBillingEndDate.Set(nil)
-}
-
-// UnsetHmBillingEndDate ensures that no value is present for HmBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHmBillingEndDate() {
-	o.HmBillingEndDate.Unset()
-}
-
-// GetHmBilledToDate returns the HmBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHmBilledToDate returns the HmBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHmBilledToDate() string {
-	if o == nil || IsNil(o.HmBilledToDate.Get()) {
+	if o == nil || o.HmBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HmBilledToDate.Get()
 }
 
-// GetHmBilledToDateOk returns a tuple with the HmBilledToDate field value if set, nil otherwise
+// GetHmBilledToDateOk returns a tuple with the HmBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHmBilledToDateOk() (*string, bool) {
@@ -674,40 +852,23 @@ func (o *FormattedApiOrg) GetHmBilledToDateOk() (*string, bool) {
 	return o.HmBilledToDate.Get(), o.HmBilledToDate.IsSet()
 }
 
-// HasHmBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmBilledToDate() bool {
-	if o != nil && o.HmBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHmBilledToDate gets a reference to the given NullableString and assigns it to the HmBilledToDate field.
+// SetHmBilledToDate sets field value
 func (o *FormattedApiOrg) SetHmBilledToDate(v string) {
 	o.HmBilledToDate.Set(&v)
 }
 
-// SetHmBilledToDateNil sets the value for HmBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetHmBilledToDateNil() {
-	o.HmBilledToDate.Set(nil)
-}
-
-// UnsetHmBilledToDate ensures that no value is present for HmBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHmBilledToDate() {
-	o.HmBilledToDate.Unset()
-}
-
-// GetHmOverageWarnDate returns the HmOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHmOverageWarnDate returns the HmOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHmOverageWarnDate() string {
-	if o == nil || IsNil(o.HmOverageWarnDate.Get()) {
+	if o == nil || o.HmOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HmOverageWarnDate.Get()
 }
 
-// GetHmOverageWarnDateOk returns a tuple with the HmOverageWarnDate field value if set, nil otherwise
+// GetHmOverageWarnDateOk returns a tuple with the HmOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHmOverageWarnDateOk() (*string, bool) {
@@ -717,136 +878,95 @@ func (o *FormattedApiOrg) GetHmOverageWarnDateOk() (*string, bool) {
 	return o.HmOverageWarnDate.Get(), o.HmOverageWarnDate.IsSet()
 }
 
-// HasHmOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmOverageWarnDate() bool {
-	if o != nil && o.HmOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHmOverageWarnDate gets a reference to the given NullableString and assigns it to the HmOverageWarnDate field.
+// SetHmOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetHmOverageWarnDate(v string) {
 	o.HmOverageWarnDate.Set(&v)
 }
 
-// SetHmOverageWarnDateNil sets the value for HmOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetHmOverageWarnDateNil() {
-	o.HmOverageWarnDate.Set(nil)
-}
-
-// UnsetHmOverageWarnDate ensures that no value is present for HmOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHmOverageWarnDate() {
-	o.HmOverageWarnDate.Unset()
-}
-
-// GetHmOverageAmount returns the HmOverageAmount field value if set, zero value otherwise.
+// GetHmOverageAmount returns the HmOverageAmount field value
 func (o *FormattedApiOrg) GetHmOverageAmount() float32 {
-	if o == nil || IsNil(o.HmOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmOverageAmount
+
+	return o.HmOverageAmount
 }
 
-// GetHmOverageAmountOk returns a tuple with the HmOverageAmount field value if set, nil otherwise
+// GetHmOverageAmountOk returns a tuple with the HmOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmOverageAmount, true
+	return &o.HmOverageAmount, true
 }
 
-// HasHmOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmOverageAmount() bool {
-	if o != nil && !IsNil(o.HmOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmOverageAmount gets a reference to the given float32 and assigns it to the HmOverageAmount field.
+// SetHmOverageAmount sets field value
 func (o *FormattedApiOrg) SetHmOverageAmount(v float32) {
-	o.HmOverageAmount = &v
+	o.HmOverageAmount = v
 }
 
-// GetHmCurrentPrometheusUsage returns the HmCurrentPrometheusUsage field value if set, zero value otherwise.
+// GetHmCurrentPrometheusUsage returns the HmCurrentPrometheusUsage field value
 func (o *FormattedApiOrg) GetHmCurrentPrometheusUsage() float32 {
-	if o == nil || IsNil(o.HmCurrentPrometheusUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmCurrentPrometheusUsage
+
+	return o.HmCurrentPrometheusUsage
 }
 
-// GetHmCurrentPrometheusUsageOk returns a tuple with the HmCurrentPrometheusUsage field value if set, nil otherwise
+// GetHmCurrentPrometheusUsageOk returns a tuple with the HmCurrentPrometheusUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmCurrentPrometheusUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmCurrentPrometheusUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmCurrentPrometheusUsage, true
+	return &o.HmCurrentPrometheusUsage, true
 }
 
-// HasHmCurrentPrometheusUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmCurrentPrometheusUsage() bool {
-	if o != nil && !IsNil(o.HmCurrentPrometheusUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmCurrentPrometheusUsage gets a reference to the given float32 and assigns it to the HmCurrentPrometheusUsage field.
+// SetHmCurrentPrometheusUsage sets field value
 func (o *FormattedApiOrg) SetHmCurrentPrometheusUsage(v float32) {
-	o.HmCurrentPrometheusUsage = &v
+	o.HmCurrentPrometheusUsage = v
 }
 
-// GetHmCurrentGraphiteUsage returns the HmCurrentGraphiteUsage field value if set, zero value otherwise.
+// GetHmCurrentGraphiteUsage returns the HmCurrentGraphiteUsage field value
 func (o *FormattedApiOrg) GetHmCurrentGraphiteUsage() float32 {
-	if o == nil || IsNil(o.HmCurrentGraphiteUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmCurrentGraphiteUsage
+
+	return o.HmCurrentGraphiteUsage
 }
 
-// GetHmCurrentGraphiteUsageOk returns a tuple with the HmCurrentGraphiteUsage field value if set, nil otherwise
+// GetHmCurrentGraphiteUsageOk returns a tuple with the HmCurrentGraphiteUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmCurrentGraphiteUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmCurrentGraphiteUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmCurrentGraphiteUsage, true
+	return &o.HmCurrentGraphiteUsage, true
 }
 
-// HasHmCurrentGraphiteUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmCurrentGraphiteUsage() bool {
-	if o != nil && !IsNil(o.HmCurrentGraphiteUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmCurrentGraphiteUsage gets a reference to the given float32 and assigns it to the HmCurrentGraphiteUsage field.
+// SetHmCurrentGraphiteUsage sets field value
 func (o *FormattedApiOrg) SetHmCurrentGraphiteUsage(v float32) {
-	o.HmCurrentGraphiteUsage = &v
+	o.HmCurrentGraphiteUsage = v
 }
 
-// GetHlBillingStartDate returns the HlBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHlBillingStartDate returns the HlBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHlBillingStartDate() string {
-	if o == nil || IsNil(o.HlBillingStartDate.Get()) {
+	if o == nil || o.HlBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HlBillingStartDate.Get()
 }
 
-// GetHlBillingStartDateOk returns a tuple with the HlBillingStartDate field value if set, nil otherwise
+// GetHlBillingStartDateOk returns a tuple with the HlBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHlBillingStartDateOk() (*string, bool) {
@@ -856,40 +976,23 @@ func (o *FormattedApiOrg) GetHlBillingStartDateOk() (*string, bool) {
 	return o.HlBillingStartDate.Get(), o.HlBillingStartDate.IsSet()
 }
 
-// HasHlBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlBillingStartDate() bool {
-	if o != nil && o.HlBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHlBillingStartDate gets a reference to the given NullableString and assigns it to the HlBillingStartDate field.
+// SetHlBillingStartDate sets field value
 func (o *FormattedApiOrg) SetHlBillingStartDate(v string) {
 	o.HlBillingStartDate.Set(&v)
 }
 
-// SetHlBillingStartDateNil sets the value for HlBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetHlBillingStartDateNil() {
-	o.HlBillingStartDate.Set(nil)
-}
-
-// UnsetHlBillingStartDate ensures that no value is present for HlBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHlBillingStartDate() {
-	o.HlBillingStartDate.Unset()
-}
-
-// GetHlBillingEndDate returns the HlBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHlBillingEndDate returns the HlBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHlBillingEndDate() string {
-	if o == nil || IsNil(o.HlBillingEndDate.Get()) {
+	if o == nil || o.HlBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HlBillingEndDate.Get()
 }
 
-// GetHlBillingEndDateOk returns a tuple with the HlBillingEndDate field value if set, nil otherwise
+// GetHlBillingEndDateOk returns a tuple with the HlBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHlBillingEndDateOk() (*string, bool) {
@@ -899,40 +1002,23 @@ func (o *FormattedApiOrg) GetHlBillingEndDateOk() (*string, bool) {
 	return o.HlBillingEndDate.Get(), o.HlBillingEndDate.IsSet()
 }
 
-// HasHlBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlBillingEndDate() bool {
-	if o != nil && o.HlBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHlBillingEndDate gets a reference to the given NullableString and assigns it to the HlBillingEndDate field.
+// SetHlBillingEndDate sets field value
 func (o *FormattedApiOrg) SetHlBillingEndDate(v string) {
 	o.HlBillingEndDate.Set(&v)
 }
 
-// SetHlBillingEndDateNil sets the value for HlBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetHlBillingEndDateNil() {
-	o.HlBillingEndDate.Set(nil)
-}
-
-// UnsetHlBillingEndDate ensures that no value is present for HlBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHlBillingEndDate() {
-	o.HlBillingEndDate.Unset()
-}
-
-// GetHlBilledToDate returns the HlBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHlBilledToDate returns the HlBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHlBilledToDate() string {
-	if o == nil || IsNil(o.HlBilledToDate.Get()) {
+	if o == nil || o.HlBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HlBilledToDate.Get()
 }
 
-// GetHlBilledToDateOk returns a tuple with the HlBilledToDate field value if set, nil otherwise
+// GetHlBilledToDateOk returns a tuple with the HlBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHlBilledToDateOk() (*string, bool) {
@@ -942,40 +1028,23 @@ func (o *FormattedApiOrg) GetHlBilledToDateOk() (*string, bool) {
 	return o.HlBilledToDate.Get(), o.HlBilledToDate.IsSet()
 }
 
-// HasHlBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlBilledToDate() bool {
-	if o != nil && o.HlBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHlBilledToDate gets a reference to the given NullableString and assigns it to the HlBilledToDate field.
+// SetHlBilledToDate sets field value
 func (o *FormattedApiOrg) SetHlBilledToDate(v string) {
 	o.HlBilledToDate.Set(&v)
 }
 
-// SetHlBilledToDateNil sets the value for HlBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetHlBilledToDateNil() {
-	o.HlBilledToDate.Set(nil)
-}
-
-// UnsetHlBilledToDate ensures that no value is present for HlBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHlBilledToDate() {
-	o.HlBilledToDate.Unset()
-}
-
-// GetHlOverageWarnDate returns the HlOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHlOverageWarnDate returns the HlOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHlOverageWarnDate() string {
-	if o == nil || IsNil(o.HlOverageWarnDate.Get()) {
+	if o == nil || o.HlOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HlOverageWarnDate.Get()
 }
 
-// GetHlOverageWarnDateOk returns a tuple with the HlOverageWarnDate field value if set, nil otherwise
+// GetHlOverageWarnDateOk returns a tuple with the HlOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHlOverageWarnDateOk() (*string, bool) {
@@ -985,104 +1054,71 @@ func (o *FormattedApiOrg) GetHlOverageWarnDateOk() (*string, bool) {
 	return o.HlOverageWarnDate.Get(), o.HlOverageWarnDate.IsSet()
 }
 
-// HasHlOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlOverageWarnDate() bool {
-	if o != nil && o.HlOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHlOverageWarnDate gets a reference to the given NullableString and assigns it to the HlOverageWarnDate field.
+// SetHlOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetHlOverageWarnDate(v string) {
 	o.HlOverageWarnDate.Set(&v)
 }
 
-// SetHlOverageWarnDateNil sets the value for HlOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetHlOverageWarnDateNil() {
-	o.HlOverageWarnDate.Set(nil)
-}
-
-// UnsetHlOverageWarnDate ensures that no value is present for HlOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHlOverageWarnDate() {
-	o.HlOverageWarnDate.Unset()
-}
-
-// GetHlOverageAmount returns the HlOverageAmount field value if set, zero value otherwise.
+// GetHlOverageAmount returns the HlOverageAmount field value
 func (o *FormattedApiOrg) GetHlOverageAmount() float32 {
-	if o == nil || IsNil(o.HlOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlOverageAmount
+
+	return o.HlOverageAmount
 }
 
-// GetHlOverageAmountOk returns a tuple with the HlOverageAmount field value if set, nil otherwise
+// GetHlOverageAmountOk returns a tuple with the HlOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlOverageAmount, true
+	return &o.HlOverageAmount, true
 }
 
-// HasHlOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlOverageAmount() bool {
-	if o != nil && !IsNil(o.HlOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlOverageAmount gets a reference to the given float32 and assigns it to the HlOverageAmount field.
+// SetHlOverageAmount sets field value
 func (o *FormattedApiOrg) SetHlOverageAmount(v float32) {
-	o.HlOverageAmount = &v
+	o.HlOverageAmount = v
 }
 
-// GetHlCurrentUsage returns the HlCurrentUsage field value if set, zero value otherwise.
+// GetHlCurrentUsage returns the HlCurrentUsage field value
 func (o *FormattedApiOrg) GetHlCurrentUsage() float32 {
-	if o == nil || IsNil(o.HlCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlCurrentUsage
+
+	return o.HlCurrentUsage
 }
 
-// GetHlCurrentUsageOk returns a tuple with the HlCurrentUsage field value if set, nil otherwise
+// GetHlCurrentUsageOk returns a tuple with the HlCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlCurrentUsage, true
+	return &o.HlCurrentUsage, true
 }
 
-// HasHlCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlCurrentUsage() bool {
-	if o != nil && !IsNil(o.HlCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlCurrentUsage gets a reference to the given float32 and assigns it to the HlCurrentUsage field.
+// SetHlCurrentUsage sets field value
 func (o *FormattedApiOrg) SetHlCurrentUsage(v float32) {
-	o.HlCurrentUsage = &v
+	o.HlCurrentUsage = v
 }
 
-// GetHgBillingStartDate returns the HgBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHgBillingStartDate returns the HgBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHgBillingStartDate() string {
-	if o == nil || IsNil(o.HgBillingStartDate.Get()) {
+	if o == nil || o.HgBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HgBillingStartDate.Get()
 }
 
-// GetHgBillingStartDateOk returns a tuple with the HgBillingStartDate field value if set, nil otherwise
+// GetHgBillingStartDateOk returns a tuple with the HgBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHgBillingStartDateOk() (*string, bool) {
@@ -1092,40 +1128,23 @@ func (o *FormattedApiOrg) GetHgBillingStartDateOk() (*string, bool) {
 	return o.HgBillingStartDate.Get(), o.HgBillingStartDate.IsSet()
 }
 
-// HasHgBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgBillingStartDate() bool {
-	if o != nil && o.HgBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHgBillingStartDate gets a reference to the given NullableString and assigns it to the HgBillingStartDate field.
+// SetHgBillingStartDate sets field value
 func (o *FormattedApiOrg) SetHgBillingStartDate(v string) {
 	o.HgBillingStartDate.Set(&v)
 }
 
-// SetHgBillingStartDateNil sets the value for HgBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetHgBillingStartDateNil() {
-	o.HgBillingStartDate.Set(nil)
-}
-
-// UnsetHgBillingStartDate ensures that no value is present for HgBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHgBillingStartDate() {
-	o.HgBillingStartDate.Unset()
-}
-
-// GetHgBillingEndDate returns the HgBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHgBillingEndDate returns the HgBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHgBillingEndDate() string {
-	if o == nil || IsNil(o.HgBillingEndDate.Get()) {
+	if o == nil || o.HgBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HgBillingEndDate.Get()
 }
 
-// GetHgBillingEndDateOk returns a tuple with the HgBillingEndDate field value if set, nil otherwise
+// GetHgBillingEndDateOk returns a tuple with the HgBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHgBillingEndDateOk() (*string, bool) {
@@ -1135,40 +1154,23 @@ func (o *FormattedApiOrg) GetHgBillingEndDateOk() (*string, bool) {
 	return o.HgBillingEndDate.Get(), o.HgBillingEndDate.IsSet()
 }
 
-// HasHgBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgBillingEndDate() bool {
-	if o != nil && o.HgBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHgBillingEndDate gets a reference to the given NullableString and assigns it to the HgBillingEndDate field.
+// SetHgBillingEndDate sets field value
 func (o *FormattedApiOrg) SetHgBillingEndDate(v string) {
 	o.HgBillingEndDate.Set(&v)
 }
 
-// SetHgBillingEndDateNil sets the value for HgBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetHgBillingEndDateNil() {
-	o.HgBillingEndDate.Set(nil)
-}
-
-// UnsetHgBillingEndDate ensures that no value is present for HgBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHgBillingEndDate() {
-	o.HgBillingEndDate.Unset()
-}
-
-// GetHgBilledToDate returns the HgBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHgBilledToDate returns the HgBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHgBilledToDate() string {
-	if o == nil || IsNil(o.HgBilledToDate.Get()) {
+	if o == nil || o.HgBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HgBilledToDate.Get()
 }
 
-// GetHgBilledToDateOk returns a tuple with the HgBilledToDate field value if set, nil otherwise
+// GetHgBilledToDateOk returns a tuple with the HgBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHgBilledToDateOk() (*string, bool) {
@@ -1178,40 +1180,23 @@ func (o *FormattedApiOrg) GetHgBilledToDateOk() (*string, bool) {
 	return o.HgBilledToDate.Get(), o.HgBilledToDate.IsSet()
 }
 
-// HasHgBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgBilledToDate() bool {
-	if o != nil && o.HgBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHgBilledToDate gets a reference to the given NullableString and assigns it to the HgBilledToDate field.
+// SetHgBilledToDate sets field value
 func (o *FormattedApiOrg) SetHgBilledToDate(v string) {
 	o.HgBilledToDate.Set(&v)
 }
 
-// SetHgBilledToDateNil sets the value for HgBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetHgBilledToDateNil() {
-	o.HgBilledToDate.Set(nil)
-}
-
-// UnsetHgBilledToDate ensures that no value is present for HgBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHgBilledToDate() {
-	o.HgBilledToDate.Unset()
-}
-
-// GetHgOverageWarnDate returns the HgOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHgOverageWarnDate returns the HgOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHgOverageWarnDate() string {
-	if o == nil || IsNil(o.HgOverageWarnDate.Get()) {
+	if o == nil || o.HgOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HgOverageWarnDate.Get()
 }
 
-// GetHgOverageWarnDateOk returns a tuple with the HgOverageWarnDate field value if set, nil otherwise
+// GetHgOverageWarnDateOk returns a tuple with the HgOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHgOverageWarnDateOk() (*string, bool) {
@@ -1221,168 +1206,119 @@ func (o *FormattedApiOrg) GetHgOverageWarnDateOk() (*string, bool) {
 	return o.HgOverageWarnDate.Get(), o.HgOverageWarnDate.IsSet()
 }
 
-// HasHgOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgOverageWarnDate() bool {
-	if o != nil && o.HgOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHgOverageWarnDate gets a reference to the given NullableString and assigns it to the HgOverageWarnDate field.
+// SetHgOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetHgOverageWarnDate(v string) {
 	o.HgOverageWarnDate.Set(&v)
 }
 
-// SetHgOverageWarnDateNil sets the value for HgOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetHgOverageWarnDateNil() {
-	o.HgOverageWarnDate.Set(nil)
-}
-
-// UnsetHgOverageWarnDate ensures that no value is present for HgOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHgOverageWarnDate() {
-	o.HgOverageWarnDate.Unset()
-}
-
-// GetHgOverageAmount returns the HgOverageAmount field value if set, zero value otherwise.
+// GetHgOverageAmount returns the HgOverageAmount field value
 func (o *FormattedApiOrg) GetHgOverageAmount() float32 {
-	if o == nil || IsNil(o.HgOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgOverageAmount
+
+	return o.HgOverageAmount
 }
 
-// GetHgOverageAmountOk returns a tuple with the HgOverageAmount field value if set, nil otherwise
+// GetHgOverageAmountOk returns a tuple with the HgOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgOverageAmount, true
+	return &o.HgOverageAmount, true
 }
 
-// HasHgOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgOverageAmount() bool {
-	if o != nil && !IsNil(o.HgOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgOverageAmount gets a reference to the given float32 and assigns it to the HgOverageAmount field.
+// SetHgOverageAmount sets field value
 func (o *FormattedApiOrg) SetHgOverageAmount(v float32) {
-	o.HgOverageAmount = &v
+	o.HgOverageAmount = v
 }
 
-// GetHgActiveUsers returns the HgActiveUsers field value if set, zero value otherwise.
+// GetHgActiveUsers returns the HgActiveUsers field value
 func (o *FormattedApiOrg) GetHgActiveUsers() float32 {
-	if o == nil || IsNil(o.HgActiveUsers) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgActiveUsers
+
+	return o.HgActiveUsers
 }
 
-// GetHgActiveUsersOk returns a tuple with the HgActiveUsers field value if set, nil otherwise
+// GetHgActiveUsersOk returns a tuple with the HgActiveUsers field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgActiveUsersOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgActiveUsers) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgActiveUsers, true
+	return &o.HgActiveUsers, true
 }
 
-// HasHgActiveUsers returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgActiveUsers() bool {
-	if o != nil && !IsNil(o.HgActiveUsers) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgActiveUsers gets a reference to the given float32 and assigns it to the HgActiveUsers field.
+// SetHgActiveUsers sets field value
 func (o *FormattedApiOrg) SetHgActiveUsers(v float32) {
-	o.HgActiveUsers = &v
+	o.HgActiveUsers = v
 }
 
-// GetHgDatasourceCnts returns the HgDatasourceCnts field value if set, zero value otherwise.
+// GetHgDatasourceCnts returns the HgDatasourceCnts field value
 func (o *FormattedApiOrg) GetHgDatasourceCnts() map[string]interface{} {
-	if o == nil || IsNil(o.HgDatasourceCnts) {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
+
 	return o.HgDatasourceCnts
 }
 
-// GetHgDatasourceCntsOk returns a tuple with the HgDatasourceCnts field value if set, nil otherwise
+// GetHgDatasourceCntsOk returns a tuple with the HgDatasourceCnts field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgDatasourceCntsOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.HgDatasourceCnts) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.HgDatasourceCnts, true
 }
 
-// HasHgDatasourceCnts returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgDatasourceCnts() bool {
-	if o != nil && !IsNil(o.HgDatasourceCnts) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgDatasourceCnts gets a reference to the given map[string]interface{} and assigns it to the HgDatasourceCnts field.
+// SetHgDatasourceCnts sets field value
 func (o *FormattedApiOrg) SetHgDatasourceCnts(v map[string]interface{}) {
 	o.HgDatasourceCnts = v
 }
 
-// GetHgIntegrationCnts returns the HgIntegrationCnts field value if set, zero value otherwise.
+// GetHgIntegrationCnts returns the HgIntegrationCnts field value
 func (o *FormattedApiOrg) GetHgIntegrationCnts() map[string]interface{} {
-	if o == nil || IsNil(o.HgIntegrationCnts) {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
+
 	return o.HgIntegrationCnts
 }
 
-// GetHgIntegrationCntsOk returns a tuple with the HgIntegrationCnts field value if set, nil otherwise
+// GetHgIntegrationCntsOk returns a tuple with the HgIntegrationCnts field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgIntegrationCntsOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.HgIntegrationCnts) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.HgIntegrationCnts, true
 }
 
-// HasHgIntegrationCnts returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgIntegrationCnts() bool {
-	if o != nil && !IsNil(o.HgIntegrationCnts) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgIntegrationCnts gets a reference to the given map[string]interface{} and assigns it to the HgIntegrationCnts field.
+// SetHgIntegrationCnts sets field value
 func (o *FormattedApiOrg) SetHgIntegrationCnts(v map[string]interface{}) {
 	o.HgIntegrationCnts = v
 }
 
-// GetHmGraphiteBillingStartDate returns the HmGraphiteBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHmGraphiteBillingStartDate returns the HmGraphiteBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHmGraphiteBillingStartDate() string {
-	if o == nil || IsNil(o.HmGraphiteBillingStartDate.Get()) {
+	if o == nil || o.HmGraphiteBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HmGraphiteBillingStartDate.Get()
 }
 
-// GetHmGraphiteBillingStartDateOk returns a tuple with the HmGraphiteBillingStartDate field value if set, nil otherwise
+// GetHmGraphiteBillingStartDateOk returns a tuple with the HmGraphiteBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHmGraphiteBillingStartDateOk() (*string, bool) {
@@ -1392,40 +1328,23 @@ func (o *FormattedApiOrg) GetHmGraphiteBillingStartDateOk() (*string, bool) {
 	return o.HmGraphiteBillingStartDate.Get(), o.HmGraphiteBillingStartDate.IsSet()
 }
 
-// HasHmGraphiteBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteBillingStartDate() bool {
-	if o != nil && o.HmGraphiteBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteBillingStartDate gets a reference to the given NullableString and assigns it to the HmGraphiteBillingStartDate field.
+// SetHmGraphiteBillingStartDate sets field value
 func (o *FormattedApiOrg) SetHmGraphiteBillingStartDate(v string) {
 	o.HmGraphiteBillingStartDate.Set(&v)
 }
 
-// SetHmGraphiteBillingStartDateNil sets the value for HmGraphiteBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetHmGraphiteBillingStartDateNil() {
-	o.HmGraphiteBillingStartDate.Set(nil)
-}
-
-// UnsetHmGraphiteBillingStartDate ensures that no value is present for HmGraphiteBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHmGraphiteBillingStartDate() {
-	o.HmGraphiteBillingStartDate.Unset()
-}
-
-// GetHmGraphiteBillingEndDate returns the HmGraphiteBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHmGraphiteBillingEndDate returns the HmGraphiteBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHmGraphiteBillingEndDate() string {
-	if o == nil || IsNil(o.HmGraphiteBillingEndDate.Get()) {
+	if o == nil || o.HmGraphiteBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HmGraphiteBillingEndDate.Get()
 }
 
-// GetHmGraphiteBillingEndDateOk returns a tuple with the HmGraphiteBillingEndDate field value if set, nil otherwise
+// GetHmGraphiteBillingEndDateOk returns a tuple with the HmGraphiteBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHmGraphiteBillingEndDateOk() (*string, bool) {
@@ -1435,40 +1354,23 @@ func (o *FormattedApiOrg) GetHmGraphiteBillingEndDateOk() (*string, bool) {
 	return o.HmGraphiteBillingEndDate.Get(), o.HmGraphiteBillingEndDate.IsSet()
 }
 
-// HasHmGraphiteBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteBillingEndDate() bool {
-	if o != nil && o.HmGraphiteBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteBillingEndDate gets a reference to the given NullableString and assigns it to the HmGraphiteBillingEndDate field.
+// SetHmGraphiteBillingEndDate sets field value
 func (o *FormattedApiOrg) SetHmGraphiteBillingEndDate(v string) {
 	o.HmGraphiteBillingEndDate.Set(&v)
 }
 
-// SetHmGraphiteBillingEndDateNil sets the value for HmGraphiteBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetHmGraphiteBillingEndDateNil() {
-	o.HmGraphiteBillingEndDate.Set(nil)
-}
-
-// UnsetHmGraphiteBillingEndDate ensures that no value is present for HmGraphiteBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHmGraphiteBillingEndDate() {
-	o.HmGraphiteBillingEndDate.Unset()
-}
-
-// GetHmGraphiteBilledToDate returns the HmGraphiteBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHmGraphiteBilledToDate returns the HmGraphiteBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHmGraphiteBilledToDate() string {
-	if o == nil || IsNil(o.HmGraphiteBilledToDate.Get()) {
+	if o == nil || o.HmGraphiteBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HmGraphiteBilledToDate.Get()
 }
 
-// GetHmGraphiteBilledToDateOk returns a tuple with the HmGraphiteBilledToDate field value if set, nil otherwise
+// GetHmGraphiteBilledToDateOk returns a tuple with the HmGraphiteBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHmGraphiteBilledToDateOk() (*string, bool) {
@@ -1478,40 +1380,23 @@ func (o *FormattedApiOrg) GetHmGraphiteBilledToDateOk() (*string, bool) {
 	return o.HmGraphiteBilledToDate.Get(), o.HmGraphiteBilledToDate.IsSet()
 }
 
-// HasHmGraphiteBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteBilledToDate() bool {
-	if o != nil && o.HmGraphiteBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteBilledToDate gets a reference to the given NullableString and assigns it to the HmGraphiteBilledToDate field.
+// SetHmGraphiteBilledToDate sets field value
 func (o *FormattedApiOrg) SetHmGraphiteBilledToDate(v string) {
 	o.HmGraphiteBilledToDate.Set(&v)
 }
 
-// SetHmGraphiteBilledToDateNil sets the value for HmGraphiteBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetHmGraphiteBilledToDateNil() {
-	o.HmGraphiteBilledToDate.Set(nil)
-}
-
-// UnsetHmGraphiteBilledToDate ensures that no value is present for HmGraphiteBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHmGraphiteBilledToDate() {
-	o.HmGraphiteBilledToDate.Unset()
-}
-
-// GetHmGraphiteOverageWarnDate returns the HmGraphiteOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHmGraphiteOverageWarnDate returns the HmGraphiteOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHmGraphiteOverageWarnDate() string {
-	if o == nil || IsNil(o.HmGraphiteOverageWarnDate.Get()) {
+	if o == nil || o.HmGraphiteOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HmGraphiteOverageWarnDate.Get()
 }
 
-// GetHmGraphiteOverageWarnDateOk returns a tuple with the HmGraphiteOverageWarnDate field value if set, nil otherwise
+// GetHmGraphiteOverageWarnDateOk returns a tuple with the HmGraphiteOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHmGraphiteOverageWarnDateOk() (*string, bool) {
@@ -1521,104 +1406,71 @@ func (o *FormattedApiOrg) GetHmGraphiteOverageWarnDateOk() (*string, bool) {
 	return o.HmGraphiteOverageWarnDate.Get(), o.HmGraphiteOverageWarnDate.IsSet()
 }
 
-// HasHmGraphiteOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteOverageWarnDate() bool {
-	if o != nil && o.HmGraphiteOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteOverageWarnDate gets a reference to the given NullableString and assigns it to the HmGraphiteOverageWarnDate field.
+// SetHmGraphiteOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetHmGraphiteOverageWarnDate(v string) {
 	o.HmGraphiteOverageWarnDate.Set(&v)
 }
 
-// SetHmGraphiteOverageWarnDateNil sets the value for HmGraphiteOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetHmGraphiteOverageWarnDateNil() {
-	o.HmGraphiteOverageWarnDate.Set(nil)
-}
-
-// UnsetHmGraphiteOverageWarnDate ensures that no value is present for HmGraphiteOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHmGraphiteOverageWarnDate() {
-	o.HmGraphiteOverageWarnDate.Unset()
-}
-
-// GetHmGraphiteCurrentUsage returns the HmGraphiteCurrentUsage field value if set, zero value otherwise.
+// GetHmGraphiteCurrentUsage returns the HmGraphiteCurrentUsage field value
 func (o *FormattedApiOrg) GetHmGraphiteCurrentUsage() float32 {
-	if o == nil || IsNil(o.HmGraphiteCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmGraphiteCurrentUsage
+
+	return o.HmGraphiteCurrentUsage
 }
 
-// GetHmGraphiteCurrentUsageOk returns a tuple with the HmGraphiteCurrentUsage field value if set, nil otherwise
+// GetHmGraphiteCurrentUsageOk returns a tuple with the HmGraphiteCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmGraphiteCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmGraphiteCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmGraphiteCurrentUsage, true
+	return &o.HmGraphiteCurrentUsage, true
 }
 
-// HasHmGraphiteCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteCurrentUsage() bool {
-	if o != nil && !IsNil(o.HmGraphiteCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteCurrentUsage gets a reference to the given float32 and assigns it to the HmGraphiteCurrentUsage field.
+// SetHmGraphiteCurrentUsage sets field value
 func (o *FormattedApiOrg) SetHmGraphiteCurrentUsage(v float32) {
-	o.HmGraphiteCurrentUsage = &v
+	o.HmGraphiteCurrentUsage = v
 }
 
-// GetHmGraphiteOverageAmount returns the HmGraphiteOverageAmount field value if set, zero value otherwise.
+// GetHmGraphiteOverageAmount returns the HmGraphiteOverageAmount field value
 func (o *FormattedApiOrg) GetHmGraphiteOverageAmount() float32 {
-	if o == nil || IsNil(o.HmGraphiteOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmGraphiteOverageAmount
+
+	return o.HmGraphiteOverageAmount
 }
 
-// GetHmGraphiteOverageAmountOk returns a tuple with the HmGraphiteOverageAmount field value if set, nil otherwise
+// GetHmGraphiteOverageAmountOk returns a tuple with the HmGraphiteOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmGraphiteOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmGraphiteOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmGraphiteOverageAmount, true
+	return &o.HmGraphiteOverageAmount, true
 }
 
-// HasHmGraphiteOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteOverageAmount() bool {
-	if o != nil && !IsNil(o.HmGraphiteOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteOverageAmount gets a reference to the given float32 and assigns it to the HmGraphiteOverageAmount field.
+// SetHmGraphiteOverageAmount sets field value
 func (o *FormattedApiOrg) SetHmGraphiteOverageAmount(v float32) {
-	o.HmGraphiteOverageAmount = &v
+	o.HmGraphiteOverageAmount = v
 }
 
-// GetHlRetentionBillingStartDate returns the HlRetentionBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHlRetentionBillingStartDate returns the HlRetentionBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHlRetentionBillingStartDate() string {
-	if o == nil || IsNil(o.HlRetentionBillingStartDate.Get()) {
+	if o == nil || o.HlRetentionBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HlRetentionBillingStartDate.Get()
 }
 
-// GetHlRetentionBillingStartDateOk returns a tuple with the HlRetentionBillingStartDate field value if set, nil otherwise
+// GetHlRetentionBillingStartDateOk returns a tuple with the HlRetentionBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHlRetentionBillingStartDateOk() (*string, bool) {
@@ -1628,40 +1480,23 @@ func (o *FormattedApiOrg) GetHlRetentionBillingStartDateOk() (*string, bool) {
 	return o.HlRetentionBillingStartDate.Get(), o.HlRetentionBillingStartDate.IsSet()
 }
 
-// HasHlRetentionBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionBillingStartDate() bool {
-	if o != nil && o.HlRetentionBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionBillingStartDate gets a reference to the given NullableString and assigns it to the HlRetentionBillingStartDate field.
+// SetHlRetentionBillingStartDate sets field value
 func (o *FormattedApiOrg) SetHlRetentionBillingStartDate(v string) {
 	o.HlRetentionBillingStartDate.Set(&v)
 }
 
-// SetHlRetentionBillingStartDateNil sets the value for HlRetentionBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetHlRetentionBillingStartDateNil() {
-	o.HlRetentionBillingStartDate.Set(nil)
-}
-
-// UnsetHlRetentionBillingStartDate ensures that no value is present for HlRetentionBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHlRetentionBillingStartDate() {
-	o.HlRetentionBillingStartDate.Unset()
-}
-
-// GetHlRetentionBillingEndDate returns the HlRetentionBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHlRetentionBillingEndDate returns the HlRetentionBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHlRetentionBillingEndDate() string {
-	if o == nil || IsNil(o.HlRetentionBillingEndDate.Get()) {
+	if o == nil || o.HlRetentionBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HlRetentionBillingEndDate.Get()
 }
 
-// GetHlRetentionBillingEndDateOk returns a tuple with the HlRetentionBillingEndDate field value if set, nil otherwise
+// GetHlRetentionBillingEndDateOk returns a tuple with the HlRetentionBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHlRetentionBillingEndDateOk() (*string, bool) {
@@ -1671,40 +1506,23 @@ func (o *FormattedApiOrg) GetHlRetentionBillingEndDateOk() (*string, bool) {
 	return o.HlRetentionBillingEndDate.Get(), o.HlRetentionBillingEndDate.IsSet()
 }
 
-// HasHlRetentionBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionBillingEndDate() bool {
-	if o != nil && o.HlRetentionBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionBillingEndDate gets a reference to the given NullableString and assigns it to the HlRetentionBillingEndDate field.
+// SetHlRetentionBillingEndDate sets field value
 func (o *FormattedApiOrg) SetHlRetentionBillingEndDate(v string) {
 	o.HlRetentionBillingEndDate.Set(&v)
 }
 
-// SetHlRetentionBillingEndDateNil sets the value for HlRetentionBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetHlRetentionBillingEndDateNil() {
-	o.HlRetentionBillingEndDate.Set(nil)
-}
-
-// UnsetHlRetentionBillingEndDate ensures that no value is present for HlRetentionBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHlRetentionBillingEndDate() {
-	o.HlRetentionBillingEndDate.Unset()
-}
-
-// GetHlRetentionBilledToDate returns the HlRetentionBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHlRetentionBilledToDate returns the HlRetentionBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHlRetentionBilledToDate() string {
-	if o == nil || IsNil(o.HlRetentionBilledToDate.Get()) {
+	if o == nil || o.HlRetentionBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HlRetentionBilledToDate.Get()
 }
 
-// GetHlRetentionBilledToDateOk returns a tuple with the HlRetentionBilledToDate field value if set, nil otherwise
+// GetHlRetentionBilledToDateOk returns a tuple with the HlRetentionBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHlRetentionBilledToDateOk() (*string, bool) {
@@ -1714,40 +1532,23 @@ func (o *FormattedApiOrg) GetHlRetentionBilledToDateOk() (*string, bool) {
 	return o.HlRetentionBilledToDate.Get(), o.HlRetentionBilledToDate.IsSet()
 }
 
-// HasHlRetentionBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionBilledToDate() bool {
-	if o != nil && o.HlRetentionBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionBilledToDate gets a reference to the given NullableString and assigns it to the HlRetentionBilledToDate field.
+// SetHlRetentionBilledToDate sets field value
 func (o *FormattedApiOrg) SetHlRetentionBilledToDate(v string) {
 	o.HlRetentionBilledToDate.Set(&v)
 }
 
-// SetHlRetentionBilledToDateNil sets the value for HlRetentionBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetHlRetentionBilledToDateNil() {
-	o.HlRetentionBilledToDate.Set(nil)
-}
-
-// UnsetHlRetentionBilledToDate ensures that no value is present for HlRetentionBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHlRetentionBilledToDate() {
-	o.HlRetentionBilledToDate.Unset()
-}
-
-// GetHlRetentionOverageWarnDate returns the HlRetentionOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHlRetentionOverageWarnDate returns the HlRetentionOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHlRetentionOverageWarnDate() string {
-	if o == nil || IsNil(o.HlRetentionOverageWarnDate.Get()) {
+	if o == nil || o.HlRetentionOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HlRetentionOverageWarnDate.Get()
 }
 
-// GetHlRetentionOverageWarnDateOk returns a tuple with the HlRetentionOverageWarnDate field value if set, nil otherwise
+// GetHlRetentionOverageWarnDateOk returns a tuple with the HlRetentionOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHlRetentionOverageWarnDateOk() (*string, bool) {
@@ -1757,104 +1558,71 @@ func (o *FormattedApiOrg) GetHlRetentionOverageWarnDateOk() (*string, bool) {
 	return o.HlRetentionOverageWarnDate.Get(), o.HlRetentionOverageWarnDate.IsSet()
 }
 
-// HasHlRetentionOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionOverageWarnDate() bool {
-	if o != nil && o.HlRetentionOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionOverageWarnDate gets a reference to the given NullableString and assigns it to the HlRetentionOverageWarnDate field.
+// SetHlRetentionOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetHlRetentionOverageWarnDate(v string) {
 	o.HlRetentionOverageWarnDate.Set(&v)
 }
 
-// SetHlRetentionOverageWarnDateNil sets the value for HlRetentionOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetHlRetentionOverageWarnDateNil() {
-	o.HlRetentionOverageWarnDate.Set(nil)
-}
-
-// UnsetHlRetentionOverageWarnDate ensures that no value is present for HlRetentionOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHlRetentionOverageWarnDate() {
-	o.HlRetentionOverageWarnDate.Unset()
-}
-
-// GetHlRetentionCurrentUsage returns the HlRetentionCurrentUsage field value if set, zero value otherwise.
+// GetHlRetentionCurrentUsage returns the HlRetentionCurrentUsage field value
 func (o *FormattedApiOrg) GetHlRetentionCurrentUsage() float32 {
-	if o == nil || IsNil(o.HlRetentionCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlRetentionCurrentUsage
+
+	return o.HlRetentionCurrentUsage
 }
 
-// GetHlRetentionCurrentUsageOk returns a tuple with the HlRetentionCurrentUsage field value if set, nil otherwise
+// GetHlRetentionCurrentUsageOk returns a tuple with the HlRetentionCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlRetentionCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlRetentionCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlRetentionCurrentUsage, true
+	return &o.HlRetentionCurrentUsage, true
 }
 
-// HasHlRetentionCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionCurrentUsage() bool {
-	if o != nil && !IsNil(o.HlRetentionCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionCurrentUsage gets a reference to the given float32 and assigns it to the HlRetentionCurrentUsage field.
+// SetHlRetentionCurrentUsage sets field value
 func (o *FormattedApiOrg) SetHlRetentionCurrentUsage(v float32) {
-	o.HlRetentionCurrentUsage = &v
+	o.HlRetentionCurrentUsage = v
 }
 
-// GetHlRetentionOverageAmount returns the HlRetentionOverageAmount field value if set, zero value otherwise.
+// GetHlRetentionOverageAmount returns the HlRetentionOverageAmount field value
 func (o *FormattedApiOrg) GetHlRetentionOverageAmount() float32 {
-	if o == nil || IsNil(o.HlRetentionOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlRetentionOverageAmount
+
+	return o.HlRetentionOverageAmount
 }
 
-// GetHlRetentionOverageAmountOk returns a tuple with the HlRetentionOverageAmount field value if set, nil otherwise
+// GetHlRetentionOverageAmountOk returns a tuple with the HlRetentionOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlRetentionOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlRetentionOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlRetentionOverageAmount, true
+	return &o.HlRetentionOverageAmount, true
 }
 
-// HasHlRetentionOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionOverageAmount() bool {
-	if o != nil && !IsNil(o.HlRetentionOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionOverageAmount gets a reference to the given float32 and assigns it to the HlRetentionOverageAmount field.
+// SetHlRetentionOverageAmount sets field value
 func (o *FormattedApiOrg) SetHlRetentionOverageAmount(v float32) {
-	o.HlRetentionOverageAmount = &v
+	o.HlRetentionOverageAmount = v
 }
 
-// GetHtBillingStartDate returns the HtBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHtBillingStartDate returns the HtBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHtBillingStartDate() string {
-	if o == nil || IsNil(o.HtBillingStartDate.Get()) {
+	if o == nil || o.HtBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HtBillingStartDate.Get()
 }
 
-// GetHtBillingStartDateOk returns a tuple with the HtBillingStartDate field value if set, nil otherwise
+// GetHtBillingStartDateOk returns a tuple with the HtBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHtBillingStartDateOk() (*string, bool) {
@@ -1864,40 +1632,23 @@ func (o *FormattedApiOrg) GetHtBillingStartDateOk() (*string, bool) {
 	return o.HtBillingStartDate.Get(), o.HtBillingStartDate.IsSet()
 }
 
-// HasHtBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtBillingStartDate() bool {
-	if o != nil && o.HtBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHtBillingStartDate gets a reference to the given NullableString and assigns it to the HtBillingStartDate field.
+// SetHtBillingStartDate sets field value
 func (o *FormattedApiOrg) SetHtBillingStartDate(v string) {
 	o.HtBillingStartDate.Set(&v)
 }
 
-// SetHtBillingStartDateNil sets the value for HtBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetHtBillingStartDateNil() {
-	o.HtBillingStartDate.Set(nil)
-}
-
-// UnsetHtBillingStartDate ensures that no value is present for HtBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHtBillingStartDate() {
-	o.HtBillingStartDate.Unset()
-}
-
-// GetHtBillingEndDate returns the HtBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHtBillingEndDate returns the HtBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHtBillingEndDate() string {
-	if o == nil || IsNil(o.HtBillingEndDate.Get()) {
+	if o == nil || o.HtBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HtBillingEndDate.Get()
 }
 
-// GetHtBillingEndDateOk returns a tuple with the HtBillingEndDate field value if set, nil otherwise
+// GetHtBillingEndDateOk returns a tuple with the HtBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHtBillingEndDateOk() (*string, bool) {
@@ -1907,40 +1658,23 @@ func (o *FormattedApiOrg) GetHtBillingEndDateOk() (*string, bool) {
 	return o.HtBillingEndDate.Get(), o.HtBillingEndDate.IsSet()
 }
 
-// HasHtBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtBillingEndDate() bool {
-	if o != nil && o.HtBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHtBillingEndDate gets a reference to the given NullableString and assigns it to the HtBillingEndDate field.
+// SetHtBillingEndDate sets field value
 func (o *FormattedApiOrg) SetHtBillingEndDate(v string) {
 	o.HtBillingEndDate.Set(&v)
 }
 
-// SetHtBillingEndDateNil sets the value for HtBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetHtBillingEndDateNil() {
-	o.HtBillingEndDate.Set(nil)
-}
-
-// UnsetHtBillingEndDate ensures that no value is present for HtBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHtBillingEndDate() {
-	o.HtBillingEndDate.Unset()
-}
-
-// GetHtBilledToDate returns the HtBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHtBilledToDate returns the HtBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHtBilledToDate() string {
-	if o == nil || IsNil(o.HtBilledToDate.Get()) {
+	if o == nil || o.HtBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HtBilledToDate.Get()
 }
 
-// GetHtBilledToDateOk returns a tuple with the HtBilledToDate field value if set, nil otherwise
+// GetHtBilledToDateOk returns a tuple with the HtBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHtBilledToDateOk() (*string, bool) {
@@ -1950,40 +1684,23 @@ func (o *FormattedApiOrg) GetHtBilledToDateOk() (*string, bool) {
 	return o.HtBilledToDate.Get(), o.HtBilledToDate.IsSet()
 }
 
-// HasHtBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtBilledToDate() bool {
-	if o != nil && o.HtBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHtBilledToDate gets a reference to the given NullableString and assigns it to the HtBilledToDate field.
+// SetHtBilledToDate sets field value
 func (o *FormattedApiOrg) SetHtBilledToDate(v string) {
 	o.HtBilledToDate.Set(&v)
 }
 
-// SetHtBilledToDateNil sets the value for HtBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetHtBilledToDateNil() {
-	o.HtBilledToDate.Set(nil)
-}
-
-// UnsetHtBilledToDate ensures that no value is present for HtBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHtBilledToDate() {
-	o.HtBilledToDate.Unset()
-}
-
-// GetHtOverageWarnDate returns the HtOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHtOverageWarnDate returns the HtOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHtOverageWarnDate() string {
-	if o == nil || IsNil(o.HtOverageWarnDate.Get()) {
+	if o == nil || o.HtOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HtOverageWarnDate.Get()
 }
 
-// GetHtOverageWarnDateOk returns a tuple with the HtOverageWarnDate field value if set, nil otherwise
+// GetHtOverageWarnDateOk returns a tuple with the HtOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHtOverageWarnDateOk() (*string, bool) {
@@ -1993,104 +1710,71 @@ func (o *FormattedApiOrg) GetHtOverageWarnDateOk() (*string, bool) {
 	return o.HtOverageWarnDate.Get(), o.HtOverageWarnDate.IsSet()
 }
 
-// HasHtOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtOverageWarnDate() bool {
-	if o != nil && o.HtOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHtOverageWarnDate gets a reference to the given NullableString and assigns it to the HtOverageWarnDate field.
+// SetHtOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetHtOverageWarnDate(v string) {
 	o.HtOverageWarnDate.Set(&v)
 }
 
-// SetHtOverageWarnDateNil sets the value for HtOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetHtOverageWarnDateNil() {
-	o.HtOverageWarnDate.Set(nil)
-}
-
-// UnsetHtOverageWarnDate ensures that no value is present for HtOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHtOverageWarnDate() {
-	o.HtOverageWarnDate.Unset()
-}
-
-// GetHtCurrentUsage returns the HtCurrentUsage field value if set, zero value otherwise.
+// GetHtCurrentUsage returns the HtCurrentUsage field value
 func (o *FormattedApiOrg) GetHtCurrentUsage() float32 {
-	if o == nil || IsNil(o.HtCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HtCurrentUsage
+
+	return o.HtCurrentUsage
 }
 
-// GetHtCurrentUsageOk returns a tuple with the HtCurrentUsage field value if set, nil otherwise
+// GetHtCurrentUsageOk returns a tuple with the HtCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHtCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HtCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HtCurrentUsage, true
+	return &o.HtCurrentUsage, true
 }
 
-// HasHtCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtCurrentUsage() bool {
-	if o != nil && !IsNil(o.HtCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHtCurrentUsage gets a reference to the given float32 and assigns it to the HtCurrentUsage field.
+// SetHtCurrentUsage sets field value
 func (o *FormattedApiOrg) SetHtCurrentUsage(v float32) {
-	o.HtCurrentUsage = &v
+	o.HtCurrentUsage = v
 }
 
-// GetHtOverageAmount returns the HtOverageAmount field value if set, zero value otherwise.
+// GetHtOverageAmount returns the HtOverageAmount field value
 func (o *FormattedApiOrg) GetHtOverageAmount() float32 {
-	if o == nil || IsNil(o.HtOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HtOverageAmount
+
+	return o.HtOverageAmount
 }
 
-// GetHtOverageAmountOk returns a tuple with the HtOverageAmount field value if set, nil otherwise
+// GetHtOverageAmountOk returns a tuple with the HtOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHtOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.HtOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HtOverageAmount, true
+	return &o.HtOverageAmount, true
 }
 
-// HasHtOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtOverageAmount() bool {
-	if o != nil && !IsNil(o.HtOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetHtOverageAmount gets a reference to the given float32 and assigns it to the HtOverageAmount field.
+// SetHtOverageAmount sets field value
 func (o *FormattedApiOrg) SetHtOverageAmount(v float32) {
-	o.HtOverageAmount = &v
+	o.HtOverageAmount = v
 }
 
-// GetIrmBillingStartDate returns the IrmBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIrmBillingStartDate returns the IrmBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetIrmBillingStartDate() string {
-	if o == nil || IsNil(o.IrmBillingStartDate.Get()) {
+	if o == nil || o.IrmBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.IrmBillingStartDate.Get()
 }
 
-// GetIrmBillingStartDateOk returns a tuple with the IrmBillingStartDate field value if set, nil otherwise
+// GetIrmBillingStartDateOk returns a tuple with the IrmBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetIrmBillingStartDateOk() (*string, bool) {
@@ -2100,40 +1784,23 @@ func (o *FormattedApiOrg) GetIrmBillingStartDateOk() (*string, bool) {
 	return o.IrmBillingStartDate.Get(), o.IrmBillingStartDate.IsSet()
 }
 
-// HasIrmBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmBillingStartDate() bool {
-	if o != nil && o.IrmBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmBillingStartDate gets a reference to the given NullableString and assigns it to the IrmBillingStartDate field.
+// SetIrmBillingStartDate sets field value
 func (o *FormattedApiOrg) SetIrmBillingStartDate(v string) {
 	o.IrmBillingStartDate.Set(&v)
 }
 
-// SetIrmBillingStartDateNil sets the value for IrmBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetIrmBillingStartDateNil() {
-	o.IrmBillingStartDate.Set(nil)
-}
-
-// UnsetIrmBillingStartDate ensures that no value is present for IrmBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetIrmBillingStartDate() {
-	o.IrmBillingStartDate.Unset()
-}
-
-// GetIrmBillingEndDate returns the IrmBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIrmBillingEndDate returns the IrmBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetIrmBillingEndDate() string {
-	if o == nil || IsNil(o.IrmBillingEndDate.Get()) {
+	if o == nil || o.IrmBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.IrmBillingEndDate.Get()
 }
 
-// GetIrmBillingEndDateOk returns a tuple with the IrmBillingEndDate field value if set, nil otherwise
+// GetIrmBillingEndDateOk returns a tuple with the IrmBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetIrmBillingEndDateOk() (*string, bool) {
@@ -2143,40 +1810,23 @@ func (o *FormattedApiOrg) GetIrmBillingEndDateOk() (*string, bool) {
 	return o.IrmBillingEndDate.Get(), o.IrmBillingEndDate.IsSet()
 }
 
-// HasIrmBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmBillingEndDate() bool {
-	if o != nil && o.IrmBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmBillingEndDate gets a reference to the given NullableString and assigns it to the IrmBillingEndDate field.
+// SetIrmBillingEndDate sets field value
 func (o *FormattedApiOrg) SetIrmBillingEndDate(v string) {
 	o.IrmBillingEndDate.Set(&v)
 }
 
-// SetIrmBillingEndDateNil sets the value for IrmBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetIrmBillingEndDateNil() {
-	o.IrmBillingEndDate.Set(nil)
-}
-
-// UnsetIrmBillingEndDate ensures that no value is present for IrmBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetIrmBillingEndDate() {
-	o.IrmBillingEndDate.Unset()
-}
-
-// GetIrmBilledToDate returns the IrmBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIrmBilledToDate returns the IrmBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetIrmBilledToDate() string {
-	if o == nil || IsNil(o.IrmBilledToDate.Get()) {
+	if o == nil || o.IrmBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.IrmBilledToDate.Get()
 }
 
-// GetIrmBilledToDateOk returns a tuple with the IrmBilledToDate field value if set, nil otherwise
+// GetIrmBilledToDateOk returns a tuple with the IrmBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetIrmBilledToDateOk() (*string, bool) {
@@ -2186,40 +1836,23 @@ func (o *FormattedApiOrg) GetIrmBilledToDateOk() (*string, bool) {
 	return o.IrmBilledToDate.Get(), o.IrmBilledToDate.IsSet()
 }
 
-// HasIrmBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmBilledToDate() bool {
-	if o != nil && o.IrmBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmBilledToDate gets a reference to the given NullableString and assigns it to the IrmBilledToDate field.
+// SetIrmBilledToDate sets field value
 func (o *FormattedApiOrg) SetIrmBilledToDate(v string) {
 	o.IrmBilledToDate.Set(&v)
 }
 
-// SetIrmBilledToDateNil sets the value for IrmBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetIrmBilledToDateNil() {
-	o.IrmBilledToDate.Set(nil)
-}
-
-// UnsetIrmBilledToDate ensures that no value is present for IrmBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetIrmBilledToDate() {
-	o.IrmBilledToDate.Unset()
-}
-
-// GetIrmOverageWarnDate returns the IrmOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIrmOverageWarnDate returns the IrmOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetIrmOverageWarnDate() string {
-	if o == nil || IsNil(o.IrmOverageWarnDate.Get()) {
+	if o == nil || o.IrmOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.IrmOverageWarnDate.Get()
 }
 
-// GetIrmOverageWarnDateOk returns a tuple with the IrmOverageWarnDate field value if set, nil otherwise
+// GetIrmOverageWarnDateOk returns a tuple with the IrmOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetIrmOverageWarnDateOk() (*string, bool) {
@@ -2229,104 +1862,71 @@ func (o *FormattedApiOrg) GetIrmOverageWarnDateOk() (*string, bool) {
 	return o.IrmOverageWarnDate.Get(), o.IrmOverageWarnDate.IsSet()
 }
 
-// HasIrmOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmOverageWarnDate() bool {
-	if o != nil && o.IrmOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmOverageWarnDate gets a reference to the given NullableString and assigns it to the IrmOverageWarnDate field.
+// SetIrmOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetIrmOverageWarnDate(v string) {
 	o.IrmOverageWarnDate.Set(&v)
 }
 
-// SetIrmOverageWarnDateNil sets the value for IrmOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetIrmOverageWarnDateNil() {
-	o.IrmOverageWarnDate.Set(nil)
-}
-
-// UnsetIrmOverageWarnDate ensures that no value is present for IrmOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetIrmOverageWarnDate() {
-	o.IrmOverageWarnDate.Unset()
-}
-
-// GetIrmCurrentUsage returns the IrmCurrentUsage field value if set, zero value otherwise.
+// GetIrmCurrentUsage returns the IrmCurrentUsage field value
 func (o *FormattedApiOrg) GetIrmCurrentUsage() float32 {
-	if o == nil || IsNil(o.IrmCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IrmCurrentUsage
+
+	return o.IrmCurrentUsage
 }
 
-// GetIrmCurrentUsageOk returns a tuple with the IrmCurrentUsage field value if set, nil otherwise
+// GetIrmCurrentUsageOk returns a tuple with the IrmCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIrmCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.IrmCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IrmCurrentUsage, true
+	return &o.IrmCurrentUsage, true
 }
 
-// HasIrmCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmCurrentUsage() bool {
-	if o != nil && !IsNil(o.IrmCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmCurrentUsage gets a reference to the given float32 and assigns it to the IrmCurrentUsage field.
+// SetIrmCurrentUsage sets field value
 func (o *FormattedApiOrg) SetIrmCurrentUsage(v float32) {
-	o.IrmCurrentUsage = &v
+	o.IrmCurrentUsage = v
 }
 
-// GetIrmOverageAmount returns the IrmOverageAmount field value if set, zero value otherwise.
+// GetIrmOverageAmount returns the IrmOverageAmount field value
 func (o *FormattedApiOrg) GetIrmOverageAmount() float32 {
-	if o == nil || IsNil(o.IrmOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IrmOverageAmount
+
+	return o.IrmOverageAmount
 }
 
-// GetIrmOverageAmountOk returns a tuple with the IrmOverageAmount field value if set, nil otherwise
+// GetIrmOverageAmountOk returns a tuple with the IrmOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIrmOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.IrmOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IrmOverageAmount, true
+	return &o.IrmOverageAmount, true
 }
 
-// HasIrmOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmOverageAmount() bool {
-	if o != nil && !IsNil(o.IrmOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmOverageAmount gets a reference to the given float32 and assigns it to the IrmOverageAmount field.
+// SetIrmOverageAmount sets field value
 func (o *FormattedApiOrg) SetIrmOverageAmount(v float32) {
-	o.IrmOverageAmount = &v
+	o.IrmOverageAmount = v
 }
 
-// GetHpBillingStartDate returns the HpBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHpBillingStartDate returns the HpBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHpBillingStartDate() string {
-	if o == nil || IsNil(o.HpBillingStartDate.Get()) {
+	if o == nil || o.HpBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HpBillingStartDate.Get()
 }
 
-// GetHpBillingStartDateOk returns a tuple with the HpBillingStartDate field value if set, nil otherwise
+// GetHpBillingStartDateOk returns a tuple with the HpBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHpBillingStartDateOk() (*string, bool) {
@@ -2336,40 +1936,23 @@ func (o *FormattedApiOrg) GetHpBillingStartDateOk() (*string, bool) {
 	return o.HpBillingStartDate.Get(), o.HpBillingStartDate.IsSet()
 }
 
-// HasHpBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpBillingStartDate() bool {
-	if o != nil && o.HpBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHpBillingStartDate gets a reference to the given NullableString and assigns it to the HpBillingStartDate field.
+// SetHpBillingStartDate sets field value
 func (o *FormattedApiOrg) SetHpBillingStartDate(v string) {
 	o.HpBillingStartDate.Set(&v)
 }
 
-// SetHpBillingStartDateNil sets the value for HpBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetHpBillingStartDateNil() {
-	o.HpBillingStartDate.Set(nil)
-}
-
-// UnsetHpBillingStartDate ensures that no value is present for HpBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHpBillingStartDate() {
-	o.HpBillingStartDate.Unset()
-}
-
-// GetHpBillingEndDate returns the HpBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHpBillingEndDate returns the HpBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHpBillingEndDate() string {
-	if o == nil || IsNil(o.HpBillingEndDate.Get()) {
+	if o == nil || o.HpBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HpBillingEndDate.Get()
 }
 
-// GetHpBillingEndDateOk returns a tuple with the HpBillingEndDate field value if set, nil otherwise
+// GetHpBillingEndDateOk returns a tuple with the HpBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHpBillingEndDateOk() (*string, bool) {
@@ -2379,40 +1962,23 @@ func (o *FormattedApiOrg) GetHpBillingEndDateOk() (*string, bool) {
 	return o.HpBillingEndDate.Get(), o.HpBillingEndDate.IsSet()
 }
 
-// HasHpBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpBillingEndDate() bool {
-	if o != nil && o.HpBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHpBillingEndDate gets a reference to the given NullableString and assigns it to the HpBillingEndDate field.
+// SetHpBillingEndDate sets field value
 func (o *FormattedApiOrg) SetHpBillingEndDate(v string) {
 	o.HpBillingEndDate.Set(&v)
 }
 
-// SetHpBillingEndDateNil sets the value for HpBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetHpBillingEndDateNil() {
-	o.HpBillingEndDate.Set(nil)
-}
-
-// UnsetHpBillingEndDate ensures that no value is present for HpBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHpBillingEndDate() {
-	o.HpBillingEndDate.Unset()
-}
-
-// GetHpBilledToDate returns the HpBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHpBilledToDate returns the HpBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHpBilledToDate() string {
-	if o == nil || IsNil(o.HpBilledToDate.Get()) {
+	if o == nil || o.HpBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HpBilledToDate.Get()
 }
 
-// GetHpBilledToDateOk returns a tuple with the HpBilledToDate field value if set, nil otherwise
+// GetHpBilledToDateOk returns a tuple with the HpBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHpBilledToDateOk() (*string, bool) {
@@ -2422,40 +1988,23 @@ func (o *FormattedApiOrg) GetHpBilledToDateOk() (*string, bool) {
 	return o.HpBilledToDate.Get(), o.HpBilledToDate.IsSet()
 }
 
-// HasHpBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpBilledToDate() bool {
-	if o != nil && o.HpBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHpBilledToDate gets a reference to the given NullableString and assigns it to the HpBilledToDate field.
+// SetHpBilledToDate sets field value
 func (o *FormattedApiOrg) SetHpBilledToDate(v string) {
 	o.HpBilledToDate.Set(&v)
 }
 
-// SetHpBilledToDateNil sets the value for HpBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetHpBilledToDateNil() {
-	o.HpBilledToDate.Set(nil)
-}
-
-// UnsetHpBilledToDate ensures that no value is present for HpBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHpBilledToDate() {
-	o.HpBilledToDate.Unset()
-}
-
-// GetHpOverageWarnDate returns the HpOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHpOverageWarnDate returns the HpOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHpOverageWarnDate() string {
-	if o == nil || IsNil(o.HpOverageWarnDate.Get()) {
+	if o == nil || o.HpOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HpOverageWarnDate.Get()
 }
 
-// GetHpOverageWarnDateOk returns a tuple with the HpOverageWarnDate field value if set, nil otherwise
+// GetHpOverageWarnDateOk returns a tuple with the HpOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHpOverageWarnDateOk() (*string, bool) {
@@ -2465,104 +2014,71 @@ func (o *FormattedApiOrg) GetHpOverageWarnDateOk() (*string, bool) {
 	return o.HpOverageWarnDate.Get(), o.HpOverageWarnDate.IsSet()
 }
 
-// HasHpOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpOverageWarnDate() bool {
-	if o != nil && o.HpOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHpOverageWarnDate gets a reference to the given NullableString and assigns it to the HpOverageWarnDate field.
+// SetHpOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetHpOverageWarnDate(v string) {
 	o.HpOverageWarnDate.Set(&v)
 }
 
-// SetHpOverageWarnDateNil sets the value for HpOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetHpOverageWarnDateNil() {
-	o.HpOverageWarnDate.Set(nil)
-}
-
-// UnsetHpOverageWarnDate ensures that no value is present for HpOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHpOverageWarnDate() {
-	o.HpOverageWarnDate.Unset()
-}
-
-// GetHpCurrentUsage returns the HpCurrentUsage field value if set, zero value otherwise.
+// GetHpCurrentUsage returns the HpCurrentUsage field value
 func (o *FormattedApiOrg) GetHpCurrentUsage() float32 {
-	if o == nil || IsNil(o.HpCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HpCurrentUsage
+
+	return o.HpCurrentUsage
 }
 
-// GetHpCurrentUsageOk returns a tuple with the HpCurrentUsage field value if set, nil otherwise
+// GetHpCurrentUsageOk returns a tuple with the HpCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHpCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HpCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HpCurrentUsage, true
+	return &o.HpCurrentUsage, true
 }
 
-// HasHpCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpCurrentUsage() bool {
-	if o != nil && !IsNil(o.HpCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHpCurrentUsage gets a reference to the given float32 and assigns it to the HpCurrentUsage field.
+// SetHpCurrentUsage sets field value
 func (o *FormattedApiOrg) SetHpCurrentUsage(v float32) {
-	o.HpCurrentUsage = &v
+	o.HpCurrentUsage = v
 }
 
-// GetHpOverageAmount returns the HpOverageAmount field value if set, zero value otherwise.
+// GetHpOverageAmount returns the HpOverageAmount field value
 func (o *FormattedApiOrg) GetHpOverageAmount() float32 {
-	if o == nil || IsNil(o.HpOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HpOverageAmount
+
+	return o.HpOverageAmount
 }
 
-// GetHpOverageAmountOk returns a tuple with the HpOverageAmount field value if set, nil otherwise
+// GetHpOverageAmountOk returns a tuple with the HpOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHpOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.HpOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HpOverageAmount, true
+	return &o.HpOverageAmount, true
 }
 
-// HasHpOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpOverageAmount() bool {
-	if o != nil && !IsNil(o.HpOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetHpOverageAmount gets a reference to the given float32 and assigns it to the HpOverageAmount field.
+// SetHpOverageAmount sets field value
 func (o *FormattedApiOrg) SetHpOverageAmount(v float32) {
-	o.HpOverageAmount = &v
+	o.HpOverageAmount = v
 }
 
-// GetK6VuhBillingStartDate returns the K6VuhBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetK6VuhBillingStartDate returns the K6VuhBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetK6VuhBillingStartDate() string {
-	if o == nil || IsNil(o.K6VuhBillingStartDate.Get()) {
+	if o == nil || o.K6VuhBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.K6VuhBillingStartDate.Get()
 }
 
-// GetK6VuhBillingStartDateOk returns a tuple with the K6VuhBillingStartDate field value if set, nil otherwise
+// GetK6VuhBillingStartDateOk returns a tuple with the K6VuhBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetK6VuhBillingStartDateOk() (*string, bool) {
@@ -2572,40 +2088,23 @@ func (o *FormattedApiOrg) GetK6VuhBillingStartDateOk() (*string, bool) {
 	return o.K6VuhBillingStartDate.Get(), o.K6VuhBillingStartDate.IsSet()
 }
 
-// HasK6VuhBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhBillingStartDate() bool {
-	if o != nil && o.K6VuhBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhBillingStartDate gets a reference to the given NullableString and assigns it to the K6VuhBillingStartDate field.
+// SetK6VuhBillingStartDate sets field value
 func (o *FormattedApiOrg) SetK6VuhBillingStartDate(v string) {
 	o.K6VuhBillingStartDate.Set(&v)
 }
 
-// SetK6VuhBillingStartDateNil sets the value for K6VuhBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetK6VuhBillingStartDateNil() {
-	o.K6VuhBillingStartDate.Set(nil)
-}
-
-// UnsetK6VuhBillingStartDate ensures that no value is present for K6VuhBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetK6VuhBillingStartDate() {
-	o.K6VuhBillingStartDate.Unset()
-}
-
-// GetK6VuhBillingEndDate returns the K6VuhBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetK6VuhBillingEndDate returns the K6VuhBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetK6VuhBillingEndDate() string {
-	if o == nil || IsNil(o.K6VuhBillingEndDate.Get()) {
+	if o == nil || o.K6VuhBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.K6VuhBillingEndDate.Get()
 }
 
-// GetK6VuhBillingEndDateOk returns a tuple with the K6VuhBillingEndDate field value if set, nil otherwise
+// GetK6VuhBillingEndDateOk returns a tuple with the K6VuhBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetK6VuhBillingEndDateOk() (*string, bool) {
@@ -2615,40 +2114,23 @@ func (o *FormattedApiOrg) GetK6VuhBillingEndDateOk() (*string, bool) {
 	return o.K6VuhBillingEndDate.Get(), o.K6VuhBillingEndDate.IsSet()
 }
 
-// HasK6VuhBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhBillingEndDate() bool {
-	if o != nil && o.K6VuhBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhBillingEndDate gets a reference to the given NullableString and assigns it to the K6VuhBillingEndDate field.
+// SetK6VuhBillingEndDate sets field value
 func (o *FormattedApiOrg) SetK6VuhBillingEndDate(v string) {
 	o.K6VuhBillingEndDate.Set(&v)
 }
 
-// SetK6VuhBillingEndDateNil sets the value for K6VuhBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetK6VuhBillingEndDateNil() {
-	o.K6VuhBillingEndDate.Set(nil)
-}
-
-// UnsetK6VuhBillingEndDate ensures that no value is present for K6VuhBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetK6VuhBillingEndDate() {
-	o.K6VuhBillingEndDate.Unset()
-}
-
-// GetK6VuhBilledToDate returns the K6VuhBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetK6VuhBilledToDate returns the K6VuhBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetK6VuhBilledToDate() string {
-	if o == nil || IsNil(o.K6VuhBilledToDate.Get()) {
+	if o == nil || o.K6VuhBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.K6VuhBilledToDate.Get()
 }
 
-// GetK6VuhBilledToDateOk returns a tuple with the K6VuhBilledToDate field value if set, nil otherwise
+// GetK6VuhBilledToDateOk returns a tuple with the K6VuhBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetK6VuhBilledToDateOk() (*string, bool) {
@@ -2658,40 +2140,23 @@ func (o *FormattedApiOrg) GetK6VuhBilledToDateOk() (*string, bool) {
 	return o.K6VuhBilledToDate.Get(), o.K6VuhBilledToDate.IsSet()
 }
 
-// HasK6VuhBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhBilledToDate() bool {
-	if o != nil && o.K6VuhBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhBilledToDate gets a reference to the given NullableString and assigns it to the K6VuhBilledToDate field.
+// SetK6VuhBilledToDate sets field value
 func (o *FormattedApiOrg) SetK6VuhBilledToDate(v string) {
 	o.K6VuhBilledToDate.Set(&v)
 }
 
-// SetK6VuhBilledToDateNil sets the value for K6VuhBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetK6VuhBilledToDateNil() {
-	o.K6VuhBilledToDate.Set(nil)
-}
-
-// UnsetK6VuhBilledToDate ensures that no value is present for K6VuhBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetK6VuhBilledToDate() {
-	o.K6VuhBilledToDate.Unset()
-}
-
-// GetK6VuhOverageWarnDate returns the K6VuhOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetK6VuhOverageWarnDate returns the K6VuhOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetK6VuhOverageWarnDate() string {
-	if o == nil || IsNil(o.K6VuhOverageWarnDate.Get()) {
+	if o == nil || o.K6VuhOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.K6VuhOverageWarnDate.Get()
 }
 
-// GetK6VuhOverageWarnDateOk returns a tuple with the K6VuhOverageWarnDate field value if set, nil otherwise
+// GetK6VuhOverageWarnDateOk returns a tuple with the K6VuhOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetK6VuhOverageWarnDateOk() (*string, bool) {
@@ -2701,104 +2166,71 @@ func (o *FormattedApiOrg) GetK6VuhOverageWarnDateOk() (*string, bool) {
 	return o.K6VuhOverageWarnDate.Get(), o.K6VuhOverageWarnDate.IsSet()
 }
 
-// HasK6VuhOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhOverageWarnDate() bool {
-	if o != nil && o.K6VuhOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhOverageWarnDate gets a reference to the given NullableString and assigns it to the K6VuhOverageWarnDate field.
+// SetK6VuhOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetK6VuhOverageWarnDate(v string) {
 	o.K6VuhOverageWarnDate.Set(&v)
 }
 
-// SetK6VuhOverageWarnDateNil sets the value for K6VuhOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetK6VuhOverageWarnDateNil() {
-	o.K6VuhOverageWarnDate.Set(nil)
-}
-
-// UnsetK6VuhOverageWarnDate ensures that no value is present for K6VuhOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetK6VuhOverageWarnDate() {
-	o.K6VuhOverageWarnDate.Unset()
-}
-
-// GetK6VuhCurrentUsage returns the K6VuhCurrentUsage field value if set, zero value otherwise.
+// GetK6VuhCurrentUsage returns the K6VuhCurrentUsage field value
 func (o *FormattedApiOrg) GetK6VuhCurrentUsage() float32 {
-	if o == nil || IsNil(o.K6VuhCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6VuhCurrentUsage
+
+	return o.K6VuhCurrentUsage
 }
 
-// GetK6VuhCurrentUsageOk returns a tuple with the K6VuhCurrentUsage field value if set, nil otherwise
+// GetK6VuhCurrentUsageOk returns a tuple with the K6VuhCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6VuhCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6VuhCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6VuhCurrentUsage, true
+	return &o.K6VuhCurrentUsage, true
 }
 
-// HasK6VuhCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhCurrentUsage() bool {
-	if o != nil && !IsNil(o.K6VuhCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhCurrentUsage gets a reference to the given float32 and assigns it to the K6VuhCurrentUsage field.
+// SetK6VuhCurrentUsage sets field value
 func (o *FormattedApiOrg) SetK6VuhCurrentUsage(v float32) {
-	o.K6VuhCurrentUsage = &v
+	o.K6VuhCurrentUsage = v
 }
 
-// GetK6VuhOverageAmount returns the K6VuhOverageAmount field value if set, zero value otherwise.
+// GetK6VuhOverageAmount returns the K6VuhOverageAmount field value
 func (o *FormattedApiOrg) GetK6VuhOverageAmount() float32 {
-	if o == nil || IsNil(o.K6VuhOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6VuhOverageAmount
+
+	return o.K6VuhOverageAmount
 }
 
-// GetK6VuhOverageAmountOk returns a tuple with the K6VuhOverageAmount field value if set, nil otherwise
+// GetK6VuhOverageAmountOk returns a tuple with the K6VuhOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6VuhOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6VuhOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6VuhOverageAmount, true
+	return &o.K6VuhOverageAmount, true
 }
 
-// HasK6VuhOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhOverageAmount() bool {
-	if o != nil && !IsNil(o.K6VuhOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhOverageAmount gets a reference to the given float32 and assigns it to the K6VuhOverageAmount field.
+// SetK6VuhOverageAmount sets field value
 func (o *FormattedApiOrg) SetK6VuhOverageAmount(v float32) {
-	o.K6VuhOverageAmount = &v
+	o.K6VuhOverageAmount = v
 }
 
-// GetK6IPBillingStartDate returns the K6IPBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetK6IPBillingStartDate returns the K6IPBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetK6IPBillingStartDate() string {
-	if o == nil || IsNil(o.K6IPBillingStartDate.Get()) {
+	if o == nil || o.K6IPBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.K6IPBillingStartDate.Get()
 }
 
-// GetK6IPBillingStartDateOk returns a tuple with the K6IPBillingStartDate field value if set, nil otherwise
+// GetK6IPBillingStartDateOk returns a tuple with the K6IPBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetK6IPBillingStartDateOk() (*string, bool) {
@@ -2808,40 +2240,23 @@ func (o *FormattedApiOrg) GetK6IPBillingStartDateOk() (*string, bool) {
 	return o.K6IPBillingStartDate.Get(), o.K6IPBillingStartDate.IsSet()
 }
 
-// HasK6IPBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPBillingStartDate() bool {
-	if o != nil && o.K6IPBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPBillingStartDate gets a reference to the given NullableString and assigns it to the K6IPBillingStartDate field.
+// SetK6IPBillingStartDate sets field value
 func (o *FormattedApiOrg) SetK6IPBillingStartDate(v string) {
 	o.K6IPBillingStartDate.Set(&v)
 }
 
-// SetK6IPBillingStartDateNil sets the value for K6IPBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetK6IPBillingStartDateNil() {
-	o.K6IPBillingStartDate.Set(nil)
-}
-
-// UnsetK6IPBillingStartDate ensures that no value is present for K6IPBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetK6IPBillingStartDate() {
-	o.K6IPBillingStartDate.Unset()
-}
-
-// GetK6IPBillingEndDate returns the K6IPBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetK6IPBillingEndDate returns the K6IPBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetK6IPBillingEndDate() string {
-	if o == nil || IsNil(o.K6IPBillingEndDate.Get()) {
+	if o == nil || o.K6IPBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.K6IPBillingEndDate.Get()
 }
 
-// GetK6IPBillingEndDateOk returns a tuple with the K6IPBillingEndDate field value if set, nil otherwise
+// GetK6IPBillingEndDateOk returns a tuple with the K6IPBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetK6IPBillingEndDateOk() (*string, bool) {
@@ -2851,40 +2266,23 @@ func (o *FormattedApiOrg) GetK6IPBillingEndDateOk() (*string, bool) {
 	return o.K6IPBillingEndDate.Get(), o.K6IPBillingEndDate.IsSet()
 }
 
-// HasK6IPBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPBillingEndDate() bool {
-	if o != nil && o.K6IPBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPBillingEndDate gets a reference to the given NullableString and assigns it to the K6IPBillingEndDate field.
+// SetK6IPBillingEndDate sets field value
 func (o *FormattedApiOrg) SetK6IPBillingEndDate(v string) {
 	o.K6IPBillingEndDate.Set(&v)
 }
 
-// SetK6IPBillingEndDateNil sets the value for K6IPBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetK6IPBillingEndDateNil() {
-	o.K6IPBillingEndDate.Set(nil)
-}
-
-// UnsetK6IPBillingEndDate ensures that no value is present for K6IPBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetK6IPBillingEndDate() {
-	o.K6IPBillingEndDate.Unset()
-}
-
-// GetK6IPBilledToDate returns the K6IPBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetK6IPBilledToDate returns the K6IPBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetK6IPBilledToDate() string {
-	if o == nil || IsNil(o.K6IPBilledToDate.Get()) {
+	if o == nil || o.K6IPBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.K6IPBilledToDate.Get()
 }
 
-// GetK6IPBilledToDateOk returns a tuple with the K6IPBilledToDate field value if set, nil otherwise
+// GetK6IPBilledToDateOk returns a tuple with the K6IPBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetK6IPBilledToDateOk() (*string, bool) {
@@ -2894,40 +2292,23 @@ func (o *FormattedApiOrg) GetK6IPBilledToDateOk() (*string, bool) {
 	return o.K6IPBilledToDate.Get(), o.K6IPBilledToDate.IsSet()
 }
 
-// HasK6IPBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPBilledToDate() bool {
-	if o != nil && o.K6IPBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPBilledToDate gets a reference to the given NullableString and assigns it to the K6IPBilledToDate field.
+// SetK6IPBilledToDate sets field value
 func (o *FormattedApiOrg) SetK6IPBilledToDate(v string) {
 	o.K6IPBilledToDate.Set(&v)
 }
 
-// SetK6IPBilledToDateNil sets the value for K6IPBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetK6IPBilledToDateNil() {
-	o.K6IPBilledToDate.Set(nil)
-}
-
-// UnsetK6IPBilledToDate ensures that no value is present for K6IPBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetK6IPBilledToDate() {
-	o.K6IPBilledToDate.Unset()
-}
-
-// GetK6IPOverageWarnDate returns the K6IPOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetK6IPOverageWarnDate returns the K6IPOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetK6IPOverageWarnDate() string {
-	if o == nil || IsNil(o.K6IPOverageWarnDate.Get()) {
+	if o == nil || o.K6IPOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.K6IPOverageWarnDate.Get()
 }
 
-// GetK6IPOverageWarnDateOk returns a tuple with the K6IPOverageWarnDate field value if set, nil otherwise
+// GetK6IPOverageWarnDateOk returns a tuple with the K6IPOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetK6IPOverageWarnDateOk() (*string, bool) {
@@ -2937,104 +2318,71 @@ func (o *FormattedApiOrg) GetK6IPOverageWarnDateOk() (*string, bool) {
 	return o.K6IPOverageWarnDate.Get(), o.K6IPOverageWarnDate.IsSet()
 }
 
-// HasK6IPOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPOverageWarnDate() bool {
-	if o != nil && o.K6IPOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPOverageWarnDate gets a reference to the given NullableString and assigns it to the K6IPOverageWarnDate field.
+// SetK6IPOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetK6IPOverageWarnDate(v string) {
 	o.K6IPOverageWarnDate.Set(&v)
 }
 
-// SetK6IPOverageWarnDateNil sets the value for K6IPOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetK6IPOverageWarnDateNil() {
-	o.K6IPOverageWarnDate.Set(nil)
-}
-
-// UnsetK6IPOverageWarnDate ensures that no value is present for K6IPOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetK6IPOverageWarnDate() {
-	o.K6IPOverageWarnDate.Unset()
-}
-
-// GetK6IPCurrentUsage returns the K6IPCurrentUsage field value if set, zero value otherwise.
+// GetK6IPCurrentUsage returns the K6IPCurrentUsage field value
 func (o *FormattedApiOrg) GetK6IPCurrentUsage() float32 {
-	if o == nil || IsNil(o.K6IPCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6IPCurrentUsage
+
+	return o.K6IPCurrentUsage
 }
 
-// GetK6IPCurrentUsageOk returns a tuple with the K6IPCurrentUsage field value if set, nil otherwise
+// GetK6IPCurrentUsageOk returns a tuple with the K6IPCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6IPCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6IPCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6IPCurrentUsage, true
+	return &o.K6IPCurrentUsage, true
 }
 
-// HasK6IPCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPCurrentUsage() bool {
-	if o != nil && !IsNil(o.K6IPCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPCurrentUsage gets a reference to the given float32 and assigns it to the K6IPCurrentUsage field.
+// SetK6IPCurrentUsage sets field value
 func (o *FormattedApiOrg) SetK6IPCurrentUsage(v float32) {
-	o.K6IPCurrentUsage = &v
+	o.K6IPCurrentUsage = v
 }
 
-// GetK6IPOverageAmount returns the K6IPOverageAmount field value if set, zero value otherwise.
+// GetK6IPOverageAmount returns the K6IPOverageAmount field value
 func (o *FormattedApiOrg) GetK6IPOverageAmount() float32 {
-	if o == nil || IsNil(o.K6IPOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6IPOverageAmount
+
+	return o.K6IPOverageAmount
 }
 
-// GetK6IPOverageAmountOk returns a tuple with the K6IPOverageAmount field value if set, nil otherwise
+// GetK6IPOverageAmountOk returns a tuple with the K6IPOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6IPOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6IPOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6IPOverageAmount, true
+	return &o.K6IPOverageAmount, true
 }
 
-// HasK6IPOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPOverageAmount() bool {
-	if o != nil && !IsNil(o.K6IPOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPOverageAmount gets a reference to the given float32 and assigns it to the K6IPOverageAmount field.
+// SetK6IPOverageAmount sets field value
 func (o *FormattedApiOrg) SetK6IPOverageAmount(v float32) {
-	o.K6IPOverageAmount = &v
+	o.K6IPOverageAmount = v
 }
 
-// GetFeO11yBillingStartDate returns the FeO11yBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFeO11yBillingStartDate returns the FeO11yBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetFeO11yBillingStartDate() string {
-	if o == nil || IsNil(o.FeO11yBillingStartDate.Get()) {
+	if o == nil || o.FeO11yBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.FeO11yBillingStartDate.Get()
 }
 
-// GetFeO11yBillingStartDateOk returns a tuple with the FeO11yBillingStartDate field value if set, nil otherwise
+// GetFeO11yBillingStartDateOk returns a tuple with the FeO11yBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetFeO11yBillingStartDateOk() (*string, bool) {
@@ -3044,40 +2392,23 @@ func (o *FormattedApiOrg) GetFeO11yBillingStartDateOk() (*string, bool) {
 	return o.FeO11yBillingStartDate.Get(), o.FeO11yBillingStartDate.IsSet()
 }
 
-// HasFeO11yBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yBillingStartDate() bool {
-	if o != nil && o.FeO11yBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yBillingStartDate gets a reference to the given NullableString and assigns it to the FeO11yBillingStartDate field.
+// SetFeO11yBillingStartDate sets field value
 func (o *FormattedApiOrg) SetFeO11yBillingStartDate(v string) {
 	o.FeO11yBillingStartDate.Set(&v)
 }
 
-// SetFeO11yBillingStartDateNil sets the value for FeO11yBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetFeO11yBillingStartDateNil() {
-	o.FeO11yBillingStartDate.Set(nil)
-}
-
-// UnsetFeO11yBillingStartDate ensures that no value is present for FeO11yBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetFeO11yBillingStartDate() {
-	o.FeO11yBillingStartDate.Unset()
-}
-
-// GetFeO11yBillingEndDate returns the FeO11yBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFeO11yBillingEndDate returns the FeO11yBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetFeO11yBillingEndDate() string {
-	if o == nil || IsNil(o.FeO11yBillingEndDate.Get()) {
+	if o == nil || o.FeO11yBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.FeO11yBillingEndDate.Get()
 }
 
-// GetFeO11yBillingEndDateOk returns a tuple with the FeO11yBillingEndDate field value if set, nil otherwise
+// GetFeO11yBillingEndDateOk returns a tuple with the FeO11yBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetFeO11yBillingEndDateOk() (*string, bool) {
@@ -3087,40 +2418,23 @@ func (o *FormattedApiOrg) GetFeO11yBillingEndDateOk() (*string, bool) {
 	return o.FeO11yBillingEndDate.Get(), o.FeO11yBillingEndDate.IsSet()
 }
 
-// HasFeO11yBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yBillingEndDate() bool {
-	if o != nil && o.FeO11yBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yBillingEndDate gets a reference to the given NullableString and assigns it to the FeO11yBillingEndDate field.
+// SetFeO11yBillingEndDate sets field value
 func (o *FormattedApiOrg) SetFeO11yBillingEndDate(v string) {
 	o.FeO11yBillingEndDate.Set(&v)
 }
 
-// SetFeO11yBillingEndDateNil sets the value for FeO11yBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetFeO11yBillingEndDateNil() {
-	o.FeO11yBillingEndDate.Set(nil)
-}
-
-// UnsetFeO11yBillingEndDate ensures that no value is present for FeO11yBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetFeO11yBillingEndDate() {
-	o.FeO11yBillingEndDate.Unset()
-}
-
-// GetFeO11yBilledToDate returns the FeO11yBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFeO11yBilledToDate returns the FeO11yBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetFeO11yBilledToDate() string {
-	if o == nil || IsNil(o.FeO11yBilledToDate.Get()) {
+	if o == nil || o.FeO11yBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.FeO11yBilledToDate.Get()
 }
 
-// GetFeO11yBilledToDateOk returns a tuple with the FeO11yBilledToDate field value if set, nil otherwise
+// GetFeO11yBilledToDateOk returns a tuple with the FeO11yBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetFeO11yBilledToDateOk() (*string, bool) {
@@ -3130,40 +2444,23 @@ func (o *FormattedApiOrg) GetFeO11yBilledToDateOk() (*string, bool) {
 	return o.FeO11yBilledToDate.Get(), o.FeO11yBilledToDate.IsSet()
 }
 
-// HasFeO11yBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yBilledToDate() bool {
-	if o != nil && o.FeO11yBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yBilledToDate gets a reference to the given NullableString and assigns it to the FeO11yBilledToDate field.
+// SetFeO11yBilledToDate sets field value
 func (o *FormattedApiOrg) SetFeO11yBilledToDate(v string) {
 	o.FeO11yBilledToDate.Set(&v)
 }
 
-// SetFeO11yBilledToDateNil sets the value for FeO11yBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetFeO11yBilledToDateNil() {
-	o.FeO11yBilledToDate.Set(nil)
-}
-
-// UnsetFeO11yBilledToDate ensures that no value is present for FeO11yBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetFeO11yBilledToDate() {
-	o.FeO11yBilledToDate.Unset()
-}
-
-// GetFeO11yOverageWarnDate returns the FeO11yOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFeO11yOverageWarnDate returns the FeO11yOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetFeO11yOverageWarnDate() string {
-	if o == nil || IsNil(o.FeO11yOverageWarnDate.Get()) {
+	if o == nil || o.FeO11yOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.FeO11yOverageWarnDate.Get()
 }
 
-// GetFeO11yOverageWarnDateOk returns a tuple with the FeO11yOverageWarnDate field value if set, nil otherwise
+// GetFeO11yOverageWarnDateOk returns a tuple with the FeO11yOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetFeO11yOverageWarnDateOk() (*string, bool) {
@@ -3173,104 +2470,71 @@ func (o *FormattedApiOrg) GetFeO11yOverageWarnDateOk() (*string, bool) {
 	return o.FeO11yOverageWarnDate.Get(), o.FeO11yOverageWarnDate.IsSet()
 }
 
-// HasFeO11yOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yOverageWarnDate() bool {
-	if o != nil && o.FeO11yOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yOverageWarnDate gets a reference to the given NullableString and assigns it to the FeO11yOverageWarnDate field.
+// SetFeO11yOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetFeO11yOverageWarnDate(v string) {
 	o.FeO11yOverageWarnDate.Set(&v)
 }
 
-// SetFeO11yOverageWarnDateNil sets the value for FeO11yOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetFeO11yOverageWarnDateNil() {
-	o.FeO11yOverageWarnDate.Set(nil)
-}
-
-// UnsetFeO11yOverageWarnDate ensures that no value is present for FeO11yOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetFeO11yOverageWarnDate() {
-	o.FeO11yOverageWarnDate.Unset()
-}
-
-// GetFeO11yCurrentUsage returns the FeO11yCurrentUsage field value if set, zero value otherwise.
+// GetFeO11yCurrentUsage returns the FeO11yCurrentUsage field value
 func (o *FormattedApiOrg) GetFeO11yCurrentUsage() float32 {
-	if o == nil || IsNil(o.FeO11yCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FeO11yCurrentUsage
+
+	return o.FeO11yCurrentUsage
 }
 
-// GetFeO11yCurrentUsageOk returns a tuple with the FeO11yCurrentUsage field value if set, nil otherwise
+// GetFeO11yCurrentUsageOk returns a tuple with the FeO11yCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetFeO11yCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.FeO11yCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FeO11yCurrentUsage, true
+	return &o.FeO11yCurrentUsage, true
 }
 
-// HasFeO11yCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yCurrentUsage() bool {
-	if o != nil && !IsNil(o.FeO11yCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yCurrentUsage gets a reference to the given float32 and assigns it to the FeO11yCurrentUsage field.
+// SetFeO11yCurrentUsage sets field value
 func (o *FormattedApiOrg) SetFeO11yCurrentUsage(v float32) {
-	o.FeO11yCurrentUsage = &v
+	o.FeO11yCurrentUsage = v
 }
 
-// GetFeO11yOverageAmount returns the FeO11yOverageAmount field value if set, zero value otherwise.
+// GetFeO11yOverageAmount returns the FeO11yOverageAmount field value
 func (o *FormattedApiOrg) GetFeO11yOverageAmount() float32 {
-	if o == nil || IsNil(o.FeO11yOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FeO11yOverageAmount
+
+	return o.FeO11yOverageAmount
 }
 
-// GetFeO11yOverageAmountOk returns a tuple with the FeO11yOverageAmount field value if set, nil otherwise
+// GetFeO11yOverageAmountOk returns a tuple with the FeO11yOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetFeO11yOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.FeO11yOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FeO11yOverageAmount, true
+	return &o.FeO11yOverageAmount, true
 }
 
-// HasFeO11yOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yOverageAmount() bool {
-	if o != nil && !IsNil(o.FeO11yOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yOverageAmount gets a reference to the given float32 and assigns it to the FeO11yOverageAmount field.
+// SetFeO11yOverageAmount sets field value
 func (o *FormattedApiOrg) SetFeO11yOverageAmount(v float32) {
-	o.FeO11yOverageAmount = &v
+	o.FeO11yOverageAmount = v
 }
 
-// GetGeUsersBillingStartDate returns the GeUsersBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGeUsersBillingStartDate returns the GeUsersBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetGeUsersBillingStartDate() string {
-	if o == nil || IsNil(o.GeUsersBillingStartDate.Get()) {
+	if o == nil || o.GeUsersBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.GeUsersBillingStartDate.Get()
 }
 
-// GetGeUsersBillingStartDateOk returns a tuple with the GeUsersBillingStartDate field value if set, nil otherwise
+// GetGeUsersBillingStartDateOk returns a tuple with the GeUsersBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetGeUsersBillingStartDateOk() (*string, bool) {
@@ -3280,40 +2544,23 @@ func (o *FormattedApiOrg) GetGeUsersBillingStartDateOk() (*string, bool) {
 	return o.GeUsersBillingStartDate.Get(), o.GeUsersBillingStartDate.IsSet()
 }
 
-// HasGeUsersBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersBillingStartDate() bool {
-	if o != nil && o.GeUsersBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersBillingStartDate gets a reference to the given NullableString and assigns it to the GeUsersBillingStartDate field.
+// SetGeUsersBillingStartDate sets field value
 func (o *FormattedApiOrg) SetGeUsersBillingStartDate(v string) {
 	o.GeUsersBillingStartDate.Set(&v)
 }
 
-// SetGeUsersBillingStartDateNil sets the value for GeUsersBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetGeUsersBillingStartDateNil() {
-	o.GeUsersBillingStartDate.Set(nil)
-}
-
-// UnsetGeUsersBillingStartDate ensures that no value is present for GeUsersBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetGeUsersBillingStartDate() {
-	o.GeUsersBillingStartDate.Unset()
-}
-
-// GetGeUsersBillingEndDate returns the GeUsersBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGeUsersBillingEndDate returns the GeUsersBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetGeUsersBillingEndDate() string {
-	if o == nil || IsNil(o.GeUsersBillingEndDate.Get()) {
+	if o == nil || o.GeUsersBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.GeUsersBillingEndDate.Get()
 }
 
-// GetGeUsersBillingEndDateOk returns a tuple with the GeUsersBillingEndDate field value if set, nil otherwise
+// GetGeUsersBillingEndDateOk returns a tuple with the GeUsersBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetGeUsersBillingEndDateOk() (*string, bool) {
@@ -3323,40 +2570,23 @@ func (o *FormattedApiOrg) GetGeUsersBillingEndDateOk() (*string, bool) {
 	return o.GeUsersBillingEndDate.Get(), o.GeUsersBillingEndDate.IsSet()
 }
 
-// HasGeUsersBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersBillingEndDate() bool {
-	if o != nil && o.GeUsersBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersBillingEndDate gets a reference to the given NullableString and assigns it to the GeUsersBillingEndDate field.
+// SetGeUsersBillingEndDate sets field value
 func (o *FormattedApiOrg) SetGeUsersBillingEndDate(v string) {
 	o.GeUsersBillingEndDate.Set(&v)
 }
 
-// SetGeUsersBillingEndDateNil sets the value for GeUsersBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetGeUsersBillingEndDateNil() {
-	o.GeUsersBillingEndDate.Set(nil)
-}
-
-// UnsetGeUsersBillingEndDate ensures that no value is present for GeUsersBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetGeUsersBillingEndDate() {
-	o.GeUsersBillingEndDate.Unset()
-}
-
-// GetGeUsersBilledToDate returns the GeUsersBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGeUsersBilledToDate returns the GeUsersBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetGeUsersBilledToDate() string {
-	if o == nil || IsNil(o.GeUsersBilledToDate.Get()) {
+	if o == nil || o.GeUsersBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.GeUsersBilledToDate.Get()
 }
 
-// GetGeUsersBilledToDateOk returns a tuple with the GeUsersBilledToDate field value if set, nil otherwise
+// GetGeUsersBilledToDateOk returns a tuple with the GeUsersBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetGeUsersBilledToDateOk() (*string, bool) {
@@ -3366,40 +2596,23 @@ func (o *FormattedApiOrg) GetGeUsersBilledToDateOk() (*string, bool) {
 	return o.GeUsersBilledToDate.Get(), o.GeUsersBilledToDate.IsSet()
 }
 
-// HasGeUsersBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersBilledToDate() bool {
-	if o != nil && o.GeUsersBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersBilledToDate gets a reference to the given NullableString and assigns it to the GeUsersBilledToDate field.
+// SetGeUsersBilledToDate sets field value
 func (o *FormattedApiOrg) SetGeUsersBilledToDate(v string) {
 	o.GeUsersBilledToDate.Set(&v)
 }
 
-// SetGeUsersBilledToDateNil sets the value for GeUsersBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetGeUsersBilledToDateNil() {
-	o.GeUsersBilledToDate.Set(nil)
-}
-
-// UnsetGeUsersBilledToDate ensures that no value is present for GeUsersBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetGeUsersBilledToDate() {
-	o.GeUsersBilledToDate.Unset()
-}
-
-// GetGeUsersOverageWarnDate returns the GeUsersOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGeUsersOverageWarnDate returns the GeUsersOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetGeUsersOverageWarnDate() string {
-	if o == nil || IsNil(o.GeUsersOverageWarnDate.Get()) {
+	if o == nil || o.GeUsersOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.GeUsersOverageWarnDate.Get()
 }
 
-// GetGeUsersOverageWarnDateOk returns a tuple with the GeUsersOverageWarnDate field value if set, nil otherwise
+// GetGeUsersOverageWarnDateOk returns a tuple with the GeUsersOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetGeUsersOverageWarnDateOk() (*string, bool) {
@@ -3409,104 +2622,71 @@ func (o *FormattedApiOrg) GetGeUsersOverageWarnDateOk() (*string, bool) {
 	return o.GeUsersOverageWarnDate.Get(), o.GeUsersOverageWarnDate.IsSet()
 }
 
-// HasGeUsersOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersOverageWarnDate() bool {
-	if o != nil && o.GeUsersOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersOverageWarnDate gets a reference to the given NullableString and assigns it to the GeUsersOverageWarnDate field.
+// SetGeUsersOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetGeUsersOverageWarnDate(v string) {
 	o.GeUsersOverageWarnDate.Set(&v)
 }
 
-// SetGeUsersOverageWarnDateNil sets the value for GeUsersOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetGeUsersOverageWarnDateNil() {
-	o.GeUsersOverageWarnDate.Set(nil)
-}
-
-// UnsetGeUsersOverageWarnDate ensures that no value is present for GeUsersOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetGeUsersOverageWarnDate() {
-	o.GeUsersOverageWarnDate.Unset()
-}
-
-// GetGeUsersCurrentUsage returns the GeUsersCurrentUsage field value if set, zero value otherwise.
+// GetGeUsersCurrentUsage returns the GeUsersCurrentUsage field value
 func (o *FormattedApiOrg) GetGeUsersCurrentUsage() float32 {
-	if o == nil || IsNil(o.GeUsersCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeUsersCurrentUsage
+
+	return o.GeUsersCurrentUsage
 }
 
-// GetGeUsersCurrentUsageOk returns a tuple with the GeUsersCurrentUsage field value if set, nil otherwise
+// GetGeUsersCurrentUsageOk returns a tuple with the GeUsersCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeUsersCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeUsersCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeUsersCurrentUsage, true
+	return &o.GeUsersCurrentUsage, true
 }
 
-// HasGeUsersCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersCurrentUsage() bool {
-	if o != nil && !IsNil(o.GeUsersCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersCurrentUsage gets a reference to the given float32 and assigns it to the GeUsersCurrentUsage field.
+// SetGeUsersCurrentUsage sets field value
 func (o *FormattedApiOrg) SetGeUsersCurrentUsage(v float32) {
-	o.GeUsersCurrentUsage = &v
+	o.GeUsersCurrentUsage = v
 }
 
-// GetGeUsersOverageAmount returns the GeUsersOverageAmount field value if set, zero value otherwise.
+// GetGeUsersOverageAmount returns the GeUsersOverageAmount field value
 func (o *FormattedApiOrg) GetGeUsersOverageAmount() float32 {
-	if o == nil || IsNil(o.GeUsersOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeUsersOverageAmount
+
+	return o.GeUsersOverageAmount
 }
 
-// GetGeUsersOverageAmountOk returns a tuple with the GeUsersOverageAmount field value if set, nil otherwise
+// GetGeUsersOverageAmountOk returns a tuple with the GeUsersOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeUsersOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeUsersOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeUsersOverageAmount, true
+	return &o.GeUsersOverageAmount, true
 }
 
-// HasGeUsersOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersOverageAmount() bool {
-	if o != nil && !IsNil(o.GeUsersOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersOverageAmount gets a reference to the given float32 and assigns it to the GeUsersOverageAmount field.
+// SetGeUsersOverageAmount sets field value
 func (o *FormattedApiOrg) SetGeUsersOverageAmount(v float32) {
-	o.GeUsersOverageAmount = &v
+	o.GeUsersOverageAmount = v
 }
 
-// GetGeInstancesBillingStartDate returns the GeInstancesBillingStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGeInstancesBillingStartDate returns the GeInstancesBillingStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetGeInstancesBillingStartDate() string {
-	if o == nil || IsNil(o.GeInstancesBillingStartDate.Get()) {
+	if o == nil || o.GeInstancesBillingStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.GeInstancesBillingStartDate.Get()
 }
 
-// GetGeInstancesBillingStartDateOk returns a tuple with the GeInstancesBillingStartDate field value if set, nil otherwise
+// GetGeInstancesBillingStartDateOk returns a tuple with the GeInstancesBillingStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetGeInstancesBillingStartDateOk() (*string, bool) {
@@ -3516,40 +2696,23 @@ func (o *FormattedApiOrg) GetGeInstancesBillingStartDateOk() (*string, bool) {
 	return o.GeInstancesBillingStartDate.Get(), o.GeInstancesBillingStartDate.IsSet()
 }
 
-// HasGeInstancesBillingStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesBillingStartDate() bool {
-	if o != nil && o.GeInstancesBillingStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesBillingStartDate gets a reference to the given NullableString and assigns it to the GeInstancesBillingStartDate field.
+// SetGeInstancesBillingStartDate sets field value
 func (o *FormattedApiOrg) SetGeInstancesBillingStartDate(v string) {
 	o.GeInstancesBillingStartDate.Set(&v)
 }
 
-// SetGeInstancesBillingStartDateNil sets the value for GeInstancesBillingStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetGeInstancesBillingStartDateNil() {
-	o.GeInstancesBillingStartDate.Set(nil)
-}
-
-// UnsetGeInstancesBillingStartDate ensures that no value is present for GeInstancesBillingStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetGeInstancesBillingStartDate() {
-	o.GeInstancesBillingStartDate.Unset()
-}
-
-// GetGeInstancesBillingEndDate returns the GeInstancesBillingEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGeInstancesBillingEndDate returns the GeInstancesBillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetGeInstancesBillingEndDate() string {
-	if o == nil || IsNil(o.GeInstancesBillingEndDate.Get()) {
+	if o == nil || o.GeInstancesBillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.GeInstancesBillingEndDate.Get()
 }
 
-// GetGeInstancesBillingEndDateOk returns a tuple with the GeInstancesBillingEndDate field value if set, nil otherwise
+// GetGeInstancesBillingEndDateOk returns a tuple with the GeInstancesBillingEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetGeInstancesBillingEndDateOk() (*string, bool) {
@@ -3559,40 +2722,23 @@ func (o *FormattedApiOrg) GetGeInstancesBillingEndDateOk() (*string, bool) {
 	return o.GeInstancesBillingEndDate.Get(), o.GeInstancesBillingEndDate.IsSet()
 }
 
-// HasGeInstancesBillingEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesBillingEndDate() bool {
-	if o != nil && o.GeInstancesBillingEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesBillingEndDate gets a reference to the given NullableString and assigns it to the GeInstancesBillingEndDate field.
+// SetGeInstancesBillingEndDate sets field value
 func (o *FormattedApiOrg) SetGeInstancesBillingEndDate(v string) {
 	o.GeInstancesBillingEndDate.Set(&v)
 }
 
-// SetGeInstancesBillingEndDateNil sets the value for GeInstancesBillingEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetGeInstancesBillingEndDateNil() {
-	o.GeInstancesBillingEndDate.Set(nil)
-}
-
-// UnsetGeInstancesBillingEndDate ensures that no value is present for GeInstancesBillingEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetGeInstancesBillingEndDate() {
-	o.GeInstancesBillingEndDate.Unset()
-}
-
-// GetGeInstancesBilledToDate returns the GeInstancesBilledToDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGeInstancesBilledToDate returns the GeInstancesBilledToDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetGeInstancesBilledToDate() string {
-	if o == nil || IsNil(o.GeInstancesBilledToDate.Get()) {
+	if o == nil || o.GeInstancesBilledToDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.GeInstancesBilledToDate.Get()
 }
 
-// GetGeInstancesBilledToDateOk returns a tuple with the GeInstancesBilledToDate field value if set, nil otherwise
+// GetGeInstancesBilledToDateOk returns a tuple with the GeInstancesBilledToDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetGeInstancesBilledToDateOk() (*string, bool) {
@@ -3602,40 +2748,23 @@ func (o *FormattedApiOrg) GetGeInstancesBilledToDateOk() (*string, bool) {
 	return o.GeInstancesBilledToDate.Get(), o.GeInstancesBilledToDate.IsSet()
 }
 
-// HasGeInstancesBilledToDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesBilledToDate() bool {
-	if o != nil && o.GeInstancesBilledToDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesBilledToDate gets a reference to the given NullableString and assigns it to the GeInstancesBilledToDate field.
+// SetGeInstancesBilledToDate sets field value
 func (o *FormattedApiOrg) SetGeInstancesBilledToDate(v string) {
 	o.GeInstancesBilledToDate.Set(&v)
 }
 
-// SetGeInstancesBilledToDateNil sets the value for GeInstancesBilledToDate to be an explicit nil
-func (o *FormattedApiOrg) SetGeInstancesBilledToDateNil() {
-	o.GeInstancesBilledToDate.Set(nil)
-}
-
-// UnsetGeInstancesBilledToDate ensures that no value is present for GeInstancesBilledToDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetGeInstancesBilledToDate() {
-	o.GeInstancesBilledToDate.Unset()
-}
-
-// GetGeInstancesOverageWarnDate returns the GeInstancesOverageWarnDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGeInstancesOverageWarnDate returns the GeInstancesOverageWarnDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetGeInstancesOverageWarnDate() string {
-	if o == nil || IsNil(o.GeInstancesOverageWarnDate.Get()) {
+	if o == nil || o.GeInstancesOverageWarnDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.GeInstancesOverageWarnDate.Get()
 }
 
-// GetGeInstancesOverageWarnDateOk returns a tuple with the GeInstancesOverageWarnDate field value if set, nil otherwise
+// GetGeInstancesOverageWarnDateOk returns a tuple with the GeInstancesOverageWarnDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetGeInstancesOverageWarnDateOk() (*string, bool) {
@@ -3645,712 +2774,527 @@ func (o *FormattedApiOrg) GetGeInstancesOverageWarnDateOk() (*string, bool) {
 	return o.GeInstancesOverageWarnDate.Get(), o.GeInstancesOverageWarnDate.IsSet()
 }
 
-// HasGeInstancesOverageWarnDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesOverageWarnDate() bool {
-	if o != nil && o.GeInstancesOverageWarnDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesOverageWarnDate gets a reference to the given NullableString and assigns it to the GeInstancesOverageWarnDate field.
+// SetGeInstancesOverageWarnDate sets field value
 func (o *FormattedApiOrg) SetGeInstancesOverageWarnDate(v string) {
 	o.GeInstancesOverageWarnDate.Set(&v)
 }
 
-// SetGeInstancesOverageWarnDateNil sets the value for GeInstancesOverageWarnDate to be an explicit nil
-func (o *FormattedApiOrg) SetGeInstancesOverageWarnDateNil() {
-	o.GeInstancesOverageWarnDate.Set(nil)
-}
-
-// UnsetGeInstancesOverageWarnDate ensures that no value is present for GeInstancesOverageWarnDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetGeInstancesOverageWarnDate() {
-	o.GeInstancesOverageWarnDate.Unset()
-}
-
-// GetGeInstancesCurrentUsage returns the GeInstancesCurrentUsage field value if set, zero value otherwise.
+// GetGeInstancesCurrentUsage returns the GeInstancesCurrentUsage field value
 func (o *FormattedApiOrg) GetGeInstancesCurrentUsage() float32 {
-	if o == nil || IsNil(o.GeInstancesCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeInstancesCurrentUsage
+
+	return o.GeInstancesCurrentUsage
 }
 
-// GetGeInstancesCurrentUsageOk returns a tuple with the GeInstancesCurrentUsage field value if set, nil otherwise
+// GetGeInstancesCurrentUsageOk returns a tuple with the GeInstancesCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeInstancesCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeInstancesCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeInstancesCurrentUsage, true
+	return &o.GeInstancesCurrentUsage, true
 }
 
-// HasGeInstancesCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesCurrentUsage() bool {
-	if o != nil && !IsNil(o.GeInstancesCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesCurrentUsage gets a reference to the given float32 and assigns it to the GeInstancesCurrentUsage field.
+// SetGeInstancesCurrentUsage sets field value
 func (o *FormattedApiOrg) SetGeInstancesCurrentUsage(v float32) {
-	o.GeInstancesCurrentUsage = &v
+	o.GeInstancesCurrentUsage = v
 }
 
-// GetGeInstancesOverageAmount returns the GeInstancesOverageAmount field value if set, zero value otherwise.
+// GetGeInstancesOverageAmount returns the GeInstancesOverageAmount field value
 func (o *FormattedApiOrg) GetGeInstancesOverageAmount() float32 {
-	if o == nil || IsNil(o.GeInstancesOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeInstancesOverageAmount
+
+	return o.GeInstancesOverageAmount
 }
 
-// GetGeInstancesOverageAmountOk returns a tuple with the GeInstancesOverageAmount field value if set, nil otherwise
+// GetGeInstancesOverageAmountOk returns a tuple with the GeInstancesOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeInstancesOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeInstancesOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeInstancesOverageAmount, true
+	return &o.GeInstancesOverageAmount, true
 }
 
-// HasGeInstancesOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesOverageAmount() bool {
-	if o != nil && !IsNil(o.GeInstancesOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesOverageAmount gets a reference to the given float32 and assigns it to the GeInstancesOverageAmount field.
+// SetGeInstancesOverageAmount sets field value
 func (o *FormattedApiOrg) SetGeInstancesOverageAmount(v float32) {
-	o.GeInstancesOverageAmount = &v
+	o.GeInstancesOverageAmount = v
 }
 
-// GetSalesforceAccountId returns the SalesforceAccountId field value if set, zero value otherwise.
+// GetSalesforceAccountId returns the SalesforceAccountId field value
 func (o *FormattedApiOrg) GetSalesforceAccountId() string {
-	if o == nil || IsNil(o.SalesforceAccountId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SalesforceAccountId
+
+	return o.SalesforceAccountId
 }
 
-// GetSalesforceAccountIdOk returns a tuple with the SalesforceAccountId field value if set, nil otherwise
+// GetSalesforceAccountIdOk returns a tuple with the SalesforceAccountId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetSalesforceAccountIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SalesforceAccountId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SalesforceAccountId, true
+	return &o.SalesforceAccountId, true
 }
 
-// HasSalesforceAccountId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasSalesforceAccountId() bool {
-	if o != nil && !IsNil(o.SalesforceAccountId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSalesforceAccountId gets a reference to the given string and assigns it to the SalesforceAccountId field.
+// SetSalesforceAccountId sets field value
 func (o *FormattedApiOrg) SetSalesforceAccountId(v string) {
-	o.SalesforceAccountId = &v
+	o.SalesforceAccountId = v
 }
 
-// GetSalesforceLeadId returns the SalesforceLeadId field value if set, zero value otherwise.
+// GetSalesforceLeadId returns the SalesforceLeadId field value
 func (o *FormattedApiOrg) GetSalesforceLeadId() string {
-	if o == nil || IsNil(o.SalesforceLeadId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SalesforceLeadId
+
+	return o.SalesforceLeadId
 }
 
-// GetSalesforceLeadIdOk returns a tuple with the SalesforceLeadId field value if set, nil otherwise
+// GetSalesforceLeadIdOk returns a tuple with the SalesforceLeadId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetSalesforceLeadIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SalesforceLeadId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SalesforceLeadId, true
+	return &o.SalesforceLeadId, true
 }
 
-// HasSalesforceLeadId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasSalesforceLeadId() bool {
-	if o != nil && !IsNil(o.SalesforceLeadId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSalesforceLeadId gets a reference to the given string and assigns it to the SalesforceLeadId field.
+// SetSalesforceLeadId sets field value
 func (o *FormattedApiOrg) SetSalesforceLeadId(v string) {
-	o.SalesforceLeadId = &v
+	o.SalesforceLeadId = v
 }
 
-// GetSalesforceCustomOrgId returns the SalesforceCustomOrgId field value if set, zero value otherwise.
+// GetSalesforceCustomOrgId returns the SalesforceCustomOrgId field value
 func (o *FormattedApiOrg) GetSalesforceCustomOrgId() string {
-	if o == nil || IsNil(o.SalesforceCustomOrgId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SalesforceCustomOrgId
+
+	return o.SalesforceCustomOrgId
 }
 
-// GetSalesforceCustomOrgIdOk returns a tuple with the SalesforceCustomOrgId field value if set, nil otherwise
+// GetSalesforceCustomOrgIdOk returns a tuple with the SalesforceCustomOrgId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetSalesforceCustomOrgIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SalesforceCustomOrgId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SalesforceCustomOrgId, true
+	return &o.SalesforceCustomOrgId, true
 }
 
-// HasSalesforceCustomOrgId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasSalesforceCustomOrgId() bool {
-	if o != nil && !IsNil(o.SalesforceCustomOrgId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSalesforceCustomOrgId gets a reference to the given string and assigns it to the SalesforceCustomOrgId field.
+// SetSalesforceCustomOrgId sets field value
 func (o *FormattedApiOrg) SetSalesforceCustomOrgId(v string) {
-	o.SalesforceCustomOrgId = &v
+	o.SalesforceCustomOrgId = v
 }
 
-// GetSlackSupport returns the SlackSupport field value if set, zero value otherwise.
+// GetSlackSupport returns the SlackSupport field value
 func (o *FormattedApiOrg) GetSlackSupport() float32 {
-	if o == nil || IsNil(o.SlackSupport) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.SlackSupport
+
+	return o.SlackSupport
 }
 
-// GetSlackSupportOk returns a tuple with the SlackSupport field value if set, nil otherwise
+// GetSlackSupportOk returns a tuple with the SlackSupport field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetSlackSupportOk() (*float32, bool) {
-	if o == nil || IsNil(o.SlackSupport) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SlackSupport, true
+	return &o.SlackSupport, true
 }
 
-// HasSlackSupport returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasSlackSupport() bool {
-	if o != nil && !IsNil(o.SlackSupport) {
-		return true
-	}
-
-	return false
-}
-
-// SetSlackSupport gets a reference to the given float32 and assigns it to the SlackSupport field.
+// SetSlackSupport sets field value
 func (o *FormattedApiOrg) SetSlackSupport(v float32) {
-	o.SlackSupport = &v
+	o.SlackSupport = v
 }
 
-// GetSlackSupportChannel returns the SlackSupportChannel field value if set, zero value otherwise.
+// GetSlackSupportChannel returns the SlackSupportChannel field value
 func (o *FormattedApiOrg) GetSlackSupportChannel() string {
-	if o == nil || IsNil(o.SlackSupportChannel) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SlackSupportChannel
+
+	return o.SlackSupportChannel
 }
 
-// GetSlackSupportChannelOk returns a tuple with the SlackSupportChannel field value if set, nil otherwise
+// GetSlackSupportChannelOk returns a tuple with the SlackSupportChannel field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetSlackSupportChannelOk() (*string, bool) {
-	if o == nil || IsNil(o.SlackSupportChannel) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SlackSupportChannel, true
+	return &o.SlackSupportChannel, true
 }
 
-// HasSlackSupportChannel returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasSlackSupportChannel() bool {
-	if o != nil && !IsNil(o.SlackSupportChannel) {
-		return true
-	}
-
-	return false
-}
-
-// SetSlackSupportChannel gets a reference to the given string and assigns it to the SlackSupportChannel field.
+// SetSlackSupportChannel sets field value
 func (o *FormattedApiOrg) SetSlackSupportChannel(v string) {
-	o.SlackSupportChannel = &v
+	o.SlackSupportChannel = v
 }
 
-// GetTotalOverageAmount returns the TotalOverageAmount field value if set, zero value otherwise.
+// GetTotalOverageAmount returns the TotalOverageAmount field value
 func (o *FormattedApiOrg) GetTotalOverageAmount() float32 {
-	if o == nil || IsNil(o.TotalOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.TotalOverageAmount
+
+	return o.TotalOverageAmount
 }
 
-// GetTotalOverageAmountOk returns a tuple with the TotalOverageAmount field value if set, nil otherwise
+// GetTotalOverageAmountOk returns a tuple with the TotalOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetTotalOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.TotalOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TotalOverageAmount, true
+	return &o.TotalOverageAmount, true
 }
 
-// HasTotalOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasTotalOverageAmount() bool {
-	if o != nil && !IsNil(o.TotalOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalOverageAmount gets a reference to the given float32 and assigns it to the TotalOverageAmount field.
+// SetTotalOverageAmount sets field value
 func (o *FormattedApiOrg) SetTotalOverageAmount(v float32) {
-	o.TotalOverageAmount = &v
+	o.TotalOverageAmount = v
 }
 
-// GetMemberCnt returns the MemberCnt field value if set, zero value otherwise.
+// GetMemberCnt returns the MemberCnt field value
 func (o *FormattedApiOrg) GetMemberCnt() float32 {
-	if o == nil || IsNil(o.MemberCnt) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.MemberCnt
+
+	return o.MemberCnt
 }
 
-// GetMemberCntOk returns a tuple with the MemberCnt field value if set, nil otherwise
+// GetMemberCntOk returns a tuple with the MemberCnt field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetMemberCntOk() (*float32, bool) {
-	if o == nil || IsNil(o.MemberCnt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MemberCnt, true
+	return &o.MemberCnt, true
 }
 
-// HasMemberCnt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasMemberCnt() bool {
-	if o != nil && !IsNil(o.MemberCnt) {
-		return true
-	}
-
-	return false
-}
-
-// SetMemberCnt gets a reference to the given float32 and assigns it to the MemberCnt field.
+// SetMemberCnt sets field value
 func (o *FormattedApiOrg) SetMemberCnt(v float32) {
-	o.MemberCnt = &v
+	o.MemberCnt = v
 }
 
-// GetLicenseCnt returns the LicenseCnt field value if set, zero value otherwise.
+// GetLicenseCnt returns the LicenseCnt field value
 func (o *FormattedApiOrg) GetLicenseCnt() float32 {
-	if o == nil || IsNil(o.LicenseCnt) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.LicenseCnt
+
+	return o.LicenseCnt
 }
 
-// GetLicenseCntOk returns a tuple with the LicenseCnt field value if set, nil otherwise
+// GetLicenseCntOk returns a tuple with the LicenseCnt field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetLicenseCntOk() (*float32, bool) {
-	if o == nil || IsNil(o.LicenseCnt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LicenseCnt, true
+	return &o.LicenseCnt, true
 }
 
-// HasLicenseCnt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasLicenseCnt() bool {
-	if o != nil && !IsNil(o.LicenseCnt) {
-		return true
-	}
-
-	return false
-}
-
-// SetLicenseCnt gets a reference to the given float32 and assigns it to the LicenseCnt field.
+// SetLicenseCnt sets field value
 func (o *FormattedApiOrg) SetLicenseCnt(v float32) {
-	o.LicenseCnt = &v
+	o.LicenseCnt = v
 }
 
-// GetLicenseConfiguredCnt returns the LicenseConfiguredCnt field value if set, zero value otherwise.
+// GetLicenseConfiguredCnt returns the LicenseConfiguredCnt field value
 func (o *FormattedApiOrg) GetLicenseConfiguredCnt() float32 {
-	if o == nil || IsNil(o.LicenseConfiguredCnt) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.LicenseConfiguredCnt
+
+	return o.LicenseConfiguredCnt
 }
 
-// GetLicenseConfiguredCntOk returns a tuple with the LicenseConfiguredCnt field value if set, nil otherwise
+// GetLicenseConfiguredCntOk returns a tuple with the LicenseConfiguredCnt field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetLicenseConfiguredCntOk() (*float32, bool) {
-	if o == nil || IsNil(o.LicenseConfiguredCnt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LicenseConfiguredCnt, true
+	return &o.LicenseConfiguredCnt, true
 }
 
-// HasLicenseConfiguredCnt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasLicenseConfiguredCnt() bool {
-	if o != nil && !IsNil(o.LicenseConfiguredCnt) {
-		return true
-	}
-
-	return false
-}
-
-// SetLicenseConfiguredCnt gets a reference to the given float32 and assigns it to the LicenseConfiguredCnt field.
+// SetLicenseConfiguredCnt sets field value
 func (o *FormattedApiOrg) SetLicenseConfiguredCnt(v float32) {
-	o.LicenseConfiguredCnt = &v
+	o.LicenseConfiguredCnt = v
 }
 
-// GetLicenseUnconfiguredCnt returns the LicenseUnconfiguredCnt field value if set, zero value otherwise.
+// GetLicenseUnconfiguredCnt returns the LicenseUnconfiguredCnt field value
 func (o *FormattedApiOrg) GetLicenseUnconfiguredCnt() float32 {
-	if o == nil || IsNil(o.LicenseUnconfiguredCnt) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.LicenseUnconfiguredCnt
+
+	return o.LicenseUnconfiguredCnt
 }
 
-// GetLicenseUnconfiguredCntOk returns a tuple with the LicenseUnconfiguredCnt field value if set, nil otherwise
+// GetLicenseUnconfiguredCntOk returns a tuple with the LicenseUnconfiguredCnt field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetLicenseUnconfiguredCntOk() (*float32, bool) {
-	if o == nil || IsNil(o.LicenseUnconfiguredCnt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LicenseUnconfiguredCnt, true
+	return &o.LicenseUnconfiguredCnt, true
 }
 
-// HasLicenseUnconfiguredCnt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasLicenseUnconfiguredCnt() bool {
-	if o != nil && !IsNil(o.LicenseUnconfiguredCnt) {
-		return true
-	}
-
-	return false
-}
-
-// SetLicenseUnconfiguredCnt gets a reference to the given float32 and assigns it to the LicenseUnconfiguredCnt field.
+// SetLicenseUnconfiguredCnt sets field value
 func (o *FormattedApiOrg) SetLicenseUnconfiguredCnt(v float32) {
-	o.LicenseUnconfiguredCnt = &v
+	o.LicenseUnconfiguredCnt = v
 }
 
-// GetHgInstanceCnt returns the HgInstanceCnt field value if set, zero value otherwise.
+// GetHgInstanceCnt returns the HgInstanceCnt field value
 func (o *FormattedApiOrg) GetHgInstanceCnt() float32 {
-	if o == nil || IsNil(o.HgInstanceCnt) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgInstanceCnt
+
+	return o.HgInstanceCnt
 }
 
-// GetHgInstanceCntOk returns a tuple with the HgInstanceCnt field value if set, nil otherwise
+// GetHgInstanceCntOk returns a tuple with the HgInstanceCnt field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgInstanceCntOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgInstanceCnt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgInstanceCnt, true
+	return &o.HgInstanceCnt, true
 }
 
-// HasHgInstanceCnt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgInstanceCnt() bool {
-	if o != nil && !IsNil(o.HgInstanceCnt) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgInstanceCnt gets a reference to the given float32 and assigns it to the HgInstanceCnt field.
+// SetHgInstanceCnt sets field value
 func (o *FormattedApiOrg) SetHgInstanceCnt(v float32) {
-	o.HgInstanceCnt = &v
+	o.HgInstanceCnt = v
 }
 
-// GetHlInstanceCnt returns the HlInstanceCnt field value if set, zero value otherwise.
+// GetHlInstanceCnt returns the HlInstanceCnt field value
 func (o *FormattedApiOrg) GetHlInstanceCnt() float32 {
-	if o == nil || IsNil(o.HlInstanceCnt) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlInstanceCnt
+
+	return o.HlInstanceCnt
 }
 
-// GetHlInstanceCntOk returns a tuple with the HlInstanceCnt field value if set, nil otherwise
+// GetHlInstanceCntOk returns a tuple with the HlInstanceCnt field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlInstanceCntOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlInstanceCnt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlInstanceCnt, true
+	return &o.HlInstanceCnt, true
 }
 
-// HasHlInstanceCnt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlInstanceCnt() bool {
-	if o != nil && !IsNil(o.HlInstanceCnt) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlInstanceCnt gets a reference to the given float32 and assigns it to the HlInstanceCnt field.
+// SetHlInstanceCnt sets field value
 func (o *FormattedApiOrg) SetHlInstanceCnt(v float32) {
-	o.HlInstanceCnt = &v
+	o.HlInstanceCnt = v
 }
 
-// GetHtInstanceCnt returns the HtInstanceCnt field value if set, zero value otherwise.
+// GetHtInstanceCnt returns the HtInstanceCnt field value
 func (o *FormattedApiOrg) GetHtInstanceCnt() float32 {
-	if o == nil || IsNil(o.HtInstanceCnt) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HtInstanceCnt
+
+	return o.HtInstanceCnt
 }
 
-// GetHtInstanceCntOk returns a tuple with the HtInstanceCnt field value if set, nil otherwise
+// GetHtInstanceCntOk returns a tuple with the HtInstanceCnt field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHtInstanceCntOk() (*float32, bool) {
-	if o == nil || IsNil(o.HtInstanceCnt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HtInstanceCnt, true
+	return &o.HtInstanceCnt, true
 }
 
-// HasHtInstanceCnt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtInstanceCnt() bool {
-	if o != nil && !IsNil(o.HtInstanceCnt) {
-		return true
-	}
-
-	return false
-}
-
-// SetHtInstanceCnt gets a reference to the given float32 and assigns it to the HtInstanceCnt field.
+// SetHtInstanceCnt sets field value
 func (o *FormattedApiOrg) SetHtInstanceCnt(v float32) {
-	o.HtInstanceCnt = &v
+	o.HtInstanceCnt = v
 }
 
-// GetUbersmithClientId returns the UbersmithClientId field value if set, zero value otherwise.
+// GetUbersmithClientId returns the UbersmithClientId field value
 func (o *FormattedApiOrg) GetUbersmithClientId() float32 {
-	if o == nil || IsNil(o.UbersmithClientId) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.UbersmithClientId
+
+	return o.UbersmithClientId
 }
 
-// GetUbersmithClientIdOk returns a tuple with the UbersmithClientId field value if set, nil otherwise
+// GetUbersmithClientIdOk returns a tuple with the UbersmithClientId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetUbersmithClientIdOk() (*float32, bool) {
-	if o == nil || IsNil(o.UbersmithClientId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UbersmithClientId, true
+	return &o.UbersmithClientId, true
 }
 
-// HasUbersmithClientId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasUbersmithClientId() bool {
-	if o != nil && !IsNil(o.UbersmithClientId) {
-		return true
-	}
-
-	return false
-}
-
-// SetUbersmithClientId gets a reference to the given float32 and assigns it to the UbersmithClientId field.
+// SetUbersmithClientId sets field value
 func (o *FormattedApiOrg) SetUbersmithClientId(v float32) {
-	o.UbersmithClientId = &v
+	o.UbersmithClientId = v
 }
 
-// GetIntacctCustomerId returns the IntacctCustomerId field value if set, zero value otherwise.
+// GetIntacctCustomerId returns the IntacctCustomerId field value
 func (o *FormattedApiOrg) GetIntacctCustomerId() float32 {
-	if o == nil || IsNil(o.IntacctCustomerId) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IntacctCustomerId
+
+	return o.IntacctCustomerId
 }
 
-// GetIntacctCustomerIdOk returns a tuple with the IntacctCustomerId field value if set, nil otherwise
+// GetIntacctCustomerIdOk returns a tuple with the IntacctCustomerId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIntacctCustomerIdOk() (*float32, bool) {
-	if o == nil || IsNil(o.IntacctCustomerId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IntacctCustomerId, true
+	return &o.IntacctCustomerId, true
 }
 
-// HasIntacctCustomerId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIntacctCustomerId() bool {
-	if o != nil && !IsNil(o.IntacctCustomerId) {
-		return true
-	}
-
-	return false
-}
-
-// SetIntacctCustomerId gets a reference to the given float32 and assigns it to the IntacctCustomerId field.
+// SetIntacctCustomerId sets field value
 func (o *FormattedApiOrg) SetIntacctCustomerId(v float32) {
-	o.IntacctCustomerId = &v
+	o.IntacctCustomerId = v
 }
 
-// GetIntacctCustomerUrl returns the IntacctCustomerUrl field value if set, zero value otherwise.
+// GetIntacctCustomerUrl returns the IntacctCustomerUrl field value
 func (o *FormattedApiOrg) GetIntacctCustomerUrl() string {
-	if o == nil || IsNil(o.IntacctCustomerUrl) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.IntacctCustomerUrl
+
+	return o.IntacctCustomerUrl
 }
 
-// GetIntacctCustomerUrlOk returns a tuple with the IntacctCustomerUrl field value if set, nil otherwise
+// GetIntacctCustomerUrlOk returns a tuple with the IntacctCustomerUrl field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIntacctCustomerUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.IntacctCustomerUrl) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IntacctCustomerUrl, true
+	return &o.IntacctCustomerUrl, true
 }
 
-// HasIntacctCustomerUrl returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIntacctCustomerUrl() bool {
-	if o != nil && !IsNil(o.IntacctCustomerUrl) {
-		return true
-	}
-
-	return false
-}
-
-// SetIntacctCustomerUrl gets a reference to the given string and assigns it to the IntacctCustomerUrl field.
+// SetIntacctCustomerUrl sets field value
 func (o *FormattedApiOrg) SetIntacctCustomerUrl(v string) {
-	o.IntacctCustomerUrl = &v
+	o.IntacctCustomerUrl = v
 }
 
-// GetCommittedArr returns the CommittedArr field value if set, zero value otherwise.
+// GetCommittedArr returns the CommittedArr field value
 func (o *FormattedApiOrg) GetCommittedArr() float32 {
-	if o == nil || IsNil(o.CommittedArr) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.CommittedArr
+
+	return o.CommittedArr
 }
 
-// GetCommittedArrOk returns a tuple with the CommittedArr field value if set, nil otherwise
+// GetCommittedArrOk returns a tuple with the CommittedArr field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetCommittedArrOk() (*float32, bool) {
-	if o == nil || IsNil(o.CommittedArr) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CommittedArr, true
+	return &o.CommittedArr, true
 }
 
-// HasCommittedArr returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasCommittedArr() bool {
-	if o != nil && !IsNil(o.CommittedArr) {
-		return true
-	}
-
-	return false
-}
-
-// SetCommittedArr gets a reference to the given float32 and assigns it to the CommittedArr field.
+// SetCommittedArr sets field value
 func (o *FormattedApiOrg) SetCommittedArr(v float32) {
-	o.CommittedArr = &v
+	o.CommittedArr = v
 }
 
-// GetPrevCommittedArr returns the PrevCommittedArr field value if set, zero value otherwise.
+// GetPrevCommittedArr returns the PrevCommittedArr field value
 func (o *FormattedApiOrg) GetPrevCommittedArr() float32 {
-	if o == nil || IsNil(o.PrevCommittedArr) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.PrevCommittedArr
+
+	return o.PrevCommittedArr
 }
 
-// GetPrevCommittedArrOk returns a tuple with the PrevCommittedArr field value if set, nil otherwise
+// GetPrevCommittedArrOk returns a tuple with the PrevCommittedArr field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetPrevCommittedArrOk() (*float32, bool) {
-	if o == nil || IsNil(o.PrevCommittedArr) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PrevCommittedArr, true
+	return &o.PrevCommittedArr, true
 }
 
-// HasPrevCommittedArr returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasPrevCommittedArr() bool {
-	if o != nil && !IsNil(o.PrevCommittedArr) {
-		return true
-	}
-
-	return false
-}
-
-// SetPrevCommittedArr gets a reference to the given float32 and assigns it to the PrevCommittedArr field.
+// SetPrevCommittedArr sets field value
 func (o *FormattedApiOrg) SetPrevCommittedArr(v float32) {
-	o.PrevCommittedArr = &v
+	o.PrevCommittedArr = v
 }
 
-// GetZendeskId returns the ZendeskId field value if set, zero value otherwise.
+// GetZendeskId returns the ZendeskId field value
 func (o *FormattedApiOrg) GetZendeskId() float32 {
-	if o == nil || IsNil(o.ZendeskId) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.ZendeskId
+
+	return o.ZendeskId
 }
 
-// GetZendeskIdOk returns a tuple with the ZendeskId field value if set, nil otherwise
+// GetZendeskIdOk returns a tuple with the ZendeskId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetZendeskIdOk() (*float32, bool) {
-	if o == nil || IsNil(o.ZendeskId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ZendeskId, true
+	return &o.ZendeskId, true
 }
 
-// HasZendeskId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasZendeskId() bool {
-	if o != nil && !IsNil(o.ZendeskId) {
-		return true
-	}
-
-	return false
-}
-
-// SetZendeskId gets a reference to the given float32 and assigns it to the ZendeskId field.
+// SetZendeskId sets field value
 func (o *FormattedApiOrg) SetZendeskId(v float32) {
-	o.ZendeskId = &v
+	o.ZendeskId = v
 }
 
-// GetHappinessRating returns the HappinessRating field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHappinessRating returns the HappinessRating field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHappinessRating() string {
-	if o == nil || IsNil(o.HappinessRating.Get()) {
+	if o == nil || o.HappinessRating.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HappinessRating.Get()
 }
 
-// GetHappinessRatingOk returns a tuple with the HappinessRating field value if set, nil otherwise
+// GetHappinessRatingOk returns a tuple with the HappinessRating field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHappinessRatingOk() (*string, bool) {
@@ -4360,40 +3304,23 @@ func (o *FormattedApiOrg) GetHappinessRatingOk() (*string, bool) {
 	return o.HappinessRating.Get(), o.HappinessRating.IsSet()
 }
 
-// HasHappinessRating returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHappinessRating() bool {
-	if o != nil && o.HappinessRating.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHappinessRating gets a reference to the given NullableString and assigns it to the HappinessRating field.
+// SetHappinessRating sets field value
 func (o *FormattedApiOrg) SetHappinessRating(v string) {
 	o.HappinessRating.Set(&v)
 }
 
-// SetHappinessRatingNil sets the value for HappinessRating to be an explicit nil
-func (o *FormattedApiOrg) SetHappinessRatingNil() {
-	o.HappinessRating.Set(nil)
-}
-
-// UnsetHappinessRating ensures that no value is present for HappinessRating, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHappinessRating() {
-	o.HappinessRating.Unset()
-}
-
-// GetHappinessNote returns the HappinessNote field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHappinessNote returns the HappinessNote field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHappinessNote() string {
-	if o == nil || IsNil(o.HappinessNote.Get()) {
+	if o == nil || o.HappinessNote.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HappinessNote.Get()
 }
 
-// GetHappinessNoteOk returns a tuple with the HappinessNote field value if set, nil otherwise
+// GetHappinessNoteOk returns a tuple with the HappinessNote field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHappinessNoteOk() (*string, bool) {
@@ -4403,40 +3330,23 @@ func (o *FormattedApiOrg) GetHappinessNoteOk() (*string, bool) {
 	return o.HappinessNote.Get(), o.HappinessNote.IsSet()
 }
 
-// HasHappinessNote returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHappinessNote() bool {
-	if o != nil && o.HappinessNote.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHappinessNote gets a reference to the given NullableString and assigns it to the HappinessNote field.
+// SetHappinessNote sets field value
 func (o *FormattedApiOrg) SetHappinessNote(v string) {
 	o.HappinessNote.Set(&v)
 }
 
-// SetHappinessNoteNil sets the value for HappinessNote to be an explicit nil
-func (o *FormattedApiOrg) SetHappinessNoteNil() {
-	o.HappinessNote.Set(nil)
-}
-
-// UnsetHappinessNote ensures that no value is present for HappinessNote, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHappinessNote() {
-	o.HappinessNote.Unset()
-}
-
-// GetHappinessReasonCode returns the HappinessReasonCode field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHappinessReasonCode returns the HappinessReasonCode field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHappinessReasonCode() string {
-	if o == nil || IsNil(o.HappinessReasonCode.Get()) {
+	if o == nil || o.HappinessReasonCode.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HappinessReasonCode.Get()
 }
 
-// GetHappinessReasonCodeOk returns a tuple with the HappinessReasonCode field value if set, nil otherwise
+// GetHappinessReasonCodeOk returns a tuple with the HappinessReasonCode field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHappinessReasonCodeOk() (*string, bool) {
@@ -4446,40 +3356,23 @@ func (o *FormattedApiOrg) GetHappinessReasonCodeOk() (*string, bool) {
 	return o.HappinessReasonCode.Get(), o.HappinessReasonCode.IsSet()
 }
 
-// HasHappinessReasonCode returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHappinessReasonCode() bool {
-	if o != nil && o.HappinessReasonCode.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHappinessReasonCode gets a reference to the given NullableString and assigns it to the HappinessReasonCode field.
+// SetHappinessReasonCode sets field value
 func (o *FormattedApiOrg) SetHappinessReasonCode(v string) {
 	o.HappinessReasonCode.Set(&v)
 }
 
-// SetHappinessReasonCodeNil sets the value for HappinessReasonCode to be an explicit nil
-func (o *FormattedApiOrg) SetHappinessReasonCodeNil() {
-	o.HappinessReasonCode.Set(nil)
-}
-
-// UnsetHappinessReasonCode ensures that no value is present for HappinessReasonCode, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHappinessReasonCode() {
-	o.HappinessReasonCode.Unset()
-}
-
-// GetHappinessCreatedAt returns the HappinessCreatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHappinessCreatedAt returns the HappinessCreatedAt field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHappinessCreatedAt() string {
-	if o == nil || IsNil(o.HappinessCreatedAt.Get()) {
+	if o == nil || o.HappinessCreatedAt.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HappinessCreatedAt.Get()
 }
 
-// GetHappinessCreatedAtOk returns a tuple with the HappinessCreatedAt field value if set, nil otherwise
+// GetHappinessCreatedAtOk returns a tuple with the HappinessCreatedAt field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHappinessCreatedAtOk() (*string, bool) {
@@ -4489,40 +3382,23 @@ func (o *FormattedApiOrg) GetHappinessCreatedAtOk() (*string, bool) {
 	return o.HappinessCreatedAt.Get(), o.HappinessCreatedAt.IsSet()
 }
 
-// HasHappinessCreatedAt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHappinessCreatedAt() bool {
-	if o != nil && o.HappinessCreatedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHappinessCreatedAt gets a reference to the given NullableString and assigns it to the HappinessCreatedAt field.
+// SetHappinessCreatedAt sets field value
 func (o *FormattedApiOrg) SetHappinessCreatedAt(v string) {
 	o.HappinessCreatedAt.Set(&v)
 }
 
-// SetHappinessCreatedAtNil sets the value for HappinessCreatedAt to be an explicit nil
-func (o *FormattedApiOrg) SetHappinessCreatedAtNil() {
-	o.HappinessCreatedAt.Set(nil)
-}
-
-// UnsetHappinessCreatedAt ensures that no value is present for HappinessCreatedAt, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHappinessCreatedAt() {
-	o.HappinessCreatedAt.Unset()
-}
-
-// GetHappinessChangedAt returns the HappinessChangedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHappinessChangedAt returns the HappinessChangedAt field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHappinessChangedAt() string {
-	if o == nil || IsNil(o.HappinessChangedAt.Get()) {
+	if o == nil || o.HappinessChangedAt.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HappinessChangedAt.Get()
 }
 
-// GetHappinessChangedAtOk returns a tuple with the HappinessChangedAt field value if set, nil otherwise
+// GetHappinessChangedAtOk returns a tuple with the HappinessChangedAt field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHappinessChangedAtOk() (*string, bool) {
@@ -4532,40 +3408,23 @@ func (o *FormattedApiOrg) GetHappinessChangedAtOk() (*string, bool) {
 	return o.HappinessChangedAt.Get(), o.HappinessChangedAt.IsSet()
 }
 
-// HasHappinessChangedAt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHappinessChangedAt() bool {
-	if o != nil && o.HappinessChangedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHappinessChangedAt gets a reference to the given NullableString and assigns it to the HappinessChangedAt field.
+// SetHappinessChangedAt sets field value
 func (o *FormattedApiOrg) SetHappinessChangedAt(v string) {
 	o.HappinessChangedAt.Set(&v)
 }
 
-// SetHappinessChangedAtNil sets the value for HappinessChangedAt to be an explicit nil
-func (o *FormattedApiOrg) SetHappinessChangedAtNil() {
-	o.HappinessChangedAt.Set(nil)
-}
-
-// UnsetHappinessChangedAt ensures that no value is present for HappinessChangedAt, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHappinessChangedAt() {
-	o.HappinessChangedAt.Unset()
-}
-
-// GetHappinessExpiredAt returns the HappinessExpiredAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHappinessExpiredAt returns the HappinessExpiredAt field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHappinessExpiredAt() string {
-	if o == nil || IsNil(o.HappinessExpiredAt.Get()) {
+	if o == nil || o.HappinessExpiredAt.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HappinessExpiredAt.Get()
 }
 
-// GetHappinessExpiredAtOk returns a tuple with the HappinessExpiredAt field value if set, nil otherwise
+// GetHappinessExpiredAtOk returns a tuple with the HappinessExpiredAt field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHappinessExpiredAtOk() (*string, bool) {
@@ -4575,40 +3434,23 @@ func (o *FormattedApiOrg) GetHappinessExpiredAtOk() (*string, bool) {
 	return o.HappinessExpiredAt.Get(), o.HappinessExpiredAt.IsSet()
 }
 
-// HasHappinessExpiredAt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHappinessExpiredAt() bool {
-	if o != nil && o.HappinessExpiredAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHappinessExpiredAt gets a reference to the given NullableString and assigns it to the HappinessExpiredAt field.
+// SetHappinessExpiredAt sets field value
 func (o *FormattedApiOrg) SetHappinessExpiredAt(v string) {
 	o.HappinessExpiredAt.Set(&v)
 }
 
-// SetHappinessExpiredAtNil sets the value for HappinessExpiredAt to be an explicit nil
-func (o *FormattedApiOrg) SetHappinessExpiredAtNil() {
-	o.HappinessExpiredAt.Set(nil)
-}
-
-// UnsetHappinessExpiredAt ensures that no value is present for HappinessExpiredAt, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHappinessExpiredAt() {
-	o.HappinessExpiredAt.Unset()
-}
-
-// GetHappinessUserName returns the HappinessUserName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHappinessUserName returns the HappinessUserName field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetHappinessUserName() string {
-	if o == nil || IsNil(o.HappinessUserName.Get()) {
+	if o == nil || o.HappinessUserName.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.HappinessUserName.Get()
 }
 
-// GetHappinessUserNameOk returns a tuple with the HappinessUserName field value if set, nil otherwise
+// GetHappinessUserNameOk returns a tuple with the HappinessUserName field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHappinessUserNameOk() (*string, bool) {
@@ -4618,40 +3460,23 @@ func (o *FormattedApiOrg) GetHappinessUserNameOk() (*string, bool) {
 	return o.HappinessUserName.Get(), o.HappinessUserName.IsSet()
 }
 
-// HasHappinessUserName returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHappinessUserName() bool {
-	if o != nil && o.HappinessUserName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHappinessUserName gets a reference to the given NullableString and assigns it to the HappinessUserName field.
+// SetHappinessUserName sets field value
 func (o *FormattedApiOrg) SetHappinessUserName(v string) {
 	o.HappinessUserName.Set(&v)
 }
 
-// SetHappinessUserNameNil sets the value for HappinessUserName to be an explicit nil
-func (o *FormattedApiOrg) SetHappinessUserNameNil() {
-	o.HappinessUserName.Set(nil)
-}
-
-// UnsetHappinessUserName ensures that no value is present for HappinessUserName, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHappinessUserName() {
-	o.HappinessUserName.Unset()
-}
-
-// GetCancellationClientNotes returns the CancellationClientNotes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCancellationClientNotes returns the CancellationClientNotes field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetCancellationClientNotes() string {
-	if o == nil || IsNil(o.CancellationClientNotes.Get()) {
+	if o == nil || o.CancellationClientNotes.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.CancellationClientNotes.Get()
 }
 
-// GetCancellationClientNotesOk returns a tuple with the CancellationClientNotes field value if set, nil otherwise
+// GetCancellationClientNotesOk returns a tuple with the CancellationClientNotes field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetCancellationClientNotesOk() (*string, bool) {
@@ -4661,40 +3486,23 @@ func (o *FormattedApiOrg) GetCancellationClientNotesOk() (*string, bool) {
 	return o.CancellationClientNotes.Get(), o.CancellationClientNotes.IsSet()
 }
 
-// HasCancellationClientNotes returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasCancellationClientNotes() bool {
-	if o != nil && o.CancellationClientNotes.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCancellationClientNotes gets a reference to the given NullableString and assigns it to the CancellationClientNotes field.
+// SetCancellationClientNotes sets field value
 func (o *FormattedApiOrg) SetCancellationClientNotes(v string) {
 	o.CancellationClientNotes.Set(&v)
 }
 
-// SetCancellationClientNotesNil sets the value for CancellationClientNotes to be an explicit nil
-func (o *FormattedApiOrg) SetCancellationClientNotesNil() {
-	o.CancellationClientNotes.Set(nil)
-}
-
-// UnsetCancellationClientNotes ensures that no value is present for CancellationClientNotes, not even an explicit nil
-func (o *FormattedApiOrg) UnsetCancellationClientNotes() {
-	o.CancellationClientNotes.Unset()
-}
-
-// GetCancellationNotes returns the CancellationNotes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCancellationNotes returns the CancellationNotes field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetCancellationNotes() string {
-	if o == nil || IsNil(o.CancellationNotes.Get()) {
+	if o == nil || o.CancellationNotes.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.CancellationNotes.Get()
 }
 
-// GetCancellationNotesOk returns a tuple with the CancellationNotes field value if set, nil otherwise
+// GetCancellationNotesOk returns a tuple with the CancellationNotes field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetCancellationNotesOk() (*string, bool) {
@@ -4704,72 +3512,47 @@ func (o *FormattedApiOrg) GetCancellationNotesOk() (*string, bool) {
 	return o.CancellationNotes.Get(), o.CancellationNotes.IsSet()
 }
 
-// HasCancellationNotes returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasCancellationNotes() bool {
-	if o != nil && o.CancellationNotes.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCancellationNotes gets a reference to the given NullableString and assigns it to the CancellationNotes field.
+// SetCancellationNotes sets field value
 func (o *FormattedApiOrg) SetCancellationNotes(v string) {
 	o.CancellationNotes.Set(&v)
 }
 
-// SetCancellationNotesNil sets the value for CancellationNotes to be an explicit nil
-func (o *FormattedApiOrg) SetCancellationNotesNil() {
-	o.CancellationNotes.Set(nil)
-}
-
-// UnsetCancellationNotes ensures that no value is present for CancellationNotes, not even an explicit nil
-func (o *FormattedApiOrg) UnsetCancellationNotes() {
-	o.CancellationNotes.Unset()
-}
-
-// GetCancellationReason returns the CancellationReason field value if set, zero value otherwise.
+// GetCancellationReason returns the CancellationReason field value
 func (o *FormattedApiOrg) GetCancellationReason() string {
-	if o == nil || IsNil(o.CancellationReason) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CancellationReason
+
+	return o.CancellationReason
 }
 
-// GetCancellationReasonOk returns a tuple with the CancellationReason field value if set, nil otherwise
+// GetCancellationReasonOk returns a tuple with the CancellationReason field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetCancellationReasonOk() (*string, bool) {
-	if o == nil || IsNil(o.CancellationReason) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CancellationReason, true
+	return &o.CancellationReason, true
 }
 
-// HasCancellationReason returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasCancellationReason() bool {
-	if o != nil && !IsNil(o.CancellationReason) {
-		return true
-	}
-
-	return false
-}
-
-// SetCancellationReason gets a reference to the given string and assigns it to the CancellationReason field.
+// SetCancellationReason sets field value
 func (o *FormattedApiOrg) SetCancellationReason(v string) {
-	o.CancellationReason = &v
+	o.CancellationReason = v
 }
 
-// GetNetPromoterScore returns the NetPromoterScore field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNetPromoterScore returns the NetPromoterScore field value
+// If the value is explicit nil, the zero value for float32 will be returned
 func (o *FormattedApiOrg) GetNetPromoterScore() float32 {
-	if o == nil || IsNil(o.NetPromoterScore.Get()) {
+	if o == nil || o.NetPromoterScore.Get() == nil {
 		var ret float32
 		return ret
 	}
+
 	return *o.NetPromoterScore.Get()
 }
 
-// GetNetPromoterScoreOk returns a tuple with the NetPromoterScore field value if set, nil otherwise
+// GetNetPromoterScoreOk returns a tuple with the NetPromoterScore field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetNetPromoterScoreOk() (*float32, bool) {
@@ -4779,40 +3562,23 @@ func (o *FormattedApiOrg) GetNetPromoterScoreOk() (*float32, bool) {
 	return o.NetPromoterScore.Get(), o.NetPromoterScore.IsSet()
 }
 
-// HasNetPromoterScore returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasNetPromoterScore() bool {
-	if o != nil && o.NetPromoterScore.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetNetPromoterScore gets a reference to the given NullableFloat32 and assigns it to the NetPromoterScore field.
+// SetNetPromoterScore sets field value
 func (o *FormattedApiOrg) SetNetPromoterScore(v float32) {
 	o.NetPromoterScore.Set(&v)
 }
 
-// SetNetPromoterScoreNil sets the value for NetPromoterScore to be an explicit nil
-func (o *FormattedApiOrg) SetNetPromoterScoreNil() {
-	o.NetPromoterScore.Set(nil)
-}
-
-// UnsetNetPromoterScore ensures that no value is present for NetPromoterScore, not even an explicit nil
-func (o *FormattedApiOrg) UnsetNetPromoterScore() {
-	o.NetPromoterScore.Unset()
-}
-
-// GetHmFirstOverageDate returns the HmFirstOverageDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHmFirstOverageDate returns the HmFirstOverageDate field value
+// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *FormattedApiOrg) GetHmFirstOverageDate() time.Time {
-	if o == nil || IsNil(o.HmFirstOverageDate.Get()) {
+	if o == nil || o.HmFirstOverageDate.Get() == nil {
 		var ret time.Time
 		return ret
 	}
+
 	return *o.HmFirstOverageDate.Get()
 }
 
-// GetHmFirstOverageDateOk returns a tuple with the HmFirstOverageDate field value if set, nil otherwise
+// GetHmFirstOverageDateOk returns a tuple with the HmFirstOverageDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHmFirstOverageDateOk() (*time.Time, bool) {
@@ -4822,40 +3588,23 @@ func (o *FormattedApiOrg) GetHmFirstOverageDateOk() (*time.Time, bool) {
 	return o.HmFirstOverageDate.Get(), o.HmFirstOverageDate.IsSet()
 }
 
-// HasHmFirstOverageDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmFirstOverageDate() bool {
-	if o != nil && o.HmFirstOverageDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHmFirstOverageDate gets a reference to the given NullableTime and assigns it to the HmFirstOverageDate field.
+// SetHmFirstOverageDate sets field value
 func (o *FormattedApiOrg) SetHmFirstOverageDate(v time.Time) {
 	o.HmFirstOverageDate.Set(&v)
 }
 
-// SetHmFirstOverageDateNil sets the value for HmFirstOverageDate to be an explicit nil
-func (o *FormattedApiOrg) SetHmFirstOverageDateNil() {
-	o.HmFirstOverageDate.Set(nil)
-}
-
-// UnsetHmFirstOverageDate ensures that no value is present for HmFirstOverageDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHmFirstOverageDate() {
-	o.HmFirstOverageDate.Unset()
-}
-
-// GetHmFirstApproachingLimitDate returns the HmFirstApproachingLimitDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHmFirstApproachingLimitDate returns the HmFirstApproachingLimitDate field value
+// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *FormattedApiOrg) GetHmFirstApproachingLimitDate() time.Time {
-	if o == nil || IsNil(o.HmFirstApproachingLimitDate.Get()) {
+	if o == nil || o.HmFirstApproachingLimitDate.Get() == nil {
 		var ret time.Time
 		return ret
 	}
+
 	return *o.HmFirstApproachingLimitDate.Get()
 }
 
-// GetHmFirstApproachingLimitDateOk returns a tuple with the HmFirstApproachingLimitDate field value if set, nil otherwise
+// GetHmFirstApproachingLimitDateOk returns a tuple with the HmFirstApproachingLimitDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHmFirstApproachingLimitDateOk() (*time.Time, bool) {
@@ -4865,392 +3614,287 @@ func (o *FormattedApiOrg) GetHmFirstApproachingLimitDateOk() (*time.Time, bool) 
 	return o.HmFirstApproachingLimitDate.Get(), o.HmFirstApproachingLimitDate.IsSet()
 }
 
-// HasHmFirstApproachingLimitDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmFirstApproachingLimitDate() bool {
-	if o != nil && o.HmFirstApproachingLimitDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHmFirstApproachingLimitDate gets a reference to the given NullableTime and assigns it to the HmFirstApproachingLimitDate field.
+// SetHmFirstApproachingLimitDate sets field value
 func (o *FormattedApiOrg) SetHmFirstApproachingLimitDate(v time.Time) {
 	o.HmFirstApproachingLimitDate.Set(&v)
 }
 
-// SetHmFirstApproachingLimitDateNil sets the value for HmFirstApproachingLimitDate to be an explicit nil
-func (o *FormattedApiOrg) SetHmFirstApproachingLimitDateNil() {
-	o.HmFirstApproachingLimitDate.Set(nil)
-}
-
-// UnsetHmFirstApproachingLimitDate ensures that no value is present for HmFirstApproachingLimitDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHmFirstApproachingLimitDate() {
-	o.HmFirstApproachingLimitDate.Unset()
-}
-
-// GetSpendCommitCreditBalance returns the SpendCommitCreditBalance field value if set, zero value otherwise.
+// GetSpendCommitCreditBalance returns the SpendCommitCreditBalance field value
 func (o *FormattedApiOrg) GetSpendCommitCreditBalance() float32 {
-	if o == nil || IsNil(o.SpendCommitCreditBalance) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.SpendCommitCreditBalance
+
+	return o.SpendCommitCreditBalance
 }
 
-// GetSpendCommitCreditBalanceOk returns a tuple with the SpendCommitCreditBalance field value if set, nil otherwise
+// GetSpendCommitCreditBalanceOk returns a tuple with the SpendCommitCreditBalance field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetSpendCommitCreditBalanceOk() (*float32, bool) {
-	if o == nil || IsNil(o.SpendCommitCreditBalance) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SpendCommitCreditBalance, true
+	return &o.SpendCommitCreditBalance, true
 }
 
-// HasSpendCommitCreditBalance returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasSpendCommitCreditBalance() bool {
-	if o != nil && !IsNil(o.SpendCommitCreditBalance) {
-		return true
-	}
-
-	return false
-}
-
-// SetSpendCommitCreditBalance gets a reference to the given float32 and assigns it to the SpendCommitCreditBalance field.
+// SetSpendCommitCreditBalance sets field value
 func (o *FormattedApiOrg) SetSpendCommitCreditBalance(v float32) {
-	o.SpendCommitCreditBalance = &v
+	o.SpendCommitCreditBalance = v
 }
 
-// GetSpendCommitCreditTotal returns the SpendCommitCreditTotal field value if set, zero value otherwise.
+// GetSpendCommitCreditTotal returns the SpendCommitCreditTotal field value
 func (o *FormattedApiOrg) GetSpendCommitCreditTotal() float32 {
-	if o == nil || IsNil(o.SpendCommitCreditTotal) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.SpendCommitCreditTotal
+
+	return o.SpendCommitCreditTotal
 }
 
-// GetSpendCommitCreditTotalOk returns a tuple with the SpendCommitCreditTotal field value if set, nil otherwise
+// GetSpendCommitCreditTotalOk returns a tuple with the SpendCommitCreditTotal field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetSpendCommitCreditTotalOk() (*float32, bool) {
-	if o == nil || IsNil(o.SpendCommitCreditTotal) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SpendCommitCreditTotal, true
+	return &o.SpendCommitCreditTotal, true
 }
 
-// HasSpendCommitCreditTotal returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasSpendCommitCreditTotal() bool {
-	if o != nil && !IsNil(o.SpendCommitCreditTotal) {
-		return true
-	}
-
-	return false
-}
-
-// SetSpendCommitCreditTotal gets a reference to the given float32 and assigns it to the SpendCommitCreditTotal field.
+// SetSpendCommitCreditTotal sets field value
 func (o *FormattedApiOrg) SetSpendCommitCreditTotal(v float32) {
-	o.SpendCommitCreditTotal = &v
+	o.SpendCommitCreditTotal = v
 }
 
-// GetProjectedOverageAmount returns the ProjectedOverageAmount field value if set, zero value otherwise.
+// GetProjectedOverageAmount returns the ProjectedOverageAmount field value
 func (o *FormattedApiOrg) GetProjectedOverageAmount() float32 {
-	if o == nil || IsNil(o.ProjectedOverageAmount) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.ProjectedOverageAmount
+
+	return o.ProjectedOverageAmount
 }
 
-// GetProjectedOverageAmountOk returns a tuple with the ProjectedOverageAmount field value if set, nil otherwise
+// GetProjectedOverageAmountOk returns a tuple with the ProjectedOverageAmount field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetProjectedOverageAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.ProjectedOverageAmount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ProjectedOverageAmount, true
+	return &o.ProjectedOverageAmount, true
 }
 
-// HasProjectedOverageAmount returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasProjectedOverageAmount() bool {
-	if o != nil && !IsNil(o.ProjectedOverageAmount) {
-		return true
-	}
-
-	return false
-}
-
-// SetProjectedOverageAmount gets a reference to the given float32 and assigns it to the ProjectedOverageAmount field.
+// SetProjectedOverageAmount sets field value
 func (o *FormattedApiOrg) SetProjectedOverageAmount(v float32) {
-	o.ProjectedOverageAmount = &v
+	o.ProjectedOverageAmount = v
 }
 
-// GetEstimatedArr returns the EstimatedArr field value if set, zero value otherwise.
+// GetEstimatedArr returns the EstimatedArr field value
 func (o *FormattedApiOrg) GetEstimatedArr() float32 {
-	if o == nil || IsNil(o.EstimatedArr) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.EstimatedArr
+
+	return o.EstimatedArr
 }
 
-// GetEstimatedArrOk returns a tuple with the EstimatedArr field value if set, nil otherwise
+// GetEstimatedArrOk returns a tuple with the EstimatedArr field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetEstimatedArrOk() (*float32, bool) {
-	if o == nil || IsNil(o.EstimatedArr) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EstimatedArr, true
+	return &o.EstimatedArr, true
 }
 
-// HasEstimatedArr returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasEstimatedArr() bool {
-	if o != nil && !IsNil(o.EstimatedArr) {
-		return true
-	}
-
-	return false
-}
-
-// SetEstimatedArr gets a reference to the given float32 and assigns it to the EstimatedArr field.
+// SetEstimatedArr sets field value
 func (o *FormattedApiOrg) SetEstimatedArr(v float32) {
-	o.EstimatedArr = &v
+	o.EstimatedArr = v
 }
 
-// GetReferredBy returns the ReferredBy field value if set, zero value otherwise.
+// GetReferredBy returns the ReferredBy field value
 func (o *FormattedApiOrg) GetReferredBy() string {
-	if o == nil || IsNil(o.ReferredBy) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ReferredBy
+
+	return o.ReferredBy
 }
 
-// GetReferredByOk returns a tuple with the ReferredBy field value if set, nil otherwise
+// GetReferredByOk returns a tuple with the ReferredBy field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetReferredByOk() (*string, bool) {
-	if o == nil || IsNil(o.ReferredBy) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ReferredBy, true
+	return &o.ReferredBy, true
 }
 
-// HasReferredBy returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasReferredBy() bool {
-	if o != nil && !IsNil(o.ReferredBy) {
-		return true
-	}
-
-	return false
-}
-
-// SetReferredBy gets a reference to the given string and assigns it to the ReferredBy field.
+// SetReferredBy sets field value
 func (o *FormattedApiOrg) SetReferredBy(v string) {
-	o.ReferredBy = &v
+	o.ReferredBy = v
 }
 
-// GetK6OrgId returns the K6OrgId field value if set, zero value otherwise.
+// GetK6OrgId returns the K6OrgId field value
 func (o *FormattedApiOrg) GetK6OrgId() float32 {
-	if o == nil || IsNil(o.K6OrgId) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6OrgId
+
+	return o.K6OrgId
 }
 
-// GetK6OrgIdOk returns a tuple with the K6OrgId field value if set, nil otherwise
+// GetK6OrgIdOk returns a tuple with the K6OrgId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6OrgIdOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6OrgId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6OrgId, true
+	return &o.K6OrgId, true
 }
 
-// HasK6OrgId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6OrgId() bool {
-	if o != nil && !IsNil(o.K6OrgId) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6OrgId gets a reference to the given float32 and assigns it to the K6OrgId field.
+// SetK6OrgId sets field value
 func (o *FormattedApiOrg) SetK6OrgId(v float32) {
-	o.K6OrgId = &v
+	o.K6OrgId = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *FormattedApiOrg) GetId() float32 {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIdOk() (*float32, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given float32 and assigns it to the Id field.
+// SetId sets field value
 func (o *FormattedApiOrg) SetId(v float32) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetSlug returns the Slug field value if set, zero value otherwise.
+// GetSlug returns the Slug field value
 func (o *FormattedApiOrg) GetSlug() string {
-	if o == nil || IsNil(o.Slug) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Slug
+
+	return o.Slug
 }
 
-// GetSlugOk returns a tuple with the Slug field value if set, nil otherwise
+// GetSlugOk returns a tuple with the Slug field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetSlugOk() (*string, bool) {
-	if o == nil || IsNil(o.Slug) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Slug, true
+	return &o.Slug, true
 }
 
-// HasSlug returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasSlug() bool {
-	if o != nil && !IsNil(o.Slug) {
-		return true
-	}
-
-	return false
-}
-
-// SetSlug gets a reference to the given string and assigns it to the Slug field.
+// SetSlug sets field value
 func (o *FormattedApiOrg) SetSlug(v string) {
-	o.Slug = &v
+	o.Slug = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value
 func (o *FormattedApiOrg) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName sets field value
 func (o *FormattedApiOrg) SetName(v string) {
-	o.Name = &v
+	o.Name = v
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise.
+// GetUrl returns the Url field value
 func (o *FormattedApiOrg) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Url
+
+	return o.Url
 }
 
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
+// GetUrlOk returns a tuple with the Url field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Url, true
+	return &o.Url, true
 }
 
-// HasUrl returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasUrl() bool {
-	if o != nil && !IsNil(o.Url) {
-		return true
-	}
-
-	return false
-}
-
-// SetUrl gets a reference to the given string and assigns it to the Url field.
+// SetUrl sets field value
 func (o *FormattedApiOrg) SetUrl(v string) {
-	o.Url = &v
+	o.Url = v
 }
 
-// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
+// GetCreatedAt returns the CreatedAt field value
 func (o *FormattedApiOrg) GetCreatedAt() string {
-	if o == nil || IsNil(o.CreatedAt) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedAt
+
+	return o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetCreatedAtOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedAt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedAt, true
+	return &o.CreatedAt, true
 }
 
-// HasCreatedAt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasCreatedAt() bool {
-	if o != nil && !IsNil(o.CreatedAt) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
+// SetCreatedAt sets field value
 func (o *FormattedApiOrg) SetCreatedAt(v string) {
-	o.CreatedAt = &v
+	o.CreatedAt = v
 }
 
-// GetCreatedBy returns the CreatedBy field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatedBy returns the CreatedBy field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetCreatedBy() string {
-	if o == nil || IsNil(o.CreatedBy.Get()) {
+	if o == nil || o.CreatedBy.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.CreatedBy.Get()
 }
 
-// GetCreatedByOk returns a tuple with the CreatedBy field value if set, nil otherwise
+// GetCreatedByOk returns a tuple with the CreatedBy field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetCreatedByOk() (*string, bool) {
@@ -5260,40 +3904,23 @@ func (o *FormattedApiOrg) GetCreatedByOk() (*string, bool) {
 	return o.CreatedBy.Get(), o.CreatedBy.IsSet()
 }
 
-// HasCreatedBy returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasCreatedBy() bool {
-	if o != nil && o.CreatedBy.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedBy gets a reference to the given NullableString and assigns it to the CreatedBy field.
+// SetCreatedBy sets field value
 func (o *FormattedApiOrg) SetCreatedBy(v string) {
 	o.CreatedBy.Set(&v)
 }
 
-// SetCreatedByNil sets the value for CreatedBy to be an explicit nil
-func (o *FormattedApiOrg) SetCreatedByNil() {
-	o.CreatedBy.Set(nil)
-}
-
-// UnsetCreatedBy ensures that no value is present for CreatedBy, not even an explicit nil
-func (o *FormattedApiOrg) UnsetCreatedBy() {
-	o.CreatedBy.Unset()
-}
-
-// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUpdatedAt returns the UpdatedAt field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetUpdatedAt() string {
-	if o == nil || IsNil(o.UpdatedAt.Get()) {
+	if o == nil || o.UpdatedAt.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.UpdatedAt.Get()
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetUpdatedAtOk() (*string, bool) {
@@ -5303,40 +3930,23 @@ func (o *FormattedApiOrg) GetUpdatedAtOk() (*string, bool) {
 	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
 }
 
-// HasUpdatedAt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasUpdatedAt() bool {
-	if o != nil && o.UpdatedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUpdatedAt gets a reference to the given NullableString and assigns it to the UpdatedAt field.
+// SetUpdatedAt sets field value
 func (o *FormattedApiOrg) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
 
-// SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
-func (o *FormattedApiOrg) SetUpdatedAtNil() {
-	o.UpdatedAt.Set(nil)
-}
-
-// UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
-func (o *FormattedApiOrg) UnsetUpdatedAt() {
-	o.UpdatedAt.Unset()
-}
-
-// GetUpdatedBy returns the UpdatedBy field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUpdatedBy returns the UpdatedBy field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetUpdatedBy() string {
-	if o == nil || IsNil(o.UpdatedBy.Get()) {
+	if o == nil || o.UpdatedBy.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.UpdatedBy.Get()
 }
 
-// GetUpdatedByOk returns a tuple with the UpdatedBy field value if set, nil otherwise
+// GetUpdatedByOk returns a tuple with the UpdatedBy field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetUpdatedByOk() (*string, bool) {
@@ -5346,40 +3956,23 @@ func (o *FormattedApiOrg) GetUpdatedByOk() (*string, bool) {
 	return o.UpdatedBy.Get(), o.UpdatedBy.IsSet()
 }
 
-// HasUpdatedBy returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasUpdatedBy() bool {
-	if o != nil && o.UpdatedBy.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUpdatedBy gets a reference to the given NullableString and assigns it to the UpdatedBy field.
+// SetUpdatedBy sets field value
 func (o *FormattedApiOrg) SetUpdatedBy(v string) {
 	o.UpdatedBy.Set(&v)
 }
 
-// SetUpdatedByNil sets the value for UpdatedBy to be an explicit nil
-func (o *FormattedApiOrg) SetUpdatedByNil() {
-	o.UpdatedBy.Set(nil)
-}
-
-// UnsetUpdatedBy ensures that no value is present for UpdatedBy, not even an explicit nil
-func (o *FormattedApiOrg) UnsetUpdatedBy() {
-	o.UpdatedBy.Unset()
-}
-
-// GetAvatar returns the Avatar field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAvatar returns the Avatar field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetAvatar() string {
-	if o == nil || IsNil(o.Avatar.Get()) {
+	if o == nil || o.Avatar.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.Avatar.Get()
 }
 
-// GetAvatarOk returns a tuple with the Avatar field value if set, nil otherwise
+// GetAvatarOk returns a tuple with the Avatar field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetAvatarOk() (*string, bool) {
@@ -5389,296 +3982,215 @@ func (o *FormattedApiOrg) GetAvatarOk() (*string, bool) {
 	return o.Avatar.Get(), o.Avatar.IsSet()
 }
 
-// HasAvatar returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasAvatar() bool {
-	if o != nil && o.Avatar.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAvatar gets a reference to the given NullableString and assigns it to the Avatar field.
+// SetAvatar sets field value
 func (o *FormattedApiOrg) SetAvatar(v string) {
 	o.Avatar.Set(&v)
 }
 
-// SetAvatarNil sets the value for Avatar to be an explicit nil
-func (o *FormattedApiOrg) SetAvatarNil() {
-	o.Avatar.Set(nil)
-}
-
-// UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
-func (o *FormattedApiOrg) UnsetAvatar() {
-	o.Avatar.Unset()
-}
-
-// GetChecksPerMonth returns the ChecksPerMonth field value if set, zero value otherwise.
+// GetChecksPerMonth returns the ChecksPerMonth field value
 func (o *FormattedApiOrg) GetChecksPerMonth() float32 {
-	if o == nil || IsNil(o.ChecksPerMonth) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.ChecksPerMonth
+
+	return o.ChecksPerMonth
 }
 
-// GetChecksPerMonthOk returns a tuple with the ChecksPerMonth field value if set, nil otherwise
+// GetChecksPerMonthOk returns a tuple with the ChecksPerMonth field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetChecksPerMonthOk() (*float32, bool) {
-	if o == nil || IsNil(o.ChecksPerMonth) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ChecksPerMonth, true
+	return &o.ChecksPerMonth, true
 }
 
-// HasChecksPerMonth returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasChecksPerMonth() bool {
-	if o != nil && !IsNil(o.ChecksPerMonth) {
-		return true
-	}
-
-	return false
-}
-
-// SetChecksPerMonth gets a reference to the given float32 and assigns it to the ChecksPerMonth field.
+// SetChecksPerMonth sets field value
 func (o *FormattedApiOrg) SetChecksPerMonth(v float32) {
-	o.ChecksPerMonth = &v
+	o.ChecksPerMonth = v
 }
 
-// GetWpPlan returns the WpPlan field value if set, zero value otherwise.
+// GetWpPlan returns the WpPlan field value
 func (o *FormattedApiOrg) GetWpPlan() string {
-	if o == nil || IsNil(o.WpPlan) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WpPlan
+
+	return o.WpPlan
 }
 
-// GetWpPlanOk returns a tuple with the WpPlan field value if set, nil otherwise
+// GetWpPlanOk returns a tuple with the WpPlan field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetWpPlanOk() (*string, bool) {
-	if o == nil || IsNil(o.WpPlan) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WpPlan, true
+	return &o.WpPlan, true
 }
 
-// HasWpPlan returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasWpPlan() bool {
-	if o != nil && !IsNil(o.WpPlan) {
-		return true
-	}
-
-	return false
-}
-
-// SetWpPlan gets a reference to the given string and assigns it to the WpPlan field.
+// SetWpPlan sets field value
 func (o *FormattedApiOrg) SetWpPlan(v string) {
-	o.WpPlan = &v
+	o.WpPlan = v
 }
 
-// GetHgInstanceLimit returns the HgInstanceLimit field value if set, zero value otherwise.
+// GetHgInstanceLimit returns the HgInstanceLimit field value
 func (o *FormattedApiOrg) GetHgInstanceLimit() float32 {
-	if o == nil || IsNil(o.HgInstanceLimit) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgInstanceLimit
+
+	return o.HgInstanceLimit
 }
 
-// GetHgInstanceLimitOk returns a tuple with the HgInstanceLimit field value if set, nil otherwise
+// GetHgInstanceLimitOk returns a tuple with the HgInstanceLimit field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgInstanceLimitOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgInstanceLimit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgInstanceLimit, true
+	return &o.HgInstanceLimit, true
 }
 
-// HasHgInstanceLimit returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgInstanceLimit() bool {
-	if o != nil && !IsNil(o.HgInstanceLimit) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgInstanceLimit gets a reference to the given float32 and assigns it to the HgInstanceLimit field.
+// SetHgInstanceLimit sets field value
 func (o *FormattedApiOrg) SetHgInstanceLimit(v float32) {
-	o.HgInstanceLimit = &v
+	o.HgInstanceLimit = v
 }
 
-// GetHmInstanceLimit returns the HmInstanceLimit field value if set, zero value otherwise.
+// GetHmInstanceLimit returns the HmInstanceLimit field value
 func (o *FormattedApiOrg) GetHmInstanceLimit() float32 {
-	if o == nil || IsNil(o.HmInstanceLimit) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmInstanceLimit
+
+	return o.HmInstanceLimit
 }
 
-// GetHmInstanceLimitOk returns a tuple with the HmInstanceLimit field value if set, nil otherwise
+// GetHmInstanceLimitOk returns a tuple with the HmInstanceLimit field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmInstanceLimitOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmInstanceLimit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmInstanceLimit, true
+	return &o.HmInstanceLimit, true
 }
 
-// HasHmInstanceLimit returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmInstanceLimit() bool {
-	if o != nil && !IsNil(o.HmInstanceLimit) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmInstanceLimit gets a reference to the given float32 and assigns it to the HmInstanceLimit field.
+// SetHmInstanceLimit sets field value
 func (o *FormattedApiOrg) SetHmInstanceLimit(v float32) {
-	o.HmInstanceLimit = &v
+	o.HmInstanceLimit = v
 }
 
-// GetHlInstanceLimit returns the HlInstanceLimit field value if set, zero value otherwise.
+// GetHlInstanceLimit returns the HlInstanceLimit field value
 func (o *FormattedApiOrg) GetHlInstanceLimit() float32 {
-	if o == nil || IsNil(o.HlInstanceLimit) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlInstanceLimit
+
+	return o.HlInstanceLimit
 }
 
-// GetHlInstanceLimitOk returns a tuple with the HlInstanceLimit field value if set, nil otherwise
+// GetHlInstanceLimitOk returns a tuple with the HlInstanceLimit field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlInstanceLimitOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlInstanceLimit) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlInstanceLimit, true
+	return &o.HlInstanceLimit, true
 }
 
-// HasHlInstanceLimit returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlInstanceLimit() bool {
-	if o != nil && !IsNil(o.HlInstanceLimit) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlInstanceLimit gets a reference to the given float32 and assigns it to the HlInstanceLimit field.
+// SetHlInstanceLimit sets field value
 func (o *FormattedApiOrg) SetHlInstanceLimit(v float32) {
-	o.HlInstanceLimit = &v
+	o.HlInstanceLimit = v
 }
 
-// GetUserQuota returns the UserQuota field value if set, zero value otherwise.
+// GetUserQuota returns the UserQuota field value
 func (o *FormattedApiOrg) GetUserQuota() float32 {
-	if o == nil || IsNil(o.UserQuota) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.UserQuota
+
+	return o.UserQuota
 }
 
-// GetUserQuotaOk returns a tuple with the UserQuota field value if set, nil otherwise
+// GetUserQuotaOk returns a tuple with the UserQuota field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetUserQuotaOk() (*float32, bool) {
-	if o == nil || IsNil(o.UserQuota) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UserQuota, true
+	return &o.UserQuota, true
 }
 
-// HasUserQuota returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasUserQuota() bool {
-	if o != nil && !IsNil(o.UserQuota) {
-		return true
-	}
-
-	return false
-}
-
-// SetUserQuota gets a reference to the given float32 and assigns it to the UserQuota field.
+// SetUserQuota sets field value
 func (o *FormattedApiOrg) SetUserQuota(v float32) {
-	o.UserQuota = &v
+	o.UserQuota = v
 }
 
-// GetSupportPlan returns the SupportPlan field value if set, zero value otherwise.
+// GetSupportPlan returns the SupportPlan field value
 func (o *FormattedApiOrg) GetSupportPlan() string {
-	if o == nil || IsNil(o.SupportPlan) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SupportPlan
+
+	return o.SupportPlan
 }
 
-// GetSupportPlanOk returns a tuple with the SupportPlan field value if set, nil otherwise
+// GetSupportPlanOk returns a tuple with the SupportPlan field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetSupportPlanOk() (*string, bool) {
-	if o == nil || IsNil(o.SupportPlan) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SupportPlan, true
+	return &o.SupportPlan, true
 }
 
-// HasSupportPlan returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasSupportPlan() bool {
-	if o != nil && !IsNil(o.SupportPlan) {
-		return true
-	}
-
-	return false
-}
-
-// SetSupportPlan gets a reference to the given string and assigns it to the SupportPlan field.
+// SetSupportPlan sets field value
 func (o *FormattedApiOrg) SetSupportPlan(v string) {
-	o.SupportPlan = &v
+	o.SupportPlan = v
 }
 
-// GetCreditApproved returns the CreditApproved field value if set, zero value otherwise.
+// GetCreditApproved returns the CreditApproved field value
 func (o *FormattedApiOrg) GetCreditApproved() float32 {
-	if o == nil || IsNil(o.CreditApproved) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.CreditApproved
+
+	return o.CreditApproved
 }
 
-// GetCreditApprovedOk returns a tuple with the CreditApproved field value if set, nil otherwise
+// GetCreditApprovedOk returns a tuple with the CreditApproved field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetCreditApprovedOk() (*float32, bool) {
-	if o == nil || IsNil(o.CreditApproved) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreditApproved, true
+	return &o.CreditApproved, true
 }
 
-// HasCreditApproved returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasCreditApproved() bool {
-	if o != nil && !IsNil(o.CreditApproved) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreditApproved gets a reference to the given float32 and assigns it to the CreditApproved field.
+// SetCreditApproved sets field value
 func (o *FormattedApiOrg) SetCreditApproved(v float32) {
-	o.CreditApproved = &v
+	o.CreditApproved = v
 }
 
-// GetMsaSignedAt returns the MsaSignedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMsaSignedAt returns the MsaSignedAt field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetMsaSignedAt() string {
-	if o == nil || IsNil(o.MsaSignedAt.Get()) {
+	if o == nil || o.MsaSignedAt.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.MsaSignedAt.Get()
 }
 
-// GetMsaSignedAtOk returns a tuple with the MsaSignedAt field value if set, nil otherwise
+// GetMsaSignedAtOk returns a tuple with the MsaSignedAt field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetMsaSignedAtOk() (*string, bool) {
@@ -5688,40 +4200,23 @@ func (o *FormattedApiOrg) GetMsaSignedAtOk() (*string, bool) {
 	return o.MsaSignedAt.Get(), o.MsaSignedAt.IsSet()
 }
 
-// HasMsaSignedAt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasMsaSignedAt() bool {
-	if o != nil && o.MsaSignedAt.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMsaSignedAt gets a reference to the given NullableString and assigns it to the MsaSignedAt field.
+// SetMsaSignedAt sets field value
 func (o *FormattedApiOrg) SetMsaSignedAt(v string) {
 	o.MsaSignedAt.Set(&v)
 }
 
-// SetMsaSignedAtNil sets the value for MsaSignedAt to be an explicit nil
-func (o *FormattedApiOrg) SetMsaSignedAtNil() {
-	o.MsaSignedAt.Set(nil)
-}
-
-// UnsetMsaSignedAt ensures that no value is present for MsaSignedAt, not even an explicit nil
-func (o *FormattedApiOrg) UnsetMsaSignedAt() {
-	o.MsaSignedAt.Unset()
-}
-
-// GetMsaSignedBy returns the MsaSignedBy field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMsaSignedBy returns the MsaSignedBy field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetMsaSignedBy() string {
-	if o == nil || IsNil(o.MsaSignedBy.Get()) {
+	if o == nil || o.MsaSignedBy.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.MsaSignedBy.Get()
 }
 
-// GetMsaSignedByOk returns a tuple with the MsaSignedBy field value if set, nil otherwise
+// GetMsaSignedByOk returns a tuple with the MsaSignedBy field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetMsaSignedByOk() (*string, bool) {
@@ -5731,168 +4226,119 @@ func (o *FormattedApiOrg) GetMsaSignedByOk() (*string, bool) {
 	return o.MsaSignedBy.Get(), o.MsaSignedBy.IsSet()
 }
 
-// HasMsaSignedBy returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasMsaSignedBy() bool {
-	if o != nil && o.MsaSignedBy.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMsaSignedBy gets a reference to the given NullableString and assigns it to the MsaSignedBy field.
+// SetMsaSignedBy sets field value
 func (o *FormattedApiOrg) SetMsaSignedBy(v string) {
 	o.MsaSignedBy.Set(&v)
 }
 
-// SetMsaSignedByNil sets the value for MsaSignedBy to be an explicit nil
-func (o *FormattedApiOrg) SetMsaSignedByNil() {
-	o.MsaSignedBy.Set(nil)
-}
-
-// UnsetMsaSignedBy ensures that no value is present for MsaSignedBy, not even an explicit nil
-func (o *FormattedApiOrg) UnsetMsaSignedBy() {
-	o.MsaSignedBy.Unset()
-}
-
-// GetEnterprisePlugins returns the EnterprisePlugins field value if set, zero value otherwise.
+// GetEnterprisePlugins returns the EnterprisePlugins field value
 func (o *FormattedApiOrg) GetEnterprisePlugins() float32 {
-	if o == nil || IsNil(o.EnterprisePlugins) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.EnterprisePlugins
+
+	return o.EnterprisePlugins
 }
 
-// GetEnterprisePluginsOk returns a tuple with the EnterprisePlugins field value if set, nil otherwise
+// GetEnterprisePluginsOk returns a tuple with the EnterprisePlugins field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetEnterprisePluginsOk() (*float32, bool) {
-	if o == nil || IsNil(o.EnterprisePlugins) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EnterprisePlugins, true
+	return &o.EnterprisePlugins, true
 }
 
-// HasEnterprisePlugins returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasEnterprisePlugins() bool {
-	if o != nil && !IsNil(o.EnterprisePlugins) {
-		return true
-	}
-
-	return false
-}
-
-// SetEnterprisePlugins gets a reference to the given float32 and assigns it to the EnterprisePlugins field.
+// SetEnterprisePlugins sets field value
 func (o *FormattedApiOrg) SetEnterprisePlugins(v float32) {
-	o.EnterprisePlugins = &v
+	o.EnterprisePlugins = v
 }
 
-// GetGrafanaCloud returns the GrafanaCloud field value if set, zero value otherwise.
+// GetGrafanaCloud returns the GrafanaCloud field value
 func (o *FormattedApiOrg) GetGrafanaCloud() float32 {
-	if o == nil || IsNil(o.GrafanaCloud) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GrafanaCloud
+
+	return o.GrafanaCloud
 }
 
-// GetGrafanaCloudOk returns a tuple with the GrafanaCloud field value if set, nil otherwise
+// GetGrafanaCloudOk returns a tuple with the GrafanaCloud field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGrafanaCloudOk() (*float32, bool) {
-	if o == nil || IsNil(o.GrafanaCloud) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GrafanaCloud, true
+	return &o.GrafanaCloud, true
 }
 
-// HasGrafanaCloud returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGrafanaCloud() bool {
-	if o != nil && !IsNil(o.GrafanaCloud) {
-		return true
-	}
-
-	return false
-}
-
-// SetGrafanaCloud gets a reference to the given float32 and assigns it to the GrafanaCloud field.
+// SetGrafanaCloud sets field value
 func (o *FormattedApiOrg) SetGrafanaCloud(v float32) {
-	o.GrafanaCloud = &v
+	o.GrafanaCloud = v
 }
 
-// GetPrivacy returns the Privacy field value if set, zero value otherwise.
+// GetPrivacy returns the Privacy field value
 func (o *FormattedApiOrg) GetPrivacy() string {
-	if o == nil || IsNil(o.Privacy) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Privacy
+
+	return o.Privacy
 }
 
-// GetPrivacyOk returns a tuple with the Privacy field value if set, nil otherwise
+// GetPrivacyOk returns a tuple with the Privacy field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetPrivacyOk() (*string, bool) {
-	if o == nil || IsNil(o.Privacy) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Privacy, true
+	return &o.Privacy, true
 }
 
-// HasPrivacy returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasPrivacy() bool {
-	if o != nil && !IsNil(o.Privacy) {
-		return true
-	}
-
-	return false
-}
-
-// SetPrivacy gets a reference to the given string and assigns it to the Privacy field.
+// SetPrivacy sets field value
 func (o *FormattedApiOrg) SetPrivacy(v string) {
-	o.Privacy = &v
+	o.Privacy = v
 }
 
-// GetReseller returns the Reseller field value if set, zero value otherwise.
+// GetReseller returns the Reseller field value
 func (o *FormattedApiOrg) GetReseller() string {
-	if o == nil || IsNil(o.Reseller) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Reseller
+
+	return o.Reseller
 }
 
-// GetResellerOk returns a tuple with the Reseller field value if set, nil otherwise
+// GetResellerOk returns a tuple with the Reseller field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetResellerOk() (*string, bool) {
-	if o == nil || IsNil(o.Reseller) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Reseller, true
+	return &o.Reseller, true
 }
 
-// HasReseller returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasReseller() bool {
-	if o != nil && !IsNil(o.Reseller) {
-		return true
-	}
-
-	return false
-}
-
-// SetReseller gets a reference to the given string and assigns it to the Reseller field.
+// SetReseller sets field value
 func (o *FormattedApiOrg) SetReseller(v string) {
-	o.Reseller = &v
+	o.Reseller = v
 }
 
-// GetResellerId returns the ResellerId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetResellerId returns the ResellerId field value
+// If the value is explicit nil, the zero value for float32 will be returned
 func (o *FormattedApiOrg) GetResellerId() float32 {
-	if o == nil || IsNil(o.ResellerId.Get()) {
+	if o == nil || o.ResellerId.Get() == nil {
 		var ret float32
 		return ret
 	}
+
 	return *o.ResellerId.Get()
 }
 
-// GetResellerIdOk returns a tuple with the ResellerId field value if set, nil otherwise
+// GetResellerIdOk returns a tuple with the ResellerId field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetResellerIdOk() (*float32, bool) {
@@ -5902,40 +4348,23 @@ func (o *FormattedApiOrg) GetResellerIdOk() (*float32, bool) {
 	return o.ResellerId.Get(), o.ResellerId.IsSet()
 }
 
-// HasResellerId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasResellerId() bool {
-	if o != nil && o.ResellerId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetResellerId gets a reference to the given NullableFloat32 and assigns it to the ResellerId field.
+// SetResellerId sets field value
 func (o *FormattedApiOrg) SetResellerId(v float32) {
 	o.ResellerId.Set(&v)
 }
 
-// SetResellerIdNil sets the value for ResellerId to be an explicit nil
-func (o *FormattedApiOrg) SetResellerIdNil() {
-	o.ResellerId.Set(nil)
-}
-
-// UnsetResellerId ensures that no value is present for ResellerId, not even an explicit nil
-func (o *FormattedApiOrg) UnsetResellerId() {
-	o.ResellerId.Unset()
-}
-
-// GetResellerName returns the ResellerName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetResellerName returns the ResellerName field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetResellerName() string {
-	if o == nil || IsNil(o.ResellerName.Get()) {
+	if o == nil || o.ResellerName.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.ResellerName.Get()
 }
 
-// GetResellerNameOk returns a tuple with the ResellerName field value if set, nil otherwise
+// GetResellerNameOk returns a tuple with the ResellerName field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetResellerNameOk() (*string, bool) {
@@ -5945,3336 +4374,2495 @@ func (o *FormattedApiOrg) GetResellerNameOk() (*string, bool) {
 	return o.ResellerName.Get(), o.ResellerName.IsSet()
 }
 
-// HasResellerName returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasResellerName() bool {
-	if o != nil && o.ResellerName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetResellerName gets a reference to the given NullableString and assigns it to the ResellerName field.
+// SetResellerName sets field value
 func (o *FormattedApiOrg) SetResellerName(v string) {
 	o.ResellerName.Set(&v)
 }
 
-// SetResellerNameNil sets the value for ResellerName to be an explicit nil
-func (o *FormattedApiOrg) SetResellerNameNil() {
-	o.ResellerName.Set(nil)
-}
-
-// UnsetResellerName ensures that no value is present for ResellerName, not even an explicit nil
-func (o *FormattedApiOrg) UnsetResellerName() {
-	o.ResellerName.Unset()
-}
-
-// GetEmergencySupport returns the EmergencySupport field value if set, zero value otherwise.
+// GetEmergencySupport returns the EmergencySupport field value
 func (o *FormattedApiOrg) GetEmergencySupport() bool {
-	if o == nil || IsNil(o.EmergencySupport) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.EmergencySupport
+
+	return o.EmergencySupport
 }
 
-// GetEmergencySupportOk returns a tuple with the EmergencySupport field value if set, nil otherwise
+// GetEmergencySupportOk returns a tuple with the EmergencySupport field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetEmergencySupportOk() (*bool, bool) {
-	if o == nil || IsNil(o.EmergencySupport) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EmergencySupport, true
+	return &o.EmergencySupport, true
 }
 
-// HasEmergencySupport returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasEmergencySupport() bool {
-	if o != nil && !IsNil(o.EmergencySupport) {
-		return true
-	}
-
-	return false
-}
-
-// SetEmergencySupport gets a reference to the given bool and assigns it to the EmergencySupport field.
+// SetEmergencySupport sets field value
 func (o *FormattedApiOrg) SetEmergencySupport(v bool) {
-	o.EmergencySupport = &v
+	o.EmergencySupport = v
 }
 
-// GetIsContractedLicenseAutoProvision returns the IsContractedLicenseAutoProvision field value if set, zero value otherwise.
+// GetIsContractedLicenseAutoProvision returns the IsContractedLicenseAutoProvision field value
 func (o *FormattedApiOrg) GetIsContractedLicenseAutoProvision() bool {
-	if o == nil || IsNil(o.IsContractedLicenseAutoProvision) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsContractedLicenseAutoProvision
+
+	return o.IsContractedLicenseAutoProvision
 }
 
-// GetIsContractedLicenseAutoProvisionOk returns a tuple with the IsContractedLicenseAutoProvision field value if set, nil otherwise
+// GetIsContractedLicenseAutoProvisionOk returns a tuple with the IsContractedLicenseAutoProvision field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIsContractedLicenseAutoProvisionOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsContractedLicenseAutoProvision) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsContractedLicenseAutoProvision, true
+	return &o.IsContractedLicenseAutoProvision, true
 }
 
-// HasIsContractedLicenseAutoProvision returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIsContractedLicenseAutoProvision() bool {
-	if o != nil && !IsNil(o.IsContractedLicenseAutoProvision) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsContractedLicenseAutoProvision gets a reference to the given bool and assigns it to the IsContractedLicenseAutoProvision field.
+// SetIsContractedLicenseAutoProvision sets field value
 func (o *FormattedApiOrg) SetIsContractedLicenseAutoProvision(v bool) {
-	o.IsContractedLicenseAutoProvision = &v
+	o.IsContractedLicenseAutoProvision = v
 }
 
-// GetGcloudMonthlyCost returns the GcloudMonthlyCost field value if set, zero value otherwise.
+// GetGcloudMonthlyCost returns the GcloudMonthlyCost field value
 func (o *FormattedApiOrg) GetGcloudMonthlyCost() float32 {
-	if o == nil || IsNil(o.GcloudMonthlyCost) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GcloudMonthlyCost
+
+	return o.GcloudMonthlyCost
 }
 
-// GetGcloudMonthlyCostOk returns a tuple with the GcloudMonthlyCost field value if set, nil otherwise
+// GetGcloudMonthlyCostOk returns a tuple with the GcloudMonthlyCost field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGcloudMonthlyCostOk() (*float32, bool) {
-	if o == nil || IsNil(o.GcloudMonthlyCost) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GcloudMonthlyCost, true
+	return &o.GcloudMonthlyCost, true
 }
 
-// HasGcloudMonthlyCost returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGcloudMonthlyCost() bool {
-	if o != nil && !IsNil(o.GcloudMonthlyCost) {
-		return true
-	}
-
-	return false
-}
-
-// SetGcloudMonthlyCost gets a reference to the given float32 and assigns it to the GcloudMonthlyCost field.
+// SetGcloudMonthlyCost sets field value
 func (o *FormattedApiOrg) SetGcloudMonthlyCost(v float32) {
-	o.GcloudMonthlyCost = &v
+	o.GcloudMonthlyCost = v
 }
 
-// GetHgIncludedUsers returns the HgIncludedUsers field value if set, zero value otherwise.
+// GetHgIncludedUsers returns the HgIncludedUsers field value
 func (o *FormattedApiOrg) GetHgIncludedUsers() float32 {
-	if o == nil || IsNil(o.HgIncludedUsers) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgIncludedUsers
+
+	return o.HgIncludedUsers
 }
 
-// GetHgIncludedUsersOk returns a tuple with the HgIncludedUsers field value if set, nil otherwise
+// GetHgIncludedUsersOk returns a tuple with the HgIncludedUsers field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgIncludedUsersOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgIncludedUsers) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgIncludedUsers, true
+	return &o.HgIncludedUsers, true
 }
 
-// HasHgIncludedUsers returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgIncludedUsers() bool {
-	if o != nil && !IsNil(o.HgIncludedUsers) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgIncludedUsers gets a reference to the given float32 and assigns it to the HgIncludedUsers field.
+// SetHgIncludedUsers sets field value
 func (o *FormattedApiOrg) SetHgIncludedUsers(v float32) {
-	o.HgIncludedUsers = &v
+	o.HgIncludedUsers = v
 }
 
-// GetHgTier1Rate returns the HgTier1Rate field value if set, zero value otherwise.
+// GetHgTier1Rate returns the HgTier1Rate field value
 func (o *FormattedApiOrg) GetHgTier1Rate() float32 {
-	if o == nil || IsNil(o.HgTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgTier1Rate
+
+	return o.HgTier1Rate
 }
 
-// GetHgTier1RateOk returns a tuple with the HgTier1Rate field value if set, nil otherwise
+// GetHgTier1RateOk returns a tuple with the HgTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgTier1Rate, true
+	return &o.HgTier1Rate, true
 }
 
-// HasHgTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgTier1Rate() bool {
-	if o != nil && !IsNil(o.HgTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgTier1Rate gets a reference to the given float32 and assigns it to the HgTier1Rate field.
+// SetHgTier1Rate sets field value
 func (o *FormattedApiOrg) SetHgTier1Rate(v float32) {
-	o.HgTier1Rate = &v
+	o.HgTier1Rate = v
 }
 
-// GetHgTier2Min returns the HgTier2Min field value if set, zero value otherwise.
+// GetHgTier2Min returns the HgTier2Min field value
 func (o *FormattedApiOrg) GetHgTier2Min() float32 {
-	if o == nil || IsNil(o.HgTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgTier2Min
+
+	return o.HgTier2Min
 }
 
-// GetHgTier2MinOk returns a tuple with the HgTier2Min field value if set, nil otherwise
+// GetHgTier2MinOk returns a tuple with the HgTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgTier2Min, true
+	return &o.HgTier2Min, true
 }
 
-// HasHgTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgTier2Min() bool {
-	if o != nil && !IsNil(o.HgTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgTier2Min gets a reference to the given float32 and assigns it to the HgTier2Min field.
+// SetHgTier2Min sets field value
 func (o *FormattedApiOrg) SetHgTier2Min(v float32) {
-	o.HgTier2Min = &v
+	o.HgTier2Min = v
 }
 
-// GetHgTier2Rate returns the HgTier2Rate field value if set, zero value otherwise.
+// GetHgTier2Rate returns the HgTier2Rate field value
 func (o *FormattedApiOrg) GetHgTier2Rate() float32 {
-	if o == nil || IsNil(o.HgTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgTier2Rate
+
+	return o.HgTier2Rate
 }
 
-// GetHgTier2RateOk returns a tuple with the HgTier2Rate field value if set, nil otherwise
+// GetHgTier2RateOk returns a tuple with the HgTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgTier2Rate, true
+	return &o.HgTier2Rate, true
 }
 
-// HasHgTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgTier2Rate() bool {
-	if o != nil && !IsNil(o.HgTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgTier2Rate gets a reference to the given float32 and assigns it to the HgTier2Rate field.
+// SetHgTier2Rate sets field value
 func (o *FormattedApiOrg) SetHgTier2Rate(v float32) {
-	o.HgTier2Rate = &v
+	o.HgTier2Rate = v
 }
 
-// GetHgTier3Min returns the HgTier3Min field value if set, zero value otherwise.
+// GetHgTier3Min returns the HgTier3Min field value
 func (o *FormattedApiOrg) GetHgTier3Min() float32 {
-	if o == nil || IsNil(o.HgTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgTier3Min
+
+	return o.HgTier3Min
 }
 
-// GetHgTier3MinOk returns a tuple with the HgTier3Min field value if set, nil otherwise
+// GetHgTier3MinOk returns a tuple with the HgTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgTier3Min, true
+	return &o.HgTier3Min, true
 }
 
-// HasHgTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgTier3Min() bool {
-	if o != nil && !IsNil(o.HgTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgTier3Min gets a reference to the given float32 and assigns it to the HgTier3Min field.
+// SetHgTier3Min sets field value
 func (o *FormattedApiOrg) SetHgTier3Min(v float32) {
-	o.HgTier3Min = &v
+	o.HgTier3Min = v
 }
 
-// GetHgTier3Rate returns the HgTier3Rate field value if set, zero value otherwise.
+// GetHgTier3Rate returns the HgTier3Rate field value
 func (o *FormattedApiOrg) GetHgTier3Rate() float32 {
-	if o == nil || IsNil(o.HgTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgTier3Rate
+
+	return o.HgTier3Rate
 }
 
-// GetHgTier3RateOk returns a tuple with the HgTier3Rate field value if set, nil otherwise
+// GetHgTier3RateOk returns a tuple with the HgTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgTier3Rate, true
+	return &o.HgTier3Rate, true
 }
 
-// HasHgTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgTier3Rate() bool {
-	if o != nil && !IsNil(o.HgTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgTier3Rate gets a reference to the given float32 and assigns it to the HgTier3Rate field.
+// SetHgTier3Rate sets field value
 func (o *FormattedApiOrg) SetHgTier3Rate(v float32) {
-	o.HgTier3Rate = &v
+	o.HgTier3Rate = v
 }
 
-// GetHgUsage returns the HgUsage field value if set, zero value otherwise.
+// GetHgUsage returns the HgUsage field value
 func (o *FormattedApiOrg) GetHgUsage() float32 {
-	if o == nil || IsNil(o.HgUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgUsage
+
+	return o.HgUsage
 }
 
-// GetHgUsageOk returns a tuple with the HgUsage field value if set, nil otherwise
+// GetHgUsageOk returns a tuple with the HgUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgUsage, true
+	return &o.HgUsage, true
 }
 
-// HasHgUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgUsage() bool {
-	if o != nil && !IsNil(o.HgUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgUsage gets a reference to the given float32 and assigns it to the HgUsage field.
+// SetHgUsage sets field value
 func (o *FormattedApiOrg) SetHgUsage(v float32) {
-	o.HgUsage = &v
+	o.HgUsage = v
 }
 
-// GetHgCurrentActiveUsers returns the HgCurrentActiveUsers field value if set, zero value otherwise.
+// GetHgCurrentActiveUsers returns the HgCurrentActiveUsers field value
 func (o *FormattedApiOrg) GetHgCurrentActiveUsers() float32 {
-	if o == nil || IsNil(o.HgCurrentActiveUsers) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgCurrentActiveUsers
+
+	return o.HgCurrentActiveUsers
 }
 
-// GetHgCurrentActiveUsersOk returns a tuple with the HgCurrentActiveUsers field value if set, nil otherwise
+// GetHgCurrentActiveUsersOk returns a tuple with the HgCurrentActiveUsers field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgCurrentActiveUsersOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgCurrentActiveUsers) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgCurrentActiveUsers, true
+	return &o.HgCurrentActiveUsers, true
 }
 
-// HasHgCurrentActiveUsers returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgCurrentActiveUsers() bool {
-	if o != nil && !IsNil(o.HgCurrentActiveUsers) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgCurrentActiveUsers gets a reference to the given float32 and assigns it to the HgCurrentActiveUsers field.
+// SetHgCurrentActiveUsers sets field value
 func (o *FormattedApiOrg) SetHgCurrentActiveUsers(v float32) {
-	o.HgCurrentActiveUsers = &v
+	o.HgCurrentActiveUsers = v
 }
 
-// GetHgGrafanaUsage returns the HgGrafanaUsage field value if set, zero value otherwise.
+// GetHgGrafanaUsage returns the HgGrafanaUsage field value
 func (o *FormattedApiOrg) GetHgGrafanaUsage() float32 {
-	if o == nil || IsNil(o.HgGrafanaUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgGrafanaUsage
+
+	return o.HgGrafanaUsage
 }
 
-// GetHgGrafanaUsageOk returns a tuple with the HgGrafanaUsage field value if set, nil otherwise
+// GetHgGrafanaUsageOk returns a tuple with the HgGrafanaUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgGrafanaUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgGrafanaUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgGrafanaUsage, true
+	return &o.HgGrafanaUsage, true
 }
 
-// HasHgGrafanaUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgGrafanaUsage() bool {
-	if o != nil && !IsNil(o.HgGrafanaUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgGrafanaUsage gets a reference to the given float32 and assigns it to the HgGrafanaUsage field.
+// SetHgGrafanaUsage sets field value
 func (o *FormattedApiOrg) SetHgGrafanaUsage(v float32) {
-	o.HgGrafanaUsage = &v
+	o.HgGrafanaUsage = v
 }
 
-// GetHgOnCallUsage returns the HgOnCallUsage field value if set, zero value otherwise.
+// GetHgOnCallUsage returns the HgOnCallUsage field value
 func (o *FormattedApiOrg) GetHgOnCallUsage() float32 {
-	if o == nil || IsNil(o.HgOnCallUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HgOnCallUsage
+
+	return o.HgOnCallUsage
 }
 
-// GetHgOnCallUsageOk returns a tuple with the HgOnCallUsage field value if set, nil otherwise
+// GetHgOnCallUsageOk returns a tuple with the HgOnCallUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHgOnCallUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HgOnCallUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HgOnCallUsage, true
+	return &o.HgOnCallUsage, true
 }
 
-// HasHgOnCallUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgOnCallUsage() bool {
-	if o != nil && !IsNil(o.HgOnCallUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHgOnCallUsage gets a reference to the given float32 and assigns it to the HgOnCallUsage field.
+// SetHgOnCallUsage sets field value
 func (o *FormattedApiOrg) SetHgOnCallUsage(v float32) {
-	o.HgOnCallUsage = &v
+	o.HgOnCallUsage = v
 }
 
-// GetHmIncludedSeries returns the HmIncludedSeries field value if set, zero value otherwise.
+// GetHmIncludedSeries returns the HmIncludedSeries field value
 func (o *FormattedApiOrg) GetHmIncludedSeries() float32 {
-	if o == nil || IsNil(o.HmIncludedSeries) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmIncludedSeries
+
+	return o.HmIncludedSeries
 }
 
-// GetHmIncludedSeriesOk returns a tuple with the HmIncludedSeries field value if set, nil otherwise
+// GetHmIncludedSeriesOk returns a tuple with the HmIncludedSeries field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmIncludedSeriesOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmIncludedSeries) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmIncludedSeries, true
+	return &o.HmIncludedSeries, true
 }
 
-// HasHmIncludedSeries returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmIncludedSeries() bool {
-	if o != nil && !IsNil(o.HmIncludedSeries) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmIncludedSeries gets a reference to the given float32 and assigns it to the HmIncludedSeries field.
+// SetHmIncludedSeries sets field value
 func (o *FormattedApiOrg) SetHmIncludedSeries(v float32) {
-	o.HmIncludedSeries = &v
+	o.HmIncludedSeries = v
 }
 
-// GetHmAverageDpm returns the HmAverageDpm field value if set, zero value otherwise.
+// GetHmAverageDpm returns the HmAverageDpm field value
 func (o *FormattedApiOrg) GetHmAverageDpm() float32 {
-	if o == nil || IsNil(o.HmAverageDpm) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmAverageDpm
+
+	return o.HmAverageDpm
 }
 
-// GetHmAverageDpmOk returns a tuple with the HmAverageDpm field value if set, nil otherwise
+// GetHmAverageDpmOk returns a tuple with the HmAverageDpm field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmAverageDpmOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmAverageDpm) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmAverageDpm, true
+	return &o.HmAverageDpm, true
 }
 
-// HasHmAverageDpm returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmAverageDpm() bool {
-	if o != nil && !IsNil(o.HmAverageDpm) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmAverageDpm gets a reference to the given float32 and assigns it to the HmAverageDpm field.
+// SetHmAverageDpm sets field value
 func (o *FormattedApiOrg) SetHmAverageDpm(v float32) {
-	o.HmAverageDpm = &v
+	o.HmAverageDpm = v
 }
 
-// GetHmTier1Rate returns the HmTier1Rate field value if set, zero value otherwise.
+// GetHmTier1Rate returns the HmTier1Rate field value
 func (o *FormattedApiOrg) GetHmTier1Rate() float32 {
-	if o == nil || IsNil(o.HmTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmTier1Rate
+
+	return o.HmTier1Rate
 }
 
-// GetHmTier1RateOk returns a tuple with the HmTier1Rate field value if set, nil otherwise
+// GetHmTier1RateOk returns a tuple with the HmTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmTier1Rate, true
+	return &o.HmTier1Rate, true
 }
 
-// HasHmTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmTier1Rate() bool {
-	if o != nil && !IsNil(o.HmTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmTier1Rate gets a reference to the given float32 and assigns it to the HmTier1Rate field.
+// SetHmTier1Rate sets field value
 func (o *FormattedApiOrg) SetHmTier1Rate(v float32) {
-	o.HmTier1Rate = &v
+	o.HmTier1Rate = v
 }
 
-// GetHmTier2Min returns the HmTier2Min field value if set, zero value otherwise.
+// GetHmTier2Min returns the HmTier2Min field value
 func (o *FormattedApiOrg) GetHmTier2Min() float32 {
-	if o == nil || IsNil(o.HmTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmTier2Min
+
+	return o.HmTier2Min
 }
 
-// GetHmTier2MinOk returns a tuple with the HmTier2Min field value if set, nil otherwise
+// GetHmTier2MinOk returns a tuple with the HmTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmTier2Min, true
+	return &o.HmTier2Min, true
 }
 
-// HasHmTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmTier2Min() bool {
-	if o != nil && !IsNil(o.HmTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmTier2Min gets a reference to the given float32 and assigns it to the HmTier2Min field.
+// SetHmTier2Min sets field value
 func (o *FormattedApiOrg) SetHmTier2Min(v float32) {
-	o.HmTier2Min = &v
+	o.HmTier2Min = v
 }
 
-// GetHmTier2Rate returns the HmTier2Rate field value if set, zero value otherwise.
+// GetHmTier2Rate returns the HmTier2Rate field value
 func (o *FormattedApiOrg) GetHmTier2Rate() float32 {
-	if o == nil || IsNil(o.HmTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmTier2Rate
+
+	return o.HmTier2Rate
 }
 
-// GetHmTier2RateOk returns a tuple with the HmTier2Rate field value if set, nil otherwise
+// GetHmTier2RateOk returns a tuple with the HmTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmTier2Rate, true
+	return &o.HmTier2Rate, true
 }
 
-// HasHmTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmTier2Rate() bool {
-	if o != nil && !IsNil(o.HmTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmTier2Rate gets a reference to the given float32 and assigns it to the HmTier2Rate field.
+// SetHmTier2Rate sets field value
 func (o *FormattedApiOrg) SetHmTier2Rate(v float32) {
-	o.HmTier2Rate = &v
+	o.HmTier2Rate = v
 }
 
-// GetHmTier3Min returns the HmTier3Min field value if set, zero value otherwise.
+// GetHmTier3Min returns the HmTier3Min field value
 func (o *FormattedApiOrg) GetHmTier3Min() float32 {
-	if o == nil || IsNil(o.HmTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmTier3Min
+
+	return o.HmTier3Min
 }
 
-// GetHmTier3MinOk returns a tuple with the HmTier3Min field value if set, nil otherwise
+// GetHmTier3MinOk returns a tuple with the HmTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmTier3Min, true
+	return &o.HmTier3Min, true
 }
 
-// HasHmTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmTier3Min() bool {
-	if o != nil && !IsNil(o.HmTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmTier3Min gets a reference to the given float32 and assigns it to the HmTier3Min field.
+// SetHmTier3Min sets field value
 func (o *FormattedApiOrg) SetHmTier3Min(v float32) {
-	o.HmTier3Min = &v
+	o.HmTier3Min = v
 }
 
-// GetHmTier3Rate returns the HmTier3Rate field value if set, zero value otherwise.
+// GetHmTier3Rate returns the HmTier3Rate field value
 func (o *FormattedApiOrg) GetHmTier3Rate() float32 {
-	if o == nil || IsNil(o.HmTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmTier3Rate
+
+	return o.HmTier3Rate
 }
 
-// GetHmTier3RateOk returns a tuple with the HmTier3Rate field value if set, nil otherwise
+// GetHmTier3RateOk returns a tuple with the HmTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmTier3Rate, true
+	return &o.HmTier3Rate, true
 }
 
-// HasHmTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmTier3Rate() bool {
-	if o != nil && !IsNil(o.HmTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmTier3Rate gets a reference to the given float32 and assigns it to the HmTier3Rate field.
+// SetHmTier3Rate sets field value
 func (o *FormattedApiOrg) SetHmTier3Rate(v float32) {
-	o.HmTier3Rate = &v
+	o.HmTier3Rate = v
 }
 
-// GetHmUsage returns the HmUsage field value if set, zero value otherwise.
+// GetHmUsage returns the HmUsage field value
 func (o *FormattedApiOrg) GetHmUsage() float32 {
-	if o == nil || IsNil(o.HmUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmUsage
+
+	return o.HmUsage
 }
 
-// GetHmUsageOk returns a tuple with the HmUsage field value if set, nil otherwise
+// GetHmUsageOk returns a tuple with the HmUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmUsage, true
+	return &o.HmUsage, true
 }
 
-// HasHmUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmUsage() bool {
-	if o != nil && !IsNil(o.HmUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmUsage gets a reference to the given float32 and assigns it to the HmUsage field.
+// SetHmUsage sets field value
 func (o *FormattedApiOrg) SetHmUsage(v float32) {
-	o.HmUsage = &v
+	o.HmUsage = v
 }
 
-// GetHmCurrentUsage returns the HmCurrentUsage field value if set, zero value otherwise.
+// GetHmCurrentUsage returns the HmCurrentUsage field value
 func (o *FormattedApiOrg) GetHmCurrentUsage() float32 {
-	if o == nil || IsNil(o.HmCurrentUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmCurrentUsage
+
+	return o.HmCurrentUsage
 }
 
-// GetHmCurrentUsageOk returns a tuple with the HmCurrentUsage field value if set, nil otherwise
+// GetHmCurrentUsageOk returns a tuple with the HmCurrentUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmCurrentUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmCurrentUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmCurrentUsage, true
+	return &o.HmCurrentUsage, true
 }
 
-// HasHmCurrentUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmCurrentUsage() bool {
-	if o != nil && !IsNil(o.HmCurrentUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmCurrentUsage gets a reference to the given float32 and assigns it to the HmCurrentUsage field.
+// SetHmCurrentUsage sets field value
 func (o *FormattedApiOrg) SetHmCurrentUsage(v float32) {
-	o.HmCurrentUsage = &v
+	o.HmCurrentUsage = v
 }
 
-// GetHmGraphiteIncludedUsage returns the HmGraphiteIncludedUsage field value if set, zero value otherwise.
+// GetHmGraphiteIncludedUsage returns the HmGraphiteIncludedUsage field value
 func (o *FormattedApiOrg) GetHmGraphiteIncludedUsage() float32 {
-	if o == nil || IsNil(o.HmGraphiteIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmGraphiteIncludedUsage
+
+	return o.HmGraphiteIncludedUsage
 }
 
-// GetHmGraphiteIncludedUsageOk returns a tuple with the HmGraphiteIncludedUsage field value if set, nil otherwise
+// GetHmGraphiteIncludedUsageOk returns a tuple with the HmGraphiteIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmGraphiteIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmGraphiteIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmGraphiteIncludedUsage, true
+	return &o.HmGraphiteIncludedUsage, true
 }
 
-// HasHmGraphiteIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteIncludedUsage() bool {
-	if o != nil && !IsNil(o.HmGraphiteIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteIncludedUsage gets a reference to the given float32 and assigns it to the HmGraphiteIncludedUsage field.
+// SetHmGraphiteIncludedUsage sets field value
 func (o *FormattedApiOrg) SetHmGraphiteIncludedUsage(v float32) {
-	o.HmGraphiteIncludedUsage = &v
+	o.HmGraphiteIncludedUsage = v
 }
 
-// GetHmGraphiteTier1Rate returns the HmGraphiteTier1Rate field value if set, zero value otherwise.
+// GetHmGraphiteTier1Rate returns the HmGraphiteTier1Rate field value
 func (o *FormattedApiOrg) GetHmGraphiteTier1Rate() float32 {
-	if o == nil || IsNil(o.HmGraphiteTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmGraphiteTier1Rate
+
+	return o.HmGraphiteTier1Rate
 }
 
-// GetHmGraphiteTier1RateOk returns a tuple with the HmGraphiteTier1Rate field value if set, nil otherwise
+// GetHmGraphiteTier1RateOk returns a tuple with the HmGraphiteTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmGraphiteTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmGraphiteTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmGraphiteTier1Rate, true
+	return &o.HmGraphiteTier1Rate, true
 }
 
-// HasHmGraphiteTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteTier1Rate() bool {
-	if o != nil && !IsNil(o.HmGraphiteTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteTier1Rate gets a reference to the given float32 and assigns it to the HmGraphiteTier1Rate field.
+// SetHmGraphiteTier1Rate sets field value
 func (o *FormattedApiOrg) SetHmGraphiteTier1Rate(v float32) {
-	o.HmGraphiteTier1Rate = &v
+	o.HmGraphiteTier1Rate = v
 }
 
-// GetHmGraphiteTier2Min returns the HmGraphiteTier2Min field value if set, zero value otherwise.
+// GetHmGraphiteTier2Min returns the HmGraphiteTier2Min field value
 func (o *FormattedApiOrg) GetHmGraphiteTier2Min() float32 {
-	if o == nil || IsNil(o.HmGraphiteTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmGraphiteTier2Min
+
+	return o.HmGraphiteTier2Min
 }
 
-// GetHmGraphiteTier2MinOk returns a tuple with the HmGraphiteTier2Min field value if set, nil otherwise
+// GetHmGraphiteTier2MinOk returns a tuple with the HmGraphiteTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmGraphiteTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmGraphiteTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmGraphiteTier2Min, true
+	return &o.HmGraphiteTier2Min, true
 }
 
-// HasHmGraphiteTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteTier2Min() bool {
-	if o != nil && !IsNil(o.HmGraphiteTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteTier2Min gets a reference to the given float32 and assigns it to the HmGraphiteTier2Min field.
+// SetHmGraphiteTier2Min sets field value
 func (o *FormattedApiOrg) SetHmGraphiteTier2Min(v float32) {
-	o.HmGraphiteTier2Min = &v
+	o.HmGraphiteTier2Min = v
 }
 
-// GetHmGraphiteTier2Rate returns the HmGraphiteTier2Rate field value if set, zero value otherwise.
+// GetHmGraphiteTier2Rate returns the HmGraphiteTier2Rate field value
 func (o *FormattedApiOrg) GetHmGraphiteTier2Rate() float32 {
-	if o == nil || IsNil(o.HmGraphiteTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmGraphiteTier2Rate
+
+	return o.HmGraphiteTier2Rate
 }
 
-// GetHmGraphiteTier2RateOk returns a tuple with the HmGraphiteTier2Rate field value if set, nil otherwise
+// GetHmGraphiteTier2RateOk returns a tuple with the HmGraphiteTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmGraphiteTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmGraphiteTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmGraphiteTier2Rate, true
+	return &o.HmGraphiteTier2Rate, true
 }
 
-// HasHmGraphiteTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteTier2Rate() bool {
-	if o != nil && !IsNil(o.HmGraphiteTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteTier2Rate gets a reference to the given float32 and assigns it to the HmGraphiteTier2Rate field.
+// SetHmGraphiteTier2Rate sets field value
 func (o *FormattedApiOrg) SetHmGraphiteTier2Rate(v float32) {
-	o.HmGraphiteTier2Rate = &v
+	o.HmGraphiteTier2Rate = v
 }
 
-// GetHmGraphiteTier3Min returns the HmGraphiteTier3Min field value if set, zero value otherwise.
+// GetHmGraphiteTier3Min returns the HmGraphiteTier3Min field value
 func (o *FormattedApiOrg) GetHmGraphiteTier3Min() float32 {
-	if o == nil || IsNil(o.HmGraphiteTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmGraphiteTier3Min
+
+	return o.HmGraphiteTier3Min
 }
 
-// GetHmGraphiteTier3MinOk returns a tuple with the HmGraphiteTier3Min field value if set, nil otherwise
+// GetHmGraphiteTier3MinOk returns a tuple with the HmGraphiteTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmGraphiteTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmGraphiteTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmGraphiteTier3Min, true
+	return &o.HmGraphiteTier3Min, true
 }
 
-// HasHmGraphiteTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteTier3Min() bool {
-	if o != nil && !IsNil(o.HmGraphiteTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteTier3Min gets a reference to the given float32 and assigns it to the HmGraphiteTier3Min field.
+// SetHmGraphiteTier3Min sets field value
 func (o *FormattedApiOrg) SetHmGraphiteTier3Min(v float32) {
-	o.HmGraphiteTier3Min = &v
+	o.HmGraphiteTier3Min = v
 }
 
-// GetHmGraphiteTier3Rate returns the HmGraphiteTier3Rate field value if set, zero value otherwise.
+// GetHmGraphiteTier3Rate returns the HmGraphiteTier3Rate field value
 func (o *FormattedApiOrg) GetHmGraphiteTier3Rate() float32 {
-	if o == nil || IsNil(o.HmGraphiteTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmGraphiteTier3Rate
+
+	return o.HmGraphiteTier3Rate
 }
 
-// GetHmGraphiteTier3RateOk returns a tuple with the HmGraphiteTier3Rate field value if set, nil otherwise
+// GetHmGraphiteTier3RateOk returns a tuple with the HmGraphiteTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmGraphiteTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmGraphiteTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmGraphiteTier3Rate, true
+	return &o.HmGraphiteTier3Rate, true
 }
 
-// HasHmGraphiteTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteTier3Rate() bool {
-	if o != nil && !IsNil(o.HmGraphiteTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteTier3Rate gets a reference to the given float32 and assigns it to the HmGraphiteTier3Rate field.
+// SetHmGraphiteTier3Rate sets field value
 func (o *FormattedApiOrg) SetHmGraphiteTier3Rate(v float32) {
-	o.HmGraphiteTier3Rate = &v
+	o.HmGraphiteTier3Rate = v
 }
 
-// GetHmGraphiteUsage returns the HmGraphiteUsage field value if set, zero value otherwise.
+// GetHmGraphiteUsage returns the HmGraphiteUsage field value
 func (o *FormattedApiOrg) GetHmGraphiteUsage() float32 {
-	if o == nil || IsNil(o.HmGraphiteUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmGraphiteUsage
+
+	return o.HmGraphiteUsage
 }
 
-// GetHmGraphiteUsageOk returns a tuple with the HmGraphiteUsage field value if set, nil otherwise
+// GetHmGraphiteUsageOk returns a tuple with the HmGraphiteUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmGraphiteUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmGraphiteUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmGraphiteUsage, true
+	return &o.HmGraphiteUsage, true
 }
 
-// HasHmGraphiteUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteUsage() bool {
-	if o != nil && !IsNil(o.HmGraphiteUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteUsage gets a reference to the given float32 and assigns it to the HmGraphiteUsage field.
+// SetHmGraphiteUsage sets field value
 func (o *FormattedApiOrg) SetHmGraphiteUsage(v float32) {
-	o.HmGraphiteUsage = &v
+	o.HmGraphiteUsage = v
 }
 
-// GetHlIncludedUsage returns the HlIncludedUsage field value if set, zero value otherwise.
+// GetHlIncludedUsage returns the HlIncludedUsage field value
 func (o *FormattedApiOrg) GetHlIncludedUsage() float32 {
-	if o == nil || IsNil(o.HlIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlIncludedUsage
+
+	return o.HlIncludedUsage
 }
 
-// GetHlIncludedUsageOk returns a tuple with the HlIncludedUsage field value if set, nil otherwise
+// GetHlIncludedUsageOk returns a tuple with the HlIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlIncludedUsage, true
+	return &o.HlIncludedUsage, true
 }
 
-// HasHlIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlIncludedUsage() bool {
-	if o != nil && !IsNil(o.HlIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlIncludedUsage gets a reference to the given float32 and assigns it to the HlIncludedUsage field.
+// SetHlIncludedUsage sets field value
 func (o *FormattedApiOrg) SetHlIncludedUsage(v float32) {
-	o.HlIncludedUsage = &v
+	o.HlIncludedUsage = v
 }
 
-// GetHlQueryToIngestRatio returns the HlQueryToIngestRatio field value if set, zero value otherwise.
+// GetHlQueryToIngestRatio returns the HlQueryToIngestRatio field value
 func (o *FormattedApiOrg) GetHlQueryToIngestRatio() float32 {
-	if o == nil || IsNil(o.HlQueryToIngestRatio) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlQueryToIngestRatio
+
+	return o.HlQueryToIngestRatio
 }
 
-// GetHlQueryToIngestRatioOk returns a tuple with the HlQueryToIngestRatio field value if set, nil otherwise
+// GetHlQueryToIngestRatioOk returns a tuple with the HlQueryToIngestRatio field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlQueryToIngestRatioOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlQueryToIngestRatio) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlQueryToIngestRatio, true
+	return &o.HlQueryToIngestRatio, true
 }
 
-// HasHlQueryToIngestRatio returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlQueryToIngestRatio() bool {
-	if o != nil && !IsNil(o.HlQueryToIngestRatio) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlQueryToIngestRatio gets a reference to the given float32 and assigns it to the HlQueryToIngestRatio field.
+// SetHlQueryToIngestRatio sets field value
 func (o *FormattedApiOrg) SetHlQueryToIngestRatio(v float32) {
-	o.HlQueryToIngestRatio = &v
+	o.HlQueryToIngestRatio = v
 }
 
-// GetHlTier1Rate returns the HlTier1Rate field value if set, zero value otherwise.
+// GetHlTier1Rate returns the HlTier1Rate field value
 func (o *FormattedApiOrg) GetHlTier1Rate() float32 {
-	if o == nil || IsNil(o.HlTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlTier1Rate
+
+	return o.HlTier1Rate
 }
 
-// GetHlTier1RateOk returns a tuple with the HlTier1Rate field value if set, nil otherwise
+// GetHlTier1RateOk returns a tuple with the HlTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlTier1Rate, true
+	return &o.HlTier1Rate, true
 }
 
-// HasHlTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlTier1Rate() bool {
-	if o != nil && !IsNil(o.HlTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlTier1Rate gets a reference to the given float32 and assigns it to the HlTier1Rate field.
+// SetHlTier1Rate sets field value
 func (o *FormattedApiOrg) SetHlTier1Rate(v float32) {
-	o.HlTier1Rate = &v
+	o.HlTier1Rate = v
 }
 
-// GetHlTier2Min returns the HlTier2Min field value if set, zero value otherwise.
+// GetHlTier2Min returns the HlTier2Min field value
 func (o *FormattedApiOrg) GetHlTier2Min() float32 {
-	if o == nil || IsNil(o.HlTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlTier2Min
+
+	return o.HlTier2Min
 }
 
-// GetHlTier2MinOk returns a tuple with the HlTier2Min field value if set, nil otherwise
+// GetHlTier2MinOk returns a tuple with the HlTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlTier2Min, true
+	return &o.HlTier2Min, true
 }
 
-// HasHlTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlTier2Min() bool {
-	if o != nil && !IsNil(o.HlTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlTier2Min gets a reference to the given float32 and assigns it to the HlTier2Min field.
+// SetHlTier2Min sets field value
 func (o *FormattedApiOrg) SetHlTier2Min(v float32) {
-	o.HlTier2Min = &v
+	o.HlTier2Min = v
 }
 
-// GetHlTier2Rate returns the HlTier2Rate field value if set, zero value otherwise.
+// GetHlTier2Rate returns the HlTier2Rate field value
 func (o *FormattedApiOrg) GetHlTier2Rate() float32 {
-	if o == nil || IsNil(o.HlTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlTier2Rate
+
+	return o.HlTier2Rate
 }
 
-// GetHlTier2RateOk returns a tuple with the HlTier2Rate field value if set, nil otherwise
+// GetHlTier2RateOk returns a tuple with the HlTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlTier2Rate, true
+	return &o.HlTier2Rate, true
 }
 
-// HasHlTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlTier2Rate() bool {
-	if o != nil && !IsNil(o.HlTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlTier2Rate gets a reference to the given float32 and assigns it to the HlTier2Rate field.
+// SetHlTier2Rate sets field value
 func (o *FormattedApiOrg) SetHlTier2Rate(v float32) {
-	o.HlTier2Rate = &v
+	o.HlTier2Rate = v
 }
 
-// GetHlTier3Min returns the HlTier3Min field value if set, zero value otherwise.
+// GetHlTier3Min returns the HlTier3Min field value
 func (o *FormattedApiOrg) GetHlTier3Min() float32 {
-	if o == nil || IsNil(o.HlTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlTier3Min
+
+	return o.HlTier3Min
 }
 
-// GetHlTier3MinOk returns a tuple with the HlTier3Min field value if set, nil otherwise
+// GetHlTier3MinOk returns a tuple with the HlTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlTier3Min, true
+	return &o.HlTier3Min, true
 }
 
-// HasHlTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlTier3Min() bool {
-	if o != nil && !IsNil(o.HlTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlTier3Min gets a reference to the given float32 and assigns it to the HlTier3Min field.
+// SetHlTier3Min sets field value
 func (o *FormattedApiOrg) SetHlTier3Min(v float32) {
-	o.HlTier3Min = &v
+	o.HlTier3Min = v
 }
 
-// GetHlTier3Rate returns the HlTier3Rate field value if set, zero value otherwise.
+// GetHlTier3Rate returns the HlTier3Rate field value
 func (o *FormattedApiOrg) GetHlTier3Rate() float32 {
-	if o == nil || IsNil(o.HlTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlTier3Rate
+
+	return o.HlTier3Rate
 }
 
-// GetHlTier3RateOk returns a tuple with the HlTier3Rate field value if set, nil otherwise
+// GetHlTier3RateOk returns a tuple with the HlTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlTier3Rate, true
+	return &o.HlTier3Rate, true
 }
 
-// HasHlTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlTier3Rate() bool {
-	if o != nil && !IsNil(o.HlTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlTier3Rate gets a reference to the given float32 and assigns it to the HlTier3Rate field.
+// SetHlTier3Rate sets field value
 func (o *FormattedApiOrg) SetHlTier3Rate(v float32) {
-	o.HlTier3Rate = &v
+	o.HlTier3Rate = v
 }
 
-// GetHlUsage returns the HlUsage field value if set, zero value otherwise.
+// GetHlUsage returns the HlUsage field value
 func (o *FormattedApiOrg) GetHlUsage() float32 {
-	if o == nil || IsNil(o.HlUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlUsage
+
+	return o.HlUsage
 }
 
-// GetHlUsageOk returns a tuple with the HlUsage field value if set, nil otherwise
+// GetHlUsageOk returns a tuple with the HlUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlUsage, true
+	return &o.HlUsage, true
 }
 
-// HasHlUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlUsage() bool {
-	if o != nil && !IsNil(o.HlUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlUsage gets a reference to the given float32 and assigns it to the HlUsage field.
+// SetHlUsage sets field value
 func (o *FormattedApiOrg) SetHlUsage(v float32) {
-	o.HlUsage = &v
+	o.HlUsage = v
 }
 
-// GetHlRetentionIncludedUsage returns the HlRetentionIncludedUsage field value if set, zero value otherwise.
+// GetHlRetentionIncludedUsage returns the HlRetentionIncludedUsage field value
 func (o *FormattedApiOrg) GetHlRetentionIncludedUsage() float32 {
-	if o == nil || IsNil(o.HlRetentionIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlRetentionIncludedUsage
+
+	return o.HlRetentionIncludedUsage
 }
 
-// GetHlRetentionIncludedUsageOk returns a tuple with the HlRetentionIncludedUsage field value if set, nil otherwise
+// GetHlRetentionIncludedUsageOk returns a tuple with the HlRetentionIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlRetentionIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlRetentionIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlRetentionIncludedUsage, true
+	return &o.HlRetentionIncludedUsage, true
 }
 
-// HasHlRetentionIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionIncludedUsage() bool {
-	if o != nil && !IsNil(o.HlRetentionIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionIncludedUsage gets a reference to the given float32 and assigns it to the HlRetentionIncludedUsage field.
+// SetHlRetentionIncludedUsage sets field value
 func (o *FormattedApiOrg) SetHlRetentionIncludedUsage(v float32) {
-	o.HlRetentionIncludedUsage = &v
+	o.HlRetentionIncludedUsage = v
 }
 
-// GetHlRetentionTier1Rate returns the HlRetentionTier1Rate field value if set, zero value otherwise.
+// GetHlRetentionTier1Rate returns the HlRetentionTier1Rate field value
 func (o *FormattedApiOrg) GetHlRetentionTier1Rate() float32 {
-	if o == nil || IsNil(o.HlRetentionTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlRetentionTier1Rate
+
+	return o.HlRetentionTier1Rate
 }
 
-// GetHlRetentionTier1RateOk returns a tuple with the HlRetentionTier1Rate field value if set, nil otherwise
+// GetHlRetentionTier1RateOk returns a tuple with the HlRetentionTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlRetentionTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlRetentionTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlRetentionTier1Rate, true
+	return &o.HlRetentionTier1Rate, true
 }
 
-// HasHlRetentionTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionTier1Rate() bool {
-	if o != nil && !IsNil(o.HlRetentionTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionTier1Rate gets a reference to the given float32 and assigns it to the HlRetentionTier1Rate field.
+// SetHlRetentionTier1Rate sets field value
 func (o *FormattedApiOrg) SetHlRetentionTier1Rate(v float32) {
-	o.HlRetentionTier1Rate = &v
+	o.HlRetentionTier1Rate = v
 }
 
-// GetHlRetentionTier2Min returns the HlRetentionTier2Min field value if set, zero value otherwise.
+// GetHlRetentionTier2Min returns the HlRetentionTier2Min field value
 func (o *FormattedApiOrg) GetHlRetentionTier2Min() float32 {
-	if o == nil || IsNil(o.HlRetentionTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlRetentionTier2Min
+
+	return o.HlRetentionTier2Min
 }
 
-// GetHlRetentionTier2MinOk returns a tuple with the HlRetentionTier2Min field value if set, nil otherwise
+// GetHlRetentionTier2MinOk returns a tuple with the HlRetentionTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlRetentionTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlRetentionTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlRetentionTier2Min, true
+	return &o.HlRetentionTier2Min, true
 }
 
-// HasHlRetentionTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionTier2Min() bool {
-	if o != nil && !IsNil(o.HlRetentionTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionTier2Min gets a reference to the given float32 and assigns it to the HlRetentionTier2Min field.
+// SetHlRetentionTier2Min sets field value
 func (o *FormattedApiOrg) SetHlRetentionTier2Min(v float32) {
-	o.HlRetentionTier2Min = &v
+	o.HlRetentionTier2Min = v
 }
 
-// GetHlRetentionTier2Rate returns the HlRetentionTier2Rate field value if set, zero value otherwise.
+// GetHlRetentionTier2Rate returns the HlRetentionTier2Rate field value
 func (o *FormattedApiOrg) GetHlRetentionTier2Rate() float32 {
-	if o == nil || IsNil(o.HlRetentionTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlRetentionTier2Rate
+
+	return o.HlRetentionTier2Rate
 }
 
-// GetHlRetentionTier2RateOk returns a tuple with the HlRetentionTier2Rate field value if set, nil otherwise
+// GetHlRetentionTier2RateOk returns a tuple with the HlRetentionTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlRetentionTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlRetentionTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlRetentionTier2Rate, true
+	return &o.HlRetentionTier2Rate, true
 }
 
-// HasHlRetentionTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionTier2Rate() bool {
-	if o != nil && !IsNil(o.HlRetentionTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionTier2Rate gets a reference to the given float32 and assigns it to the HlRetentionTier2Rate field.
+// SetHlRetentionTier2Rate sets field value
 func (o *FormattedApiOrg) SetHlRetentionTier2Rate(v float32) {
-	o.HlRetentionTier2Rate = &v
+	o.HlRetentionTier2Rate = v
 }
 
-// GetHlRetentionTier3Min returns the HlRetentionTier3Min field value if set, zero value otherwise.
+// GetHlRetentionTier3Min returns the HlRetentionTier3Min field value
 func (o *FormattedApiOrg) GetHlRetentionTier3Min() float32 {
-	if o == nil || IsNil(o.HlRetentionTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlRetentionTier3Min
+
+	return o.HlRetentionTier3Min
 }
 
-// GetHlRetentionTier3MinOk returns a tuple with the HlRetentionTier3Min field value if set, nil otherwise
+// GetHlRetentionTier3MinOk returns a tuple with the HlRetentionTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlRetentionTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlRetentionTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlRetentionTier3Min, true
+	return &o.HlRetentionTier3Min, true
 }
 
-// HasHlRetentionTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionTier3Min() bool {
-	if o != nil && !IsNil(o.HlRetentionTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionTier3Min gets a reference to the given float32 and assigns it to the HlRetentionTier3Min field.
+// SetHlRetentionTier3Min sets field value
 func (o *FormattedApiOrg) SetHlRetentionTier3Min(v float32) {
-	o.HlRetentionTier3Min = &v
+	o.HlRetentionTier3Min = v
 }
 
-// GetHlRetentionTier3Rate returns the HlRetentionTier3Rate field value if set, zero value otherwise.
+// GetHlRetentionTier3Rate returns the HlRetentionTier3Rate field value
 func (o *FormattedApiOrg) GetHlRetentionTier3Rate() float32 {
-	if o == nil || IsNil(o.HlRetentionTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlRetentionTier3Rate
+
+	return o.HlRetentionTier3Rate
 }
 
-// GetHlRetentionTier3RateOk returns a tuple with the HlRetentionTier3Rate field value if set, nil otherwise
+// GetHlRetentionTier3RateOk returns a tuple with the HlRetentionTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlRetentionTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlRetentionTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlRetentionTier3Rate, true
+	return &o.HlRetentionTier3Rate, true
 }
 
-// HasHlRetentionTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionTier3Rate() bool {
-	if o != nil && !IsNil(o.HlRetentionTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionTier3Rate gets a reference to the given float32 and assigns it to the HlRetentionTier3Rate field.
+// SetHlRetentionTier3Rate sets field value
 func (o *FormattedApiOrg) SetHlRetentionTier3Rate(v float32) {
-	o.HlRetentionTier3Rate = &v
+	o.HlRetentionTier3Rate = v
 }
 
-// GetHlRetentionUsage returns the HlRetentionUsage field value if set, zero value otherwise.
+// GetHlRetentionUsage returns the HlRetentionUsage field value
 func (o *FormattedApiOrg) GetHlRetentionUsage() float32 {
-	if o == nil || IsNil(o.HlRetentionUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HlRetentionUsage
+
+	return o.HlRetentionUsage
 }
 
-// GetHlRetentionUsageOk returns a tuple with the HlRetentionUsage field value if set, nil otherwise
+// GetHlRetentionUsageOk returns a tuple with the HlRetentionUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHlRetentionUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HlRetentionUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HlRetentionUsage, true
+	return &o.HlRetentionUsage, true
 }
 
-// HasHlRetentionUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHlRetentionUsage() bool {
-	if o != nil && !IsNil(o.HlRetentionUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlRetentionUsage gets a reference to the given float32 and assigns it to the HlRetentionUsage field.
+// SetHlRetentionUsage sets field value
 func (o *FormattedApiOrg) SetHlRetentionUsage(v float32) {
-	o.HlRetentionUsage = &v
+	o.HlRetentionUsage = v
 }
 
-// GetHtIncludedUsage returns the HtIncludedUsage field value if set, zero value otherwise.
+// GetHtIncludedUsage returns the HtIncludedUsage field value
 func (o *FormattedApiOrg) GetHtIncludedUsage() float32 {
-	if o == nil || IsNil(o.HtIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HtIncludedUsage
+
+	return o.HtIncludedUsage
 }
 
-// GetHtIncludedUsageOk returns a tuple with the HtIncludedUsage field value if set, nil otherwise
+// GetHtIncludedUsageOk returns a tuple with the HtIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHtIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HtIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HtIncludedUsage, true
+	return &o.HtIncludedUsage, true
 }
 
-// HasHtIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtIncludedUsage() bool {
-	if o != nil && !IsNil(o.HtIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHtIncludedUsage gets a reference to the given float32 and assigns it to the HtIncludedUsage field.
+// SetHtIncludedUsage sets field value
 func (o *FormattedApiOrg) SetHtIncludedUsage(v float32) {
-	o.HtIncludedUsage = &v
+	o.HtIncludedUsage = v
 }
 
-// GetHtTier1Rate returns the HtTier1Rate field value if set, zero value otherwise.
+// GetHtTier1Rate returns the HtTier1Rate field value
 func (o *FormattedApiOrg) GetHtTier1Rate() float32 {
-	if o == nil || IsNil(o.HtTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HtTier1Rate
+
+	return o.HtTier1Rate
 }
 
-// GetHtTier1RateOk returns a tuple with the HtTier1Rate field value if set, nil otherwise
+// GetHtTier1RateOk returns a tuple with the HtTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHtTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HtTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HtTier1Rate, true
+	return &o.HtTier1Rate, true
 }
 
-// HasHtTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtTier1Rate() bool {
-	if o != nil && !IsNil(o.HtTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHtTier1Rate gets a reference to the given float32 and assigns it to the HtTier1Rate field.
+// SetHtTier1Rate sets field value
 func (o *FormattedApiOrg) SetHtTier1Rate(v float32) {
-	o.HtTier1Rate = &v
+	o.HtTier1Rate = v
 }
 
-// GetHtTier2Min returns the HtTier2Min field value if set, zero value otherwise.
+// GetHtTier2Min returns the HtTier2Min field value
 func (o *FormattedApiOrg) GetHtTier2Min() float32 {
-	if o == nil || IsNil(o.HtTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HtTier2Min
+
+	return o.HtTier2Min
 }
 
-// GetHtTier2MinOk returns a tuple with the HtTier2Min field value if set, nil otherwise
+// GetHtTier2MinOk returns a tuple with the HtTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHtTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HtTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HtTier2Min, true
+	return &o.HtTier2Min, true
 }
 
-// HasHtTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtTier2Min() bool {
-	if o != nil && !IsNil(o.HtTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHtTier2Min gets a reference to the given float32 and assigns it to the HtTier2Min field.
+// SetHtTier2Min sets field value
 func (o *FormattedApiOrg) SetHtTier2Min(v float32) {
-	o.HtTier2Min = &v
+	o.HtTier2Min = v
 }
 
-// GetHtTier2Rate returns the HtTier2Rate field value if set, zero value otherwise.
+// GetHtTier2Rate returns the HtTier2Rate field value
 func (o *FormattedApiOrg) GetHtTier2Rate() float32 {
-	if o == nil || IsNil(o.HtTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HtTier2Rate
+
+	return o.HtTier2Rate
 }
 
-// GetHtTier2RateOk returns a tuple with the HtTier2Rate field value if set, nil otherwise
+// GetHtTier2RateOk returns a tuple with the HtTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHtTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HtTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HtTier2Rate, true
+	return &o.HtTier2Rate, true
 }
 
-// HasHtTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtTier2Rate() bool {
-	if o != nil && !IsNil(o.HtTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHtTier2Rate gets a reference to the given float32 and assigns it to the HtTier2Rate field.
+// SetHtTier2Rate sets field value
 func (o *FormattedApiOrg) SetHtTier2Rate(v float32) {
-	o.HtTier2Rate = &v
+	o.HtTier2Rate = v
 }
 
-// GetHtTier3Min returns the HtTier3Min field value if set, zero value otherwise.
+// GetHtTier3Min returns the HtTier3Min field value
 func (o *FormattedApiOrg) GetHtTier3Min() float32 {
-	if o == nil || IsNil(o.HtTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HtTier3Min
+
+	return o.HtTier3Min
 }
 
-// GetHtTier3MinOk returns a tuple with the HtTier3Min field value if set, nil otherwise
+// GetHtTier3MinOk returns a tuple with the HtTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHtTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HtTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HtTier3Min, true
+	return &o.HtTier3Min, true
 }
 
-// HasHtTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtTier3Min() bool {
-	if o != nil && !IsNil(o.HtTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHtTier3Min gets a reference to the given float32 and assigns it to the HtTier3Min field.
+// SetHtTier3Min sets field value
 func (o *FormattedApiOrg) SetHtTier3Min(v float32) {
-	o.HtTier3Min = &v
+	o.HtTier3Min = v
 }
 
-// GetHtTier3Rate returns the HtTier3Rate field value if set, zero value otherwise.
+// GetHtTier3Rate returns the HtTier3Rate field value
 func (o *FormattedApiOrg) GetHtTier3Rate() float32 {
-	if o == nil || IsNil(o.HtTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HtTier3Rate
+
+	return o.HtTier3Rate
 }
 
-// GetHtTier3RateOk returns a tuple with the HtTier3Rate field value if set, nil otherwise
+// GetHtTier3RateOk returns a tuple with the HtTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHtTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HtTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HtTier3Rate, true
+	return &o.HtTier3Rate, true
 }
 
-// HasHtTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtTier3Rate() bool {
-	if o != nil && !IsNil(o.HtTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHtTier3Rate gets a reference to the given float32 and assigns it to the HtTier3Rate field.
+// SetHtTier3Rate sets field value
 func (o *FormattedApiOrg) SetHtTier3Rate(v float32) {
-	o.HtTier3Rate = &v
+	o.HtTier3Rate = v
 }
 
-// GetHtUsage returns the HtUsage field value if set, zero value otherwise.
+// GetHtUsage returns the HtUsage field value
 func (o *FormattedApiOrg) GetHtUsage() float32 {
-	if o == nil || IsNil(o.HtUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HtUsage
+
+	return o.HtUsage
 }
 
-// GetHtUsageOk returns a tuple with the HtUsage field value if set, nil otherwise
+// GetHtUsageOk returns a tuple with the HtUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHtUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HtUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HtUsage, true
+	return &o.HtUsage, true
 }
 
-// HasHtUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHtUsage() bool {
-	if o != nil && !IsNil(o.HtUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHtUsage gets a reference to the given float32 and assigns it to the HtUsage field.
+// SetHtUsage sets field value
 func (o *FormattedApiOrg) SetHtUsage(v float32) {
-	o.HtUsage = &v
+	o.HtUsage = v
 }
 
-// GetHpIncludedUsage returns the HpIncludedUsage field value if set, zero value otherwise.
+// GetHpIncludedUsage returns the HpIncludedUsage field value
 func (o *FormattedApiOrg) GetHpIncludedUsage() float32 {
-	if o == nil || IsNil(o.HpIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HpIncludedUsage
+
+	return o.HpIncludedUsage
 }
 
-// GetHpIncludedUsageOk returns a tuple with the HpIncludedUsage field value if set, nil otherwise
+// GetHpIncludedUsageOk returns a tuple with the HpIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHpIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HpIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HpIncludedUsage, true
+	return &o.HpIncludedUsage, true
 }
 
-// HasHpIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpIncludedUsage() bool {
-	if o != nil && !IsNil(o.HpIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHpIncludedUsage gets a reference to the given float32 and assigns it to the HpIncludedUsage field.
+// SetHpIncludedUsage sets field value
 func (o *FormattedApiOrg) SetHpIncludedUsage(v float32) {
-	o.HpIncludedUsage = &v
+	o.HpIncludedUsage = v
 }
 
-// GetHpTier1Rate returns the HpTier1Rate field value if set, zero value otherwise.
+// GetHpTier1Rate returns the HpTier1Rate field value
 func (o *FormattedApiOrg) GetHpTier1Rate() float32 {
-	if o == nil || IsNil(o.HpTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HpTier1Rate
+
+	return o.HpTier1Rate
 }
 
-// GetHpTier1RateOk returns a tuple with the HpTier1Rate field value if set, nil otherwise
+// GetHpTier1RateOk returns a tuple with the HpTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHpTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HpTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HpTier1Rate, true
+	return &o.HpTier1Rate, true
 }
 
-// HasHpTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpTier1Rate() bool {
-	if o != nil && !IsNil(o.HpTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHpTier1Rate gets a reference to the given float32 and assigns it to the HpTier1Rate field.
+// SetHpTier1Rate sets field value
 func (o *FormattedApiOrg) SetHpTier1Rate(v float32) {
-	o.HpTier1Rate = &v
+	o.HpTier1Rate = v
 }
 
-// GetHpTier2Min returns the HpTier2Min field value if set, zero value otherwise.
+// GetHpTier2Min returns the HpTier2Min field value
 func (o *FormattedApiOrg) GetHpTier2Min() float32 {
-	if o == nil || IsNil(o.HpTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HpTier2Min
+
+	return o.HpTier2Min
 }
 
-// GetHpTier2MinOk returns a tuple with the HpTier2Min field value if set, nil otherwise
+// GetHpTier2MinOk returns a tuple with the HpTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHpTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HpTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HpTier2Min, true
+	return &o.HpTier2Min, true
 }
 
-// HasHpTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpTier2Min() bool {
-	if o != nil && !IsNil(o.HpTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHpTier2Min gets a reference to the given float32 and assigns it to the HpTier2Min field.
+// SetHpTier2Min sets field value
 func (o *FormattedApiOrg) SetHpTier2Min(v float32) {
-	o.HpTier2Min = &v
+	o.HpTier2Min = v
 }
 
-// GetHpTier2Rate returns the HpTier2Rate field value if set, zero value otherwise.
+// GetHpTier2Rate returns the HpTier2Rate field value
 func (o *FormattedApiOrg) GetHpTier2Rate() float32 {
-	if o == nil || IsNil(o.HpTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HpTier2Rate
+
+	return o.HpTier2Rate
 }
 
-// GetHpTier2RateOk returns a tuple with the HpTier2Rate field value if set, nil otherwise
+// GetHpTier2RateOk returns a tuple with the HpTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHpTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HpTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HpTier2Rate, true
+	return &o.HpTier2Rate, true
 }
 
-// HasHpTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpTier2Rate() bool {
-	if o != nil && !IsNil(o.HpTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHpTier2Rate gets a reference to the given float32 and assigns it to the HpTier2Rate field.
+// SetHpTier2Rate sets field value
 func (o *FormattedApiOrg) SetHpTier2Rate(v float32) {
-	o.HpTier2Rate = &v
+	o.HpTier2Rate = v
 }
 
-// GetHpTier3Min returns the HpTier3Min field value if set, zero value otherwise.
+// GetHpTier3Min returns the HpTier3Min field value
 func (o *FormattedApiOrg) GetHpTier3Min() float32 {
-	if o == nil || IsNil(o.HpTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HpTier3Min
+
+	return o.HpTier3Min
 }
 
-// GetHpTier3MinOk returns a tuple with the HpTier3Min field value if set, nil otherwise
+// GetHpTier3MinOk returns a tuple with the HpTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHpTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.HpTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HpTier3Min, true
+	return &o.HpTier3Min, true
 }
 
-// HasHpTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpTier3Min() bool {
-	if o != nil && !IsNil(o.HpTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetHpTier3Min gets a reference to the given float32 and assigns it to the HpTier3Min field.
+// SetHpTier3Min sets field value
 func (o *FormattedApiOrg) SetHpTier3Min(v float32) {
-	o.HpTier3Min = &v
+	o.HpTier3Min = v
 }
 
-// GetHpTier3Rate returns the HpTier3Rate field value if set, zero value otherwise.
+// GetHpTier3Rate returns the HpTier3Rate field value
 func (o *FormattedApiOrg) GetHpTier3Rate() float32 {
-	if o == nil || IsNil(o.HpTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HpTier3Rate
+
+	return o.HpTier3Rate
 }
 
-// GetHpTier3RateOk returns a tuple with the HpTier3Rate field value if set, nil otherwise
+// GetHpTier3RateOk returns a tuple with the HpTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHpTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.HpTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HpTier3Rate, true
+	return &o.HpTier3Rate, true
 }
 
-// HasHpTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpTier3Rate() bool {
-	if o != nil && !IsNil(o.HpTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetHpTier3Rate gets a reference to the given float32 and assigns it to the HpTier3Rate field.
+// SetHpTier3Rate sets field value
 func (o *FormattedApiOrg) SetHpTier3Rate(v float32) {
-	o.HpTier3Rate = &v
+	o.HpTier3Rate = v
 }
 
-// GetHpUsage returns the HpUsage field value if set, zero value otherwise.
+// GetHpUsage returns the HpUsage field value
 func (o *FormattedApiOrg) GetHpUsage() float32 {
-	if o == nil || IsNil(o.HpUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HpUsage
+
+	return o.HpUsage
 }
 
-// GetHpUsageOk returns a tuple with the HpUsage field value if set, nil otherwise
+// GetHpUsageOk returns a tuple with the HpUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHpUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.HpUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HpUsage, true
+	return &o.HpUsage, true
 }
 
-// HasHpUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHpUsage() bool {
-	if o != nil && !IsNil(o.HpUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetHpUsage gets a reference to the given float32 and assigns it to the HpUsage field.
+// SetHpUsage sets field value
 func (o *FormattedApiOrg) SetHpUsage(v float32) {
-	o.HpUsage = &v
+	o.HpUsage = v
 }
 
-// GetIrmStatus returns the IrmStatus field value if set, zero value otherwise.
+// GetIrmStatus returns the IrmStatus field value
 func (o *FormattedApiOrg) GetIrmStatus() float32 {
-	if o == nil || IsNil(o.IrmStatus) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IrmStatus
+
+	return o.IrmStatus
 }
 
-// GetIrmStatusOk returns a tuple with the IrmStatus field value if set, nil otherwise
+// GetIrmStatusOk returns a tuple with the IrmStatus field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIrmStatusOk() (*float32, bool) {
-	if o == nil || IsNil(o.IrmStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IrmStatus, true
+	return &o.IrmStatus, true
 }
 
-// HasIrmStatus returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmStatus() bool {
-	if o != nil && !IsNil(o.IrmStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmStatus gets a reference to the given float32 and assigns it to the IrmStatus field.
+// SetIrmStatus sets field value
 func (o *FormattedApiOrg) SetIrmStatus(v float32) {
-	o.IrmStatus = &v
+	o.IrmStatus = v
 }
 
-// GetIrmIncludedUsage returns the IrmIncludedUsage field value if set, zero value otherwise.
+// GetIrmIncludedUsage returns the IrmIncludedUsage field value
 func (o *FormattedApiOrg) GetIrmIncludedUsage() float32 {
-	if o == nil || IsNil(o.IrmIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IrmIncludedUsage
+
+	return o.IrmIncludedUsage
 }
 
-// GetIrmIncludedUsageOk returns a tuple with the IrmIncludedUsage field value if set, nil otherwise
+// GetIrmIncludedUsageOk returns a tuple with the IrmIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIrmIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.IrmIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IrmIncludedUsage, true
+	return &o.IrmIncludedUsage, true
 }
 
-// HasIrmIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmIncludedUsage() bool {
-	if o != nil && !IsNil(o.IrmIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmIncludedUsage gets a reference to the given float32 and assigns it to the IrmIncludedUsage field.
+// SetIrmIncludedUsage sets field value
 func (o *FormattedApiOrg) SetIrmIncludedUsage(v float32) {
-	o.IrmIncludedUsage = &v
+	o.IrmIncludedUsage = v
 }
 
-// GetIrmTier1Rate returns the IrmTier1Rate field value if set, zero value otherwise.
+// GetIrmTier1Rate returns the IrmTier1Rate field value
 func (o *FormattedApiOrg) GetIrmTier1Rate() float32 {
-	if o == nil || IsNil(o.IrmTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IrmTier1Rate
+
+	return o.IrmTier1Rate
 }
 
-// GetIrmTier1RateOk returns a tuple with the IrmTier1Rate field value if set, nil otherwise
+// GetIrmTier1RateOk returns a tuple with the IrmTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIrmTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.IrmTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IrmTier1Rate, true
+	return &o.IrmTier1Rate, true
 }
 
-// HasIrmTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmTier1Rate() bool {
-	if o != nil && !IsNil(o.IrmTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmTier1Rate gets a reference to the given float32 and assigns it to the IrmTier1Rate field.
+// SetIrmTier1Rate sets field value
 func (o *FormattedApiOrg) SetIrmTier1Rate(v float32) {
-	o.IrmTier1Rate = &v
+	o.IrmTier1Rate = v
 }
 
-// GetIrmTier2Min returns the IrmTier2Min field value if set, zero value otherwise.
+// GetIrmTier2Min returns the IrmTier2Min field value
 func (o *FormattedApiOrg) GetIrmTier2Min() float32 {
-	if o == nil || IsNil(o.IrmTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IrmTier2Min
+
+	return o.IrmTier2Min
 }
 
-// GetIrmTier2MinOk returns a tuple with the IrmTier2Min field value if set, nil otherwise
+// GetIrmTier2MinOk returns a tuple with the IrmTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIrmTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.IrmTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IrmTier2Min, true
+	return &o.IrmTier2Min, true
 }
 
-// HasIrmTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmTier2Min() bool {
-	if o != nil && !IsNil(o.IrmTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmTier2Min gets a reference to the given float32 and assigns it to the IrmTier2Min field.
+// SetIrmTier2Min sets field value
 func (o *FormattedApiOrg) SetIrmTier2Min(v float32) {
-	o.IrmTier2Min = &v
+	o.IrmTier2Min = v
 }
 
-// GetIrmTier2Rate returns the IrmTier2Rate field value if set, zero value otherwise.
+// GetIrmTier2Rate returns the IrmTier2Rate field value
 func (o *FormattedApiOrg) GetIrmTier2Rate() float32 {
-	if o == nil || IsNil(o.IrmTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IrmTier2Rate
+
+	return o.IrmTier2Rate
 }
 
-// GetIrmTier2RateOk returns a tuple with the IrmTier2Rate field value if set, nil otherwise
+// GetIrmTier2RateOk returns a tuple with the IrmTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIrmTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.IrmTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IrmTier2Rate, true
+	return &o.IrmTier2Rate, true
 }
 
-// HasIrmTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmTier2Rate() bool {
-	if o != nil && !IsNil(o.IrmTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmTier2Rate gets a reference to the given float32 and assigns it to the IrmTier2Rate field.
+// SetIrmTier2Rate sets field value
 func (o *FormattedApiOrg) SetIrmTier2Rate(v float32) {
-	o.IrmTier2Rate = &v
+	o.IrmTier2Rate = v
 }
 
-// GetIrmTier3Min returns the IrmTier3Min field value if set, zero value otherwise.
+// GetIrmTier3Min returns the IrmTier3Min field value
 func (o *FormattedApiOrg) GetIrmTier3Min() float32 {
-	if o == nil || IsNil(o.IrmTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IrmTier3Min
+
+	return o.IrmTier3Min
 }
 
-// GetIrmTier3MinOk returns a tuple with the IrmTier3Min field value if set, nil otherwise
+// GetIrmTier3MinOk returns a tuple with the IrmTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIrmTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.IrmTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IrmTier3Min, true
+	return &o.IrmTier3Min, true
 }
 
-// HasIrmTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmTier3Min() bool {
-	if o != nil && !IsNil(o.IrmTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmTier3Min gets a reference to the given float32 and assigns it to the IrmTier3Min field.
+// SetIrmTier3Min sets field value
 func (o *FormattedApiOrg) SetIrmTier3Min(v float32) {
-	o.IrmTier3Min = &v
+	o.IrmTier3Min = v
 }
 
-// GetIrmTier3Rate returns the IrmTier3Rate field value if set, zero value otherwise.
+// GetIrmTier3Rate returns the IrmTier3Rate field value
 func (o *FormattedApiOrg) GetIrmTier3Rate() float32 {
-	if o == nil || IsNil(o.IrmTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IrmTier3Rate
+
+	return o.IrmTier3Rate
 }
 
-// GetIrmTier3RateOk returns a tuple with the IrmTier3Rate field value if set, nil otherwise
+// GetIrmTier3RateOk returns a tuple with the IrmTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIrmTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.IrmTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IrmTier3Rate, true
+	return &o.IrmTier3Rate, true
 }
 
-// HasIrmTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmTier3Rate() bool {
-	if o != nil && !IsNil(o.IrmTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmTier3Rate gets a reference to the given float32 and assigns it to the IrmTier3Rate field.
+// SetIrmTier3Rate sets field value
 func (o *FormattedApiOrg) SetIrmTier3Rate(v float32) {
-	o.IrmTier3Rate = &v
+	o.IrmTier3Rate = v
 }
 
-// GetIrmUsage returns the IrmUsage field value if set, zero value otherwise.
+// GetIrmUsage returns the IrmUsage field value
 func (o *FormattedApiOrg) GetIrmUsage() float32 {
-	if o == nil || IsNil(o.IrmUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.IrmUsage
+
+	return o.IrmUsage
 }
 
-// GetIrmUsageOk returns a tuple with the IrmUsage field value if set, nil otherwise
+// GetIrmUsageOk returns a tuple with the IrmUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetIrmUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.IrmUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IrmUsage, true
+	return &o.IrmUsage, true
 }
 
-// HasIrmUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasIrmUsage() bool {
-	if o != nil && !IsNil(o.IrmUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetIrmUsage gets a reference to the given float32 and assigns it to the IrmUsage field.
+// SetIrmUsage sets field value
 func (o *FormattedApiOrg) SetIrmUsage(v float32) {
-	o.IrmUsage = &v
+	o.IrmUsage = v
 }
 
-// GetK6VuhIncludedUsage returns the K6VuhIncludedUsage field value if set, zero value otherwise.
+// GetK6VuhIncludedUsage returns the K6VuhIncludedUsage field value
 func (o *FormattedApiOrg) GetK6VuhIncludedUsage() float32 {
-	if o == nil || IsNil(o.K6VuhIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6VuhIncludedUsage
+
+	return o.K6VuhIncludedUsage
 }
 
-// GetK6VuhIncludedUsageOk returns a tuple with the K6VuhIncludedUsage field value if set, nil otherwise
+// GetK6VuhIncludedUsageOk returns a tuple with the K6VuhIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6VuhIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6VuhIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6VuhIncludedUsage, true
+	return &o.K6VuhIncludedUsage, true
 }
 
-// HasK6VuhIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhIncludedUsage() bool {
-	if o != nil && !IsNil(o.K6VuhIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhIncludedUsage gets a reference to the given float32 and assigns it to the K6VuhIncludedUsage field.
+// SetK6VuhIncludedUsage sets field value
 func (o *FormattedApiOrg) SetK6VuhIncludedUsage(v float32) {
-	o.K6VuhIncludedUsage = &v
+	o.K6VuhIncludedUsage = v
 }
 
-// GetK6VuhTier1Rate returns the K6VuhTier1Rate field value if set, zero value otherwise.
+// GetK6VuhTier1Rate returns the K6VuhTier1Rate field value
 func (o *FormattedApiOrg) GetK6VuhTier1Rate() float32 {
-	if o == nil || IsNil(o.K6VuhTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6VuhTier1Rate
+
+	return o.K6VuhTier1Rate
 }
 
-// GetK6VuhTier1RateOk returns a tuple with the K6VuhTier1Rate field value if set, nil otherwise
+// GetK6VuhTier1RateOk returns a tuple with the K6VuhTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6VuhTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6VuhTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6VuhTier1Rate, true
+	return &o.K6VuhTier1Rate, true
 }
 
-// HasK6VuhTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhTier1Rate() bool {
-	if o != nil && !IsNil(o.K6VuhTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhTier1Rate gets a reference to the given float32 and assigns it to the K6VuhTier1Rate field.
+// SetK6VuhTier1Rate sets field value
 func (o *FormattedApiOrg) SetK6VuhTier1Rate(v float32) {
-	o.K6VuhTier1Rate = &v
+	o.K6VuhTier1Rate = v
 }
 
-// GetK6VuhTier2Min returns the K6VuhTier2Min field value if set, zero value otherwise.
+// GetK6VuhTier2Min returns the K6VuhTier2Min field value
 func (o *FormattedApiOrg) GetK6VuhTier2Min() float32 {
-	if o == nil || IsNil(o.K6VuhTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6VuhTier2Min
+
+	return o.K6VuhTier2Min
 }
 
-// GetK6VuhTier2MinOk returns a tuple with the K6VuhTier2Min field value if set, nil otherwise
+// GetK6VuhTier2MinOk returns a tuple with the K6VuhTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6VuhTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6VuhTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6VuhTier2Min, true
+	return &o.K6VuhTier2Min, true
 }
 
-// HasK6VuhTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhTier2Min() bool {
-	if o != nil && !IsNil(o.K6VuhTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhTier2Min gets a reference to the given float32 and assigns it to the K6VuhTier2Min field.
+// SetK6VuhTier2Min sets field value
 func (o *FormattedApiOrg) SetK6VuhTier2Min(v float32) {
-	o.K6VuhTier2Min = &v
+	o.K6VuhTier2Min = v
 }
 
-// GetK6VuhTier2Rate returns the K6VuhTier2Rate field value if set, zero value otherwise.
+// GetK6VuhTier2Rate returns the K6VuhTier2Rate field value
 func (o *FormattedApiOrg) GetK6VuhTier2Rate() float32 {
-	if o == nil || IsNil(o.K6VuhTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6VuhTier2Rate
+
+	return o.K6VuhTier2Rate
 }
 
-// GetK6VuhTier2RateOk returns a tuple with the K6VuhTier2Rate field value if set, nil otherwise
+// GetK6VuhTier2RateOk returns a tuple with the K6VuhTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6VuhTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6VuhTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6VuhTier2Rate, true
+	return &o.K6VuhTier2Rate, true
 }
 
-// HasK6VuhTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhTier2Rate() bool {
-	if o != nil && !IsNil(o.K6VuhTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhTier2Rate gets a reference to the given float32 and assigns it to the K6VuhTier2Rate field.
+// SetK6VuhTier2Rate sets field value
 func (o *FormattedApiOrg) SetK6VuhTier2Rate(v float32) {
-	o.K6VuhTier2Rate = &v
+	o.K6VuhTier2Rate = v
 }
 
-// GetK6VuhTier3Min returns the K6VuhTier3Min field value if set, zero value otherwise.
+// GetK6VuhTier3Min returns the K6VuhTier3Min field value
 func (o *FormattedApiOrg) GetK6VuhTier3Min() float32 {
-	if o == nil || IsNil(o.K6VuhTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6VuhTier3Min
+
+	return o.K6VuhTier3Min
 }
 
-// GetK6VuhTier3MinOk returns a tuple with the K6VuhTier3Min field value if set, nil otherwise
+// GetK6VuhTier3MinOk returns a tuple with the K6VuhTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6VuhTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6VuhTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6VuhTier3Min, true
+	return &o.K6VuhTier3Min, true
 }
 
-// HasK6VuhTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhTier3Min() bool {
-	if o != nil && !IsNil(o.K6VuhTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhTier3Min gets a reference to the given float32 and assigns it to the K6VuhTier3Min field.
+// SetK6VuhTier3Min sets field value
 func (o *FormattedApiOrg) SetK6VuhTier3Min(v float32) {
-	o.K6VuhTier3Min = &v
+	o.K6VuhTier3Min = v
 }
 
-// GetK6VuhTier3Rate returns the K6VuhTier3Rate field value if set, zero value otherwise.
+// GetK6VuhTier3Rate returns the K6VuhTier3Rate field value
 func (o *FormattedApiOrg) GetK6VuhTier3Rate() float32 {
-	if o == nil || IsNil(o.K6VuhTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6VuhTier3Rate
+
+	return o.K6VuhTier3Rate
 }
 
-// GetK6VuhTier3RateOk returns a tuple with the K6VuhTier3Rate field value if set, nil otherwise
+// GetK6VuhTier3RateOk returns a tuple with the K6VuhTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6VuhTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6VuhTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6VuhTier3Rate, true
+	return &o.K6VuhTier3Rate, true
 }
 
-// HasK6VuhTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhTier3Rate() bool {
-	if o != nil && !IsNil(o.K6VuhTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhTier3Rate gets a reference to the given float32 and assigns it to the K6VuhTier3Rate field.
+// SetK6VuhTier3Rate sets field value
 func (o *FormattedApiOrg) SetK6VuhTier3Rate(v float32) {
-	o.K6VuhTier3Rate = &v
+	o.K6VuhTier3Rate = v
 }
 
-// GetK6VuhUnits returns the K6VuhUnits field value if set, zero value otherwise.
+// GetK6VuhUnits returns the K6VuhUnits field value
 func (o *FormattedApiOrg) GetK6VuhUnits() float32 {
-	if o == nil || IsNil(o.K6VuhUnits) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6VuhUnits
+
+	return o.K6VuhUnits
 }
 
-// GetK6VuhUnitsOk returns a tuple with the K6VuhUnits field value if set, nil otherwise
+// GetK6VuhUnitsOk returns a tuple with the K6VuhUnits field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6VuhUnitsOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6VuhUnits) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6VuhUnits, true
+	return &o.K6VuhUnits, true
 }
 
-// HasK6VuhUnits returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhUnits() bool {
-	if o != nil && !IsNil(o.K6VuhUnits) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhUnits gets a reference to the given float32 and assigns it to the K6VuhUnits field.
+// SetK6VuhUnits sets field value
 func (o *FormattedApiOrg) SetK6VuhUnits(v float32) {
-	o.K6VuhUnits = &v
+	o.K6VuhUnits = v
 }
 
-// GetK6VuhUsage returns the K6VuhUsage field value if set, zero value otherwise.
+// GetK6VuhUsage returns the K6VuhUsage field value
 func (o *FormattedApiOrg) GetK6VuhUsage() float32 {
-	if o == nil || IsNil(o.K6VuhUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6VuhUsage
+
+	return o.K6VuhUsage
 }
 
-// GetK6VuhUsageOk returns a tuple with the K6VuhUsage field value if set, nil otherwise
+// GetK6VuhUsageOk returns a tuple with the K6VuhUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6VuhUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6VuhUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6VuhUsage, true
+	return &o.K6VuhUsage, true
 }
 
-// HasK6VuhUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6VuhUsage() bool {
-	if o != nil && !IsNil(o.K6VuhUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6VuhUsage gets a reference to the given float32 and assigns it to the K6VuhUsage field.
+// SetK6VuhUsage sets field value
 func (o *FormattedApiOrg) SetK6VuhUsage(v float32) {
-	o.K6VuhUsage = &v
+	o.K6VuhUsage = v
 }
 
-// GetK6IPIncludedUsage returns the K6IPIncludedUsage field value if set, zero value otherwise.
+// GetK6IPIncludedUsage returns the K6IPIncludedUsage field value
 func (o *FormattedApiOrg) GetK6IPIncludedUsage() float32 {
-	if o == nil || IsNil(o.K6IPIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6IPIncludedUsage
+
+	return o.K6IPIncludedUsage
 }
 
-// GetK6IPIncludedUsageOk returns a tuple with the K6IPIncludedUsage field value if set, nil otherwise
+// GetK6IPIncludedUsageOk returns a tuple with the K6IPIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6IPIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6IPIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6IPIncludedUsage, true
+	return &o.K6IPIncludedUsage, true
 }
 
-// HasK6IPIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPIncludedUsage() bool {
-	if o != nil && !IsNil(o.K6IPIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPIncludedUsage gets a reference to the given float32 and assigns it to the K6IPIncludedUsage field.
+// SetK6IPIncludedUsage sets field value
 func (o *FormattedApiOrg) SetK6IPIncludedUsage(v float32) {
-	o.K6IPIncludedUsage = &v
+	o.K6IPIncludedUsage = v
 }
 
-// GetK6IPTier1Rate returns the K6IPTier1Rate field value if set, zero value otherwise.
+// GetK6IPTier1Rate returns the K6IPTier1Rate field value
 func (o *FormattedApiOrg) GetK6IPTier1Rate() float32 {
-	if o == nil || IsNil(o.K6IPTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6IPTier1Rate
+
+	return o.K6IPTier1Rate
 }
 
-// GetK6IPTier1RateOk returns a tuple with the K6IPTier1Rate field value if set, nil otherwise
+// GetK6IPTier1RateOk returns a tuple with the K6IPTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6IPTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6IPTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6IPTier1Rate, true
+	return &o.K6IPTier1Rate, true
 }
 
-// HasK6IPTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPTier1Rate() bool {
-	if o != nil && !IsNil(o.K6IPTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPTier1Rate gets a reference to the given float32 and assigns it to the K6IPTier1Rate field.
+// SetK6IPTier1Rate sets field value
 func (o *FormattedApiOrg) SetK6IPTier1Rate(v float32) {
-	o.K6IPTier1Rate = &v
+	o.K6IPTier1Rate = v
 }
 
-// GetK6IPTier2Min returns the K6IPTier2Min field value if set, zero value otherwise.
+// GetK6IPTier2Min returns the K6IPTier2Min field value
 func (o *FormattedApiOrg) GetK6IPTier2Min() float32 {
-	if o == nil || IsNil(o.K6IPTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6IPTier2Min
+
+	return o.K6IPTier2Min
 }
 
-// GetK6IPTier2MinOk returns a tuple with the K6IPTier2Min field value if set, nil otherwise
+// GetK6IPTier2MinOk returns a tuple with the K6IPTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6IPTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6IPTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6IPTier2Min, true
+	return &o.K6IPTier2Min, true
 }
 
-// HasK6IPTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPTier2Min() bool {
-	if o != nil && !IsNil(o.K6IPTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPTier2Min gets a reference to the given float32 and assigns it to the K6IPTier2Min field.
+// SetK6IPTier2Min sets field value
 func (o *FormattedApiOrg) SetK6IPTier2Min(v float32) {
-	o.K6IPTier2Min = &v
+	o.K6IPTier2Min = v
 }
 
-// GetK6IPTier2Rate returns the K6IPTier2Rate field value if set, zero value otherwise.
+// GetK6IPTier2Rate returns the K6IPTier2Rate field value
 func (o *FormattedApiOrg) GetK6IPTier2Rate() float32 {
-	if o == nil || IsNil(o.K6IPTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6IPTier2Rate
+
+	return o.K6IPTier2Rate
 }
 
-// GetK6IPTier2RateOk returns a tuple with the K6IPTier2Rate field value if set, nil otherwise
+// GetK6IPTier2RateOk returns a tuple with the K6IPTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6IPTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6IPTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6IPTier2Rate, true
+	return &o.K6IPTier2Rate, true
 }
 
-// HasK6IPTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPTier2Rate() bool {
-	if o != nil && !IsNil(o.K6IPTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPTier2Rate gets a reference to the given float32 and assigns it to the K6IPTier2Rate field.
+// SetK6IPTier2Rate sets field value
 func (o *FormattedApiOrg) SetK6IPTier2Rate(v float32) {
-	o.K6IPTier2Rate = &v
+	o.K6IPTier2Rate = v
 }
 
-// GetK6IPTier3Min returns the K6IPTier3Min field value if set, zero value otherwise.
+// GetK6IPTier3Min returns the K6IPTier3Min field value
 func (o *FormattedApiOrg) GetK6IPTier3Min() float32 {
-	if o == nil || IsNil(o.K6IPTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6IPTier3Min
+
+	return o.K6IPTier3Min
 }
 
-// GetK6IPTier3MinOk returns a tuple with the K6IPTier3Min field value if set, nil otherwise
+// GetK6IPTier3MinOk returns a tuple with the K6IPTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6IPTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6IPTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6IPTier3Min, true
+	return &o.K6IPTier3Min, true
 }
 
-// HasK6IPTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPTier3Min() bool {
-	if o != nil && !IsNil(o.K6IPTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPTier3Min gets a reference to the given float32 and assigns it to the K6IPTier3Min field.
+// SetK6IPTier3Min sets field value
 func (o *FormattedApiOrg) SetK6IPTier3Min(v float32) {
-	o.K6IPTier3Min = &v
+	o.K6IPTier3Min = v
 }
 
-// GetK6IPTier3Rate returns the K6IPTier3Rate field value if set, zero value otherwise.
+// GetK6IPTier3Rate returns the K6IPTier3Rate field value
 func (o *FormattedApiOrg) GetK6IPTier3Rate() float32 {
-	if o == nil || IsNil(o.K6IPTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6IPTier3Rate
+
+	return o.K6IPTier3Rate
 }
 
-// GetK6IPTier3RateOk returns a tuple with the K6IPTier3Rate field value if set, nil otherwise
+// GetK6IPTier3RateOk returns a tuple with the K6IPTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6IPTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6IPTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6IPTier3Rate, true
+	return &o.K6IPTier3Rate, true
 }
 
-// HasK6IPTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPTier3Rate() bool {
-	if o != nil && !IsNil(o.K6IPTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPTier3Rate gets a reference to the given float32 and assigns it to the K6IPTier3Rate field.
+// SetK6IPTier3Rate sets field value
 func (o *FormattedApiOrg) SetK6IPTier3Rate(v float32) {
-	o.K6IPTier3Rate = &v
+	o.K6IPTier3Rate = v
 }
 
-// GetK6IPUsage returns the K6IPUsage field value if set, zero value otherwise.
+// GetK6IPUsage returns the K6IPUsage field value
 func (o *FormattedApiOrg) GetK6IPUsage() float32 {
-	if o == nil || IsNil(o.K6IPUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.K6IPUsage
+
+	return o.K6IPUsage
 }
 
-// GetK6IPUsageOk returns a tuple with the K6IPUsage field value if set, nil otherwise
+// GetK6IPUsageOk returns a tuple with the K6IPUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetK6IPUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.K6IPUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6IPUsage, true
+	return &o.K6IPUsage, true
 }
 
-// HasK6IPUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasK6IPUsage() bool {
-	if o != nil && !IsNil(o.K6IPUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetK6IPUsage gets a reference to the given float32 and assigns it to the K6IPUsage field.
+// SetK6IPUsage sets field value
 func (o *FormattedApiOrg) SetK6IPUsage(v float32) {
-	o.K6IPUsage = &v
+	o.K6IPUsage = v
 }
 
-// GetFeO11yIncludedUsage returns the FeO11yIncludedUsage field value if set, zero value otherwise.
+// GetFeO11yIncludedUsage returns the FeO11yIncludedUsage field value
 func (o *FormattedApiOrg) GetFeO11yIncludedUsage() float32 {
-	if o == nil || IsNil(o.FeO11yIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FeO11yIncludedUsage
+
+	return o.FeO11yIncludedUsage
 }
 
-// GetFeO11yIncludedUsageOk returns a tuple with the FeO11yIncludedUsage field value if set, nil otherwise
+// GetFeO11yIncludedUsageOk returns a tuple with the FeO11yIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetFeO11yIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.FeO11yIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FeO11yIncludedUsage, true
+	return &o.FeO11yIncludedUsage, true
 }
 
-// HasFeO11yIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yIncludedUsage() bool {
-	if o != nil && !IsNil(o.FeO11yIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yIncludedUsage gets a reference to the given float32 and assigns it to the FeO11yIncludedUsage field.
+// SetFeO11yIncludedUsage sets field value
 func (o *FormattedApiOrg) SetFeO11yIncludedUsage(v float32) {
-	o.FeO11yIncludedUsage = &v
+	o.FeO11yIncludedUsage = v
 }
 
-// GetFeO11yTier1Rate returns the FeO11yTier1Rate field value if set, zero value otherwise.
+// GetFeO11yTier1Rate returns the FeO11yTier1Rate field value
 func (o *FormattedApiOrg) GetFeO11yTier1Rate() float32 {
-	if o == nil || IsNil(o.FeO11yTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FeO11yTier1Rate
+
+	return o.FeO11yTier1Rate
 }
 
-// GetFeO11yTier1RateOk returns a tuple with the FeO11yTier1Rate field value if set, nil otherwise
+// GetFeO11yTier1RateOk returns a tuple with the FeO11yTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetFeO11yTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.FeO11yTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FeO11yTier1Rate, true
+	return &o.FeO11yTier1Rate, true
 }
 
-// HasFeO11yTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yTier1Rate() bool {
-	if o != nil && !IsNil(o.FeO11yTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yTier1Rate gets a reference to the given float32 and assigns it to the FeO11yTier1Rate field.
+// SetFeO11yTier1Rate sets field value
 func (o *FormattedApiOrg) SetFeO11yTier1Rate(v float32) {
-	o.FeO11yTier1Rate = &v
+	o.FeO11yTier1Rate = v
 }
 
-// GetFeO11yTier2Min returns the FeO11yTier2Min field value if set, zero value otherwise.
+// GetFeO11yTier2Min returns the FeO11yTier2Min field value
 func (o *FormattedApiOrg) GetFeO11yTier2Min() float32 {
-	if o == nil || IsNil(o.FeO11yTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FeO11yTier2Min
+
+	return o.FeO11yTier2Min
 }
 
-// GetFeO11yTier2MinOk returns a tuple with the FeO11yTier2Min field value if set, nil otherwise
+// GetFeO11yTier2MinOk returns a tuple with the FeO11yTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetFeO11yTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.FeO11yTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FeO11yTier2Min, true
+	return &o.FeO11yTier2Min, true
 }
 
-// HasFeO11yTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yTier2Min() bool {
-	if o != nil && !IsNil(o.FeO11yTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yTier2Min gets a reference to the given float32 and assigns it to the FeO11yTier2Min field.
+// SetFeO11yTier2Min sets field value
 func (o *FormattedApiOrg) SetFeO11yTier2Min(v float32) {
-	o.FeO11yTier2Min = &v
+	o.FeO11yTier2Min = v
 }
 
-// GetFeO11yTier2Rate returns the FeO11yTier2Rate field value if set, zero value otherwise.
+// GetFeO11yTier2Rate returns the FeO11yTier2Rate field value
 func (o *FormattedApiOrg) GetFeO11yTier2Rate() float32 {
-	if o == nil || IsNil(o.FeO11yTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FeO11yTier2Rate
+
+	return o.FeO11yTier2Rate
 }
 
-// GetFeO11yTier2RateOk returns a tuple with the FeO11yTier2Rate field value if set, nil otherwise
+// GetFeO11yTier2RateOk returns a tuple with the FeO11yTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetFeO11yTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.FeO11yTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FeO11yTier2Rate, true
+	return &o.FeO11yTier2Rate, true
 }
 
-// HasFeO11yTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yTier2Rate() bool {
-	if o != nil && !IsNil(o.FeO11yTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yTier2Rate gets a reference to the given float32 and assigns it to the FeO11yTier2Rate field.
+// SetFeO11yTier2Rate sets field value
 func (o *FormattedApiOrg) SetFeO11yTier2Rate(v float32) {
-	o.FeO11yTier2Rate = &v
+	o.FeO11yTier2Rate = v
 }
 
-// GetFeO11yTier3Min returns the FeO11yTier3Min field value if set, zero value otherwise.
+// GetFeO11yTier3Min returns the FeO11yTier3Min field value
 func (o *FormattedApiOrg) GetFeO11yTier3Min() float32 {
-	if o == nil || IsNil(o.FeO11yTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FeO11yTier3Min
+
+	return o.FeO11yTier3Min
 }
 
-// GetFeO11yTier3MinOk returns a tuple with the FeO11yTier3Min field value if set, nil otherwise
+// GetFeO11yTier3MinOk returns a tuple with the FeO11yTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetFeO11yTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.FeO11yTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FeO11yTier3Min, true
+	return &o.FeO11yTier3Min, true
 }
 
-// HasFeO11yTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yTier3Min() bool {
-	if o != nil && !IsNil(o.FeO11yTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yTier3Min gets a reference to the given float32 and assigns it to the FeO11yTier3Min field.
+// SetFeO11yTier3Min sets field value
 func (o *FormattedApiOrg) SetFeO11yTier3Min(v float32) {
-	o.FeO11yTier3Min = &v
+	o.FeO11yTier3Min = v
 }
 
-// GetFeO11yTier3Rate returns the FeO11yTier3Rate field value if set, zero value otherwise.
+// GetFeO11yTier3Rate returns the FeO11yTier3Rate field value
 func (o *FormattedApiOrg) GetFeO11yTier3Rate() float32 {
-	if o == nil || IsNil(o.FeO11yTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FeO11yTier3Rate
+
+	return o.FeO11yTier3Rate
 }
 
-// GetFeO11yTier3RateOk returns a tuple with the FeO11yTier3Rate field value if set, nil otherwise
+// GetFeO11yTier3RateOk returns a tuple with the FeO11yTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetFeO11yTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.FeO11yTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FeO11yTier3Rate, true
+	return &o.FeO11yTier3Rate, true
 }
 
-// HasFeO11yTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yTier3Rate() bool {
-	if o != nil && !IsNil(o.FeO11yTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yTier3Rate gets a reference to the given float32 and assigns it to the FeO11yTier3Rate field.
+// SetFeO11yTier3Rate sets field value
 func (o *FormattedApiOrg) SetFeO11yTier3Rate(v float32) {
-	o.FeO11yTier3Rate = &v
+	o.FeO11yTier3Rate = v
 }
 
-// GetFeO11yUnits returns the FeO11yUnits field value if set, zero value otherwise.
+// GetFeO11yUnits returns the FeO11yUnits field value
 func (o *FormattedApiOrg) GetFeO11yUnits() float32 {
-	if o == nil || IsNil(o.FeO11yUnits) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FeO11yUnits
+
+	return o.FeO11yUnits
 }
 
-// GetFeO11yUnitsOk returns a tuple with the FeO11yUnits field value if set, nil otherwise
+// GetFeO11yUnitsOk returns a tuple with the FeO11yUnits field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetFeO11yUnitsOk() (*float32, bool) {
-	if o == nil || IsNil(o.FeO11yUnits) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FeO11yUnits, true
+	return &o.FeO11yUnits, true
 }
 
-// HasFeO11yUnits returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yUnits() bool {
-	if o != nil && !IsNil(o.FeO11yUnits) {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yUnits gets a reference to the given float32 and assigns it to the FeO11yUnits field.
+// SetFeO11yUnits sets field value
 func (o *FormattedApiOrg) SetFeO11yUnits(v float32) {
-	o.FeO11yUnits = &v
+	o.FeO11yUnits = v
 }
 
-// GetFeO11yUsage returns the FeO11yUsage field value if set, zero value otherwise.
+// GetFeO11yUsage returns the FeO11yUsage field value
 func (o *FormattedApiOrg) GetFeO11yUsage() float32 {
-	if o == nil || IsNil(o.FeO11yUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.FeO11yUsage
+
+	return o.FeO11yUsage
 }
 
-// GetFeO11yUsageOk returns a tuple with the FeO11yUsage field value if set, nil otherwise
+// GetFeO11yUsageOk returns a tuple with the FeO11yUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetFeO11yUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.FeO11yUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FeO11yUsage, true
+	return &o.FeO11yUsage, true
 }
 
-// HasFeO11yUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasFeO11yUsage() bool {
-	if o != nil && !IsNil(o.FeO11yUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetFeO11yUsage gets a reference to the given float32 and assigns it to the FeO11yUsage field.
+// SetFeO11yUsage sets field value
 func (o *FormattedApiOrg) SetFeO11yUsage(v float32) {
-	o.FeO11yUsage = &v
+	o.FeO11yUsage = v
 }
 
-// GetGeUsersIncludedUsage returns the GeUsersIncludedUsage field value if set, zero value otherwise.
+// GetGeUsersIncludedUsage returns the GeUsersIncludedUsage field value
 func (o *FormattedApiOrg) GetGeUsersIncludedUsage() float32 {
-	if o == nil || IsNil(o.GeUsersIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeUsersIncludedUsage
+
+	return o.GeUsersIncludedUsage
 }
 
-// GetGeUsersIncludedUsageOk returns a tuple with the GeUsersIncludedUsage field value if set, nil otherwise
+// GetGeUsersIncludedUsageOk returns a tuple with the GeUsersIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeUsersIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeUsersIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeUsersIncludedUsage, true
+	return &o.GeUsersIncludedUsage, true
 }
 
-// HasGeUsersIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersIncludedUsage() bool {
-	if o != nil && !IsNil(o.GeUsersIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersIncludedUsage gets a reference to the given float32 and assigns it to the GeUsersIncludedUsage field.
+// SetGeUsersIncludedUsage sets field value
 func (o *FormattedApiOrg) SetGeUsersIncludedUsage(v float32) {
-	o.GeUsersIncludedUsage = &v
+	o.GeUsersIncludedUsage = v
 }
 
-// GetGeUsersTier1Rate returns the GeUsersTier1Rate field value if set, zero value otherwise.
+// GetGeUsersTier1Rate returns the GeUsersTier1Rate field value
 func (o *FormattedApiOrg) GetGeUsersTier1Rate() float32 {
-	if o == nil || IsNil(o.GeUsersTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeUsersTier1Rate
+
+	return o.GeUsersTier1Rate
 }
 
-// GetGeUsersTier1RateOk returns a tuple with the GeUsersTier1Rate field value if set, nil otherwise
+// GetGeUsersTier1RateOk returns a tuple with the GeUsersTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeUsersTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeUsersTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeUsersTier1Rate, true
+	return &o.GeUsersTier1Rate, true
 }
 
-// HasGeUsersTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersTier1Rate() bool {
-	if o != nil && !IsNil(o.GeUsersTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersTier1Rate gets a reference to the given float32 and assigns it to the GeUsersTier1Rate field.
+// SetGeUsersTier1Rate sets field value
 func (o *FormattedApiOrg) SetGeUsersTier1Rate(v float32) {
-	o.GeUsersTier1Rate = &v
+	o.GeUsersTier1Rate = v
 }
 
-// GetGeUsersTier2Min returns the GeUsersTier2Min field value if set, zero value otherwise.
+// GetGeUsersTier2Min returns the GeUsersTier2Min field value
 func (o *FormattedApiOrg) GetGeUsersTier2Min() float32 {
-	if o == nil || IsNil(o.GeUsersTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeUsersTier2Min
+
+	return o.GeUsersTier2Min
 }
 
-// GetGeUsersTier2MinOk returns a tuple with the GeUsersTier2Min field value if set, nil otherwise
+// GetGeUsersTier2MinOk returns a tuple with the GeUsersTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeUsersTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeUsersTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeUsersTier2Min, true
+	return &o.GeUsersTier2Min, true
 }
 
-// HasGeUsersTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersTier2Min() bool {
-	if o != nil && !IsNil(o.GeUsersTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersTier2Min gets a reference to the given float32 and assigns it to the GeUsersTier2Min field.
+// SetGeUsersTier2Min sets field value
 func (o *FormattedApiOrg) SetGeUsersTier2Min(v float32) {
-	o.GeUsersTier2Min = &v
+	o.GeUsersTier2Min = v
 }
 
-// GetGeUsersTier2Rate returns the GeUsersTier2Rate field value if set, zero value otherwise.
+// GetGeUsersTier2Rate returns the GeUsersTier2Rate field value
 func (o *FormattedApiOrg) GetGeUsersTier2Rate() float32 {
-	if o == nil || IsNil(o.GeUsersTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeUsersTier2Rate
+
+	return o.GeUsersTier2Rate
 }
 
-// GetGeUsersTier2RateOk returns a tuple with the GeUsersTier2Rate field value if set, nil otherwise
+// GetGeUsersTier2RateOk returns a tuple with the GeUsersTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeUsersTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeUsersTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeUsersTier2Rate, true
+	return &o.GeUsersTier2Rate, true
 }
 
-// HasGeUsersTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersTier2Rate() bool {
-	if o != nil && !IsNil(o.GeUsersTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersTier2Rate gets a reference to the given float32 and assigns it to the GeUsersTier2Rate field.
+// SetGeUsersTier2Rate sets field value
 func (o *FormattedApiOrg) SetGeUsersTier2Rate(v float32) {
-	o.GeUsersTier2Rate = &v
+	o.GeUsersTier2Rate = v
 }
 
-// GetGeUsersTier3Min returns the GeUsersTier3Min field value if set, zero value otherwise.
+// GetGeUsersTier3Min returns the GeUsersTier3Min field value
 func (o *FormattedApiOrg) GetGeUsersTier3Min() float32 {
-	if o == nil || IsNil(o.GeUsersTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeUsersTier3Min
+
+	return o.GeUsersTier3Min
 }
 
-// GetGeUsersTier3MinOk returns a tuple with the GeUsersTier3Min field value if set, nil otherwise
+// GetGeUsersTier3MinOk returns a tuple with the GeUsersTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeUsersTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeUsersTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeUsersTier3Min, true
+	return &o.GeUsersTier3Min, true
 }
 
-// HasGeUsersTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersTier3Min() bool {
-	if o != nil && !IsNil(o.GeUsersTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersTier3Min gets a reference to the given float32 and assigns it to the GeUsersTier3Min field.
+// SetGeUsersTier3Min sets field value
 func (o *FormattedApiOrg) SetGeUsersTier3Min(v float32) {
-	o.GeUsersTier3Min = &v
+	o.GeUsersTier3Min = v
 }
 
-// GetGeUsersTier3Rate returns the GeUsersTier3Rate field value if set, zero value otherwise.
+// GetGeUsersTier3Rate returns the GeUsersTier3Rate field value
 func (o *FormattedApiOrg) GetGeUsersTier3Rate() float32 {
-	if o == nil || IsNil(o.GeUsersTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeUsersTier3Rate
+
+	return o.GeUsersTier3Rate
 }
 
-// GetGeUsersTier3RateOk returns a tuple with the GeUsersTier3Rate field value if set, nil otherwise
+// GetGeUsersTier3RateOk returns a tuple with the GeUsersTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeUsersTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeUsersTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeUsersTier3Rate, true
+	return &o.GeUsersTier3Rate, true
 }
 
-// HasGeUsersTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersTier3Rate() bool {
-	if o != nil && !IsNil(o.GeUsersTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersTier3Rate gets a reference to the given float32 and assigns it to the GeUsersTier3Rate field.
+// SetGeUsersTier3Rate sets field value
 func (o *FormattedApiOrg) SetGeUsersTier3Rate(v float32) {
-	o.GeUsersTier3Rate = &v
+	o.GeUsersTier3Rate = v
 }
 
-// GetGeUsersUsage returns the GeUsersUsage field value if set, zero value otherwise.
+// GetGeUsersUsage returns the GeUsersUsage field value
 func (o *FormattedApiOrg) GetGeUsersUsage() float32 {
-	if o == nil || IsNil(o.GeUsersUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeUsersUsage
+
+	return o.GeUsersUsage
 }
 
-// GetGeUsersUsageOk returns a tuple with the GeUsersUsage field value if set, nil otherwise
+// GetGeUsersUsageOk returns a tuple with the GeUsersUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeUsersUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeUsersUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeUsersUsage, true
+	return &o.GeUsersUsage, true
 }
 
-// HasGeUsersUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeUsersUsage() bool {
-	if o != nil && !IsNil(o.GeUsersUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeUsersUsage gets a reference to the given float32 and assigns it to the GeUsersUsage field.
+// SetGeUsersUsage sets field value
 func (o *FormattedApiOrg) SetGeUsersUsage(v float32) {
-	o.GeUsersUsage = &v
+	o.GeUsersUsage = v
 }
 
-// GetGeInstancesIncludedUsage returns the GeInstancesIncludedUsage field value if set, zero value otherwise.
+// GetGeInstancesIncludedUsage returns the GeInstancesIncludedUsage field value
 func (o *FormattedApiOrg) GetGeInstancesIncludedUsage() float32 {
-	if o == nil || IsNil(o.GeInstancesIncludedUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeInstancesIncludedUsage
+
+	return o.GeInstancesIncludedUsage
 }
 
-// GetGeInstancesIncludedUsageOk returns a tuple with the GeInstancesIncludedUsage field value if set, nil otherwise
+// GetGeInstancesIncludedUsageOk returns a tuple with the GeInstancesIncludedUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeInstancesIncludedUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeInstancesIncludedUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeInstancesIncludedUsage, true
+	return &o.GeInstancesIncludedUsage, true
 }
 
-// HasGeInstancesIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesIncludedUsage() bool {
-	if o != nil && !IsNil(o.GeInstancesIncludedUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesIncludedUsage gets a reference to the given float32 and assigns it to the GeInstancesIncludedUsage field.
+// SetGeInstancesIncludedUsage sets field value
 func (o *FormattedApiOrg) SetGeInstancesIncludedUsage(v float32) {
-	o.GeInstancesIncludedUsage = &v
+	o.GeInstancesIncludedUsage = v
 }
 
-// GetGeInstancesTier1Rate returns the GeInstancesTier1Rate field value if set, zero value otherwise.
+// GetGeInstancesTier1Rate returns the GeInstancesTier1Rate field value
 func (o *FormattedApiOrg) GetGeInstancesTier1Rate() float32 {
-	if o == nil || IsNil(o.GeInstancesTier1Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeInstancesTier1Rate
+
+	return o.GeInstancesTier1Rate
 }
 
-// GetGeInstancesTier1RateOk returns a tuple with the GeInstancesTier1Rate field value if set, nil otherwise
+// GetGeInstancesTier1RateOk returns a tuple with the GeInstancesTier1Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeInstancesTier1RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeInstancesTier1Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeInstancesTier1Rate, true
+	return &o.GeInstancesTier1Rate, true
 }
 
-// HasGeInstancesTier1Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesTier1Rate() bool {
-	if o != nil && !IsNil(o.GeInstancesTier1Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesTier1Rate gets a reference to the given float32 and assigns it to the GeInstancesTier1Rate field.
+// SetGeInstancesTier1Rate sets field value
 func (o *FormattedApiOrg) SetGeInstancesTier1Rate(v float32) {
-	o.GeInstancesTier1Rate = &v
+	o.GeInstancesTier1Rate = v
 }
 
-// GetGeInstancesTier2Min returns the GeInstancesTier2Min field value if set, zero value otherwise.
+// GetGeInstancesTier2Min returns the GeInstancesTier2Min field value
 func (o *FormattedApiOrg) GetGeInstancesTier2Min() float32 {
-	if o == nil || IsNil(o.GeInstancesTier2Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeInstancesTier2Min
+
+	return o.GeInstancesTier2Min
 }
 
-// GetGeInstancesTier2MinOk returns a tuple with the GeInstancesTier2Min field value if set, nil otherwise
+// GetGeInstancesTier2MinOk returns a tuple with the GeInstancesTier2Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeInstancesTier2MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeInstancesTier2Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeInstancesTier2Min, true
+	return &o.GeInstancesTier2Min, true
 }
 
-// HasGeInstancesTier2Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesTier2Min() bool {
-	if o != nil && !IsNil(o.GeInstancesTier2Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesTier2Min gets a reference to the given float32 and assigns it to the GeInstancesTier2Min field.
+// SetGeInstancesTier2Min sets field value
 func (o *FormattedApiOrg) SetGeInstancesTier2Min(v float32) {
-	o.GeInstancesTier2Min = &v
+	o.GeInstancesTier2Min = v
 }
 
-// GetGeInstancesTier2Rate returns the GeInstancesTier2Rate field value if set, zero value otherwise.
+// GetGeInstancesTier2Rate returns the GeInstancesTier2Rate field value
 func (o *FormattedApiOrg) GetGeInstancesTier2Rate() float32 {
-	if o == nil || IsNil(o.GeInstancesTier2Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeInstancesTier2Rate
+
+	return o.GeInstancesTier2Rate
 }
 
-// GetGeInstancesTier2RateOk returns a tuple with the GeInstancesTier2Rate field value if set, nil otherwise
+// GetGeInstancesTier2RateOk returns a tuple with the GeInstancesTier2Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeInstancesTier2RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeInstancesTier2Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeInstancesTier2Rate, true
+	return &o.GeInstancesTier2Rate, true
 }
 
-// HasGeInstancesTier2Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesTier2Rate() bool {
-	if o != nil && !IsNil(o.GeInstancesTier2Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesTier2Rate gets a reference to the given float32 and assigns it to the GeInstancesTier2Rate field.
+// SetGeInstancesTier2Rate sets field value
 func (o *FormattedApiOrg) SetGeInstancesTier2Rate(v float32) {
-	o.GeInstancesTier2Rate = &v
+	o.GeInstancesTier2Rate = v
 }
 
-// GetGeInstancesTier3Min returns the GeInstancesTier3Min field value if set, zero value otherwise.
+// GetGeInstancesTier3Min returns the GeInstancesTier3Min field value
 func (o *FormattedApiOrg) GetGeInstancesTier3Min() float32 {
-	if o == nil || IsNil(o.GeInstancesTier3Min) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeInstancesTier3Min
+
+	return o.GeInstancesTier3Min
 }
 
-// GetGeInstancesTier3MinOk returns a tuple with the GeInstancesTier3Min field value if set, nil otherwise
+// GetGeInstancesTier3MinOk returns a tuple with the GeInstancesTier3Min field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeInstancesTier3MinOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeInstancesTier3Min) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeInstancesTier3Min, true
+	return &o.GeInstancesTier3Min, true
 }
 
-// HasGeInstancesTier3Min returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesTier3Min() bool {
-	if o != nil && !IsNil(o.GeInstancesTier3Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesTier3Min gets a reference to the given float32 and assigns it to the GeInstancesTier3Min field.
+// SetGeInstancesTier3Min sets field value
 func (o *FormattedApiOrg) SetGeInstancesTier3Min(v float32) {
-	o.GeInstancesTier3Min = &v
+	o.GeInstancesTier3Min = v
 }
 
-// GetGeInstancesTier3Rate returns the GeInstancesTier3Rate field value if set, zero value otherwise.
+// GetGeInstancesTier3Rate returns the GeInstancesTier3Rate field value
 func (o *FormattedApiOrg) GetGeInstancesTier3Rate() float32 {
-	if o == nil || IsNil(o.GeInstancesTier3Rate) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeInstancesTier3Rate
+
+	return o.GeInstancesTier3Rate
 }
 
-// GetGeInstancesTier3RateOk returns a tuple with the GeInstancesTier3Rate field value if set, nil otherwise
+// GetGeInstancesTier3RateOk returns a tuple with the GeInstancesTier3Rate field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeInstancesTier3RateOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeInstancesTier3Rate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeInstancesTier3Rate, true
+	return &o.GeInstancesTier3Rate, true
 }
 
-// HasGeInstancesTier3Rate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesTier3Rate() bool {
-	if o != nil && !IsNil(o.GeInstancesTier3Rate) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesTier3Rate gets a reference to the given float32 and assigns it to the GeInstancesTier3Rate field.
+// SetGeInstancesTier3Rate sets field value
 func (o *FormattedApiOrg) SetGeInstancesTier3Rate(v float32) {
-	o.GeInstancesTier3Rate = &v
+	o.GeInstancesTier3Rate = v
 }
 
-// GetGeInstancesUsage returns the GeInstancesUsage field value if set, zero value otherwise.
+// GetGeInstancesUsage returns the GeInstancesUsage field value
 func (o *FormattedApiOrg) GetGeInstancesUsage() float32 {
-	if o == nil || IsNil(o.GeInstancesUsage) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.GeInstancesUsage
+
+	return o.GeInstancesUsage
 }
 
-// GetGeInstancesUsageOk returns a tuple with the GeInstancesUsage field value if set, nil otherwise
+// GetGeInstancesUsageOk returns a tuple with the GeInstancesUsage field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetGeInstancesUsageOk() (*float32, bool) {
-	if o == nil || IsNil(o.GeInstancesUsage) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GeInstancesUsage, true
+	return &o.GeInstancesUsage, true
 }
 
-// HasGeInstancesUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasGeInstancesUsage() bool {
-	if o != nil && !IsNil(o.GeInstancesUsage) {
-		return true
-	}
-
-	return false
-}
-
-// SetGeInstancesUsage gets a reference to the given float32 and assigns it to the GeInstancesUsage field.
+// SetGeInstancesUsage sets field value
 func (o *FormattedApiOrg) SetGeInstancesUsage(v float32) {
-	o.GeInstancesUsage = &v
+	o.GeInstancesUsage = v
 }
 
-// GetHgPluginUsersOverageRate returns the HgPluginUsersOverageRate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHgPluginUsersOverageRate returns the HgPluginUsersOverageRate field value
+// If the value is explicit nil, the zero value for float32 will be returned
 func (o *FormattedApiOrg) GetHgPluginUsersOverageRate() float32 {
-	if o == nil || IsNil(o.HgPluginUsersOverageRate.Get()) {
+	if o == nil || o.HgPluginUsersOverageRate.Get() == nil {
 		var ret float32
 		return ret
 	}
+
 	return *o.HgPluginUsersOverageRate.Get()
 }
 
-// GetHgPluginUsersOverageRateOk returns a tuple with the HgPluginUsersOverageRate field value if set, nil otherwise
+// GetHgPluginUsersOverageRateOk returns a tuple with the HgPluginUsersOverageRate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHgPluginUsersOverageRateOk() (*float32, bool) {
@@ -9284,40 +6872,23 @@ func (o *FormattedApiOrg) GetHgPluginUsersOverageRateOk() (*float32, bool) {
 	return o.HgPluginUsersOverageRate.Get(), o.HgPluginUsersOverageRate.IsSet()
 }
 
-// HasHgPluginUsersOverageRate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgPluginUsersOverageRate() bool {
-	if o != nil && o.HgPluginUsersOverageRate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHgPluginUsersOverageRate gets a reference to the given NullableFloat32 and assigns it to the HgPluginUsersOverageRate field.
+// SetHgPluginUsersOverageRate sets field value
 func (o *FormattedApiOrg) SetHgPluginUsersOverageRate(v float32) {
 	o.HgPluginUsersOverageRate.Set(&v)
 }
 
-// SetHgPluginUsersOverageRateNil sets the value for HgPluginUsersOverageRate to be an explicit nil
-func (o *FormattedApiOrg) SetHgPluginUsersOverageRateNil() {
-	o.HgPluginUsersOverageRate.Set(nil)
-}
-
-// UnsetHgPluginUsersOverageRate ensures that no value is present for HgPluginUsersOverageRate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHgPluginUsersOverageRate() {
-	o.HgPluginUsersOverageRate.Unset()
-}
-
-// GetHgPluginUsersIncludedUsage returns the HgPluginUsersIncludedUsage field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHgPluginUsersIncludedUsage returns the HgPluginUsersIncludedUsage field value
+// If the value is explicit nil, the zero value for float32 will be returned
 func (o *FormattedApiOrg) GetHgPluginUsersIncludedUsage() float32 {
-	if o == nil || IsNil(o.HgPluginUsersIncludedUsage.Get()) {
+	if o == nil || o.HgPluginUsersIncludedUsage.Get() == nil {
 		var ret float32
 		return ret
 	}
+
 	return *o.HgPluginUsersIncludedUsage.Get()
 }
 
-// GetHgPluginUsersIncludedUsageOk returns a tuple with the HgPluginUsersIncludedUsage field value if set, nil otherwise
+// GetHgPluginUsersIncludedUsageOk returns a tuple with the HgPluginUsersIncludedUsage field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetHgPluginUsersIncludedUsageOk() (*float32, bool) {
@@ -9327,136 +6898,95 @@ func (o *FormattedApiOrg) GetHgPluginUsersIncludedUsageOk() (*float32, bool) {
 	return o.HgPluginUsersIncludedUsage.Get(), o.HgPluginUsersIncludedUsage.IsSet()
 }
 
-// HasHgPluginUsersIncludedUsage returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHgPluginUsersIncludedUsage() bool {
-	if o != nil && o.HgPluginUsersIncludedUsage.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHgPluginUsersIncludedUsage gets a reference to the given NullableFloat32 and assigns it to the HgPluginUsersIncludedUsage field.
+// SetHgPluginUsersIncludedUsage sets field value
 func (o *FormattedApiOrg) SetHgPluginUsersIncludedUsage(v float32) {
 	o.HgPluginUsersIncludedUsage.Set(&v)
 }
 
-// SetHgPluginUsersIncludedUsageNil sets the value for HgPluginUsersIncludedUsage to be an explicit nil
-func (o *FormattedApiOrg) SetHgPluginUsersIncludedUsageNil() {
-	o.HgPluginUsersIncludedUsage.Set(nil)
-}
-
-// UnsetHgPluginUsersIncludedUsage ensures that no value is present for HgPluginUsersIncludedUsage, not even an explicit nil
-func (o *FormattedApiOrg) UnsetHgPluginUsersIncludedUsage() {
-	o.HgPluginUsersIncludedUsage.Unset()
-}
-
-// GetHmGraphiteInstanceCnt returns the HmGraphiteInstanceCnt field value if set, zero value otherwise.
+// GetHmGraphiteInstanceCnt returns the HmGraphiteInstanceCnt field value
 func (o *FormattedApiOrg) GetHmGraphiteInstanceCnt() float32 {
-	if o == nil || IsNil(o.HmGraphiteInstanceCnt) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmGraphiteInstanceCnt
+
+	return o.HmGraphiteInstanceCnt
 }
 
-// GetHmGraphiteInstanceCntOk returns a tuple with the HmGraphiteInstanceCnt field value if set, nil otherwise
+// GetHmGraphiteInstanceCntOk returns a tuple with the HmGraphiteInstanceCnt field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmGraphiteInstanceCntOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmGraphiteInstanceCnt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmGraphiteInstanceCnt, true
+	return &o.HmGraphiteInstanceCnt, true
 }
 
-// HasHmGraphiteInstanceCnt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmGraphiteInstanceCnt() bool {
-	if o != nil && !IsNil(o.HmGraphiteInstanceCnt) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmGraphiteInstanceCnt gets a reference to the given float32 and assigns it to the HmGraphiteInstanceCnt field.
+// SetHmGraphiteInstanceCnt sets field value
 func (o *FormattedApiOrg) SetHmGraphiteInstanceCnt(v float32) {
-	o.HmGraphiteInstanceCnt = &v
+	o.HmGraphiteInstanceCnt = v
 }
 
-// GetHmPrometheusInstanceCnt returns the HmPrometheusInstanceCnt field value if set, zero value otherwise.
+// GetHmPrometheusInstanceCnt returns the HmPrometheusInstanceCnt field value
 func (o *FormattedApiOrg) GetHmPrometheusInstanceCnt() float32 {
-	if o == nil || IsNil(o.HmPrometheusInstanceCnt) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.HmPrometheusInstanceCnt
+
+	return o.HmPrometheusInstanceCnt
 }
 
-// GetHmPrometheusInstanceCntOk returns a tuple with the HmPrometheusInstanceCnt field value if set, nil otherwise
+// GetHmPrometheusInstanceCntOk returns a tuple with the HmPrometheusInstanceCnt field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetHmPrometheusInstanceCntOk() (*float32, bool) {
-	if o == nil || IsNil(o.HmPrometheusInstanceCnt) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HmPrometheusInstanceCnt, true
+	return &o.HmPrometheusInstanceCnt, true
 }
 
-// HasHmPrometheusInstanceCnt returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasHmPrometheusInstanceCnt() bool {
-	if o != nil && !IsNil(o.HmPrometheusInstanceCnt) {
-		return true
-	}
-
-	return false
-}
-
-// SetHmPrometheusInstanceCnt gets a reference to the given float32 and assigns it to the HmPrometheusInstanceCnt field.
+// SetHmPrometheusInstanceCnt sets field value
 func (o *FormattedApiOrg) SetHmPrometheusInstanceCnt(v float32) {
-	o.HmPrometheusInstanceCnt = &v
+	o.HmPrometheusInstanceCnt = v
 }
 
-// GetAwsMarketplaceSupport returns the AwsMarketplaceSupport field value if set, zero value otherwise.
+// GetAwsMarketplaceSupport returns the AwsMarketplaceSupport field value
 func (o *FormattedApiOrg) GetAwsMarketplaceSupport() float32 {
-	if o == nil || IsNil(o.AwsMarketplaceSupport) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.AwsMarketplaceSupport
+
+	return o.AwsMarketplaceSupport
 }
 
-// GetAwsMarketplaceSupportOk returns a tuple with the AwsMarketplaceSupport field value if set, nil otherwise
+// GetAwsMarketplaceSupportOk returns a tuple with the AwsMarketplaceSupport field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetAwsMarketplaceSupportOk() (*float32, bool) {
-	if o == nil || IsNil(o.AwsMarketplaceSupport) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AwsMarketplaceSupport, true
+	return &o.AwsMarketplaceSupport, true
 }
 
-// HasAwsMarketplaceSupport returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasAwsMarketplaceSupport() bool {
-	if o != nil && !IsNil(o.AwsMarketplaceSupport) {
-		return true
-	}
-
-	return false
-}
-
-// SetAwsMarketplaceSupport gets a reference to the given float32 and assigns it to the AwsMarketplaceSupport field.
+// SetAwsMarketplaceSupport sets field value
 func (o *FormattedApiOrg) SetAwsMarketplaceSupport(v float32) {
-	o.AwsMarketplaceSupport = &v
+	o.AwsMarketplaceSupport = v
 }
 
-// GetTrialStartDate returns the TrialStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTrialStartDate returns the TrialStartDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetTrialStartDate() string {
-	if o == nil || IsNil(o.TrialStartDate.Get()) {
+	if o == nil || o.TrialStartDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.TrialStartDate.Get()
 }
 
-// GetTrialStartDateOk returns a tuple with the TrialStartDate field value if set, nil otherwise
+// GetTrialStartDateOk returns a tuple with the TrialStartDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetTrialStartDateOk() (*string, bool) {
@@ -9466,40 +6996,23 @@ func (o *FormattedApiOrg) GetTrialStartDateOk() (*string, bool) {
 	return o.TrialStartDate.Get(), o.TrialStartDate.IsSet()
 }
 
-// HasTrialStartDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasTrialStartDate() bool {
-	if o != nil && o.TrialStartDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTrialStartDate gets a reference to the given NullableString and assigns it to the TrialStartDate field.
+// SetTrialStartDate sets field value
 func (o *FormattedApiOrg) SetTrialStartDate(v string) {
 	o.TrialStartDate.Set(&v)
 }
 
-// SetTrialStartDateNil sets the value for TrialStartDate to be an explicit nil
-func (o *FormattedApiOrg) SetTrialStartDateNil() {
-	o.TrialStartDate.Set(nil)
-}
-
-// UnsetTrialStartDate ensures that no value is present for TrialStartDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetTrialStartDate() {
-	o.TrialStartDate.Unset()
-}
-
-// GetTrialEndDate returns the TrialEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTrialEndDate returns the TrialEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetTrialEndDate() string {
-	if o == nil || IsNil(o.TrialEndDate.Get()) {
+	if o == nil || o.TrialEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.TrialEndDate.Get()
 }
 
-// GetTrialEndDateOk returns a tuple with the TrialEndDate field value if set, nil otherwise
+// GetTrialEndDateOk returns a tuple with the TrialEndDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetTrialEndDateOk() (*string, bool) {
@@ -9509,40 +7022,23 @@ func (o *FormattedApiOrg) GetTrialEndDateOk() (*string, bool) {
 	return o.TrialEndDate.Get(), o.TrialEndDate.IsSet()
 }
 
-// HasTrialEndDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasTrialEndDate() bool {
-	if o != nil && o.TrialEndDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTrialEndDate gets a reference to the given NullableString and assigns it to the TrialEndDate field.
+// SetTrialEndDate sets field value
 func (o *FormattedApiOrg) SetTrialEndDate(v string) {
 	o.TrialEndDate.Set(&v)
 }
 
-// SetTrialEndDateNil sets the value for TrialEndDate to be an explicit nil
-func (o *FormattedApiOrg) SetTrialEndDateNil() {
-	o.TrialEndDate.Set(nil)
-}
-
-// UnsetTrialEndDate ensures that no value is present for TrialEndDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetTrialEndDate() {
-	o.TrialEndDate.Unset()
-}
-
-// GetTrialLengthDays returns the TrialLengthDays field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTrialLengthDays returns the TrialLengthDays field value
+// If the value is explicit nil, the zero value for float32 will be returned
 func (o *FormattedApiOrg) GetTrialLengthDays() float32 {
-	if o == nil || IsNil(o.TrialLengthDays.Get()) {
+	if o == nil || o.TrialLengthDays.Get() == nil {
 		var ret float32
 		return ret
 	}
+
 	return *o.TrialLengthDays.Get()
 }
 
-// GetTrialLengthDaysOk returns a tuple with the TrialLengthDays field value if set, nil otherwise
+// GetTrialLengthDaysOk returns a tuple with the TrialLengthDays field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetTrialLengthDaysOk() (*float32, bool) {
@@ -9552,40 +7048,23 @@ func (o *FormattedApiOrg) GetTrialLengthDaysOk() (*float32, bool) {
 	return o.TrialLengthDays.Get(), o.TrialLengthDays.IsSet()
 }
 
-// HasTrialLengthDays returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasTrialLengthDays() bool {
-	if o != nil && o.TrialLengthDays.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTrialLengthDays gets a reference to the given NullableFloat32 and assigns it to the TrialLengthDays field.
+// SetTrialLengthDays sets field value
 func (o *FormattedApiOrg) SetTrialLengthDays(v float32) {
 	o.TrialLengthDays.Set(&v)
 }
 
-// SetTrialLengthDaysNil sets the value for TrialLengthDays to be an explicit nil
-func (o *FormattedApiOrg) SetTrialLengthDaysNil() {
-	o.TrialLengthDays.Set(nil)
-}
-
-// UnsetTrialLengthDays ensures that no value is present for TrialLengthDays, not even an explicit nil
-func (o *FormattedApiOrg) UnsetTrialLengthDays() {
-	o.TrialLengthDays.Unset()
-}
-
-// GetTrialNoticeDate returns the TrialNoticeDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTrialNoticeDate returns the TrialNoticeDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetTrialNoticeDate() string {
-	if o == nil || IsNil(o.TrialNoticeDate.Get()) {
+	if o == nil || o.TrialNoticeDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.TrialNoticeDate.Get()
 }
 
-// GetTrialNoticeDateOk returns a tuple with the TrialNoticeDate field value if set, nil otherwise
+// GetTrialNoticeDateOk returns a tuple with the TrialNoticeDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetTrialNoticeDateOk() (*string, bool) {
@@ -9595,40 +7074,23 @@ func (o *FormattedApiOrg) GetTrialNoticeDateOk() (*string, bool) {
 	return o.TrialNoticeDate.Get(), o.TrialNoticeDate.IsSet()
 }
 
-// HasTrialNoticeDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasTrialNoticeDate() bool {
-	if o != nil && o.TrialNoticeDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTrialNoticeDate gets a reference to the given NullableString and assigns it to the TrialNoticeDate field.
+// SetTrialNoticeDate sets field value
 func (o *FormattedApiOrg) SetTrialNoticeDate(v string) {
 	o.TrialNoticeDate.Set(&v)
 }
 
-// SetTrialNoticeDateNil sets the value for TrialNoticeDate to be an explicit nil
-func (o *FormattedApiOrg) SetTrialNoticeDateNil() {
-	o.TrialNoticeDate.Set(nil)
-}
-
-// UnsetTrialNoticeDate ensures that no value is present for TrialNoticeDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetTrialNoticeDate() {
-	o.TrialNoticeDate.Unset()
-}
-
-// GetCancellationDate returns the CancellationDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCancellationDate returns the CancellationDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiOrg) GetCancellationDate() string {
-	if o == nil || IsNil(o.CancellationDate.Get()) {
+	if o == nil || o.CancellationDate.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.CancellationDate.Get()
 }
 
-// GetCancellationDateOk returns a tuple with the CancellationDate field value if set, nil otherwise
+// GetCancellationDateOk returns a tuple with the CancellationDate field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrg) GetCancellationDateOk() (*string, bool) {
@@ -9638,220 +7100,177 @@ func (o *FormattedApiOrg) GetCancellationDateOk() (*string, bool) {
 	return o.CancellationDate.Get(), o.CancellationDate.IsSet()
 }
 
-// HasCancellationDate returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasCancellationDate() bool {
-	if o != nil && o.CancellationDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCancellationDate gets a reference to the given NullableString and assigns it to the CancellationDate field.
+// SetCancellationDate sets field value
 func (o *FormattedApiOrg) SetCancellationDate(v string) {
 	o.CancellationDate.Set(&v)
 }
 
-// SetCancellationDateNil sets the value for CancellationDate to be an explicit nil
-func (o *FormattedApiOrg) SetCancellationDateNil() {
-	o.CancellationDate.Set(nil)
-}
-
-// UnsetCancellationDate ensures that no value is present for CancellationDate, not even an explicit nil
-func (o *FormattedApiOrg) UnsetCancellationDate() {
-	o.CancellationDate.Unset()
-}
-
-// GetRetainedStackId returns the RetainedStackId field value if set, zero value otherwise.
+// GetRetainedStackId returns the RetainedStackId field value
 func (o *FormattedApiOrg) GetRetainedStackId() float32 {
-	if o == nil || IsNil(o.RetainedStackId) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.RetainedStackId
+
+	return o.RetainedStackId
 }
 
-// GetRetainedStackIdOk returns a tuple with the RetainedStackId field value if set, nil otherwise
+// GetRetainedStackIdOk returns a tuple with the RetainedStackId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetRetainedStackIdOk() (*float32, bool) {
-	if o == nil || IsNil(o.RetainedStackId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RetainedStackId, true
+	return &o.RetainedStackId, true
 }
 
-// HasRetainedStackId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasRetainedStackId() bool {
-	if o != nil && !IsNil(o.RetainedStackId) {
-		return true
+// SetRetainedStackId sets field value
+func (o *FormattedApiOrg) SetRetainedStackId(v float32) {
+	o.RetainedStackId = v
+}
+
+// GetAllowGCloudTrial returns the AllowGCloudTrial field value
+func (o *FormattedApiOrg) GetAllowGCloudTrial() bool {
+	if o == nil {
+		var ret bool
+		return ret
 	}
 
-	return false
+	return o.AllowGCloudTrial
 }
 
-// SetRetainedStackId gets a reference to the given float32 and assigns it to the RetainedStackId field.
-func (o *FormattedApiOrg) SetRetainedStackId(v float32) {
-	o.RetainedStackId = &v
+// GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiOrg) GetAllowGCloudTrialOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AllowGCloudTrial, true
 }
 
-// GetPluginSignatureType returns the PluginSignatureType field value if set, zero value otherwise.
+// SetAllowGCloudTrial sets field value
+func (o *FormattedApiOrg) SetAllowGCloudTrial(v bool) {
+	o.AllowGCloudTrial = v
+}
+
+// GetPluginSignatureType returns the PluginSignatureType field value
 func (o *FormattedApiOrg) GetPluginSignatureType() string {
-	if o == nil || IsNil(o.PluginSignatureType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PluginSignatureType
+
+	return o.PluginSignatureType
 }
 
-// GetPluginSignatureTypeOk returns a tuple with the PluginSignatureType field value if set, nil otherwise
+// GetPluginSignatureTypeOk returns a tuple with the PluginSignatureType field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetPluginSignatureTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.PluginSignatureType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PluginSignatureType, true
+	return &o.PluginSignatureType, true
 }
 
-// HasPluginSignatureType returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasPluginSignatureType() bool {
-	if o != nil && !IsNil(o.PluginSignatureType) {
-		return true
-	}
-
-	return false
-}
-
-// SetPluginSignatureType gets a reference to the given string and assigns it to the PluginSignatureType field.
+// SetPluginSignatureType sets field value
 func (o *FormattedApiOrg) SetPluginSignatureType(v string) {
-	o.PluginSignatureType = &v
+	o.PluginSignatureType = v
 }
 
-// GetContractType returns the ContractType field value if set, zero value otherwise.
+// GetContractType returns the ContractType field value
 func (o *FormattedApiOrg) GetContractType() string {
-	if o == nil || IsNil(o.ContractType) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ContractType
+
+	return o.ContractType
 }
 
-// GetContractTypeOk returns a tuple with the ContractType field value if set, nil otherwise
+// GetContractTypeOk returns a tuple with the ContractType field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetContractTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ContractType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ContractType, true
+	return &o.ContractType, true
 }
 
-// HasContractType returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasContractType() bool {
-	if o != nil && !IsNil(o.ContractType) {
-		return true
-	}
-
-	return false
-}
-
-// SetContractType gets a reference to the given string and assigns it to the ContractType field.
+// SetContractType sets field value
 func (o *FormattedApiOrg) SetContractType(v string) {
-	o.ContractType = &v
+	o.ContractType = v
 }
 
-// GetContractTypeId returns the ContractTypeId field value if set, zero value otherwise.
+// GetContractTypeId returns the ContractTypeId field value
 func (o *FormattedApiOrg) GetContractTypeId() float32 {
-	if o == nil || IsNil(o.ContractTypeId) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.ContractTypeId
+
+	return o.ContractTypeId
 }
 
-// GetContractTypeIdOk returns a tuple with the ContractTypeId field value if set, nil otherwise
+// GetContractTypeIdOk returns a tuple with the ContractTypeId field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetContractTypeIdOk() (*float32, bool) {
-	if o == nil || IsNil(o.ContractTypeId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ContractTypeId, true
+	return &o.ContractTypeId, true
 }
 
-// HasContractTypeId returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasContractTypeId() bool {
-	if o != nil && !IsNil(o.ContractTypeId) {
-		return true
-	}
-
-	return false
-}
-
-// SetContractTypeId gets a reference to the given float32 and assigns it to the ContractTypeId field.
+// SetContractTypeId sets field value
 func (o *FormattedApiOrg) SetContractTypeId(v float32) {
-	o.ContractTypeId = &v
+	o.ContractTypeId = v
 }
 
-// GetLinks returns the Links field value if set, zero value otherwise.
+// GetLinks returns the Links field value
 func (o *FormattedApiOrg) GetLinks() []LinksInner1 {
-	if o == nil || IsNil(o.Links) {
+	if o == nil {
 		var ret []LinksInner1
 		return ret
 	}
+
 	return o.Links
 }
 
-// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// GetLinksOk returns a tuple with the Links field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetLinksOk() ([]LinksInner1, bool) {
-	if o == nil || IsNil(o.Links) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Links, true
 }
 
-// HasLinks returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasLinks() bool {
-	if o != nil && !IsNil(o.Links) {
-		return true
-	}
-
-	return false
-}
-
-// SetLinks gets a reference to the given []LinksInner1 and assigns it to the Links field.
+// SetLinks sets field value
 func (o *FormattedApiOrg) SetLinks(v []LinksInner1) {
 	o.Links = v
 }
 
-// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise.
+// GetSubscriptions returns the Subscriptions field value
 func (o *FormattedApiOrg) GetSubscriptions() Subscriptions {
-	if o == nil || IsNil(o.Subscriptions) {
+	if o == nil {
 		var ret Subscriptions
 		return ret
 	}
-	return *o.Subscriptions
+
+	return o.Subscriptions
 }
 
-// GetSubscriptionsOk returns a tuple with the Subscriptions field value if set, nil otherwise
+// GetSubscriptionsOk returns a tuple with the Subscriptions field value
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrg) GetSubscriptionsOk() (*Subscriptions, bool) {
-	if o == nil || IsNil(o.Subscriptions) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Subscriptions, true
+	return &o.Subscriptions, true
 }
 
-// HasSubscriptions returns a boolean if a field has been set.
-func (o *FormattedApiOrg) HasSubscriptions() bool {
-	if o != nil && !IsNil(o.Subscriptions) {
-		return true
-	}
-
-	return false
-}
-
-// SetSubscriptions gets a reference to the given Subscriptions and assigns it to the Subscriptions field.
+// SetSubscriptions sets field value
 func (o *FormattedApiOrg) SetSubscriptions(v Subscriptions) {
-	o.Subscriptions = &v
+	o.Subscriptions = v
 }
 
 func (o FormattedApiOrg) MarshalJSON() ([]byte, error) {
@@ -9864,819 +7283,278 @@ func (o FormattedApiOrg) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiOrg) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Tags) {
-		toSerialize["tags"] = o.Tags
-	}
-	if !IsNil(o.AccountManagerId) {
-		toSerialize["accountManagerId"] = o.AccountManagerId
-	}
-	if !IsNil(o.AccountManagerUsername) {
-		toSerialize["accountManagerUsername"] = o.AccountManagerUsername
-	}
-	if !IsNil(o.AccountManagerName) {
-		toSerialize["accountManagerName"] = o.AccountManagerName
-	}
-	if !IsNil(o.AwsCustomerId) {
-		toSerialize["awsCustomerId"] = o.AwsCustomerId
-	}
-	if !IsNil(o.AccountOwnerId) {
-		toSerialize["accountOwnerId"] = o.AccountOwnerId
-	}
-	if !IsNil(o.AccountOwnerUsername) {
-		toSerialize["accountOwnerUsername"] = o.AccountOwnerUsername
-	}
-	if !IsNil(o.AccountOwnerName) {
-		toSerialize["accountOwnerName"] = o.AccountOwnerName
-	}
-	if o.HmBillingStartDate.IsSet() {
-		toSerialize["hmBillingStartDate"] = o.HmBillingStartDate.Get()
-	}
-	if o.HmBillingEndDate.IsSet() {
-		toSerialize["hmBillingEndDate"] = o.HmBillingEndDate.Get()
-	}
-	if o.HmBilledToDate.IsSet() {
-		toSerialize["hmBilledToDate"] = o.HmBilledToDate.Get()
-	}
-	if o.HmOverageWarnDate.IsSet() {
-		toSerialize["hmOverageWarnDate"] = o.HmOverageWarnDate.Get()
-	}
-	if !IsNil(o.HmOverageAmount) {
-		toSerialize["hmOverageAmount"] = o.HmOverageAmount
-	}
-	if !IsNil(o.HmCurrentPrometheusUsage) {
-		toSerialize["hmCurrentPrometheusUsage"] = o.HmCurrentPrometheusUsage
-	}
-	if !IsNil(o.HmCurrentGraphiteUsage) {
-		toSerialize["hmCurrentGraphiteUsage"] = o.HmCurrentGraphiteUsage
-	}
-	if o.HlBillingStartDate.IsSet() {
-		toSerialize["hlBillingStartDate"] = o.HlBillingStartDate.Get()
-	}
-	if o.HlBillingEndDate.IsSet() {
-		toSerialize["hlBillingEndDate"] = o.HlBillingEndDate.Get()
-	}
-	if o.HlBilledToDate.IsSet() {
-		toSerialize["hlBilledToDate"] = o.HlBilledToDate.Get()
-	}
-	if o.HlOverageWarnDate.IsSet() {
-		toSerialize["hlOverageWarnDate"] = o.HlOverageWarnDate.Get()
-	}
-	if !IsNil(o.HlOverageAmount) {
-		toSerialize["hlOverageAmount"] = o.HlOverageAmount
-	}
-	if !IsNil(o.HlCurrentUsage) {
-		toSerialize["hlCurrentUsage"] = o.HlCurrentUsage
-	}
-	if o.HgBillingStartDate.IsSet() {
-		toSerialize["hgBillingStartDate"] = o.HgBillingStartDate.Get()
-	}
-	if o.HgBillingEndDate.IsSet() {
-		toSerialize["hgBillingEndDate"] = o.HgBillingEndDate.Get()
-	}
-	if o.HgBilledToDate.IsSet() {
-		toSerialize["hgBilledToDate"] = o.HgBilledToDate.Get()
-	}
-	if o.HgOverageWarnDate.IsSet() {
-		toSerialize["hgOverageWarnDate"] = o.HgOverageWarnDate.Get()
-	}
-	if !IsNil(o.HgOverageAmount) {
-		toSerialize["hgOverageAmount"] = o.HgOverageAmount
-	}
-	if !IsNil(o.HgActiveUsers) {
-		toSerialize["hgActiveUsers"] = o.HgActiveUsers
-	}
-	if !IsNil(o.HgDatasourceCnts) {
-		toSerialize["hgDatasourceCnts"] = o.HgDatasourceCnts
-	}
-	if !IsNil(o.HgIntegrationCnts) {
-		toSerialize["hgIntegrationCnts"] = o.HgIntegrationCnts
-	}
-	if o.HmGraphiteBillingStartDate.IsSet() {
-		toSerialize["hmGraphiteBillingStartDate"] = o.HmGraphiteBillingStartDate.Get()
-	}
-	if o.HmGraphiteBillingEndDate.IsSet() {
-		toSerialize["hmGraphiteBillingEndDate"] = o.HmGraphiteBillingEndDate.Get()
-	}
-	if o.HmGraphiteBilledToDate.IsSet() {
-		toSerialize["hmGraphiteBilledToDate"] = o.HmGraphiteBilledToDate.Get()
-	}
-	if o.HmGraphiteOverageWarnDate.IsSet() {
-		toSerialize["hmGraphiteOverageWarnDate"] = o.HmGraphiteOverageWarnDate.Get()
-	}
-	if !IsNil(o.HmGraphiteCurrentUsage) {
-		toSerialize["hmGraphiteCurrentUsage"] = o.HmGraphiteCurrentUsage
-	}
-	if !IsNil(o.HmGraphiteOverageAmount) {
-		toSerialize["hmGraphiteOverageAmount"] = o.HmGraphiteOverageAmount
-	}
-	if o.HlRetentionBillingStartDate.IsSet() {
-		toSerialize["hlRetentionBillingStartDate"] = o.HlRetentionBillingStartDate.Get()
-	}
-	if o.HlRetentionBillingEndDate.IsSet() {
-		toSerialize["hlRetentionBillingEndDate"] = o.HlRetentionBillingEndDate.Get()
-	}
-	if o.HlRetentionBilledToDate.IsSet() {
-		toSerialize["hlRetentionBilledToDate"] = o.HlRetentionBilledToDate.Get()
-	}
-	if o.HlRetentionOverageWarnDate.IsSet() {
-		toSerialize["hlRetentionOverageWarnDate"] = o.HlRetentionOverageWarnDate.Get()
-	}
-	if !IsNil(o.HlRetentionCurrentUsage) {
-		toSerialize["hlRetentionCurrentUsage"] = o.HlRetentionCurrentUsage
-	}
-	if !IsNil(o.HlRetentionOverageAmount) {
-		toSerialize["hlRetentionOverageAmount"] = o.HlRetentionOverageAmount
-	}
-	if o.HtBillingStartDate.IsSet() {
-		toSerialize["htBillingStartDate"] = o.HtBillingStartDate.Get()
-	}
-	if o.HtBillingEndDate.IsSet() {
-		toSerialize["htBillingEndDate"] = o.HtBillingEndDate.Get()
-	}
-	if o.HtBilledToDate.IsSet() {
-		toSerialize["htBilledToDate"] = o.HtBilledToDate.Get()
-	}
-	if o.HtOverageWarnDate.IsSet() {
-		toSerialize["htOverageWarnDate"] = o.HtOverageWarnDate.Get()
-	}
-	if !IsNil(o.HtCurrentUsage) {
-		toSerialize["htCurrentUsage"] = o.HtCurrentUsage
-	}
-	if !IsNil(o.HtOverageAmount) {
-		toSerialize["htOverageAmount"] = o.HtOverageAmount
-	}
-	if o.IrmBillingStartDate.IsSet() {
-		toSerialize["irmBillingStartDate"] = o.IrmBillingStartDate.Get()
-	}
-	if o.IrmBillingEndDate.IsSet() {
-		toSerialize["irmBillingEndDate"] = o.IrmBillingEndDate.Get()
-	}
-	if o.IrmBilledToDate.IsSet() {
-		toSerialize["irmBilledToDate"] = o.IrmBilledToDate.Get()
-	}
-	if o.IrmOverageWarnDate.IsSet() {
-		toSerialize["irmOverageWarnDate"] = o.IrmOverageWarnDate.Get()
-	}
-	if !IsNil(o.IrmCurrentUsage) {
-		toSerialize["irmCurrentUsage"] = o.IrmCurrentUsage
-	}
-	if !IsNil(o.IrmOverageAmount) {
-		toSerialize["irmOverageAmount"] = o.IrmOverageAmount
-	}
-	if o.HpBillingStartDate.IsSet() {
-		toSerialize["hpBillingStartDate"] = o.HpBillingStartDate.Get()
-	}
-	if o.HpBillingEndDate.IsSet() {
-		toSerialize["hpBillingEndDate"] = o.HpBillingEndDate.Get()
-	}
-	if o.HpBilledToDate.IsSet() {
-		toSerialize["hpBilledToDate"] = o.HpBilledToDate.Get()
-	}
-	if o.HpOverageWarnDate.IsSet() {
-		toSerialize["hpOverageWarnDate"] = o.HpOverageWarnDate.Get()
-	}
-	if !IsNil(o.HpCurrentUsage) {
-		toSerialize["hpCurrentUsage"] = o.HpCurrentUsage
-	}
-	if !IsNil(o.HpOverageAmount) {
-		toSerialize["hpOverageAmount"] = o.HpOverageAmount
-	}
-	if o.K6VuhBillingStartDate.IsSet() {
-		toSerialize["k6VuhBillingStartDate"] = o.K6VuhBillingStartDate.Get()
-	}
-	if o.K6VuhBillingEndDate.IsSet() {
-		toSerialize["k6VuhBillingEndDate"] = o.K6VuhBillingEndDate.Get()
-	}
-	if o.K6VuhBilledToDate.IsSet() {
-		toSerialize["k6VuhBilledToDate"] = o.K6VuhBilledToDate.Get()
-	}
-	if o.K6VuhOverageWarnDate.IsSet() {
-		toSerialize["k6VuhOverageWarnDate"] = o.K6VuhOverageWarnDate.Get()
-	}
-	if !IsNil(o.K6VuhCurrentUsage) {
-		toSerialize["k6VuhCurrentUsage"] = o.K6VuhCurrentUsage
-	}
-	if !IsNil(o.K6VuhOverageAmount) {
-		toSerialize["k6VuhOverageAmount"] = o.K6VuhOverageAmount
-	}
-	if o.K6IPBillingStartDate.IsSet() {
-		toSerialize["k6IPBillingStartDate"] = o.K6IPBillingStartDate.Get()
-	}
-	if o.K6IPBillingEndDate.IsSet() {
-		toSerialize["k6IPBillingEndDate"] = o.K6IPBillingEndDate.Get()
-	}
-	if o.K6IPBilledToDate.IsSet() {
-		toSerialize["k6IPBilledToDate"] = o.K6IPBilledToDate.Get()
-	}
-	if o.K6IPOverageWarnDate.IsSet() {
-		toSerialize["k6IPOverageWarnDate"] = o.K6IPOverageWarnDate.Get()
-	}
-	if !IsNil(o.K6IPCurrentUsage) {
-		toSerialize["k6IPCurrentUsage"] = o.K6IPCurrentUsage
-	}
-	if !IsNil(o.K6IPOverageAmount) {
-		toSerialize["k6IPOverageAmount"] = o.K6IPOverageAmount
-	}
-	if o.FeO11yBillingStartDate.IsSet() {
-		toSerialize["feO11yBillingStartDate"] = o.FeO11yBillingStartDate.Get()
-	}
-	if o.FeO11yBillingEndDate.IsSet() {
-		toSerialize["feO11yBillingEndDate"] = o.FeO11yBillingEndDate.Get()
-	}
-	if o.FeO11yBilledToDate.IsSet() {
-		toSerialize["feO11yBilledToDate"] = o.FeO11yBilledToDate.Get()
-	}
-	if o.FeO11yOverageWarnDate.IsSet() {
-		toSerialize["feO11yOverageWarnDate"] = o.FeO11yOverageWarnDate.Get()
-	}
-	if !IsNil(o.FeO11yCurrentUsage) {
-		toSerialize["feO11yCurrentUsage"] = o.FeO11yCurrentUsage
-	}
-	if !IsNil(o.FeO11yOverageAmount) {
-		toSerialize["feO11yOverageAmount"] = o.FeO11yOverageAmount
-	}
-	if o.GeUsersBillingStartDate.IsSet() {
-		toSerialize["geUsersBillingStartDate"] = o.GeUsersBillingStartDate.Get()
-	}
-	if o.GeUsersBillingEndDate.IsSet() {
-		toSerialize["geUsersBillingEndDate"] = o.GeUsersBillingEndDate.Get()
-	}
-	if o.GeUsersBilledToDate.IsSet() {
-		toSerialize["geUsersBilledToDate"] = o.GeUsersBilledToDate.Get()
-	}
-	if o.GeUsersOverageWarnDate.IsSet() {
-		toSerialize["geUsersOverageWarnDate"] = o.GeUsersOverageWarnDate.Get()
-	}
-	if !IsNil(o.GeUsersCurrentUsage) {
-		toSerialize["geUsersCurrentUsage"] = o.GeUsersCurrentUsage
-	}
-	if !IsNil(o.GeUsersOverageAmount) {
-		toSerialize["geUsersOverageAmount"] = o.GeUsersOverageAmount
-	}
-	if o.GeInstancesBillingStartDate.IsSet() {
-		toSerialize["geInstancesBillingStartDate"] = o.GeInstancesBillingStartDate.Get()
-	}
-	if o.GeInstancesBillingEndDate.IsSet() {
-		toSerialize["geInstancesBillingEndDate"] = o.GeInstancesBillingEndDate.Get()
-	}
-	if o.GeInstancesBilledToDate.IsSet() {
-		toSerialize["geInstancesBilledToDate"] = o.GeInstancesBilledToDate.Get()
-	}
-	if o.GeInstancesOverageWarnDate.IsSet() {
-		toSerialize["geInstancesOverageWarnDate"] = o.GeInstancesOverageWarnDate.Get()
-	}
-	if !IsNil(o.GeInstancesCurrentUsage) {
-		toSerialize["geInstancesCurrentUsage"] = o.GeInstancesCurrentUsage
-	}
-	if !IsNil(o.GeInstancesOverageAmount) {
-		toSerialize["geInstancesOverageAmount"] = o.GeInstancesOverageAmount
-	}
-	if !IsNil(o.SalesforceAccountId) {
-		toSerialize["salesforceAccountId"] = o.SalesforceAccountId
-	}
-	if !IsNil(o.SalesforceLeadId) {
-		toSerialize["salesforceLeadId"] = o.SalesforceLeadId
-	}
-	if !IsNil(o.SalesforceCustomOrgId) {
-		toSerialize["salesforceCustomOrgId"] = o.SalesforceCustomOrgId
-	}
-	if !IsNil(o.SlackSupport) {
-		toSerialize["slackSupport"] = o.SlackSupport
-	}
-	if !IsNil(o.SlackSupportChannel) {
-		toSerialize["slackSupportChannel"] = o.SlackSupportChannel
-	}
-	if !IsNil(o.TotalOverageAmount) {
-		toSerialize["totalOverageAmount"] = o.TotalOverageAmount
-	}
-	if !IsNil(o.MemberCnt) {
-		toSerialize["memberCnt"] = o.MemberCnt
-	}
-	if !IsNil(o.LicenseCnt) {
-		toSerialize["licenseCnt"] = o.LicenseCnt
-	}
-	if !IsNil(o.LicenseConfiguredCnt) {
-		toSerialize["licenseConfiguredCnt"] = o.LicenseConfiguredCnt
-	}
-	if !IsNil(o.LicenseUnconfiguredCnt) {
-		toSerialize["licenseUnconfiguredCnt"] = o.LicenseUnconfiguredCnt
-	}
-	if !IsNil(o.HgInstanceCnt) {
-		toSerialize["hgInstanceCnt"] = o.HgInstanceCnt
-	}
-	if !IsNil(o.HlInstanceCnt) {
-		toSerialize["hlInstanceCnt"] = o.HlInstanceCnt
-	}
-	if !IsNil(o.HtInstanceCnt) {
-		toSerialize["htInstanceCnt"] = o.HtInstanceCnt
-	}
-	if !IsNil(o.UbersmithClientId) {
-		toSerialize["ubersmithClientId"] = o.UbersmithClientId
-	}
-	if !IsNil(o.IntacctCustomerId) {
-		toSerialize["intacctCustomerId"] = o.IntacctCustomerId
-	}
-	if !IsNil(o.IntacctCustomerUrl) {
-		toSerialize["intacctCustomerUrl"] = o.IntacctCustomerUrl
-	}
-	if !IsNil(o.CommittedArr) {
-		toSerialize["committedArr"] = o.CommittedArr
-	}
-	if !IsNil(o.PrevCommittedArr) {
-		toSerialize["prevCommittedArr"] = o.PrevCommittedArr
-	}
-	if !IsNil(o.ZendeskId) {
-		toSerialize["zendeskId"] = o.ZendeskId
-	}
-	if o.HappinessRating.IsSet() {
-		toSerialize["happinessRating"] = o.HappinessRating.Get()
-	}
-	if o.HappinessNote.IsSet() {
-		toSerialize["happinessNote"] = o.HappinessNote.Get()
-	}
-	if o.HappinessReasonCode.IsSet() {
-		toSerialize["happinessReasonCode"] = o.HappinessReasonCode.Get()
-	}
-	if o.HappinessCreatedAt.IsSet() {
-		toSerialize["happinessCreatedAt"] = o.HappinessCreatedAt.Get()
-	}
-	if o.HappinessChangedAt.IsSet() {
-		toSerialize["happinessChangedAt"] = o.HappinessChangedAt.Get()
-	}
-	if o.HappinessExpiredAt.IsSet() {
-		toSerialize["happinessExpiredAt"] = o.HappinessExpiredAt.Get()
-	}
-	if o.HappinessUserName.IsSet() {
-		toSerialize["happinessUserName"] = o.HappinessUserName.Get()
-	}
-	if o.CancellationClientNotes.IsSet() {
-		toSerialize["cancellationClientNotes"] = o.CancellationClientNotes.Get()
-	}
-	if o.CancellationNotes.IsSet() {
-		toSerialize["cancellationNotes"] = o.CancellationNotes.Get()
-	}
-	if !IsNil(o.CancellationReason) {
-		toSerialize["cancellationReason"] = o.CancellationReason
-	}
-	if o.NetPromoterScore.IsSet() {
-		toSerialize["netPromoterScore"] = o.NetPromoterScore.Get()
-	}
-	if o.HmFirstOverageDate.IsSet() {
-		toSerialize["hmFirstOverageDate"] = o.HmFirstOverageDate.Get()
-	}
-	if o.HmFirstApproachingLimitDate.IsSet() {
-		toSerialize["hmFirstApproachingLimitDate"] = o.HmFirstApproachingLimitDate.Get()
-	}
-	if !IsNil(o.SpendCommitCreditBalance) {
-		toSerialize["spendCommitCreditBalance"] = o.SpendCommitCreditBalance
-	}
-	if !IsNil(o.SpendCommitCreditTotal) {
-		toSerialize["spendCommitCreditTotal"] = o.SpendCommitCreditTotal
-	}
-	if !IsNil(o.ProjectedOverageAmount) {
-		toSerialize["projectedOverageAmount"] = o.ProjectedOverageAmount
-	}
-	if !IsNil(o.EstimatedArr) {
-		toSerialize["estimatedArr"] = o.EstimatedArr
-	}
-	if !IsNil(o.ReferredBy) {
-		toSerialize["referredBy"] = o.ReferredBy
-	}
-	if !IsNil(o.K6OrgId) {
-		toSerialize["k6OrgId"] = o.K6OrgId
-	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.Slug) {
-		toSerialize["slug"] = o.Slug
-	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.Url) {
-		toSerialize["url"] = o.Url
-	}
-	if !IsNil(o.CreatedAt) {
-		toSerialize["createdAt"] = o.CreatedAt
-	}
-	if o.CreatedBy.IsSet() {
-		toSerialize["createdBy"] = o.CreatedBy.Get()
-	}
-	if o.UpdatedAt.IsSet() {
-		toSerialize["updatedAt"] = o.UpdatedAt.Get()
-	}
-	if o.UpdatedBy.IsSet() {
-		toSerialize["updatedBy"] = o.UpdatedBy.Get()
-	}
-	if o.Avatar.IsSet() {
-		toSerialize["avatar"] = o.Avatar.Get()
-	}
-	if !IsNil(o.ChecksPerMonth) {
-		toSerialize["checksPerMonth"] = o.ChecksPerMonth
-	}
-	if !IsNil(o.WpPlan) {
-		toSerialize["wpPlan"] = o.WpPlan
-	}
-	if !IsNil(o.HgInstanceLimit) {
-		toSerialize["hgInstanceLimit"] = o.HgInstanceLimit
-	}
-	if !IsNil(o.HmInstanceLimit) {
-		toSerialize["hmInstanceLimit"] = o.HmInstanceLimit
-	}
-	if !IsNil(o.HlInstanceLimit) {
-		toSerialize["hlInstanceLimit"] = o.HlInstanceLimit
-	}
-	if !IsNil(o.UserQuota) {
-		toSerialize["userQuota"] = o.UserQuota
-	}
-	if !IsNil(o.SupportPlan) {
-		toSerialize["supportPlan"] = o.SupportPlan
-	}
-	if !IsNil(o.CreditApproved) {
-		toSerialize["creditApproved"] = o.CreditApproved
-	}
-	if o.MsaSignedAt.IsSet() {
-		toSerialize["msaSignedAt"] = o.MsaSignedAt.Get()
-	}
-	if o.MsaSignedBy.IsSet() {
-		toSerialize["msaSignedBy"] = o.MsaSignedBy.Get()
-	}
-	if !IsNil(o.EnterprisePlugins) {
-		toSerialize["enterprisePlugins"] = o.EnterprisePlugins
-	}
-	if !IsNil(o.GrafanaCloud) {
-		toSerialize["grafanaCloud"] = o.GrafanaCloud
-	}
-	if !IsNil(o.Privacy) {
-		toSerialize["privacy"] = o.Privacy
-	}
-	if !IsNil(o.Reseller) {
-		toSerialize["reseller"] = o.Reseller
-	}
-	if o.ResellerId.IsSet() {
-		toSerialize["resellerId"] = o.ResellerId.Get()
-	}
-	if o.ResellerName.IsSet() {
-		toSerialize["resellerName"] = o.ResellerName.Get()
-	}
-	if !IsNil(o.EmergencySupport) {
-		toSerialize["emergencySupport"] = o.EmergencySupport
-	}
-	if !IsNil(o.IsContractedLicenseAutoProvision) {
-		toSerialize["isContractedLicenseAutoProvision"] = o.IsContractedLicenseAutoProvision
-	}
-	if !IsNil(o.GcloudMonthlyCost) {
-		toSerialize["gcloudMonthlyCost"] = o.GcloudMonthlyCost
-	}
-	if !IsNil(o.HgIncludedUsers) {
-		toSerialize["hgIncludedUsers"] = o.HgIncludedUsers
-	}
-	if !IsNil(o.HgTier1Rate) {
-		toSerialize["hgTier1Rate"] = o.HgTier1Rate
-	}
-	if !IsNil(o.HgTier2Min) {
-		toSerialize["hgTier2Min"] = o.HgTier2Min
-	}
-	if !IsNil(o.HgTier2Rate) {
-		toSerialize["hgTier2Rate"] = o.HgTier2Rate
-	}
-	if !IsNil(o.HgTier3Min) {
-		toSerialize["hgTier3Min"] = o.HgTier3Min
-	}
-	if !IsNil(o.HgTier3Rate) {
-		toSerialize["hgTier3Rate"] = o.HgTier3Rate
-	}
-	if !IsNil(o.HgUsage) {
-		toSerialize["hgUsage"] = o.HgUsage
-	}
-	if !IsNil(o.HgCurrentActiveUsers) {
-		toSerialize["hgCurrentActiveUsers"] = o.HgCurrentActiveUsers
-	}
-	if !IsNil(o.HgGrafanaUsage) {
-		toSerialize["hgGrafanaUsage"] = o.HgGrafanaUsage
-	}
-	if !IsNil(o.HgOnCallUsage) {
-		toSerialize["hgOnCallUsage"] = o.HgOnCallUsage
-	}
-	if !IsNil(o.HmIncludedSeries) {
-		toSerialize["hmIncludedSeries"] = o.HmIncludedSeries
-	}
-	if !IsNil(o.HmAverageDpm) {
-		toSerialize["hmAverageDpm"] = o.HmAverageDpm
-	}
-	if !IsNil(o.HmTier1Rate) {
-		toSerialize["hmTier1Rate"] = o.HmTier1Rate
-	}
-	if !IsNil(o.HmTier2Min) {
-		toSerialize["hmTier2Min"] = o.HmTier2Min
-	}
-	if !IsNil(o.HmTier2Rate) {
-		toSerialize["hmTier2Rate"] = o.HmTier2Rate
-	}
-	if !IsNil(o.HmTier3Min) {
-		toSerialize["hmTier3Min"] = o.HmTier3Min
-	}
-	if !IsNil(o.HmTier3Rate) {
-		toSerialize["hmTier3Rate"] = o.HmTier3Rate
-	}
-	if !IsNil(o.HmUsage) {
-		toSerialize["hmUsage"] = o.HmUsage
-	}
-	if !IsNil(o.HmCurrentUsage) {
-		toSerialize["hmCurrentUsage"] = o.HmCurrentUsage
-	}
-	if !IsNil(o.HmGraphiteIncludedUsage) {
-		toSerialize["hmGraphiteIncludedUsage"] = o.HmGraphiteIncludedUsage
-	}
-	if !IsNil(o.HmGraphiteTier1Rate) {
-		toSerialize["hmGraphiteTier1Rate"] = o.HmGraphiteTier1Rate
-	}
-	if !IsNil(o.HmGraphiteTier2Min) {
-		toSerialize["hmGraphiteTier2Min"] = o.HmGraphiteTier2Min
-	}
-	if !IsNil(o.HmGraphiteTier2Rate) {
-		toSerialize["hmGraphiteTier2Rate"] = o.HmGraphiteTier2Rate
-	}
-	if !IsNil(o.HmGraphiteTier3Min) {
-		toSerialize["hmGraphiteTier3Min"] = o.HmGraphiteTier3Min
-	}
-	if !IsNil(o.HmGraphiteTier3Rate) {
-		toSerialize["hmGraphiteTier3Rate"] = o.HmGraphiteTier3Rate
-	}
-	if !IsNil(o.HmGraphiteUsage) {
-		toSerialize["hmGraphiteUsage"] = o.HmGraphiteUsage
-	}
-	if !IsNil(o.HlIncludedUsage) {
-		toSerialize["hlIncludedUsage"] = o.HlIncludedUsage
-	}
-	if !IsNil(o.HlQueryToIngestRatio) {
-		toSerialize["hlQueryToIngestRatio"] = o.HlQueryToIngestRatio
-	}
-	if !IsNil(o.HlTier1Rate) {
-		toSerialize["hlTier1Rate"] = o.HlTier1Rate
-	}
-	if !IsNil(o.HlTier2Min) {
-		toSerialize["hlTier2Min"] = o.HlTier2Min
-	}
-	if !IsNil(o.HlTier2Rate) {
-		toSerialize["hlTier2Rate"] = o.HlTier2Rate
-	}
-	if !IsNil(o.HlTier3Min) {
-		toSerialize["hlTier3Min"] = o.HlTier3Min
-	}
-	if !IsNil(o.HlTier3Rate) {
-		toSerialize["hlTier3Rate"] = o.HlTier3Rate
-	}
-	if !IsNil(o.HlUsage) {
-		toSerialize["hlUsage"] = o.HlUsage
-	}
-	if !IsNil(o.HlRetentionIncludedUsage) {
-		toSerialize["hlRetentionIncludedUsage"] = o.HlRetentionIncludedUsage
-	}
-	if !IsNil(o.HlRetentionTier1Rate) {
-		toSerialize["hlRetentionTier1Rate"] = o.HlRetentionTier1Rate
-	}
-	if !IsNil(o.HlRetentionTier2Min) {
-		toSerialize["hlRetentionTier2Min"] = o.HlRetentionTier2Min
-	}
-	if !IsNil(o.HlRetentionTier2Rate) {
-		toSerialize["hlRetentionTier2Rate"] = o.HlRetentionTier2Rate
-	}
-	if !IsNil(o.HlRetentionTier3Min) {
-		toSerialize["hlRetentionTier3Min"] = o.HlRetentionTier3Min
-	}
-	if !IsNil(o.HlRetentionTier3Rate) {
-		toSerialize["hlRetentionTier3Rate"] = o.HlRetentionTier3Rate
-	}
-	if !IsNil(o.HlRetentionUsage) {
-		toSerialize["hlRetentionUsage"] = o.HlRetentionUsage
-	}
-	if !IsNil(o.HtIncludedUsage) {
-		toSerialize["htIncludedUsage"] = o.HtIncludedUsage
-	}
-	if !IsNil(o.HtTier1Rate) {
-		toSerialize["htTier1Rate"] = o.HtTier1Rate
-	}
-	if !IsNil(o.HtTier2Min) {
-		toSerialize["htTier2Min"] = o.HtTier2Min
-	}
-	if !IsNil(o.HtTier2Rate) {
-		toSerialize["htTier2Rate"] = o.HtTier2Rate
-	}
-	if !IsNil(o.HtTier3Min) {
-		toSerialize["htTier3Min"] = o.HtTier3Min
-	}
-	if !IsNil(o.HtTier3Rate) {
-		toSerialize["htTier3Rate"] = o.HtTier3Rate
-	}
-	if !IsNil(o.HtUsage) {
-		toSerialize["htUsage"] = o.HtUsage
-	}
-	if !IsNil(o.HpIncludedUsage) {
-		toSerialize["hpIncludedUsage"] = o.HpIncludedUsage
-	}
-	if !IsNil(o.HpTier1Rate) {
-		toSerialize["hpTier1Rate"] = o.HpTier1Rate
-	}
-	if !IsNil(o.HpTier2Min) {
-		toSerialize["hpTier2Min"] = o.HpTier2Min
-	}
-	if !IsNil(o.HpTier2Rate) {
-		toSerialize["hpTier2Rate"] = o.HpTier2Rate
-	}
-	if !IsNil(o.HpTier3Min) {
-		toSerialize["hpTier3Min"] = o.HpTier3Min
-	}
-	if !IsNil(o.HpTier3Rate) {
-		toSerialize["hpTier3Rate"] = o.HpTier3Rate
-	}
-	if !IsNil(o.HpUsage) {
-		toSerialize["hpUsage"] = o.HpUsage
-	}
-	if !IsNil(o.IrmStatus) {
-		toSerialize["irmStatus"] = o.IrmStatus
-	}
-	if !IsNil(o.IrmIncludedUsage) {
-		toSerialize["irmIncludedUsage"] = o.IrmIncludedUsage
-	}
-	if !IsNil(o.IrmTier1Rate) {
-		toSerialize["irmTier1Rate"] = o.IrmTier1Rate
-	}
-	if !IsNil(o.IrmTier2Min) {
-		toSerialize["irmTier2Min"] = o.IrmTier2Min
-	}
-	if !IsNil(o.IrmTier2Rate) {
-		toSerialize["irmTier2Rate"] = o.IrmTier2Rate
-	}
-	if !IsNil(o.IrmTier3Min) {
-		toSerialize["irmTier3Min"] = o.IrmTier3Min
-	}
-	if !IsNil(o.IrmTier3Rate) {
-		toSerialize["irmTier3Rate"] = o.IrmTier3Rate
-	}
-	if !IsNil(o.IrmUsage) {
-		toSerialize["irmUsage"] = o.IrmUsage
-	}
-	if !IsNil(o.K6VuhIncludedUsage) {
-		toSerialize["k6VuhIncludedUsage"] = o.K6VuhIncludedUsage
-	}
-	if !IsNil(o.K6VuhTier1Rate) {
-		toSerialize["k6VuhTier1Rate"] = o.K6VuhTier1Rate
-	}
-	if !IsNil(o.K6VuhTier2Min) {
-		toSerialize["k6VuhTier2Min"] = o.K6VuhTier2Min
-	}
-	if !IsNil(o.K6VuhTier2Rate) {
-		toSerialize["k6VuhTier2Rate"] = o.K6VuhTier2Rate
-	}
-	if !IsNil(o.K6VuhTier3Min) {
-		toSerialize["k6VuhTier3Min"] = o.K6VuhTier3Min
-	}
-	if !IsNil(o.K6VuhTier3Rate) {
-		toSerialize["k6VuhTier3Rate"] = o.K6VuhTier3Rate
-	}
-	if !IsNil(o.K6VuhUnits) {
-		toSerialize["k6VuhUnits"] = o.K6VuhUnits
-	}
-	if !IsNil(o.K6VuhUsage) {
-		toSerialize["k6VuhUsage"] = o.K6VuhUsage
-	}
-	if !IsNil(o.K6IPIncludedUsage) {
-		toSerialize["k6IPIncludedUsage"] = o.K6IPIncludedUsage
-	}
-	if !IsNil(o.K6IPTier1Rate) {
-		toSerialize["k6IPTier1Rate"] = o.K6IPTier1Rate
-	}
-	if !IsNil(o.K6IPTier2Min) {
-		toSerialize["k6IPTier2Min"] = o.K6IPTier2Min
-	}
-	if !IsNil(o.K6IPTier2Rate) {
-		toSerialize["k6IPTier2Rate"] = o.K6IPTier2Rate
-	}
-	if !IsNil(o.K6IPTier3Min) {
-		toSerialize["k6IPTier3Min"] = o.K6IPTier3Min
-	}
-	if !IsNil(o.K6IPTier3Rate) {
-		toSerialize["k6IPTier3Rate"] = o.K6IPTier3Rate
-	}
-	if !IsNil(o.K6IPUsage) {
-		toSerialize["k6IPUsage"] = o.K6IPUsage
-	}
-	if !IsNil(o.FeO11yIncludedUsage) {
-		toSerialize["feO11yIncludedUsage"] = o.FeO11yIncludedUsage
-	}
-	if !IsNil(o.FeO11yTier1Rate) {
-		toSerialize["feO11yTier1Rate"] = o.FeO11yTier1Rate
-	}
-	if !IsNil(o.FeO11yTier2Min) {
-		toSerialize["feO11yTier2Min"] = o.FeO11yTier2Min
-	}
-	if !IsNil(o.FeO11yTier2Rate) {
-		toSerialize["feO11yTier2Rate"] = o.FeO11yTier2Rate
-	}
-	if !IsNil(o.FeO11yTier3Min) {
-		toSerialize["feO11yTier3Min"] = o.FeO11yTier3Min
-	}
-	if !IsNil(o.FeO11yTier3Rate) {
-		toSerialize["feO11yTier3Rate"] = o.FeO11yTier3Rate
-	}
-	if !IsNil(o.FeO11yUnits) {
-		toSerialize["feO11yUnits"] = o.FeO11yUnits
-	}
-	if !IsNil(o.FeO11yUsage) {
-		toSerialize["feO11yUsage"] = o.FeO11yUsage
-	}
-	if !IsNil(o.GeUsersIncludedUsage) {
-		toSerialize["geUsersIncludedUsage"] = o.GeUsersIncludedUsage
-	}
-	if !IsNil(o.GeUsersTier1Rate) {
-		toSerialize["geUsersTier1Rate"] = o.GeUsersTier1Rate
-	}
-	if !IsNil(o.GeUsersTier2Min) {
-		toSerialize["geUsersTier2Min"] = o.GeUsersTier2Min
-	}
-	if !IsNil(o.GeUsersTier2Rate) {
-		toSerialize["geUsersTier2Rate"] = o.GeUsersTier2Rate
-	}
-	if !IsNil(o.GeUsersTier3Min) {
-		toSerialize["geUsersTier3Min"] = o.GeUsersTier3Min
-	}
-	if !IsNil(o.GeUsersTier3Rate) {
-		toSerialize["geUsersTier3Rate"] = o.GeUsersTier3Rate
-	}
-	if !IsNil(o.GeUsersUsage) {
-		toSerialize["geUsersUsage"] = o.GeUsersUsage
-	}
-	if !IsNil(o.GeInstancesIncludedUsage) {
-		toSerialize["geInstancesIncludedUsage"] = o.GeInstancesIncludedUsage
-	}
-	if !IsNil(o.GeInstancesTier1Rate) {
-		toSerialize["geInstancesTier1Rate"] = o.GeInstancesTier1Rate
-	}
-	if !IsNil(o.GeInstancesTier2Min) {
-		toSerialize["geInstancesTier2Min"] = o.GeInstancesTier2Min
-	}
-	if !IsNil(o.GeInstancesTier2Rate) {
-		toSerialize["geInstancesTier2Rate"] = o.GeInstancesTier2Rate
-	}
-	if !IsNil(o.GeInstancesTier3Min) {
-		toSerialize["geInstancesTier3Min"] = o.GeInstancesTier3Min
-	}
-	if !IsNil(o.GeInstancesTier3Rate) {
-		toSerialize["geInstancesTier3Rate"] = o.GeInstancesTier3Rate
-	}
-	if !IsNil(o.GeInstancesUsage) {
-		toSerialize["geInstancesUsage"] = o.GeInstancesUsage
-	}
-	if o.HgPluginUsersOverageRate.IsSet() {
-		toSerialize["hgPluginUsersOverageRate"] = o.HgPluginUsersOverageRate.Get()
-	}
-	if o.HgPluginUsersIncludedUsage.IsSet() {
-		toSerialize["hgPluginUsersIncludedUsage"] = o.HgPluginUsersIncludedUsage.Get()
-	}
-	if !IsNil(o.HmGraphiteInstanceCnt) {
-		toSerialize["hmGraphiteInstanceCnt"] = o.HmGraphiteInstanceCnt
-	}
-	if !IsNil(o.HmPrometheusInstanceCnt) {
-		toSerialize["hmPrometheusInstanceCnt"] = o.HmPrometheusInstanceCnt
-	}
-	if !IsNil(o.AwsMarketplaceSupport) {
-		toSerialize["awsMarketplaceSupport"] = o.AwsMarketplaceSupport
-	}
-	if o.TrialStartDate.IsSet() {
-		toSerialize["trialStartDate"] = o.TrialStartDate.Get()
-	}
-	if o.TrialEndDate.IsSet() {
-		toSerialize["trialEndDate"] = o.TrialEndDate.Get()
-	}
-	if o.TrialLengthDays.IsSet() {
-		toSerialize["trialLengthDays"] = o.TrialLengthDays.Get()
-	}
-	if o.TrialNoticeDate.IsSet() {
-		toSerialize["trialNoticeDate"] = o.TrialNoticeDate.Get()
-	}
-	if o.CancellationDate.IsSet() {
-		toSerialize["cancellationDate"] = o.CancellationDate.Get()
-	}
-	if !IsNil(o.RetainedStackId) {
-		toSerialize["retainedStackId"] = o.RetainedStackId
-	}
-	if !IsNil(o.PluginSignatureType) {
-		toSerialize["pluginSignatureType"] = o.PluginSignatureType
-	}
-	if !IsNil(o.ContractType) {
-		toSerialize["contractType"] = o.ContractType
-	}
-	if !IsNil(o.ContractTypeId) {
-		toSerialize["contractTypeId"] = o.ContractTypeId
-	}
-	if !IsNil(o.Links) {
-		toSerialize["links"] = o.Links
-	}
-	if !IsNil(o.Subscriptions) {
-		toSerialize["subscriptions"] = o.Subscriptions
-	}
+	toSerialize["tags"] = o.Tags
+	toSerialize["accountManagerId"] = o.AccountManagerId
+	toSerialize["accountManagerUsername"] = o.AccountManagerUsername
+	toSerialize["accountManagerName"] = o.AccountManagerName
+	toSerialize["awsCustomerId"] = o.AwsCustomerId
+	toSerialize["accountOwnerId"] = o.AccountOwnerId
+	toSerialize["accountOwnerUsername"] = o.AccountOwnerUsername
+	toSerialize["accountOwnerName"] = o.AccountOwnerName
+	toSerialize["hmBillingStartDate"] = o.HmBillingStartDate.Get()
+	toSerialize["hmBillingEndDate"] = o.HmBillingEndDate.Get()
+	toSerialize["hmBilledToDate"] = o.HmBilledToDate.Get()
+	toSerialize["hmOverageWarnDate"] = o.HmOverageWarnDate.Get()
+	toSerialize["hmOverageAmount"] = o.HmOverageAmount
+	toSerialize["hmCurrentPrometheusUsage"] = o.HmCurrentPrometheusUsage
+	toSerialize["hmCurrentGraphiteUsage"] = o.HmCurrentGraphiteUsage
+	toSerialize["hlBillingStartDate"] = o.HlBillingStartDate.Get()
+	toSerialize["hlBillingEndDate"] = o.HlBillingEndDate.Get()
+	toSerialize["hlBilledToDate"] = o.HlBilledToDate.Get()
+	toSerialize["hlOverageWarnDate"] = o.HlOverageWarnDate.Get()
+	toSerialize["hlOverageAmount"] = o.HlOverageAmount
+	toSerialize["hlCurrentUsage"] = o.HlCurrentUsage
+	toSerialize["hgBillingStartDate"] = o.HgBillingStartDate.Get()
+	toSerialize["hgBillingEndDate"] = o.HgBillingEndDate.Get()
+	toSerialize["hgBilledToDate"] = o.HgBilledToDate.Get()
+	toSerialize["hgOverageWarnDate"] = o.HgOverageWarnDate.Get()
+	toSerialize["hgOverageAmount"] = o.HgOverageAmount
+	toSerialize["hgActiveUsers"] = o.HgActiveUsers
+	toSerialize["hgDatasourceCnts"] = o.HgDatasourceCnts
+	toSerialize["hgIntegrationCnts"] = o.HgIntegrationCnts
+	toSerialize["hmGraphiteBillingStartDate"] = o.HmGraphiteBillingStartDate.Get()
+	toSerialize["hmGraphiteBillingEndDate"] = o.HmGraphiteBillingEndDate.Get()
+	toSerialize["hmGraphiteBilledToDate"] = o.HmGraphiteBilledToDate.Get()
+	toSerialize["hmGraphiteOverageWarnDate"] = o.HmGraphiteOverageWarnDate.Get()
+	toSerialize["hmGraphiteCurrentUsage"] = o.HmGraphiteCurrentUsage
+	toSerialize["hmGraphiteOverageAmount"] = o.HmGraphiteOverageAmount
+	toSerialize["hlRetentionBillingStartDate"] = o.HlRetentionBillingStartDate.Get()
+	toSerialize["hlRetentionBillingEndDate"] = o.HlRetentionBillingEndDate.Get()
+	toSerialize["hlRetentionBilledToDate"] = o.HlRetentionBilledToDate.Get()
+	toSerialize["hlRetentionOverageWarnDate"] = o.HlRetentionOverageWarnDate.Get()
+	toSerialize["hlRetentionCurrentUsage"] = o.HlRetentionCurrentUsage
+	toSerialize["hlRetentionOverageAmount"] = o.HlRetentionOverageAmount
+	toSerialize["htBillingStartDate"] = o.HtBillingStartDate.Get()
+	toSerialize["htBillingEndDate"] = o.HtBillingEndDate.Get()
+	toSerialize["htBilledToDate"] = o.HtBilledToDate.Get()
+	toSerialize["htOverageWarnDate"] = o.HtOverageWarnDate.Get()
+	toSerialize["htCurrentUsage"] = o.HtCurrentUsage
+	toSerialize["htOverageAmount"] = o.HtOverageAmount
+	toSerialize["irmBillingStartDate"] = o.IrmBillingStartDate.Get()
+	toSerialize["irmBillingEndDate"] = o.IrmBillingEndDate.Get()
+	toSerialize["irmBilledToDate"] = o.IrmBilledToDate.Get()
+	toSerialize["irmOverageWarnDate"] = o.IrmOverageWarnDate.Get()
+	toSerialize["irmCurrentUsage"] = o.IrmCurrentUsage
+	toSerialize["irmOverageAmount"] = o.IrmOverageAmount
+	toSerialize["hpBillingStartDate"] = o.HpBillingStartDate.Get()
+	toSerialize["hpBillingEndDate"] = o.HpBillingEndDate.Get()
+	toSerialize["hpBilledToDate"] = o.HpBilledToDate.Get()
+	toSerialize["hpOverageWarnDate"] = o.HpOverageWarnDate.Get()
+	toSerialize["hpCurrentUsage"] = o.HpCurrentUsage
+	toSerialize["hpOverageAmount"] = o.HpOverageAmount
+	toSerialize["k6VuhBillingStartDate"] = o.K6VuhBillingStartDate.Get()
+	toSerialize["k6VuhBillingEndDate"] = o.K6VuhBillingEndDate.Get()
+	toSerialize["k6VuhBilledToDate"] = o.K6VuhBilledToDate.Get()
+	toSerialize["k6VuhOverageWarnDate"] = o.K6VuhOverageWarnDate.Get()
+	toSerialize["k6VuhCurrentUsage"] = o.K6VuhCurrentUsage
+	toSerialize["k6VuhOverageAmount"] = o.K6VuhOverageAmount
+	toSerialize["k6IPBillingStartDate"] = o.K6IPBillingStartDate.Get()
+	toSerialize["k6IPBillingEndDate"] = o.K6IPBillingEndDate.Get()
+	toSerialize["k6IPBilledToDate"] = o.K6IPBilledToDate.Get()
+	toSerialize["k6IPOverageWarnDate"] = o.K6IPOverageWarnDate.Get()
+	toSerialize["k6IPCurrentUsage"] = o.K6IPCurrentUsage
+	toSerialize["k6IPOverageAmount"] = o.K6IPOverageAmount
+	toSerialize["feO11yBillingStartDate"] = o.FeO11yBillingStartDate.Get()
+	toSerialize["feO11yBillingEndDate"] = o.FeO11yBillingEndDate.Get()
+	toSerialize["feO11yBilledToDate"] = o.FeO11yBilledToDate.Get()
+	toSerialize["feO11yOverageWarnDate"] = o.FeO11yOverageWarnDate.Get()
+	toSerialize["feO11yCurrentUsage"] = o.FeO11yCurrentUsage
+	toSerialize["feO11yOverageAmount"] = o.FeO11yOverageAmount
+	toSerialize["geUsersBillingStartDate"] = o.GeUsersBillingStartDate.Get()
+	toSerialize["geUsersBillingEndDate"] = o.GeUsersBillingEndDate.Get()
+	toSerialize["geUsersBilledToDate"] = o.GeUsersBilledToDate.Get()
+	toSerialize["geUsersOverageWarnDate"] = o.GeUsersOverageWarnDate.Get()
+	toSerialize["geUsersCurrentUsage"] = o.GeUsersCurrentUsage
+	toSerialize["geUsersOverageAmount"] = o.GeUsersOverageAmount
+	toSerialize["geInstancesBillingStartDate"] = o.GeInstancesBillingStartDate.Get()
+	toSerialize["geInstancesBillingEndDate"] = o.GeInstancesBillingEndDate.Get()
+	toSerialize["geInstancesBilledToDate"] = o.GeInstancesBilledToDate.Get()
+	toSerialize["geInstancesOverageWarnDate"] = o.GeInstancesOverageWarnDate.Get()
+	toSerialize["geInstancesCurrentUsage"] = o.GeInstancesCurrentUsage
+	toSerialize["geInstancesOverageAmount"] = o.GeInstancesOverageAmount
+	toSerialize["salesforceAccountId"] = o.SalesforceAccountId
+	toSerialize["salesforceLeadId"] = o.SalesforceLeadId
+	toSerialize["salesforceCustomOrgId"] = o.SalesforceCustomOrgId
+	toSerialize["slackSupport"] = o.SlackSupport
+	toSerialize["slackSupportChannel"] = o.SlackSupportChannel
+	toSerialize["totalOverageAmount"] = o.TotalOverageAmount
+	toSerialize["memberCnt"] = o.MemberCnt
+	toSerialize["licenseCnt"] = o.LicenseCnt
+	toSerialize["licenseConfiguredCnt"] = o.LicenseConfiguredCnt
+	toSerialize["licenseUnconfiguredCnt"] = o.LicenseUnconfiguredCnt
+	toSerialize["hgInstanceCnt"] = o.HgInstanceCnt
+	toSerialize["hlInstanceCnt"] = o.HlInstanceCnt
+	toSerialize["htInstanceCnt"] = o.HtInstanceCnt
+	toSerialize["ubersmithClientId"] = o.UbersmithClientId
+	toSerialize["intacctCustomerId"] = o.IntacctCustomerId
+	toSerialize["intacctCustomerUrl"] = o.IntacctCustomerUrl
+	toSerialize["committedArr"] = o.CommittedArr
+	toSerialize["prevCommittedArr"] = o.PrevCommittedArr
+	toSerialize["zendeskId"] = o.ZendeskId
+	toSerialize["happinessRating"] = o.HappinessRating.Get()
+	toSerialize["happinessNote"] = o.HappinessNote.Get()
+	toSerialize["happinessReasonCode"] = o.HappinessReasonCode.Get()
+	toSerialize["happinessCreatedAt"] = o.HappinessCreatedAt.Get()
+	toSerialize["happinessChangedAt"] = o.HappinessChangedAt.Get()
+	toSerialize["happinessExpiredAt"] = o.HappinessExpiredAt.Get()
+	toSerialize["happinessUserName"] = o.HappinessUserName.Get()
+	toSerialize["cancellationClientNotes"] = o.CancellationClientNotes.Get()
+	toSerialize["cancellationNotes"] = o.CancellationNotes.Get()
+	toSerialize["cancellationReason"] = o.CancellationReason
+	toSerialize["netPromoterScore"] = o.NetPromoterScore.Get()
+	toSerialize["hmFirstOverageDate"] = o.HmFirstOverageDate.Get()
+	toSerialize["hmFirstApproachingLimitDate"] = o.HmFirstApproachingLimitDate.Get()
+	toSerialize["spendCommitCreditBalance"] = o.SpendCommitCreditBalance
+	toSerialize["spendCommitCreditTotal"] = o.SpendCommitCreditTotal
+	toSerialize["projectedOverageAmount"] = o.ProjectedOverageAmount
+	toSerialize["estimatedArr"] = o.EstimatedArr
+	toSerialize["referredBy"] = o.ReferredBy
+	toSerialize["k6OrgId"] = o.K6OrgId
+	toSerialize["id"] = o.Id
+	toSerialize["slug"] = o.Slug
+	toSerialize["name"] = o.Name
+	toSerialize["url"] = o.Url
+	toSerialize["createdAt"] = o.CreatedAt
+	toSerialize["createdBy"] = o.CreatedBy.Get()
+	toSerialize["updatedAt"] = o.UpdatedAt.Get()
+	toSerialize["updatedBy"] = o.UpdatedBy.Get()
+	toSerialize["avatar"] = o.Avatar.Get()
+	toSerialize["checksPerMonth"] = o.ChecksPerMonth
+	toSerialize["wpPlan"] = o.WpPlan
+	toSerialize["hgInstanceLimit"] = o.HgInstanceLimit
+	toSerialize["hmInstanceLimit"] = o.HmInstanceLimit
+	toSerialize["hlInstanceLimit"] = o.HlInstanceLimit
+	toSerialize["userQuota"] = o.UserQuota
+	toSerialize["supportPlan"] = o.SupportPlan
+	toSerialize["creditApproved"] = o.CreditApproved
+	toSerialize["msaSignedAt"] = o.MsaSignedAt.Get()
+	toSerialize["msaSignedBy"] = o.MsaSignedBy.Get()
+	toSerialize["enterprisePlugins"] = o.EnterprisePlugins
+	toSerialize["grafanaCloud"] = o.GrafanaCloud
+	toSerialize["privacy"] = o.Privacy
+	toSerialize["reseller"] = o.Reseller
+	toSerialize["resellerId"] = o.ResellerId.Get()
+	toSerialize["resellerName"] = o.ResellerName.Get()
+	toSerialize["emergencySupport"] = o.EmergencySupport
+	toSerialize["isContractedLicenseAutoProvision"] = o.IsContractedLicenseAutoProvision
+	toSerialize["gcloudMonthlyCost"] = o.GcloudMonthlyCost
+	toSerialize["hgIncludedUsers"] = o.HgIncludedUsers
+	toSerialize["hgTier1Rate"] = o.HgTier1Rate
+	toSerialize["hgTier2Min"] = o.HgTier2Min
+	toSerialize["hgTier2Rate"] = o.HgTier2Rate
+	toSerialize["hgTier3Min"] = o.HgTier3Min
+	toSerialize["hgTier3Rate"] = o.HgTier3Rate
+	toSerialize["hgUsage"] = o.HgUsage
+	toSerialize["hgCurrentActiveUsers"] = o.HgCurrentActiveUsers
+	toSerialize["hgGrafanaUsage"] = o.HgGrafanaUsage
+	toSerialize["hgOnCallUsage"] = o.HgOnCallUsage
+	toSerialize["hmIncludedSeries"] = o.HmIncludedSeries
+	toSerialize["hmAverageDpm"] = o.HmAverageDpm
+	toSerialize["hmTier1Rate"] = o.HmTier1Rate
+	toSerialize["hmTier2Min"] = o.HmTier2Min
+	toSerialize["hmTier2Rate"] = o.HmTier2Rate
+	toSerialize["hmTier3Min"] = o.HmTier3Min
+	toSerialize["hmTier3Rate"] = o.HmTier3Rate
+	toSerialize["hmUsage"] = o.HmUsage
+	toSerialize["hmCurrentUsage"] = o.HmCurrentUsage
+	toSerialize["hmGraphiteIncludedUsage"] = o.HmGraphiteIncludedUsage
+	toSerialize["hmGraphiteTier1Rate"] = o.HmGraphiteTier1Rate
+	toSerialize["hmGraphiteTier2Min"] = o.HmGraphiteTier2Min
+	toSerialize["hmGraphiteTier2Rate"] = o.HmGraphiteTier2Rate
+	toSerialize["hmGraphiteTier3Min"] = o.HmGraphiteTier3Min
+	toSerialize["hmGraphiteTier3Rate"] = o.HmGraphiteTier3Rate
+	toSerialize["hmGraphiteUsage"] = o.HmGraphiteUsage
+	toSerialize["hlIncludedUsage"] = o.HlIncludedUsage
+	toSerialize["hlQueryToIngestRatio"] = o.HlQueryToIngestRatio
+	toSerialize["hlTier1Rate"] = o.HlTier1Rate
+	toSerialize["hlTier2Min"] = o.HlTier2Min
+	toSerialize["hlTier2Rate"] = o.HlTier2Rate
+	toSerialize["hlTier3Min"] = o.HlTier3Min
+	toSerialize["hlTier3Rate"] = o.HlTier3Rate
+	toSerialize["hlUsage"] = o.HlUsage
+	toSerialize["hlRetentionIncludedUsage"] = o.HlRetentionIncludedUsage
+	toSerialize["hlRetentionTier1Rate"] = o.HlRetentionTier1Rate
+	toSerialize["hlRetentionTier2Min"] = o.HlRetentionTier2Min
+	toSerialize["hlRetentionTier2Rate"] = o.HlRetentionTier2Rate
+	toSerialize["hlRetentionTier3Min"] = o.HlRetentionTier3Min
+	toSerialize["hlRetentionTier3Rate"] = o.HlRetentionTier3Rate
+	toSerialize["hlRetentionUsage"] = o.HlRetentionUsage
+	toSerialize["htIncludedUsage"] = o.HtIncludedUsage
+	toSerialize["htTier1Rate"] = o.HtTier1Rate
+	toSerialize["htTier2Min"] = o.HtTier2Min
+	toSerialize["htTier2Rate"] = o.HtTier2Rate
+	toSerialize["htTier3Min"] = o.HtTier3Min
+	toSerialize["htTier3Rate"] = o.HtTier3Rate
+	toSerialize["htUsage"] = o.HtUsage
+	toSerialize["hpIncludedUsage"] = o.HpIncludedUsage
+	toSerialize["hpTier1Rate"] = o.HpTier1Rate
+	toSerialize["hpTier2Min"] = o.HpTier2Min
+	toSerialize["hpTier2Rate"] = o.HpTier2Rate
+	toSerialize["hpTier3Min"] = o.HpTier3Min
+	toSerialize["hpTier3Rate"] = o.HpTier3Rate
+	toSerialize["hpUsage"] = o.HpUsage
+	toSerialize["irmStatus"] = o.IrmStatus
+	toSerialize["irmIncludedUsage"] = o.IrmIncludedUsage
+	toSerialize["irmTier1Rate"] = o.IrmTier1Rate
+	toSerialize["irmTier2Min"] = o.IrmTier2Min
+	toSerialize["irmTier2Rate"] = o.IrmTier2Rate
+	toSerialize["irmTier3Min"] = o.IrmTier3Min
+	toSerialize["irmTier3Rate"] = o.IrmTier3Rate
+	toSerialize["irmUsage"] = o.IrmUsage
+	toSerialize["k6VuhIncludedUsage"] = o.K6VuhIncludedUsage
+	toSerialize["k6VuhTier1Rate"] = o.K6VuhTier1Rate
+	toSerialize["k6VuhTier2Min"] = o.K6VuhTier2Min
+	toSerialize["k6VuhTier2Rate"] = o.K6VuhTier2Rate
+	toSerialize["k6VuhTier3Min"] = o.K6VuhTier3Min
+	toSerialize["k6VuhTier3Rate"] = o.K6VuhTier3Rate
+	toSerialize["k6VuhUnits"] = o.K6VuhUnits
+	toSerialize["k6VuhUsage"] = o.K6VuhUsage
+	toSerialize["k6IPIncludedUsage"] = o.K6IPIncludedUsage
+	toSerialize["k6IPTier1Rate"] = o.K6IPTier1Rate
+	toSerialize["k6IPTier2Min"] = o.K6IPTier2Min
+	toSerialize["k6IPTier2Rate"] = o.K6IPTier2Rate
+	toSerialize["k6IPTier3Min"] = o.K6IPTier3Min
+	toSerialize["k6IPTier3Rate"] = o.K6IPTier3Rate
+	toSerialize["k6IPUsage"] = o.K6IPUsage
+	toSerialize["feO11yIncludedUsage"] = o.FeO11yIncludedUsage
+	toSerialize["feO11yTier1Rate"] = o.FeO11yTier1Rate
+	toSerialize["feO11yTier2Min"] = o.FeO11yTier2Min
+	toSerialize["feO11yTier2Rate"] = o.FeO11yTier2Rate
+	toSerialize["feO11yTier3Min"] = o.FeO11yTier3Min
+	toSerialize["feO11yTier3Rate"] = o.FeO11yTier3Rate
+	toSerialize["feO11yUnits"] = o.FeO11yUnits
+	toSerialize["feO11yUsage"] = o.FeO11yUsage
+	toSerialize["geUsersIncludedUsage"] = o.GeUsersIncludedUsage
+	toSerialize["geUsersTier1Rate"] = o.GeUsersTier1Rate
+	toSerialize["geUsersTier2Min"] = o.GeUsersTier2Min
+	toSerialize["geUsersTier2Rate"] = o.GeUsersTier2Rate
+	toSerialize["geUsersTier3Min"] = o.GeUsersTier3Min
+	toSerialize["geUsersTier3Rate"] = o.GeUsersTier3Rate
+	toSerialize["geUsersUsage"] = o.GeUsersUsage
+	toSerialize["geInstancesIncludedUsage"] = o.GeInstancesIncludedUsage
+	toSerialize["geInstancesTier1Rate"] = o.GeInstancesTier1Rate
+	toSerialize["geInstancesTier2Min"] = o.GeInstancesTier2Min
+	toSerialize["geInstancesTier2Rate"] = o.GeInstancesTier2Rate
+	toSerialize["geInstancesTier3Min"] = o.GeInstancesTier3Min
+	toSerialize["geInstancesTier3Rate"] = o.GeInstancesTier3Rate
+	toSerialize["geInstancesUsage"] = o.GeInstancesUsage
+	toSerialize["hgPluginUsersOverageRate"] = o.HgPluginUsersOverageRate.Get()
+	toSerialize["hgPluginUsersIncludedUsage"] = o.HgPluginUsersIncludedUsage.Get()
+	toSerialize["hmGraphiteInstanceCnt"] = o.HmGraphiteInstanceCnt
+	toSerialize["hmPrometheusInstanceCnt"] = o.HmPrometheusInstanceCnt
+	toSerialize["awsMarketplaceSupport"] = o.AwsMarketplaceSupport
+	toSerialize["trialStartDate"] = o.TrialStartDate.Get()
+	toSerialize["trialEndDate"] = o.TrialEndDate.Get()
+	toSerialize["trialLengthDays"] = o.TrialLengthDays.Get()
+	toSerialize["trialNoticeDate"] = o.TrialNoticeDate.Get()
+	toSerialize["cancellationDate"] = o.CancellationDate.Get()
+	toSerialize["retainedStackId"] = o.RetainedStackId
+	toSerialize["allowGCloudTrial"] = o.AllowGCloudTrial
+	toSerialize["pluginSignatureType"] = o.PluginSignatureType
+	toSerialize["contractType"] = o.ContractType
+	toSerialize["contractTypeId"] = o.ContractTypeId
+	toSerialize["links"] = o.Links
+	toSerialize["subscriptions"] = o.Subscriptions
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -10686,6 +7564,298 @@ func (o FormattedApiOrg) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *FormattedApiOrg) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"tags",
+		"accountManagerId",
+		"accountManagerUsername",
+		"accountManagerName",
+		"awsCustomerId",
+		"accountOwnerId",
+		"accountOwnerUsername",
+		"accountOwnerName",
+		"hmBillingStartDate",
+		"hmBillingEndDate",
+		"hmBilledToDate",
+		"hmOverageWarnDate",
+		"hmOverageAmount",
+		"hmCurrentPrometheusUsage",
+		"hmCurrentGraphiteUsage",
+		"hlBillingStartDate",
+		"hlBillingEndDate",
+		"hlBilledToDate",
+		"hlOverageWarnDate",
+		"hlOverageAmount",
+		"hlCurrentUsage",
+		"hgBillingStartDate",
+		"hgBillingEndDate",
+		"hgBilledToDate",
+		"hgOverageWarnDate",
+		"hgOverageAmount",
+		"hgActiveUsers",
+		"hgDatasourceCnts",
+		"hgIntegrationCnts",
+		"hmGraphiteBillingStartDate",
+		"hmGraphiteBillingEndDate",
+		"hmGraphiteBilledToDate",
+		"hmGraphiteOverageWarnDate",
+		"hmGraphiteCurrentUsage",
+		"hmGraphiteOverageAmount",
+		"hlRetentionBillingStartDate",
+		"hlRetentionBillingEndDate",
+		"hlRetentionBilledToDate",
+		"hlRetentionOverageWarnDate",
+		"hlRetentionCurrentUsage",
+		"hlRetentionOverageAmount",
+		"htBillingStartDate",
+		"htBillingEndDate",
+		"htBilledToDate",
+		"htOverageWarnDate",
+		"htCurrentUsage",
+		"htOverageAmount",
+		"irmBillingStartDate",
+		"irmBillingEndDate",
+		"irmBilledToDate",
+		"irmOverageWarnDate",
+		"irmCurrentUsage",
+		"irmOverageAmount",
+		"hpBillingStartDate",
+		"hpBillingEndDate",
+		"hpBilledToDate",
+		"hpOverageWarnDate",
+		"hpCurrentUsage",
+		"hpOverageAmount",
+		"k6VuhBillingStartDate",
+		"k6VuhBillingEndDate",
+		"k6VuhBilledToDate",
+		"k6VuhOverageWarnDate",
+		"k6VuhCurrentUsage",
+		"k6VuhOverageAmount",
+		"k6IPBillingStartDate",
+		"k6IPBillingEndDate",
+		"k6IPBilledToDate",
+		"k6IPOverageWarnDate",
+		"k6IPCurrentUsage",
+		"k6IPOverageAmount",
+		"feO11yBillingStartDate",
+		"feO11yBillingEndDate",
+		"feO11yBilledToDate",
+		"feO11yOverageWarnDate",
+		"feO11yCurrentUsage",
+		"feO11yOverageAmount",
+		"geUsersBillingStartDate",
+		"geUsersBillingEndDate",
+		"geUsersBilledToDate",
+		"geUsersOverageWarnDate",
+		"geUsersCurrentUsage",
+		"geUsersOverageAmount",
+		"geInstancesBillingStartDate",
+		"geInstancesBillingEndDate",
+		"geInstancesBilledToDate",
+		"geInstancesOverageWarnDate",
+		"geInstancesCurrentUsage",
+		"geInstancesOverageAmount",
+		"salesforceAccountId",
+		"salesforceLeadId",
+		"salesforceCustomOrgId",
+		"slackSupport",
+		"slackSupportChannel",
+		"totalOverageAmount",
+		"memberCnt",
+		"licenseCnt",
+		"licenseConfiguredCnt",
+		"licenseUnconfiguredCnt",
+		"hgInstanceCnt",
+		"hlInstanceCnt",
+		"htInstanceCnt",
+		"ubersmithClientId",
+		"intacctCustomerId",
+		"intacctCustomerUrl",
+		"committedArr",
+		"prevCommittedArr",
+		"zendeskId",
+		"happinessRating",
+		"happinessNote",
+		"happinessReasonCode",
+		"happinessCreatedAt",
+		"happinessChangedAt",
+		"happinessExpiredAt",
+		"happinessUserName",
+		"cancellationClientNotes",
+		"cancellationNotes",
+		"cancellationReason",
+		"netPromoterScore",
+		"hmFirstOverageDate",
+		"hmFirstApproachingLimitDate",
+		"spendCommitCreditBalance",
+		"spendCommitCreditTotal",
+		"projectedOverageAmount",
+		"estimatedArr",
+		"referredBy",
+		"k6OrgId",
+		"id",
+		"slug",
+		"name",
+		"url",
+		"createdAt",
+		"createdBy",
+		"updatedAt",
+		"updatedBy",
+		"avatar",
+		"checksPerMonth",
+		"wpPlan",
+		"hgInstanceLimit",
+		"hmInstanceLimit",
+		"hlInstanceLimit",
+		"userQuota",
+		"supportPlan",
+		"creditApproved",
+		"msaSignedAt",
+		"msaSignedBy",
+		"enterprisePlugins",
+		"grafanaCloud",
+		"privacy",
+		"reseller",
+		"resellerId",
+		"resellerName",
+		"emergencySupport",
+		"isContractedLicenseAutoProvision",
+		"gcloudMonthlyCost",
+		"hgIncludedUsers",
+		"hgTier1Rate",
+		"hgTier2Min",
+		"hgTier2Rate",
+		"hgTier3Min",
+		"hgTier3Rate",
+		"hgUsage",
+		"hgCurrentActiveUsers",
+		"hgGrafanaUsage",
+		"hgOnCallUsage",
+		"hmIncludedSeries",
+		"hmAverageDpm",
+		"hmTier1Rate",
+		"hmTier2Min",
+		"hmTier2Rate",
+		"hmTier3Min",
+		"hmTier3Rate",
+		"hmUsage",
+		"hmCurrentUsage",
+		"hmGraphiteIncludedUsage",
+		"hmGraphiteTier1Rate",
+		"hmGraphiteTier2Min",
+		"hmGraphiteTier2Rate",
+		"hmGraphiteTier3Min",
+		"hmGraphiteTier3Rate",
+		"hmGraphiteUsage",
+		"hlIncludedUsage",
+		"hlQueryToIngestRatio",
+		"hlTier1Rate",
+		"hlTier2Min",
+		"hlTier2Rate",
+		"hlTier3Min",
+		"hlTier3Rate",
+		"hlUsage",
+		"hlRetentionIncludedUsage",
+		"hlRetentionTier1Rate",
+		"hlRetentionTier2Min",
+		"hlRetentionTier2Rate",
+		"hlRetentionTier3Min",
+		"hlRetentionTier3Rate",
+		"hlRetentionUsage",
+		"htIncludedUsage",
+		"htTier1Rate",
+		"htTier2Min",
+		"htTier2Rate",
+		"htTier3Min",
+		"htTier3Rate",
+		"htUsage",
+		"hpIncludedUsage",
+		"hpTier1Rate",
+		"hpTier2Min",
+		"hpTier2Rate",
+		"hpTier3Min",
+		"hpTier3Rate",
+		"hpUsage",
+		"irmStatus",
+		"irmIncludedUsage",
+		"irmTier1Rate",
+		"irmTier2Min",
+		"irmTier2Rate",
+		"irmTier3Min",
+		"irmTier3Rate",
+		"irmUsage",
+		"k6VuhIncludedUsage",
+		"k6VuhTier1Rate",
+		"k6VuhTier2Min",
+		"k6VuhTier2Rate",
+		"k6VuhTier3Min",
+		"k6VuhTier3Rate",
+		"k6VuhUnits",
+		"k6VuhUsage",
+		"k6IPIncludedUsage",
+		"k6IPTier1Rate",
+		"k6IPTier2Min",
+		"k6IPTier2Rate",
+		"k6IPTier3Min",
+		"k6IPTier3Rate",
+		"k6IPUsage",
+		"feO11yIncludedUsage",
+		"feO11yTier1Rate",
+		"feO11yTier2Min",
+		"feO11yTier2Rate",
+		"feO11yTier3Min",
+		"feO11yTier3Rate",
+		"feO11yUnits",
+		"feO11yUsage",
+		"geUsersIncludedUsage",
+		"geUsersTier1Rate",
+		"geUsersTier2Min",
+		"geUsersTier2Rate",
+		"geUsersTier3Min",
+		"geUsersTier3Rate",
+		"geUsersUsage",
+		"geInstancesIncludedUsage",
+		"geInstancesTier1Rate",
+		"geInstancesTier2Min",
+		"geInstancesTier2Rate",
+		"geInstancesTier3Min",
+		"geInstancesTier3Rate",
+		"geInstancesUsage",
+		"hgPluginUsersOverageRate",
+		"hgPluginUsersIncludedUsage",
+		"hmGraphiteInstanceCnt",
+		"hmPrometheusInstanceCnt",
+		"awsMarketplaceSupport",
+		"trialStartDate",
+		"trialEndDate",
+		"trialLengthDays",
+		"trialNoticeDate",
+		"cancellationDate",
+		"retainedStackId",
+		"allowGCloudTrial",
+		"pluginSignatureType",
+		"contractType",
+		"contractTypeId",
+		"links",
+		"subscriptions",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	for _, requiredProperty := range requiredProperties {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
 	varFormattedApiOrg := _FormattedApiOrg{}
 
 	err = json.Unmarshal(data, &varFormattedApiOrg)
@@ -10965,6 +8135,7 @@ func (o *FormattedApiOrg) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "trialNoticeDate")
 		delete(additionalProperties, "cancellationDate")
 		delete(additionalProperties, "retainedStackId")
+		delete(additionalProperties, "allowGCloudTrial")
 		delete(additionalProperties, "pluginSignatureType")
 		delete(additionalProperties, "contractType")
 		delete(additionalProperties, "contractTypeId")
