@@ -2680,7 +2680,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FormattedApiOrg"
+                  "$ref": "#/components/schemas/FormattedApiOrgPublic"
                 }
               }
             }
@@ -5803,8 +5803,8 @@
     "title": "GCOM API",
     "version": "internal",
     "description": "\nGrafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.\n\nLooking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.\n\nIf you have any questions, please contact us at #grafana_com on Slack or open an issue\nat [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n      ",
-    "x-commit-sha": "b79e1eb",
-    "x-generated-at": "2024-02-06T13:20:47.484Z"
+    "x-commit-sha": "72b9a71",
+    "x-generated-at": "2024-02-06T15:34:59.265Z"
   },
   "security": [
     {
@@ -6729,598 +6729,9 @@
           "name"
         ]
       },
-      "FormattedApiOrg": {
+      "FormattedApiOrgPublic": {
         "type": "object",
         "properties": {
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "title": "tags"
-          },
-          "accountManagerId": {
-            "type": "number",
-            "title": "accountManagerId"
-          },
-          "accountManagerUsername": {
-            "type": "string",
-            "title": "accountManagerUsername"
-          },
-          "accountManagerName": {
-            "type": "string",
-            "title": "accountManagerName"
-          },
-          "awsCustomerId": {
-            "type": "string",
-            "title": "awsCustomerId"
-          },
-          "accountOwnerId": {
-            "type": "number",
-            "title": "accountOwnerId"
-          },
-          "accountOwnerUsername": {
-            "type": "string",
-            "title": "accountOwnerUsername"
-          },
-          "accountOwnerName": {
-            "type": "string",
-            "title": "accountOwnerName"
-          },
-          "hmBillingStartDate": {
-            "type": "string",
-            "title": "hmBillingStartDate",
-            "nullable": true
-          },
-          "hmBillingEndDate": {
-            "type": "string",
-            "title": "hmBillingEndDate",
-            "nullable": true
-          },
-          "hmBilledToDate": {
-            "type": "string",
-            "title": "hmBilledToDate",
-            "nullable": true
-          },
-          "hmOverageWarnDate": {
-            "type": "string",
-            "title": "hmOverageWarnDate",
-            "nullable": true
-          },
-          "hmOverageAmount": {
-            "type": "number",
-            "title": "hmOverageAmount"
-          },
-          "hmCurrentPrometheusUsage": {
-            "type": "number",
-            "title": "hmCurrentPrometheusUsage"
-          },
-          "hmCurrentGraphiteUsage": {
-            "type": "number",
-            "title": "hmCurrentGraphiteUsage"
-          },
-          "hlBillingStartDate": {
-            "type": "string",
-            "title": "hlBillingStartDate",
-            "nullable": true
-          },
-          "hlBillingEndDate": {
-            "type": "string",
-            "title": "hlBillingEndDate",
-            "nullable": true
-          },
-          "hlBilledToDate": {
-            "type": "string",
-            "title": "hlBilledToDate",
-            "nullable": true
-          },
-          "hlOverageWarnDate": {
-            "type": "string",
-            "title": "hlOverageWarnDate",
-            "nullable": true
-          },
-          "hlOverageAmount": {
-            "type": "number",
-            "title": "hlOverageAmount"
-          },
-          "hlCurrentUsage": {
-            "type": "number",
-            "title": "hlCurrentUsage"
-          },
-          "hgBillingStartDate": {
-            "type": "string",
-            "title": "hgBillingStartDate",
-            "nullable": true
-          },
-          "hgBillingEndDate": {
-            "type": "string",
-            "title": "hgBillingEndDate",
-            "nullable": true
-          },
-          "hgBilledToDate": {
-            "type": "string",
-            "title": "hgBilledToDate",
-            "nullable": true
-          },
-          "hgOverageWarnDate": {
-            "type": "string",
-            "title": "hgOverageWarnDate",
-            "nullable": true
-          },
-          "hgOverageAmount": {
-            "type": "number",
-            "title": "hgOverageAmount"
-          },
-          "hgActiveUsers": {
-            "type": "number",
-            "title": "hgActiveUsers"
-          },
-          "hgDatasourceCnts": {
-            "type": "object",
-            "title": "hgDatasourceCnts"
-          },
-          "hgIntegrationCnts": {
-            "type": "object",
-            "title": "hgIntegrationCnts"
-          },
-          "hmGraphiteBillingStartDate": {
-            "type": "string",
-            "title": "hmGraphiteBillingStartDate",
-            "nullable": true
-          },
-          "hmGraphiteBillingEndDate": {
-            "type": "string",
-            "title": "hmGraphiteBillingEndDate",
-            "nullable": true
-          },
-          "hmGraphiteBilledToDate": {
-            "type": "string",
-            "title": "hmGraphiteBilledToDate",
-            "nullable": true
-          },
-          "hmGraphiteOverageWarnDate": {
-            "type": "string",
-            "title": "hmGraphiteOverageWarnDate",
-            "nullable": true
-          },
-          "hmGraphiteCurrentUsage": {
-            "type": "number",
-            "title": "hmGraphiteCurrentUsage"
-          },
-          "hmGraphiteOverageAmount": {
-            "type": "number",
-            "title": "hmGraphiteOverageAmount"
-          },
-          "hlRetentionBillingStartDate": {
-            "type": "string",
-            "title": "hlRetentionBillingStartDate",
-            "nullable": true
-          },
-          "hlRetentionBillingEndDate": {
-            "type": "string",
-            "title": "hlRetentionBillingEndDate",
-            "nullable": true
-          },
-          "hlRetentionBilledToDate": {
-            "type": "string",
-            "title": "hlRetentionBilledToDate",
-            "nullable": true
-          },
-          "hlRetentionOverageWarnDate": {
-            "type": "string",
-            "title": "hlRetentionOverageWarnDate",
-            "nullable": true
-          },
-          "hlRetentionCurrentUsage": {
-            "type": "number",
-            "title": "hlRetentionCurrentUsage"
-          },
-          "hlRetentionOverageAmount": {
-            "type": "number",
-            "title": "hlRetentionOverageAmount"
-          },
-          "htBillingStartDate": {
-            "type": "string",
-            "title": "htBillingStartDate",
-            "nullable": true
-          },
-          "htBillingEndDate": {
-            "type": "string",
-            "title": "htBillingEndDate",
-            "nullable": true
-          },
-          "htBilledToDate": {
-            "type": "string",
-            "title": "htBilledToDate",
-            "nullable": true
-          },
-          "htOverageWarnDate": {
-            "type": "string",
-            "title": "htOverageWarnDate",
-            "nullable": true
-          },
-          "htCurrentUsage": {
-            "type": "number",
-            "title": "htCurrentUsage"
-          },
-          "htOverageAmount": {
-            "type": "number",
-            "title": "htOverageAmount"
-          },
-          "irmBillingStartDate": {
-            "type": "string",
-            "title": "irmBillingStartDate",
-            "nullable": true
-          },
-          "irmBillingEndDate": {
-            "type": "string",
-            "title": "irmBillingEndDate",
-            "nullable": true
-          },
-          "irmBilledToDate": {
-            "type": "string",
-            "title": "irmBilledToDate",
-            "nullable": true
-          },
-          "irmOverageWarnDate": {
-            "type": "string",
-            "title": "irmOverageWarnDate",
-            "nullable": true
-          },
-          "irmCurrentUsage": {
-            "type": "number",
-            "title": "irmCurrentUsage"
-          },
-          "irmOverageAmount": {
-            "type": "number",
-            "title": "irmOverageAmount"
-          },
-          "hpBillingStartDate": {
-            "type": "string",
-            "title": "hpBillingStartDate",
-            "nullable": true
-          },
-          "hpBillingEndDate": {
-            "type": "string",
-            "title": "hpBillingEndDate",
-            "nullable": true
-          },
-          "hpBilledToDate": {
-            "type": "string",
-            "title": "hpBilledToDate",
-            "nullable": true
-          },
-          "hpOverageWarnDate": {
-            "type": "string",
-            "title": "hpOverageWarnDate",
-            "nullable": true
-          },
-          "hpCurrentUsage": {
-            "type": "number",
-            "title": "hpCurrentUsage"
-          },
-          "hpOverageAmount": {
-            "type": "number",
-            "title": "hpOverageAmount"
-          },
-          "k6VuhBillingStartDate": {
-            "type": "string",
-            "title": "k6VuhBillingStartDate",
-            "nullable": true
-          },
-          "k6VuhBillingEndDate": {
-            "type": "string",
-            "title": "k6VuhBillingEndDate",
-            "nullable": true
-          },
-          "k6VuhBilledToDate": {
-            "type": "string",
-            "title": "k6VuhBilledToDate",
-            "nullable": true
-          },
-          "k6VuhOverageWarnDate": {
-            "type": "string",
-            "title": "k6VuhOverageWarnDate",
-            "nullable": true
-          },
-          "k6VuhCurrentUsage": {
-            "type": "number",
-            "title": "k6VuhCurrentUsage"
-          },
-          "k6VuhOverageAmount": {
-            "type": "number",
-            "title": "k6VuhOverageAmount"
-          },
-          "k6IPBillingStartDate": {
-            "type": "string",
-            "title": "k6IPBillingStartDate",
-            "nullable": true
-          },
-          "k6IPBillingEndDate": {
-            "type": "string",
-            "title": "k6IPBillingEndDate",
-            "nullable": true
-          },
-          "k6IPBilledToDate": {
-            "type": "string",
-            "title": "k6IPBilledToDate",
-            "nullable": true
-          },
-          "k6IPOverageWarnDate": {
-            "type": "string",
-            "title": "k6IPOverageWarnDate",
-            "nullable": true
-          },
-          "k6IPCurrentUsage": {
-            "type": "number",
-            "title": "k6IPCurrentUsage"
-          },
-          "k6IPOverageAmount": {
-            "type": "number",
-            "title": "k6IPOverageAmount"
-          },
-          "feO11yBillingStartDate": {
-            "type": "string",
-            "title": "feO11yBillingStartDate",
-            "nullable": true
-          },
-          "feO11yBillingEndDate": {
-            "type": "string",
-            "title": "feO11yBillingEndDate",
-            "nullable": true
-          },
-          "feO11yBilledToDate": {
-            "type": "string",
-            "title": "feO11yBilledToDate",
-            "nullable": true
-          },
-          "feO11yOverageWarnDate": {
-            "type": "string",
-            "title": "feO11yOverageWarnDate",
-            "nullable": true
-          },
-          "feO11yCurrentUsage": {
-            "type": "number",
-            "title": "feO11yCurrentUsage"
-          },
-          "feO11yOverageAmount": {
-            "type": "number",
-            "title": "feO11yOverageAmount"
-          },
-          "geUsersBillingStartDate": {
-            "type": "string",
-            "title": "geUsersBillingStartDate",
-            "nullable": true
-          },
-          "geUsersBillingEndDate": {
-            "type": "string",
-            "title": "geUsersBillingEndDate",
-            "nullable": true
-          },
-          "geUsersBilledToDate": {
-            "type": "string",
-            "title": "geUsersBilledToDate",
-            "nullable": true
-          },
-          "geUsersOverageWarnDate": {
-            "type": "string",
-            "title": "geUsersOverageWarnDate",
-            "nullable": true
-          },
-          "geUsersCurrentUsage": {
-            "type": "number",
-            "title": "geUsersCurrentUsage"
-          },
-          "geUsersOverageAmount": {
-            "type": "number",
-            "title": "geUsersOverageAmount"
-          },
-          "geInstancesBillingStartDate": {
-            "type": "string",
-            "title": "geInstancesBillingStartDate",
-            "nullable": true
-          },
-          "geInstancesBillingEndDate": {
-            "type": "string",
-            "title": "geInstancesBillingEndDate",
-            "nullable": true
-          },
-          "geInstancesBilledToDate": {
-            "type": "string",
-            "title": "geInstancesBilledToDate",
-            "nullable": true
-          },
-          "geInstancesOverageWarnDate": {
-            "type": "string",
-            "title": "geInstancesOverageWarnDate",
-            "nullable": true
-          },
-          "geInstancesCurrentUsage": {
-            "type": "number",
-            "title": "geInstancesCurrentUsage"
-          },
-          "geInstancesOverageAmount": {
-            "type": "number",
-            "title": "geInstancesOverageAmount"
-          },
-          "salesforceAccountId": {
-            "type": "string",
-            "title": "salesforceAccountId"
-          },
-          "salesforceLeadId": {
-            "type": "string",
-            "title": "salesforceLeadId"
-          },
-          "salesforceCustomOrgId": {
-            "type": "string",
-            "title": "salesforceCustomOrgId"
-          },
-          "slackSupport": {
-            "type": "number",
-            "title": "slackSupport"
-          },
-          "slackSupportChannel": {
-            "type": "string",
-            "title": "slackSupportChannel"
-          },
-          "totalOverageAmount": {
-            "type": "number",
-            "title": "totalOverageAmount"
-          },
-          "memberCnt": {
-            "type": "number",
-            "title": "memberCnt"
-          },
-          "licenseCnt": {
-            "type": "number",
-            "title": "licenseCnt"
-          },
-          "licenseConfiguredCnt": {
-            "type": "number",
-            "title": "licenseConfiguredCnt"
-          },
-          "licenseUnconfiguredCnt": {
-            "type": "number",
-            "title": "licenseUnconfiguredCnt"
-          },
-          "hgInstanceCnt": {
-            "type": "number",
-            "title": "hgInstanceCnt"
-          },
-          "hlInstanceCnt": {
-            "type": "number",
-            "title": "hlInstanceCnt"
-          },
-          "htInstanceCnt": {
-            "type": "number",
-            "title": "htInstanceCnt"
-          },
-          "ubersmithClientId": {
-            "type": "number",
-            "title": "ubersmithClientId"
-          },
-          "intacctCustomerId": {
-            "type": "number",
-            "title": "intacctCustomerId"
-          },
-          "intacctCustomerUrl": {
-            "type": "string",
-            "title": "intacctCustomerUrl"
-          },
-          "committedArr": {
-            "type": "number",
-            "title": "committedArr"
-          },
-          "prevCommittedArr": {
-            "type": "number",
-            "title": "prevCommittedArr"
-          },
-          "zendeskId": {
-            "type": "number",
-            "title": "zendeskId"
-          },
-          "happinessRating": {
-            "type": "string",
-            "title": "happinessRating",
-            "nullable": true
-          },
-          "happinessNote": {
-            "type": "string",
-            "title": "happinessNote",
-            "nullable": true
-          },
-          "happinessReasonCode": {
-            "type": "string",
-            "title": "happinessReasonCode",
-            "nullable": true
-          },
-          "happinessCreatedAt": {
-            "type": "string",
-            "title": "happinessCreatedAt",
-            "nullable": true
-          },
-          "happinessChangedAt": {
-            "type": "string",
-            "title": "happinessChangedAt",
-            "nullable": true
-          },
-          "happinessExpiredAt": {
-            "type": "string",
-            "title": "happinessExpiredAt",
-            "nullable": true
-          },
-          "happinessUserName": {
-            "type": "string",
-            "title": "happinessUserName",
-            "nullable": true
-          },
-          "cancellationClientNotes": {
-            "type": "string",
-            "title": "cancellationClientNotes",
-            "nullable": true
-          },
-          "cancellationNotes": {
-            "type": "string",
-            "title": "cancellationNotes",
-            "nullable": true
-          },
-          "cancellationReason": {
-            "type": "string",
-            "title": "cancellationReason"
-          },
-          "netPromoterScore": {
-            "type": "number",
-            "title": "netPromoterScore",
-            "nullable": true
-          },
-          "hmFirstOverageDate": {
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "date-time"
-              },
-              {
-                "nullable": true
-              }
-            ],
-            "title": "hmFirstOverageDate"
-          },
-          "hmFirstApproachingLimitDate": {
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "date-time"
-              },
-              {
-                "nullable": true
-              }
-            ],
-            "title": "hmFirstApproachingLimitDate"
-          },
-          "spendCommitCreditBalance": {
-            "type": "number",
-            "title": "spendCommitCreditBalance"
-          },
-          "spendCommitCreditTotal": {
-            "type": "number",
-            "title": "spendCommitCreditTotal"
-          },
-          "projectedOverageAmount": {
-            "type": "number",
-            "title": "projectedOverageAmount"
-          },
-          "estimatedArr": {
-            "type": "number",
-            "title": "estimatedArr"
-          },
-          "referredBy": {
-            "type": "string",
-            "title": "referredBy"
-          },
-          "k6OrgId": {
-            "type": "number",
-            "title": "k6OrgId"
-          },
           "id": {
             "type": "number",
             "title": "id"
@@ -8203,22 +7614,11 @@
           }
         },
         "required": [
-          "accountManagerId",
-          "accountManagerName",
-          "accountManagerUsername",
-          "accountOwnerId",
-          "accountOwnerName",
-          "accountOwnerUsername",
           "allowGCloudTrial",
           "avatar",
-          "awsCustomerId",
           "awsMarketplaceSupport",
-          "cancellationClientNotes",
           "cancellationDate",
-          "cancellationNotes",
-          "cancellationReason",
           "checksPerMonth",
-          "committedArr",
           "contractType",
           "contractTypeId",
           "createdAt",
@@ -8226,14 +7626,7 @@
           "creditApproved",
           "emergencySupport",
           "enterprisePlugins",
-          "estimatedArr",
-          "feO11yBilledToDate",
-          "feO11yBillingEndDate",
-          "feO11yBillingStartDate",
-          "feO11yCurrentUsage",
           "feO11yIncludedUsage",
-          "feO11yOverageAmount",
-          "feO11yOverageWarnDate",
           "feO11yTier1Rate",
           "feO11yTier2Min",
           "feO11yTier2Rate",
@@ -8242,26 +7635,14 @@
           "feO11yUnits",
           "feO11yUsage",
           "gcloudMonthlyCost",
-          "geInstancesBilledToDate",
-          "geInstancesBillingEndDate",
-          "geInstancesBillingStartDate",
-          "geInstancesCurrentUsage",
           "geInstancesIncludedUsage",
-          "geInstancesOverageAmount",
-          "geInstancesOverageWarnDate",
           "geInstancesTier1Rate",
           "geInstancesTier2Min",
           "geInstancesTier2Rate",
           "geInstancesTier3Min",
           "geInstancesTier3Rate",
           "geInstancesUsage",
-          "geUsersBilledToDate",
-          "geUsersBillingEndDate",
-          "geUsersBillingStartDate",
-          "geUsersCurrentUsage",
           "geUsersIncludedUsage",
-          "geUsersOverageAmount",
-          "geUsersOverageWarnDate",
           "geUsersTier1Rate",
           "geUsersTier2Min",
           "geUsersTier2Rate",
@@ -8269,27 +7650,11 @@
           "geUsersTier3Rate",
           "geUsersUsage",
           "grafanaCloud",
-          "happinessChangedAt",
-          "happinessCreatedAt",
-          "happinessExpiredAt",
-          "happinessNote",
-          "happinessRating",
-          "happinessReasonCode",
-          "happinessUserName",
-          "hgActiveUsers",
-          "hgBilledToDate",
-          "hgBillingEndDate",
-          "hgBillingStartDate",
           "hgCurrentActiveUsers",
-          "hgDatasourceCnts",
           "hgGrafanaUsage",
           "hgIncludedUsers",
-          "hgInstanceCnt",
           "hgInstanceLimit",
-          "hgIntegrationCnts",
           "hgOnCallUsage",
-          "hgOverageAmount",
-          "hgOverageWarnDate",
           "hgPluginUsersIncludedUsage",
           "hgPluginUsersOverageRate",
           "hgTier1Rate",
@@ -8298,23 +7663,10 @@
           "hgTier3Min",
           "hgTier3Rate",
           "hgUsage",
-          "hlBilledToDate",
-          "hlBillingEndDate",
-          "hlBillingStartDate",
-          "hlCurrentUsage",
           "hlIncludedUsage",
-          "hlInstanceCnt",
           "hlInstanceLimit",
-          "hlOverageAmount",
-          "hlOverageWarnDate",
           "hlQueryToIngestRatio",
-          "hlRetentionBilledToDate",
-          "hlRetentionBillingEndDate",
-          "hlRetentionBillingStartDate",
-          "hlRetentionCurrentUsage",
           "hlRetentionIncludedUsage",
-          "hlRetentionOverageAmount",
-          "hlRetentionOverageWarnDate",
           "hlRetentionTier1Rate",
           "hlRetentionTier2Min",
           "hlRetentionTier2Rate",
@@ -8328,22 +7680,9 @@
           "hlTier3Rate",
           "hlUsage",
           "hmAverageDpm",
-          "hmBilledToDate",
-          "hmBillingEndDate",
-          "hmBillingStartDate",
-          "hmCurrentGraphiteUsage",
-          "hmCurrentPrometheusUsage",
           "hmCurrentUsage",
-          "hmFirstApproachingLimitDate",
-          "hmFirstOverageDate",
-          "hmGraphiteBilledToDate",
-          "hmGraphiteBillingEndDate",
-          "hmGraphiteBillingStartDate",
-          "hmGraphiteCurrentUsage",
           "hmGraphiteIncludedUsage",
           "hmGraphiteInstanceCnt",
-          "hmGraphiteOverageAmount",
-          "hmGraphiteOverageWarnDate",
           "hmGraphiteTier1Rate",
           "hmGraphiteTier2Min",
           "hmGraphiteTier2Rate",
@@ -8352,8 +7691,6 @@
           "hmGraphiteUsage",
           "hmIncludedSeries",
           "hmInstanceLimit",
-          "hmOverageAmount",
-          "hmOverageWarnDate",
           "hmPrometheusInstanceCnt",
           "hmTier1Rate",
           "hmTier2Min",
@@ -8361,27 +7698,14 @@
           "hmTier3Min",
           "hmTier3Rate",
           "hmUsage",
-          "hpBilledToDate",
-          "hpBillingEndDate",
-          "hpBillingStartDate",
-          "hpCurrentUsage",
           "hpIncludedUsage",
-          "hpOverageAmount",
-          "hpOverageWarnDate",
           "hpTier1Rate",
           "hpTier2Min",
           "hpTier2Rate",
           "hpTier3Min",
           "hpTier3Rate",
           "hpUsage",
-          "htBilledToDate",
-          "htBillingEndDate",
-          "htBillingStartDate",
-          "htCurrentUsage",
           "htIncludedUsage",
-          "htInstanceCnt",
-          "htOverageAmount",
-          "htOverageWarnDate",
           "htTier1Rate",
           "htTier2Min",
           "htTier2Rate",
@@ -8389,15 +7713,7 @@
           "htTier3Rate",
           "htUsage",
           "id",
-          "intacctCustomerId",
-          "intacctCustomerUrl",
-          "irmBilledToDate",
-          "irmBillingEndDate",
-          "irmBillingStartDate",
-          "irmCurrentUsage",
           "irmIncludedUsage",
-          "irmOverageAmount",
-          "irmOverageWarnDate",
           "irmStatus",
           "irmTier1Rate",
           "irmTier2Min",
@@ -8406,27 +7722,14 @@
           "irmTier3Rate",
           "irmUsage",
           "isContractedLicenseAutoProvision",
-          "k6IPBilledToDate",
-          "k6IPBillingEndDate",
-          "k6IPBillingStartDate",
-          "k6IPCurrentUsage",
           "k6IPIncludedUsage",
-          "k6IPOverageAmount",
-          "k6IPOverageWarnDate",
           "k6IPTier1Rate",
           "k6IPTier2Min",
           "k6IPTier2Rate",
           "k6IPTier3Min",
           "k6IPTier3Rate",
           "k6IPUsage",
-          "k6OrgId",
-          "k6VuhBilledToDate",
-          "k6VuhBillingEndDate",
-          "k6VuhBillingStartDate",
-          "k6VuhCurrentUsage",
           "k6VuhIncludedUsage",
-          "k6VuhOverageAmount",
-          "k6VuhOverageWarnDate",
           "k6VuhTier1Rate",
           "k6VuhTier2Min",
           "k6VuhTier2Rate",
@@ -8434,47 +7737,28 @@
           "k6VuhTier3Rate",
           "k6VuhUnits",
           "k6VuhUsage",
-          "licenseCnt",
-          "licenseConfiguredCnt",
-          "licenseUnconfiguredCnt",
           "links",
-          "memberCnt",
           "msaSignedAt",
           "msaSignedBy",
           "name",
-          "netPromoterScore",
           "pluginSignatureType",
-          "prevCommittedArr",
           "privacy",
-          "projectedOverageAmount",
-          "referredBy",
           "reseller",
           "resellerId",
           "resellerName",
           "retainedStackId",
-          "salesforceAccountId",
-          "salesforceCustomOrgId",
-          "salesforceLeadId",
-          "slackSupport",
-          "slackSupportChannel",
           "slug",
-          "spendCommitCreditBalance",
-          "spendCommitCreditTotal",
           "subscriptions",
           "supportPlan",
-          "tags",
-          "totalOverageAmount",
           "trialEndDate",
           "trialLengthDays",
           "trialNoticeDate",
           "trialStartDate",
-          "ubersmithClientId",
           "updatedAt",
           "updatedBy",
           "url",
           "userQuota",
-          "wpPlan",
-          "zendeskId"
+          "wpPlan"
         ]
       },
       "FormattedApiPlugin": {
