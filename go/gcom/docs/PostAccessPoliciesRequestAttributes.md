@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LokiQueryPolicy** | Pointer to [**PostAccessPoliciesRequestAttributesLokiQueryPolicy**](PostAccessPoliciesRequestAttributesLokiQueryPolicy.md) |  | [optional] 
+**PdcConfiguration** | Pointer to [**PostAccessPoliciesRequestAttributesPdcConfiguration**](PostAccessPoliciesRequestAttributesPdcConfiguration.md) |  | [optional] 
 
 ## Methods
 
@@ -49,6 +50,31 @@ SetLokiQueryPolicy sets LokiQueryPolicy field to given value.
 `func (o *PostAccessPoliciesRequestAttributes) HasLokiQueryPolicy() bool`
 
 HasLokiQueryPolicy returns a boolean if a field has been set.
+
+### GetPdcConfiguration
+
+`func (o *PostAccessPoliciesRequestAttributes) GetPdcConfiguration() PostAccessPoliciesRequestAttributesPdcConfiguration`
+
+GetPdcConfiguration returns the PdcConfiguration field if non-nil, zero value otherwise.
+
+### GetPdcConfigurationOk
+
+`func (o *PostAccessPoliciesRequestAttributes) GetPdcConfigurationOk() (*PostAccessPoliciesRequestAttributesPdcConfiguration, bool)`
+
+GetPdcConfigurationOk returns a tuple with the PdcConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPdcConfiguration
+
+`func (o *PostAccessPoliciesRequestAttributes) SetPdcConfiguration(v PostAccessPoliciesRequestAttributesPdcConfiguration)`
+
+SetPdcConfiguration sets PdcConfiguration field to given value.
+
+### HasPdcConfiguration
+
+`func (o *PostAccessPoliciesRequestAttributes) HasPdcConfiguration() bool`
+
+HasPdcConfiguration returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

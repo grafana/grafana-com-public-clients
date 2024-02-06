@@ -149,6 +149,7 @@ Class | Method | HTTP request | Description
  - [PostAccessPoliciesRequest](docs/PostAccessPoliciesRequest.md)
  - [PostAccessPoliciesRequestAttributes](docs/PostAccessPoliciesRequestAttributes.md)
  - [PostAccessPoliciesRequestAttributesLokiQueryPolicy](docs/PostAccessPoliciesRequestAttributesLokiQueryPolicy.md)
+ - [PostAccessPoliciesRequestAttributesPdcConfiguration](docs/PostAccessPoliciesRequestAttributesPdcConfiguration.md)
  - [PostAccessPoliciesRequestConditions](docs/PostAccessPoliciesRequestConditions.md)
  - [PostAccessPoliciesRequestRealmsInner](docs/PostAccessPoliciesRequestRealmsInner.md)
  - [PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner](docs/PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner.md)

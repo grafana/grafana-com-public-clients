@@ -19,7 +19,8 @@ var _ MappedNullable = &PostAccessPoliciesRequestAttributes{}
 
 // PostAccessPoliciesRequestAttributes struct for PostAccessPoliciesRequestAttributes
 type PostAccessPoliciesRequestAttributes struct {
-	LokiQueryPolicy      *PostAccessPoliciesRequestAttributesLokiQueryPolicy `json:"lokiQueryPolicy,omitempty"`
+	LokiQueryPolicy      *PostAccessPoliciesRequestAttributesLokiQueryPolicy  `json:"lokiQueryPolicy,omitempty"`
+	PdcConfiguration     *PostAccessPoliciesRequestAttributesPdcConfiguration `json:"pdcConfiguration,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -74,6 +75,38 @@ func (o *PostAccessPoliciesRequestAttributes) SetLokiQueryPolicy(v PostAccessPol
 	o.LokiQueryPolicy = &v
 }
 
+// GetPdcConfiguration returns the PdcConfiguration field value if set, zero value otherwise.
+func (o *PostAccessPoliciesRequestAttributes) GetPdcConfiguration() PostAccessPoliciesRequestAttributesPdcConfiguration {
+	if o == nil || IsNil(o.PdcConfiguration) {
+		var ret PostAccessPoliciesRequestAttributesPdcConfiguration
+		return ret
+	}
+	return *o.PdcConfiguration
+}
+
+// GetPdcConfigurationOk returns a tuple with the PdcConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostAccessPoliciesRequestAttributes) GetPdcConfigurationOk() (*PostAccessPoliciesRequestAttributesPdcConfiguration, bool) {
+	if o == nil || IsNil(o.PdcConfiguration) {
+		return nil, false
+	}
+	return o.PdcConfiguration, true
+}
+
+// HasPdcConfiguration returns a boolean if a field has been set.
+func (o *PostAccessPoliciesRequestAttributes) HasPdcConfiguration() bool {
+	if o != nil && !IsNil(o.PdcConfiguration) {
+		return true
+	}
+
+	return false
+}
+
+// SetPdcConfiguration gets a reference to the given PostAccessPoliciesRequestAttributesPdcConfiguration and assigns it to the PdcConfiguration field.
+func (o *PostAccessPoliciesRequestAttributes) SetPdcConfiguration(v PostAccessPoliciesRequestAttributesPdcConfiguration) {
+	o.PdcConfiguration = &v
+}
+
 func (o PostAccessPoliciesRequestAttributes) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -86,6 +119,9 @@ func (o PostAccessPoliciesRequestAttributes) ToMap() (map[string]interface{}, er
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.LokiQueryPolicy) {
 		toSerialize["lokiQueryPolicy"] = o.LokiQueryPolicy
+	}
+	if !IsNil(o.PdcConfiguration) {
+		toSerialize["pdcConfiguration"] = o.PdcConfiguration
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -110,6 +146,7 @@ func (o *PostAccessPoliciesRequestAttributes) UnmarshalJSON(data []byte) (err er
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "lokiQueryPolicy")
+		delete(additionalProperties, "pdcConfiguration")
 		o.AdditionalProperties = additionalProperties
 	}
 

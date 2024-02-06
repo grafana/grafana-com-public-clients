@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: e524908
-  x-generated-at: 2024-02-06T08:39:21.432Z
+  x-commit-sha: b79e1eb
+  x-generated-at: 2024-02-06T13:20:47.484Z
 servers:
 - description: Main API server
   url: /api
@@ -5681,10 +5681,19 @@ components:
             type: string
           type: array
       type: object
+    postAccessPolicies_request_attributes_pdcConfiguration:
+      properties:
+        limitedHosts:
+          items:
+            type: string
+          type: array
+      type: object
     postAccessPolicies_request_attributes:
       properties:
         lokiQueryPolicy:
           $ref: '#/components/schemas/postAccessPolicies_request_attributes_lokiQueryPolicy'
+        pdcConfiguration:
+          $ref: '#/components/schemas/postAccessPolicies_request_attributes_pdcConfiguration'
       type: object
     postAccessPolicies_request_conditions:
       properties:
