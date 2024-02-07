@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: 95f53ce
-  x-generated-at: 2024-02-06T15:38:34.381Z
+  x-commit-sha: 5653ff8
+  x-generated-at: 2024-02-07T13:05:23.735Z
 servers:
 - description: Main API server
   url: /api
@@ -829,6 +829,66 @@ paths:
                 $ref: '#/components/schemas/postAllApiKeys_503_response'
           description: Service is currently unavailable
       summary: Creates a service account token on a Grafana instance
+      tags:
+      - instances
+  /instances/{instanceId}/connections:
+    get:
+      operationId: getConnections
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: config
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: includeDeleted
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstanceConnections'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: "Gets an instance's connectivity information (InfluxDB, OTEL, AWS private\
+        \ link, etc.)"
       tags:
       - instances
   /instances/{instanceId}/plugins:
@@ -3350,6 +3410,41 @@ components:
       - key
       - name
       type: object
+    FormattedApiInstanceConnections:
+      example:
+        otlpHttpUrl: otlpHttpUrl
+        influxUrl: influxUrl
+        appPlatform:
+          url: url
+          caData: caData
+        privateConnectivityInfo:
+          tenants:
+          - id: 0.8008281904610115
+            type: type
+            info:
+              privateDNS: privateDNS
+              serviceName: serviceName
+          - id: 0.8008281904610115
+            type: type
+            info:
+              privateDNS: privateDNS
+              serviceName: serviceName
+      properties:
+        privateConnectivityInfo:
+          $ref: '#/components/schemas/privateConnectivityInfo'
+        appPlatform:
+          $ref: '#/components/schemas/appPlatform'
+        influxUrl:
+          nullable: true
+          title: influxUrl
+          type: string
+        otlpHttpUrl:
+          nullable: true
+          title: otlpHttpUrl
+          type: string
+      required:
+      - privateConnectivityInfo
+      type: object
     FormattedApiOrgPublic:
       example:
         grafanaCloud: 3.616076749251911
@@ -5201,6 +5296,82 @@ components:
       required:
       - href
       - rel
+      type: object
+    info:
+      example:
+        privateDNS: privateDNS
+        serviceName: serviceName
+      properties:
+        serviceName:
+          title: serviceName
+          type: string
+        privateDNS:
+          title: privateDNS
+          type: string
+      required:
+      - privateDNS
+      - serviceName
+      title: info
+      type: object
+    tenants_inner:
+      example:
+        id: 0.8008281904610115
+        type: type
+        info:
+          privateDNS: privateDNS
+          serviceName: serviceName
+      properties:
+        type:
+          title: type
+          type: string
+        id:
+          title: id
+          type: number
+        info:
+          $ref: '#/components/schemas/info'
+      required:
+      - id
+      - info
+      - type
+      type: object
+    privateConnectivityInfo:
+      example:
+        tenants:
+        - id: 0.8008281904610115
+          type: type
+          info:
+            privateDNS: privateDNS
+            serviceName: serviceName
+        - id: 0.8008281904610115
+          type: type
+          info:
+            privateDNS: privateDNS
+            serviceName: serviceName
+      properties:
+        tenants:
+          items:
+            $ref: '#/components/schemas/tenants_inner'
+          title: tenants
+          type: array
+      required:
+      - tenants
+      title: privateConnectivityInfo
+      type: object
+    appPlatform:
+      example:
+        url: url
+        caData: caData
+      properties:
+        url:
+          title: url
+          type: string
+        caData:
+          nullable: true
+          title: caData
+          type: string
+      required:
+      - url
+      title: appPlatform
       type: object
     current:
       properties:

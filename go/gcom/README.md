@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
 *ApiKeysAPI* | [**PostAllApiKeys**](docs/ApiKeysAPI.md#postallapikeys) | **Post** /api-keys | Creates an API key
 *InstancesAPI* | [**DeleteInstance**](docs/InstancesAPI.md#deleteinstance) | **Delete** /instances/{instanceId} | Deletes an instance
 *InstancesAPI* | [**DeleteInstancePlugin**](docs/InstancesAPI.md#deleteinstanceplugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
+*InstancesAPI* | [**GetConnections**](docs/InstancesAPI.md#getconnections) | **Get** /instances/{instanceId}/connections | Gets an instance&#39;s connectivity information (InfluxDB, OTEL, AWS private link, etc.)
 *InstancesAPI* | [**GetInstance**](docs/InstancesAPI.md#getinstance) | **Get** /instances/{instanceId} | Gets an instance
 *InstancesAPI* | [**GetInstancePlugin**](docs/InstancesAPI.md#getinstanceplugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 *InstancesAPI* | [**GetInstancePlugins**](docs/InstancesAPI.md#getinstanceplugins) | **Get** /instances/{instanceId}/plugins | 
@@ -124,12 +125,14 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AppPlatform](docs/AppPlatform.md)
  - [Current](docs/Current.md)
  - [Current1](docs/Current1.md)
  - [Current2](docs/Current2.md)
  - [FormattedApiApiKey](docs/FormattedApiApiKey.md)
  - [FormattedApiApiKeyListResponse](docs/FormattedApiApiKeyListResponse.md)
  - [FormattedApiInstance](docs/FormattedApiInstance.md)
+ - [FormattedApiInstanceConnections](docs/FormattedApiInstanceConnections.md)
  - [FormattedApiInstancePlugin](docs/FormattedApiInstancePlugin.md)
  - [FormattedApiOrgPublic](docs/FormattedApiOrgPublic.md)
  - [FormattedApiPlugin](docs/FormattedApiPlugin.md)
@@ -142,6 +145,7 @@ Class | Method | HTTP request | Description
  - [GetStackRegions200Response](docs/GetStackRegions200Response.md)
  - [GrafanaServiceAccount](docs/GrafanaServiceAccount.md)
  - [GrafanaServiceAccountToken](docs/GrafanaServiceAccountToken.md)
+ - [Info](docs/Info.md)
  - [ItemsInner](docs/ItemsInner.md)
  - [LinksInner](docs/LinksInner.md)
  - [LinksInner1](docs/LinksInner1.md)
@@ -168,10 +172,12 @@ Class | Method | HTTP request | Description
  - [PostInstancesRequest](docs/PostInstancesRequest.md)
  - [PostTokenRequest](docs/PostTokenRequest.md)
  - [PostTokensRequest](docs/PostTokensRequest.md)
+ - [PrivateConnectivityInfo](docs/PrivateConnectivityInfo.md)
  - [Subscriptions](docs/Subscriptions.md)
  - [SubscriptionsAnyOf](docs/SubscriptionsAnyOf.md)
  - [SubscriptionsAnyOf1](docs/SubscriptionsAnyOf1.md)
  - [SubscriptionsAnyOf2](docs/SubscriptionsAnyOf2.md)
+ - [TenantsInner](docs/TenantsInner.md)
 
 
 ## Documentation For Authorization
