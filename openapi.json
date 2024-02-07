@@ -1869,6 +1869,137 @@
         }
       }
     },
+    "/instances/{instanceId}/connections": {
+      "get": {
+        "tags": [
+          "instances"
+        ],
+        "operationId": "getConnections",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instanceId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "config",
+            "schema": {
+              "type": "boolean"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "includeDeleted",
+            "schema": {
+              "type": "boolean"
+            },
+            "required": false
+          }
+        ],
+        "summary": "Gets an instance's connectivity information (InfluxDB, OTEL, AWS private link, etc.)",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormattedApiInstanceConnections"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/instances/{instanceId}/plugins": {
       "get": {
         "tags": [
@@ -5803,8 +5934,8 @@
     "title": "GCOM API",
     "version": "internal",
     "description": "\nGrafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.\n\nLooking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.\n\nIf you have any questions, please contact us at #grafana_com on Slack or open an issue\nat [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n      ",
-    "x-commit-sha": "95f53ce",
-    "x-generated-at": "2024-02-06T15:38:34.381Z"
+    "x-commit-sha": "5653ff8",
+    "x-generated-at": "2024-02-07T13:05:23.735Z"
   },
   "security": [
     {
@@ -6727,6 +6858,91 @@
           "id",
           "key",
           "name"
+        ]
+      },
+      "FormattedApiInstanceConnections": {
+        "type": "object",
+        "properties": {
+          "privateConnectivityInfo": {
+            "type": "object",
+            "properties": {
+              "tenants": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "type"
+                    },
+                    "id": {
+                      "type": "number",
+                      "title": "id"
+                    },
+                    "info": {
+                      "type": "object",
+                      "properties": {
+                        "serviceName": {
+                          "type": "string",
+                          "title": "serviceName"
+                        },
+                        "privateDNS": {
+                          "type": "string",
+                          "title": "privateDNS"
+                        }
+                      },
+                      "required": [
+                        "privateDNS",
+                        "serviceName"
+                      ],
+                      "title": "info"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "info",
+                    "type"
+                  ]
+                },
+                "title": "tenants"
+              }
+            },
+            "required": [
+              "tenants"
+            ],
+            "title": "privateConnectivityInfo"
+          },
+          "appPlatform": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "title": "url"
+              },
+              "caData": {
+                "type": "string",
+                "title": "caData",
+                "nullable": true
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "title": "appPlatform"
+          },
+          "influxUrl": {
+            "type": "string",
+            "title": "influxUrl",
+            "nullable": true
+          },
+          "otlpHttpUrl": {
+            "type": "string",
+            "title": "otlpHttpUrl",
+            "nullable": true
+          }
+        },
+        "required": [
+          "privateConnectivityInfo"
         ]
       },
       "FormattedApiOrgPublic": {
