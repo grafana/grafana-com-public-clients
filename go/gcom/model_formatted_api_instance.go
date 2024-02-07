@@ -105,6 +105,7 @@ type FormattedApiInstance struct {
 	UserQuota                         float32                `json:"userQuota"`
 	Version                           string                 `json:"version"`
 	AgentManagementInstanceId         float32                `json:"agentManagementInstanceId"`
+	Config                            map[string]interface{} `json:"config,omitempty"`
 	AdditionalProperties              map[string]interface{}
 }
 
@@ -2260,6 +2261,38 @@ func (o *FormattedApiInstance) SetAgentManagementInstanceId(v float32) {
 	o.AgentManagementInstanceId = v
 }
 
+// GetConfig returns the Config field value if set, zero value otherwise.
+func (o *FormattedApiInstance) GetConfig() map[string]interface{} {
+	if o == nil || IsNil(o.Config) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Config
+}
+
+// GetConfigOk returns a tuple with the Config field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetConfigOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Config) {
+		return map[string]interface{}{}, false
+	}
+	return o.Config, true
+}
+
+// HasConfig returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasConfig() bool {
+	if o != nil && !IsNil(o.Config) {
+		return true
+	}
+
+	return false
+}
+
+// SetConfig gets a reference to the given map[string]interface{} and assigns it to the Config field.
+func (o *FormattedApiInstance) SetConfig(v map[string]interface{}) {
+	o.Config = v
+}
+
 func (o FormattedApiInstance) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -2357,6 +2390,9 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["userQuota"] = o.UserQuota
 	toSerialize["version"] = o.Version
 	toSerialize["agentManagementInstanceId"] = o.AgentManagementInstanceId
+	if !IsNil(o.Config) {
+		toSerialize["config"] = o.Config
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -2569,6 +2605,7 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "userQuota")
 		delete(additionalProperties, "version")
 		delete(additionalProperties, "agentManagementInstanceId")
+		delete(additionalProperties, "config")
 		o.AdditionalProperties = additionalProperties
 	}
 

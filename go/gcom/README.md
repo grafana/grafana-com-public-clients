@@ -95,6 +95,10 @@ Class | Method | HTTP request | Description
 *AccesspoliciesAPI* | [**PostAccessPolicies**](docs/AccesspoliciesAPI.md#postaccesspolicies) | **Post** /v1/accesspolicies | Create a new access policy
 *AccesspoliciesAPI* | [**PostAccessPolicy**](docs/AccesspoliciesAPI.md#postaccesspolicy) | **Post** /v1/accesspolicies/{id} | Update an access policy
 *ApiKeysAPI* | [**PostAllApiKeys**](docs/ApiKeysAPI.md#postallapikeys) | **Post** /api-keys | Creates an API key
+*InstancesAPI* | [**DelInstanceOAuthAzureAD**](docs/InstancesAPI.md#delinstanceoauthazuread) | **Delete** /instances/{instanceId}/oauth-azuread | Disable Azure OAuth in an instance
+*InstancesAPI* | [**DelInstanceOAuthGithub**](docs/InstancesAPI.md#delinstanceoauthgithub) | **Delete** /instances/{instanceId}/oauth-github | Disable Github OAuth in an instance
+*InstancesAPI* | [**DelInstanceOAuthGoogle**](docs/InstancesAPI.md#delinstanceoauthgoogle) | **Delete** /instances/{instanceId}/oauth-google | Disable Google OAuth in an instance
+*InstancesAPI* | [**DelInstanceOAuthOkta**](docs/InstancesAPI.md#delinstanceoauthokta) | **Delete** /instances/{instanceId}/oauth-okta | Disable Okta OAuth in an instance
 *InstancesAPI* | [**DeleteInstance**](docs/InstancesAPI.md#deleteinstance) | **Delete** /instances/{instanceId} | Deletes an instance
 *InstancesAPI* | [**DeleteInstancePlugin**](docs/InstancesAPI.md#deleteinstanceplugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 *InstancesAPI* | [**GetConnections**](docs/InstancesAPI.md#getconnections) | **Get** /instances/{instanceId}/connections | Gets an instance&#39;s connectivity information (InfluxDB, OTEL, AWS private link, etc.)
@@ -103,6 +107,10 @@ Class | Method | HTTP request | Description
 *InstancesAPI* | [**GetInstancePlugins**](docs/InstancesAPI.md#getinstanceplugins) | **Get** /instances/{instanceId}/plugins | 
 *InstancesAPI* | [**GetInstances**](docs/InstancesAPI.md#getinstances) | **Get** /instances | Get a list of instances
 *InstancesAPI* | [**PostInstance**](docs/InstancesAPI.md#postinstance) | **Post** /instances/{instanceId} | Updates an instance
+*InstancesAPI* | [**PostInstanceOAuthAzureAD**](docs/InstancesAPI.md#postinstanceoauthazuread) | **Post** /instances/{instanceId}/oauth-azuread | Configure Azure OAuth in an instance
+*InstancesAPI* | [**PostInstanceOAuthGithub**](docs/InstancesAPI.md#postinstanceoauthgithub) | **Post** /instances/{instanceId}/oauth-github | Configure Github OAuth in an instance
+*InstancesAPI* | [**PostInstanceOAuthGoogle**](docs/InstancesAPI.md#postinstanceoauthgoogle) | **Post** /instances/{instanceId}/oauth-google | Configure Google OAuth in an instance
+*InstancesAPI* | [**PostInstanceOAuthOkta**](docs/InstancesAPI.md#postinstanceoauthokta) | **Post** /instances/{instanceId}/oauth-okta | Configure Okta OAuth in an instance
 *InstancesAPI* | [**PostInstancePlugin**](docs/InstancesAPI.md#postinstanceplugin) | **Post** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 *InstancesAPI* | [**PostInstancePlugins**](docs/InstancesAPI.md#postinstanceplugins) | **Post** /instances/{instanceId}/plugins | 
 *InstancesAPI* | [**PostInstanceServiceAccountTokens**](docs/InstancesAPI.md#postinstanceserviceaccounttokens) | **Post** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Creates a service account token on a Grafana instance
@@ -164,6 +172,10 @@ Class | Method | HTTP request | Description
  - [PostAllApiKeys503Response](docs/PostAllApiKeys503Response.md)
  - [PostAllApiKeysRequest](docs/PostAllApiKeysRequest.md)
  - [PostApiKeysRequest](docs/PostApiKeysRequest.md)
+ - [PostInstanceOAuthAzureADRequest](docs/PostInstanceOAuthAzureADRequest.md)
+ - [PostInstanceOAuthGithubRequest](docs/PostInstanceOAuthGithubRequest.md)
+ - [PostInstanceOAuthGoogleRequest](docs/PostInstanceOAuthGoogleRequest.md)
+ - [PostInstanceOAuthOktaRequest](docs/PostInstanceOAuthOktaRequest.md)
  - [PostInstancePluginRequest](docs/PostInstancePluginRequest.md)
  - [PostInstancePluginsRequest](docs/PostInstancePluginsRequest.md)
  - [PostInstanceRequest](docs/PostInstanceRequest.md)

@@ -23,6 +23,62 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test InstancesAPIService DelInstanceOAuthAzureAD", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.DelInstanceOAuthAzureAD(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InstancesAPIService DelInstanceOAuthGithub", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.DelInstanceOAuthGithub(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InstancesAPIService DelInstanceOAuthGoogle", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.DelInstanceOAuthGoogle(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InstancesAPIService DelInstanceOAuthOkta", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.DelInstanceOAuthOkta(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InstancesAPIService DeleteInstance", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -128,6 +184,62 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 		var instanceId string
 
 		resp, httpRes, err := apiClient.InstancesAPI.PostInstance(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InstancesAPIService PostInstanceOAuthAzureAD", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.PostInstanceOAuthAzureAD(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InstancesAPIService PostInstanceOAuthGithub", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.PostInstanceOAuthGithub(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InstancesAPIService PostInstanceOAuthGoogle", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.PostInstanceOAuthGoogle(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InstancesAPIService PostInstanceOAuthOkta", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.PostInstanceOAuthOkta(context.Background(), instanceId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

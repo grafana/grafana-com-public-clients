@@ -4,6 +4,10 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DelInstanceOAuthAzureAD**](InstancesAPI.md#DelInstanceOAuthAzureAD) | **Delete** /instances/{instanceId}/oauth-azuread | Disable Azure OAuth in an instance
+[**DelInstanceOAuthGithub**](InstancesAPI.md#DelInstanceOAuthGithub) | **Delete** /instances/{instanceId}/oauth-github | Disable Github OAuth in an instance
+[**DelInstanceOAuthGoogle**](InstancesAPI.md#DelInstanceOAuthGoogle) | **Delete** /instances/{instanceId}/oauth-google | Disable Google OAuth in an instance
+[**DelInstanceOAuthOkta**](InstancesAPI.md#DelInstanceOAuthOkta) | **Delete** /instances/{instanceId}/oauth-okta | Disable Okta OAuth in an instance
 [**DeleteInstance**](InstancesAPI.md#DeleteInstance) | **Delete** /instances/{instanceId} | Deletes an instance
 [**DeleteInstancePlugin**](InstancesAPI.md#DeleteInstancePlugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 [**GetConnections**](InstancesAPI.md#GetConnections) | **Get** /instances/{instanceId}/connections | Gets an instance&#39;s connectivity information (InfluxDB, OTEL, AWS private link, etc.)
@@ -12,12 +16,296 @@ Method | HTTP request | Description
 [**GetInstancePlugins**](InstancesAPI.md#GetInstancePlugins) | **Get** /instances/{instanceId}/plugins | 
 [**GetInstances**](InstancesAPI.md#GetInstances) | **Get** /instances | Get a list of instances
 [**PostInstance**](InstancesAPI.md#PostInstance) | **Post** /instances/{instanceId} | Updates an instance
+[**PostInstanceOAuthAzureAD**](InstancesAPI.md#PostInstanceOAuthAzureAD) | **Post** /instances/{instanceId}/oauth-azuread | Configure Azure OAuth in an instance
+[**PostInstanceOAuthGithub**](InstancesAPI.md#PostInstanceOAuthGithub) | **Post** /instances/{instanceId}/oauth-github | Configure Github OAuth in an instance
+[**PostInstanceOAuthGoogle**](InstancesAPI.md#PostInstanceOAuthGoogle) | **Post** /instances/{instanceId}/oauth-google | Configure Google OAuth in an instance
+[**PostInstanceOAuthOkta**](InstancesAPI.md#PostInstanceOAuthOkta) | **Post** /instances/{instanceId}/oauth-okta | Configure Okta OAuth in an instance
 [**PostInstancePlugin**](InstancesAPI.md#PostInstancePlugin) | **Post** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 [**PostInstancePlugins**](InstancesAPI.md#PostInstancePlugins) | **Post** /instances/{instanceId}/plugins | 
 [**PostInstanceServiceAccountTokens**](InstancesAPI.md#PostInstanceServiceAccountTokens) | **Post** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Creates a service account token on a Grafana instance
 [**PostInstanceServiceAccounts**](InstancesAPI.md#PostInstanceServiceAccounts) | **Post** /instances/{instanceId}/api/serviceaccounts | Creates a service account on a Grafana instance
 [**PostInstances**](InstancesAPI.md#PostInstances) | **Post** /instances | Create a new instance
 
+
+
+## DelInstanceOAuthAzureAD
+
+> FormattedApiInstance DelInstanceOAuthAzureAD(ctx, instanceId).XRequestId(xRequestId).Execute()
+
+Disable Azure OAuth in an instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.DelInstanceOAuthAzureAD(context.Background(), instanceId).XRequestId(xRequestId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.DelInstanceOAuthAzureAD``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DelInstanceOAuthAzureAD`: FormattedApiInstance
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.DelInstanceOAuthAzureAD`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDelInstanceOAuthAzureADRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+
+### Return type
+
+[**FormattedApiInstance**](FormattedApiInstance.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DelInstanceOAuthGithub
+
+> FormattedApiInstance DelInstanceOAuthGithub(ctx, instanceId).XRequestId(xRequestId).Execute()
+
+Disable Github OAuth in an instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.DelInstanceOAuthGithub(context.Background(), instanceId).XRequestId(xRequestId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.DelInstanceOAuthGithub``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DelInstanceOAuthGithub`: FormattedApiInstance
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.DelInstanceOAuthGithub`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDelInstanceOAuthGithubRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+
+### Return type
+
+[**FormattedApiInstance**](FormattedApiInstance.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DelInstanceOAuthGoogle
+
+> FormattedApiInstance DelInstanceOAuthGoogle(ctx, instanceId).XRequestId(xRequestId).Execute()
+
+Disable Google OAuth in an instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.DelInstanceOAuthGoogle(context.Background(), instanceId).XRequestId(xRequestId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.DelInstanceOAuthGoogle``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DelInstanceOAuthGoogle`: FormattedApiInstance
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.DelInstanceOAuthGoogle`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDelInstanceOAuthGoogleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+
+### Return type
+
+[**FormattedApiInstance**](FormattedApiInstance.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DelInstanceOAuthOkta
+
+> FormattedApiInstance DelInstanceOAuthOkta(ctx, instanceId).XRequestId(xRequestId).Execute()
+
+Disable Okta OAuth in an instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.DelInstanceOAuthOkta(context.Background(), instanceId).XRequestId(xRequestId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.DelInstanceOAuthOkta``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DelInstanceOAuthOkta`: FormattedApiInstance
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.DelInstanceOAuthOkta`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDelInstanceOAuthOktaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+
+### Return type
+
+[**FormattedApiInstance**](FormattedApiInstance.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## DeleteInstance
@@ -664,6 +952,294 @@ Name | Type | Description  | Notes
 
  **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
  **postInstanceRequest** | [**PostInstanceRequest**](PostInstanceRequest.md) |  | 
+
+### Return type
+
+[**FormattedApiInstance**](FormattedApiInstance.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostInstanceOAuthAzureAD
+
+> FormattedApiInstance PostInstanceOAuthAzureAD(ctx, instanceId).XRequestId(xRequestId).PostInstanceOAuthAzureADRequest(postInstanceOAuthAzureADRequest).Execute()
+
+Configure Azure OAuth in an instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	postInstanceOAuthAzureADRequest := *openapiclient.NewPostInstanceOAuthAzureADRequest("AuthUrl_example", "ClientId_example", "TokenUrl_example") // PostInstanceOAuthAzureADRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.PostInstanceOAuthAzureAD(context.Background(), instanceId).XRequestId(xRequestId).PostInstanceOAuthAzureADRequest(postInstanceOAuthAzureADRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstanceOAuthAzureAD``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostInstanceOAuthAzureAD`: FormattedApiInstance
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstanceOAuthAzureAD`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostInstanceOAuthAzureADRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **postInstanceOAuthAzureADRequest** | [**PostInstanceOAuthAzureADRequest**](PostInstanceOAuthAzureADRequest.md) |  | 
+
+### Return type
+
+[**FormattedApiInstance**](FormattedApiInstance.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostInstanceOAuthGithub
+
+> FormattedApiInstance PostInstanceOAuthGithub(ctx, instanceId).XRequestId(xRequestId).PostInstanceOAuthGithubRequest(postInstanceOAuthGithubRequest).Execute()
+
+Configure Github OAuth in an instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	postInstanceOAuthGithubRequest := *openapiclient.NewPostInstanceOAuthGithubRequest("ClientId_example") // PostInstanceOAuthGithubRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.PostInstanceOAuthGithub(context.Background(), instanceId).XRequestId(xRequestId).PostInstanceOAuthGithubRequest(postInstanceOAuthGithubRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstanceOAuthGithub``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostInstanceOAuthGithub`: FormattedApiInstance
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstanceOAuthGithub`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostInstanceOAuthGithubRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **postInstanceOAuthGithubRequest** | [**PostInstanceOAuthGithubRequest**](PostInstanceOAuthGithubRequest.md) |  | 
+
+### Return type
+
+[**FormattedApiInstance**](FormattedApiInstance.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostInstanceOAuthGoogle
+
+> FormattedApiInstance PostInstanceOAuthGoogle(ctx, instanceId).XRequestId(xRequestId).PostInstanceOAuthGoogleRequest(postInstanceOAuthGoogleRequest).Execute()
+
+Configure Google OAuth in an instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	postInstanceOAuthGoogleRequest := *openapiclient.NewPostInstanceOAuthGoogleRequest([]string{"AllowedDomains_example"}, "ClientId_example") // PostInstanceOAuthGoogleRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.PostInstanceOAuthGoogle(context.Background(), instanceId).XRequestId(xRequestId).PostInstanceOAuthGoogleRequest(postInstanceOAuthGoogleRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstanceOAuthGoogle``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostInstanceOAuthGoogle`: FormattedApiInstance
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstanceOAuthGoogle`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostInstanceOAuthGoogleRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **postInstanceOAuthGoogleRequest** | [**PostInstanceOAuthGoogleRequest**](PostInstanceOAuthGoogleRequest.md) |  | 
+
+### Return type
+
+[**FormattedApiInstance**](FormattedApiInstance.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostInstanceOAuthOkta
+
+> FormattedApiInstance PostInstanceOAuthOkta(ctx, instanceId).XRequestId(xRequestId).PostInstanceOAuthOktaRequest(postInstanceOAuthOktaRequest).Execute()
+
+Configure Okta OAuth in an instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	postInstanceOAuthOktaRequest := *openapiclient.NewPostInstanceOAuthOktaRequest("ApiUrl_example", "AuthUrl_example", "ClientId_example", "TokenUrl_example") // PostInstanceOAuthOktaRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.PostInstanceOAuthOkta(context.Background(), instanceId).XRequestId(xRequestId).PostInstanceOAuthOktaRequest(postInstanceOAuthOktaRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstanceOAuthOkta``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostInstanceOAuthOkta`: FormattedApiInstance
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstanceOAuthOkta`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostInstanceOAuthOktaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **postInstanceOAuthOktaRequest** | [**PostInstanceOAuthOktaRequest**](PostInstanceOAuthOktaRequest.md) |  | 
 
 ### Return type
 

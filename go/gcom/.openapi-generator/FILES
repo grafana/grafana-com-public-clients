@@ -56,6 +56,10 @@ docs/PostAllApiKeys409Response.md
 docs/PostAllApiKeys503Response.md
 docs/PostAllApiKeysRequest.md
 docs/PostApiKeysRequest.md
+docs/PostInstanceOAuthAzureADRequest.md
+docs/PostInstanceOAuthGithubRequest.md
+docs/PostInstanceOAuthGoogleRequest.md
+docs/PostInstanceOAuthOktaRequest.md
 docs/PostInstancePluginRequest.md
 docs/PostInstancePluginsRequest.md
 docs/PostInstanceRequest.md
@@ -114,6 +118,10 @@ model_post_all_api_keys_409_response.go
 model_post_all_api_keys_503_response.go
 model_post_all_api_keys_request.go
 model_post_api_keys_request.go
+model_post_instance_o_auth_azure_ad_request.go
+model_post_instance_o_auth_github_request.go
+model_post_instance_o_auth_google_request.go
+model_post_instance_o_auth_okta_request.go
 model_post_instance_plugin_request.go
 model_post_instance_plugins_request.go
 model_post_instance_request.go
