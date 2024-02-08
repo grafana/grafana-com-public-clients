@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the PostInstanceRequest type satisfies the MappedNullable interface at compile time
@@ -20,37 +19,18 @@ var _ MappedNullable = &PostInstanceRequest{}
 
 // PostInstanceRequest struct for PostInstanceRequest
 type PostInstanceRequest struct {
-	AlertQuota               *int32     `json:"alertQuota,omitempty"`
-	Alerts                   *bool      `json:"alerts,omitempty"`
-	BillingEndDate           *time.Time `json:"billingEndDate,omitempty"`
-	BillingStartDate         *time.Time `json:"billingStartDate,omitempty"`
-	DashboardQuota           *int32     `json:"dashboardQuota,omitempty"`
-	Description              *string    `json:"description,omitempty"`
-	Gateway                  *string    `json:"gateway,omitempty"`
-	Graphite                 *bool      `json:"graphite,omitempty"`
-	HlInstanceId             *int32     `json:"hlInstanceId,omitempty"`
-	Hosted                   *bool      `json:"hosted,omitempty"`
-	Incident                 *bool      `json:"incident,omitempty"`
-	IssueLink                *string    `json:"issueLink,omitempty"`
-	K6OrgId                  *int32     `json:"k6OrgId,omitempty"`
-	LlmIsOptIn               *bool      `json:"llmIsOptIn,omitempty"`
-	LlmOptInChangedBy        *string    `json:"llmOptInChangedBy,omitempty"`
-	Logs                     *bool      `json:"logs,omitempty"`
-	MachineLearning          *bool      `json:"machineLearning,omitempty"`
-	MachineLearningLogsToken *string    `json:"machineLearningLogsToken,omitempty"`
-	Name                     *string    `json:"name,omitempty"`
-	NoRestart                *bool      `json:"noRestart,omitempty"`
-	Plan                     *string    `json:"plan,omitempty"`
-	Prometheus               *bool      `json:"prometheus,omitempty"`
-	ReasonType               *string    `json:"reasonType,omitempty"`
-	SkipOrgConflictCheck     *bool      `json:"skipOrgConflictCheck,omitempty"`
-	Slug                     *string    `json:"slug,omitempty"`
-	Trial                    *bool      `json:"trial,omitempty"`
-	TrialExpiresAt           *time.Time `json:"trialExpiresAt,omitempty"`
-	Url                      *string    `json:"url,omitempty"`
-	UserQuota                *int32     `json:"userQuota,omitempty"`
-	Version                  *string    `json:"version,omitempty"`
-	AdditionalProperties     map[string]interface{}
+	Alerts               *bool   `json:"alerts,omitempty"`
+	Description          *string `json:"description,omitempty"`
+	Graphite             *bool   `json:"graphite,omitempty"`
+	HlInstanceId         *int32  `json:"hlInstanceId,omitempty"`
+	K6OrgId              *int32  `json:"k6OrgId,omitempty"`
+	Logs                 *bool   `json:"logs,omitempty"`
+	Name                 *string `json:"name,omitempty"`
+	Plan                 *string `json:"plan,omitempty"`
+	Prometheus           *bool   `json:"prometheus,omitempty"`
+	Slug                 *string `json:"slug,omitempty"`
+	Url                  *string `json:"url,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PostInstanceRequest PostInstanceRequest
@@ -70,38 +50,6 @@ func NewPostInstanceRequest() *PostInstanceRequest {
 func NewPostInstanceRequestWithDefaults() *PostInstanceRequest {
 	this := PostInstanceRequest{}
 	return &this
-}
-
-// GetAlertQuota returns the AlertQuota field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetAlertQuota() int32 {
-	if o == nil || IsNil(o.AlertQuota) {
-		var ret int32
-		return ret
-	}
-	return *o.AlertQuota
-}
-
-// GetAlertQuotaOk returns a tuple with the AlertQuota field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetAlertQuotaOk() (*int32, bool) {
-	if o == nil || IsNil(o.AlertQuota) {
-		return nil, false
-	}
-	return o.AlertQuota, true
-}
-
-// HasAlertQuota returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasAlertQuota() bool {
-	if o != nil && !IsNil(o.AlertQuota) {
-		return true
-	}
-
-	return false
-}
-
-// SetAlertQuota gets a reference to the given int32 and assigns it to the AlertQuota field.
-func (o *PostInstanceRequest) SetAlertQuota(v int32) {
-	o.AlertQuota = &v
 }
 
 // GetAlerts returns the Alerts field value if set, zero value otherwise.
@@ -136,102 +84,6 @@ func (o *PostInstanceRequest) SetAlerts(v bool) {
 	o.Alerts = &v
 }
 
-// GetBillingEndDate returns the BillingEndDate field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetBillingEndDate() time.Time {
-	if o == nil || IsNil(o.BillingEndDate) {
-		var ret time.Time
-		return ret
-	}
-	return *o.BillingEndDate
-}
-
-// GetBillingEndDateOk returns a tuple with the BillingEndDate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetBillingEndDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.BillingEndDate) {
-		return nil, false
-	}
-	return o.BillingEndDate, true
-}
-
-// HasBillingEndDate returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasBillingEndDate() bool {
-	if o != nil && !IsNil(o.BillingEndDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetBillingEndDate gets a reference to the given time.Time and assigns it to the BillingEndDate field.
-func (o *PostInstanceRequest) SetBillingEndDate(v time.Time) {
-	o.BillingEndDate = &v
-}
-
-// GetBillingStartDate returns the BillingStartDate field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetBillingStartDate() time.Time {
-	if o == nil || IsNil(o.BillingStartDate) {
-		var ret time.Time
-		return ret
-	}
-	return *o.BillingStartDate
-}
-
-// GetBillingStartDateOk returns a tuple with the BillingStartDate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetBillingStartDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.BillingStartDate) {
-		return nil, false
-	}
-	return o.BillingStartDate, true
-}
-
-// HasBillingStartDate returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasBillingStartDate() bool {
-	if o != nil && !IsNil(o.BillingStartDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetBillingStartDate gets a reference to the given time.Time and assigns it to the BillingStartDate field.
-func (o *PostInstanceRequest) SetBillingStartDate(v time.Time) {
-	o.BillingStartDate = &v
-}
-
-// GetDashboardQuota returns the DashboardQuota field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetDashboardQuota() int32 {
-	if o == nil || IsNil(o.DashboardQuota) {
-		var ret int32
-		return ret
-	}
-	return *o.DashboardQuota
-}
-
-// GetDashboardQuotaOk returns a tuple with the DashboardQuota field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetDashboardQuotaOk() (*int32, bool) {
-	if o == nil || IsNil(o.DashboardQuota) {
-		return nil, false
-	}
-	return o.DashboardQuota, true
-}
-
-// HasDashboardQuota returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasDashboardQuota() bool {
-	if o != nil && !IsNil(o.DashboardQuota) {
-		return true
-	}
-
-	return false
-}
-
-// SetDashboardQuota gets a reference to the given int32 and assigns it to the DashboardQuota field.
-func (o *PostInstanceRequest) SetDashboardQuota(v int32) {
-	o.DashboardQuota = &v
-}
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *PostInstanceRequest) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
@@ -262,38 +114,6 @@ func (o *PostInstanceRequest) HasDescription() bool {
 // SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *PostInstanceRequest) SetDescription(v string) {
 	o.Description = &v
-}
-
-// GetGateway returns the Gateway field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetGateway() string {
-	if o == nil || IsNil(o.Gateway) {
-		var ret string
-		return ret
-	}
-	return *o.Gateway
-}
-
-// GetGatewayOk returns a tuple with the Gateway field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetGatewayOk() (*string, bool) {
-	if o == nil || IsNil(o.Gateway) {
-		return nil, false
-	}
-	return o.Gateway, true
-}
-
-// HasGateway returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasGateway() bool {
-	if o != nil && !IsNil(o.Gateway) {
-		return true
-	}
-
-	return false
-}
-
-// SetGateway gets a reference to the given string and assigns it to the Gateway field.
-func (o *PostInstanceRequest) SetGateway(v string) {
-	o.Gateway = &v
 }
 
 // GetGraphite returns the Graphite field value if set, zero value otherwise.
@@ -360,102 +180,6 @@ func (o *PostInstanceRequest) SetHlInstanceId(v int32) {
 	o.HlInstanceId = &v
 }
 
-// GetHosted returns the Hosted field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetHosted() bool {
-	if o == nil || IsNil(o.Hosted) {
-		var ret bool
-		return ret
-	}
-	return *o.Hosted
-}
-
-// GetHostedOk returns a tuple with the Hosted field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetHostedOk() (*bool, bool) {
-	if o == nil || IsNil(o.Hosted) {
-		return nil, false
-	}
-	return o.Hosted, true
-}
-
-// HasHosted returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasHosted() bool {
-	if o != nil && !IsNil(o.Hosted) {
-		return true
-	}
-
-	return false
-}
-
-// SetHosted gets a reference to the given bool and assigns it to the Hosted field.
-func (o *PostInstanceRequest) SetHosted(v bool) {
-	o.Hosted = &v
-}
-
-// GetIncident returns the Incident field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetIncident() bool {
-	if o == nil || IsNil(o.Incident) {
-		var ret bool
-		return ret
-	}
-	return *o.Incident
-}
-
-// GetIncidentOk returns a tuple with the Incident field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetIncidentOk() (*bool, bool) {
-	if o == nil || IsNil(o.Incident) {
-		return nil, false
-	}
-	return o.Incident, true
-}
-
-// HasIncident returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasIncident() bool {
-	if o != nil && !IsNil(o.Incident) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncident gets a reference to the given bool and assigns it to the Incident field.
-func (o *PostInstanceRequest) SetIncident(v bool) {
-	o.Incident = &v
-}
-
-// GetIssueLink returns the IssueLink field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetIssueLink() string {
-	if o == nil || IsNil(o.IssueLink) {
-		var ret string
-		return ret
-	}
-	return *o.IssueLink
-}
-
-// GetIssueLinkOk returns a tuple with the IssueLink field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetIssueLinkOk() (*string, bool) {
-	if o == nil || IsNil(o.IssueLink) {
-		return nil, false
-	}
-	return o.IssueLink, true
-}
-
-// HasIssueLink returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasIssueLink() bool {
-	if o != nil && !IsNil(o.IssueLink) {
-		return true
-	}
-
-	return false
-}
-
-// SetIssueLink gets a reference to the given string and assigns it to the IssueLink field.
-func (o *PostInstanceRequest) SetIssueLink(v string) {
-	o.IssueLink = &v
-}
-
 // GetK6OrgId returns the K6OrgId field value if set, zero value otherwise.
 func (o *PostInstanceRequest) GetK6OrgId() int32 {
 	if o == nil || IsNil(o.K6OrgId) {
@@ -486,70 +210,6 @@ func (o *PostInstanceRequest) HasK6OrgId() bool {
 // SetK6OrgId gets a reference to the given int32 and assigns it to the K6OrgId field.
 func (o *PostInstanceRequest) SetK6OrgId(v int32) {
 	o.K6OrgId = &v
-}
-
-// GetLlmIsOptIn returns the LlmIsOptIn field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetLlmIsOptIn() bool {
-	if o == nil || IsNil(o.LlmIsOptIn) {
-		var ret bool
-		return ret
-	}
-	return *o.LlmIsOptIn
-}
-
-// GetLlmIsOptInOk returns a tuple with the LlmIsOptIn field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetLlmIsOptInOk() (*bool, bool) {
-	if o == nil || IsNil(o.LlmIsOptIn) {
-		return nil, false
-	}
-	return o.LlmIsOptIn, true
-}
-
-// HasLlmIsOptIn returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasLlmIsOptIn() bool {
-	if o != nil && !IsNil(o.LlmIsOptIn) {
-		return true
-	}
-
-	return false
-}
-
-// SetLlmIsOptIn gets a reference to the given bool and assigns it to the LlmIsOptIn field.
-func (o *PostInstanceRequest) SetLlmIsOptIn(v bool) {
-	o.LlmIsOptIn = &v
-}
-
-// GetLlmOptInChangedBy returns the LlmOptInChangedBy field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetLlmOptInChangedBy() string {
-	if o == nil || IsNil(o.LlmOptInChangedBy) {
-		var ret string
-		return ret
-	}
-	return *o.LlmOptInChangedBy
-}
-
-// GetLlmOptInChangedByOk returns a tuple with the LlmOptInChangedBy field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetLlmOptInChangedByOk() (*string, bool) {
-	if o == nil || IsNil(o.LlmOptInChangedBy) {
-		return nil, false
-	}
-	return o.LlmOptInChangedBy, true
-}
-
-// HasLlmOptInChangedBy returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasLlmOptInChangedBy() bool {
-	if o != nil && !IsNil(o.LlmOptInChangedBy) {
-		return true
-	}
-
-	return false
-}
-
-// SetLlmOptInChangedBy gets a reference to the given string and assigns it to the LlmOptInChangedBy field.
-func (o *PostInstanceRequest) SetLlmOptInChangedBy(v string) {
-	o.LlmOptInChangedBy = &v
 }
 
 // GetLogs returns the Logs field value if set, zero value otherwise.
@@ -584,70 +244,6 @@ func (o *PostInstanceRequest) SetLogs(v bool) {
 	o.Logs = &v
 }
 
-// GetMachineLearning returns the MachineLearning field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetMachineLearning() bool {
-	if o == nil || IsNil(o.MachineLearning) {
-		var ret bool
-		return ret
-	}
-	return *o.MachineLearning
-}
-
-// GetMachineLearningOk returns a tuple with the MachineLearning field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetMachineLearningOk() (*bool, bool) {
-	if o == nil || IsNil(o.MachineLearning) {
-		return nil, false
-	}
-	return o.MachineLearning, true
-}
-
-// HasMachineLearning returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasMachineLearning() bool {
-	if o != nil && !IsNil(o.MachineLearning) {
-		return true
-	}
-
-	return false
-}
-
-// SetMachineLearning gets a reference to the given bool and assigns it to the MachineLearning field.
-func (o *PostInstanceRequest) SetMachineLearning(v bool) {
-	o.MachineLearning = &v
-}
-
-// GetMachineLearningLogsToken returns the MachineLearningLogsToken field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetMachineLearningLogsToken() string {
-	if o == nil || IsNil(o.MachineLearningLogsToken) {
-		var ret string
-		return ret
-	}
-	return *o.MachineLearningLogsToken
-}
-
-// GetMachineLearningLogsTokenOk returns a tuple with the MachineLearningLogsToken field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetMachineLearningLogsTokenOk() (*string, bool) {
-	if o == nil || IsNil(o.MachineLearningLogsToken) {
-		return nil, false
-	}
-	return o.MachineLearningLogsToken, true
-}
-
-// HasMachineLearningLogsToken returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasMachineLearningLogsToken() bool {
-	if o != nil && !IsNil(o.MachineLearningLogsToken) {
-		return true
-	}
-
-	return false
-}
-
-// SetMachineLearningLogsToken gets a reference to the given string and assigns it to the MachineLearningLogsToken field.
-func (o *PostInstanceRequest) SetMachineLearningLogsToken(v string) {
-	o.MachineLearningLogsToken = &v
-}
-
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *PostInstanceRequest) GetName() string {
 	if o == nil || IsNil(o.Name) {
@@ -678,38 +274,6 @@ func (o *PostInstanceRequest) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *PostInstanceRequest) SetName(v string) {
 	o.Name = &v
-}
-
-// GetNoRestart returns the NoRestart field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetNoRestart() bool {
-	if o == nil || IsNil(o.NoRestart) {
-		var ret bool
-		return ret
-	}
-	return *o.NoRestart
-}
-
-// GetNoRestartOk returns a tuple with the NoRestart field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetNoRestartOk() (*bool, bool) {
-	if o == nil || IsNil(o.NoRestart) {
-		return nil, false
-	}
-	return o.NoRestart, true
-}
-
-// HasNoRestart returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasNoRestart() bool {
-	if o != nil && !IsNil(o.NoRestart) {
-		return true
-	}
-
-	return false
-}
-
-// SetNoRestart gets a reference to the given bool and assigns it to the NoRestart field.
-func (o *PostInstanceRequest) SetNoRestart(v bool) {
-	o.NoRestart = &v
 }
 
 // GetPlan returns the Plan field value if set, zero value otherwise.
@@ -776,70 +340,6 @@ func (o *PostInstanceRequest) SetPrometheus(v bool) {
 	o.Prometheus = &v
 }
 
-// GetReasonType returns the ReasonType field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetReasonType() string {
-	if o == nil || IsNil(o.ReasonType) {
-		var ret string
-		return ret
-	}
-	return *o.ReasonType
-}
-
-// GetReasonTypeOk returns a tuple with the ReasonType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetReasonTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ReasonType) {
-		return nil, false
-	}
-	return o.ReasonType, true
-}
-
-// HasReasonType returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasReasonType() bool {
-	if o != nil && !IsNil(o.ReasonType) {
-		return true
-	}
-
-	return false
-}
-
-// SetReasonType gets a reference to the given string and assigns it to the ReasonType field.
-func (o *PostInstanceRequest) SetReasonType(v string) {
-	o.ReasonType = &v
-}
-
-// GetSkipOrgConflictCheck returns the SkipOrgConflictCheck field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetSkipOrgConflictCheck() bool {
-	if o == nil || IsNil(o.SkipOrgConflictCheck) {
-		var ret bool
-		return ret
-	}
-	return *o.SkipOrgConflictCheck
-}
-
-// GetSkipOrgConflictCheckOk returns a tuple with the SkipOrgConflictCheck field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetSkipOrgConflictCheckOk() (*bool, bool) {
-	if o == nil || IsNil(o.SkipOrgConflictCheck) {
-		return nil, false
-	}
-	return o.SkipOrgConflictCheck, true
-}
-
-// HasSkipOrgConflictCheck returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasSkipOrgConflictCheck() bool {
-	if o != nil && !IsNil(o.SkipOrgConflictCheck) {
-		return true
-	}
-
-	return false
-}
-
-// SetSkipOrgConflictCheck gets a reference to the given bool and assigns it to the SkipOrgConflictCheck field.
-func (o *PostInstanceRequest) SetSkipOrgConflictCheck(v bool) {
-	o.SkipOrgConflictCheck = &v
-}
-
 // GetSlug returns the Slug field value if set, zero value otherwise.
 func (o *PostInstanceRequest) GetSlug() string {
 	if o == nil || IsNil(o.Slug) {
@@ -870,70 +370,6 @@ func (o *PostInstanceRequest) HasSlug() bool {
 // SetSlug gets a reference to the given string and assigns it to the Slug field.
 func (o *PostInstanceRequest) SetSlug(v string) {
 	o.Slug = &v
-}
-
-// GetTrial returns the Trial field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetTrial() bool {
-	if o == nil || IsNil(o.Trial) {
-		var ret bool
-		return ret
-	}
-	return *o.Trial
-}
-
-// GetTrialOk returns a tuple with the Trial field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetTrialOk() (*bool, bool) {
-	if o == nil || IsNil(o.Trial) {
-		return nil, false
-	}
-	return o.Trial, true
-}
-
-// HasTrial returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasTrial() bool {
-	if o != nil && !IsNil(o.Trial) {
-		return true
-	}
-
-	return false
-}
-
-// SetTrial gets a reference to the given bool and assigns it to the Trial field.
-func (o *PostInstanceRequest) SetTrial(v bool) {
-	o.Trial = &v
-}
-
-// GetTrialExpiresAt returns the TrialExpiresAt field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetTrialExpiresAt() time.Time {
-	if o == nil || IsNil(o.TrialExpiresAt) {
-		var ret time.Time
-		return ret
-	}
-	return *o.TrialExpiresAt
-}
-
-// GetTrialExpiresAtOk returns a tuple with the TrialExpiresAt field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetTrialExpiresAtOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.TrialExpiresAt) {
-		return nil, false
-	}
-	return o.TrialExpiresAt, true
-}
-
-// HasTrialExpiresAt returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasTrialExpiresAt() bool {
-	if o != nil && !IsNil(o.TrialExpiresAt) {
-		return true
-	}
-
-	return false
-}
-
-// SetTrialExpiresAt gets a reference to the given time.Time and assigns it to the TrialExpiresAt field.
-func (o *PostInstanceRequest) SetTrialExpiresAt(v time.Time) {
-	o.TrialExpiresAt = &v
 }
 
 // GetUrl returns the Url field value if set, zero value otherwise.
@@ -968,70 +404,6 @@ func (o *PostInstanceRequest) SetUrl(v string) {
 	o.Url = &v
 }
 
-// GetUserQuota returns the UserQuota field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetUserQuota() int32 {
-	if o == nil || IsNil(o.UserQuota) {
-		var ret int32
-		return ret
-	}
-	return *o.UserQuota
-}
-
-// GetUserQuotaOk returns a tuple with the UserQuota field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetUserQuotaOk() (*int32, bool) {
-	if o == nil || IsNil(o.UserQuota) {
-		return nil, false
-	}
-	return o.UserQuota, true
-}
-
-// HasUserQuota returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasUserQuota() bool {
-	if o != nil && !IsNil(o.UserQuota) {
-		return true
-	}
-
-	return false
-}
-
-// SetUserQuota gets a reference to the given int32 and assigns it to the UserQuota field.
-func (o *PostInstanceRequest) SetUserQuota(v int32) {
-	o.UserQuota = &v
-}
-
-// GetVersion returns the Version field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetVersion() string {
-	if o == nil || IsNil(o.Version) {
-		var ret string
-		return ret
-	}
-	return *o.Version
-}
-
-// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetVersionOk() (*string, bool) {
-	if o == nil || IsNil(o.Version) {
-		return nil, false
-	}
-	return o.Version, true
-}
-
-// HasVersion returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasVersion() bool {
-	if o != nil && !IsNil(o.Version) {
-		return true
-	}
-
-	return false
-}
-
-// SetVersion gets a reference to the given string and assigns it to the Version field.
-func (o *PostInstanceRequest) SetVersion(v string) {
-	o.Version = &v
-}
-
 func (o PostInstanceRequest) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -1042,26 +414,11 @@ func (o PostInstanceRequest) MarshalJSON() ([]byte, error) {
 
 func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AlertQuota) {
-		toSerialize["alertQuota"] = o.AlertQuota
-	}
 	if !IsNil(o.Alerts) {
 		toSerialize["alerts"] = o.Alerts
 	}
-	if !IsNil(o.BillingEndDate) {
-		toSerialize["billingEndDate"] = o.BillingEndDate
-	}
-	if !IsNil(o.BillingStartDate) {
-		toSerialize["billingStartDate"] = o.BillingStartDate
-	}
-	if !IsNil(o.DashboardQuota) {
-		toSerialize["dashboardQuota"] = o.DashboardQuota
-	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
-	}
-	if !IsNil(o.Gateway) {
-		toSerialize["gateway"] = o.Gateway
 	}
 	if !IsNil(o.Graphite) {
 		toSerialize["graphite"] = o.Graphite
@@ -1069,38 +426,14 @@ func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.HlInstanceId) {
 		toSerialize["hlInstanceId"] = o.HlInstanceId
 	}
-	if !IsNil(o.Hosted) {
-		toSerialize["hosted"] = o.Hosted
-	}
-	if !IsNil(o.Incident) {
-		toSerialize["incident"] = o.Incident
-	}
-	if !IsNil(o.IssueLink) {
-		toSerialize["issueLink"] = o.IssueLink
-	}
 	if !IsNil(o.K6OrgId) {
 		toSerialize["k6OrgId"] = o.K6OrgId
-	}
-	if !IsNil(o.LlmIsOptIn) {
-		toSerialize["llmIsOptIn"] = o.LlmIsOptIn
-	}
-	if !IsNil(o.LlmOptInChangedBy) {
-		toSerialize["llmOptInChangedBy"] = o.LlmOptInChangedBy
 	}
 	if !IsNil(o.Logs) {
 		toSerialize["logs"] = o.Logs
 	}
-	if !IsNil(o.MachineLearning) {
-		toSerialize["machineLearning"] = o.MachineLearning
-	}
-	if !IsNil(o.MachineLearningLogsToken) {
-		toSerialize["machineLearningLogsToken"] = o.MachineLearningLogsToken
-	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.NoRestart) {
-		toSerialize["noRestart"] = o.NoRestart
 	}
 	if !IsNil(o.Plan) {
 		toSerialize["plan"] = o.Plan
@@ -1108,29 +441,11 @@ func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Prometheus) {
 		toSerialize["prometheus"] = o.Prometheus
 	}
-	if !IsNil(o.ReasonType) {
-		toSerialize["reasonType"] = o.ReasonType
-	}
-	if !IsNil(o.SkipOrgConflictCheck) {
-		toSerialize["skipOrgConflictCheck"] = o.SkipOrgConflictCheck
-	}
 	if !IsNil(o.Slug) {
 		toSerialize["slug"] = o.Slug
 	}
-	if !IsNil(o.Trial) {
-		toSerialize["trial"] = o.Trial
-	}
-	if !IsNil(o.TrialExpiresAt) {
-		toSerialize["trialExpiresAt"] = o.TrialExpiresAt
-	}
 	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
-	}
-	if !IsNil(o.UserQuota) {
-		toSerialize["userQuota"] = o.UserQuota
-	}
-	if !IsNil(o.Version) {
-		toSerialize["version"] = o.Version
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -1154,36 +469,17 @@ func (o *PostInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "alertQuota")
 		delete(additionalProperties, "alerts")
-		delete(additionalProperties, "billingEndDate")
-		delete(additionalProperties, "billingStartDate")
-		delete(additionalProperties, "dashboardQuota")
 		delete(additionalProperties, "description")
-		delete(additionalProperties, "gateway")
 		delete(additionalProperties, "graphite")
 		delete(additionalProperties, "hlInstanceId")
-		delete(additionalProperties, "hosted")
-		delete(additionalProperties, "incident")
-		delete(additionalProperties, "issueLink")
 		delete(additionalProperties, "k6OrgId")
-		delete(additionalProperties, "llmIsOptIn")
-		delete(additionalProperties, "llmOptInChangedBy")
 		delete(additionalProperties, "logs")
-		delete(additionalProperties, "machineLearning")
-		delete(additionalProperties, "machineLearningLogsToken")
 		delete(additionalProperties, "name")
-		delete(additionalProperties, "noRestart")
 		delete(additionalProperties, "plan")
 		delete(additionalProperties, "prometheus")
-		delete(additionalProperties, "reasonType")
-		delete(additionalProperties, "skipOrgConflictCheck")
 		delete(additionalProperties, "slug")
-		delete(additionalProperties, "trial")
-		delete(additionalProperties, "trialExpiresAt")
 		delete(additionalProperties, "url")
-		delete(additionalProperties, "userQuota")
-		delete(additionalProperties, "version")
 		o.AdditionalProperties = additionalProperties
 	}
 

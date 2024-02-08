@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: ac7af50
-  x-generated-at: 2024-02-08T17:38:55.045Z
+  x-commit-sha: 40100d4
+  x-generated-at: 2024-02-08T18:42:50.710Z
 servers:
 - description: Main API server
   url: /api
@@ -79,13 +79,6 @@ paths:
       parameters:
       - explode: true
         in: query
-        name: amInstanceId
-        required: false
-        schema:
-          type: integer
-        style: form
-      - explode: true
-        in: query
         name: cluster
         required: false
         schema:
@@ -113,27 +106,6 @@ paths:
         required: false
         schema:
           type: string
-        style: form
-      - explode: true
-        in: query
-        name: hlInstanceId
-        required: false
-        schema:
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: hmInstanceGraphiteId
-        required: false
-        schema:
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: hmInstancePromId
-        required: false
-        schema:
-          type: integer
         style: form
       - explode: true
         in: query
@@ -165,59 +137,10 @@ paths:
         style: form
       - explode: true
         in: query
-        name: incident
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: includeDeleted
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
         name: includePromCurrentActiveSeries
         required: false
         schema:
           type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: includeVersionIssueLink
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: llmIsOptIn
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: llmOptInChangedBy
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: machineLearning
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: machineLearningLogsToken
-        required: false
-        schema:
-          type: string
         style: form
       - explode: true
         in: query
@@ -239,20 +162,6 @@ paths:
         required: false
         schema:
           type: string
-        style: form
-      - explode: true
-        in: query
-        name: orgAccountManagerId
-        required: false
-        schema:
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: orgAccountOwnerId
-        required: false
-        schema:
-          type: integer
         style: form
       - explode: true
         in: query
@@ -280,18 +189,6 @@ paths:
         name: orgSlugIn
         required: false
         schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: orgType
-        required: false
-        schema:
-          enum:
-          - non-staff
-          - vip
-          - fog
-          - staff
           type: string
         style: form
       - explode: true
@@ -331,13 +228,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: search
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: slug
         required: false
         schema:
@@ -359,29 +249,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: trial
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: trialExpiresAtMax
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: trialExpiresAtMin
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: updatedOrCreatedAtMin
         required: false
         schema:
@@ -391,13 +258,6 @@ paths:
       - explode: true
         in: query
         name: url
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: usageStatsId
         required: false
         schema:
           type: string
@@ -585,13 +445,6 @@ paths:
       - explode: true
         in: query
         name: config
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: includeDeleted
         required: false
         schema:
           type: boolean
@@ -845,13 +698,6 @@ paths:
       - explode: true
         in: query
         name: config
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: includeDeleted
         required: false
         schema:
           type: boolean
@@ -2314,13 +2160,6 @@ paths:
         schema:
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: forceBillingUpdate
-        required: false
-        schema:
-          type: boolean
-        style: form
       - explode: false
         in: header
         name: x-request-id
@@ -2412,13 +2251,6 @@ paths:
         required: false
         schema:
           type: string
-        style: form
-      - explode: true
-        in: query
-        name: includeDeleted
-        required: false
-        schema:
-          type: boolean
         style: form
       - explode: true
         in: query
@@ -5797,63 +5629,23 @@ components:
       properties:
         adminUserInstance:
           type: boolean
-        alertQuota:
-          type: integer
         alerts:
           type: boolean
-        amCluster:
-          type: string
-        billingEndDate:
-          format: date-time
-          type: string
-        billingStartDate:
-          format: date-time
-          type: string
         cluster:
           type: string
         createTemporaryLicenseIfMissing:
           type: boolean
-        dashboardQuota:
-          type: integer
         description:
           type: string
         graphite:
           type: boolean
-        hlCluster:
-          type: string
         hlInstanceId:
           type: integer
-        hmGraphiteCluster:
-          type: string
-        hmGraphiteType:
-          enum:
-          - graphite
-          - graphite-shared
-          - graphite-v5
-          type: string
-        hmPromCluster:
-          type: string
         hosted:
           type: boolean
-        htCluster:
-          type: string
-        incident:
-          type: boolean
-        issueLink:
-          type: string
         k6OrgId:
           type: integer
-        llmIsOptIn:
-          type: boolean
-        llmOptInChangedBy:
-          type: string
         logs:
-          type: boolean
-        machineLearning:
-          type: boolean
-        machineLearningLogsToken:
-          type: string
-        multitenant:
           type: boolean
         name:
           type: string
@@ -5884,32 +5676,14 @@ components:
           type: boolean
         publicInstance:
           type: boolean
-        reasonType:
-          enum:
-          - bug
-          - securityVulnerability
-          - customerUpgradeShy
-          - customerBreaksUseCase
-          - customerRequest
-          - other
-          type: string
         region:
           type: string
-        skipOrgConflictCheck:
-          type: boolean
         slug:
-          type: string
-        trial:
-          type: boolean
-        trialExpiresAt:
-          format: date-time
           type: string
         url:
           type: string
         usernameOrEmail:
           type: string
-        userQuota:
-          type: integer
         version:
           type: string
         waitForReadiness:
@@ -5929,78 +5703,27 @@ components:
       type: object
     postInstance_request:
       properties:
-        alertQuota:
-          type: integer
         alerts:
           type: boolean
-        billingEndDate:
-          format: date-time
-          type: string
-        billingStartDate:
-          format: date-time
-          type: string
-        dashboardQuota:
-          type: integer
         description:
-          type: string
-        gateway:
-          enum:
-          - nginx
-          - istio
           type: string
         graphite:
           type: boolean
         hlInstanceId:
           type: integer
-        hosted:
-          type: boolean
-        incident:
-          type: boolean
-        issueLink:
-          type: string
         k6OrgId:
           type: integer
-        llmIsOptIn:
-          type: boolean
-        llmOptInChangedBy:
-          type: string
         logs:
           type: boolean
-        machineLearning:
-          type: boolean
-        machineLearningLogsToken:
-          type: string
         name:
           type: string
-        noRestart:
-          type: boolean
         plan:
           type: string
         prometheus:
           type: boolean
-        reasonType:
-          enum:
-          - bug
-          - securityVulnerability
-          - customerUpgradeShy
-          - customerBreaksUseCase
-          - customerRequest
-          - other
-          type: string
-        skipOrgConflictCheck:
-          type: boolean
         slug:
           type: string
-        trial:
-          type: boolean
-        trialExpiresAt:
-          format: date-time
-          type: string
         url:
-          type: string
-        userQuota:
-          type: integer
-        version:
           type: string
       type: object
     postInstanceServiceAccounts_request:
@@ -6198,8 +5921,6 @@ components:
       type: object
     postInstancePlugin_request:
       properties:
-        noRestart:
-          type: boolean
         version:
           type: string
       type: object
@@ -6226,8 +5947,6 @@ components:
       properties:
         billing:
           type: integer
-        defaultOrg:
-          type: string
         privacy:
           type: string
         role:

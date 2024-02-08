@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Billing** | Pointer to **int32** |  | [optional] 
-**DefaultOrg** | Pointer to **string** |  | [optional] 
 **Privacy** | Pointer to **string** |  | [optional] 
 **Role** | Pointer to **string** |  | [optional] 
 **Username** | **string** |  | 
@@ -53,31 +52,6 @@ SetBilling sets Billing field to given value.
 `func (o *PostOrgMembersRequest) HasBilling() bool`
 
 HasBilling returns a boolean if a field has been set.
-
-### GetDefaultOrg
-
-`func (o *PostOrgMembersRequest) GetDefaultOrg() string`
-
-GetDefaultOrg returns the DefaultOrg field if non-nil, zero value otherwise.
-
-### GetDefaultOrgOk
-
-`func (o *PostOrgMembersRequest) GetDefaultOrgOk() (*string, bool)`
-
-GetDefaultOrgOk returns a tuple with the DefaultOrg field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDefaultOrg
-
-`func (o *PostOrgMembersRequest) SetDefaultOrg(v string)`
-
-SetDefaultOrg sets DefaultOrg field to given value.
-
-### HasDefaultOrg
-
-`func (o *PostOrgMembersRequest) HasDefaultOrg() bool`
-
-HasDefaultOrg returns a boolean if a field has been set.
 
 ### GetPrivacy
 

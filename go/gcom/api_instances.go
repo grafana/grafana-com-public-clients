@@ -1019,20 +1019,14 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 }
 
 type ApiGetConnectionsRequest struct {
-	ctx            context.Context
-	ApiService     *InstancesAPIService
-	instanceId     string
-	config         *bool
-	includeDeleted *bool
+	ctx        context.Context
+	ApiService *InstancesAPIService
+	instanceId string
+	config     *bool
 }
 
 func (r ApiGetConnectionsRequest) Config(config bool) ApiGetConnectionsRequest {
 	r.config = &config
-	return r
-}
-
-func (r ApiGetConnectionsRequest) IncludeDeleted(includeDeleted bool) ApiGetConnectionsRequest {
-	r.includeDeleted = &includeDeleted
 	return r
 }
 
@@ -1079,9 +1073,6 @@ func (a *InstancesAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest) 
 
 	if r.config != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "config", r.config, "")
-	}
-	if r.includeDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeDeleted", r.includeDeleted, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1181,20 +1172,14 @@ func (a *InstancesAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest) 
 }
 
 type ApiGetInstanceRequest struct {
-	ctx            context.Context
-	ApiService     *InstancesAPIService
-	instanceId     string
-	config         *bool
-	includeDeleted *bool
+	ctx        context.Context
+	ApiService *InstancesAPIService
+	instanceId string
+	config     *bool
 }
 
 func (r ApiGetInstanceRequest) Config(config bool) ApiGetInstanceRequest {
 	r.config = &config
-	return r
-}
-
-func (r ApiGetInstanceRequest) IncludeDeleted(includeDeleted bool) ApiGetInstanceRequest {
-	r.includeDeleted = &includeDeleted
 	return r
 }
 
@@ -1241,9 +1226,6 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 
 	if r.config != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "config", r.config, "")
-	}
-	if r.includeDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeDeleted", r.includeDeleted, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1655,60 +1637,36 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 type ApiGetInstancesRequest struct {
 	ctx                            context.Context
 	ApiService                     *InstancesAPIService
-	amInstanceId                   *int32
 	cluster                        *string
 	clusterIdIn                    *[]int32
 	cursor                         *int32
 	direction                      *string
-	hlInstanceId                   *int32
-	hmInstanceGraphiteId           *int32
-	hmInstancePromId               *int32
 	hosted                         *bool
 	id                             *string
 	idIn                           *string
 	idMin                          *int32
-	incident                       *bool
-	includeDeleted                 *bool
 	includePromCurrentActiveSeries *bool
-	includeVersionIssueLink        *bool
-	llmIsOptIn                     *bool
-	llmOptInChangedBy              *string
-	machineLearning                *bool
-	machineLearningLogsToken       *string
 	name                           *string
 	nameIn                         *string
 	orderBy                        *string
-	orgAccountManagerId            *int32
-	orgAccountOwnerId              *int32
 	orgId                          *string
 	orgIdIn                        *string
 	orgSlug                        *string
 	orgSlugIn                      *string
-	orgType                        *string
 	page                           *int32
 	pageSize                       *int32
 	plan                           *string
 	planIn                         *string
 	planNot                        *string
-	search                         *string
 	slug                           *string
 	slugIn                         *string
 	status                         *string
-	trial                          *bool
-	trialExpiresAtMax              *time.Time
-	trialExpiresAtMin              *time.Time
 	updatedOrCreatedAtMin          *time.Time
 	url                            *string
-	usageStatsId                   *string
 	version                        *string
 	versionIn                      *[]string
 	versionNot                     *string
 	versionNotIn                   *[]string
-}
-
-func (r ApiGetInstancesRequest) AmInstanceId(amInstanceId int32) ApiGetInstancesRequest {
-	r.amInstanceId = &amInstanceId
-	return r
 }
 
 func (r ApiGetInstancesRequest) Cluster(cluster string) ApiGetInstancesRequest {
@@ -1728,21 +1686,6 @@ func (r ApiGetInstancesRequest) Cursor(cursor int32) ApiGetInstancesRequest {
 
 func (r ApiGetInstancesRequest) Direction(direction string) ApiGetInstancesRequest {
 	r.direction = &direction
-	return r
-}
-
-func (r ApiGetInstancesRequest) HlInstanceId(hlInstanceId int32) ApiGetInstancesRequest {
-	r.hlInstanceId = &hlInstanceId
-	return r
-}
-
-func (r ApiGetInstancesRequest) HmInstanceGraphiteId(hmInstanceGraphiteId int32) ApiGetInstancesRequest {
-	r.hmInstanceGraphiteId = &hmInstanceGraphiteId
-	return r
-}
-
-func (r ApiGetInstancesRequest) HmInstancePromId(hmInstancePromId int32) ApiGetInstancesRequest {
-	r.hmInstancePromId = &hmInstancePromId
 	return r
 }
 
@@ -1766,43 +1709,8 @@ func (r ApiGetInstancesRequest) IdMin(idMin int32) ApiGetInstancesRequest {
 	return r
 }
 
-func (r ApiGetInstancesRequest) Incident(incident bool) ApiGetInstancesRequest {
-	r.incident = &incident
-	return r
-}
-
-func (r ApiGetInstancesRequest) IncludeDeleted(includeDeleted bool) ApiGetInstancesRequest {
-	r.includeDeleted = &includeDeleted
-	return r
-}
-
 func (r ApiGetInstancesRequest) IncludePromCurrentActiveSeries(includePromCurrentActiveSeries bool) ApiGetInstancesRequest {
 	r.includePromCurrentActiveSeries = &includePromCurrentActiveSeries
-	return r
-}
-
-func (r ApiGetInstancesRequest) IncludeVersionIssueLink(includeVersionIssueLink bool) ApiGetInstancesRequest {
-	r.includeVersionIssueLink = &includeVersionIssueLink
-	return r
-}
-
-func (r ApiGetInstancesRequest) LlmIsOptIn(llmIsOptIn bool) ApiGetInstancesRequest {
-	r.llmIsOptIn = &llmIsOptIn
-	return r
-}
-
-func (r ApiGetInstancesRequest) LlmOptInChangedBy(llmOptInChangedBy string) ApiGetInstancesRequest {
-	r.llmOptInChangedBy = &llmOptInChangedBy
-	return r
-}
-
-func (r ApiGetInstancesRequest) MachineLearning(machineLearning bool) ApiGetInstancesRequest {
-	r.machineLearning = &machineLearning
-	return r
-}
-
-func (r ApiGetInstancesRequest) MachineLearningLogsToken(machineLearningLogsToken string) ApiGetInstancesRequest {
-	r.machineLearningLogsToken = &machineLearningLogsToken
 	return r
 }
 
@@ -1818,16 +1726,6 @@ func (r ApiGetInstancesRequest) NameIn(nameIn string) ApiGetInstancesRequest {
 
 func (r ApiGetInstancesRequest) OrderBy(orderBy string) ApiGetInstancesRequest {
 	r.orderBy = &orderBy
-	return r
-}
-
-func (r ApiGetInstancesRequest) OrgAccountManagerId(orgAccountManagerId int32) ApiGetInstancesRequest {
-	r.orgAccountManagerId = &orgAccountManagerId
-	return r
-}
-
-func (r ApiGetInstancesRequest) OrgAccountOwnerId(orgAccountOwnerId int32) ApiGetInstancesRequest {
-	r.orgAccountOwnerId = &orgAccountOwnerId
 	return r
 }
 
@@ -1848,11 +1746,6 @@ func (r ApiGetInstancesRequest) OrgSlug(orgSlug string) ApiGetInstancesRequest {
 
 func (r ApiGetInstancesRequest) OrgSlugIn(orgSlugIn string) ApiGetInstancesRequest {
 	r.orgSlugIn = &orgSlugIn
-	return r
-}
-
-func (r ApiGetInstancesRequest) OrgType(orgType string) ApiGetInstancesRequest {
-	r.orgType = &orgType
 	return r
 }
 
@@ -1881,11 +1774,6 @@ func (r ApiGetInstancesRequest) PlanNot(planNot string) ApiGetInstancesRequest {
 	return r
 }
 
-func (r ApiGetInstancesRequest) Search(search string) ApiGetInstancesRequest {
-	r.search = &search
-	return r
-}
-
 func (r ApiGetInstancesRequest) Slug(slug string) ApiGetInstancesRequest {
 	r.slug = &slug
 	return r
@@ -1901,21 +1789,6 @@ func (r ApiGetInstancesRequest) Status(status string) ApiGetInstancesRequest {
 	return r
 }
 
-func (r ApiGetInstancesRequest) Trial(trial bool) ApiGetInstancesRequest {
-	r.trial = &trial
-	return r
-}
-
-func (r ApiGetInstancesRequest) TrialExpiresAtMax(trialExpiresAtMax time.Time) ApiGetInstancesRequest {
-	r.trialExpiresAtMax = &trialExpiresAtMax
-	return r
-}
-
-func (r ApiGetInstancesRequest) TrialExpiresAtMin(trialExpiresAtMin time.Time) ApiGetInstancesRequest {
-	r.trialExpiresAtMin = &trialExpiresAtMin
-	return r
-}
-
 func (r ApiGetInstancesRequest) UpdatedOrCreatedAtMin(updatedOrCreatedAtMin time.Time) ApiGetInstancesRequest {
 	r.updatedOrCreatedAtMin = &updatedOrCreatedAtMin
 	return r
@@ -1923,11 +1796,6 @@ func (r ApiGetInstancesRequest) UpdatedOrCreatedAtMin(updatedOrCreatedAtMin time
 
 func (r ApiGetInstancesRequest) Url(url string) ApiGetInstancesRequest {
 	r.url = &url
-	return r
-}
-
-func (r ApiGetInstancesRequest) UsageStatsId(usageStatsId string) ApiGetInstancesRequest {
-	r.usageStatsId = &usageStatsId
 	return r
 }
 
@@ -1989,9 +1857,6 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.amInstanceId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "amInstanceId", r.amInstanceId, "")
-	}
 	if r.cluster != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "cluster", r.cluster, "")
 	}
@@ -2012,15 +1877,6 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	if r.direction != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "")
 	}
-	if r.hlInstanceId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "hlInstanceId", r.hlInstanceId, "")
-	}
-	if r.hmInstanceGraphiteId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "hmInstanceGraphiteId", r.hmInstanceGraphiteId, "")
-	}
-	if r.hmInstancePromId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "hmInstancePromId", r.hmInstancePromId, "")
-	}
 	if r.hosted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "hosted", r.hosted, "")
 	}
@@ -2033,29 +1889,8 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	if r.idMin != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "idMin", r.idMin, "")
 	}
-	if r.incident != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "incident", r.incident, "")
-	}
-	if r.includeDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeDeleted", r.includeDeleted, "")
-	}
 	if r.includePromCurrentActiveSeries != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includePromCurrentActiveSeries", r.includePromCurrentActiveSeries, "")
-	}
-	if r.includeVersionIssueLink != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeVersionIssueLink", r.includeVersionIssueLink, "")
-	}
-	if r.llmIsOptIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "llmIsOptIn", r.llmIsOptIn, "")
-	}
-	if r.llmOptInChangedBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "llmOptInChangedBy", r.llmOptInChangedBy, "")
-	}
-	if r.machineLearning != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "machineLearning", r.machineLearning, "")
-	}
-	if r.machineLearningLogsToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "machineLearningLogsToken", r.machineLearningLogsToken, "")
 	}
 	if r.name != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
@@ -2065,12 +1900,6 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	}
 	if r.orderBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "")
-	}
-	if r.orgAccountManagerId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgAccountManagerId", r.orgAccountManagerId, "")
-	}
-	if r.orgAccountOwnerId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgAccountOwnerId", r.orgAccountOwnerId, "")
 	}
 	if r.orgId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
@@ -2083,9 +1912,6 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	}
 	if r.orgSlugIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "orgSlugIn", r.orgSlugIn, "")
-	}
-	if r.orgType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgType", r.orgType, "")
 	}
 	if r.page != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
@@ -2102,9 +1928,6 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	if r.planNot != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "planNot", r.planNot, "")
 	}
-	if r.search != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "search", r.search, "")
-	}
 	if r.slug != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "")
 	}
@@ -2114,23 +1937,11 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	if r.status != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "")
 	}
-	if r.trial != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "trial", r.trial, "")
-	}
-	if r.trialExpiresAtMax != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "trialExpiresAtMax", r.trialExpiresAtMax, "")
-	}
-	if r.trialExpiresAtMin != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "trialExpiresAtMin", r.trialExpiresAtMin, "")
-	}
 	if r.updatedOrCreatedAtMin != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "updatedOrCreatedAtMin", r.updatedOrCreatedAtMin, "")
 	}
 	if r.url != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "url", r.url, "")
-	}
-	if r.usageStatsId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "usageStatsId", r.usageStatsId, "")
 	}
 	if r.version != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "")

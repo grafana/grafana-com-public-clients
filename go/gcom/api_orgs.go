@@ -859,24 +859,23 @@ func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrgPubl
 }
 
 type ApiGetOrgInstancesRequest struct {
-	ctx            context.Context
-	ApiService     *OrgsAPIService
-	slug           string
-	cluster        *string
-	direction      *string
-	id             *string
-	idIn           *string
-	includeDeleted *bool
-	name           *string
-	nameIn         *string
-	orderBy        *string
-	plan           *string
-	planIn         *string
-	planNot        *string
-	slug2          *string
-	slugIn         *string
-	url            *string
-	urlIn          *string
+	ctx        context.Context
+	ApiService *OrgsAPIService
+	slug       string
+	cluster    *string
+	direction  *string
+	id         *string
+	idIn       *string
+	name       *string
+	nameIn     *string
+	orderBy    *string
+	plan       *string
+	planIn     *string
+	planNot    *string
+	slug2      *string
+	slugIn     *string
+	url        *string
+	urlIn      *string
 }
 
 func (r ApiGetOrgInstancesRequest) Cluster(cluster string) ApiGetOrgInstancesRequest {
@@ -896,11 +895,6 @@ func (r ApiGetOrgInstancesRequest) Id(id string) ApiGetOrgInstancesRequest {
 
 func (r ApiGetOrgInstancesRequest) IdIn(idIn string) ApiGetOrgInstancesRequest {
 	r.idIn = &idIn
-	return r
-}
-
-func (r ApiGetOrgInstancesRequest) IncludeDeleted(includeDeleted bool) ApiGetOrgInstancesRequest {
-	r.includeDeleted = &includeDeleted
 	return r
 }
 
@@ -1006,9 +1000,6 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 	}
 	if r.idIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", r.idIn, "")
-	}
-	if r.includeDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeDeleted", r.includeDeleted, "")
 	}
 	if r.name != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
@@ -1657,7 +1648,6 @@ type ApiPostOrgMemberRequest struct {
 	usernameOrId         string
 	xRequestId           *string
 	postOrgMemberRequest *PostOrgMemberRequest
-	forceBillingUpdate   *bool
 }
 
 func (r ApiPostOrgMemberRequest) XRequestId(xRequestId string) ApiPostOrgMemberRequest {
@@ -1667,11 +1657,6 @@ func (r ApiPostOrgMemberRequest) XRequestId(xRequestId string) ApiPostOrgMemberR
 
 func (r ApiPostOrgMemberRequest) PostOrgMemberRequest(postOrgMemberRequest PostOrgMemberRequest) ApiPostOrgMemberRequest {
 	r.postOrgMemberRequest = &postOrgMemberRequest
-	return r
-}
-
-func (r ApiPostOrgMemberRequest) ForceBillingUpdate(forceBillingUpdate bool) ApiPostOrgMemberRequest {
-	r.forceBillingUpdate = &forceBillingUpdate
 	return r
 }
 
@@ -1725,9 +1710,6 @@ func (a *OrgsAPIService) PostOrgMemberExecute(r ApiPostOrgMemberRequest) (*Forma
 		return localVarReturnValue, nil, reportError("postOrgMemberRequest is required and must be specified")
 	}
 
-	if r.forceBillingUpdate != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "forceBillingUpdate", r.forceBillingUpdate, "")
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

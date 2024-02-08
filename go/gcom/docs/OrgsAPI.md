@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 ## GetOrgInstances
 
-> GetInstances200Response GetOrgInstances(ctx, slug).Cluster(cluster).Direction(direction).Id(id).IdIn(idIn).IncludeDeleted(includeDeleted).Name(name).NameIn(nameIn).OrderBy(orderBy).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug2(slug2).SlugIn(slugIn).Url(url).UrlIn(urlIn).Execute()
+> GetInstances200Response GetOrgInstances(ctx, slug).Cluster(cluster).Direction(direction).Id(id).IdIn(idIn).Name(name).NameIn(nameIn).OrderBy(orderBy).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug2(slug2).SlugIn(slugIn).Url(url).UrlIn(urlIn).Execute()
 
 Get the list of instances belonging to the org
 
@@ -409,7 +409,6 @@ func main() {
 	direction := "direction_example" // string |  (optional)
 	id := "id_example" // string |  (optional)
 	idIn := "idIn_example" // string |  (optional)
-	includeDeleted := true // bool |  (optional)
 	name := "name_example" // string |  (optional)
 	nameIn := "nameIn_example" // string |  (optional)
 	orderBy := "orderBy_example" // string |  (optional)
@@ -423,7 +422,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrgsAPI.GetOrgInstances(context.Background(), slug).Cluster(cluster).Direction(direction).Id(id).IdIn(idIn).IncludeDeleted(includeDeleted).Name(name).NameIn(nameIn).OrderBy(orderBy).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug2(slug2).SlugIn(slugIn).Url(url).UrlIn(urlIn).Execute()
+	resp, r, err := apiClient.OrgsAPI.GetOrgInstances(context.Background(), slug).Cluster(cluster).Direction(direction).Id(id).IdIn(idIn).Name(name).NameIn(nameIn).OrderBy(orderBy).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug2(slug2).SlugIn(slugIn).Url(url).UrlIn(urlIn).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrgsAPI.GetOrgInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -453,7 +452,6 @@ Name | Type | Description  | Notes
  **direction** | **string** |  | 
  **id** | **string** |  | 
  **idIn** | **string** |  | 
- **includeDeleted** | **bool** |  | 
  **name** | **string** |  | 
  **nameIn** | **string** |  | 
  **orderBy** | **string** |  | 
@@ -706,7 +704,7 @@ Name | Type | Description  | Notes
 
 ## PostOrgMember
 
-> FormattedOrgMembership PostOrgMember(ctx, slugOrId, usernameOrId).XRequestId(xRequestId).PostOrgMemberRequest(postOrgMemberRequest).ForceBillingUpdate(forceBillingUpdate).Execute()
+> FormattedOrgMembership PostOrgMember(ctx, slugOrId, usernameOrId).XRequestId(xRequestId).PostOrgMemberRequest(postOrgMemberRequest).Execute()
 
 
 
@@ -727,11 +725,10 @@ func main() {
 	usernameOrId := "usernameOrId_example" // string | 
 	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
 	postOrgMemberRequest := *openapiclient.NewPostOrgMemberRequest() // PostOrgMemberRequest | 
-	forceBillingUpdate := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrgsAPI.PostOrgMember(context.Background(), slugOrId, usernameOrId).XRequestId(xRequestId).PostOrgMemberRequest(postOrgMemberRequest).ForceBillingUpdate(forceBillingUpdate).Execute()
+	resp, r, err := apiClient.OrgsAPI.PostOrgMember(context.Background(), slugOrId, usernameOrId).XRequestId(xRequestId).PostOrgMemberRequest(postOrgMemberRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrgsAPI.PostOrgMember``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -761,7 +758,6 @@ Name | Type | Description  | Notes
 
  **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
  **postOrgMemberRequest** | [**PostOrgMemberRequest**](PostOrgMemberRequest.md) |  | 
- **forceBillingUpdate** | **bool** |  | 
 
 ### Return type
 

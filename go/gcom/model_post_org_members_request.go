@@ -21,7 +21,6 @@ var _ MappedNullable = &PostOrgMembersRequest{}
 // PostOrgMembersRequest struct for PostOrgMembersRequest
 type PostOrgMembersRequest struct {
 	Billing              *int32  `json:"billing,omitempty"`
-	DefaultOrg           *string `json:"defaultOrg,omitempty"`
 	Privacy              *string `json:"privacy,omitempty"`
 	Role                 *string `json:"role,omitempty"`
 	Username             string  `json:"username"`
@@ -78,38 +77,6 @@ func (o *PostOrgMembersRequest) HasBilling() bool {
 // SetBilling gets a reference to the given int32 and assigns it to the Billing field.
 func (o *PostOrgMembersRequest) SetBilling(v int32) {
 	o.Billing = &v
-}
-
-// GetDefaultOrg returns the DefaultOrg field value if set, zero value otherwise.
-func (o *PostOrgMembersRequest) GetDefaultOrg() string {
-	if o == nil || IsNil(o.DefaultOrg) {
-		var ret string
-		return ret
-	}
-	return *o.DefaultOrg
-}
-
-// GetDefaultOrgOk returns a tuple with the DefaultOrg field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostOrgMembersRequest) GetDefaultOrgOk() (*string, bool) {
-	if o == nil || IsNil(o.DefaultOrg) {
-		return nil, false
-	}
-	return o.DefaultOrg, true
-}
-
-// HasDefaultOrg returns a boolean if a field has been set.
-func (o *PostOrgMembersRequest) HasDefaultOrg() bool {
-	if o != nil && !IsNil(o.DefaultOrg) {
-		return true
-	}
-
-	return false
-}
-
-// SetDefaultOrg gets a reference to the given string and assigns it to the DefaultOrg field.
-func (o *PostOrgMembersRequest) SetDefaultOrg(v string) {
-	o.DefaultOrg = &v
 }
 
 // GetPrivacy returns the Privacy field value if set, zero value otherwise.
@@ -213,9 +180,6 @@ func (o PostOrgMembersRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Billing) {
 		toSerialize["billing"] = o.Billing
 	}
-	if !IsNil(o.DefaultOrg) {
-		toSerialize["defaultOrg"] = o.DefaultOrg
-	}
 	if !IsNil(o.Privacy) {
 		toSerialize["privacy"] = o.Privacy
 	}
@@ -267,7 +231,6 @@ func (o *PostOrgMembersRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "billing")
-		delete(additionalProperties, "defaultOrg")
 		delete(additionalProperties, "privacy")
 		delete(additionalProperties, "role")
 		delete(additionalProperties, "username")

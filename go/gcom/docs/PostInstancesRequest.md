@@ -5,47 +5,25 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdminUserInstance** | Pointer to **bool** |  | [optional] 
-**AlertQuota** | Pointer to **int32** |  | [optional] 
 **Alerts** | Pointer to **bool** |  | [optional] 
-**AmCluster** | Pointer to **string** |  | [optional] 
-**BillingEndDate** | Pointer to **time.Time** |  | [optional] 
-**BillingStartDate** | Pointer to **time.Time** |  | [optional] 
 **Cluster** | Pointer to **string** |  | [optional] 
 **CreateTemporaryLicenseIfMissing** | Pointer to **bool** |  | [optional] 
-**DashboardQuota** | Pointer to **int32** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Graphite** | Pointer to **bool** |  | [optional] 
-**HlCluster** | Pointer to **string** |  | [optional] 
 **HlInstanceId** | Pointer to **int32** |  | [optional] 
-**HmGraphiteCluster** | Pointer to **string** |  | [optional] 
-**HmGraphiteType** | Pointer to **string** |  | [optional] 
-**HmPromCluster** | Pointer to **string** |  | [optional] 
 **Hosted** | Pointer to **bool** |  | [optional] 
-**HtCluster** | Pointer to **string** |  | [optional] 
-**Incident** | Pointer to **bool** |  | [optional] 
-**IssueLink** | Pointer to **string** |  | [optional] 
 **K6OrgId** | Pointer to **int32** |  | [optional] 
-**LlmIsOptIn** | Pointer to **bool** |  | [optional] 
-**LlmOptInChangedBy** | Pointer to **string** |  | [optional] 
 **Logs** | Pointer to **bool** |  | [optional] 
-**MachineLearning** | Pointer to **bool** |  | [optional] 
-**MachineLearningLogsToken** | Pointer to **string** |  | [optional] 
-**Multitenant** | Pointer to **bool** |  | [optional] 
 **Name** | **string** |  | 
 **Org** | Pointer to **string** |  | [optional] 
 **Plan** | Pointer to **string** |  | [optional] 
 **Plugins** | Pointer to **[]string** |  | [optional] 
 **Prometheus** | Pointer to **bool** |  | [optional] 
 **PublicInstance** | Pointer to **bool** |  | [optional] 
-**ReasonType** | Pointer to **string** |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
-**SkipOrgConflictCheck** | Pointer to **bool** |  | [optional] 
 **Slug** | Pointer to **string** |  | [optional] 
-**Trial** | Pointer to **bool** |  | [optional] 
-**TrialExpiresAt** | Pointer to **time.Time** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
 **UsernameOrEmail** | Pointer to **string** |  | [optional] 
-**UserQuota** | Pointer to **int32** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 **WaitForReadiness** | Pointer to **bool** |  | [optional] [default to true]
 
@@ -93,31 +71,6 @@ SetAdminUserInstance sets AdminUserInstance field to given value.
 
 HasAdminUserInstance returns a boolean if a field has been set.
 
-### GetAlertQuota
-
-`func (o *PostInstancesRequest) GetAlertQuota() int32`
-
-GetAlertQuota returns the AlertQuota field if non-nil, zero value otherwise.
-
-### GetAlertQuotaOk
-
-`func (o *PostInstancesRequest) GetAlertQuotaOk() (*int32, bool)`
-
-GetAlertQuotaOk returns a tuple with the AlertQuota field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAlertQuota
-
-`func (o *PostInstancesRequest) SetAlertQuota(v int32)`
-
-SetAlertQuota sets AlertQuota field to given value.
-
-### HasAlertQuota
-
-`func (o *PostInstancesRequest) HasAlertQuota() bool`
-
-HasAlertQuota returns a boolean if a field has been set.
-
 ### GetAlerts
 
 `func (o *PostInstancesRequest) GetAlerts() bool`
@@ -142,81 +95,6 @@ SetAlerts sets Alerts field to given value.
 `func (o *PostInstancesRequest) HasAlerts() bool`
 
 HasAlerts returns a boolean if a field has been set.
-
-### GetAmCluster
-
-`func (o *PostInstancesRequest) GetAmCluster() string`
-
-GetAmCluster returns the AmCluster field if non-nil, zero value otherwise.
-
-### GetAmClusterOk
-
-`func (o *PostInstancesRequest) GetAmClusterOk() (*string, bool)`
-
-GetAmClusterOk returns a tuple with the AmCluster field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAmCluster
-
-`func (o *PostInstancesRequest) SetAmCluster(v string)`
-
-SetAmCluster sets AmCluster field to given value.
-
-### HasAmCluster
-
-`func (o *PostInstancesRequest) HasAmCluster() bool`
-
-HasAmCluster returns a boolean if a field has been set.
-
-### GetBillingEndDate
-
-`func (o *PostInstancesRequest) GetBillingEndDate() time.Time`
-
-GetBillingEndDate returns the BillingEndDate field if non-nil, zero value otherwise.
-
-### GetBillingEndDateOk
-
-`func (o *PostInstancesRequest) GetBillingEndDateOk() (*time.Time, bool)`
-
-GetBillingEndDateOk returns a tuple with the BillingEndDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBillingEndDate
-
-`func (o *PostInstancesRequest) SetBillingEndDate(v time.Time)`
-
-SetBillingEndDate sets BillingEndDate field to given value.
-
-### HasBillingEndDate
-
-`func (o *PostInstancesRequest) HasBillingEndDate() bool`
-
-HasBillingEndDate returns a boolean if a field has been set.
-
-### GetBillingStartDate
-
-`func (o *PostInstancesRequest) GetBillingStartDate() time.Time`
-
-GetBillingStartDate returns the BillingStartDate field if non-nil, zero value otherwise.
-
-### GetBillingStartDateOk
-
-`func (o *PostInstancesRequest) GetBillingStartDateOk() (*time.Time, bool)`
-
-GetBillingStartDateOk returns a tuple with the BillingStartDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBillingStartDate
-
-`func (o *PostInstancesRequest) SetBillingStartDate(v time.Time)`
-
-SetBillingStartDate sets BillingStartDate field to given value.
-
-### HasBillingStartDate
-
-`func (o *PostInstancesRequest) HasBillingStartDate() bool`
-
-HasBillingStartDate returns a boolean if a field has been set.
 
 ### GetCluster
 
@@ -268,31 +146,6 @@ SetCreateTemporaryLicenseIfMissing sets CreateTemporaryLicenseIfMissing field to
 
 HasCreateTemporaryLicenseIfMissing returns a boolean if a field has been set.
 
-### GetDashboardQuota
-
-`func (o *PostInstancesRequest) GetDashboardQuota() int32`
-
-GetDashboardQuota returns the DashboardQuota field if non-nil, zero value otherwise.
-
-### GetDashboardQuotaOk
-
-`func (o *PostInstancesRequest) GetDashboardQuotaOk() (*int32, bool)`
-
-GetDashboardQuotaOk returns a tuple with the DashboardQuota field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDashboardQuota
-
-`func (o *PostInstancesRequest) SetDashboardQuota(v int32)`
-
-SetDashboardQuota sets DashboardQuota field to given value.
-
-### HasDashboardQuota
-
-`func (o *PostInstancesRequest) HasDashboardQuota() bool`
-
-HasDashboardQuota returns a boolean if a field has been set.
-
 ### GetDescription
 
 `func (o *PostInstancesRequest) GetDescription() string`
@@ -343,31 +196,6 @@ SetGraphite sets Graphite field to given value.
 
 HasGraphite returns a boolean if a field has been set.
 
-### GetHlCluster
-
-`func (o *PostInstancesRequest) GetHlCluster() string`
-
-GetHlCluster returns the HlCluster field if non-nil, zero value otherwise.
-
-### GetHlClusterOk
-
-`func (o *PostInstancesRequest) GetHlClusterOk() (*string, bool)`
-
-GetHlClusterOk returns a tuple with the HlCluster field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHlCluster
-
-`func (o *PostInstancesRequest) SetHlCluster(v string)`
-
-SetHlCluster sets HlCluster field to given value.
-
-### HasHlCluster
-
-`func (o *PostInstancesRequest) HasHlCluster() bool`
-
-HasHlCluster returns a boolean if a field has been set.
-
 ### GetHlInstanceId
 
 `func (o *PostInstancesRequest) GetHlInstanceId() int32`
@@ -392,81 +220,6 @@ SetHlInstanceId sets HlInstanceId field to given value.
 `func (o *PostInstancesRequest) HasHlInstanceId() bool`
 
 HasHlInstanceId returns a boolean if a field has been set.
-
-### GetHmGraphiteCluster
-
-`func (o *PostInstancesRequest) GetHmGraphiteCluster() string`
-
-GetHmGraphiteCluster returns the HmGraphiteCluster field if non-nil, zero value otherwise.
-
-### GetHmGraphiteClusterOk
-
-`func (o *PostInstancesRequest) GetHmGraphiteClusterOk() (*string, bool)`
-
-GetHmGraphiteClusterOk returns a tuple with the HmGraphiteCluster field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHmGraphiteCluster
-
-`func (o *PostInstancesRequest) SetHmGraphiteCluster(v string)`
-
-SetHmGraphiteCluster sets HmGraphiteCluster field to given value.
-
-### HasHmGraphiteCluster
-
-`func (o *PostInstancesRequest) HasHmGraphiteCluster() bool`
-
-HasHmGraphiteCluster returns a boolean if a field has been set.
-
-### GetHmGraphiteType
-
-`func (o *PostInstancesRequest) GetHmGraphiteType() string`
-
-GetHmGraphiteType returns the HmGraphiteType field if non-nil, zero value otherwise.
-
-### GetHmGraphiteTypeOk
-
-`func (o *PostInstancesRequest) GetHmGraphiteTypeOk() (*string, bool)`
-
-GetHmGraphiteTypeOk returns a tuple with the HmGraphiteType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHmGraphiteType
-
-`func (o *PostInstancesRequest) SetHmGraphiteType(v string)`
-
-SetHmGraphiteType sets HmGraphiteType field to given value.
-
-### HasHmGraphiteType
-
-`func (o *PostInstancesRequest) HasHmGraphiteType() bool`
-
-HasHmGraphiteType returns a boolean if a field has been set.
-
-### GetHmPromCluster
-
-`func (o *PostInstancesRequest) GetHmPromCluster() string`
-
-GetHmPromCluster returns the HmPromCluster field if non-nil, zero value otherwise.
-
-### GetHmPromClusterOk
-
-`func (o *PostInstancesRequest) GetHmPromClusterOk() (*string, bool)`
-
-GetHmPromClusterOk returns a tuple with the HmPromCluster field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHmPromCluster
-
-`func (o *PostInstancesRequest) SetHmPromCluster(v string)`
-
-SetHmPromCluster sets HmPromCluster field to given value.
-
-### HasHmPromCluster
-
-`func (o *PostInstancesRequest) HasHmPromCluster() bool`
-
-HasHmPromCluster returns a boolean if a field has been set.
 
 ### GetHosted
 
@@ -493,81 +246,6 @@ SetHosted sets Hosted field to given value.
 
 HasHosted returns a boolean if a field has been set.
 
-### GetHtCluster
-
-`func (o *PostInstancesRequest) GetHtCluster() string`
-
-GetHtCluster returns the HtCluster field if non-nil, zero value otherwise.
-
-### GetHtClusterOk
-
-`func (o *PostInstancesRequest) GetHtClusterOk() (*string, bool)`
-
-GetHtClusterOk returns a tuple with the HtCluster field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHtCluster
-
-`func (o *PostInstancesRequest) SetHtCluster(v string)`
-
-SetHtCluster sets HtCluster field to given value.
-
-### HasHtCluster
-
-`func (o *PostInstancesRequest) HasHtCluster() bool`
-
-HasHtCluster returns a boolean if a field has been set.
-
-### GetIncident
-
-`func (o *PostInstancesRequest) GetIncident() bool`
-
-GetIncident returns the Incident field if non-nil, zero value otherwise.
-
-### GetIncidentOk
-
-`func (o *PostInstancesRequest) GetIncidentOk() (*bool, bool)`
-
-GetIncidentOk returns a tuple with the Incident field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIncident
-
-`func (o *PostInstancesRequest) SetIncident(v bool)`
-
-SetIncident sets Incident field to given value.
-
-### HasIncident
-
-`func (o *PostInstancesRequest) HasIncident() bool`
-
-HasIncident returns a boolean if a field has been set.
-
-### GetIssueLink
-
-`func (o *PostInstancesRequest) GetIssueLink() string`
-
-GetIssueLink returns the IssueLink field if non-nil, zero value otherwise.
-
-### GetIssueLinkOk
-
-`func (o *PostInstancesRequest) GetIssueLinkOk() (*string, bool)`
-
-GetIssueLinkOk returns a tuple with the IssueLink field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIssueLink
-
-`func (o *PostInstancesRequest) SetIssueLink(v string)`
-
-SetIssueLink sets IssueLink field to given value.
-
-### HasIssueLink
-
-`func (o *PostInstancesRequest) HasIssueLink() bool`
-
-HasIssueLink returns a boolean if a field has been set.
-
 ### GetK6OrgId
 
 `func (o *PostInstancesRequest) GetK6OrgId() int32`
@@ -593,56 +271,6 @@ SetK6OrgId sets K6OrgId field to given value.
 
 HasK6OrgId returns a boolean if a field has been set.
 
-### GetLlmIsOptIn
-
-`func (o *PostInstancesRequest) GetLlmIsOptIn() bool`
-
-GetLlmIsOptIn returns the LlmIsOptIn field if non-nil, zero value otherwise.
-
-### GetLlmIsOptInOk
-
-`func (o *PostInstancesRequest) GetLlmIsOptInOk() (*bool, bool)`
-
-GetLlmIsOptInOk returns a tuple with the LlmIsOptIn field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLlmIsOptIn
-
-`func (o *PostInstancesRequest) SetLlmIsOptIn(v bool)`
-
-SetLlmIsOptIn sets LlmIsOptIn field to given value.
-
-### HasLlmIsOptIn
-
-`func (o *PostInstancesRequest) HasLlmIsOptIn() bool`
-
-HasLlmIsOptIn returns a boolean if a field has been set.
-
-### GetLlmOptInChangedBy
-
-`func (o *PostInstancesRequest) GetLlmOptInChangedBy() string`
-
-GetLlmOptInChangedBy returns the LlmOptInChangedBy field if non-nil, zero value otherwise.
-
-### GetLlmOptInChangedByOk
-
-`func (o *PostInstancesRequest) GetLlmOptInChangedByOk() (*string, bool)`
-
-GetLlmOptInChangedByOk returns a tuple with the LlmOptInChangedBy field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLlmOptInChangedBy
-
-`func (o *PostInstancesRequest) SetLlmOptInChangedBy(v string)`
-
-SetLlmOptInChangedBy sets LlmOptInChangedBy field to given value.
-
-### HasLlmOptInChangedBy
-
-`func (o *PostInstancesRequest) HasLlmOptInChangedBy() bool`
-
-HasLlmOptInChangedBy returns a boolean if a field has been set.
-
 ### GetLogs
 
 `func (o *PostInstancesRequest) GetLogs() bool`
@@ -667,81 +295,6 @@ SetLogs sets Logs field to given value.
 `func (o *PostInstancesRequest) HasLogs() bool`
 
 HasLogs returns a boolean if a field has been set.
-
-### GetMachineLearning
-
-`func (o *PostInstancesRequest) GetMachineLearning() bool`
-
-GetMachineLearning returns the MachineLearning field if non-nil, zero value otherwise.
-
-### GetMachineLearningOk
-
-`func (o *PostInstancesRequest) GetMachineLearningOk() (*bool, bool)`
-
-GetMachineLearningOk returns a tuple with the MachineLearning field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMachineLearning
-
-`func (o *PostInstancesRequest) SetMachineLearning(v bool)`
-
-SetMachineLearning sets MachineLearning field to given value.
-
-### HasMachineLearning
-
-`func (o *PostInstancesRequest) HasMachineLearning() bool`
-
-HasMachineLearning returns a boolean if a field has been set.
-
-### GetMachineLearningLogsToken
-
-`func (o *PostInstancesRequest) GetMachineLearningLogsToken() string`
-
-GetMachineLearningLogsToken returns the MachineLearningLogsToken field if non-nil, zero value otherwise.
-
-### GetMachineLearningLogsTokenOk
-
-`func (o *PostInstancesRequest) GetMachineLearningLogsTokenOk() (*string, bool)`
-
-GetMachineLearningLogsTokenOk returns a tuple with the MachineLearningLogsToken field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMachineLearningLogsToken
-
-`func (o *PostInstancesRequest) SetMachineLearningLogsToken(v string)`
-
-SetMachineLearningLogsToken sets MachineLearningLogsToken field to given value.
-
-### HasMachineLearningLogsToken
-
-`func (o *PostInstancesRequest) HasMachineLearningLogsToken() bool`
-
-HasMachineLearningLogsToken returns a boolean if a field has been set.
-
-### GetMultitenant
-
-`func (o *PostInstancesRequest) GetMultitenant() bool`
-
-GetMultitenant returns the Multitenant field if non-nil, zero value otherwise.
-
-### GetMultitenantOk
-
-`func (o *PostInstancesRequest) GetMultitenantOk() (*bool, bool)`
-
-GetMultitenantOk returns a tuple with the Multitenant field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMultitenant
-
-`func (o *PostInstancesRequest) SetMultitenant(v bool)`
-
-SetMultitenant sets Multitenant field to given value.
-
-### HasMultitenant
-
-`func (o *PostInstancesRequest) HasMultitenant() bool`
-
-HasMultitenant returns a boolean if a field has been set.
 
 ### GetName
 
@@ -888,31 +441,6 @@ SetPublicInstance sets PublicInstance field to given value.
 
 HasPublicInstance returns a boolean if a field has been set.
 
-### GetReasonType
-
-`func (o *PostInstancesRequest) GetReasonType() string`
-
-GetReasonType returns the ReasonType field if non-nil, zero value otherwise.
-
-### GetReasonTypeOk
-
-`func (o *PostInstancesRequest) GetReasonTypeOk() (*string, bool)`
-
-GetReasonTypeOk returns a tuple with the ReasonType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReasonType
-
-`func (o *PostInstancesRequest) SetReasonType(v string)`
-
-SetReasonType sets ReasonType field to given value.
-
-### HasReasonType
-
-`func (o *PostInstancesRequest) HasReasonType() bool`
-
-HasReasonType returns a boolean if a field has been set.
-
 ### GetRegion
 
 `func (o *PostInstancesRequest) GetRegion() string`
@@ -938,31 +466,6 @@ SetRegion sets Region field to given value.
 
 HasRegion returns a boolean if a field has been set.
 
-### GetSkipOrgConflictCheck
-
-`func (o *PostInstancesRequest) GetSkipOrgConflictCheck() bool`
-
-GetSkipOrgConflictCheck returns the SkipOrgConflictCheck field if non-nil, zero value otherwise.
-
-### GetSkipOrgConflictCheckOk
-
-`func (o *PostInstancesRequest) GetSkipOrgConflictCheckOk() (*bool, bool)`
-
-GetSkipOrgConflictCheckOk returns a tuple with the SkipOrgConflictCheck field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSkipOrgConflictCheck
-
-`func (o *PostInstancesRequest) SetSkipOrgConflictCheck(v bool)`
-
-SetSkipOrgConflictCheck sets SkipOrgConflictCheck field to given value.
-
-### HasSkipOrgConflictCheck
-
-`func (o *PostInstancesRequest) HasSkipOrgConflictCheck() bool`
-
-HasSkipOrgConflictCheck returns a boolean if a field has been set.
-
 ### GetSlug
 
 `func (o *PostInstancesRequest) GetSlug() string`
@@ -987,56 +490,6 @@ SetSlug sets Slug field to given value.
 `func (o *PostInstancesRequest) HasSlug() bool`
 
 HasSlug returns a boolean if a field has been set.
-
-### GetTrial
-
-`func (o *PostInstancesRequest) GetTrial() bool`
-
-GetTrial returns the Trial field if non-nil, zero value otherwise.
-
-### GetTrialOk
-
-`func (o *PostInstancesRequest) GetTrialOk() (*bool, bool)`
-
-GetTrialOk returns a tuple with the Trial field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTrial
-
-`func (o *PostInstancesRequest) SetTrial(v bool)`
-
-SetTrial sets Trial field to given value.
-
-### HasTrial
-
-`func (o *PostInstancesRequest) HasTrial() bool`
-
-HasTrial returns a boolean if a field has been set.
-
-### GetTrialExpiresAt
-
-`func (o *PostInstancesRequest) GetTrialExpiresAt() time.Time`
-
-GetTrialExpiresAt returns the TrialExpiresAt field if non-nil, zero value otherwise.
-
-### GetTrialExpiresAtOk
-
-`func (o *PostInstancesRequest) GetTrialExpiresAtOk() (*time.Time, bool)`
-
-GetTrialExpiresAtOk returns a tuple with the TrialExpiresAt field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTrialExpiresAt
-
-`func (o *PostInstancesRequest) SetTrialExpiresAt(v time.Time)`
-
-SetTrialExpiresAt sets TrialExpiresAt field to given value.
-
-### HasTrialExpiresAt
-
-`func (o *PostInstancesRequest) HasTrialExpiresAt() bool`
-
-HasTrialExpiresAt returns a boolean if a field has been set.
 
 ### GetUrl
 
@@ -1087,31 +540,6 @@ SetUsernameOrEmail sets UsernameOrEmail field to given value.
 `func (o *PostInstancesRequest) HasUsernameOrEmail() bool`
 
 HasUsernameOrEmail returns a boolean if a field has been set.
-
-### GetUserQuota
-
-`func (o *PostInstancesRequest) GetUserQuota() int32`
-
-GetUserQuota returns the UserQuota field if non-nil, zero value otherwise.
-
-### GetUserQuotaOk
-
-`func (o *PostInstancesRequest) GetUserQuotaOk() (*int32, bool)`
-
-GetUserQuotaOk returns a tuple with the UserQuota field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUserQuota
-
-`func (o *PostInstancesRequest) SetUserQuota(v int32)`
-
-SetUserQuota sets UserQuota field to given value.
-
-### HasUserQuota
-
-`func (o *PostInstancesRequest) HasUserQuota() bool`
-
-HasUserQuota returns a boolean if a field has been set.
 
 ### GetVersion
 

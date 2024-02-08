@@ -453,7 +453,7 @@ Name | Type | Description  | Notes
 
 ## GetConnections
 
-> FormattedApiInstanceConnections GetConnections(ctx, instanceId).Config(config).IncludeDeleted(includeDeleted).Execute()
+> FormattedApiInstanceConnections GetConnections(ctx, instanceId).Config(config).Execute()
 
 Gets an instance's connectivity information (InfluxDB, OTEL, AWS private link, etc.)
 
@@ -472,11 +472,10 @@ import (
 func main() {
 	instanceId := "instanceId_example" // string | 
 	config := true // bool |  (optional)
-	includeDeleted := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.GetConnections(context.Background(), instanceId).Config(config).IncludeDeleted(includeDeleted).Execute()
+	resp, r, err := apiClient.InstancesAPI.GetConnections(context.Background(), instanceId).Config(config).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetConnections``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -503,7 +502,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **config** | **bool** |  | 
- **includeDeleted** | **bool** |  | 
 
 ### Return type
 
@@ -525,7 +523,7 @@ Name | Type | Description  | Notes
 
 ## GetInstance
 
-> FormattedApiInstance GetInstance(ctx, instanceId).Config(config).IncludeDeleted(includeDeleted).Execute()
+> FormattedApiInstance GetInstance(ctx, instanceId).Config(config).Execute()
 
 Gets an instance
 
@@ -544,11 +542,10 @@ import (
 func main() {
 	instanceId := "instanceId_example" // string | 
 	config := true // bool |  (optional)
-	includeDeleted := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.GetInstance(context.Background(), instanceId).Config(config).IncludeDeleted(includeDeleted).Execute()
+	resp, r, err := apiClient.InstancesAPI.GetInstance(context.Background(), instanceId).Config(config).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstance``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -575,7 +572,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **config** | **bool** |  | 
- **includeDeleted** | **bool** |  | 
 
 ### Return type
 
@@ -740,7 +736,7 @@ Name | Type | Description  | Notes
 
 ## GetInstances
 
-> GetInstances200Response GetInstances(ctx).AmInstanceId(amInstanceId).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).HlInstanceId(hlInstanceId).HmInstanceGraphiteId(hmInstanceGraphiteId).HmInstancePromId(hmInstancePromId).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).Incident(incident).IncludeDeleted(includeDeleted).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).IncludeVersionIssueLink(includeVersionIssueLink).LlmIsOptIn(llmIsOptIn).LlmOptInChangedBy(llmOptInChangedBy).MachineLearning(machineLearning).MachineLearningLogsToken(machineLearningLogsToken).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgAccountManagerId(orgAccountManagerId).OrgAccountOwnerId(orgAccountOwnerId).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).OrgType(orgType).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Search(search).Slug(slug).SlugIn(slugIn).Status(status).Trial(trial).TrialExpiresAtMax(trialExpiresAtMax).TrialExpiresAtMin(trialExpiresAtMin).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).UsageStatsId(usageStatsId).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
+> GetInstances200Response GetInstances(ctx).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug(slug).SlugIn(slugIn).Status(status).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
 
 Get a list of instances
 
@@ -758,51 +754,32 @@ import (
 )
 
 func main() {
-	amInstanceId := int32(56) // int32 |  (optional)
 	cluster := "cluster_example" // string |  (optional)
 	clusterIdIn := []int32{int32(123)} // []int32 |  (optional)
 	cursor := int32(56) // int32 |  (optional)
 	direction := "direction_example" // string |  (optional)
-	hlInstanceId := int32(56) // int32 |  (optional)
-	hmInstanceGraphiteId := int32(56) // int32 |  (optional)
-	hmInstancePromId := int32(56) // int32 |  (optional)
 	hosted := true // bool |  (optional)
 	id := "id_example" // string |  (optional)
 	idIn := "idIn_example" // string |  (optional)
 	idMin := int32(56) // int32 |  (optional)
-	incident := true // bool |  (optional)
-	includeDeleted := true // bool |  (optional)
 	includePromCurrentActiveSeries := true // bool |  (optional)
-	includeVersionIssueLink := true // bool |  (optional)
-	llmIsOptIn := true // bool |  (optional)
-	llmOptInChangedBy := "llmOptInChangedBy_example" // string |  (optional)
-	machineLearning := true // bool |  (optional)
-	machineLearningLogsToken := "machineLearningLogsToken_example" // string |  (optional)
 	name := "name_example" // string |  (optional)
 	nameIn := "nameIn_example" // string |  (optional)
 	orderBy := "orderBy_example" // string |  (optional)
-	orgAccountManagerId := int32(56) // int32 |  (optional)
-	orgAccountOwnerId := int32(56) // int32 |  (optional)
 	orgId := "orgId_example" // string |  (optional)
 	orgIdIn := "orgIdIn_example" // string |  (optional)
 	orgSlug := "orgSlug_example" // string |  (optional)
 	orgSlugIn := "orgSlugIn_example" // string |  (optional)
-	orgType := "orgType_example" // string |  (optional)
 	page := int32(56) // int32 |  (optional)
 	pageSize := int32(56) // int32 |  (optional)
 	plan := "plan_example" // string |  (optional)
 	planIn := "planIn_example" // string |  (optional)
 	planNot := "planNot_example" // string |  (optional)
-	search := "search_example" // string |  (optional)
 	slug := "slug_example" // string |  (optional)
 	slugIn := "slugIn_example" // string |  (optional)
 	status := "status_example" // string |  (optional)
-	trial := true // bool |  (optional)
-	trialExpiresAtMax := time.Now() // time.Time |  (optional)
-	trialExpiresAtMin := time.Now() // time.Time |  (optional)
 	updatedOrCreatedAtMin := time.Now() // time.Time |  (optional)
 	url := "url_example" // string |  (optional)
-	usageStatsId := "usageStatsId_example" // string |  (optional)
 	version := "version_example" // string |  (optional)
 	versionIn := []string{"Inner_example"} // []string |  (optional)
 	versionNot := "versionNot_example" // string |  (optional)
@@ -810,7 +787,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.GetInstances(context.Background()).AmInstanceId(amInstanceId).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).HlInstanceId(hlInstanceId).HmInstanceGraphiteId(hmInstanceGraphiteId).HmInstancePromId(hmInstancePromId).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).Incident(incident).IncludeDeleted(includeDeleted).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).IncludeVersionIssueLink(includeVersionIssueLink).LlmIsOptIn(llmIsOptIn).LlmOptInChangedBy(llmOptInChangedBy).MachineLearning(machineLearning).MachineLearningLogsToken(machineLearningLogsToken).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgAccountManagerId(orgAccountManagerId).OrgAccountOwnerId(orgAccountOwnerId).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).OrgType(orgType).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Search(search).Slug(slug).SlugIn(slugIn).Status(status).Trial(trial).TrialExpiresAtMax(trialExpiresAtMax).TrialExpiresAtMin(trialExpiresAtMin).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).UsageStatsId(usageStatsId).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
+	resp, r, err := apiClient.InstancesAPI.GetInstances(context.Background()).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug(slug).SlugIn(slugIn).Status(status).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -831,51 +808,32 @@ Other parameters are passed through a pointer to a apiGetInstancesRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **amInstanceId** | **int32** |  | 
  **cluster** | **string** |  | 
  **clusterIdIn** | **[]int32** |  | 
  **cursor** | **int32** |  | 
  **direction** | **string** |  | 
- **hlInstanceId** | **int32** |  | 
- **hmInstanceGraphiteId** | **int32** |  | 
- **hmInstancePromId** | **int32** |  | 
  **hosted** | **bool** |  | 
  **id** | **string** |  | 
  **idIn** | **string** |  | 
  **idMin** | **int32** |  | 
- **incident** | **bool** |  | 
- **includeDeleted** | **bool** |  | 
  **includePromCurrentActiveSeries** | **bool** |  | 
- **includeVersionIssueLink** | **bool** |  | 
- **llmIsOptIn** | **bool** |  | 
- **llmOptInChangedBy** | **string** |  | 
- **machineLearning** | **bool** |  | 
- **machineLearningLogsToken** | **string** |  | 
  **name** | **string** |  | 
  **nameIn** | **string** |  | 
  **orderBy** | **string** |  | 
- **orgAccountManagerId** | **int32** |  | 
- **orgAccountOwnerId** | **int32** |  | 
  **orgId** | **string** |  | 
  **orgIdIn** | **string** |  | 
  **orgSlug** | **string** |  | 
  **orgSlugIn** | **string** |  | 
- **orgType** | **string** |  | 
  **page** | **int32** |  | 
  **pageSize** | **int32** |  | 
  **plan** | **string** |  | 
  **planIn** | **string** |  | 
  **planNot** | **string** |  | 
- **search** | **string** |  | 
  **slug** | **string** |  | 
  **slugIn** | **string** |  | 
  **status** | **string** |  | 
- **trial** | **bool** |  | 
- **trialExpiresAtMax** | **time.Time** |  | 
- **trialExpiresAtMin** | **time.Time** |  | 
  **updatedOrCreatedAtMin** | **time.Time** |  | 
  **url** | **string** |  | 
- **usageStatsId** | **string** |  | 
  **version** | **string** |  | 
  **versionIn** | **[]string** |  | 
  **versionNot** | **string** |  | 
