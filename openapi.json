@@ -161,14 +161,6 @@
         "parameters": [
           {
             "in": "query",
-            "name": "amInstanceId",
-            "schema": {
-              "type": "integer"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
             "name": "cluster",
             "schema": {
               "type": "string"
@@ -199,30 +191,6 @@
             "name": "direction",
             "schema": {
               "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "hlInstanceId",
-            "schema": {
-              "type": "integer"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "hmInstanceGraphiteId",
-            "schema": {
-              "type": "integer"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "hmInstancePromId",
-            "schema": {
-              "type": "integer"
             },
             "required": false
           },
@@ -260,65 +228,9 @@
           },
           {
             "in": "query",
-            "name": "incident",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "includeDeleted",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
             "name": "includePromCurrentActiveSeries",
             "schema": {
               "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "includeVersionIssueLink",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "llmIsOptIn",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "llmOptInChangedBy",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "machineLearning",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "machineLearningLogsToken",
-            "schema": {
-              "type": "string"
             },
             "required": false
           },
@@ -343,22 +255,6 @@
             "name": "orderBy",
             "schema": {
               "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "orgAccountManagerId",
-            "schema": {
-              "type": "integer"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "orgAccountOwnerId",
-            "schema": {
-              "type": "integer"
             },
             "required": false
           },
@@ -390,20 +286,6 @@
             "in": "query",
             "name": "orgSlugIn",
             "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "orgType",
-            "schema": {
-              "enum": [
-                "non-staff",
-                "vip",
-                "fog",
-                "staff"
-              ],
               "type": "string"
             },
             "required": false
@@ -450,14 +332,6 @@
           },
           {
             "in": "query",
-            "name": "search",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
             "name": "slug",
             "schema": {
               "type": "string"
@@ -482,32 +356,6 @@
           },
           {
             "in": "query",
-            "name": "trial",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "trialExpiresAtMax",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "trialExpiresAtMin",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
             "name": "updatedOrCreatedAtMin",
             "schema": {
               "type": "string",
@@ -518,14 +366,6 @@
           {
             "in": "query",
             "name": "url",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "usageStatsId",
             "schema": {
               "type": "string"
             },
@@ -719,22 +559,8 @@
                   "adminUserInstance": {
                     "type": "boolean"
                   },
-                  "alertQuota": {
-                    "type": "integer"
-                  },
                   "alerts": {
                     "type": "boolean"
-                  },
-                  "amCluster": {
-                    "type": "string"
-                  },
-                  "billingEndDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "billingStartDate": {
-                    "type": "string",
-                    "format": "date-time"
                   },
                   "cluster": {
                     "type": "string"
@@ -742,66 +568,22 @@
                   "createTemporaryLicenseIfMissing": {
                     "type": "boolean"
                   },
-                  "dashboardQuota": {
-                    "type": "integer"
-                  },
                   "description": {
                     "type": "string"
                   },
                   "graphite": {
                     "type": "boolean"
                   },
-                  "hlCluster": {
-                    "type": "string"
-                  },
                   "hlInstanceId": {
                     "type": "integer"
-                  },
-                  "hmGraphiteCluster": {
-                    "type": "string"
-                  },
-                  "hmGraphiteType": {
-                    "enum": [
-                      "graphite",
-                      "graphite-shared",
-                      "graphite-v5"
-                    ],
-                    "type": "string"
-                  },
-                  "hmPromCluster": {
-                    "type": "string"
                   },
                   "hosted": {
                     "type": "boolean"
                   },
-                  "htCluster": {
-                    "type": "string"
-                  },
-                  "incident": {
-                    "type": "boolean"
-                  },
-                  "issueLink": {
-                    "type": "string"
-                  },
                   "k6OrgId": {
                     "type": "integer"
                   },
-                  "llmIsOptIn": {
-                    "type": "boolean"
-                  },
-                  "llmOptInChangedBy": {
-                    "type": "string"
-                  },
                   "logs": {
-                    "type": "boolean"
-                  },
-                  "machineLearning": {
-                    "type": "boolean"
-                  },
-                  "machineLearningLogsToken": {
-                    "type": "string"
-                  },
-                  "multitenant": {
                     "type": "boolean"
                   },
                   "name": {
@@ -841,41 +623,17 @@
                   "publicInstance": {
                     "type": "boolean"
                   },
-                  "reasonType": {
-                    "enum": [
-                      "bug",
-                      "securityVulnerability",
-                      "customerUpgradeShy",
-                      "customerBreaksUseCase",
-                      "customerRequest",
-                      "other"
-                    ],
-                    "type": "string"
-                  },
                   "region": {
                     "type": "string"
                   },
-                  "skipOrgConflictCheck": {
-                    "type": "boolean"
-                  },
                   "slug": {
                     "type": "string"
-                  },
-                  "trial": {
-                    "type": "boolean"
-                  },
-                  "trialExpiresAt": {
-                    "type": "string",
-                    "format": "date-time"
                   },
                   "url": {
                     "type": "string"
                   },
                   "usernameOrEmail": {
                     "type": "string"
-                  },
-                  "userQuota": {
-                    "type": "integer"
                   },
                   "version": {
                     "type": "string"
@@ -1013,14 +771,6 @@
               "type": "boolean"
             },
             "required": false
-          },
-          {
-            "in": "query",
-            "name": "includeDeleted",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
           }
         ],
         "summary": "Gets an instance",
@@ -1152,31 +902,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "alertQuota": {
-                    "type": "integer"
-                  },
                   "alerts": {
                     "type": "boolean"
                   },
-                  "billingEndDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "billingStartDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "dashboardQuota": {
-                    "type": "integer"
-                  },
                   "description": {
-                    "type": "string"
-                  },
-                  "gateway": {
-                    "enum": [
-                      "nginx",
-                      "istio"
-                    ],
                     "type": "string"
                   },
                   "graphite": {
@@ -1185,38 +914,14 @@
                   "hlInstanceId": {
                     "type": "integer"
                   },
-                  "hosted": {
-                    "type": "boolean"
-                  },
-                  "incident": {
-                    "type": "boolean"
-                  },
-                  "issueLink": {
-                    "type": "string"
-                  },
                   "k6OrgId": {
                     "type": "integer"
-                  },
-                  "llmIsOptIn": {
-                    "type": "boolean"
-                  },
-                  "llmOptInChangedBy": {
-                    "type": "string"
                   },
                   "logs": {
                     "type": "boolean"
                   },
-                  "machineLearning": {
-                    "type": "boolean"
-                  },
-                  "machineLearningLogsToken": {
-                    "type": "string"
-                  },
                   "name": {
                     "type": "string"
-                  },
-                  "noRestart": {
-                    "type": "boolean"
                   },
                   "plan": {
                     "type": "string"
@@ -1224,37 +929,10 @@
                   "prometheus": {
                     "type": "boolean"
                   },
-                  "reasonType": {
-                    "enum": [
-                      "bug",
-                      "securityVulnerability",
-                      "customerUpgradeShy",
-                      "customerBreaksUseCase",
-                      "customerRequest",
-                      "other"
-                    ],
-                    "type": "string"
-                  },
-                  "skipOrgConflictCheck": {
-                    "type": "boolean"
-                  },
                   "slug": {
                     "type": "string"
                   },
-                  "trial": {
-                    "type": "boolean"
-                  },
-                  "trialExpiresAt": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
                   "url": {
-                    "type": "string"
-                  },
-                  "userQuota": {
-                    "type": "integer"
-                  },
-                  "version": {
                     "type": "string"
                   }
                 }
@@ -1887,14 +1565,6 @@
           {
             "in": "query",
             "name": "config",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "includeDeleted",
             "schema": {
               "type": "boolean"
             },
@@ -3817,9 +3487,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "noRestart": {
-                    "type": "boolean"
-                  },
                   "version": {
                     "type": "string"
                   }
@@ -5022,9 +4689,6 @@
                   "billing": {
                     "type": "integer"
                   },
-                  "defaultOrg": {
-                    "type": "string"
-                  },
                   "privacy": {
                     "type": "string"
                   },
@@ -5303,14 +4967,6 @@
               "type": "string"
             },
             "required": true
-          },
-          {
-            "in": "query",
-            "name": "forceBillingUpdate",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
           },
           {
             "in": "header",
@@ -5652,14 +5308,6 @@
             "name": "idIn",
             "schema": {
               "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "includeDeleted",
-            "schema": {
-              "type": "boolean"
             },
             "required": false
           },
@@ -8015,8 +7663,8 @@
     "title": "GCOM API",
     "version": "internal",
     "description": "\nGrafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.\n\nLooking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.\n\nIf you have any questions, please contact us at #grafana_com on Slack or open an issue\nat [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n      ",
-    "x-commit-sha": "ac7af50",
-    "x-generated-at": "2024-02-08T17:38:55.045Z"
+    "x-commit-sha": "40100d4",
+    "x-generated-at": "2024-02-08T18:42:50.710Z"
   },
   "security": [
     {
