@@ -4835,6 +4835,779 @@
         }
       }
     },
+    "/orgs/{slugOrId}/members": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "getOrgMembers",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slugOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "billing",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "direction",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "privacy",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "privacyIn",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgMemberListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "postOrgMembers",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slugOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string",
+              "default": "openapi-x-request-id"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "billing": {
+                    "type": "integer"
+                  },
+                  "defaultOrg": {
+                    "type": "string"
+                  },
+                  "privacy": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormattedOrgMembership"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is currently unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "ServiceUnavailable"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{slugOrId}/members/{usernameOrId}": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "getOrgMember",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slugOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "usernameOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormattedOrgMembership"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "postOrgMember",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slugOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "usernameOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "forceBillingUpdate",
+            "schema": {
+              "type": "boolean"
+            },
+            "required": false
+          },
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string",
+              "default": "openapi-x-request-id"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "billing": {
+                    "type": "integer"
+                  },
+                  "defaultOrg": {
+                    "type": "string"
+                  },
+                  "privacy": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormattedOrgMembership"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is currently unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "ServiceUnavailable"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "deleteOrgMember",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slugOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "usernameOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string",
+              "default": "openapi-x-request-id"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is currently unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "ServiceUnavailable"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orgs/{slug}/instances": {
       "get": {
         "tags": [
@@ -7242,8 +8015,8 @@
     "title": "GCOM API",
     "version": "internal",
     "description": "\nGrafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.\n\nLooking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.\n\nIf you have any questions, please contact us at #grafana_com on Slack or open an issue\nat [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n      ",
-    "x-commit-sha": "122752d",
-    "x-generated-at": "2024-02-07T20:56:17.646Z"
+    "x-commit-sha": "ac7af50",
+    "x-generated-at": "2024-02-08T17:38:55.045Z"
   },
   "security": [
     {
@@ -8255,6 +9028,982 @@
         },
         "required": [
           "privateConnectivityInfo"
+        ]
+      },
+      "OrgMemberListResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "title": "id"
+                },
+                "orgId": {
+                  "type": "number",
+                  "title": "orgId"
+                },
+                "userId": {
+                  "type": "number",
+                  "title": "userId"
+                },
+                "status": {
+                  "type": "number",
+                  "title": "status"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "title": "createdAt"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "title": "updatedAt",
+                  "nullable": true
+                },
+                "defaultOrg": {
+                  "type": "number",
+                  "title": "defaultOrg"
+                },
+                "role": {
+                  "type": "string",
+                  "title": "role"
+                },
+                "privacy": {
+                  "type": "number",
+                  "title": "privacy"
+                },
+                "billing": {
+                  "type": "number",
+                  "title": "billing"
+                },
+                "createdBy": {
+                  "type": "string",
+                  "title": "createdBy"
+                },
+                "updatedBy": {
+                  "type": "string",
+                  "title": "updatedBy"
+                },
+                "orgName": {
+                  "type": "string",
+                  "title": "orgName"
+                },
+                "orgSlug": {
+                  "type": "string",
+                  "title": "orgSlug"
+                },
+                "orgUrl": {
+                  "type": "string",
+                  "title": "orgUrl"
+                },
+                "grafanaCloud": {
+                  "enum": [
+                    0,
+                    1,
+                    11,
+                    14,
+                    15,
+                    2,
+                    31,
+                    4,
+                    41,
+                    6,
+                    9
+                  ],
+                  "type": "number",
+                  "title": "grafanaCloud"
+                },
+                "resellerId": {
+                  "type": "number",
+                  "title": "resellerId",
+                  "nullable": true
+                },
+                "contractTypeId": {
+                  "enum": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "type": "number",
+                  "title": "contractTypeId"
+                },
+                "allowGCloudTrial": {
+                  "type": "boolean",
+                  "title": "allowGCloudTrial"
+                },
+                "hlUsage": {
+                  "type": "number",
+                  "title": "hlUsage"
+                },
+                "hmCurrentGraphiteUsage": {
+                  "type": "number",
+                  "title": "hmCurrentGraphiteUsage"
+                },
+                "hmCurrentPrometheusUsage": {
+                  "type": "number",
+                  "title": "hmCurrentPrometheusUsage"
+                },
+                "hgDatasourceCnts": {
+                  "type": "string",
+                  "title": "hgDatasourceCnts"
+                },
+                "userFirstName": {
+                  "type": "string",
+                  "title": "userFirstName"
+                },
+                "userLastName": {
+                  "type": "string",
+                  "title": "userLastName"
+                },
+                "userUsername": {
+                  "type": "string",
+                  "title": "userUsername"
+                },
+                "userStatus": {
+                  "type": "number",
+                  "title": "userStatus"
+                },
+                "userEmail": {
+                  "type": "string",
+                  "title": "userEmail"
+                },
+                "userName": {
+                  "type": "string",
+                  "title": "userName"
+                },
+                "subscriptions": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "current": {
+                          "type": "object",
+                          "properties": {
+                            "product": {
+                              "title": "product",
+                              "nullable": true
+                            },
+                            "isTrial": {
+                              "type": "boolean",
+                              "enum": [
+                                false
+                              ],
+                              "title": "isTrial"
+                            },
+                            "endDate": {
+                              "title": "endDate",
+                              "nullable": true
+                            },
+                            "payload": {
+                              "type": "object",
+                              "title": "payload"
+                            },
+                            "plan": {
+                              "title": "plan",
+                              "nullable": true
+                            },
+                            "publicName": {
+                              "title": "publicName",
+                              "nullable": true
+                            },
+                            "enterprisePluginsAdded": {
+                              "type": "boolean",
+                              "enum": [
+                                false
+                              ],
+                              "title": "enterprisePluginsAdded"
+                            }
+                          },
+                          "required": [
+                            "endDate",
+                            "enterprisePluginsAdded",
+                            "isTrial",
+                            "payload",
+                            "plan",
+                            "product",
+                            "publicName"
+                          ],
+                          "title": "current"
+                        },
+                        "nextProduct": {
+                          "title": "nextProduct",
+                          "nullable": true
+                        },
+                        "next": {
+                          "title": "next",
+                          "nullable": true
+                        }
+                      },
+                      "required": [
+                        "current",
+                        "next",
+                        "nextProduct"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "current": {
+                          "type": "object",
+                          "properties": {
+                            "product": {
+                              "enum": [
+                                "grafana-cloud-advanced",
+                                "grafana-cloud-free",
+                                "grafana-cloud-pro",
+                                "grafana-cloud-ss-advanced"
+                              ],
+                              "type": "string",
+                              "title": "product"
+                            },
+                            "isTrial": {
+                              "type": "boolean",
+                              "title": "isTrial"
+                            },
+                            "endDate": {
+                              "type": "string",
+                              "format": "date-time",
+                              "title": "endDate"
+                            },
+                            "payload": {
+                              "type": "object",
+                              "title": "payload"
+                            },
+                            "plan": {
+                              "type": "string",
+                              "title": "plan",
+                              "nullable": true
+                            },
+                            "publicName": {
+                              "type": "string",
+                              "title": "publicName",
+                              "nullable": true
+                            },
+                            "enterprisePluginsAdded": {
+                              "type": "boolean",
+                              "title": "enterprisePluginsAdded"
+                            }
+                          },
+                          "required": [
+                            "endDate",
+                            "enterprisePluginsAdded",
+                            "isTrial",
+                            "payload",
+                            "plan",
+                            "product",
+                            "publicName"
+                          ],
+                          "title": "current"
+                        },
+                        "nextProduct": {
+                          "enum": [
+                            "grafana-cloud-advanced",
+                            "grafana-cloud-free",
+                            "grafana-cloud-pro",
+                            "grafana-cloud-ss-advanced"
+                          ],
+                          "type": "string",
+                          "title": "nextProduct"
+                        },
+                        "next": {
+                          "type": "object",
+                          "properties": {
+                            "product": {
+                              "enum": [
+                                "grafana-cloud-advanced",
+                                "grafana-cloud-free",
+                                "grafana-cloud-pro",
+                                "grafana-cloud-ss-advanced"
+                              ],
+                              "type": "string",
+                              "title": "product"
+                            },
+                            "payload": {
+                              "type": "object",
+                              "title": "payload"
+                            },
+                            "plan": {
+                              "type": "string",
+                              "title": "plan",
+                              "nullable": true
+                            },
+                            "publicName": {
+                              "type": "string",
+                              "title": "publicName",
+                              "nullable": true
+                            }
+                          },
+                          "required": [
+                            "payload",
+                            "plan",
+                            "product",
+                            "publicName"
+                          ],
+                          "title": "next"
+                        }
+                      },
+                      "required": [
+                        "current",
+                        "next",
+                        "nextProduct"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "current": {
+                          "type": "object",
+                          "properties": {
+                            "product": {
+                              "enum": [
+                                "grafana-cloud-advanced",
+                                "grafana-cloud-free",
+                                "grafana-cloud-pro",
+                                "grafana-cloud-ss-advanced"
+                              ],
+                              "type": "string",
+                              "title": "product"
+                            },
+                            "isTrial": {
+                              "type": "boolean",
+                              "title": "isTrial"
+                            },
+                            "endDate": {
+                              "title": "endDate",
+                              "nullable": true
+                            },
+                            "payload": {
+                              "type": "object",
+                              "title": "payload"
+                            },
+                            "plan": {
+                              "type": "string",
+                              "title": "plan",
+                              "nullable": true
+                            },
+                            "publicName": {
+                              "type": "string",
+                              "title": "publicName",
+                              "nullable": true
+                            },
+                            "enterprisePluginsAdded": {
+                              "type": "boolean",
+                              "title": "enterprisePluginsAdded"
+                            }
+                          },
+                          "required": [
+                            "endDate",
+                            "enterprisePluginsAdded",
+                            "isTrial",
+                            "payload",
+                            "plan",
+                            "product",
+                            "publicName"
+                          ],
+                          "title": "current"
+                        },
+                        "nextProduct": {
+                          "title": "nextProduct",
+                          "nullable": true
+                        },
+                        "next": {
+                          "title": "next",
+                          "nullable": true
+                        }
+                      },
+                      "required": [
+                        "current",
+                        "next",
+                        "nextProduct"
+                      ]
+                    }
+                  ],
+                  "title": "subscriptions"
+                },
+                "marketplaceSubscription": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "provider": {
+                          "type": "string",
+                          "enum": [
+                            "aws",
+                            "azure",
+                            "gcp"
+                          ],
+                          "title": "provider"
+                        },
+                        "isLegacy": {
+                          "type": "boolean",
+                          "title": "isLegacy"
+                        }
+                      },
+                      "required": [
+                        "isLegacy",
+                        "provider"
+                      ]
+                    },
+                    {
+                      "nullable": true
+                    }
+                  ],
+                  "title": "marketplaceSubscription"
+                }
+              },
+              "required": [
+                "allowGCloudTrial",
+                "billing",
+                "contractTypeId",
+                "createdAt",
+                "createdBy",
+                "defaultOrg",
+                "grafanaCloud",
+                "hgDatasourceCnts",
+                "hlUsage",
+                "hmCurrentGraphiteUsage",
+                "hmCurrentPrometheusUsage",
+                "id",
+                "marketplaceSubscription",
+                "orgId",
+                "orgName",
+                "orgSlug",
+                "orgUrl",
+                "privacy",
+                "resellerId",
+                "role",
+                "status",
+                "subscriptions",
+                "updatedAt",
+                "updatedBy",
+                "userEmail",
+                "userFirstName",
+                "userId",
+                "userLastName",
+                "userName",
+                "userStatus",
+                "userUsername"
+              ]
+            },
+            "title": "items"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "title": "rel"
+                },
+                "href": {
+                  "type": "string",
+                  "title": "href"
+                }
+              },
+              "required": [
+                "href",
+                "rel"
+              ]
+            },
+            "title": "links"
+          },
+          "total": {
+            "type": "number",
+            "title": "total"
+          },
+          "pages": {
+            "type": "number",
+            "title": "pages"
+          },
+          "page": {
+            "type": "number",
+            "title": "page"
+          },
+          "perPage": {
+            "type": "number",
+            "title": "perPage"
+          },
+          "totalCount": {
+            "type": "number",
+            "title": "totalCount"
+          },
+          "orderBy": {
+            "type": "string",
+            "title": "orderBy"
+          },
+          "direction": {
+            "type": "string",
+            "title": "direction"
+          },
+          "cursor": {
+            "type": "number",
+            "title": "cursor"
+          },
+          "nextCursor": {
+            "type": "number",
+            "title": "nextCursor"
+          }
+        },
+        "required": [
+          "items",
+          "links"
+        ]
+      },
+      "FormattedOrgMembership": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "title": "id"
+          },
+          "orgId": {
+            "type": "number",
+            "title": "orgId"
+          },
+          "userId": {
+            "type": "number",
+            "title": "userId"
+          },
+          "status": {
+            "type": "number",
+            "title": "status"
+          },
+          "createdAt": {
+            "type": "string",
+            "title": "createdAt"
+          },
+          "updatedAt": {
+            "type": "string",
+            "title": "updatedAt",
+            "nullable": true
+          },
+          "defaultOrg": {
+            "type": "number",
+            "title": "defaultOrg"
+          },
+          "role": {
+            "type": "string",
+            "title": "role"
+          },
+          "privacy": {
+            "type": "number",
+            "title": "privacy"
+          },
+          "billing": {
+            "type": "number",
+            "title": "billing"
+          },
+          "createdBy": {
+            "type": "string",
+            "title": "createdBy"
+          },
+          "updatedBy": {
+            "type": "string",
+            "title": "updatedBy"
+          },
+          "orgName": {
+            "type": "string",
+            "title": "orgName"
+          },
+          "orgSlug": {
+            "type": "string",
+            "title": "orgSlug"
+          },
+          "orgUrl": {
+            "type": "string",
+            "title": "orgUrl"
+          },
+          "grafanaCloud": {
+            "enum": [
+              0,
+              1,
+              11,
+              14,
+              15,
+              2,
+              31,
+              4,
+              41,
+              6,
+              9
+            ],
+            "type": "number",
+            "title": "grafanaCloud"
+          },
+          "resellerId": {
+            "type": "number",
+            "title": "resellerId",
+            "nullable": true
+          },
+          "contractTypeId": {
+            "enum": [
+              0,
+              1,
+              2
+            ],
+            "type": "number",
+            "title": "contractTypeId"
+          },
+          "allowGCloudTrial": {
+            "type": "boolean",
+            "title": "allowGCloudTrial"
+          },
+          "hlUsage": {
+            "type": "number",
+            "title": "hlUsage"
+          },
+          "hmCurrentGraphiteUsage": {
+            "type": "number",
+            "title": "hmCurrentGraphiteUsage"
+          },
+          "hmCurrentPrometheusUsage": {
+            "type": "number",
+            "title": "hmCurrentPrometheusUsage"
+          },
+          "hgDatasourceCnts": {
+            "type": "string",
+            "title": "hgDatasourceCnts"
+          },
+          "userFirstName": {
+            "type": "string",
+            "title": "userFirstName"
+          },
+          "userLastName": {
+            "type": "string",
+            "title": "userLastName"
+          },
+          "userUsername": {
+            "type": "string",
+            "title": "userUsername"
+          },
+          "userStatus": {
+            "type": "number",
+            "title": "userStatus"
+          },
+          "userEmail": {
+            "type": "string",
+            "title": "userEmail"
+          },
+          "userName": {
+            "type": "string",
+            "title": "userName"
+          },
+          "subscriptions": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "title": "product",
+                        "nullable": true
+                      },
+                      "isTrial": {
+                        "type": "boolean",
+                        "enum": [
+                          false
+                        ],
+                        "title": "isTrial"
+                      },
+                      "endDate": {
+                        "title": "endDate",
+                        "nullable": true
+                      },
+                      "payload": {
+                        "type": "object",
+                        "title": "payload"
+                      },
+                      "plan": {
+                        "title": "plan",
+                        "nullable": true
+                      },
+                      "publicName": {
+                        "title": "publicName",
+                        "nullable": true
+                      },
+                      "enterprisePluginsAdded": {
+                        "type": "boolean",
+                        "enum": [
+                          false
+                        ],
+                        "title": "enterprisePluginsAdded"
+                      }
+                    },
+                    "required": [
+                      "endDate",
+                      "enterprisePluginsAdded",
+                      "isTrial",
+                      "payload",
+                      "plan",
+                      "product",
+                      "publicName"
+                    ],
+                    "title": "current"
+                  },
+                  "nextProduct": {
+                    "title": "nextProduct",
+                    "nullable": true
+                  },
+                  "next": {
+                    "title": "next",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "current",
+                  "next",
+                  "nextProduct"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "enum": [
+                          "grafana-cloud-advanced",
+                          "grafana-cloud-free",
+                          "grafana-cloud-pro",
+                          "grafana-cloud-ss-advanced"
+                        ],
+                        "type": "string",
+                        "title": "product"
+                      },
+                      "isTrial": {
+                        "type": "boolean",
+                        "title": "isTrial"
+                      },
+                      "endDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "endDate"
+                      },
+                      "payload": {
+                        "type": "object",
+                        "title": "payload"
+                      },
+                      "plan": {
+                        "type": "string",
+                        "title": "plan",
+                        "nullable": true
+                      },
+                      "publicName": {
+                        "type": "string",
+                        "title": "publicName",
+                        "nullable": true
+                      },
+                      "enterprisePluginsAdded": {
+                        "type": "boolean",
+                        "title": "enterprisePluginsAdded"
+                      }
+                    },
+                    "required": [
+                      "endDate",
+                      "enterprisePluginsAdded",
+                      "isTrial",
+                      "payload",
+                      "plan",
+                      "product",
+                      "publicName"
+                    ],
+                    "title": "current"
+                  },
+                  "nextProduct": {
+                    "enum": [
+                      "grafana-cloud-advanced",
+                      "grafana-cloud-free",
+                      "grafana-cloud-pro",
+                      "grafana-cloud-ss-advanced"
+                    ],
+                    "type": "string",
+                    "title": "nextProduct"
+                  },
+                  "next": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "enum": [
+                          "grafana-cloud-advanced",
+                          "grafana-cloud-free",
+                          "grafana-cloud-pro",
+                          "grafana-cloud-ss-advanced"
+                        ],
+                        "type": "string",
+                        "title": "product"
+                      },
+                      "payload": {
+                        "type": "object",
+                        "title": "payload"
+                      },
+                      "plan": {
+                        "type": "string",
+                        "title": "plan",
+                        "nullable": true
+                      },
+                      "publicName": {
+                        "type": "string",
+                        "title": "publicName",
+                        "nullable": true
+                      }
+                    },
+                    "required": [
+                      "payload",
+                      "plan",
+                      "product",
+                      "publicName"
+                    ],
+                    "title": "next"
+                  }
+                },
+                "required": [
+                  "current",
+                  "next",
+                  "nextProduct"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "enum": [
+                          "grafana-cloud-advanced",
+                          "grafana-cloud-free",
+                          "grafana-cloud-pro",
+                          "grafana-cloud-ss-advanced"
+                        ],
+                        "type": "string",
+                        "title": "product"
+                      },
+                      "isTrial": {
+                        "type": "boolean",
+                        "title": "isTrial"
+                      },
+                      "endDate": {
+                        "title": "endDate",
+                        "nullable": true
+                      },
+                      "payload": {
+                        "type": "object",
+                        "title": "payload"
+                      },
+                      "plan": {
+                        "type": "string",
+                        "title": "plan",
+                        "nullable": true
+                      },
+                      "publicName": {
+                        "type": "string",
+                        "title": "publicName",
+                        "nullable": true
+                      },
+                      "enterprisePluginsAdded": {
+                        "type": "boolean",
+                        "title": "enterprisePluginsAdded"
+                      }
+                    },
+                    "required": [
+                      "endDate",
+                      "enterprisePluginsAdded",
+                      "isTrial",
+                      "payload",
+                      "plan",
+                      "product",
+                      "publicName"
+                    ],
+                    "title": "current"
+                  },
+                  "nextProduct": {
+                    "title": "nextProduct",
+                    "nullable": true
+                  },
+                  "next": {
+                    "title": "next",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "current",
+                  "next",
+                  "nextProduct"
+                ]
+              }
+            ],
+            "title": "subscriptions"
+          },
+          "marketplaceSubscription": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "enum": [
+                      "aws",
+                      "azure",
+                      "gcp"
+                    ],
+                    "title": "provider"
+                  },
+                  "isLegacy": {
+                    "type": "boolean",
+                    "title": "isLegacy"
+                  }
+                },
+                "required": [
+                  "isLegacy",
+                  "provider"
+                ]
+              },
+              {
+                "nullable": true
+              }
+            ],
+            "title": "marketplaceSubscription"
+          }
+        },
+        "required": [
+          "allowGCloudTrial",
+          "billing",
+          "contractTypeId",
+          "createdAt",
+          "createdBy",
+          "defaultOrg",
+          "grafanaCloud",
+          "hgDatasourceCnts",
+          "hlUsage",
+          "hmCurrentGraphiteUsage",
+          "hmCurrentPrometheusUsage",
+          "id",
+          "marketplaceSubscription",
+          "orgId",
+          "orgName",
+          "orgSlug",
+          "orgUrl",
+          "privacy",
+          "resellerId",
+          "role",
+          "status",
+          "subscriptions",
+          "updatedAt",
+          "updatedBy",
+          "userEmail",
+          "userFirstName",
+          "userId",
+          "userLastName",
+          "userName",
+          "userStatus",
+          "userUsername"
         ]
       },
       "FormattedApiOrgPublic": {
