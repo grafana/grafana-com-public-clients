@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: 122752d
-  x-generated-at: 2024-02-07T20:56:17.646Z
+  x-commit-sha: ac7af50
+  x-generated-at: 2024-02-08T17:38:55.045Z
 servers:
 - description: Main API server
   url: /api
@@ -2044,6 +2044,336 @@ paths:
       summary: Get an API key by name
       tags:
       - orgs
+  /orgs/{slugOrId}/members:
+    get:
+      operationId: getOrgMembers
+      parameters:
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: billing
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: direction
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: privacy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: privacyIn
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrgMemberListResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      tags:
+      - orgs
+    post:
+      operationId: postOrgMembers
+      parameters:
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postOrgMembers_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedOrgMembership'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      tags:
+      - orgs
+  /orgs/{slugOrId}/members/{usernameOrId}:
+    delete:
+      operationId: deleteOrgMember
+      parameters:
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: usernameOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      tags:
+      - orgs
+    get:
+      operationId: getOrgMember
+      parameters:
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: usernameOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedOrgMembership'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      tags:
+      - orgs
+    post:
+      operationId: postOrgMember
+      parameters:
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: usernameOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: forceBillingUpdate
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/postOrgMember_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedOrgMembership'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      tags:
+      - orgs
   /orgs/{slug}/instances:
     get:
       operationId: getOrgInstances
@@ -3941,6 +4271,309 @@ components:
       required:
       - privateConnectivityInfo
       type: object
+    OrgMemberListResponse:
+      example:
+        cursor: 5.025004791520295
+        nextCursor: 9.965781217890562
+        total: 1.4894159098541704
+        pages: 6.84685269835264
+        perPage: 1.1730742509559433
+        orderBy: orderBy
+        links:
+        - rel: rel
+          href: href
+        - rel: rel
+          href: href
+        page: 7.457744773683766
+        totalCount: 4.965218492984954
+        items:
+        - grafanaCloud: 9.301444243932576
+          orgSlug: orgSlug
+          subscriptions: null
+          role: role
+          userStatus: 1.0246457001441578
+          hmCurrentPrometheusUsage: 1.2315135367772556
+          privacy: 2.3021358869347655
+          hlUsage: 4.145608029883936
+          orgUrl: orgUrl
+          orgId: 6.027456183070403
+          billing: 7.061401241503109
+          defaultOrg: 5.637376656633329
+          createdAt: createdAt
+          hgDatasourceCnts: hgDatasourceCnts
+          userLastName: userLastName
+          userEmail: userEmail
+          id: 0.8008281904610115
+          updatedAt: updatedAt
+          userUsername: userUsername
+          updatedBy: updatedBy
+          orgName: orgName
+          userFirstName: userFirstName
+          userName: userName
+          userId: 1.4658129805029452
+          contractTypeId: 2.027123023002322
+          resellerId: 3.616076749251911
+          hmCurrentGraphiteUsage: 7.386281948385884
+          createdBy: createdBy
+          allowGCloudTrial: true
+          marketplaceSubscription:
+            isLegacy: true
+            provider: aws
+          status: 5.962133916683182
+        - grafanaCloud: 9.301444243932576
+          orgSlug: orgSlug
+          subscriptions: null
+          role: role
+          userStatus: 1.0246457001441578
+          hmCurrentPrometheusUsage: 1.2315135367772556
+          privacy: 2.3021358869347655
+          hlUsage: 4.145608029883936
+          orgUrl: orgUrl
+          orgId: 6.027456183070403
+          billing: 7.061401241503109
+          defaultOrg: 5.637376656633329
+          createdAt: createdAt
+          hgDatasourceCnts: hgDatasourceCnts
+          userLastName: userLastName
+          userEmail: userEmail
+          id: 0.8008281904610115
+          updatedAt: updatedAt
+          userUsername: userUsername
+          updatedBy: updatedBy
+          orgName: orgName
+          userFirstName: userFirstName
+          userName: userName
+          userId: 1.4658129805029452
+          contractTypeId: 2.027123023002322
+          resellerId: 3.616076749251911
+          hmCurrentGraphiteUsage: 7.386281948385884
+          createdBy: createdBy
+          allowGCloudTrial: true
+          marketplaceSubscription:
+            isLegacy: true
+            provider: aws
+          status: 5.962133916683182
+        direction: direction
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/items_inner_1'
+          title: items
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner_1'
+          title: links
+          type: array
+        total:
+          title: total
+          type: number
+        pages:
+          title: pages
+          type: number
+        page:
+          title: page
+          type: number
+        perPage:
+          title: perPage
+          type: number
+        totalCount:
+          title: totalCount
+          type: number
+        orderBy:
+          title: orderBy
+          type: string
+        direction:
+          title: direction
+          type: string
+        cursor:
+          title: cursor
+          type: number
+        nextCursor:
+          title: nextCursor
+          type: number
+      required:
+      - items
+      - links
+      type: object
+    FormattedOrgMembership:
+      example:
+        grafanaCloud: 9.301444243932576
+        orgSlug: orgSlug
+        subscriptions: null
+        role: role
+        userStatus: 1.0246457001441578
+        hmCurrentPrometheusUsage: 1.2315135367772556
+        privacy: 2.3021358869347655
+        hlUsage: 4.145608029883936
+        orgUrl: orgUrl
+        orgId: 6.027456183070403
+        billing: 7.061401241503109
+        defaultOrg: 5.637376656633329
+        createdAt: createdAt
+        hgDatasourceCnts: hgDatasourceCnts
+        userLastName: userLastName
+        userEmail: userEmail
+        id: 0.8008281904610115
+        updatedAt: updatedAt
+        userUsername: userUsername
+        updatedBy: updatedBy
+        orgName: orgName
+        userFirstName: userFirstName
+        userName: userName
+        userId: 1.4658129805029452
+        contractTypeId: 2.027123023002322
+        resellerId: 3.616076749251911
+        hmCurrentGraphiteUsage: 7.386281948385884
+        createdBy: createdBy
+        allowGCloudTrial: true
+        marketplaceSubscription:
+          isLegacy: true
+          provider: aws
+        status: 5.962133916683182
+      properties:
+        id:
+          title: id
+          type: number
+        orgId:
+          title: orgId
+          type: number
+        userId:
+          title: userId
+          type: number
+        status:
+          title: status
+          type: number
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+        defaultOrg:
+          title: defaultOrg
+          type: number
+        role:
+          title: role
+          type: string
+        privacy:
+          title: privacy
+          type: number
+        billing:
+          title: billing
+          type: number
+        createdBy:
+          title: createdBy
+          type: string
+        updatedBy:
+          title: updatedBy
+          type: string
+        orgName:
+          title: orgName
+          type: string
+        orgSlug:
+          title: orgSlug
+          type: string
+        orgUrl:
+          title: orgUrl
+          type: string
+        grafanaCloud:
+          enum:
+          - 0
+          - 1
+          - 11
+          - 14
+          - 15
+          - 2
+          - 31
+          - 4
+          - 41
+          - 6
+          - 9
+          title: grafanaCloud
+          type: number
+        resellerId:
+          nullable: true
+          title: resellerId
+          type: number
+        contractTypeId:
+          enum:
+          - 0
+          - 1
+          - 2
+          title: contractTypeId
+          type: number
+        allowGCloudTrial:
+          title: allowGCloudTrial
+          type: boolean
+        hlUsage:
+          title: hlUsage
+          type: number
+        hmCurrentGraphiteUsage:
+          title: hmCurrentGraphiteUsage
+          type: number
+        hmCurrentPrometheusUsage:
+          title: hmCurrentPrometheusUsage
+          type: number
+        hgDatasourceCnts:
+          title: hgDatasourceCnts
+          type: string
+        userFirstName:
+          title: userFirstName
+          type: string
+        userLastName:
+          title: userLastName
+          type: string
+        userUsername:
+          title: userUsername
+          type: string
+        userStatus:
+          title: userStatus
+          type: number
+        userEmail:
+          title: userEmail
+          type: string
+        userName:
+          title: userName
+          type: string
+        subscriptions:
+          $ref: '#/components/schemas/subscriptions'
+        marketplaceSubscription:
+          $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
+      required:
+      - allowGCloudTrial
+      - billing
+      - contractTypeId
+      - createdAt
+      - createdBy
+      - defaultOrg
+      - grafanaCloud
+      - hgDatasourceCnts
+      - hlUsage
+      - hmCurrentGraphiteUsage
+      - hmCurrentPrometheusUsage
+      - id
+      - marketplaceSubscription
+      - orgId
+      - orgName
+      - orgSlug
+      - orgUrl
+      - privacy
+      - resellerId
+      - role
+      - status
+      - subscriptions
+      - updatedAt
+      - updatedBy
+      - userEmail
+      - userFirstName
+      - userId
+      - userLastName
+      - userName
+      - userStatus
+      - userUsername
+      type: object
     FormattedApiOrgPublic:
       example:
         grafanaCloud: 3.616076749251911
@@ -5589,6 +6222,32 @@ components:
       - name
       - role
       type: object
+    postOrgMembers_request:
+      properties:
+        billing:
+          type: integer
+        defaultOrg:
+          type: string
+        privacy:
+          type: string
+        role:
+          type: string
+        username:
+          type: string
+      required:
+      - username
+      type: object
+    postOrgMember_request:
+      properties:
+        billing:
+          type: integer
+        defaultOrg:
+          type: string
+        privacy:
+          type: string
+        role:
+          type: string
+      type: object
     getStackRegions_200_response:
       example:
         total: 0.8008281904610115
@@ -6154,6 +6813,204 @@ components:
       - $ref: '#/components/schemas/subscriptions_anyOf_1'
       - $ref: '#/components/schemas/subscriptions_anyOf_2'
       title: subscriptions
+    items_inner_1_marketplaceSubscription:
+      example:
+        isLegacy: true
+        provider: aws
+      nullable: true
+      properties:
+        provider:
+          enum:
+          - aws
+          - azure
+          - gcp
+          title: provider
+          type: string
+        isLegacy:
+          title: isLegacy
+          type: boolean
+      required:
+      - isLegacy
+      - provider
+      type: object
+    items_inner_1:
+      example:
+        grafanaCloud: 9.301444243932576
+        orgSlug: orgSlug
+        subscriptions: null
+        role: role
+        userStatus: 1.0246457001441578
+        hmCurrentPrometheusUsage: 1.2315135367772556
+        privacy: 2.3021358869347655
+        hlUsage: 4.145608029883936
+        orgUrl: orgUrl
+        orgId: 6.027456183070403
+        billing: 7.061401241503109
+        defaultOrg: 5.637376656633329
+        createdAt: createdAt
+        hgDatasourceCnts: hgDatasourceCnts
+        userLastName: userLastName
+        userEmail: userEmail
+        id: 0.8008281904610115
+        updatedAt: updatedAt
+        userUsername: userUsername
+        updatedBy: updatedBy
+        orgName: orgName
+        userFirstName: userFirstName
+        userName: userName
+        userId: 1.4658129805029452
+        contractTypeId: 2.027123023002322
+        resellerId: 3.616076749251911
+        hmCurrentGraphiteUsage: 7.386281948385884
+        createdBy: createdBy
+        allowGCloudTrial: true
+        marketplaceSubscription:
+          isLegacy: true
+          provider: aws
+        status: 5.962133916683182
+      properties:
+        id:
+          title: id
+          type: number
+        orgId:
+          title: orgId
+          type: number
+        userId:
+          title: userId
+          type: number
+        status:
+          title: status
+          type: number
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+        defaultOrg:
+          title: defaultOrg
+          type: number
+        role:
+          title: role
+          type: string
+        privacy:
+          title: privacy
+          type: number
+        billing:
+          title: billing
+          type: number
+        createdBy:
+          title: createdBy
+          type: string
+        updatedBy:
+          title: updatedBy
+          type: string
+        orgName:
+          title: orgName
+          type: string
+        orgSlug:
+          title: orgSlug
+          type: string
+        orgUrl:
+          title: orgUrl
+          type: string
+        grafanaCloud:
+          enum:
+          - 0
+          - 1
+          - 11
+          - 14
+          - 15
+          - 2
+          - 31
+          - 4
+          - 41
+          - 6
+          - 9
+          title: grafanaCloud
+          type: number
+        resellerId:
+          nullable: true
+          title: resellerId
+          type: number
+        contractTypeId:
+          enum:
+          - 0
+          - 1
+          - 2
+          title: contractTypeId
+          type: number
+        allowGCloudTrial:
+          title: allowGCloudTrial
+          type: boolean
+        hlUsage:
+          title: hlUsage
+          type: number
+        hmCurrentGraphiteUsage:
+          title: hmCurrentGraphiteUsage
+          type: number
+        hmCurrentPrometheusUsage:
+          title: hmCurrentPrometheusUsage
+          type: number
+        hgDatasourceCnts:
+          title: hgDatasourceCnts
+          type: string
+        userFirstName:
+          title: userFirstName
+          type: string
+        userLastName:
+          title: userLastName
+          type: string
+        userUsername:
+          title: userUsername
+          type: string
+        userStatus:
+          title: userStatus
+          type: number
+        userEmail:
+          title: userEmail
+          type: string
+        userName:
+          title: userName
+          type: string
+        subscriptions:
+          $ref: '#/components/schemas/subscriptions'
+        marketplaceSubscription:
+          $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
+      required:
+      - allowGCloudTrial
+      - billing
+      - contractTypeId
+      - createdAt
+      - createdBy
+      - defaultOrg
+      - grafanaCloud
+      - hgDatasourceCnts
+      - hlUsage
+      - hmCurrentGraphiteUsage
+      - hmCurrentPrometheusUsage
+      - id
+      - marketplaceSubscription
+      - orgId
+      - orgName
+      - orgSlug
+      - orgUrl
+      - privacy
+      - resellerId
+      - role
+      - status
+      - subscriptions
+      - updatedAt
+      - updatedBy
+      - userEmail
+      - userFirstName
+      - userId
+      - userLastName
+      - userName
+      - userStatus
+      - userUsername
+      type: object
     FormattedApiStackRegion_anyOf:
       properties:
         id:

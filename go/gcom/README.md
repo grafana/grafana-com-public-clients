@@ -117,11 +117,16 @@ Class | Method | HTTP request | Description
 *InstancesAPI* | [**PostInstanceServiceAccounts**](docs/InstancesAPI.md#postinstanceserviceaccounts) | **Post** /instances/{instanceId}/api/serviceaccounts | Creates a service account on a Grafana instance
 *InstancesAPI* | [**PostInstances**](docs/InstancesAPI.md#postinstances) | **Post** /instances | Create a new instance
 *OrgsAPI* | [**DelApiKey**](docs/OrgsAPI.md#delapikey) | **Delete** /orgs/{slugOrId}/api-keys/{name} | Delete an API key by name
+*OrgsAPI* | [**DeleteOrgMember**](docs/OrgsAPI.md#deleteorgmember) | **Delete** /orgs/{slugOrId}/members/{usernameOrId} | 
 *OrgsAPI* | [**GetApiKey**](docs/OrgsAPI.md#getapikey) | **Get** /orgs/{slugOrId}/api-keys/{name} | Get an API key by name
 *OrgsAPI* | [**GetApiKeys**](docs/OrgsAPI.md#getapikeys) | **Get** /orgs/{slugOrId}/api-keys | Get an organization&#39;s API keys
 *OrgsAPI* | [**GetOrg**](docs/OrgsAPI.md#getorg) | **Get** /orgs/{slugOrId} | 
 *OrgsAPI* | [**GetOrgInstances**](docs/OrgsAPI.md#getorginstances) | **Get** /orgs/{slug}/instances | Get the list of instances belonging to the org
+*OrgsAPI* | [**GetOrgMember**](docs/OrgsAPI.md#getorgmember) | **Get** /orgs/{slugOrId}/members/{usernameOrId} | 
+*OrgsAPI* | [**GetOrgMembers**](docs/OrgsAPI.md#getorgmembers) | **Get** /orgs/{slugOrId}/members | 
 *OrgsAPI* | [**PostApiKeys**](docs/OrgsAPI.md#postapikeys) | **Post** /orgs/{slugOrId}/api-keys | Create an API key.
+*OrgsAPI* | [**PostOrgMember**](docs/OrgsAPI.md#postorgmember) | **Post** /orgs/{slugOrId}/members/{usernameOrId} | 
+*OrgsAPI* | [**PostOrgMembers**](docs/OrgsAPI.md#postorgmembers) | **Post** /orgs/{slugOrId}/members | 
 *PluginsAPI* | [**GetPlugin**](docs/PluginsAPI.md#getplugin) | **Get** /plugins/{slug} | Fetches a plugin by slug or id
 *StackRegionsAPI* | [**GetStackRegions**](docs/StackRegionsAPI.md#getstackregions) | **Get** /stack-regions | 
 *TokensAPI* | [**DeleteToken**](docs/TokensAPI.md#deletetoken) | **Delete** /v1/tokens/{id} | Delete a token
@@ -147,6 +152,7 @@ Class | Method | HTTP request | Description
  - [FormattedApiStackRegion](docs/FormattedApiStackRegion.md)
  - [FormattedApiStackRegionAnyOf](docs/FormattedApiStackRegionAnyOf.md)
  - [FormattedApiStackRegionAnyOf1](docs/FormattedApiStackRegionAnyOf1.md)
+ - [FormattedOrgMembership](docs/FormattedOrgMembership.md)
  - [GetInstance404Response](docs/GetInstance404Response.md)
  - [GetInstancePlugins200Response](docs/GetInstancePlugins200Response.md)
  - [GetInstances200Response](docs/GetInstances200Response.md)
@@ -155,9 +161,12 @@ Class | Method | HTTP request | Description
  - [GrafanaServiceAccountToken](docs/GrafanaServiceAccountToken.md)
  - [Info](docs/Info.md)
  - [ItemsInner](docs/ItemsInner.md)
+ - [ItemsInner1](docs/ItemsInner1.md)
+ - [ItemsInner1MarketplaceSubscription](docs/ItemsInner1MarketplaceSubscription.md)
  - [LinksInner](docs/LinksInner.md)
  - [LinksInner1](docs/LinksInner1.md)
  - [Next](docs/Next.md)
+ - [OrgMemberListResponse](docs/OrgMemberListResponse.md)
  - [PostAccessPoliciesRequest](docs/PostAccessPoliciesRequest.md)
  - [PostAccessPoliciesRequestAttributes](docs/PostAccessPoliciesRequestAttributes.md)
  - [PostAccessPoliciesRequestAttributesLokiQueryPolicy](docs/PostAccessPoliciesRequestAttributesLokiQueryPolicy.md)
@@ -182,6 +191,8 @@ Class | Method | HTTP request | Description
  - [PostInstanceServiceAccountTokensRequest](docs/PostInstanceServiceAccountTokensRequest.md)
  - [PostInstanceServiceAccountsRequest](docs/PostInstanceServiceAccountsRequest.md)
  - [PostInstancesRequest](docs/PostInstancesRequest.md)
+ - [PostOrgMemberRequest](docs/PostOrgMemberRequest.md)
+ - [PostOrgMembersRequest](docs/PostOrgMembersRequest.md)
  - [PostTokenRequest](docs/PostTokenRequest.md)
  - [PostTokensRequest](docs/PostTokensRequest.md)
  - [PrivateConnectivityInfo](docs/PrivateConnectivityInfo.md)

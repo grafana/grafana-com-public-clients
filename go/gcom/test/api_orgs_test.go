@@ -37,6 +37,20 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test OrgsAPIService DeleteOrgMember", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var slugOrId string
+		var usernameOrId string
+
+		httpRes, err := apiClient.OrgsAPI.DeleteOrgMember(context.Background(), slugOrId, usernameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test OrgsAPIService GetApiKey", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -94,6 +108,35 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test OrgsAPIService GetOrgMember", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var slugOrId string
+		var usernameOrId string
+
+		resp, httpRes, err := apiClient.OrgsAPI.GetOrgMember(context.Background(), slugOrId, usernameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrgsAPIService GetOrgMembers", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var slugOrId string
+
+		resp, httpRes, err := apiClient.OrgsAPI.GetOrgMembers(context.Background(), slugOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test OrgsAPIService PostApiKeys", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -101,6 +144,35 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 		var slugOrId string
 
 		resp, httpRes, err := apiClient.OrgsAPI.PostApiKeys(context.Background(), slugOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrgsAPIService PostOrgMember", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var slugOrId string
+		var usernameOrId string
+
+		resp, httpRes, err := apiClient.OrgsAPI.PostOrgMember(context.Background(), slugOrId, usernameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrgsAPIService PostOrgMembers", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var slugOrId string
+
+		resp, httpRes, err := apiClient.OrgsAPI.PostOrgMembers(context.Background(), slugOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

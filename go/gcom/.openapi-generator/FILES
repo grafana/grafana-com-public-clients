@@ -28,6 +28,7 @@ docs/FormattedApiPlugin.md
 docs/FormattedApiStackRegion.md
 docs/FormattedApiStackRegionAnyOf.md
 docs/FormattedApiStackRegionAnyOf1.md
+docs/FormattedOrgMembership.md
 docs/GetInstance404Response.md
 docs/GetInstancePlugins200Response.md
 docs/GetInstances200Response.md
@@ -37,9 +38,12 @@ docs/GrafanaServiceAccountToken.md
 docs/Info.md
 docs/InstancesAPI.md
 docs/ItemsInner.md
+docs/ItemsInner1.md
+docs/ItemsInner1MarketplaceSubscription.md
 docs/LinksInner.md
 docs/LinksInner1.md
 docs/Next.md
+docs/OrgMemberListResponse.md
 docs/OrgsAPI.md
 docs/PluginsAPI.md
 docs/PostAccessPoliciesRequest.md
@@ -66,6 +70,8 @@ docs/PostInstanceRequest.md
 docs/PostInstanceServiceAccountTokensRequest.md
 docs/PostInstanceServiceAccountsRequest.md
 docs/PostInstancesRequest.md
+docs/PostOrgMemberRequest.md
+docs/PostOrgMembersRequest.md
 docs/PostTokenRequest.md
 docs/PostTokensRequest.md
 docs/PrivateConnectivityInfo.md
@@ -93,6 +99,7 @@ model_formatted_api_plugin.go
 model_formatted_api_stack_region.go
 model_formatted_api_stack_region_any_of.go
 model_formatted_api_stack_region_any_of_1.go
+model_formatted_org_membership.go
 model_get_instance_404_response.go
 model_get_instance_plugins_200_response.go
 model_get_instances_200_response.go
@@ -101,9 +108,12 @@ model_grafana_service_account.go
 model_grafana_service_account_token.go
 model_info.go
 model_items_inner.go
+model_items_inner_1.go
+model_items_inner_1_marketplace_subscription.go
 model_links_inner.go
 model_links_inner_1.go
 model_next.go
+model_org_member_list_response.go
 model_post_access_policies_request.go
 model_post_access_policies_request_attributes.go
 model_post_access_policies_request_attributes_loki_query_policy.go
@@ -128,6 +138,8 @@ model_post_instance_request.go
 model_post_instance_service_account_tokens_request.go
 model_post_instance_service_accounts_request.go
 model_post_instances_request.go
+model_post_org_member_request.go
+model_post_org_members_request.go
 model_post_token_request.go
 model_post_tokens_request.go
 model_private_connectivity_info.go
