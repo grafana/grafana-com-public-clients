@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Product** | **string** |  | 
 **IsTrial** | **bool** |  | 
 **EndDate** | **interface{}** |  | 
-**Payload** | **map[string]interface{}** |  | 
+**Payload** | [**Payload**](Payload.md) |  | 
 **Plan** | **NullableString** |  | 
 **PublicName** | **NullableString** |  | 
 **EnterprisePluginsAdded** | **bool** |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewCurrent2
 
-`func NewCurrent2(product string, isTrial bool, endDate interface{}, payload map[string]interface{}, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, ) *Current2`
+`func NewCurrent2(product string, isTrial bool, endDate interface{}, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, ) *Current2`
 
 NewCurrent2 instantiates a new Current2 object
 This constructor will assign default values to properties that have it defined,
@@ -103,20 +103,20 @@ SetEndDate sets EndDate field to given value.
 UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
 ### GetPayload
 
-`func (o *Current2) GetPayload() map[string]interface{}`
+`func (o *Current2) GetPayload() Payload`
 
 GetPayload returns the Payload field if non-nil, zero value otherwise.
 
 ### GetPayloadOk
 
-`func (o *Current2) GetPayloadOk() (*map[string]interface{}, bool)`
+`func (o *Current2) GetPayloadOk() (*Payload, bool)`
 
 GetPayloadOk returns a tuple with the Payload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPayload
 
-`func (o *Current2) SetPayload(v map[string]interface{})`
+`func (o *Current2) SetPayload(v Payload)`
 
 SetPayload sets Payload field to given value.
 

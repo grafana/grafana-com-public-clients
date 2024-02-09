@@ -20,10 +20,10 @@ var _ MappedNullable = &Next{}
 
 // Next struct for Next
 type Next struct {
-	Product              string                 `json:"product"`
-	Payload              map[string]interface{} `json:"payload"`
-	Plan                 NullableString         `json:"plan"`
-	PublicName           NullableString         `json:"publicName"`
+	Product              string         `json:"product"`
+	Payload              Payload        `json:"payload"`
+	Plan                 NullableString `json:"plan"`
+	PublicName           NullableString `json:"publicName"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -33,7 +33,7 @@ type _Next Next
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNext(product string, payload map[string]interface{}, plan NullableString, publicName NullableString) *Next {
+func NewNext(product string, payload Payload, plan NullableString, publicName NullableString) *Next {
 	this := Next{}
 	this.Product = product
 	this.Payload = payload
@@ -75,9 +75,9 @@ func (o *Next) SetProduct(v string) {
 }
 
 // GetPayload returns the Payload field value
-func (o *Next) GetPayload() map[string]interface{} {
+func (o *Next) GetPayload() Payload {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret Payload
 		return ret
 	}
 
@@ -86,15 +86,15 @@ func (o *Next) GetPayload() map[string]interface{} {
 
 // GetPayloadOk returns a tuple with the Payload field value
 // and a boolean to check if the value has been set.
-func (o *Next) GetPayloadOk() (map[string]interface{}, bool) {
+func (o *Next) GetPayloadOk() (*Payload, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.Payload, true
+	return &o.Payload, true
 }
 
 // SetPayload sets field value
-func (o *Next) SetPayload(v map[string]interface{}) {
+func (o *Next) SetPayload(v Payload) {
 	o.Payload = v
 }
 

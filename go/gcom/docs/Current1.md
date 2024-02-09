@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Product** | **string** |  | 
 **IsTrial** | **bool** |  | 
 **EndDate** | **time.Time** |  | 
-**Payload** | **map[string]interface{}** |  | 
+**Payload** | [**Payload**](Payload.md) |  | 
 **Plan** | **NullableString** |  | 
 **PublicName** | **NullableString** |  | 
 **EnterprisePluginsAdded** | **bool** |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewCurrent1
 
-`func NewCurrent1(product string, isTrial bool, endDate time.Time, payload map[string]interface{}, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, ) *Current1`
+`func NewCurrent1(product string, isTrial bool, endDate time.Time, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, ) *Current1`
 
 NewCurrent1 instantiates a new Current1 object
 This constructor will assign default values to properties that have it defined,
@@ -93,20 +93,20 @@ SetEndDate sets EndDate field to given value.
 
 ### GetPayload
 
-`func (o *Current1) GetPayload() map[string]interface{}`
+`func (o *Current1) GetPayload() Payload`
 
 GetPayload returns the Payload field if non-nil, zero value otherwise.
 
 ### GetPayloadOk
 
-`func (o *Current1) GetPayloadOk() (*map[string]interface{}, bool)`
+`func (o *Current1) GetPayloadOk() (*Payload, bool)`
 
 GetPayloadOk returns a tuple with the Payload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPayload
 
-`func (o *Current1) SetPayload(v map[string]interface{})`
+`func (o *Current1) SetPayload(v Payload)`
 
 SetPayload sets Payload field to given value.
 

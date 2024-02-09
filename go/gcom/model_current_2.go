@@ -20,13 +20,13 @@ var _ MappedNullable = &Current2{}
 
 // Current2 struct for Current2
 type Current2 struct {
-	Product                string                 `json:"product"`
-	IsTrial                bool                   `json:"isTrial"`
-	EndDate                interface{}            `json:"endDate"`
-	Payload                map[string]interface{} `json:"payload"`
-	Plan                   NullableString         `json:"plan"`
-	PublicName             NullableString         `json:"publicName"`
-	EnterprisePluginsAdded bool                   `json:"enterprisePluginsAdded"`
+	Product                string         `json:"product"`
+	IsTrial                bool           `json:"isTrial"`
+	EndDate                interface{}    `json:"endDate"`
+	Payload                Payload        `json:"payload"`
+	Plan                   NullableString `json:"plan"`
+	PublicName             NullableString `json:"publicName"`
+	EnterprisePluginsAdded bool           `json:"enterprisePluginsAdded"`
 	AdditionalProperties   map[string]interface{}
 }
 
@@ -36,7 +36,7 @@ type _Current2 Current2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCurrent2(product string, isTrial bool, endDate interface{}, payload map[string]interface{}, plan NullableString, publicName NullableString, enterprisePluginsAdded bool) *Current2 {
+func NewCurrent2(product string, isTrial bool, endDate interface{}, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool) *Current2 {
 	this := Current2{}
 	this.Product = product
 	this.IsTrial = isTrial
@@ -131,9 +131,9 @@ func (o *Current2) SetEndDate(v interface{}) {
 }
 
 // GetPayload returns the Payload field value
-func (o *Current2) GetPayload() map[string]interface{} {
+func (o *Current2) GetPayload() Payload {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret Payload
 		return ret
 	}
 
@@ -142,15 +142,15 @@ func (o *Current2) GetPayload() map[string]interface{} {
 
 // GetPayloadOk returns a tuple with the Payload field value
 // and a boolean to check if the value has been set.
-func (o *Current2) GetPayloadOk() (map[string]interface{}, bool) {
+func (o *Current2) GetPayloadOk() (*Payload, bool) {
 	if o == nil {
-		return map[string]interface{}{}, false
+		return nil, false
 	}
-	return o.Payload, true
+	return &o.Payload, true
 }
 
 // SetPayload sets field value
-func (o *Current2) SetPayload(v map[string]interface{}) {
+func (o *Current2) SetPayload(v Payload) {
 	o.Payload = v
 }
 

@@ -3312,7 +3312,7 @@ func (r ApiPostInstanceServiceAccountTokensRequest) PostInstanceServiceAccountTo
 	return r
 }
 
-func (r ApiPostInstanceServiceAccountTokensRequest) Execute() (*GrafanaNewApiKeyResult, *http.Response, error) {
+func (r ApiPostInstanceServiceAccountTokensRequest) Execute() (*GrafanaServiceAccountToken, *http.Response, error) {
 	return r.ApiService.PostInstanceServiceAccountTokensExecute(r)
 }
 
@@ -3334,13 +3334,13 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokens(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return GrafanaNewApiKeyResult
-func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostInstanceServiceAccountTokensRequest) (*GrafanaNewApiKeyResult, *http.Response, error) {
+//  @return GrafanaServiceAccountToken
+func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostInstanceServiceAccountTokensRequest) (*GrafanaServiceAccountToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *GrafanaNewApiKeyResult
+		localVarReturnValue *GrafanaServiceAccountToken
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.PostInstanceServiceAccountTokens")
@@ -3491,7 +3491,7 @@ func (r ApiPostInstanceServiceAccountsRequest) PostInstanceServiceAccountsReques
 	return r
 }
 
-func (r ApiPostInstanceServiceAccountsRequest) Execute() (*GrafanaServiceAccountDTO, *http.Response, error) {
+func (r ApiPostInstanceServiceAccountsRequest) Execute() (*GrafanaServiceAccount, *http.Response, error) {
 	return r.ApiService.PostInstanceServiceAccountsExecute(r)
 }
 
@@ -3511,13 +3511,13 @@ func (a *InstancesAPIService) PostInstanceServiceAccounts(ctx context.Context, i
 }
 
 // Execute executes the request
-//  @return GrafanaServiceAccountDTO
-func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstanceServiceAccountsRequest) (*GrafanaServiceAccountDTO, *http.Response, error) {
+//  @return GrafanaServiceAccount
+func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstanceServiceAccountsRequest) (*GrafanaServiceAccount, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *GrafanaServiceAccountDTO
+		localVarReturnValue *GrafanaServiceAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.PostInstanceServiceAccounts")

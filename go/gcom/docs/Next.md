@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Product** | **string** |  | 
-**Payload** | **map[string]interface{}** |  | 
+**Payload** | [**Payload**](Payload.md) |  | 
 **Plan** | **NullableString** |  | 
 **PublicName** | **NullableString** |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewNext
 
-`func NewNext(product string, payload map[string]interface{}, plan NullableString, publicName NullableString, ) *Next`
+`func NewNext(product string, payload Payload, plan NullableString, publicName NullableString, ) *Next`
 
 NewNext instantiates a new Next object
 This constructor will assign default values to properties that have it defined,
@@ -50,20 +50,20 @@ SetProduct sets Product field to given value.
 
 ### GetPayload
 
-`func (o *Next) GetPayload() map[string]interface{}`
+`func (o *Next) GetPayload() Payload`
 
 GetPayload returns the Payload field if non-nil, zero value otherwise.
 
 ### GetPayloadOk
 
-`func (o *Next) GetPayloadOk() (*map[string]interface{}, bool)`
+`func (o *Next) GetPayloadOk() (*Payload, bool)`
 
 GetPayloadOk returns a tuple with the Payload field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPayload
 
-`func (o *Next) SetPayload(v map[string]interface{})`
+`func (o *Next) SetPayload(v Payload)`
 
 SetPayload sets Payload field to given value.
 
