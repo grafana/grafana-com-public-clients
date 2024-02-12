@@ -27,6 +27,7 @@ type Current struct {
 	Plan                   interface{}            `json:"plan"`
 	PublicName             interface{}            `json:"publicName"`
 	EnterprisePluginsAdded bool                   `json:"enterprisePluginsAdded"`
+	PlanBillingCycle       interface{}            `json:"planBillingCycle"`
 	AdditionalProperties   map[string]interface{}
 }
 
@@ -36,7 +37,7 @@ type _Current Current
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCurrent(product interface{}, isTrial bool, endDate interface{}, payload map[string]interface{}, plan interface{}, publicName interface{}, enterprisePluginsAdded bool) *Current {
+func NewCurrent(product interface{}, isTrial bool, endDate interface{}, payload map[string]interface{}, plan interface{}, publicName interface{}, enterprisePluginsAdded bool, planBillingCycle interface{}) *Current {
 	this := Current{}
 	this.Product = product
 	this.IsTrial = isTrial
@@ -45,6 +46,7 @@ func NewCurrent(product interface{}, isTrial bool, endDate interface{}, payload 
 	this.Plan = plan
 	this.PublicName = publicName
 	this.EnterprisePluginsAdded = enterprisePluginsAdded
+	this.PlanBillingCycle = planBillingCycle
 	return &this
 }
 
@@ -232,6 +234,32 @@ func (o *Current) SetEnterprisePluginsAdded(v bool) {
 	o.EnterprisePluginsAdded = v
 }
 
+// GetPlanBillingCycle returns the PlanBillingCycle field value
+// If the value is explicit nil, the zero value for interface{} will be returned
+func (o *Current) GetPlanBillingCycle() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+
+	return o.PlanBillingCycle
+}
+
+// GetPlanBillingCycleOk returns a tuple with the PlanBillingCycle field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Current) GetPlanBillingCycleOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.PlanBillingCycle) {
+		return nil, false
+	}
+	return &o.PlanBillingCycle, true
+}
+
+// SetPlanBillingCycle sets field value
+func (o *Current) SetPlanBillingCycle(v interface{}) {
+	o.PlanBillingCycle = v
+}
+
 func (o Current) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -257,6 +285,9 @@ func (o Current) ToMap() (map[string]interface{}, error) {
 		toSerialize["publicName"] = o.PublicName
 	}
 	toSerialize["enterprisePluginsAdded"] = o.EnterprisePluginsAdded
+	if o.PlanBillingCycle != nil {
+		toSerialize["planBillingCycle"] = o.PlanBillingCycle
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -277,6 +308,7 @@ func (o *Current) UnmarshalJSON(data []byte) (err error) {
 		"plan",
 		"publicName",
 		"enterprisePluginsAdded",
+		"planBillingCycle",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -313,6 +345,7 @@ func (o *Current) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "plan")
 		delete(additionalProperties, "publicName")
 		delete(additionalProperties, "enterprisePluginsAdded")
+		delete(additionalProperties, "planBillingCycle")
 		o.AdditionalProperties = additionalProperties
 	}
 

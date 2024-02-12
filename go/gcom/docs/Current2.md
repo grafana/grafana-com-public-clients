@@ -11,12 +11,13 @@ Name | Type | Description | Notes
 **Plan** | **NullableString** |  | 
 **PublicName** | **NullableString** |  | 
 **EnterprisePluginsAdded** | **bool** |  | 
+**PlanBillingCycle** | **string** |  | 
 
 ## Methods
 
 ### NewCurrent2
 
-`func NewCurrent2(product string, isTrial bool, endDate interface{}, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, ) *Current2`
+`func NewCurrent2(product string, isTrial bool, endDate interface{}, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, planBillingCycle string, ) *Current2`
 
 NewCurrent2 instantiates a new Current2 object
 This constructor will assign default values to properties that have it defined,
@@ -199,6 +200,26 @@ and a boolean to check if the value has been set.
 `func (o *Current2) SetEnterprisePluginsAdded(v bool)`
 
 SetEnterprisePluginsAdded sets EnterprisePluginsAdded field to given value.
+
+
+### GetPlanBillingCycle
+
+`func (o *Current2) GetPlanBillingCycle() string`
+
+GetPlanBillingCycle returns the PlanBillingCycle field if non-nil, zero value otherwise.
+
+### GetPlanBillingCycleOk
+
+`func (o *Current2) GetPlanBillingCycleOk() (*string, bool)`
+
+GetPlanBillingCycleOk returns a tuple with the PlanBillingCycle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlanBillingCycle
+
+`func (o *Current2) SetPlanBillingCycle(v string)`
+
+SetPlanBillingCycle sets PlanBillingCycle field to given value.
 
 
 

@@ -11,12 +11,13 @@ Name | Type | Description | Notes
 **Plan** | **interface{}** |  | 
 **PublicName** | **interface{}** |  | 
 **EnterprisePluginsAdded** | **bool** |  | 
+**PlanBillingCycle** | **interface{}** |  | 
 
 ## Methods
 
 ### NewCurrent
 
-`func NewCurrent(product interface{}, isTrial bool, endDate interface{}, payload map[string]interface{}, plan interface{}, publicName interface{}, enterprisePluginsAdded bool, ) *Current`
+`func NewCurrent(product interface{}, isTrial bool, endDate interface{}, payload map[string]interface{}, plan interface{}, publicName interface{}, enterprisePluginsAdded bool, planBillingCycle interface{}, ) *Current`
 
 NewCurrent instantiates a new Current object
 This constructor will assign default values to properties that have it defined,
@@ -211,6 +212,36 @@ and a boolean to check if the value has been set.
 SetEnterprisePluginsAdded sets EnterprisePluginsAdded field to given value.
 
 
+### GetPlanBillingCycle
+
+`func (o *Current) GetPlanBillingCycle() interface{}`
+
+GetPlanBillingCycle returns the PlanBillingCycle field if non-nil, zero value otherwise.
+
+### GetPlanBillingCycleOk
+
+`func (o *Current) GetPlanBillingCycleOk() (*interface{}, bool)`
+
+GetPlanBillingCycleOk returns a tuple with the PlanBillingCycle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlanBillingCycle
+
+`func (o *Current) SetPlanBillingCycle(v interface{})`
+
+SetPlanBillingCycle sets PlanBillingCycle field to given value.
+
+
+### SetPlanBillingCycleNil
+
+`func (o *Current) SetPlanBillingCycleNil(b bool)`
+
+ SetPlanBillingCycleNil sets the value for PlanBillingCycle to be an explicit nil
+
+### UnsetPlanBillingCycle
+`func (o *Current) UnsetPlanBillingCycle()`
+
+UnsetPlanBillingCycle ensures that no value is present for PlanBillingCycle, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

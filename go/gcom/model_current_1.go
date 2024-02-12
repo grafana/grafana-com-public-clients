@@ -28,6 +28,7 @@ type Current1 struct {
 	Plan                   NullableString `json:"plan"`
 	PublicName             NullableString `json:"publicName"`
 	EnterprisePluginsAdded bool           `json:"enterprisePluginsAdded"`
+	PlanBillingCycle       string         `json:"planBillingCycle"`
 	AdditionalProperties   map[string]interface{}
 }
 
@@ -37,7 +38,7 @@ type _Current1 Current1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCurrent1(product string, isTrial bool, endDate time.Time, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool) *Current1 {
+func NewCurrent1(product string, isTrial bool, endDate time.Time, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, planBillingCycle string) *Current1 {
 	this := Current1{}
 	this.Product = product
 	this.IsTrial = isTrial
@@ -46,6 +47,7 @@ func NewCurrent1(product string, isTrial bool, endDate time.Time, payload Payloa
 	this.Plan = plan
 	this.PublicName = publicName
 	this.EnterprisePluginsAdded = enterprisePluginsAdded
+	this.PlanBillingCycle = planBillingCycle
 	return &this
 }
 
@@ -229,6 +231,30 @@ func (o *Current1) SetEnterprisePluginsAdded(v bool) {
 	o.EnterprisePluginsAdded = v
 }
 
+// GetPlanBillingCycle returns the PlanBillingCycle field value
+func (o *Current1) GetPlanBillingCycle() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PlanBillingCycle
+}
+
+// GetPlanBillingCycleOk returns a tuple with the PlanBillingCycle field value
+// and a boolean to check if the value has been set.
+func (o *Current1) GetPlanBillingCycleOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PlanBillingCycle, true
+}
+
+// SetPlanBillingCycle sets field value
+func (o *Current1) SetPlanBillingCycle(v string) {
+	o.PlanBillingCycle = v
+}
+
 func (o Current1) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -246,6 +272,7 @@ func (o Current1) ToMap() (map[string]interface{}, error) {
 	toSerialize["plan"] = o.Plan.Get()
 	toSerialize["publicName"] = o.PublicName.Get()
 	toSerialize["enterprisePluginsAdded"] = o.EnterprisePluginsAdded
+	toSerialize["planBillingCycle"] = o.PlanBillingCycle
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -266,6 +293,7 @@ func (o *Current1) UnmarshalJSON(data []byte) (err error) {
 		"plan",
 		"publicName",
 		"enterprisePluginsAdded",
+		"planBillingCycle",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -302,6 +330,7 @@ func (o *Current1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "plan")
 		delete(additionalProperties, "publicName")
 		delete(additionalProperties, "enterprisePluginsAdded")
+		delete(additionalProperties, "planBillingCycle")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: a1356e0
-  x-generated-at: 2024-02-09T21:09:32.863Z
+  x-commit-sha: e6599af
+  x-generated-at: 2024-02-12T18:20:19.151Z
 servers:
 - description: Main API server
   url: /api
@@ -6358,12 +6358,16 @@ components:
         enterprisePluginsAdded:
           title: enterprisePluginsAdded
           type: boolean
+        planBillingCycle:
+          nullable: true
+          title: planBillingCycle
       required:
       - endDate
       - enterprisePluginsAdded
       - isTrial
       - payload
       - plan
+      - planBillingCycle
       - product
       - publicName
       title: current
@@ -6423,12 +6427,16 @@ components:
         enterprisePluginsAdded:
           title: enterprisePluginsAdded
           type: boolean
+        planBillingCycle:
+          title: planBillingCycle
+          type: string
       required:
       - endDate
       - enterprisePluginsAdded
       - isTrial
       - payload
       - plan
+      - planBillingCycle
       - product
       - publicName
       title: current
@@ -6508,12 +6516,16 @@ components:
         enterprisePluginsAdded:
           title: enterprisePluginsAdded
           type: boolean
+        planBillingCycle:
+          title: planBillingCycle
+          type: string
       required:
       - endDate
       - enterprisePluginsAdded
       - isTrial
       - payload
       - plan
+      - planBillingCycle
       - product
       - publicName
       title: current
