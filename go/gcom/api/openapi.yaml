@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: c8f98f9
-  x-generated-at: 2024-02-13T15:07:28.151Z
+  x-commit-sha: e7271d8
+  x-generated-at: 2024-02-13T16:00:53.884Z
 servers:
 - description: Main API server
   url: /api
@@ -593,7 +593,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GrafanaServiceAccountDTO'
+                $ref: '#/components/schemas/GrafanaServiceAccount'
           description: OK
         "401":
           content:
@@ -665,7 +665,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GrafanaNewApiKeyResult'
+                $ref: '#/components/schemas/GrafanaServiceAccountToken'
           description: OK
         "401":
           content:
@@ -2573,9 +2573,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AuthAccessPolicy'
-                type: array
+                type: object
           description: OK
         "401":
           content:
@@ -2634,7 +2632,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthAccessPolicy'
+                type: object
           description: OK
         "401":
           content:
@@ -2792,7 +2790,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthAccessPolicy'
+                type: object
           description: OK
         "401":
           content:
@@ -2864,7 +2862,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthAccessPolicy'
+                type: object
           description: OK
         "401":
           content:
@@ -2999,9 +2997,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AuthToken'
-                type: array
+                type: object
           description: OK
         "401":
           content:
@@ -3060,7 +3056,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthTokenWithSecret'
+                type: object
           description: OK
         "401":
           content:
@@ -3191,7 +3187,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthToken'
+                type: object
           description: OK
         "401":
           content:
@@ -3263,7 +3259,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthToken'
+                type: object
           description: OK
         "401":
           content:
@@ -3300,123 +3296,6 @@ paths:
       - tokens
 components:
   schemas:
-    AuthAccessPolicy:
-      example:
-        realms:
-        - identifier: "123"
-          labelPolicies:
-          - selector: "{env != \"dev\"}"
-          - selector: "{env != \"dev\"}"
-          type: stack
-        - identifier: "123"
-          labelPolicies:
-          - selector: "{env != \"dev\"}"
-          - selector: "{env != \"dev\"}"
-          type: stack
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        displayName: Stack Readers
-        name: stack-readers
-        attributes:
-          pdcConfiguration:
-            limitedHosts:
-            - mysql.example.com:3306
-            - mysql.example.com:3306
-          lokiQueryPolicy:
-            queryTimeout: 10s
-            maxQueryLookback: 30d
-            maxQueryLength: 7d
-            maxEntriesLimitPerQuery: 20
-          allowedScopes:
-          - metrics:read
-          - logs:read
-          - traces:read
-          - alerts:read
-        id: c45485b6-8321-4cf2-bcec-12006df755ff
-        scopes:
-        - metrics:read
-        - logs:read
-        - traces:read
-        - alerts:read
-        conditions:
-          allowedSubnets:
-          - null
-          - null
-        orgId: "1"
-        updatedAt: 2000-01-23T04:56:07.000+00:00
-        status: active
-      properties:
-        id:
-          example: c45485b6-8321-4cf2-bcec-12006df755ff
-          format: uuid
-          readOnly: true
-          type: string
-        orgId:
-          example: "1"
-          readOnly: true
-          type: string
-        name:
-          example: stack-readers
-          type: string
-        displayName:
-          description: Will be set to `name` if not provided.
-          example: Stack Readers
-          type: string
-        scopes:
-          example:
-          - metrics:read
-          - logs:read
-          - traces:read
-          - alerts:read
-          items:
-            enum:
-            - accesspolicies:read
-            - accesspolicies:write
-            - accesspolicies:delete
-            - billing-metrics:read
-            - metrics:read
-            - metrics:write
-            - metrics:delete
-            - metrics:import
-            - logs:read
-            - logs:write
-            - logs:delete
-            - traces:read
-            - traces:write
-            - traces:delete
-            - alerts:read
-            - alerts:write
-            - rules:read
-            - rules:write
-            type: string
-          type: array
-        realms:
-          items:
-            $ref: '#/components/schemas/AuthAccessPolicy_realms_inner'
-          type: array
-        createdAt:
-          format: date-time
-          readOnly: true
-          type: string
-        updatedAt:
-          format: date-time
-          readOnly: true
-          type: string
-        conditions:
-          $ref: '#/components/schemas/AuthAccessPolicy_conditions'
-        attributes:
-          $ref: '#/components/schemas/AuthAccessPolicy_attributes'
-        status:
-          description: The status of the access policy.
-          enum:
-          - active
-          - inactive
-          example: active
-          type: string
-      required:
-      - name
-      - realms
-      - scopes
-      type: object
     FormattedApiApiKeyListResponse:
       example:
         cursor: 9.301444243932576
@@ -4149,77 +4028,65 @@ components:
       - userQuota
       - version
       type: object
-    GrafanaServiceAccountDTO:
-      description: "swagger: model"
+    GrafanaServiceAccount:
       example:
-        accessControl:
-          serviceaccounts:delete: true
-          serviceaccounts:read: true
-          serviceaccounts:write: true
-        role: Viewer
-        isExternal: false
-        avatarUrl: /avatar/85ec38023d90823d3e5b43ef35646af9
-        name: grafana
-        tokens: 0
-        id: 0
-        isDisabled: false
-        login: sa-grafana
-        orgId: 1
+        role: role
+        avatarUrl: avatarUrl
+        name: name
+        tokens: 6.027456183070403
+        id: 0.8008281904610115
+        isDisabled: true
+        login: login
       properties:
-        accessControl:
-          additionalProperties:
-            type: boolean
-          example:
-            serviceaccounts:delete: true
-            serviceaccounts:read: true
-            serviceaccounts:write: true
-          type: object
-        avatarUrl:
-          example: /avatar/85ec38023d90823d3e5b43ef35646af9
-          type: string
         id:
-          format: int64
-          type: integer
-        isDisabled:
-          example: false
-          type: boolean
-        isExternal:
-          example: false
-          type: boolean
-        login:
-          example: sa-grafana
-          type: string
+          title: id
+          type: number
         name:
-          example: grafana
+          title: name
           type: string
-        orgId:
-          example: 1
-          format: int64
-          type: integer
+        login:
+          title: login
+          type: string
+        isDisabled:
+          title: isDisabled
+          type: boolean
         role:
-          example: Viewer
+          title: role
           type: string
         tokens:
-          example: 0
-          format: int64
-          type: integer
+          title: tokens
+          type: number
+        avatarUrl:
+          title: avatarUrl
+          type: string
+      required:
+      - avatarUrl
+      - id
+      - isDisabled
+      - login
+      - name
+      - role
+      - tokens
       type: object
-    GrafanaNewApiKeyResult:
+    GrafanaServiceAccountToken:
       example:
-        name: grafana
-        id: 1
-        key: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
+        name: name
+        id: 0.8008281904610115
+        key: key
       properties:
         id:
-          example: 1
-          format: int64
-          type: integer
-        key:
-          example: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
-          type: string
+          title: id
+          type: number
         name:
-          example: grafana
+          title: name
           type: string
+        key:
+          title: key
+          type: string
+      required:
+      - id
+      - key
+      - name
       type: object
     FormattedApiInstanceConnections:
       example:
@@ -5503,107 +5370,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf'
       - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf_1'
-    AuthToken:
-      example:
-        accessPolicyId: c45485b6-8321-4cf2-bcec-12006df755ff
-        firstUsedAt: 2000-01-23T04:56:07.000+00:00
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        lastUsedAt: 2000-01-23T04:56:07.000+00:00
-        displayName: My Token
-        name: mytoken
-        id: c45485b6-8321-4cf2-bcec-12006df755ff
-        expiresAt: 2000-01-23T04:56:07.000+00:00
-        updatedAt: 2000-01-23T04:56:07.000+00:00
-      properties:
-        id:
-          example: c45485b6-8321-4cf2-bcec-12006df755ff
-          format: string
-          readOnly: true
-          type: string
-        accessPolicyId:
-          example: c45485b6-8321-4cf2-bcec-12006df755ff
-          format: string
-          type: string
-        name:
-          example: mytoken
-          type: string
-        displayName:
-          description: Will be set to `name` if not provided.
-          example: My Token
-          type: string
-        expiresAt:
-          description: Token does not expire if not provided.
-          format: date-time
-          type: string
-        firstUsedAt:
-          format: date-time
-          readOnly: true
-          type: string
-        lastUsedAt:
-          format: date-time
-          readOnly: true
-          type: string
-        createdAt:
-          format: date-time
-          readOnly: true
-          type: string
-        updatedAt:
-          format: date-time
-          readOnly: true
-          type: string
-      required:
-      - accessPolicyId
-      - name
-      type: object
-    AuthTokenWithSecret:
-      allOf:
-      - properties:
-          id:
-            example: c45485b6-8321-4cf2-bcec-12006df755ff
-            format: string
-            readOnly: true
-            type: string
-          accessPolicyId:
-            example: c45485b6-8321-4cf2-bcec-12006df755ff
-            format: string
-            type: string
-          name:
-            example: mytoken
-            type: string
-          displayName:
-            description: Will be set to `name` if not provided.
-            example: My Token
-            type: string
-          expiresAt:
-            description: Token does not expire if not provided.
-            format: date-time
-            type: string
-          firstUsedAt:
-            format: date-time
-            readOnly: true
-            type: string
-          lastUsedAt:
-            format: date-time
-            readOnly: true
-            type: string
-          createdAt:
-            format: date-time
-            readOnly: true
-            type: string
-          updatedAt:
-            format: date-time
-            readOnly: true
-            type: string
-        required:
-        - accessPolicyId
-        - name
-        type: object
-      - properties:
-          token:
-            description: This token is auto generated and will be shown only once.
-            example: glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9
-            format: password
-            type: string
     postAllApiKeys_request:
       properties:
         name:
@@ -6409,147 +6175,6 @@ components:
       properties:
         displayName:
           type: string
-      type: object
-    AuthAccessPolicy_realms_inner_labelPolicies_inner:
-      example:
-        selector: "{env != \"dev\"}"
-      properties:
-        selector:
-          description: Label selector
-          example: "{env != \"dev\"}"
-          format: string
-          type: string
-      type: object
-    AuthAccessPolicy_realms_inner:
-      example:
-        identifier: "123"
-        labelPolicies:
-        - selector: "{env != \"dev\"}"
-        - selector: "{env != \"dev\"}"
-        type: stack
-      properties:
-        type:
-          description: Type of the realm
-          enum:
-          - org
-          - stack
-          - system
-          example: stack
-          type: string
-        identifier:
-          description: The unique identifier of a realm (org or stack).
-          example: "123"
-          format: string
-          type: string
-        labelPolicies:
-          items:
-            $ref: '#/components/schemas/AuthAccessPolicy_realms_inner_labelPolicies_inner'
-          type: array
-      type: object
-    AuthAccessPolicy_conditions_allowedSubnets_inner:
-      oneOf:
-      - format: ipv4-cidr
-        type: string
-      - format: ipv6-cidr
-        type: string
-    AuthAccessPolicy_conditions:
-      description: |
-        A set of criteria that is used to restrict access of the Access Policy and Tokens. Providing an empty object ("{}") results in the complete removal of the `conditions` object.
-      example:
-        allowedSubnets:
-        - null
-        - null
-      properties:
-        allowedSubnets:
-          description: |
-            An array of IP addresses with subnet masks in CIDR notation (both IPv4 or IPv6 are supported) that is used to restrict access to only hosts that are part of at least one of the subnets. Providing an empty array is equivalent to providing an empty `conditions` object, and results in the removal of the `conditions` object from the Access Policy.
-            Note that an IP address is not valid CIDR notation. For specifying a single IP address use a subnet mask of `/32` for IPv4 and `/128` for IPv6.
-            Examples: 192.168.0.10/32 2001:db0:82a3:0:0:8a2e:370:1234/128
-          items:
-            $ref: '#/components/schemas/AuthAccessPolicy_conditions_allowedSubnets_inner'
-          type: array
-      type: object
-    AuthAccessPolicy_attributes_lokiQueryPolicy:
-      example:
-        queryTimeout: 10s
-        maxQueryLookback: 30d
-        maxQueryLength: 7d
-        maxEntriesLimitPerQuery: 20
-      properties:
-        queryTimeout:
-          description: "String which represents a duration. For example \"10s\", \"\
-            2w\", \"5h\"."
-          example: 10s
-          format: string
-          type: string
-        maxEntriesLimitPerQuery:
-          description: Ordinary integer.
-          example: 20
-          format: integer
-          type: integer
-        maxQueryLookback:
-          description: "String which represents a duration. For example \"10s\", \"\
-            2w\", \"5h\"."
-          example: 30d
-          format: string
-          type: string
-        maxQueryLength:
-          description: "String which represents a duration. For example \"10s\", \"\
-            2w\", \"5h\"."
-          example: 7d
-          format: string
-          type: string
-      type: object
-    AuthAccessPolicy_attributes_pdcConfiguration:
-      example:
-        limitedHosts:
-        - mysql.example.com:3306
-        - mysql.example.com:3306
-      properties:
-        limitedHosts:
-          description: List of hosts that Grafana is able to access through a PDC.
-            All hosts are allowed if not provided.
-          items:
-            description: Hostname and port of host PDC is limited to access.
-            example: mysql.example.com:3306
-            format: string
-            type: string
-          type: array
-      type: object
-    AuthAccessPolicy_attributes:
-      description: |
-        A set of criteria that can be to the backend service via headers through the gateway, or used to make authentication decisions.
-      example:
-        pdcConfiguration:
-          limitedHosts:
-          - mysql.example.com:3306
-          - mysql.example.com:3306
-        lokiQueryPolicy:
-          queryTimeout: 10s
-          maxQueryLookback: 30d
-          maxQueryLength: 7d
-          maxEntriesLimitPerQuery: 20
-        allowedScopes:
-        - metrics:read
-        - logs:read
-        - traces:read
-        - alerts:read
-      properties:
-        lokiQueryPolicy:
-          $ref: '#/components/schemas/AuthAccessPolicy_attributes_lokiQueryPolicy'
-        allowedScopes:
-          description: |
-            List of scopes allowed to be signed by an access policy (required if the access policy contains `grafana-id-token:sign`).
-          example:
-          - metrics:read
-          - logs:read
-          - traces:read
-          - alerts:read
-          items:
-            type: string
-          type: array
-        pdcConfiguration:
-          $ref: '#/components/schemas/AuthAccessPolicy_attributes_pdcConfiguration'
       type: object
     links_inner:
       example:
