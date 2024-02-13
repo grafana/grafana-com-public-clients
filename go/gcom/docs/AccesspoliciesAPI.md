@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## GetAccessPolicies
 
-> map[string]interface{} GetAccessPolicies(ctx).Region(region).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).RealmIdentifier(realmIdentifier).RealmType(realmType).Status(status).Execute()
+> []AuthAccessPolicy GetAccessPolicies(ctx).Region(region).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).RealmIdentifier(realmIdentifier).RealmType(realmType).Status(status).Execute()
 
 Get a list of access policies
 
@@ -122,7 +122,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccesspoliciesAPI.GetAccessPolicies``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAccessPolicies`: map[string]interface{}
+	// response from `GetAccessPolicies`: []AuthAccessPolicy
 	fmt.Fprintf(os.Stdout, "Response from `AccesspoliciesAPI.GetAccessPolicies`: %v\n", resp)
 }
 ```
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**[]AuthAccessPolicy**](AuthAccessPolicy.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ## GetAccessPolicy
 
-> map[string]interface{} GetAccessPolicy(ctx, id).Region(region).OrgId(orgId).Execute()
+> AuthAccessPolicy GetAccessPolicy(ctx, id).Region(region).OrgId(orgId).Execute()
 
 Get an access policy
 
@@ -195,7 +195,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccesspoliciesAPI.GetAccessPolicy``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAccessPolicy`: map[string]interface{}
+	// response from `GetAccessPolicy`: AuthAccessPolicy
 	fmt.Fprintf(os.Stdout, "Response from `AccesspoliciesAPI.GetAccessPolicy`: %v\n", resp)
 }
 ```
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**AuthAccessPolicy**](AuthAccessPolicy.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## PostAccessPolicies
 
-> map[string]interface{} PostAccessPolicies(ctx).Region(region).XRequestId(xRequestId).PostAccessPoliciesRequest(postAccessPoliciesRequest).OrgId(orgId).Execute()
+> AuthAccessPolicy PostAccessPolicies(ctx).Region(region).XRequestId(xRequestId).PostAccessPoliciesRequest(postAccessPoliciesRequest).OrgId(orgId).Execute()
 
 Create a new access policy
 
@@ -332,7 +332,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccesspoliciesAPI.PostAccessPolicies``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostAccessPolicies`: map[string]interface{}
+	// response from `PostAccessPolicies`: AuthAccessPolicy
 	fmt.Fprintf(os.Stdout, "Response from `AccesspoliciesAPI.PostAccessPolicies`: %v\n", resp)
 }
 ```
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**AuthAccessPolicy**](AuthAccessPolicy.md)
 
 ### Authorization
 
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 
 ## PostAccessPolicy
 
-> map[string]interface{} PostAccessPolicy(ctx, id).Region(region).XRequestId(xRequestId).PostAccessPolicyRequest(postAccessPolicyRequest).OrgId(orgId).Execute()
+> AuthAccessPolicy PostAccessPolicy(ctx, id).Region(region).XRequestId(xRequestId).PostAccessPolicyRequest(postAccessPolicyRequest).OrgId(orgId).Execute()
 
 Update an access policy
 
@@ -403,7 +403,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccesspoliciesAPI.PostAccessPolicy``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostAccessPolicy`: map[string]interface{}
+	// response from `PostAccessPolicy`: AuthAccessPolicy
 	fmt.Fprintf(os.Stdout, "Response from `AccesspoliciesAPI.PostAccessPolicy`: %v\n", resp)
 }
 ```
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**AuthAccessPolicy**](AuthAccessPolicy.md)
 
 ### Authorization
 
