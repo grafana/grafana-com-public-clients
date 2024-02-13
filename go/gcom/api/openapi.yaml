@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: e7271d8
-  x-generated-at: 2024-02-13T16:00:53.884Z
+  x-commit-sha: f1bd1fc
+  x-generated-at: 2024-02-13T16:18:34.264Z
 servers:
 - description: Main API server
   url: /api
