@@ -20,28 +20,29 @@ var _ MappedNullable = &PostInstancesRequest{}
 
 // PostInstancesRequest struct for PostInstancesRequest
 type PostInstancesRequest struct {
-	AdminUserInstance               *bool    `json:"adminUserInstance,omitempty"`
-	Alerts                          *bool    `json:"alerts,omitempty"`
-	Cluster                         *string  `json:"cluster,omitempty"`
-	CreateTemporaryLicenseIfMissing *bool    `json:"createTemporaryLicenseIfMissing,omitempty"`
-	Description                     *string  `json:"description,omitempty"`
-	Graphite                        *bool    `json:"graphite,omitempty"`
-	HlInstanceId                    *int32   `json:"hlInstanceId,omitempty"`
-	Hosted                          *bool    `json:"hosted,omitempty"`
-	K6OrgId                         *int32   `json:"k6OrgId,omitempty"`
-	Logs                            *bool    `json:"logs,omitempty"`
-	Name                            string   `json:"name"`
-	Org                             *string  `json:"org,omitempty"`
-	Plan                            *string  `json:"plan,omitempty"`
-	Plugins                         []string `json:"plugins,omitempty"`
-	Prometheus                      *bool    `json:"prometheus,omitempty"`
-	PublicInstance                  *bool    `json:"publicInstance,omitempty"`
-	Region                          *string  `json:"region,omitempty"`
-	Slug                            *string  `json:"slug,omitempty"`
-	Url                             *string  `json:"url,omitempty"`
-	UsernameOrEmail                 *string  `json:"usernameOrEmail,omitempty"`
-	Version                         *string  `json:"version,omitempty"`
-	WaitForReadiness                *bool    `json:"waitForReadiness,omitempty"`
+	AdminUserInstance               *bool              `json:"adminUserInstance,omitempty"`
+	Alerts                          *bool              `json:"alerts,omitempty"`
+	Cluster                         *string            `json:"cluster,omitempty"`
+	CreateTemporaryLicenseIfMissing *bool              `json:"createTemporaryLicenseIfMissing,omitempty"`
+	Description                     *string            `json:"description,omitempty"`
+	Graphite                        *bool              `json:"graphite,omitempty"`
+	HlInstanceId                    *int32             `json:"hlInstanceId,omitempty"`
+	Hosted                          *bool              `json:"hosted,omitempty"`
+	K6OrgId                         *int32             `json:"k6OrgId,omitempty"`
+	Labels                          *map[string]string `json:"labels,omitempty"`
+	Logs                            *bool              `json:"logs,omitempty"`
+	Name                            string             `json:"name"`
+	Org                             *string            `json:"org,omitempty"`
+	Plan                            *string            `json:"plan,omitempty"`
+	Plugins                         []string           `json:"plugins,omitempty"`
+	Prometheus                      *bool              `json:"prometheus,omitempty"`
+	PublicInstance                  *bool              `json:"publicInstance,omitempty"`
+	Region                          *string            `json:"region,omitempty"`
+	Slug                            *string            `json:"slug,omitempty"`
+	Url                             *string            `json:"url,omitempty"`
+	UsernameOrEmail                 *string            `json:"usernameOrEmail,omitempty"`
+	Version                         *string            `json:"version,omitempty"`
+	WaitForReadiness                *bool              `json:"waitForReadiness,omitempty"`
 	AdditionalProperties            map[string]interface{}
 }
 
@@ -355,6 +356,38 @@ func (o *PostInstancesRequest) HasK6OrgId() bool {
 // SetK6OrgId gets a reference to the given int32 and assigns it to the K6OrgId field.
 func (o *PostInstancesRequest) SetK6OrgId(v int32) {
 	o.K6OrgId = &v
+}
+
+// GetLabels returns the Labels field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetLabels() map[string]string {
+	if o == nil || IsNil(o.Labels) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Labels
+}
+
+// GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetLabelsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Labels) {
+		return nil, false
+	}
+	return o.Labels, true
+}
+
+// HasLabels returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasLabels() bool {
+	if o != nil && !IsNil(o.Labels) {
+		return true
+	}
+
+	return false
+}
+
+// SetLabels gets a reference to the given map[string]string and assigns it to the Labels field.
+func (o *PostInstancesRequest) SetLabels(v map[string]string) {
+	o.Labels = &v
 }
 
 // GetLogs returns the Logs field value if set, zero value otherwise.
@@ -802,6 +835,9 @@ func (o PostInstancesRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.K6OrgId) {
 		toSerialize["k6OrgId"] = o.K6OrgId
 	}
+	if !IsNil(o.Labels) {
+		toSerialize["labels"] = o.Labels
+	}
 	if !IsNil(o.Logs) {
 		toSerialize["logs"] = o.Logs
 	}
@@ -891,6 +927,7 @@ func (o *PostInstancesRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "hlInstanceId")
 		delete(additionalProperties, "hosted")
 		delete(additionalProperties, "k6OrgId")
+		delete(additionalProperties, "labels")
 		delete(additionalProperties, "logs")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "org")

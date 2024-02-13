@@ -19,17 +19,18 @@ var _ MappedNullable = &PostInstanceRequest{}
 
 // PostInstanceRequest struct for PostInstanceRequest
 type PostInstanceRequest struct {
-	Alerts               *bool   `json:"alerts,omitempty"`
-	Description          *string `json:"description,omitempty"`
-	Graphite             *bool   `json:"graphite,omitempty"`
-	HlInstanceId         *int32  `json:"hlInstanceId,omitempty"`
-	K6OrgId              *int32  `json:"k6OrgId,omitempty"`
-	Logs                 *bool   `json:"logs,omitempty"`
-	Name                 *string `json:"name,omitempty"`
-	Plan                 *string `json:"plan,omitempty"`
-	Prometheus           *bool   `json:"prometheus,omitempty"`
-	Slug                 *string `json:"slug,omitempty"`
-	Url                  *string `json:"url,omitempty"`
+	Alerts               *bool              `json:"alerts,omitempty"`
+	Description          *string            `json:"description,omitempty"`
+	Graphite             *bool              `json:"graphite,omitempty"`
+	HlInstanceId         *int32             `json:"hlInstanceId,omitempty"`
+	K6OrgId              *int32             `json:"k6OrgId,omitempty"`
+	Labels               *map[string]string `json:"labels,omitempty"`
+	Logs                 *bool              `json:"logs,omitempty"`
+	Name                 *string            `json:"name,omitempty"`
+	Plan                 *string            `json:"plan,omitempty"`
+	Prometheus           *bool              `json:"prometheus,omitempty"`
+	Slug                 *string            `json:"slug,omitempty"`
+	Url                  *string            `json:"url,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -210,6 +211,38 @@ func (o *PostInstanceRequest) HasK6OrgId() bool {
 // SetK6OrgId gets a reference to the given int32 and assigns it to the K6OrgId field.
 func (o *PostInstanceRequest) SetK6OrgId(v int32) {
 	o.K6OrgId = &v
+}
+
+// GetLabels returns the Labels field value if set, zero value otherwise.
+func (o *PostInstanceRequest) GetLabels() map[string]string {
+	if o == nil || IsNil(o.Labels) {
+		var ret map[string]string
+		return ret
+	}
+	return *o.Labels
+}
+
+// GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstanceRequest) GetLabelsOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.Labels) {
+		return nil, false
+	}
+	return o.Labels, true
+}
+
+// HasLabels returns a boolean if a field has been set.
+func (o *PostInstanceRequest) HasLabels() bool {
+	if o != nil && !IsNil(o.Labels) {
+		return true
+	}
+
+	return false
+}
+
+// SetLabels gets a reference to the given map[string]string and assigns it to the Labels field.
+func (o *PostInstanceRequest) SetLabels(v map[string]string) {
+	o.Labels = &v
 }
 
 // GetLogs returns the Logs field value if set, zero value otherwise.
@@ -429,6 +462,9 @@ func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.K6OrgId) {
 		toSerialize["k6OrgId"] = o.K6OrgId
 	}
+	if !IsNil(o.Labels) {
+		toSerialize["labels"] = o.Labels
+	}
 	if !IsNil(o.Logs) {
 		toSerialize["logs"] = o.Logs
 	}
@@ -474,6 +510,7 @@ func (o *PostInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "graphite")
 		delete(additionalProperties, "hlInstanceId")
 		delete(additionalProperties, "k6OrgId")
+		delete(additionalProperties, "labels")
 		delete(additionalProperties, "logs")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "plan")

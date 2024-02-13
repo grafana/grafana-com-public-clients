@@ -64,6 +64,7 @@ Name | Type | Description | Notes
 **HpInstanceUrl** | **string** |  | 
 **Id** | **float32** |  | 
 **Incident** | **float32** |  | 
+**Labels** | Pointer to **map[string]interface{}** |  | [optional] 
 **MachineLearning** | **float32** |  | 
 **Name** | **string** |  | 
 **OrgId** | **float32** |  | 
@@ -1319,6 +1320,31 @@ and a boolean to check if the value has been set.
 
 SetIncident sets Incident field to given value.
 
+
+### GetLabels
+
+`func (o *FormattedApiInstance) GetLabels() map[string]interface{}`
+
+GetLabels returns the Labels field if non-nil, zero value otherwise.
+
+### GetLabelsOk
+
+`func (o *FormattedApiInstance) GetLabelsOk() (*map[string]interface{}, bool)`
+
+GetLabelsOk returns a tuple with the Labels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLabels
+
+`func (o *FormattedApiInstance) SetLabels(v map[string]interface{})`
+
+SetLabels sets Labels field to given value.
+
+### HasLabels
+
+`func (o *FormattedApiInstance) HasLabels() bool`
+
+HasLabels returns a boolean if a field has been set.
 
 ### GetMachineLearning
 

@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: "4856333"
-  x-generated-at: 2024-02-13T14:17:49.668Z
+  x-commit-sha: 5aaf1e1
+  x-generated-at: 2024-02-13T14:55:10.810Z
 servers:
 - description: Main API server
   url: /api
@@ -137,10 +137,26 @@ paths:
         style: form
       - explode: true
         in: query
+        name: includeLabels
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
         name: includePromCurrentActiveSeries
         required: false
         schema:
           type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: labels
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       - explode: true
         in: query
@@ -3566,6 +3582,7 @@ components:
         dailyUserCnt: 1.0246457001441578
         amInstanceName: amInstanceName
         hlInstanceStatus: active
+        labels: "{}"
         amInstanceStatus: active
         clusterSlug: clusterSlug
         dashboardQuota: 7.457744773683766
@@ -3821,6 +3838,9 @@ components:
         incident:
           title: incident
           type: number
+        labels:
+          title: labels
+          type: object
         machineLearning:
           title: machineLearning
           type: number
@@ -5458,6 +5478,7 @@ components:
           dailyUserCnt: 1.0246457001441578
           amInstanceName: amInstanceName
           hlInstanceStatus: active
+          labels: "{}"
           amInstanceStatus: active
           clusterSlug: clusterSlug
           dashboardQuota: 7.457744773683766
@@ -5544,6 +5565,7 @@ components:
           dailyUserCnt: 1.0246457001441578
           amInstanceName: amInstanceName
           hlInstanceStatus: active
+          labels: "{}"
           amInstanceStatus: active
           clusterSlug: clusterSlug
           dashboardQuota: 7.457744773683766
@@ -5645,6 +5667,10 @@ components:
           type: boolean
         k6OrgId:
           type: integer
+        labels:
+          additionalProperties:
+            type: string
+          type: object
         logs:
           type: boolean
         name:
@@ -5713,6 +5739,10 @@ components:
           type: integer
         k6OrgId:
           type: integer
+        labels:
+          additionalProperties:
+            type: string
+          type: object
         logs:
           type: boolean
         name:

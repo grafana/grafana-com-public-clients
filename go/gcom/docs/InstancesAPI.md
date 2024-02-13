@@ -736,7 +736,7 @@ Name | Type | Description  | Notes
 
 ## GetInstances
 
-> GetInstances200Response GetInstances(ctx).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug(slug).SlugIn(slugIn).Status(status).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
+> GetInstances200Response GetInstances(ctx).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).IncludeLabels(includeLabels).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).Labels(labels).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug(slug).SlugIn(slugIn).Status(status).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
 
 Get a list of instances
 
@@ -762,7 +762,9 @@ func main() {
 	id := "id_example" // string |  (optional)
 	idIn := "idIn_example" // string |  (optional)
 	idMin := int32(56) // int32 |  (optional)
+	includeLabels := true // bool |  (optional)
 	includePromCurrentActiveSeries := true // bool |  (optional)
+	labels := []string{"Inner_example"} // []string |  (optional)
 	name := "name_example" // string |  (optional)
 	nameIn := "nameIn_example" // string |  (optional)
 	orderBy := "orderBy_example" // string |  (optional)
@@ -787,7 +789,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.GetInstances(context.Background()).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug(slug).SlugIn(slugIn).Status(status).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
+	resp, r, err := apiClient.InstancesAPI.GetInstances(context.Background()).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).IncludeLabels(includeLabels).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).Labels(labels).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug(slug).SlugIn(slugIn).Status(status).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -816,7 +818,9 @@ Name | Type | Description  | Notes
  **id** | **string** |  | 
  **idIn** | **string** |  | 
  **idMin** | **int32** |  | 
+ **includeLabels** | **bool** |  | 
  **includePromCurrentActiveSeries** | **bool** |  | 
+ **labels** | **[]string** |  | 
  **name** | **string** |  | 
  **nameIn** | **string** |  | 
  **orderBy** | **string** |  | 

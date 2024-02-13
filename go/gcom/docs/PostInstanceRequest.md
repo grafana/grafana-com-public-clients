@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Graphite** | Pointer to **bool** |  | [optional] 
 **HlInstanceId** | Pointer to **int32** |  | [optional] 
 **K6OrgId** | Pointer to **int32** |  | [optional] 
+**Labels** | Pointer to **map[string]string** |  | [optional] 
 **Logs** | Pointer to **bool** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Plan** | Pointer to **string** |  | [optional] 
@@ -159,6 +160,31 @@ SetK6OrgId sets K6OrgId field to given value.
 `func (o *PostInstanceRequest) HasK6OrgId() bool`
 
 HasK6OrgId returns a boolean if a field has been set.
+
+### GetLabels
+
+`func (o *PostInstanceRequest) GetLabels() map[string]string`
+
+GetLabels returns the Labels field if non-nil, zero value otherwise.
+
+### GetLabelsOk
+
+`func (o *PostInstanceRequest) GetLabelsOk() (*map[string]string, bool)`
+
+GetLabelsOk returns a tuple with the Labels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLabels
+
+`func (o *PostInstanceRequest) SetLabels(v map[string]string)`
+
+SetLabels sets Labels field to given value.
+
+### HasLabels
+
+`func (o *PostInstanceRequest) HasLabels() bool`
+
+HasLabels returns a boolean if a field has been set.
 
 ### GetLogs
 

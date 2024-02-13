@@ -1645,7 +1645,9 @@ type ApiGetInstancesRequest struct {
 	id                             *string
 	idIn                           *string
 	idMin                          *int32
+	includeLabels                  *bool
 	includePromCurrentActiveSeries *bool
+	labels                         *[]string
 	name                           *string
 	nameIn                         *string
 	orderBy                        *string
@@ -1709,8 +1711,18 @@ func (r ApiGetInstancesRequest) IdMin(idMin int32) ApiGetInstancesRequest {
 	return r
 }
 
+func (r ApiGetInstancesRequest) IncludeLabels(includeLabels bool) ApiGetInstancesRequest {
+	r.includeLabels = &includeLabels
+	return r
+}
+
 func (r ApiGetInstancesRequest) IncludePromCurrentActiveSeries(includePromCurrentActiveSeries bool) ApiGetInstancesRequest {
 	r.includePromCurrentActiveSeries = &includePromCurrentActiveSeries
+	return r
+}
+
+func (r ApiGetInstancesRequest) Labels(labels []string) ApiGetInstancesRequest {
+	r.labels = &labels
 	return r
 }
 
@@ -1889,8 +1901,22 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	if r.idMin != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "idMin", r.idMin, "")
 	}
+	if r.includeLabels != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeLabels", r.includeLabels, "")
+	}
 	if r.includePromCurrentActiveSeries != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includePromCurrentActiveSeries", r.includePromCurrentActiveSeries, "")
+	}
+	if r.labels != nil {
+		t := *r.labels
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "labels", s.Index(i).Interface(), "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "labels", t, "multi")
+		}
 	}
 	if r.name != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")

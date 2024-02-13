@@ -80,6 +80,7 @@ type FormattedApiInstance struct {
 	HpInstanceUrl                     string                 `json:"hpInstanceUrl"`
 	Id                                float32                `json:"id"`
 	Incident                          float32                `json:"incident"`
+	Labels                            map[string]interface{} `json:"labels,omitempty"`
 	MachineLearning                   float32                `json:"machineLearning"`
 	Name                              string                 `json:"name"`
 	OrgId                             float32                `json:"orgId"`
@@ -1655,6 +1656,38 @@ func (o *FormattedApiInstance) SetIncident(v float32) {
 	o.Incident = v
 }
 
+// GetLabels returns the Labels field value if set, zero value otherwise.
+func (o *FormattedApiInstance) GetLabels() map[string]interface{} {
+	if o == nil || IsNil(o.Labels) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Labels
+}
+
+// GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetLabelsOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Labels) {
+		return map[string]interface{}{}, false
+	}
+	return o.Labels, true
+}
+
+// HasLabels returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasLabels() bool {
+	if o != nil && !IsNil(o.Labels) {
+		return true
+	}
+
+	return false
+}
+
+// SetLabels gets a reference to the given map[string]interface{} and assigns it to the Labels field.
+func (o *FormattedApiInstance) SetLabels(v map[string]interface{}) {
+	o.Labels = v
+}
+
 // GetMachineLearning returns the MachineLearning field value
 func (o *FormattedApiInstance) GetMachineLearning() float32 {
 	if o == nil {
@@ -2365,6 +2398,9 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["hpInstanceUrl"] = o.HpInstanceUrl
 	toSerialize["id"] = o.Id
 	toSerialize["incident"] = o.Incident
+	if !IsNil(o.Labels) {
+		toSerialize["labels"] = o.Labels
+	}
 	toSerialize["machineLearning"] = o.MachineLearning
 	toSerialize["name"] = o.Name
 	toSerialize["orgId"] = o.OrgId
@@ -2580,6 +2616,7 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "hpInstanceUrl")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "incident")
+		delete(additionalProperties, "labels")
 		delete(additionalProperties, "machineLearning")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "orgId")
