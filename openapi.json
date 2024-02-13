@@ -7663,8 +7663,8 @@
     "title": "GCOM API",
     "version": "internal",
     "description": "\nGrafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.\n\nLooking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.\n\nIf you have any questions, please contact us at #grafana_com on Slack or open an issue\nat [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n      ",
-    "x-commit-sha": "e6599af",
-    "x-generated-at": "2024-02-12T18:20:19.151Z"
+    "x-commit-sha": "4856333",
+    "x-generated-at": "2024-02-13T14:17:49.668Z"
   },
   "security": [
     {
@@ -8841,6 +8841,10 @@
                               ],
                               "title": "isTrial"
                             },
+                            "startDate": {
+                              "title": "startDate",
+                              "nullable": true
+                            },
                             "endDate": {
                               "title": "endDate",
                               "nullable": true
@@ -8877,7 +8881,8 @@
                             "plan",
                             "planBillingCycle",
                             "product",
-                            "publicName"
+                            "publicName",
+                            "startDate"
                           ],
                           "title": "current"
                         },
@@ -8915,6 +8920,11 @@
                             "isTrial": {
                               "type": "boolean",
                               "title": "isTrial"
+                            },
+                            "startDate": {
+                              "type": "string",
+                              "format": "date-time",
+                              "title": "startDate"
                             },
                             "endDate": {
                               "type": "string",
@@ -8962,7 +8972,8 @@
                             "plan",
                             "planBillingCycle",
                             "product",
-                            "publicName"
+                            "publicName",
+                            "startDate"
                           ],
                           "title": "current"
                         },
@@ -9049,6 +9060,11 @@
                               "type": "boolean",
                               "title": "isTrial"
                             },
+                            "startDate": {
+                              "type": "string",
+                              "format": "date-time",
+                              "title": "startDate"
+                            },
                             "endDate": {
                               "title": "endDate",
                               "nullable": true
@@ -9094,7 +9110,8 @@
                             "plan",
                             "planBillingCycle",
                             "product",
-                            "publicName"
+                            "publicName",
+                            "startDate"
                           ],
                           "title": "current"
                         },
@@ -9404,6 +9421,10 @@
                         ],
                         "title": "isTrial"
                       },
+                      "startDate": {
+                        "title": "startDate",
+                        "nullable": true
+                      },
                       "endDate": {
                         "title": "endDate",
                         "nullable": true
@@ -9440,7 +9461,8 @@
                       "plan",
                       "planBillingCycle",
                       "product",
-                      "publicName"
+                      "publicName",
+                      "startDate"
                     ],
                     "title": "current"
                   },
@@ -9478,6 +9500,11 @@
                       "isTrial": {
                         "type": "boolean",
                         "title": "isTrial"
+                      },
+                      "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "startDate"
                       },
                       "endDate": {
                         "type": "string",
@@ -9525,7 +9552,8 @@
                       "plan",
                       "planBillingCycle",
                       "product",
-                      "publicName"
+                      "publicName",
+                      "startDate"
                     ],
                     "title": "current"
                   },
@@ -9612,6 +9640,11 @@
                         "type": "boolean",
                         "title": "isTrial"
                       },
+                      "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "startDate"
+                      },
                       "endDate": {
                         "title": "endDate",
                         "nullable": true
@@ -9657,7 +9690,8 @@
                       "plan",
                       "planBillingCycle",
                       "product",
-                      "publicName"
+                      "publicName",
+                      "startDate"
                     ],
                     "title": "current"
                   },
@@ -10397,6 +10431,10 @@
                         ],
                         "title": "isTrial"
                       },
+                      "startDate": {
+                        "title": "startDate",
+                        "nullable": true
+                      },
                       "endDate": {
                         "title": "endDate",
                         "nullable": true
@@ -10433,7 +10471,8 @@
                       "plan",
                       "planBillingCycle",
                       "product",
-                      "publicName"
+                      "publicName",
+                      "startDate"
                     ],
                     "title": "current"
                   },
@@ -10471,6 +10510,11 @@
                       "isTrial": {
                         "type": "boolean",
                         "title": "isTrial"
+                      },
+                      "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "startDate"
                       },
                       "endDate": {
                         "type": "string",
@@ -10518,7 +10562,8 @@
                       "plan",
                       "planBillingCycle",
                       "product",
-                      "publicName"
+                      "publicName",
+                      "startDate"
                     ],
                     "title": "current"
                   },
@@ -10605,6 +10650,11 @@
                         "type": "boolean",
                         "title": "isTrial"
                       },
+                      "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "startDate"
+                      },
                       "endDate": {
                         "title": "endDate",
                         "nullable": true
@@ -10650,7 +10700,8 @@
                       "plan",
                       "planBillingCycle",
                       "product",
-                      "publicName"
+                      "publicName",
+                      "startDate"
                     ],
                     "title": "current"
                   },
