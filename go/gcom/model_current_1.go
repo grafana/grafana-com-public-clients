@@ -23,6 +23,7 @@ var _ MappedNullable = &Current1{}
 type Current1 struct {
 	Product                string         `json:"product"`
 	IsTrial                bool           `json:"isTrial"`
+	StartDate              time.Time      `json:"startDate"`
 	EndDate                time.Time      `json:"endDate"`
 	Payload                Payload        `json:"payload"`
 	Plan                   NullableString `json:"plan"`
@@ -38,10 +39,11 @@ type _Current1 Current1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCurrent1(product string, isTrial bool, endDate time.Time, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, planBillingCycle string) *Current1 {
+func NewCurrent1(product string, isTrial bool, startDate time.Time, endDate time.Time, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, planBillingCycle string) *Current1 {
 	this := Current1{}
 	this.Product = product
 	this.IsTrial = isTrial
+	this.StartDate = startDate
 	this.EndDate = endDate
 	this.Payload = payload
 	this.Plan = plan
@@ -105,6 +107,30 @@ func (o *Current1) GetIsTrialOk() (*bool, bool) {
 // SetIsTrial sets field value
 func (o *Current1) SetIsTrial(v bool) {
 	o.IsTrial = v
+}
+
+// GetStartDate returns the StartDate field value
+func (o *Current1) GetStartDate() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.StartDate
+}
+
+// GetStartDateOk returns a tuple with the StartDate field value
+// and a boolean to check if the value has been set.
+func (o *Current1) GetStartDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StartDate, true
+}
+
+// SetStartDate sets field value
+func (o *Current1) SetStartDate(v time.Time) {
+	o.StartDate = v
 }
 
 // GetEndDate returns the EndDate field value
@@ -267,6 +293,7 @@ func (o Current1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["product"] = o.Product
 	toSerialize["isTrial"] = o.IsTrial
+	toSerialize["startDate"] = o.StartDate
 	toSerialize["endDate"] = o.EndDate
 	toSerialize["payload"] = o.Payload
 	toSerialize["plan"] = o.Plan.Get()
@@ -288,6 +315,7 @@ func (o *Current1) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"product",
 		"isTrial",
+		"startDate",
 		"endDate",
 		"payload",
 		"plan",
@@ -325,6 +353,7 @@ func (o *Current1) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "product")
 		delete(additionalProperties, "isTrial")
+		delete(additionalProperties, "startDate")
 		delete(additionalProperties, "endDate")
 		delete(additionalProperties, "payload")
 		delete(additionalProperties, "plan")

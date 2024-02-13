@@ -13,6 +13,7 @@ package gcom
 import (
 	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the Current2 type satisfies the MappedNullable interface at compile time
@@ -22,6 +23,7 @@ var _ MappedNullable = &Current2{}
 type Current2 struct {
 	Product                string         `json:"product"`
 	IsTrial                bool           `json:"isTrial"`
+	StartDate              time.Time      `json:"startDate"`
 	EndDate                interface{}    `json:"endDate"`
 	Payload                Payload        `json:"payload"`
 	Plan                   NullableString `json:"plan"`
@@ -37,10 +39,11 @@ type _Current2 Current2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCurrent2(product string, isTrial bool, endDate interface{}, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, planBillingCycle string) *Current2 {
+func NewCurrent2(product string, isTrial bool, startDate time.Time, endDate interface{}, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, planBillingCycle string) *Current2 {
 	this := Current2{}
 	this.Product = product
 	this.IsTrial = isTrial
+	this.StartDate = startDate
 	this.EndDate = endDate
 	this.Payload = payload
 	this.Plan = plan
@@ -104,6 +107,30 @@ func (o *Current2) GetIsTrialOk() (*bool, bool) {
 // SetIsTrial sets field value
 func (o *Current2) SetIsTrial(v bool) {
 	o.IsTrial = v
+}
+
+// GetStartDate returns the StartDate field value
+func (o *Current2) GetStartDate() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.StartDate
+}
+
+// GetStartDateOk returns a tuple with the StartDate field value
+// and a boolean to check if the value has been set.
+func (o *Current2) GetStartDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StartDate, true
+}
+
+// SetStartDate sets field value
+func (o *Current2) SetStartDate(v time.Time) {
+	o.StartDate = v
 }
 
 // GetEndDate returns the EndDate field value
@@ -268,6 +295,7 @@ func (o Current2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["product"] = o.Product
 	toSerialize["isTrial"] = o.IsTrial
+	toSerialize["startDate"] = o.StartDate
 	if o.EndDate != nil {
 		toSerialize["endDate"] = o.EndDate
 	}
@@ -291,6 +319,7 @@ func (o *Current2) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"product",
 		"isTrial",
+		"startDate",
 		"endDate",
 		"payload",
 		"plan",
@@ -328,6 +357,7 @@ func (o *Current2) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "product")
 		delete(additionalProperties, "isTrial")
+		delete(additionalProperties, "startDate")
 		delete(additionalProperties, "endDate")
 		delete(additionalProperties, "payload")
 		delete(additionalProperties, "plan")

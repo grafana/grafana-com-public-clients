@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Product** | **string** |  | 
 **IsTrial** | **bool** |  | 
+**StartDate** | **time.Time** |  | 
 **EndDate** | **time.Time** |  | 
 **Payload** | [**Payload**](Payload.md) |  | 
 **Plan** | **NullableString** |  | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewCurrent1
 
-`func NewCurrent1(product string, isTrial bool, endDate time.Time, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, planBillingCycle string, ) *Current1`
+`func NewCurrent1(product string, isTrial bool, startDate time.Time, endDate time.Time, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, planBillingCycle string, ) *Current1`
 
 NewCurrent1 instantiates a new Current1 object
 This constructor will assign default values to properties that have it defined,
@@ -70,6 +71,26 @@ and a boolean to check if the value has been set.
 `func (o *Current1) SetIsTrial(v bool)`
 
 SetIsTrial sets IsTrial field to given value.
+
+
+### GetStartDate
+
+`func (o *Current1) GetStartDate() time.Time`
+
+GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+
+### GetStartDateOk
+
+`func (o *Current1) GetStartDateOk() (*time.Time, bool)`
+
+GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDate
+
+`func (o *Current1) SetStartDate(v time.Time)`
+
+SetStartDate sets StartDate field to given value.
 
 
 ### GetEndDate

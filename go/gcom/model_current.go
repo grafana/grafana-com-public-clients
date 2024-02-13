@@ -22,6 +22,7 @@ var _ MappedNullable = &Current{}
 type Current struct {
 	Product                interface{}            `json:"product"`
 	IsTrial                bool                   `json:"isTrial"`
+	StartDate              interface{}            `json:"startDate"`
 	EndDate                interface{}            `json:"endDate"`
 	Payload                map[string]interface{} `json:"payload"`
 	Plan                   interface{}            `json:"plan"`
@@ -37,10 +38,11 @@ type _Current Current
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCurrent(product interface{}, isTrial bool, endDate interface{}, payload map[string]interface{}, plan interface{}, publicName interface{}, enterprisePluginsAdded bool, planBillingCycle interface{}) *Current {
+func NewCurrent(product interface{}, isTrial bool, startDate interface{}, endDate interface{}, payload map[string]interface{}, plan interface{}, publicName interface{}, enterprisePluginsAdded bool, planBillingCycle interface{}) *Current {
 	this := Current{}
 	this.Product = product
 	this.IsTrial = isTrial
+	this.StartDate = startDate
 	this.EndDate = endDate
 	this.Payload = payload
 	this.Plan = plan
@@ -106,6 +108,32 @@ func (o *Current) GetIsTrialOk() (*bool, bool) {
 // SetIsTrial sets field value
 func (o *Current) SetIsTrial(v bool) {
 	o.IsTrial = v
+}
+
+// GetStartDate returns the StartDate field value
+// If the value is explicit nil, the zero value for interface{} will be returned
+func (o *Current) GetStartDate() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+
+	return o.StartDate
+}
+
+// GetStartDateOk returns a tuple with the StartDate field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Current) GetStartDateOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.StartDate) {
+		return nil, false
+	}
+	return &o.StartDate, true
+}
+
+// SetStartDate sets field value
+func (o *Current) SetStartDate(v interface{}) {
+	o.StartDate = v
 }
 
 // GetEndDate returns the EndDate field value
@@ -274,6 +302,9 @@ func (o Current) ToMap() (map[string]interface{}, error) {
 		toSerialize["product"] = o.Product
 	}
 	toSerialize["isTrial"] = o.IsTrial
+	if o.StartDate != nil {
+		toSerialize["startDate"] = o.StartDate
+	}
 	if o.EndDate != nil {
 		toSerialize["endDate"] = o.EndDate
 	}
@@ -303,6 +334,7 @@ func (o *Current) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"product",
 		"isTrial",
+		"startDate",
 		"endDate",
 		"payload",
 		"plan",
@@ -340,6 +372,7 @@ func (o *Current) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "product")
 		delete(additionalProperties, "isTrial")
+		delete(additionalProperties, "startDate")
 		delete(additionalProperties, "endDate")
 		delete(additionalProperties, "payload")
 		delete(additionalProperties, "plan")

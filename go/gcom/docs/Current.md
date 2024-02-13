@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Product** | **interface{}** |  | 
 **IsTrial** | **bool** |  | 
+**StartDate** | **interface{}** |  | 
 **EndDate** | **interface{}** |  | 
 **Payload** | **map[string]interface{}** |  | 
 **Plan** | **interface{}** |  | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewCurrent
 
-`func NewCurrent(product interface{}, isTrial bool, endDate interface{}, payload map[string]interface{}, plan interface{}, publicName interface{}, enterprisePluginsAdded bool, planBillingCycle interface{}, ) *Current`
+`func NewCurrent(product interface{}, isTrial bool, startDate interface{}, endDate interface{}, payload map[string]interface{}, plan interface{}, publicName interface{}, enterprisePluginsAdded bool, planBillingCycle interface{}, ) *Current`
 
 NewCurrent instantiates a new Current object
 This constructor will assign default values to properties that have it defined,
@@ -82,6 +83,36 @@ and a boolean to check if the value has been set.
 SetIsTrial sets IsTrial field to given value.
 
 
+### GetStartDate
+
+`func (o *Current) GetStartDate() interface{}`
+
+GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+
+### GetStartDateOk
+
+`func (o *Current) GetStartDateOk() (*interface{}, bool)`
+
+GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDate
+
+`func (o *Current) SetStartDate(v interface{})`
+
+SetStartDate sets StartDate field to given value.
+
+
+### SetStartDateNil
+
+`func (o *Current) SetStartDateNil(b bool)`
+
+ SetStartDateNil sets the value for StartDate to be an explicit nil
+
+### UnsetStartDate
+`func (o *Current) UnsetStartDate()`
+
+UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetEndDate
 
 `func (o *Current) GetEndDate() interface{}`

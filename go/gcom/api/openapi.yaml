@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: e6599af
-  x-generated-at: 2024-02-12T18:20:19.151Z
+  x-commit-sha: "4856333"
+  x-generated-at: 2024-02-13T14:17:49.668Z
 servers:
 - description: Main API server
   url: /api
@@ -6343,6 +6343,9 @@ components:
         isTrial:
           title: isTrial
           type: boolean
+        startDate:
+          nullable: true
+          title: startDate
         endDate:
           nullable: true
           title: endDate
@@ -6370,6 +6373,7 @@ components:
       - planBillingCycle
       - product
       - publicName
+      - startDate
       title: current
       type: object
     subscriptions_anyOf:
@@ -6410,6 +6414,10 @@ components:
         isTrial:
           title: isTrial
           type: boolean
+        startDate:
+          format: date-time
+          title: startDate
+          type: string
         endDate:
           format: date-time
           title: endDate
@@ -6439,6 +6447,7 @@ components:
       - planBillingCycle
       - product
       - publicName
+      - startDate
       title: current
       type: object
     next:
@@ -6500,6 +6509,10 @@ components:
         isTrial:
           title: isTrial
           type: boolean
+        startDate:
+          format: date-time
+          title: startDate
+          type: string
         endDate:
           nullable: true
           title: endDate
@@ -6528,6 +6541,7 @@ components:
       - planBillingCycle
       - product
       - publicName
+      - startDate
       title: current
       type: object
     subscriptions_anyOf_2:
