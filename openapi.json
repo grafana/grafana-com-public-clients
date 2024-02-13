@@ -7694,8 +7694,8 @@
     "title": "GCOM API",
     "version": "internal",
     "description": "\nGrafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.\n\nLooking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.\n\nIf you have any questions, please contact us at #grafana_com on Slack or open an issue\nat [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n      ",
-    "x-commit-sha": "e7271d8",
-    "x-generated-at": "2024-02-13T16:00:53.884Z"
+    "x-commit-sha": "f1bd1fc",
+    "x-generated-at": "2024-02-13T16:18:34.264Z"
   },
   "security": [
     {
