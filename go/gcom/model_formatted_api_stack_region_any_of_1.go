@@ -20,65 +20,66 @@ var _ MappedNullable = &FormattedApiStackRegionAnyOf1{}
 
 // FormattedApiStackRegionAnyOf1 struct for FormattedApiStackRegionAnyOf1
 type FormattedApiStackRegionAnyOf1 struct {
-	StackStateServiceUrl      string         `json:"stackStateServiceUrl"`
-	SyntheticMonitoringApiUrl string         `json:"syntheticMonitoringApiUrl"`
-	InsightsApiUrl            string         `json:"insightsApiUrl"`
-	IntegrationsApiUrl        string         `json:"integrationsApiUrl"`
-	HostedExportersApiUrl     string         `json:"hostedExportersApiUrl"`
-	MachineLearningApiUrl     string         `json:"machineLearningApiUrl"`
-	LlmGatewayUrl             string         `json:"llmGatewayUrl"`
-	IncidentApiUrl            string         `json:"incidentApiUrl"`
-	OncallApiUrl              string         `json:"oncallApiUrl"`
-	FaroEndpointUrl           string         `json:"faroEndpointUrl"`
-	PdcClusterSlug            string         `json:"pdcClusterSlug"`
-	OtlpHttpUrl               NullableString `json:"otlpHttpUrl"`
-	AuthApiUrl                string         `json:"authApiUrl"`
-	AuthApiTokenSet           bool           `json:"authApiTokenSet"`
-	HgClusterId               float32        `json:"hgClusterId"`
-	HgClusterSlug             string         `json:"hgClusterSlug"`
-	HgClusterName             string         `json:"hgClusterName"`
-	HgClusterUrl              string         `json:"hgClusterUrl"`
-	HmPromClusterId           float32        `json:"hmPromClusterId"`
-	HmPromClusterSlug         string         `json:"hmPromClusterSlug"`
-	HmPromClusterName         string         `json:"hmPromClusterName"`
-	HmPromClusterUrl          string         `json:"hmPromClusterUrl"`
-	HmGraphiteClusterId       float32        `json:"hmGraphiteClusterId"`
-	HmGraphiteClusterSlug     string         `json:"hmGraphiteClusterSlug"`
-	HmGraphiteClusterName     string         `json:"hmGraphiteClusterName"`
-	HmGraphiteClusterUrl      string         `json:"hmGraphiteClusterUrl"`
-	HlClusterId               float32        `json:"hlClusterId"`
-	HlClusterSlug             string         `json:"hlClusterSlug"`
-	HlClusterName             string         `json:"hlClusterName"`
-	HlClusterUrl              string         `json:"hlClusterUrl"`
-	AmClusterId               float32        `json:"amClusterId"`
-	AmClusterSlug             string         `json:"amClusterSlug"`
-	AmClusterName             string         `json:"amClusterName"`
-	AmClusterUrl              string         `json:"amClusterUrl"`
-	HtClusterId               float32        `json:"htClusterId"`
-	HtClusterSlug             string         `json:"htClusterSlug"`
-	HtClusterName             string         `json:"htClusterName"`
-	HtClusterUrl              string         `json:"htClusterUrl"`
-	HpClusterId               float32        `json:"hpClusterId"`
-	HpClusterSlug             string         `json:"hpClusterSlug"`
-	HpClusterName             string         `json:"hpClusterName"`
-	HpClusterUrl              string         `json:"hpClusterUrl"`
-	AgmClusterId              float32        `json:"agmClusterId"`
-	AgmClusterSlug            string         `json:"agmClusterSlug"`
-	AgmClusterName            string         `json:"agmClusterName"`
-	AgmClusterUrl             string         `json:"agmClusterUrl"`
-	ProviderRegion            string         `json:"providerRegion"`
-	Id                        float32        `json:"id"`
-	Status                    string         `json:"status"`
-	Visibility                string         `json:"visibility"`
-	Slug                      string         `json:"slug"`
-	Name                      string         `json:"name"`
-	PublicName                string         `json:"publicName"`
-	Description               string         `json:"description"`
-	Provider                  string         `json:"provider"`
-	CreatedAt                 string         `json:"createdAt"`
-	UpdatedAt                 NullableString `json:"updatedAt"`
-	SortOrder                 float32        `json:"sortOrder"`
-	AdditionalProperties      map[string]interface{}
+	StackStateServiceUrl        string                              `json:"stackStateServiceUrl"`
+	SyntheticMonitoringApiUrl   string                              `json:"syntheticMonitoringApiUrl"`
+	InsightsApiUrl              string                              `json:"insightsApiUrl"`
+	IntegrationsApiUrl          string                              `json:"integrationsApiUrl"`
+	HostedExportersApiUrl       string                              `json:"hostedExportersApiUrl"`
+	MachineLearningApiUrl       string                              `json:"machineLearningApiUrl"`
+	LlmGatewayUrl               string                              `json:"llmGatewayUrl"`
+	IncidentApiUrl              string                              `json:"incidentApiUrl"`
+	OncallApiUrl                string                              `json:"oncallApiUrl"`
+	FaroEndpointUrl             string                              `json:"faroEndpointUrl"`
+	PdcClusterSlug              string                              `json:"pdcClusterSlug"`
+	OtlpHttpUrl                 NullableString                      `json:"otlpHttpUrl"`
+	OtlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo `json:"otlpPrivateConnectivityInfo"`
+	AuthApiUrl                  string                              `json:"authApiUrl"`
+	AuthApiTokenSet             bool                                `json:"authApiTokenSet"`
+	HgClusterId                 float32                             `json:"hgClusterId"`
+	HgClusterSlug               string                              `json:"hgClusterSlug"`
+	HgClusterName               string                              `json:"hgClusterName"`
+	HgClusterUrl                string                              `json:"hgClusterUrl"`
+	HmPromClusterId             float32                             `json:"hmPromClusterId"`
+	HmPromClusterSlug           string                              `json:"hmPromClusterSlug"`
+	HmPromClusterName           string                              `json:"hmPromClusterName"`
+	HmPromClusterUrl            string                              `json:"hmPromClusterUrl"`
+	HmGraphiteClusterId         float32                             `json:"hmGraphiteClusterId"`
+	HmGraphiteClusterSlug       string                              `json:"hmGraphiteClusterSlug"`
+	HmGraphiteClusterName       string                              `json:"hmGraphiteClusterName"`
+	HmGraphiteClusterUrl        string                              `json:"hmGraphiteClusterUrl"`
+	HlClusterId                 float32                             `json:"hlClusterId"`
+	HlClusterSlug               string                              `json:"hlClusterSlug"`
+	HlClusterName               string                              `json:"hlClusterName"`
+	HlClusterUrl                string                              `json:"hlClusterUrl"`
+	AmClusterId                 float32                             `json:"amClusterId"`
+	AmClusterSlug               string                              `json:"amClusterSlug"`
+	AmClusterName               string                              `json:"amClusterName"`
+	AmClusterUrl                string                              `json:"amClusterUrl"`
+	HtClusterId                 float32                             `json:"htClusterId"`
+	HtClusterSlug               string                              `json:"htClusterSlug"`
+	HtClusterName               string                              `json:"htClusterName"`
+	HtClusterUrl                string                              `json:"htClusterUrl"`
+	HpClusterId                 float32                             `json:"hpClusterId"`
+	HpClusterSlug               string                              `json:"hpClusterSlug"`
+	HpClusterName               string                              `json:"hpClusterName"`
+	HpClusterUrl                string                              `json:"hpClusterUrl"`
+	AgmClusterId                float32                             `json:"agmClusterId"`
+	AgmClusterSlug              string                              `json:"agmClusterSlug"`
+	AgmClusterName              string                              `json:"agmClusterName"`
+	AgmClusterUrl               string                              `json:"agmClusterUrl"`
+	ProviderRegion              string                              `json:"providerRegion"`
+	Id                          float32                             `json:"id"`
+	Status                      string                              `json:"status"`
+	Visibility                  string                              `json:"visibility"`
+	Slug                        string                              `json:"slug"`
+	Name                        string                              `json:"name"`
+	PublicName                  string                              `json:"publicName"`
+	Description                 string                              `json:"description"`
+	Provider                    string                              `json:"provider"`
+	CreatedAt                   string                              `json:"createdAt"`
+	UpdatedAt                   NullableString                      `json:"updatedAt"`
+	SortOrder                   float32                             `json:"sortOrder"`
+	AdditionalProperties        map[string]interface{}
 }
 
 type _FormattedApiStackRegionAnyOf1 FormattedApiStackRegionAnyOf1
@@ -87,7 +88,7 @@ type _FormattedApiStackRegionAnyOf1 FormattedApiStackRegionAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
+func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
 	this := FormattedApiStackRegionAnyOf1{}
 	this.StackStateServiceUrl = stackStateServiceUrl
 	this.SyntheticMonitoringApiUrl = syntheticMonitoringApiUrl
@@ -101,6 +102,7 @@ func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMoni
 	this.FaroEndpointUrl = faroEndpointUrl
 	this.PdcClusterSlug = pdcClusterSlug
 	this.OtlpHttpUrl = otlpHttpUrl
+	this.OtlpPrivateConnectivityInfo = otlpPrivateConnectivityInfo
 	this.AuthApiUrl = authApiUrl
 	this.AuthApiTokenSet = authApiTokenSet
 	this.HgClusterId = hgClusterId
@@ -446,6 +448,32 @@ func (o *FormattedApiStackRegionAnyOf1) GetOtlpHttpUrlOk() (*string, bool) {
 // SetOtlpHttpUrl sets field value
 func (o *FormattedApiStackRegionAnyOf1) SetOtlpHttpUrl(v string) {
 	o.OtlpHttpUrl.Set(&v)
+}
+
+// GetOtlpPrivateConnectivityInfo returns the OtlpPrivateConnectivityInfo field value
+// If the value is explicit nil, the zero value for OtlpPrivateConnectivityInfo will be returned
+func (o *FormattedApiStackRegionAnyOf1) GetOtlpPrivateConnectivityInfo() OtlpPrivateConnectivityInfo {
+	if o == nil || o.OtlpPrivateConnectivityInfo.Get() == nil {
+		var ret OtlpPrivateConnectivityInfo
+		return ret
+	}
+
+	return *o.OtlpPrivateConnectivityInfo.Get()
+}
+
+// GetOtlpPrivateConnectivityInfoOk returns a tuple with the OtlpPrivateConnectivityInfo field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiStackRegionAnyOf1) GetOtlpPrivateConnectivityInfoOk() (*OtlpPrivateConnectivityInfo, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.OtlpPrivateConnectivityInfo.Get(), o.OtlpPrivateConnectivityInfo.IsSet()
+}
+
+// SetOtlpPrivateConnectivityInfo sets field value
+func (o *FormattedApiStackRegionAnyOf1) SetOtlpPrivateConnectivityInfo(v OtlpPrivateConnectivityInfo) {
+	o.OtlpPrivateConnectivityInfo.Set(&v)
 }
 
 // GetAuthApiUrl returns the AuthApiUrl field value
@@ -1576,6 +1604,7 @@ func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize["faroEndpointUrl"] = o.FaroEndpointUrl
 	toSerialize["pdcClusterSlug"] = o.PdcClusterSlug
 	toSerialize["otlpHttpUrl"] = o.OtlpHttpUrl.Get()
+	toSerialize["otlpPrivateConnectivityInfo"] = o.OtlpPrivateConnectivityInfo.Get()
 	toSerialize["authApiUrl"] = o.AuthApiUrl
 	toSerialize["authApiTokenSet"] = o.AuthApiTokenSet
 	toSerialize["hgClusterId"] = o.HgClusterId
@@ -1647,6 +1676,7 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		"faroEndpointUrl",
 		"pdcClusterSlug",
 		"otlpHttpUrl",
+		"otlpPrivateConnectivityInfo",
 		"authApiUrl",
 		"authApiTokenSet",
 		"hgClusterId",
@@ -1734,6 +1764,7 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "faroEndpointUrl")
 		delete(additionalProperties, "pdcClusterSlug")
 		delete(additionalProperties, "otlpHttpUrl")
+		delete(additionalProperties, "otlpPrivateConnectivityInfo")
 		delete(additionalProperties, "authApiUrl")
 		delete(additionalProperties, "authApiTokenSet")
 		delete(additionalProperties, "hgClusterId")

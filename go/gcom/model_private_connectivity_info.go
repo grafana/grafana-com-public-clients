@@ -21,6 +21,7 @@ var _ MappedNullable = &PrivateConnectivityInfo{}
 // PrivateConnectivityInfo struct for PrivateConnectivityInfo
 type PrivateConnectivityInfo struct {
 	Tenants              []TenantsInner `json:"tenants"`
+	Otlp                 *Otlp          `json:"otlp,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -68,6 +69,38 @@ func (o *PrivateConnectivityInfo) SetTenants(v []TenantsInner) {
 	o.Tenants = v
 }
 
+// GetOtlp returns the Otlp field value if set, zero value otherwise.
+func (o *PrivateConnectivityInfo) GetOtlp() Otlp {
+	if o == nil || IsNil(o.Otlp) {
+		var ret Otlp
+		return ret
+	}
+	return *o.Otlp
+}
+
+// GetOtlpOk returns a tuple with the Otlp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PrivateConnectivityInfo) GetOtlpOk() (*Otlp, bool) {
+	if o == nil || IsNil(o.Otlp) {
+		return nil, false
+	}
+	return o.Otlp, true
+}
+
+// HasOtlp returns a boolean if a field has been set.
+func (o *PrivateConnectivityInfo) HasOtlp() bool {
+	if o != nil && !IsNil(o.Otlp) {
+		return true
+	}
+
+	return false
+}
+
+// SetOtlp gets a reference to the given Otlp and assigns it to the Otlp field.
+func (o *PrivateConnectivityInfo) SetOtlp(v Otlp) {
+	o.Otlp = &v
+}
+
 func (o PrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -79,6 +112,9 @@ func (o PrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
 func (o PrivateConnectivityInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["tenants"] = o.Tenants
+	if !IsNil(o.Otlp) {
+		toSerialize["otlp"] = o.Otlp
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -123,6 +159,7 @@ func (o *PrivateConnectivityInfo) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "tenants")
+		delete(additionalProperties, "otlp")
 		o.AdditionalProperties = additionalProperties
 	}
 

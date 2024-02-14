@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Tenants** | [**[]TenantsInner**](TenantsInner.md) |  | 
+**Otlp** | Pointer to [**Otlp**](Otlp.md) |  | [optional] 
 
 ## Methods
 
@@ -44,6 +45,31 @@ and a boolean to check if the value has been set.
 
 SetTenants sets Tenants field to given value.
 
+
+### GetOtlp
+
+`func (o *PrivateConnectivityInfo) GetOtlp() Otlp`
+
+GetOtlp returns the Otlp field if non-nil, zero value otherwise.
+
+### GetOtlpOk
+
+`func (o *PrivateConnectivityInfo) GetOtlpOk() (*Otlp, bool)`
+
+GetOtlpOk returns a tuple with the Otlp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOtlp
+
+`func (o *PrivateConnectivityInfo) SetOtlp(v Otlp)`
+
+SetOtlp sets Otlp field to given value.
+
+### HasOtlp
+
+`func (o *PrivateConnectivityInfo) HasOtlp() bool`
+
+HasOtlp returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: f1bd1fc
-  x-generated-at: 2024-02-13T16:18:34.264Z
+  x-commit-sha: 8c90da0
+  x-generated-at: 2024-02-14T07:39:19.605Z
 servers:
 - description: Main API server
   url: /api
@@ -4107,6 +4107,9 @@ components:
             info:
               privateDNS: privateDNS
               serviceName: serviceName
+          otlp:
+            privateDNS: privateDNS
+            serviceName: serviceName
       properties:
         privateConnectivityInfo:
           $ref: '#/components/schemas/privateConnectivityInfo'
@@ -6326,6 +6329,22 @@ components:
       - info
       - type
       type: object
+    otlp:
+      example:
+        privateDNS: privateDNS
+        serviceName: serviceName
+      properties:
+        serviceName:
+          title: serviceName
+          type: string
+        privateDNS:
+          title: privateDNS
+          type: string
+      required:
+      - privateDNS
+      - serviceName
+      title: otlp
+      type: object
     privateConnectivityInfo:
       example:
         tenants:
@@ -6339,12 +6358,17 @@ components:
           info:
             privateDNS: privateDNS
             serviceName: serviceName
+        otlp:
+          privateDNS: privateDNS
+          serviceName: serviceName
       properties:
         tenants:
           items:
             $ref: '#/components/schemas/tenants_inner'
           title: tenants
           type: array
+        otlp:
+          $ref: '#/components/schemas/otlp'
       required:
       - tenants
       title: privateConnectivityInfo
@@ -6846,6 +6870,59 @@ components:
       - updatedAt
       - visibility
       type: object
+    otlpPrivateConnectivityInfo_anyOf:
+      properties:
+        privateDNS:
+          title: privateDNS
+          type: string
+        serviceName:
+          title: serviceName
+          type: string
+      required:
+      - privateDNS
+      - serviceName
+      type: object
+    mimir:
+      properties:
+        privateDNS:
+          title: privateDNS
+          type: string
+        serviceName:
+          title: serviceName
+          type: string
+      required:
+      - privateDNS
+      - serviceName
+      title: mimir
+      type: object
+    graphite:
+      properties:
+        privateDNS:
+          title: privateDNS
+          type: string
+        serviceName:
+          title: serviceName
+          type: string
+      required:
+      - privateDNS
+      - serviceName
+      title: graphite
+      type: object
+    otlpPrivateConnectivityInfo_anyOf_1:
+      properties:
+        mimir:
+          $ref: '#/components/schemas/mimir'
+        graphite:
+          $ref: '#/components/schemas/graphite'
+      required:
+      - mimir
+      type: object
+    otlpPrivateConnectivityInfo:
+      anyOf:
+      - $ref: '#/components/schemas/otlpPrivateConnectivityInfo_anyOf'
+      - $ref: '#/components/schemas/otlpPrivateConnectivityInfo_anyOf_1'
+      nullable: true
+      title: otlpPrivateConnectivityInfo
     FormattedApiStackRegion_anyOf_1:
       properties:
         stackStateServiceUrl:
@@ -6885,6 +6962,8 @@ components:
           nullable: true
           title: otlpHttpUrl
           type: string
+        otlpPrivateConnectivityInfo:
+          $ref: '#/components/schemas/otlpPrivateConnectivityInfo'
         authApiUrl:
           title: authApiUrl
           type: string
@@ -7076,6 +7155,7 @@ components:
       - name
       - oncallApiUrl
       - otlpHttpUrl
+      - otlpPrivateConnectivityInfo
       - pdcClusterSlug
       - provider
       - providerRegion

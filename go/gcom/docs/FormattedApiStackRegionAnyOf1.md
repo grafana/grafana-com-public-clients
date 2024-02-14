@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **FaroEndpointUrl** | **string** |  | 
 **PdcClusterSlug** | **string** |  | 
 **OtlpHttpUrl** | **NullableString** |  | 
+**OtlpPrivateConnectivityInfo** | [**NullableOtlpPrivateConnectivityInfo**](OtlpPrivateConnectivityInfo.md) |  | 
 **AuthApiUrl** | **string** |  | 
 **AuthApiTokenSet** | **bool** |  | 
 **HgClusterId** | **float32** |  | 
@@ -67,7 +68,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiStackRegionAnyOf1
 
-`func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, ) *FormattedApiStackRegionAnyOf1`
+`func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, ) *FormattedApiStackRegionAnyOf1`
 
 NewFormattedApiStackRegionAnyOf1 instantiates a new FormattedApiStackRegionAnyOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -332,6 +333,36 @@ SetOtlpHttpUrl sets OtlpHttpUrl field to given value.
 `func (o *FormattedApiStackRegionAnyOf1) UnsetOtlpHttpUrl()`
 
 UnsetOtlpHttpUrl ensures that no value is present for OtlpHttpUrl, not even an explicit nil
+### GetOtlpPrivateConnectivityInfo
+
+`func (o *FormattedApiStackRegionAnyOf1) GetOtlpPrivateConnectivityInfo() OtlpPrivateConnectivityInfo`
+
+GetOtlpPrivateConnectivityInfo returns the OtlpPrivateConnectivityInfo field if non-nil, zero value otherwise.
+
+### GetOtlpPrivateConnectivityInfoOk
+
+`func (o *FormattedApiStackRegionAnyOf1) GetOtlpPrivateConnectivityInfoOk() (*OtlpPrivateConnectivityInfo, bool)`
+
+GetOtlpPrivateConnectivityInfoOk returns a tuple with the OtlpPrivateConnectivityInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOtlpPrivateConnectivityInfo
+
+`func (o *FormattedApiStackRegionAnyOf1) SetOtlpPrivateConnectivityInfo(v OtlpPrivateConnectivityInfo)`
+
+SetOtlpPrivateConnectivityInfo sets OtlpPrivateConnectivityInfo field to given value.
+
+
+### SetOtlpPrivateConnectivityInfoNil
+
+`func (o *FormattedApiStackRegionAnyOf1) SetOtlpPrivateConnectivityInfoNil(b bool)`
+
+ SetOtlpPrivateConnectivityInfoNil sets the value for OtlpPrivateConnectivityInfo to be an explicit nil
+
+### UnsetOtlpPrivateConnectivityInfo
+`func (o *FormattedApiStackRegionAnyOf1) UnsetOtlpPrivateConnectivityInfo()`
+
+UnsetOtlpPrivateConnectivityInfo ensures that no value is present for OtlpPrivateConnectivityInfo, not even an explicit nil
 ### GetAuthApiUrl
 
 `func (o *FormattedApiStackRegionAnyOf1) GetAuthApiUrl() string`
