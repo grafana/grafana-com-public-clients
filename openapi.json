@@ -7694,8 +7694,8 @@
     "title": "GCOM API",
     "version": "internal",
     "description": "\nGrafana.com API (or GCOM). This documentation includes all endpoints of GCOM API including the staff ones.\n\nLooking for GCOM API client packages? You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients) repository.\n\nIf you have any questions, please contact us at #grafana_com on Slack or open an issue\nat [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n      ",
-    "x-commit-sha": "f1bd1fc",
-    "x-generated-at": "2024-02-13T16:18:34.264Z"
+    "x-commit-sha": "8c90da0",
+    "x-generated-at": "2024-02-14T07:39:19.605Z"
   },
   "security": [
     {
@@ -8673,6 +8673,24 @@
                   ]
                 },
                 "title": "tenants"
+              },
+              "otlp": {
+                "type": "object",
+                "properties": {
+                  "serviceName": {
+                    "type": "string",
+                    "title": "serviceName"
+                  },
+                  "privateDNS": {
+                    "type": "string",
+                    "title": "privateDNS"
+                  }
+                },
+                "required": [
+                  "privateDNS",
+                  "serviceName"
+                ],
+                "title": "otlp"
               }
             },
             "required": [
@@ -11212,6 +11230,75 @@
                 "title": "otlpHttpUrl",
                 "nullable": true
               },
+              "otlpPrivateConnectivityInfo": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "privateDNS": {
+                        "type": "string",
+                        "title": "privateDNS"
+                      },
+                      "serviceName": {
+                        "type": "string",
+                        "title": "serviceName"
+                      }
+                    },
+                    "required": [
+                      "privateDNS",
+                      "serviceName"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "mimir": {
+                        "type": "object",
+                        "properties": {
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          }
+                        },
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ],
+                        "title": "mimir"
+                      },
+                      "graphite": {
+                        "type": "object",
+                        "properties": {
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          }
+                        },
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ],
+                        "title": "graphite"
+                      }
+                    },
+                    "required": [
+                      "mimir"
+                    ]
+                  },
+                  {
+                    "nullable": true
+                  }
+                ],
+                "title": "otlpPrivateConnectivityInfo"
+              },
               "authApiUrl": {
                 "type": "string",
                 "title": "authApiUrl"
@@ -11451,6 +11538,7 @@
               "name",
               "oncallApiUrl",
               "otlpHttpUrl",
+              "otlpPrivateConnectivityInfo",
               "pdcClusterSlug",
               "provider",
               "providerRegion",
