@@ -1370,7 +1370,7 @@ Name | Type | Description  | Notes
 
 ## PostInstanceServiceAccountTokens
 
-> GrafanaServiceAccountToken PostInstanceServiceAccountTokens(ctx, instanceId, serviceAccountId).XRequestId(xRequestId).PostInstanceServiceAccountTokensRequest(postInstanceServiceAccountTokensRequest).Execute()
+> GrafanaNewApiKeyResult PostInstanceServiceAccountTokens(ctx, instanceId, serviceAccountId).XRequestId(xRequestId).PostInstanceServiceAccountTokensRequest(postInstanceServiceAccountTokensRequest).Execute()
 
 Creates a service account token on a Grafana instance
 
@@ -1399,7 +1399,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstanceServiceAccountTokens``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostInstanceServiceAccountTokens`: GrafanaServiceAccountToken
+	// response from `PostInstanceServiceAccountTokens`: GrafanaNewApiKeyResult
 	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstanceServiceAccountTokens`: %v\n", resp)
 }
 ```
@@ -1427,7 +1427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GrafanaServiceAccountToken**](GrafanaServiceAccountToken.md)
+[**GrafanaNewApiKeyResult**](GrafanaNewApiKeyResult.md)
 
 ### Authorization
 
@@ -1445,7 +1445,7 @@ Name | Type | Description  | Notes
 
 ## PostInstanceServiceAccounts
 
-> GrafanaServiceAccount PostInstanceServiceAccounts(ctx, instanceId).XRequestId(xRequestId).PostInstanceServiceAccountsRequest(postInstanceServiceAccountsRequest).Execute()
+> GrafanaServiceAccountDTO PostInstanceServiceAccounts(ctx, instanceId).XRequestId(xRequestId).PostInstanceServiceAccountsRequest(postInstanceServiceAccountsRequest).Execute()
 
 Creates a service account on a Grafana instance
 
@@ -1473,7 +1473,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstanceServiceAccounts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostInstanceServiceAccounts`: GrafanaServiceAccount
+	// response from `PostInstanceServiceAccounts`: GrafanaServiceAccountDTO
 	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstanceServiceAccounts`: %v\n", resp)
 }
 ```
@@ -1499,7 +1499,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GrafanaServiceAccount**](GrafanaServiceAccount.md)
+[**GrafanaServiceAccountDTO**](GrafanaServiceAccountDTO.md)
 
 ### Authorization
 
