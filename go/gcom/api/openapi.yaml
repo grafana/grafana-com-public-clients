@@ -10,8 +10,8 @@ info:
     \ be precise\n      "
   title: GCOM API
   version: internal
-  x-commit-sha: 8c90da0
-  x-generated-at: 2024-02-14T07:39:19.605Z
+  x-commit-sha: e35f58c
+  x-generated-at: 2024-02-19T08:26:12.258Z
 servers:
 - description: Main API server
   url: /api
@@ -4145,7 +4145,7 @@ components:
         - grafanaCloud: 9.301444243932576
           orgSlug: orgSlug
           subscriptions: null
-          role: role
+          role: Admin
           userStatus: 1.0246457001441578
           hmCurrentPrometheusUsage: 1.2315135367772556
           privacy: 2.3021358869347655
@@ -4178,7 +4178,7 @@ components:
         - grafanaCloud: 9.301444243932576
           orgSlug: orgSlug
           subscriptions: null
-          role: role
+          role: Admin
           userStatus: 1.0246457001441578
           hmCurrentPrometheusUsage: 1.2315135367772556
           privacy: 2.3021358869347655
@@ -4256,7 +4256,7 @@ components:
         grafanaCloud: 9.301444243932576
         orgSlug: orgSlug
         subscriptions: null
-        role: role
+        role: Admin
         userStatus: 1.0246457001441578
         hmCurrentPrometheusUsage: 1.2315135367772556
         privacy: 2.3021358869347655
@@ -4310,6 +4310,12 @@ components:
           title: defaultOrg
           type: number
         role:
+          enum:
+          - Admin
+          - Editor
+          - None
+          - SSO Access
+          - Viewer
           title: role
           type: string
         privacy:
@@ -6644,7 +6650,7 @@ components:
         grafanaCloud: 9.301444243932576
         orgSlug: orgSlug
         subscriptions: null
-        role: role
+        role: Admin
         userStatus: 1.0246457001441578
         hmCurrentPrometheusUsage: 1.2315135367772556
         privacy: 2.3021358869347655
@@ -6698,6 +6704,12 @@ components:
           title: defaultOrg
           type: number
         role:
+          enum:
+          - Admin
+          - Editor
+          - None
+          - SSO Access
+          - Viewer
           title: role
           type: string
         privacy:
