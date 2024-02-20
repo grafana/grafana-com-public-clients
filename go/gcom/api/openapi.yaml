@@ -1,17 +1,19 @@
 openapi: 3.0.0
 info:
-  description: "\nGrafana.com API (or GCOM). This documentation includes all endpoints\
-    \ of GCOM API including the staff ones.\n\nLooking for GCOM API client packages?\
-    \ You can find them at [grafana-com-clients](https://github.com/grafana/grafana-com-clients)\
-    \ repository.\n\nIf you have any questions, please contact us at #grafana_com\
-    \ on Slack or open an issue\nat [Grafana-com repository](https://github.com/grafana/grafana-com/issues/new).\n\
-    \nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses\
-    \ are properly typed for the time being.\n- Some request parameter types may not\
-    \ be precise\n      "
+  description: |
+    Grafana.com API (public).
+
+    Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.
+
+    If you have any questions, please contact support in the Grafana Cloud UI.
+
+    This spec is in *Beta* stage, so use it with caution:
+    - Not all endpoint responses are properly typed for the time being.
+    - Some request parameter types may not be precise
   title: GCOM API
-  version: internal
-  x-commit-sha: 6a7f2db
-  x-generated-at: 2024-02-19T13:51:12.297Z
+  version: public
+  x-commit-sha: eeb4f03
+  x-generated-at: 2024-02-20T15:16:33.326Z
 servers:
 - description: Main API server
   url: /api
