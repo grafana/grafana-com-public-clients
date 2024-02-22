@@ -6,9 +6,20 @@ wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.2.0
 # Cleanup old files
 rm -rf ./go/gcom
 
+# Workarounds for temporary schema issues
+SCHEMA="$(cat openapi.json)"
+modify() {
+    SCHEMA="$(echo "${SCHEMA}" | jq "${1}")"
+}
+modify '.components.schemas.FormattedApiOrgPublic.properties.allowGCloudTrial = { "anyOf": [ { "type": "boolean" }, { "type": "number" } ] }'
+
+TEMP_OPENAPI_FILE="openapi-temp.json"
+echo "${SCHEMA}" > $TEMP_OPENAPI_FILE
+trap "rm -f $TEMP_OPENAPI_FILE" EXIT
+
 
 java -jar openapi-generator-cli.jar generate \
-  -i openapi.json \
+  -i ${TEMP_OPENAPI_FILE} \
   -g go \
   -o ./go/gcom \
   --git-user-id grafana \
