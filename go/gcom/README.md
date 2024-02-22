@@ -156,6 +156,7 @@ Class | Method | HTTP request | Description
  - [FormattedApiInstanceConnections](docs/FormattedApiInstanceConnections.md)
  - [FormattedApiInstancePlugin](docs/FormattedApiInstancePlugin.md)
  - [FormattedApiOrgPublic](docs/FormattedApiOrgPublic.md)
+ - [FormattedApiOrgPublicAllowGCloudTrial](docs/FormattedApiOrgPublicAllowGCloudTrial.md)
  - [FormattedApiPlugin](docs/FormattedApiPlugin.md)
  - [FormattedApiStackRegion](docs/FormattedApiStackRegion.md)
  - [FormattedApiStackRegionAnyOf](docs/FormattedApiStackRegionAnyOf.md)
