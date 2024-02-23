@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: f5479ac
-  x-generated-at: 2024-02-22T22:24:55.014Z
+  x-commit-sha: 82f20f1
+  x-generated-at: 2024-02-23T13:32:41.325Z
 servers:
 - description: Main API server
   url: /api
@@ -4573,7 +4573,6 @@ components:
     FormattedApiOrgPublic:
       example:
         grafanaCloud: 3.616076749251911
-        hmGraphiteInstanceCnt: 5.7911894223693885
         hlRetentionIncludedUsage: 3.0576100241049344
         hpTier2Min: 5.507386964179881
         geInstancesTier2Rate: 1.3949519358941398
@@ -4619,7 +4618,7 @@ components:
         hlInstanceLimit: 5.637376656633329
         emergencySupport: true
         cancellationDate: cancellationDate
-        awsMarketplaceSupport: 3.8008573585058016
+        awsMarketplaceSupport: 5.7911894223693885
         trialStartDate: trialStartDate
         hmGraphiteIncludedUsage: 6.778324963048013
         k6IPTier2Rate: 3.111202833403195
@@ -4630,7 +4629,7 @@ components:
         hlTier3Rate: 7.740351818741173
         avatar: avatar
         url: url
-        contractTypeId: 9.785002165136461
+        contractTypeId: 1.0639121808530916
         k6VuhIncludedUsage: 9.254183946267839
         hlQueryToIngestRatio: 7.058770351582356
         hgPluginUsersIncludedUsage: 4.372688051310086
@@ -4641,7 +4640,6 @@ components:
         hlTier1Rate: 6.519180951018382
         irmTier2Rate: 8.28965939814297
         subscriptions: null
-        isContractedLicenseAutoProvision: true
         hmGraphiteTier2Rate: 6.704019297950036
         feO11yUsage: 0.35262192099236644
         trialNoticeDate: trialNoticeDate
@@ -4669,7 +4667,7 @@ components:
         geUsersUsage: 6.173804034172511
         hgTier2Min: 1.0246457001441578
         k6VuhTier2Rate: 9.183123594773994
-        trialLengthDays: 1.0639121808530916
+        trialLengthDays: 5.974942028545841
         htUsage: 9.702963800023566
         geUsersTier3Rate: 2.535258963197524
         hgTier1Rate: 1.2315135367772556
@@ -4688,7 +4686,6 @@ components:
         hpTier3Rate: 8.251625748923757
         hmTier2Min: 9.018348186070783
         feO11yTier1Rate: 3.1497903714250555
-        hmPrometheusInstanceCnt: 5.974942028545841
         privacy: privacy
         checksPerMonth: 6.027456183070403
         hgUsage: 1.1730742509559433
@@ -4708,7 +4705,7 @@ components:
         hpTier3Min: 6.073898085781152
         irmStatus: 3.901545264248647
         k6VuhUnits: 5.299143560275359
-        retainedStackId: 3.2841216543560217
+        retainedStackId: 3.8008573585058016
         k6IPTier1Rate: 7.606863723092579
         irmIncludedUsage: 0.43431398824148815
         hpUsage: 4.459605034958679
@@ -4819,9 +4816,6 @@ components:
           type: string
         emergencySupport:
           title: emergencySupport
-          type: boolean
-        isContractedLicenseAutoProvision:
-          title: isContractedLicenseAutoProvision
           type: boolean
         gcloudMonthlyCost:
           title: gcloudMonthlyCost
@@ -5138,12 +5132,6 @@ components:
           nullable: true
           title: hgPluginUsersIncludedUsage
           type: number
-        hmGraphiteInstanceCnt:
-          title: hmGraphiteInstanceCnt
-          type: number
-        hmPrometheusInstanceCnt:
-          title: hmPrometheusInstanceCnt
-          type: number
         awsMarketplaceSupport:
           title: awsMarketplaceSupport
           type: number
@@ -5261,7 +5249,6 @@ components:
       - hmAverageDpm
       - hmCurrentUsage
       - hmGraphiteIncludedUsage
-      - hmGraphiteInstanceCnt
       - hmGraphiteTier1Rate
       - hmGraphiteTier2Min
       - hmGraphiteTier2Rate
@@ -5270,7 +5257,6 @@ components:
       - hmGraphiteUsage
       - hmIncludedSeries
       - hmInstanceLimit
-      - hmPrometheusInstanceCnt
       - hmTier1Rate
       - hmTier2Min
       - hmTier2Rate
@@ -5300,7 +5286,6 @@ components:
       - irmTier3Min
       - irmTier3Rate
       - irmUsage
-      - isContractedLicenseAutoProvision
       - k6IPIncludedUsage
       - k6IPTier1Rate
       - k6IPTier2Min
