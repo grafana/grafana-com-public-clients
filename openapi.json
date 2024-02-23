@@ -7700,8 +7700,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "f5479ac",
-    "x-generated-at": "2024-02-22T22:24:55.014Z"
+    "x-commit-sha": "82f20f1",
+    "x-generated-at": "2024-02-23T13:32:41.325Z"
   },
   "security": [
     {
@@ -10192,10 +10192,6 @@
             "type": "boolean",
             "title": "emergencySupport"
           },
-          "isContractedLicenseAutoProvision": {
-            "type": "boolean",
-            "title": "isContractedLicenseAutoProvision"
-          },
           "gcloudMonthlyCost": {
             "type": "number",
             "title": "gcloudMonthlyCost"
@@ -10614,14 +10610,6 @@
             "type": "number",
             "title": "hgPluginUsersIncludedUsage",
             "nullable": true
-          },
-          "hmGraphiteInstanceCnt": {
-            "type": "number",
-            "title": "hmGraphiteInstanceCnt"
-          },
-          "hmPrometheusInstanceCnt": {
-            "type": "number",
-            "title": "hmPrometheusInstanceCnt"
           },
           "awsMarketplaceSupport": {
             "type": "number",
@@ -11079,7 +11067,6 @@
           "hmAverageDpm",
           "hmCurrentUsage",
           "hmGraphiteIncludedUsage",
-          "hmGraphiteInstanceCnt",
           "hmGraphiteTier1Rate",
           "hmGraphiteTier2Min",
           "hmGraphiteTier2Rate",
@@ -11088,7 +11075,6 @@
           "hmGraphiteUsage",
           "hmIncludedSeries",
           "hmInstanceLimit",
-          "hmPrometheusInstanceCnt",
           "hmTier1Rate",
           "hmTier2Min",
           "hmTier2Rate",
@@ -11118,7 +11104,6 @@
           "irmTier3Min",
           "irmTier3Rate",
           "irmUsage",
-          "isContractedLicenseAutoProvision",
           "k6IPIncludedUsage",
           "k6IPTier1Rate",
           "k6IPTier2Min",
