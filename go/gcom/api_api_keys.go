@@ -45,8 +45,8 @@ func (r ApiPostAllApiKeysRequest) Execute() (*FormattedApiApiKey, *http.Response
 /*
 PostAllApiKeys Creates an API key
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostAllApiKeysRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostAllApiKeysRequest
 */
 func (a *ApiKeysAPIService) PostAllApiKeys(ctx context.Context) ApiPostAllApiKeysRequest {
 	return ApiPostAllApiKeysRequest{
@@ -56,7 +56,8 @@ func (a *ApiKeysAPIService) PostAllApiKeys(ctx context.Context) ApiPostAllApiKey
 }
 
 // Execute executes the request
-//  @return FormattedApiApiKey
+//
+//	@return FormattedApiApiKey
 func (a *ApiKeysAPIService) PostAllApiKeysExecute(r ApiPostAllApiKeysRequest) (*FormattedApiApiKey, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost

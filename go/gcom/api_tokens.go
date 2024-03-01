@@ -53,9 +53,9 @@ func (r ApiDeleteTokenRequest) Execute() (map[string]interface{}, *http.Response
 /*
 DeleteToken Delete a token
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiDeleteTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiDeleteTokenRequest
 */
 func (a *TokensAPIService) DeleteToken(ctx context.Context, id string) ApiDeleteTokenRequest {
 	return ApiDeleteTokenRequest{
@@ -66,7 +66,8 @@ func (a *TokensAPIService) DeleteToken(ctx context.Context, id string) ApiDelete
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
+//
+//	@return map[string]interface{}
 func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodDelete
@@ -231,9 +232,9 @@ func (r ApiGetTokenRequest) Execute() (*AuthToken, *http.Response, error) {
 /*
 GetToken Get info for a specific token
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiGetTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiGetTokenRequest
 */
 func (a *TokensAPIService) GetToken(ctx context.Context, id string) ApiGetTokenRequest {
 	return ApiGetTokenRequest{
@@ -244,7 +245,8 @@ func (a *TokensAPIService) GetToken(ctx context.Context, id string) ApiGetTokenR
 }
 
 // Execute executes the request
-//  @return AuthToken
+//
+//	@return AuthToken
 func (a *TokensAPIService) GetTokenExecute(r ApiGetTokenRequest) (*AuthToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -459,8 +461,8 @@ func (r ApiGetTokensRequest) Execute() ([]AuthToken, *http.Response, error) {
 /*
 GetTokens Get a list of tokens
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetTokensRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetTokensRequest
 */
 func (a *TokensAPIService) GetTokens(ctx context.Context) ApiGetTokensRequest {
 	return ApiGetTokensRequest{
@@ -470,7 +472,8 @@ func (a *TokensAPIService) GetTokens(ctx context.Context) ApiGetTokensRequest {
 }
 
 // Execute executes the request
-//  @return []AuthToken
+//
+//	@return []AuthToken
 func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) ([]AuthToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -653,9 +656,9 @@ func (r ApiPostTokenRequest) Execute() (*AuthToken, *http.Response, error) {
 /*
 PostToken Update a token
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiPostTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiPostTokenRequest
 */
 func (a *TokensAPIService) PostToken(ctx context.Context, id string) ApiPostTokenRequest {
 	return ApiPostTokenRequest{
@@ -666,7 +669,8 @@ func (a *TokensAPIService) PostToken(ctx context.Context, id string) ApiPostToke
 }
 
 // Execute executes the request
-//  @return AuthToken
+//
+//	@return AuthToken
 func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (*AuthToken, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -847,8 +851,8 @@ func (r ApiPostTokensRequest) Execute() (*AuthTokenWithSecret, *http.Response, e
 /*
 PostTokens Create a new token
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostTokensRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostTokensRequest
 */
 func (a *TokensAPIService) PostTokens(ctx context.Context) ApiPostTokensRequest {
 	return ApiPostTokensRequest{
@@ -858,7 +862,8 @@ func (a *TokensAPIService) PostTokens(ctx context.Context) ApiPostTokensRequest 
 }
 
 // Execute executes the request
-//  @return AuthTokenWithSecret
+//
+//	@return AuthTokenWithSecret
 func (a *TokensAPIService) PostTokensExecute(r ApiPostTokensRequest) (*AuthTokenWithSecret, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost

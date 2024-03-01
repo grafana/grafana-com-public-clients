@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FormattedApiPlugin type satisfies the MappedNullable interface at compile time
@@ -934,55 +933,12 @@ func (o FormattedApiPlugin) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *FormattedApiPlugin) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"status",
-		"id",
-		"typeId",
-		"typeName",
-		"typeCode",
-		"slug",
-		"name",
-		"description",
-		"version",
-		"versionStatus",
-		"versionSignatureType",
-		"versionSignedByOrg",
-		"versionSignedByOrgName",
-		"userId",
-		"orgId",
-		"orgName",
-		"orgSlug",
-		"orgUrl",
-		"url",
-		"createdAt",
-		"updatedAt",
-		"downloads",
-		"verified",
-		"featured",
-		"internal",
-		"downloadSlug",
-		"popularity",
-		"signatureType",
-		"packages",
-		"links",
-		"angularDetected",
-	}
-
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
 		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
 	}
 
 	varFormattedApiPlugin := _FormattedApiPlugin{}
