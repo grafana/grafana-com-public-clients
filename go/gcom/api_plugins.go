@@ -41,9 +41,9 @@ func (r ApiGetPluginRequest) Execute() (*FormattedApiPlugin, *http.Response, err
 /*
 GetPlugin Fetches a plugin by slug or id
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param slug
-	@return ApiGetPluginRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param slug
+ @return ApiGetPluginRequest
 */
 func (a *PluginsAPIService) GetPlugin(ctx context.Context, slug string) ApiGetPluginRequest {
 	return ApiGetPluginRequest{
@@ -54,8 +54,7 @@ func (a *PluginsAPIService) GetPlugin(ctx context.Context, slug string) ApiGetPl
 }
 
 // Execute executes the request
-//
-//	@return FormattedApiPlugin
+//  @return FormattedApiPlugin
 func (a *PluginsAPIService) GetPluginExecute(r ApiGetPluginRequest) (*FormattedApiPlugin, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet

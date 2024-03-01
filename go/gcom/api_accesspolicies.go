@@ -53,9 +53,9 @@ func (r ApiDeleteAccessPolicyRequest) Execute() (map[string]interface{}, *http.R
 /*
 DeleteAccessPolicy Delete an access policy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiDeleteAccessPolicyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id
+ @return ApiDeleteAccessPolicyRequest
 */
 func (a *AccesspoliciesAPIService) DeleteAccessPolicy(ctx context.Context, id string) ApiDeleteAccessPolicyRequest {
 	return ApiDeleteAccessPolicyRequest{
@@ -66,8 +66,7 @@ func (a *AccesspoliciesAPIService) DeleteAccessPolicy(ctx context.Context, id st
 }
 
 // Execute executes the request
-//
-//	@return map[string]interface{}
+//  @return map[string]interface{}
 func (a *AccesspoliciesAPIService) DeleteAccessPolicyExecute(r ApiDeleteAccessPolicyRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodDelete
@@ -267,8 +266,8 @@ func (r ApiGetAccessPoliciesRequest) Execute() ([]AuthAccessPolicy, *http.Respon
 /*
 GetAccessPolicies Get a list of access policies
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetAccessPoliciesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetAccessPoliciesRequest
 */
 func (a *AccesspoliciesAPIService) GetAccessPolicies(ctx context.Context) ApiGetAccessPoliciesRequest {
 	return ApiGetAccessPoliciesRequest{
@@ -278,8 +277,7 @@ func (a *AccesspoliciesAPIService) GetAccessPolicies(ctx context.Context) ApiGet
 }
 
 // Execute executes the request
-//
-//	@return []AuthAccessPolicy
+//  @return []AuthAccessPolicy
 func (a *AccesspoliciesAPIService) GetAccessPoliciesExecute(r ApiGetAccessPoliciesRequest) ([]AuthAccessPolicy, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -435,9 +433,9 @@ func (r ApiGetAccessPolicyRequest) Execute() (*AuthAccessPolicy, *http.Response,
 /*
 GetAccessPolicy Get an access policy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiGetAccessPolicyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id
+ @return ApiGetAccessPolicyRequest
 */
 func (a *AccesspoliciesAPIService) GetAccessPolicy(ctx context.Context, id string) ApiGetAccessPolicyRequest {
 	return ApiGetAccessPolicyRequest{
@@ -448,8 +446,7 @@ func (a *AccesspoliciesAPIService) GetAccessPolicy(ctx context.Context, id strin
 }
 
 // Execute executes the request
-//
-//	@return AuthAccessPolicy
+//  @return AuthAccessPolicy
 func (a *AccesspoliciesAPIService) GetAccessPolicyExecute(r ApiGetAccessPolicyRequest) (*AuthAccessPolicy, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -592,8 +589,8 @@ func (r ApiGetConfigRequest) Execute() (map[string]interface{}, *http.Response, 
 /*
 GetConfig Get details about the Cloud Access Policy API
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiGetConfigRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetConfigRequest
 */
 func (a *AccesspoliciesAPIService) GetConfig(ctx context.Context) ApiGetConfigRequest {
 	return ApiGetConfigRequest{
@@ -603,8 +600,7 @@ func (a *AccesspoliciesAPIService) GetConfig(ctx context.Context) ApiGetConfigRe
 }
 
 // Execute executes the request
-//
-//	@return map[string]interface{}
+//  @return map[string]interface{}
 func (a *AccesspoliciesAPIService) GetConfigExecute(r ApiGetConfigRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -728,8 +724,8 @@ func (r ApiPostAccessPoliciesRequest) Execute() (*AuthAccessPolicy, *http.Respon
 /*
 PostAccessPolicies Create a new access policy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiPostAccessPoliciesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostAccessPoliciesRequest
 */
 func (a *AccesspoliciesAPIService) PostAccessPolicies(ctx context.Context) ApiPostAccessPoliciesRequest {
 	return ApiPostAccessPoliciesRequest{
@@ -739,8 +735,7 @@ func (a *AccesspoliciesAPIService) PostAccessPolicies(ctx context.Context) ApiPo
 }
 
 // Execute executes the request
-//
-//	@return AuthAccessPolicy
+//  @return AuthAccessPolicy
 func (a *AccesspoliciesAPIService) PostAccessPoliciesExecute(r ApiPostAccessPoliciesRequest) (*AuthAccessPolicy, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -910,9 +905,9 @@ func (r ApiPostAccessPolicyRequest) Execute() (*AuthAccessPolicy, *http.Response
 /*
 PostAccessPolicy Update an access policy
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiPostAccessPolicyRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id
+ @return ApiPostAccessPolicyRequest
 */
 func (a *AccesspoliciesAPIService) PostAccessPolicy(ctx context.Context, id string) ApiPostAccessPolicyRequest {
 	return ApiPostAccessPolicyRequest{
@@ -923,8 +918,7 @@ func (a *AccesspoliciesAPIService) PostAccessPolicy(ctx context.Context, id stri
 }
 
 // Execute executes the request
-//
-//	@return AuthAccessPolicy
+//  @return AuthAccessPolicy
 func (a *AccesspoliciesAPIService) PostAccessPolicyExecute(r ApiPostAccessPolicyRequest) (*AuthAccessPolicy, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
