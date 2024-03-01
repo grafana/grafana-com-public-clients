@@ -4,24 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
-**InstanceId** | **float32** |  | 
-**InstanceUrl** | **string** |  | 
-**InstanceSlug** | **string** |  | 
-**PluginId** | **float32** |  | 
-**PluginSlug** | **string** |  | 
-**PluginName** | **string** |  | 
-**Version** | **string** |  | 
-**LatestVersion** | **string** |  | 
-**CreatedAt** | **string** |  | 
+**Id** | Pointer to **float32** |  | [optional] 
+**InstanceId** | Pointer to **float32** |  | [optional] 
+**InstanceUrl** | Pointer to **string** |  | [optional] 
+**InstanceSlug** | Pointer to **string** |  | [optional] 
+**PluginId** | Pointer to **float32** |  | [optional] 
+**PluginSlug** | Pointer to **string** |  | [optional] 
+**PluginName** | Pointer to **string** |  | [optional] 
+**Version** | Pointer to **string** |  | [optional] 
+**LatestVersion** | Pointer to **string** |  | [optional] 
+**CreatedAt** | Pointer to **string** |  | [optional] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
-**Links** | [**[]LinksInner**](LinksInner.md) |  | 
+**Links** | Pointer to [**[]LinksInner**](LinksInner.md) |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiInstancePlugin
 
-`func NewFormattedApiInstancePlugin(id float32, instanceId float32, instanceUrl string, instanceSlug string, pluginId float32, pluginSlug string, pluginName string, version string, latestVersion string, createdAt string, links []LinksInner, ) *FormattedApiInstancePlugin`
+`func NewFormattedApiInstancePlugin() *FormattedApiInstancePlugin`
 
 NewFormattedApiInstancePlugin instantiates a new FormattedApiInstancePlugin object
 This constructor will assign default values to properties that have it defined,
@@ -55,6 +55,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *FormattedApiInstancePlugin) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetInstanceId
 
@@ -75,6 +80,11 @@ and a boolean to check if the value has been set.
 
 SetInstanceId sets InstanceId field to given value.
 
+### HasInstanceId
+
+`func (o *FormattedApiInstancePlugin) HasInstanceId() bool`
+
+HasInstanceId returns a boolean if a field has been set.
 
 ### GetInstanceUrl
 
@@ -95,6 +105,11 @@ and a boolean to check if the value has been set.
 
 SetInstanceUrl sets InstanceUrl field to given value.
 
+### HasInstanceUrl
+
+`func (o *FormattedApiInstancePlugin) HasInstanceUrl() bool`
+
+HasInstanceUrl returns a boolean if a field has been set.
 
 ### GetInstanceSlug
 
@@ -115,6 +130,11 @@ and a boolean to check if the value has been set.
 
 SetInstanceSlug sets InstanceSlug field to given value.
 
+### HasInstanceSlug
+
+`func (o *FormattedApiInstancePlugin) HasInstanceSlug() bool`
+
+HasInstanceSlug returns a boolean if a field has been set.
 
 ### GetPluginId
 
@@ -135,6 +155,11 @@ and a boolean to check if the value has been set.
 
 SetPluginId sets PluginId field to given value.
 
+### HasPluginId
+
+`func (o *FormattedApiInstancePlugin) HasPluginId() bool`
+
+HasPluginId returns a boolean if a field has been set.
 
 ### GetPluginSlug
 
@@ -155,6 +180,11 @@ and a boolean to check if the value has been set.
 
 SetPluginSlug sets PluginSlug field to given value.
 
+### HasPluginSlug
+
+`func (o *FormattedApiInstancePlugin) HasPluginSlug() bool`
+
+HasPluginSlug returns a boolean if a field has been set.
 
 ### GetPluginName
 
@@ -175,6 +205,11 @@ and a boolean to check if the value has been set.
 
 SetPluginName sets PluginName field to given value.
 
+### HasPluginName
+
+`func (o *FormattedApiInstancePlugin) HasPluginName() bool`
+
+HasPluginName returns a boolean if a field has been set.
 
 ### GetVersion
 
@@ -195,6 +230,11 @@ and a boolean to check if the value has been set.
 
 SetVersion sets Version field to given value.
 
+### HasVersion
+
+`func (o *FormattedApiInstancePlugin) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
 
 ### GetLatestVersion
 
@@ -215,6 +255,11 @@ and a boolean to check if the value has been set.
 
 SetLatestVersion sets LatestVersion field to given value.
 
+### HasLatestVersion
+
+`func (o *FormattedApiInstancePlugin) HasLatestVersion() bool`
+
+HasLatestVersion returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -235,6 +280,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *FormattedApiInstancePlugin) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 
@@ -280,6 +330,11 @@ and a boolean to check if the value has been set.
 
 SetLinks sets Links field to given value.
 
+### HasLinks
+
+`func (o *FormattedApiInstancePlugin) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

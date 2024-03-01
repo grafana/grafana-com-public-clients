@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FormattedApiInstance type satisfies the MappedNullable interface at compile time
@@ -20,92 +19,92 @@ var _ MappedNullable = &FormattedApiInstance{}
 
 // FormattedApiInstance struct for FormattedApiInstance
 type FormattedApiInstance struct {
-	AlertCnt                          float32                `json:"alertCnt"`
-	AlertQuota                        float32                `json:"alertQuota"`
-	AmInstanceGeneratorUrl            string                 `json:"amInstanceGeneratorUrl"`
-	AmInstanceGeneratorUrlDatasource  string                 `json:"amInstanceGeneratorUrlDatasource"`
-	AmInstanceId                      float32                `json:"amInstanceId"`
-	AmInstanceName                    string                 `json:"amInstanceName"`
-	AmInstanceStatus                  string                 `json:"amInstanceStatus"`
-	AmInstanceUrl                     string                 `json:"amInstanceUrl"`
-	BillingActiveUsers                float32                `json:"billingActiveUsers"`
-	BillingEndDate                    string                 `json:"billingEndDate"`
-	BillingGrafanaActiveUsers         float32                `json:"billingGrafanaActiveUsers"`
-	BillingOnCallActiveUsers          float32                `json:"billingOnCallActiveUsers"`
-	BillingStartDate                  string                 `json:"billingStartDate"`
-	ClusterId                         float32                `json:"clusterId"`
-	ClusterName                       string                 `json:"clusterName"`
-	ClusterSlug                       string                 `json:"clusterSlug"`
-	CreatedAt                         string                 `json:"createdAt"`
-	CreatedBy                         string                 `json:"createdBy"`
-	CurrentActiveAdminUsers           float32                `json:"currentActiveAdminUsers"`
-	CurrentActiveEditorUsers          float32                `json:"currentActiveEditorUsers"`
-	CurrentActiveUsers                float32                `json:"currentActiveUsers"`
-	CurrentActiveViewerUsers          float32                `json:"currentActiveViewerUsers"`
-	CustomAuth                        bool                   `json:"customAuth"`
-	CustomDomain                      bool                   `json:"customDomain"`
-	DailyAdminCnt                     float32                `json:"dailyAdminCnt"`
-	DailyEditorCnt                    float32                `json:"dailyEditorCnt"`
-	DailyUserCnt                      float32                `json:"dailyUserCnt"`
-	DailyViewerCnt                    float32                `json:"dailyViewerCnt"`
-	DashboardCnt                      float32                `json:"dashboardCnt"`
-	DashboardQuota                    float32                `json:"dashboardQuota"`
-	DatasourceCnts                    map[string]interface{} `json:"datasourceCnts"`
-	Description                       string                 `json:"description"`
-	Gateway                           string                 `json:"gateway"`
-	HlInstanceCurrentUsage            float32                `json:"hlInstanceCurrentUsage"`
-	HlInstanceId                      float32                `json:"hlInstanceId"`
-	HlInstanceName                    string                 `json:"hlInstanceName"`
-	HlInstanceStatus                  string                 `json:"hlInstanceStatus"`
-	HlInstanceUrl                     string                 `json:"hlInstanceUrl"`
-	HmInstanceGraphiteCurrentUsage    float32                `json:"hmInstanceGraphiteCurrentUsage"`
-	HmInstanceGraphiteId              float32                `json:"hmInstanceGraphiteId"`
-	HmInstanceGraphiteName            string                 `json:"hmInstanceGraphiteName"`
-	HmInstanceGraphiteStatus          string                 `json:"hmInstanceGraphiteStatus"`
-	HmInstanceGraphiteType            string                 `json:"hmInstanceGraphiteType"`
-	HmInstanceGraphiteUrl             string                 `json:"hmInstanceGraphiteUrl"`
-	HmInstancePromCurrentActiveSeries interface{}            `json:"hmInstancePromCurrentActiveSeries"`
-	HmInstancePromCurrentUsage        float32                `json:"hmInstancePromCurrentUsage"`
-	HmInstancePromId                  float32                `json:"hmInstancePromId"`
-	HmInstancePromName                string                 `json:"hmInstancePromName"`
-	HmInstancePromStatus              string                 `json:"hmInstancePromStatus"`
-	HmInstancePromUrl                 string                 `json:"hmInstancePromUrl"`
-	HtInstanceId                      float32                `json:"htInstanceId"`
-	HtInstanceName                    string                 `json:"htInstanceName"`
-	HtInstanceStatus                  string                 `json:"htInstanceStatus"`
-	HtInstanceUrl                     string                 `json:"htInstanceUrl"`
-	HpInstanceId                      float32                `json:"hpInstanceId"`
-	HpInstanceName                    string                 `json:"hpInstanceName"`
-	HpInstanceStatus                  string                 `json:"hpInstanceStatus"`
-	HpInstanceUrl                     string                 `json:"hpInstanceUrl"`
-	Id                                float32                `json:"id"`
-	Incident                          float32                `json:"incident"`
+	AlertCnt                          *float32               `json:"alertCnt,omitempty"`
+	AlertQuota                        *float32               `json:"alertQuota,omitempty"`
+	AmInstanceGeneratorUrl            *string                `json:"amInstanceGeneratorUrl,omitempty"`
+	AmInstanceGeneratorUrlDatasource  *string                `json:"amInstanceGeneratorUrlDatasource,omitempty"`
+	AmInstanceId                      *float32               `json:"amInstanceId,omitempty"`
+	AmInstanceName                    *string                `json:"amInstanceName,omitempty"`
+	AmInstanceStatus                  *string                `json:"amInstanceStatus,omitempty"`
+	AmInstanceUrl                     *string                `json:"amInstanceUrl,omitempty"`
+	BillingActiveUsers                *float32               `json:"billingActiveUsers,omitempty"`
+	BillingEndDate                    *string                `json:"billingEndDate,omitempty"`
+	BillingGrafanaActiveUsers         *float32               `json:"billingGrafanaActiveUsers,omitempty"`
+	BillingOnCallActiveUsers          *float32               `json:"billingOnCallActiveUsers,omitempty"`
+	BillingStartDate                  *string                `json:"billingStartDate,omitempty"`
+	ClusterId                         *float32               `json:"clusterId,omitempty"`
+	ClusterName                       *string                `json:"clusterName,omitempty"`
+	ClusterSlug                       *string                `json:"clusterSlug,omitempty"`
+	CreatedAt                         *string                `json:"createdAt,omitempty"`
+	CreatedBy                         *string                `json:"createdBy,omitempty"`
+	CurrentActiveAdminUsers           *float32               `json:"currentActiveAdminUsers,omitempty"`
+	CurrentActiveEditorUsers          *float32               `json:"currentActiveEditorUsers,omitempty"`
+	CurrentActiveUsers                *float32               `json:"currentActiveUsers,omitempty"`
+	CurrentActiveViewerUsers          *float32               `json:"currentActiveViewerUsers,omitempty"`
+	CustomAuth                        *bool                  `json:"customAuth,omitempty"`
+	CustomDomain                      *bool                  `json:"customDomain,omitempty"`
+	DailyAdminCnt                     *float32               `json:"dailyAdminCnt,omitempty"`
+	DailyEditorCnt                    *float32               `json:"dailyEditorCnt,omitempty"`
+	DailyUserCnt                      *float32               `json:"dailyUserCnt,omitempty"`
+	DailyViewerCnt                    *float32               `json:"dailyViewerCnt,omitempty"`
+	DashboardCnt                      *float32               `json:"dashboardCnt,omitempty"`
+	DashboardQuota                    *float32               `json:"dashboardQuota,omitempty"`
+	DatasourceCnts                    map[string]interface{} `json:"datasourceCnts,omitempty"`
+	Description                       *string                `json:"description,omitempty"`
+	Gateway                           *string                `json:"gateway,omitempty"`
+	HlInstanceCurrentUsage            *float32               `json:"hlInstanceCurrentUsage,omitempty"`
+	HlInstanceId                      *float32               `json:"hlInstanceId,omitempty"`
+	HlInstanceName                    *string                `json:"hlInstanceName,omitempty"`
+	HlInstanceStatus                  *string                `json:"hlInstanceStatus,omitempty"`
+	HlInstanceUrl                     *string                `json:"hlInstanceUrl,omitempty"`
+	HmInstanceGraphiteCurrentUsage    *float32               `json:"hmInstanceGraphiteCurrentUsage,omitempty"`
+	HmInstanceGraphiteId              *float32               `json:"hmInstanceGraphiteId,omitempty"`
+	HmInstanceGraphiteName            *string                `json:"hmInstanceGraphiteName,omitempty"`
+	HmInstanceGraphiteStatus          *string                `json:"hmInstanceGraphiteStatus,omitempty"`
+	HmInstanceGraphiteType            *string                `json:"hmInstanceGraphiteType,omitempty"`
+	HmInstanceGraphiteUrl             *string                `json:"hmInstanceGraphiteUrl,omitempty"`
+	HmInstancePromCurrentActiveSeries interface{}            `json:"hmInstancePromCurrentActiveSeries,omitempty"`
+	HmInstancePromCurrentUsage        *float32               `json:"hmInstancePromCurrentUsage,omitempty"`
+	HmInstancePromId                  *float32               `json:"hmInstancePromId,omitempty"`
+	HmInstancePromName                *string                `json:"hmInstancePromName,omitempty"`
+	HmInstancePromStatus              *string                `json:"hmInstancePromStatus,omitempty"`
+	HmInstancePromUrl                 *string                `json:"hmInstancePromUrl,omitempty"`
+	HtInstanceId                      *float32               `json:"htInstanceId,omitempty"`
+	HtInstanceName                    *string                `json:"htInstanceName,omitempty"`
+	HtInstanceStatus                  *string                `json:"htInstanceStatus,omitempty"`
+	HtInstanceUrl                     *string                `json:"htInstanceUrl,omitempty"`
+	HpInstanceId                      *float32               `json:"hpInstanceId,omitempty"`
+	HpInstanceName                    *string                `json:"hpInstanceName,omitempty"`
+	HpInstanceStatus                  *string                `json:"hpInstanceStatus,omitempty"`
+	HpInstanceUrl                     *string                `json:"hpInstanceUrl,omitempty"`
+	Id                                *float32               `json:"id,omitempty"`
+	Incident                          *float32               `json:"incident,omitempty"`
 	Labels                            map[string]interface{} `json:"labels,omitempty"`
-	MachineLearning                   float32                `json:"machineLearning"`
-	Name                              string                 `json:"name"`
-	OrgId                             float32                `json:"orgId"`
-	OrgName                           string                 `json:"orgName"`
-	OrgSlug                           string                 `json:"orgSlug"`
-	Plan                              string                 `json:"plan"`
-	PlanName                          string                 `json:"planName"`
-	RegionId                          float32                `json:"regionId"`
-	RegionSlug                        string                 `json:"regionSlug"`
-	RegionPublicName                  string                 `json:"regionPublicName"`
-	Provider                          string                 `json:"provider"`
-	ProviderRegion                    string                 `json:"providerRegion"`
-	RunningVersion                    string                 `json:"runningVersion"`
-	Slug                              string                 `json:"slug"`
-	Ssl                               bool                   `json:"ssl"`
-	Status                            string                 `json:"status"`
-	Support                           bool                   `json:"support"`
-	Trial                             float32                `json:"trial"`
-	TrialExpiresAt                    NullableString         `json:"trialExpiresAt"`
-	UpdatedAt                         NullableString         `json:"updatedAt"`
-	UpdatedBy                         NullableString         `json:"updatedBy"`
-	Url                               string                 `json:"url"`
-	UserQuota                         float32                `json:"userQuota"`
-	Version                           string                 `json:"version"`
-	AgentManagementInstanceId         float32                `json:"agentManagementInstanceId"`
+	MachineLearning                   *float32               `json:"machineLearning,omitempty"`
+	Name                              *string                `json:"name,omitempty"`
+	OrgId                             *float32               `json:"orgId,omitempty"`
+	OrgName                           *string                `json:"orgName,omitempty"`
+	OrgSlug                           *string                `json:"orgSlug,omitempty"`
+	Plan                              *string                `json:"plan,omitempty"`
+	PlanName                          *string                `json:"planName,omitempty"`
+	RegionId                          *float32               `json:"regionId,omitempty"`
+	RegionSlug                        *string                `json:"regionSlug,omitempty"`
+	RegionPublicName                  *string                `json:"regionPublicName,omitempty"`
+	Provider                          *string                `json:"provider,omitempty"`
+	ProviderRegion                    *string                `json:"providerRegion,omitempty"`
+	RunningVersion                    *string                `json:"runningVersion,omitempty"`
+	Slug                              *string                `json:"slug,omitempty"`
+	Ssl                               *bool                  `json:"ssl,omitempty"`
+	Status                            *string                `json:"status,omitempty"`
+	Support                           *bool                  `json:"support,omitempty"`
+	Trial                             *float32               `json:"trial,omitempty"`
+	TrialExpiresAt                    NullableString         `json:"trialExpiresAt,omitempty"`
+	UpdatedAt                         NullableString         `json:"updatedAt,omitempty"`
+	UpdatedBy                         NullableString         `json:"updatedBy,omitempty"`
+	Url                               *string                `json:"url,omitempty"`
+	UserQuota                         *float32               `json:"userQuota,omitempty"`
+	Version                           *string                `json:"version,omitempty"`
+	AgentManagementInstanceId         *float32               `json:"agentManagementInstanceId,omitempty"`
 	Config                            map[string]interface{} `json:"config,omitempty"`
 	AdditionalProperties              map[string]interface{}
 }
@@ -116,93 +115,8 @@ type _FormattedApiInstance FormattedApiInstance
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, billingActiveUsers float32, billingEndDate string, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromCurrentActiveSeries interface{}, hmInstancePromCurrentUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32) *FormattedApiInstance {
+func NewFormattedApiInstance() *FormattedApiInstance {
 	this := FormattedApiInstance{}
-	this.AlertCnt = alertCnt
-	this.AlertQuota = alertQuota
-	this.AmInstanceGeneratorUrl = amInstanceGeneratorUrl
-	this.AmInstanceGeneratorUrlDatasource = amInstanceGeneratorUrlDatasource
-	this.AmInstanceId = amInstanceId
-	this.AmInstanceName = amInstanceName
-	this.AmInstanceStatus = amInstanceStatus
-	this.AmInstanceUrl = amInstanceUrl
-	this.BillingActiveUsers = billingActiveUsers
-	this.BillingEndDate = billingEndDate
-	this.BillingGrafanaActiveUsers = billingGrafanaActiveUsers
-	this.BillingOnCallActiveUsers = billingOnCallActiveUsers
-	this.BillingStartDate = billingStartDate
-	this.ClusterId = clusterId
-	this.ClusterName = clusterName
-	this.ClusterSlug = clusterSlug
-	this.CreatedAt = createdAt
-	this.CreatedBy = createdBy
-	this.CurrentActiveAdminUsers = currentActiveAdminUsers
-	this.CurrentActiveEditorUsers = currentActiveEditorUsers
-	this.CurrentActiveUsers = currentActiveUsers
-	this.CurrentActiveViewerUsers = currentActiveViewerUsers
-	this.CustomAuth = customAuth
-	this.CustomDomain = customDomain
-	this.DailyAdminCnt = dailyAdminCnt
-	this.DailyEditorCnt = dailyEditorCnt
-	this.DailyUserCnt = dailyUserCnt
-	this.DailyViewerCnt = dailyViewerCnt
-	this.DashboardCnt = dashboardCnt
-	this.DashboardQuota = dashboardQuota
-	this.DatasourceCnts = datasourceCnts
-	this.Description = description
-	this.Gateway = gateway
-	this.HlInstanceCurrentUsage = hlInstanceCurrentUsage
-	this.HlInstanceId = hlInstanceId
-	this.HlInstanceName = hlInstanceName
-	this.HlInstanceStatus = hlInstanceStatus
-	this.HlInstanceUrl = hlInstanceUrl
-	this.HmInstanceGraphiteCurrentUsage = hmInstanceGraphiteCurrentUsage
-	this.HmInstanceGraphiteId = hmInstanceGraphiteId
-	this.HmInstanceGraphiteName = hmInstanceGraphiteName
-	this.HmInstanceGraphiteStatus = hmInstanceGraphiteStatus
-	this.HmInstanceGraphiteType = hmInstanceGraphiteType
-	this.HmInstanceGraphiteUrl = hmInstanceGraphiteUrl
-	this.HmInstancePromCurrentActiveSeries = hmInstancePromCurrentActiveSeries
-	this.HmInstancePromCurrentUsage = hmInstancePromCurrentUsage
-	this.HmInstancePromId = hmInstancePromId
-	this.HmInstancePromName = hmInstancePromName
-	this.HmInstancePromStatus = hmInstancePromStatus
-	this.HmInstancePromUrl = hmInstancePromUrl
-	this.HtInstanceId = htInstanceId
-	this.HtInstanceName = htInstanceName
-	this.HtInstanceStatus = htInstanceStatus
-	this.HtInstanceUrl = htInstanceUrl
-	this.HpInstanceId = hpInstanceId
-	this.HpInstanceName = hpInstanceName
-	this.HpInstanceStatus = hpInstanceStatus
-	this.HpInstanceUrl = hpInstanceUrl
-	this.Id = id
-	this.Incident = incident
-	this.MachineLearning = machineLearning
-	this.Name = name
-	this.OrgId = orgId
-	this.OrgName = orgName
-	this.OrgSlug = orgSlug
-	this.Plan = plan
-	this.PlanName = planName
-	this.RegionId = regionId
-	this.RegionSlug = regionSlug
-	this.RegionPublicName = regionPublicName
-	this.Provider = provider
-	this.ProviderRegion = providerRegion
-	this.RunningVersion = runningVersion
-	this.Slug = slug
-	this.Ssl = ssl
-	this.Status = status
-	this.Support = support
-	this.Trial = trial
-	this.TrialExpiresAt = trialExpiresAt
-	this.UpdatedAt = updatedAt
-	this.UpdatedBy = updatedBy
-	this.Url = url
-	this.UserQuota = userQuota
-	this.Version = version
-	this.AgentManagementInstanceId = agentManagementInstanceId
 	return &this
 }
 
@@ -214,1074 +128,1424 @@ func NewFormattedApiInstanceWithDefaults() *FormattedApiInstance {
 	return &this
 }
 
-// GetAlertCnt returns the AlertCnt field value
+// GetAlertCnt returns the AlertCnt field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetAlertCnt() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AlertCnt) {
 		var ret float32
 		return ret
 	}
-
-	return o.AlertCnt
+	return *o.AlertCnt
 }
 
-// GetAlertCntOk returns a tuple with the AlertCnt field value
+// GetAlertCntOk returns a tuple with the AlertCnt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetAlertCntOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AlertCnt) {
 		return nil, false
 	}
-	return &o.AlertCnt, true
+	return o.AlertCnt, true
 }
 
-// SetAlertCnt sets field value
+// HasAlertCnt returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasAlertCnt() bool {
+	if o != nil && !IsNil(o.AlertCnt) {
+		return true
+	}
+
+	return false
+}
+
+// SetAlertCnt gets a reference to the given float32 and assigns it to the AlertCnt field.
 func (o *FormattedApiInstance) SetAlertCnt(v float32) {
-	o.AlertCnt = v
+	o.AlertCnt = &v
 }
 
-// GetAlertQuota returns the AlertQuota field value
+// GetAlertQuota returns the AlertQuota field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetAlertQuota() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AlertQuota) {
 		var ret float32
 		return ret
 	}
-
-	return o.AlertQuota
+	return *o.AlertQuota
 }
 
-// GetAlertQuotaOk returns a tuple with the AlertQuota field value
+// GetAlertQuotaOk returns a tuple with the AlertQuota field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetAlertQuotaOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AlertQuota) {
 		return nil, false
 	}
-	return &o.AlertQuota, true
+	return o.AlertQuota, true
 }
 
-// SetAlertQuota sets field value
+// HasAlertQuota returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasAlertQuota() bool {
+	if o != nil && !IsNil(o.AlertQuota) {
+		return true
+	}
+
+	return false
+}
+
+// SetAlertQuota gets a reference to the given float32 and assigns it to the AlertQuota field.
 func (o *FormattedApiInstance) SetAlertQuota(v float32) {
-	o.AlertQuota = v
+	o.AlertQuota = &v
 }
 
-// GetAmInstanceGeneratorUrl returns the AmInstanceGeneratorUrl field value
+// GetAmInstanceGeneratorUrl returns the AmInstanceGeneratorUrl field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetAmInstanceGeneratorUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceGeneratorUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.AmInstanceGeneratorUrl
+	return *o.AmInstanceGeneratorUrl
 }
 
-// GetAmInstanceGeneratorUrlOk returns a tuple with the AmInstanceGeneratorUrl field value
+// GetAmInstanceGeneratorUrlOk returns a tuple with the AmInstanceGeneratorUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetAmInstanceGeneratorUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceGeneratorUrl) {
 		return nil, false
 	}
-	return &o.AmInstanceGeneratorUrl, true
+	return o.AmInstanceGeneratorUrl, true
 }
 
-// SetAmInstanceGeneratorUrl sets field value
+// HasAmInstanceGeneratorUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasAmInstanceGeneratorUrl() bool {
+	if o != nil && !IsNil(o.AmInstanceGeneratorUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmInstanceGeneratorUrl gets a reference to the given string and assigns it to the AmInstanceGeneratorUrl field.
 func (o *FormattedApiInstance) SetAmInstanceGeneratorUrl(v string) {
-	o.AmInstanceGeneratorUrl = v
+	o.AmInstanceGeneratorUrl = &v
 }
 
-// GetAmInstanceGeneratorUrlDatasource returns the AmInstanceGeneratorUrlDatasource field value
+// GetAmInstanceGeneratorUrlDatasource returns the AmInstanceGeneratorUrlDatasource field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetAmInstanceGeneratorUrlDatasource() string {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceGeneratorUrlDatasource) {
 		var ret string
 		return ret
 	}
-
-	return o.AmInstanceGeneratorUrlDatasource
+	return *o.AmInstanceGeneratorUrlDatasource
 }
 
-// GetAmInstanceGeneratorUrlDatasourceOk returns a tuple with the AmInstanceGeneratorUrlDatasource field value
+// GetAmInstanceGeneratorUrlDatasourceOk returns a tuple with the AmInstanceGeneratorUrlDatasource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetAmInstanceGeneratorUrlDatasourceOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceGeneratorUrlDatasource) {
 		return nil, false
 	}
-	return &o.AmInstanceGeneratorUrlDatasource, true
+	return o.AmInstanceGeneratorUrlDatasource, true
 }
 
-// SetAmInstanceGeneratorUrlDatasource sets field value
+// HasAmInstanceGeneratorUrlDatasource returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasAmInstanceGeneratorUrlDatasource() bool {
+	if o != nil && !IsNil(o.AmInstanceGeneratorUrlDatasource) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmInstanceGeneratorUrlDatasource gets a reference to the given string and assigns it to the AmInstanceGeneratorUrlDatasource field.
 func (o *FormattedApiInstance) SetAmInstanceGeneratorUrlDatasource(v string) {
-	o.AmInstanceGeneratorUrlDatasource = v
+	o.AmInstanceGeneratorUrlDatasource = &v
 }
 
-// GetAmInstanceId returns the AmInstanceId field value
+// GetAmInstanceId returns the AmInstanceId field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetAmInstanceId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceId) {
 		var ret float32
 		return ret
 	}
-
-	return o.AmInstanceId
+	return *o.AmInstanceId
 }
 
-// GetAmInstanceIdOk returns a tuple with the AmInstanceId field value
+// GetAmInstanceIdOk returns a tuple with the AmInstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetAmInstanceIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceId) {
 		return nil, false
 	}
-	return &o.AmInstanceId, true
+	return o.AmInstanceId, true
 }
 
-// SetAmInstanceId sets field value
+// HasAmInstanceId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasAmInstanceId() bool {
+	if o != nil && !IsNil(o.AmInstanceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmInstanceId gets a reference to the given float32 and assigns it to the AmInstanceId field.
 func (o *FormattedApiInstance) SetAmInstanceId(v float32) {
-	o.AmInstanceId = v
+	o.AmInstanceId = &v
 }
 
-// GetAmInstanceName returns the AmInstanceName field value
+// GetAmInstanceName returns the AmInstanceName field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetAmInstanceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceName) {
 		var ret string
 		return ret
 	}
-
-	return o.AmInstanceName
+	return *o.AmInstanceName
 }
 
-// GetAmInstanceNameOk returns a tuple with the AmInstanceName field value
+// GetAmInstanceNameOk returns a tuple with the AmInstanceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetAmInstanceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceName) {
 		return nil, false
 	}
-	return &o.AmInstanceName, true
+	return o.AmInstanceName, true
 }
 
-// SetAmInstanceName sets field value
+// HasAmInstanceName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasAmInstanceName() bool {
+	if o != nil && !IsNil(o.AmInstanceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmInstanceName gets a reference to the given string and assigns it to the AmInstanceName field.
 func (o *FormattedApiInstance) SetAmInstanceName(v string) {
-	o.AmInstanceName = v
+	o.AmInstanceName = &v
 }
 
-// GetAmInstanceStatus returns the AmInstanceStatus field value
+// GetAmInstanceStatus returns the AmInstanceStatus field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetAmInstanceStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.AmInstanceStatus
+	return *o.AmInstanceStatus
 }
 
-// GetAmInstanceStatusOk returns a tuple with the AmInstanceStatus field value
+// GetAmInstanceStatusOk returns a tuple with the AmInstanceStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetAmInstanceStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceStatus) {
 		return nil, false
 	}
-	return &o.AmInstanceStatus, true
+	return o.AmInstanceStatus, true
 }
 
-// SetAmInstanceStatus sets field value
+// HasAmInstanceStatus returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasAmInstanceStatus() bool {
+	if o != nil && !IsNil(o.AmInstanceStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmInstanceStatus gets a reference to the given string and assigns it to the AmInstanceStatus field.
 func (o *FormattedApiInstance) SetAmInstanceStatus(v string) {
-	o.AmInstanceStatus = v
+	o.AmInstanceStatus = &v
 }
 
-// GetAmInstanceUrl returns the AmInstanceUrl field value
+// GetAmInstanceUrl returns the AmInstanceUrl field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetAmInstanceUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.AmInstanceUrl
+	return *o.AmInstanceUrl
 }
 
-// GetAmInstanceUrlOk returns a tuple with the AmInstanceUrl field value
+// GetAmInstanceUrlOk returns a tuple with the AmInstanceUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetAmInstanceUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AmInstanceUrl) {
 		return nil, false
 	}
-	return &o.AmInstanceUrl, true
+	return o.AmInstanceUrl, true
 }
 
-// SetAmInstanceUrl sets field value
+// HasAmInstanceUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasAmInstanceUrl() bool {
+	if o != nil && !IsNil(o.AmInstanceUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmInstanceUrl gets a reference to the given string and assigns it to the AmInstanceUrl field.
 func (o *FormattedApiInstance) SetAmInstanceUrl(v string) {
-	o.AmInstanceUrl = v
+	o.AmInstanceUrl = &v
 }
 
-// GetBillingActiveUsers returns the BillingActiveUsers field value
+// GetBillingActiveUsers returns the BillingActiveUsers field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetBillingActiveUsers() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.BillingActiveUsers) {
 		var ret float32
 		return ret
 	}
-
-	return o.BillingActiveUsers
+	return *o.BillingActiveUsers
 }
 
-// GetBillingActiveUsersOk returns a tuple with the BillingActiveUsers field value
+// GetBillingActiveUsersOk returns a tuple with the BillingActiveUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetBillingActiveUsersOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BillingActiveUsers) {
 		return nil, false
 	}
-	return &o.BillingActiveUsers, true
+	return o.BillingActiveUsers, true
 }
 
-// SetBillingActiveUsers sets field value
+// HasBillingActiveUsers returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasBillingActiveUsers() bool {
+	if o != nil && !IsNil(o.BillingActiveUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingActiveUsers gets a reference to the given float32 and assigns it to the BillingActiveUsers field.
 func (o *FormattedApiInstance) SetBillingActiveUsers(v float32) {
-	o.BillingActiveUsers = v
+	o.BillingActiveUsers = &v
 }
 
-// GetBillingEndDate returns the BillingEndDate field value
+// GetBillingEndDate returns the BillingEndDate field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetBillingEndDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.BillingEndDate) {
 		var ret string
 		return ret
 	}
-
-	return o.BillingEndDate
+	return *o.BillingEndDate
 }
 
-// GetBillingEndDateOk returns a tuple with the BillingEndDate field value
+// GetBillingEndDateOk returns a tuple with the BillingEndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetBillingEndDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BillingEndDate) {
 		return nil, false
 	}
-	return &o.BillingEndDate, true
+	return o.BillingEndDate, true
 }
 
-// SetBillingEndDate sets field value
+// HasBillingEndDate returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasBillingEndDate() bool {
+	if o != nil && !IsNil(o.BillingEndDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingEndDate gets a reference to the given string and assigns it to the BillingEndDate field.
 func (o *FormattedApiInstance) SetBillingEndDate(v string) {
-	o.BillingEndDate = v
+	o.BillingEndDate = &v
 }
 
-// GetBillingGrafanaActiveUsers returns the BillingGrafanaActiveUsers field value
+// GetBillingGrafanaActiveUsers returns the BillingGrafanaActiveUsers field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetBillingGrafanaActiveUsers() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.BillingGrafanaActiveUsers) {
 		var ret float32
 		return ret
 	}
-
-	return o.BillingGrafanaActiveUsers
+	return *o.BillingGrafanaActiveUsers
 }
 
-// GetBillingGrafanaActiveUsersOk returns a tuple with the BillingGrafanaActiveUsers field value
+// GetBillingGrafanaActiveUsersOk returns a tuple with the BillingGrafanaActiveUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetBillingGrafanaActiveUsersOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BillingGrafanaActiveUsers) {
 		return nil, false
 	}
-	return &o.BillingGrafanaActiveUsers, true
+	return o.BillingGrafanaActiveUsers, true
 }
 
-// SetBillingGrafanaActiveUsers sets field value
+// HasBillingGrafanaActiveUsers returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasBillingGrafanaActiveUsers() bool {
+	if o != nil && !IsNil(o.BillingGrafanaActiveUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingGrafanaActiveUsers gets a reference to the given float32 and assigns it to the BillingGrafanaActiveUsers field.
 func (o *FormattedApiInstance) SetBillingGrafanaActiveUsers(v float32) {
-	o.BillingGrafanaActiveUsers = v
+	o.BillingGrafanaActiveUsers = &v
 }
 
-// GetBillingOnCallActiveUsers returns the BillingOnCallActiveUsers field value
+// GetBillingOnCallActiveUsers returns the BillingOnCallActiveUsers field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetBillingOnCallActiveUsers() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.BillingOnCallActiveUsers) {
 		var ret float32
 		return ret
 	}
-
-	return o.BillingOnCallActiveUsers
+	return *o.BillingOnCallActiveUsers
 }
 
-// GetBillingOnCallActiveUsersOk returns a tuple with the BillingOnCallActiveUsers field value
+// GetBillingOnCallActiveUsersOk returns a tuple with the BillingOnCallActiveUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetBillingOnCallActiveUsersOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BillingOnCallActiveUsers) {
 		return nil, false
 	}
-	return &o.BillingOnCallActiveUsers, true
+	return o.BillingOnCallActiveUsers, true
 }
 
-// SetBillingOnCallActiveUsers sets field value
+// HasBillingOnCallActiveUsers returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasBillingOnCallActiveUsers() bool {
+	if o != nil && !IsNil(o.BillingOnCallActiveUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingOnCallActiveUsers gets a reference to the given float32 and assigns it to the BillingOnCallActiveUsers field.
 func (o *FormattedApiInstance) SetBillingOnCallActiveUsers(v float32) {
-	o.BillingOnCallActiveUsers = v
+	o.BillingOnCallActiveUsers = &v
 }
 
-// GetBillingStartDate returns the BillingStartDate field value
+// GetBillingStartDate returns the BillingStartDate field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetBillingStartDate() string {
-	if o == nil {
+	if o == nil || IsNil(o.BillingStartDate) {
 		var ret string
 		return ret
 	}
-
-	return o.BillingStartDate
+	return *o.BillingStartDate
 }
 
-// GetBillingStartDateOk returns a tuple with the BillingStartDate field value
+// GetBillingStartDateOk returns a tuple with the BillingStartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetBillingStartDateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.BillingStartDate) {
 		return nil, false
 	}
-	return &o.BillingStartDate, true
+	return o.BillingStartDate, true
 }
 
-// SetBillingStartDate sets field value
+// HasBillingStartDate returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasBillingStartDate() bool {
+	if o != nil && !IsNil(o.BillingStartDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingStartDate gets a reference to the given string and assigns it to the BillingStartDate field.
 func (o *FormattedApiInstance) SetBillingStartDate(v string) {
-	o.BillingStartDate = v
+	o.BillingStartDate = &v
 }
 
-// GetClusterId returns the ClusterId field value
+// GetClusterId returns the ClusterId field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetClusterId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.ClusterId) {
 		var ret float32
 		return ret
 	}
-
-	return o.ClusterId
+	return *o.ClusterId
 }
 
-// GetClusterIdOk returns a tuple with the ClusterId field value
+// GetClusterIdOk returns a tuple with the ClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetClusterIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ClusterId) {
 		return nil, false
 	}
-	return &o.ClusterId, true
+	return o.ClusterId, true
 }
 
-// SetClusterId sets field value
+// HasClusterId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasClusterId() bool {
+	if o != nil && !IsNil(o.ClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetClusterId gets a reference to the given float32 and assigns it to the ClusterId field.
 func (o *FormattedApiInstance) SetClusterId(v float32) {
-	o.ClusterId = v
+	o.ClusterId = &v
 }
 
-// GetClusterName returns the ClusterName field value
+// GetClusterName returns the ClusterName field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetClusterName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ClusterName) {
 		var ret string
 		return ret
 	}
-
-	return o.ClusterName
+	return *o.ClusterName
 }
 
-// GetClusterNameOk returns a tuple with the ClusterName field value
+// GetClusterNameOk returns a tuple with the ClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetClusterNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ClusterName) {
 		return nil, false
 	}
-	return &o.ClusterName, true
+	return o.ClusterName, true
 }
 
-// SetClusterName sets field value
+// HasClusterName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasClusterName() bool {
+	if o != nil && !IsNil(o.ClusterName) {
+		return true
+	}
+
+	return false
+}
+
+// SetClusterName gets a reference to the given string and assigns it to the ClusterName field.
 func (o *FormattedApiInstance) SetClusterName(v string) {
-	o.ClusterName = v
+	o.ClusterName = &v
 }
 
-// GetClusterSlug returns the ClusterSlug field value
+// GetClusterSlug returns the ClusterSlug field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetClusterSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.ClusterSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.ClusterSlug
+	return *o.ClusterSlug
 }
 
-// GetClusterSlugOk returns a tuple with the ClusterSlug field value
+// GetClusterSlugOk returns a tuple with the ClusterSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetClusterSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ClusterSlug) {
 		return nil, false
 	}
-	return &o.ClusterSlug, true
+	return o.ClusterSlug, true
 }
 
-// SetClusterSlug sets field value
+// HasClusterSlug returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasClusterSlug() bool {
+	if o != nil && !IsNil(o.ClusterSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetClusterSlug gets a reference to the given string and assigns it to the ClusterSlug field.
 func (o *FormattedApiInstance) SetClusterSlug(v string) {
-	o.ClusterSlug = v
+	o.ClusterSlug = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *FormattedApiInstance) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetCreatedBy returns the CreatedBy field value
+// GetCreatedBy returns the CreatedBy field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetCreatedBy() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedBy) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedBy
+	return *o.CreatedBy
 }
 
-// GetCreatedByOk returns a tuple with the CreatedBy field value
+// GetCreatedByOk returns a tuple with the CreatedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetCreatedByOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedBy) {
 		return nil, false
 	}
-	return &o.CreatedBy, true
+	return o.CreatedBy, true
 }
 
-// SetCreatedBy sets field value
+// HasCreatedBy returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasCreatedBy() bool {
+	if o != nil && !IsNil(o.CreatedBy) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedBy gets a reference to the given string and assigns it to the CreatedBy field.
 func (o *FormattedApiInstance) SetCreatedBy(v string) {
-	o.CreatedBy = v
+	o.CreatedBy = &v
 }
 
-// GetCurrentActiveAdminUsers returns the CurrentActiveAdminUsers field value
+// GetCurrentActiveAdminUsers returns the CurrentActiveAdminUsers field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetCurrentActiveAdminUsers() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentActiveAdminUsers) {
 		var ret float32
 		return ret
 	}
-
-	return o.CurrentActiveAdminUsers
+	return *o.CurrentActiveAdminUsers
 }
 
-// GetCurrentActiveAdminUsersOk returns a tuple with the CurrentActiveAdminUsers field value
+// GetCurrentActiveAdminUsersOk returns a tuple with the CurrentActiveAdminUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetCurrentActiveAdminUsersOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentActiveAdminUsers) {
 		return nil, false
 	}
-	return &o.CurrentActiveAdminUsers, true
+	return o.CurrentActiveAdminUsers, true
 }
 
-// SetCurrentActiveAdminUsers sets field value
+// HasCurrentActiveAdminUsers returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasCurrentActiveAdminUsers() bool {
+	if o != nil && !IsNil(o.CurrentActiveAdminUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentActiveAdminUsers gets a reference to the given float32 and assigns it to the CurrentActiveAdminUsers field.
 func (o *FormattedApiInstance) SetCurrentActiveAdminUsers(v float32) {
-	o.CurrentActiveAdminUsers = v
+	o.CurrentActiveAdminUsers = &v
 }
 
-// GetCurrentActiveEditorUsers returns the CurrentActiveEditorUsers field value
+// GetCurrentActiveEditorUsers returns the CurrentActiveEditorUsers field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetCurrentActiveEditorUsers() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentActiveEditorUsers) {
 		var ret float32
 		return ret
 	}
-
-	return o.CurrentActiveEditorUsers
+	return *o.CurrentActiveEditorUsers
 }
 
-// GetCurrentActiveEditorUsersOk returns a tuple with the CurrentActiveEditorUsers field value
+// GetCurrentActiveEditorUsersOk returns a tuple with the CurrentActiveEditorUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetCurrentActiveEditorUsersOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentActiveEditorUsers) {
 		return nil, false
 	}
-	return &o.CurrentActiveEditorUsers, true
+	return o.CurrentActiveEditorUsers, true
 }
 
-// SetCurrentActiveEditorUsers sets field value
+// HasCurrentActiveEditorUsers returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasCurrentActiveEditorUsers() bool {
+	if o != nil && !IsNil(o.CurrentActiveEditorUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentActiveEditorUsers gets a reference to the given float32 and assigns it to the CurrentActiveEditorUsers field.
 func (o *FormattedApiInstance) SetCurrentActiveEditorUsers(v float32) {
-	o.CurrentActiveEditorUsers = v
+	o.CurrentActiveEditorUsers = &v
 }
 
-// GetCurrentActiveUsers returns the CurrentActiveUsers field value
+// GetCurrentActiveUsers returns the CurrentActiveUsers field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetCurrentActiveUsers() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentActiveUsers) {
 		var ret float32
 		return ret
 	}
-
-	return o.CurrentActiveUsers
+	return *o.CurrentActiveUsers
 }
 
-// GetCurrentActiveUsersOk returns a tuple with the CurrentActiveUsers field value
+// GetCurrentActiveUsersOk returns a tuple with the CurrentActiveUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetCurrentActiveUsersOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentActiveUsers) {
 		return nil, false
 	}
-	return &o.CurrentActiveUsers, true
+	return o.CurrentActiveUsers, true
 }
 
-// SetCurrentActiveUsers sets field value
+// HasCurrentActiveUsers returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasCurrentActiveUsers() bool {
+	if o != nil && !IsNil(o.CurrentActiveUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentActiveUsers gets a reference to the given float32 and assigns it to the CurrentActiveUsers field.
 func (o *FormattedApiInstance) SetCurrentActiveUsers(v float32) {
-	o.CurrentActiveUsers = v
+	o.CurrentActiveUsers = &v
 }
 
-// GetCurrentActiveViewerUsers returns the CurrentActiveViewerUsers field value
+// GetCurrentActiveViewerUsers returns the CurrentActiveViewerUsers field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetCurrentActiveViewerUsers() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentActiveViewerUsers) {
 		var ret float32
 		return ret
 	}
-
-	return o.CurrentActiveViewerUsers
+	return *o.CurrentActiveViewerUsers
 }
 
-// GetCurrentActiveViewerUsersOk returns a tuple with the CurrentActiveViewerUsers field value
+// GetCurrentActiveViewerUsersOk returns a tuple with the CurrentActiveViewerUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetCurrentActiveViewerUsersOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CurrentActiveViewerUsers) {
 		return nil, false
 	}
-	return &o.CurrentActiveViewerUsers, true
+	return o.CurrentActiveViewerUsers, true
 }
 
-// SetCurrentActiveViewerUsers sets field value
+// HasCurrentActiveViewerUsers returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasCurrentActiveViewerUsers() bool {
+	if o != nil && !IsNil(o.CurrentActiveViewerUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentActiveViewerUsers gets a reference to the given float32 and assigns it to the CurrentActiveViewerUsers field.
 func (o *FormattedApiInstance) SetCurrentActiveViewerUsers(v float32) {
-	o.CurrentActiveViewerUsers = v
+	o.CurrentActiveViewerUsers = &v
 }
 
-// GetCustomAuth returns the CustomAuth field value
+// GetCustomAuth returns the CustomAuth field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetCustomAuth() bool {
-	if o == nil {
+	if o == nil || IsNil(o.CustomAuth) {
 		var ret bool
 		return ret
 	}
-
-	return o.CustomAuth
+	return *o.CustomAuth
 }
 
-// GetCustomAuthOk returns a tuple with the CustomAuth field value
+// GetCustomAuthOk returns a tuple with the CustomAuth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetCustomAuthOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CustomAuth) {
 		return nil, false
 	}
-	return &o.CustomAuth, true
+	return o.CustomAuth, true
 }
 
-// SetCustomAuth sets field value
+// HasCustomAuth returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasCustomAuth() bool {
+	if o != nil && !IsNil(o.CustomAuth) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomAuth gets a reference to the given bool and assigns it to the CustomAuth field.
 func (o *FormattedApiInstance) SetCustomAuth(v bool) {
-	o.CustomAuth = v
+	o.CustomAuth = &v
 }
 
-// GetCustomDomain returns the CustomDomain field value
+// GetCustomDomain returns the CustomDomain field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetCustomDomain() bool {
-	if o == nil {
+	if o == nil || IsNil(o.CustomDomain) {
 		var ret bool
 		return ret
 	}
-
-	return o.CustomDomain
+	return *o.CustomDomain
 }
 
-// GetCustomDomainOk returns a tuple with the CustomDomain field value
+// GetCustomDomainOk returns a tuple with the CustomDomain field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetCustomDomainOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CustomDomain) {
 		return nil, false
 	}
-	return &o.CustomDomain, true
+	return o.CustomDomain, true
 }
 
-// SetCustomDomain sets field value
+// HasCustomDomain returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasCustomDomain() bool {
+	if o != nil && !IsNil(o.CustomDomain) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomDomain gets a reference to the given bool and assigns it to the CustomDomain field.
 func (o *FormattedApiInstance) SetCustomDomain(v bool) {
-	o.CustomDomain = v
+	o.CustomDomain = &v
 }
 
-// GetDailyAdminCnt returns the DailyAdminCnt field value
+// GetDailyAdminCnt returns the DailyAdminCnt field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetDailyAdminCnt() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.DailyAdminCnt) {
 		var ret float32
 		return ret
 	}
-
-	return o.DailyAdminCnt
+	return *o.DailyAdminCnt
 }
 
-// GetDailyAdminCntOk returns a tuple with the DailyAdminCnt field value
+// GetDailyAdminCntOk returns a tuple with the DailyAdminCnt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetDailyAdminCntOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DailyAdminCnt) {
 		return nil, false
 	}
-	return &o.DailyAdminCnt, true
+	return o.DailyAdminCnt, true
 }
 
-// SetDailyAdminCnt sets field value
+// HasDailyAdminCnt returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasDailyAdminCnt() bool {
+	if o != nil && !IsNil(o.DailyAdminCnt) {
+		return true
+	}
+
+	return false
+}
+
+// SetDailyAdminCnt gets a reference to the given float32 and assigns it to the DailyAdminCnt field.
 func (o *FormattedApiInstance) SetDailyAdminCnt(v float32) {
-	o.DailyAdminCnt = v
+	o.DailyAdminCnt = &v
 }
 
-// GetDailyEditorCnt returns the DailyEditorCnt field value
+// GetDailyEditorCnt returns the DailyEditorCnt field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetDailyEditorCnt() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.DailyEditorCnt) {
 		var ret float32
 		return ret
 	}
-
-	return o.DailyEditorCnt
+	return *o.DailyEditorCnt
 }
 
-// GetDailyEditorCntOk returns a tuple with the DailyEditorCnt field value
+// GetDailyEditorCntOk returns a tuple with the DailyEditorCnt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetDailyEditorCntOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DailyEditorCnt) {
 		return nil, false
 	}
-	return &o.DailyEditorCnt, true
+	return o.DailyEditorCnt, true
 }
 
-// SetDailyEditorCnt sets field value
+// HasDailyEditorCnt returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasDailyEditorCnt() bool {
+	if o != nil && !IsNil(o.DailyEditorCnt) {
+		return true
+	}
+
+	return false
+}
+
+// SetDailyEditorCnt gets a reference to the given float32 and assigns it to the DailyEditorCnt field.
 func (o *FormattedApiInstance) SetDailyEditorCnt(v float32) {
-	o.DailyEditorCnt = v
+	o.DailyEditorCnt = &v
 }
 
-// GetDailyUserCnt returns the DailyUserCnt field value
+// GetDailyUserCnt returns the DailyUserCnt field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetDailyUserCnt() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.DailyUserCnt) {
 		var ret float32
 		return ret
 	}
-
-	return o.DailyUserCnt
+	return *o.DailyUserCnt
 }
 
-// GetDailyUserCntOk returns a tuple with the DailyUserCnt field value
+// GetDailyUserCntOk returns a tuple with the DailyUserCnt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetDailyUserCntOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DailyUserCnt) {
 		return nil, false
 	}
-	return &o.DailyUserCnt, true
+	return o.DailyUserCnt, true
 }
 
-// SetDailyUserCnt sets field value
+// HasDailyUserCnt returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasDailyUserCnt() bool {
+	if o != nil && !IsNil(o.DailyUserCnt) {
+		return true
+	}
+
+	return false
+}
+
+// SetDailyUserCnt gets a reference to the given float32 and assigns it to the DailyUserCnt field.
 func (o *FormattedApiInstance) SetDailyUserCnt(v float32) {
-	o.DailyUserCnt = v
+	o.DailyUserCnt = &v
 }
 
-// GetDailyViewerCnt returns the DailyViewerCnt field value
+// GetDailyViewerCnt returns the DailyViewerCnt field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetDailyViewerCnt() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.DailyViewerCnt) {
 		var ret float32
 		return ret
 	}
-
-	return o.DailyViewerCnt
+	return *o.DailyViewerCnt
 }
 
-// GetDailyViewerCntOk returns a tuple with the DailyViewerCnt field value
+// GetDailyViewerCntOk returns a tuple with the DailyViewerCnt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetDailyViewerCntOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DailyViewerCnt) {
 		return nil, false
 	}
-	return &o.DailyViewerCnt, true
+	return o.DailyViewerCnt, true
 }
 
-// SetDailyViewerCnt sets field value
+// HasDailyViewerCnt returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasDailyViewerCnt() bool {
+	if o != nil && !IsNil(o.DailyViewerCnt) {
+		return true
+	}
+
+	return false
+}
+
+// SetDailyViewerCnt gets a reference to the given float32 and assigns it to the DailyViewerCnt field.
 func (o *FormattedApiInstance) SetDailyViewerCnt(v float32) {
-	o.DailyViewerCnt = v
+	o.DailyViewerCnt = &v
 }
 
-// GetDashboardCnt returns the DashboardCnt field value
+// GetDashboardCnt returns the DashboardCnt field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetDashboardCnt() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.DashboardCnt) {
 		var ret float32
 		return ret
 	}
-
-	return o.DashboardCnt
+	return *o.DashboardCnt
 }
 
-// GetDashboardCntOk returns a tuple with the DashboardCnt field value
+// GetDashboardCntOk returns a tuple with the DashboardCnt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetDashboardCntOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DashboardCnt) {
 		return nil, false
 	}
-	return &o.DashboardCnt, true
+	return o.DashboardCnt, true
 }
 
-// SetDashboardCnt sets field value
+// HasDashboardCnt returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasDashboardCnt() bool {
+	if o != nil && !IsNil(o.DashboardCnt) {
+		return true
+	}
+
+	return false
+}
+
+// SetDashboardCnt gets a reference to the given float32 and assigns it to the DashboardCnt field.
 func (o *FormattedApiInstance) SetDashboardCnt(v float32) {
-	o.DashboardCnt = v
+	o.DashboardCnt = &v
 }
 
-// GetDashboardQuota returns the DashboardQuota field value
+// GetDashboardQuota returns the DashboardQuota field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetDashboardQuota() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.DashboardQuota) {
 		var ret float32
 		return ret
 	}
-
-	return o.DashboardQuota
+	return *o.DashboardQuota
 }
 
-// GetDashboardQuotaOk returns a tuple with the DashboardQuota field value
+// GetDashboardQuotaOk returns a tuple with the DashboardQuota field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetDashboardQuotaOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DashboardQuota) {
 		return nil, false
 	}
-	return &o.DashboardQuota, true
+	return o.DashboardQuota, true
 }
 
-// SetDashboardQuota sets field value
+// HasDashboardQuota returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasDashboardQuota() bool {
+	if o != nil && !IsNil(o.DashboardQuota) {
+		return true
+	}
+
+	return false
+}
+
+// SetDashboardQuota gets a reference to the given float32 and assigns it to the DashboardQuota field.
 func (o *FormattedApiInstance) SetDashboardQuota(v float32) {
-	o.DashboardQuota = v
+	o.DashboardQuota = &v
 }
 
-// GetDatasourceCnts returns the DatasourceCnts field value
+// GetDatasourceCnts returns the DatasourceCnts field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetDatasourceCnts() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.DatasourceCnts) {
 		var ret map[string]interface{}
 		return ret
 	}
-
 	return o.DatasourceCnts
 }
 
-// GetDatasourceCntsOk returns a tuple with the DatasourceCnts field value
+// GetDatasourceCntsOk returns a tuple with the DatasourceCnts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetDatasourceCntsOk() (map[string]interface{}, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DatasourceCnts) {
 		return map[string]interface{}{}, false
 	}
 	return o.DatasourceCnts, true
 }
 
-// SetDatasourceCnts sets field value
+// HasDatasourceCnts returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasDatasourceCnts() bool {
+	if o != nil && !IsNil(o.DatasourceCnts) {
+		return true
+	}
+
+	return false
+}
+
+// SetDatasourceCnts gets a reference to the given map[string]interface{} and assigns it to the DatasourceCnts field.
 func (o *FormattedApiInstance) SetDatasourceCnts(v map[string]interface{}) {
 	o.DatasourceCnts = v
 }
 
-// GetDescription returns the Description field value
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetDescription() string {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-
-	return o.Description
+	return *o.Description
 }
 
-// GetDescriptionOk returns a tuple with the Description field value
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description, true
 }
 
-// SetDescription sets field value
+// HasDescription returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *FormattedApiInstance) SetDescription(v string) {
-	o.Description = v
+	o.Description = &v
 }
 
-// GetGateway returns the Gateway field value
+// GetGateway returns the Gateway field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetGateway() string {
-	if o == nil {
+	if o == nil || IsNil(o.Gateway) {
 		var ret string
 		return ret
 	}
-
-	return o.Gateway
+	return *o.Gateway
 }
 
-// GetGatewayOk returns a tuple with the Gateway field value
+// GetGatewayOk returns a tuple with the Gateway field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetGatewayOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Gateway) {
 		return nil, false
 	}
-	return &o.Gateway, true
+	return o.Gateway, true
 }
 
-// SetGateway sets field value
+// HasGateway returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasGateway() bool {
+	if o != nil && !IsNil(o.Gateway) {
+		return true
+	}
+
+	return false
+}
+
+// SetGateway gets a reference to the given string and assigns it to the Gateway field.
 func (o *FormattedApiInstance) SetGateway(v string) {
-	o.Gateway = v
+	o.Gateway = &v
 }
 
-// GetHlInstanceCurrentUsage returns the HlInstanceCurrentUsage field value
+// GetHlInstanceCurrentUsage returns the HlInstanceCurrentUsage field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHlInstanceCurrentUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceCurrentUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlInstanceCurrentUsage
+	return *o.HlInstanceCurrentUsage
 }
 
-// GetHlInstanceCurrentUsageOk returns a tuple with the HlInstanceCurrentUsage field value
+// GetHlInstanceCurrentUsageOk returns a tuple with the HlInstanceCurrentUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHlInstanceCurrentUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceCurrentUsage) {
 		return nil, false
 	}
-	return &o.HlInstanceCurrentUsage, true
+	return o.HlInstanceCurrentUsage, true
 }
 
-// SetHlInstanceCurrentUsage sets field value
+// HasHlInstanceCurrentUsage returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHlInstanceCurrentUsage() bool {
+	if o != nil && !IsNil(o.HlInstanceCurrentUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlInstanceCurrentUsage gets a reference to the given float32 and assigns it to the HlInstanceCurrentUsage field.
 func (o *FormattedApiInstance) SetHlInstanceCurrentUsage(v float32) {
-	o.HlInstanceCurrentUsage = v
+	o.HlInstanceCurrentUsage = &v
 }
 
-// GetHlInstanceId returns the HlInstanceId field value
+// GetHlInstanceId returns the HlInstanceId field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHlInstanceId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlInstanceId
+	return *o.HlInstanceId
 }
 
-// GetHlInstanceIdOk returns a tuple with the HlInstanceId field value
+// GetHlInstanceIdOk returns a tuple with the HlInstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHlInstanceIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceId) {
 		return nil, false
 	}
-	return &o.HlInstanceId, true
+	return o.HlInstanceId, true
 }
 
-// SetHlInstanceId sets field value
+// HasHlInstanceId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHlInstanceId() bool {
+	if o != nil && !IsNil(o.HlInstanceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlInstanceId gets a reference to the given float32 and assigns it to the HlInstanceId field.
 func (o *FormattedApiInstance) SetHlInstanceId(v float32) {
-	o.HlInstanceId = v
+	o.HlInstanceId = &v
 }
 
-// GetHlInstanceName returns the HlInstanceName field value
+// GetHlInstanceName returns the HlInstanceName field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHlInstanceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceName) {
 		var ret string
 		return ret
 	}
-
-	return o.HlInstanceName
+	return *o.HlInstanceName
 }
 
-// GetHlInstanceNameOk returns a tuple with the HlInstanceName field value
+// GetHlInstanceNameOk returns a tuple with the HlInstanceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHlInstanceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceName) {
 		return nil, false
 	}
-	return &o.HlInstanceName, true
+	return o.HlInstanceName, true
 }
 
-// SetHlInstanceName sets field value
+// HasHlInstanceName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHlInstanceName() bool {
+	if o != nil && !IsNil(o.HlInstanceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlInstanceName gets a reference to the given string and assigns it to the HlInstanceName field.
 func (o *FormattedApiInstance) SetHlInstanceName(v string) {
-	o.HlInstanceName = v
+	o.HlInstanceName = &v
 }
 
-// GetHlInstanceStatus returns the HlInstanceStatus field value
+// GetHlInstanceStatus returns the HlInstanceStatus field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHlInstanceStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.HlInstanceStatus
+	return *o.HlInstanceStatus
 }
 
-// GetHlInstanceStatusOk returns a tuple with the HlInstanceStatus field value
+// GetHlInstanceStatusOk returns a tuple with the HlInstanceStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHlInstanceStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceStatus) {
 		return nil, false
 	}
-	return &o.HlInstanceStatus, true
+	return o.HlInstanceStatus, true
 }
 
-// SetHlInstanceStatus sets field value
+// HasHlInstanceStatus returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHlInstanceStatus() bool {
+	if o != nil && !IsNil(o.HlInstanceStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlInstanceStatus gets a reference to the given string and assigns it to the HlInstanceStatus field.
 func (o *FormattedApiInstance) SetHlInstanceStatus(v string) {
-	o.HlInstanceStatus = v
+	o.HlInstanceStatus = &v
 }
 
-// GetHlInstanceUrl returns the HlInstanceUrl field value
+// GetHlInstanceUrl returns the HlInstanceUrl field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHlInstanceUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HlInstanceUrl
+	return *o.HlInstanceUrl
 }
 
-// GetHlInstanceUrlOk returns a tuple with the HlInstanceUrl field value
+// GetHlInstanceUrlOk returns a tuple with the HlInstanceUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHlInstanceUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceUrl) {
 		return nil, false
 	}
-	return &o.HlInstanceUrl, true
+	return o.HlInstanceUrl, true
 }
 
-// SetHlInstanceUrl sets field value
+// HasHlInstanceUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHlInstanceUrl() bool {
+	if o != nil && !IsNil(o.HlInstanceUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlInstanceUrl gets a reference to the given string and assigns it to the HlInstanceUrl field.
 func (o *FormattedApiInstance) SetHlInstanceUrl(v string) {
-	o.HlInstanceUrl = v
+	o.HlInstanceUrl = &v
 }
 
-// GetHmInstanceGraphiteCurrentUsage returns the HmInstanceGraphiteCurrentUsage field value
+// GetHmInstanceGraphiteCurrentUsage returns the HmInstanceGraphiteCurrentUsage field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteCurrentUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteCurrentUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmInstanceGraphiteCurrentUsage
+	return *o.HmInstanceGraphiteCurrentUsage
 }
 
-// GetHmInstanceGraphiteCurrentUsageOk returns a tuple with the HmInstanceGraphiteCurrentUsage field value
+// GetHmInstanceGraphiteCurrentUsageOk returns a tuple with the HmInstanceGraphiteCurrentUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteCurrentUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteCurrentUsage) {
 		return nil, false
 	}
-	return &o.HmInstanceGraphiteCurrentUsage, true
+	return o.HmInstanceGraphiteCurrentUsage, true
 }
 
-// SetHmInstanceGraphiteCurrentUsage sets field value
+// HasHmInstanceGraphiteCurrentUsage returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstanceGraphiteCurrentUsage() bool {
+	if o != nil && !IsNil(o.HmInstanceGraphiteCurrentUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstanceGraphiteCurrentUsage gets a reference to the given float32 and assigns it to the HmInstanceGraphiteCurrentUsage field.
 func (o *FormattedApiInstance) SetHmInstanceGraphiteCurrentUsage(v float32) {
-	o.HmInstanceGraphiteCurrentUsage = v
+	o.HmInstanceGraphiteCurrentUsage = &v
 }
 
-// GetHmInstanceGraphiteId returns the HmInstanceGraphiteId field value
+// GetHmInstanceGraphiteId returns the HmInstanceGraphiteId field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmInstanceGraphiteId
+	return *o.HmInstanceGraphiteId
 }
 
-// GetHmInstanceGraphiteIdOk returns a tuple with the HmInstanceGraphiteId field value
+// GetHmInstanceGraphiteIdOk returns a tuple with the HmInstanceGraphiteId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteId) {
 		return nil, false
 	}
-	return &o.HmInstanceGraphiteId, true
+	return o.HmInstanceGraphiteId, true
 }
 
-// SetHmInstanceGraphiteId sets field value
+// HasHmInstanceGraphiteId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstanceGraphiteId() bool {
+	if o != nil && !IsNil(o.HmInstanceGraphiteId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstanceGraphiteId gets a reference to the given float32 and assigns it to the HmInstanceGraphiteId field.
 func (o *FormattedApiInstance) SetHmInstanceGraphiteId(v float32) {
-	o.HmInstanceGraphiteId = v
+	o.HmInstanceGraphiteId = &v
 }
 
-// GetHmInstanceGraphiteName returns the HmInstanceGraphiteName field value
+// GetHmInstanceGraphiteName returns the HmInstanceGraphiteName field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteName) {
 		var ret string
 		return ret
 	}
-
-	return o.HmInstanceGraphiteName
+	return *o.HmInstanceGraphiteName
 }
 
-// GetHmInstanceGraphiteNameOk returns a tuple with the HmInstanceGraphiteName field value
+// GetHmInstanceGraphiteNameOk returns a tuple with the HmInstanceGraphiteName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteName) {
 		return nil, false
 	}
-	return &o.HmInstanceGraphiteName, true
+	return o.HmInstanceGraphiteName, true
 }
 
-// SetHmInstanceGraphiteName sets field value
+// HasHmInstanceGraphiteName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstanceGraphiteName() bool {
+	if o != nil && !IsNil(o.HmInstanceGraphiteName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstanceGraphiteName gets a reference to the given string and assigns it to the HmInstanceGraphiteName field.
 func (o *FormattedApiInstance) SetHmInstanceGraphiteName(v string) {
-	o.HmInstanceGraphiteName = v
+	o.HmInstanceGraphiteName = &v
 }
 
-// GetHmInstanceGraphiteStatus returns the HmInstanceGraphiteStatus field value
+// GetHmInstanceGraphiteStatus returns the HmInstanceGraphiteStatus field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.HmInstanceGraphiteStatus
+	return *o.HmInstanceGraphiteStatus
 }
 
-// GetHmInstanceGraphiteStatusOk returns a tuple with the HmInstanceGraphiteStatus field value
+// GetHmInstanceGraphiteStatusOk returns a tuple with the HmInstanceGraphiteStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteStatus) {
 		return nil, false
 	}
-	return &o.HmInstanceGraphiteStatus, true
+	return o.HmInstanceGraphiteStatus, true
 }
 
-// SetHmInstanceGraphiteStatus sets field value
+// HasHmInstanceGraphiteStatus returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstanceGraphiteStatus() bool {
+	if o != nil && !IsNil(o.HmInstanceGraphiteStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstanceGraphiteStatus gets a reference to the given string and assigns it to the HmInstanceGraphiteStatus field.
 func (o *FormattedApiInstance) SetHmInstanceGraphiteStatus(v string) {
-	o.HmInstanceGraphiteStatus = v
+	o.HmInstanceGraphiteStatus = &v
 }
 
-// GetHmInstanceGraphiteType returns the HmInstanceGraphiteType field value
+// GetHmInstanceGraphiteType returns the HmInstanceGraphiteType field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteType() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteType) {
 		var ret string
 		return ret
 	}
-
-	return o.HmInstanceGraphiteType
+	return *o.HmInstanceGraphiteType
 }
 
-// GetHmInstanceGraphiteTypeOk returns a tuple with the HmInstanceGraphiteType field value
+// GetHmInstanceGraphiteTypeOk returns a tuple with the HmInstanceGraphiteType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteType) {
 		return nil, false
 	}
-	return &o.HmInstanceGraphiteType, true
+	return o.HmInstanceGraphiteType, true
 }
 
-// SetHmInstanceGraphiteType sets field value
+// HasHmInstanceGraphiteType returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstanceGraphiteType() bool {
+	if o != nil && !IsNil(o.HmInstanceGraphiteType) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstanceGraphiteType gets a reference to the given string and assigns it to the HmInstanceGraphiteType field.
 func (o *FormattedApiInstance) SetHmInstanceGraphiteType(v string) {
-	o.HmInstanceGraphiteType = v
+	o.HmInstanceGraphiteType = &v
 }
 
-// GetHmInstanceGraphiteUrl returns the HmInstanceGraphiteUrl field value
+// GetHmInstanceGraphiteUrl returns the HmInstanceGraphiteUrl field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HmInstanceGraphiteUrl
+	return *o.HmInstanceGraphiteUrl
 }
 
-// GetHmInstanceGraphiteUrlOk returns a tuple with the HmInstanceGraphiteUrl field value
+// GetHmInstanceGraphiteUrlOk returns a tuple with the HmInstanceGraphiteUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstanceGraphiteUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceGraphiteUrl) {
 		return nil, false
 	}
-	return &o.HmInstanceGraphiteUrl, true
+	return o.HmInstanceGraphiteUrl, true
 }
 
-// SetHmInstanceGraphiteUrl sets field value
+// HasHmInstanceGraphiteUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstanceGraphiteUrl() bool {
+	if o != nil && !IsNil(o.HmInstanceGraphiteUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstanceGraphiteUrl gets a reference to the given string and assigns it to the HmInstanceGraphiteUrl field.
 func (o *FormattedApiInstance) SetHmInstanceGraphiteUrl(v string) {
-	o.HmInstanceGraphiteUrl = v
+	o.HmInstanceGraphiteUrl = &v
 }
 
-// GetHmInstancePromCurrentActiveSeries returns the HmInstancePromCurrentActiveSeries field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetHmInstancePromCurrentActiveSeries returns the HmInstancePromCurrentActiveSeries field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeries() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.HmInstancePromCurrentActiveSeries
 }
 
-// GetHmInstancePromCurrentActiveSeriesOk returns a tuple with the HmInstancePromCurrentActiveSeries field value
+// GetHmInstancePromCurrentActiveSeriesOk returns a tuple with the HmInstancePromCurrentActiveSeries field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeriesOk() (*interface{}, bool) {
@@ -1291,369 +1555,498 @@ func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeriesOk() (*interf
 	return &o.HmInstancePromCurrentActiveSeries, true
 }
 
-// SetHmInstancePromCurrentActiveSeries sets field value
+// HasHmInstancePromCurrentActiveSeries returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstancePromCurrentActiveSeries() bool {
+	if o != nil && IsNil(o.HmInstancePromCurrentActiveSeries) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstancePromCurrentActiveSeries gets a reference to the given interface{} and assigns it to the HmInstancePromCurrentActiveSeries field.
 func (o *FormattedApiInstance) SetHmInstancePromCurrentActiveSeries(v interface{}) {
 	o.HmInstancePromCurrentActiveSeries = v
 }
 
-// GetHmInstancePromCurrentUsage returns the HmInstancePromCurrentUsage field value
+// GetHmInstancePromCurrentUsage returns the HmInstancePromCurrentUsage field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstancePromCurrentUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstancePromCurrentUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmInstancePromCurrentUsage
+	return *o.HmInstancePromCurrentUsage
 }
 
-// GetHmInstancePromCurrentUsageOk returns a tuple with the HmInstancePromCurrentUsage field value
+// GetHmInstancePromCurrentUsageOk returns a tuple with the HmInstancePromCurrentUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstancePromCurrentUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstancePromCurrentUsage) {
 		return nil, false
 	}
-	return &o.HmInstancePromCurrentUsage, true
+	return o.HmInstancePromCurrentUsage, true
 }
 
-// SetHmInstancePromCurrentUsage sets field value
+// HasHmInstancePromCurrentUsage returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstancePromCurrentUsage() bool {
+	if o != nil && !IsNil(o.HmInstancePromCurrentUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstancePromCurrentUsage gets a reference to the given float32 and assigns it to the HmInstancePromCurrentUsage field.
 func (o *FormattedApiInstance) SetHmInstancePromCurrentUsage(v float32) {
-	o.HmInstancePromCurrentUsage = v
+	o.HmInstancePromCurrentUsage = &v
 }
 
-// GetHmInstancePromId returns the HmInstancePromId field value
+// GetHmInstancePromId returns the HmInstancePromId field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstancePromId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstancePromId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmInstancePromId
+	return *o.HmInstancePromId
 }
 
-// GetHmInstancePromIdOk returns a tuple with the HmInstancePromId field value
+// GetHmInstancePromIdOk returns a tuple with the HmInstancePromId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstancePromIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstancePromId) {
 		return nil, false
 	}
-	return &o.HmInstancePromId, true
+	return o.HmInstancePromId, true
 }
 
-// SetHmInstancePromId sets field value
+// HasHmInstancePromId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstancePromId() bool {
+	if o != nil && !IsNil(o.HmInstancePromId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstancePromId gets a reference to the given float32 and assigns it to the HmInstancePromId field.
 func (o *FormattedApiInstance) SetHmInstancePromId(v float32) {
-	o.HmInstancePromId = v
+	o.HmInstancePromId = &v
 }
 
-// GetHmInstancePromName returns the HmInstancePromName field value
+// GetHmInstancePromName returns the HmInstancePromName field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstancePromName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstancePromName) {
 		var ret string
 		return ret
 	}
-
-	return o.HmInstancePromName
+	return *o.HmInstancePromName
 }
 
-// GetHmInstancePromNameOk returns a tuple with the HmInstancePromName field value
+// GetHmInstancePromNameOk returns a tuple with the HmInstancePromName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstancePromNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstancePromName) {
 		return nil, false
 	}
-	return &o.HmInstancePromName, true
+	return o.HmInstancePromName, true
 }
 
-// SetHmInstancePromName sets field value
+// HasHmInstancePromName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstancePromName() bool {
+	if o != nil && !IsNil(o.HmInstancePromName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstancePromName gets a reference to the given string and assigns it to the HmInstancePromName field.
 func (o *FormattedApiInstance) SetHmInstancePromName(v string) {
-	o.HmInstancePromName = v
+	o.HmInstancePromName = &v
 }
 
-// GetHmInstancePromStatus returns the HmInstancePromStatus field value
+// GetHmInstancePromStatus returns the HmInstancePromStatus field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstancePromStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstancePromStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.HmInstancePromStatus
+	return *o.HmInstancePromStatus
 }
 
-// GetHmInstancePromStatusOk returns a tuple with the HmInstancePromStatus field value
+// GetHmInstancePromStatusOk returns a tuple with the HmInstancePromStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstancePromStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstancePromStatus) {
 		return nil, false
 	}
-	return &o.HmInstancePromStatus, true
+	return o.HmInstancePromStatus, true
 }
 
-// SetHmInstancePromStatus sets field value
+// HasHmInstancePromStatus returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstancePromStatus() bool {
+	if o != nil && !IsNil(o.HmInstancePromStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstancePromStatus gets a reference to the given string and assigns it to the HmInstancePromStatus field.
 func (o *FormattedApiInstance) SetHmInstancePromStatus(v string) {
-	o.HmInstancePromStatus = v
+	o.HmInstancePromStatus = &v
 }
 
-// GetHmInstancePromUrl returns the HmInstancePromUrl field value
+// GetHmInstancePromUrl returns the HmInstancePromUrl field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHmInstancePromUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstancePromUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HmInstancePromUrl
+	return *o.HmInstancePromUrl
 }
 
-// GetHmInstancePromUrlOk returns a tuple with the HmInstancePromUrl field value
+// GetHmInstancePromUrlOk returns a tuple with the HmInstancePromUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHmInstancePromUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstancePromUrl) {
 		return nil, false
 	}
-	return &o.HmInstancePromUrl, true
+	return o.HmInstancePromUrl, true
 }
 
-// SetHmInstancePromUrl sets field value
+// HasHmInstancePromUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHmInstancePromUrl() bool {
+	if o != nil && !IsNil(o.HmInstancePromUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstancePromUrl gets a reference to the given string and assigns it to the HmInstancePromUrl field.
 func (o *FormattedApiInstance) SetHmInstancePromUrl(v string) {
-	o.HmInstancePromUrl = v
+	o.HmInstancePromUrl = &v
 }
 
-// GetHtInstanceId returns the HtInstanceId field value
+// GetHtInstanceId returns the HtInstanceId field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHtInstanceId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HtInstanceId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HtInstanceId
+	return *o.HtInstanceId
 }
 
-// GetHtInstanceIdOk returns a tuple with the HtInstanceId field value
+// GetHtInstanceIdOk returns a tuple with the HtInstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHtInstanceIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtInstanceId) {
 		return nil, false
 	}
-	return &o.HtInstanceId, true
+	return o.HtInstanceId, true
 }
 
-// SetHtInstanceId sets field value
+// HasHtInstanceId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHtInstanceId() bool {
+	if o != nil && !IsNil(o.HtInstanceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtInstanceId gets a reference to the given float32 and assigns it to the HtInstanceId field.
 func (o *FormattedApiInstance) SetHtInstanceId(v float32) {
-	o.HtInstanceId = v
+	o.HtInstanceId = &v
 }
 
-// GetHtInstanceName returns the HtInstanceName field value
+// GetHtInstanceName returns the HtInstanceName field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHtInstanceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HtInstanceName) {
 		var ret string
 		return ret
 	}
-
-	return o.HtInstanceName
+	return *o.HtInstanceName
 }
 
-// GetHtInstanceNameOk returns a tuple with the HtInstanceName field value
+// GetHtInstanceNameOk returns a tuple with the HtInstanceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHtInstanceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtInstanceName) {
 		return nil, false
 	}
-	return &o.HtInstanceName, true
+	return o.HtInstanceName, true
 }
 
-// SetHtInstanceName sets field value
+// HasHtInstanceName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHtInstanceName() bool {
+	if o != nil && !IsNil(o.HtInstanceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtInstanceName gets a reference to the given string and assigns it to the HtInstanceName field.
 func (o *FormattedApiInstance) SetHtInstanceName(v string) {
-	o.HtInstanceName = v
+	o.HtInstanceName = &v
 }
 
-// GetHtInstanceStatus returns the HtInstanceStatus field value
+// GetHtInstanceStatus returns the HtInstanceStatus field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHtInstanceStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.HtInstanceStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.HtInstanceStatus
+	return *o.HtInstanceStatus
 }
 
-// GetHtInstanceStatusOk returns a tuple with the HtInstanceStatus field value
+// GetHtInstanceStatusOk returns a tuple with the HtInstanceStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHtInstanceStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtInstanceStatus) {
 		return nil, false
 	}
-	return &o.HtInstanceStatus, true
+	return o.HtInstanceStatus, true
 }
 
-// SetHtInstanceStatus sets field value
+// HasHtInstanceStatus returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHtInstanceStatus() bool {
+	if o != nil && !IsNil(o.HtInstanceStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtInstanceStatus gets a reference to the given string and assigns it to the HtInstanceStatus field.
 func (o *FormattedApiInstance) SetHtInstanceStatus(v string) {
-	o.HtInstanceStatus = v
+	o.HtInstanceStatus = &v
 }
 
-// GetHtInstanceUrl returns the HtInstanceUrl field value
+// GetHtInstanceUrl returns the HtInstanceUrl field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHtInstanceUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HtInstanceUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HtInstanceUrl
+	return *o.HtInstanceUrl
 }
 
-// GetHtInstanceUrlOk returns a tuple with the HtInstanceUrl field value
+// GetHtInstanceUrlOk returns a tuple with the HtInstanceUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHtInstanceUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtInstanceUrl) {
 		return nil, false
 	}
-	return &o.HtInstanceUrl, true
+	return o.HtInstanceUrl, true
 }
 
-// SetHtInstanceUrl sets field value
+// HasHtInstanceUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHtInstanceUrl() bool {
+	if o != nil && !IsNil(o.HtInstanceUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtInstanceUrl gets a reference to the given string and assigns it to the HtInstanceUrl field.
 func (o *FormattedApiInstance) SetHtInstanceUrl(v string) {
-	o.HtInstanceUrl = v
+	o.HtInstanceUrl = &v
 }
 
-// GetHpInstanceId returns the HpInstanceId field value
+// GetHpInstanceId returns the HpInstanceId field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHpInstanceId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HpInstanceId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HpInstanceId
+	return *o.HpInstanceId
 }
 
-// GetHpInstanceIdOk returns a tuple with the HpInstanceId field value
+// GetHpInstanceIdOk returns a tuple with the HpInstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHpInstanceIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpInstanceId) {
 		return nil, false
 	}
-	return &o.HpInstanceId, true
+	return o.HpInstanceId, true
 }
 
-// SetHpInstanceId sets field value
+// HasHpInstanceId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHpInstanceId() bool {
+	if o != nil && !IsNil(o.HpInstanceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpInstanceId gets a reference to the given float32 and assigns it to the HpInstanceId field.
 func (o *FormattedApiInstance) SetHpInstanceId(v float32) {
-	o.HpInstanceId = v
+	o.HpInstanceId = &v
 }
 
-// GetHpInstanceName returns the HpInstanceName field value
+// GetHpInstanceName returns the HpInstanceName field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHpInstanceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HpInstanceName) {
 		var ret string
 		return ret
 	}
-
-	return o.HpInstanceName
+	return *o.HpInstanceName
 }
 
-// GetHpInstanceNameOk returns a tuple with the HpInstanceName field value
+// GetHpInstanceNameOk returns a tuple with the HpInstanceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHpInstanceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpInstanceName) {
 		return nil, false
 	}
-	return &o.HpInstanceName, true
+	return o.HpInstanceName, true
 }
 
-// SetHpInstanceName sets field value
+// HasHpInstanceName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHpInstanceName() bool {
+	if o != nil && !IsNil(o.HpInstanceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpInstanceName gets a reference to the given string and assigns it to the HpInstanceName field.
 func (o *FormattedApiInstance) SetHpInstanceName(v string) {
-	o.HpInstanceName = v
+	o.HpInstanceName = &v
 }
 
-// GetHpInstanceStatus returns the HpInstanceStatus field value
+// GetHpInstanceStatus returns the HpInstanceStatus field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHpInstanceStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.HpInstanceStatus) {
 		var ret string
 		return ret
 	}
-
-	return o.HpInstanceStatus
+	return *o.HpInstanceStatus
 }
 
-// GetHpInstanceStatusOk returns a tuple with the HpInstanceStatus field value
+// GetHpInstanceStatusOk returns a tuple with the HpInstanceStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHpInstanceStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpInstanceStatus) {
 		return nil, false
 	}
-	return &o.HpInstanceStatus, true
+	return o.HpInstanceStatus, true
 }
 
-// SetHpInstanceStatus sets field value
+// HasHpInstanceStatus returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHpInstanceStatus() bool {
+	if o != nil && !IsNil(o.HpInstanceStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpInstanceStatus gets a reference to the given string and assigns it to the HpInstanceStatus field.
 func (o *FormattedApiInstance) SetHpInstanceStatus(v string) {
-	o.HpInstanceStatus = v
+	o.HpInstanceStatus = &v
 }
 
-// GetHpInstanceUrl returns the HpInstanceUrl field value
+// GetHpInstanceUrl returns the HpInstanceUrl field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetHpInstanceUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HpInstanceUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HpInstanceUrl
+	return *o.HpInstanceUrl
 }
 
-// GetHpInstanceUrlOk returns a tuple with the HpInstanceUrl field value
+// GetHpInstanceUrlOk returns a tuple with the HpInstanceUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetHpInstanceUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpInstanceUrl) {
 		return nil, false
 	}
-	return &o.HpInstanceUrl, true
+	return o.HpInstanceUrl, true
 }
 
-// SetHpInstanceUrl sets field value
+// HasHpInstanceUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasHpInstanceUrl() bool {
+	if o != nil && !IsNil(o.HpInstanceUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpInstanceUrl gets a reference to the given string and assigns it to the HpInstanceUrl field.
 func (o *FormattedApiInstance) SetHpInstanceUrl(v string) {
-	o.HpInstanceUrl = v
+	o.HpInstanceUrl = &v
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given float32 and assigns it to the Id field.
 func (o *FormattedApiInstance) SetId(v float32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetIncident returns the Incident field value
+// GetIncident returns the Incident field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetIncident() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Incident) {
 		var ret float32
 		return ret
 	}
-
-	return o.Incident
+	return *o.Incident
 }
 
-// GetIncidentOk returns a tuple with the Incident field value
+// GetIncidentOk returns a tuple with the Incident field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetIncidentOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Incident) {
 		return nil, false
 	}
-	return &o.Incident, true
+	return o.Incident, true
 }
 
-// SetIncident sets field value
+// HasIncident returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasIncident() bool {
+	if o != nil && !IsNil(o.Incident) {
+		return true
+	}
+
+	return false
+}
+
+// SetIncident gets a reference to the given float32 and assigns it to the Incident field.
 func (o *FormattedApiInstance) SetIncident(v float32) {
-	o.Incident = v
+	o.Incident = &v
 }
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
@@ -1688,450 +2081,592 @@ func (o *FormattedApiInstance) SetLabels(v map[string]interface{}) {
 	o.Labels = v
 }
 
-// GetMachineLearning returns the MachineLearning field value
+// GetMachineLearning returns the MachineLearning field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetMachineLearning() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.MachineLearning) {
 		var ret float32
 		return ret
 	}
-
-	return o.MachineLearning
+	return *o.MachineLearning
 }
 
-// GetMachineLearningOk returns a tuple with the MachineLearning field value
+// GetMachineLearningOk returns a tuple with the MachineLearning field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetMachineLearningOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MachineLearning) {
 		return nil, false
 	}
-	return &o.MachineLearning, true
+	return o.MachineLearning, true
 }
 
-// SetMachineLearning sets field value
+// HasMachineLearning returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasMachineLearning() bool {
+	if o != nil && !IsNil(o.MachineLearning) {
+		return true
+	}
+
+	return false
+}
+
+// SetMachineLearning gets a reference to the given float32 and assigns it to the MachineLearning field.
 func (o *FormattedApiInstance) SetMachineLearning(v float32) {
-	o.MachineLearning = v
+	o.MachineLearning = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FormattedApiInstance) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetOrgId returns the OrgId field value
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetOrgId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrgId) {
 		var ret float32
 		return ret
 	}
-
-	return o.OrgId
+	return *o.OrgId
 }
 
-// GetOrgIdOk returns a tuple with the OrgId field value
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetOrgIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgId) {
 		return nil, false
 	}
-	return &o.OrgId, true
+	return o.OrgId, true
 }
 
-// SetOrgId sets field value
+// HasOrgId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given float32 and assigns it to the OrgId field.
 func (o *FormattedApiInstance) SetOrgId(v float32) {
-	o.OrgId = v
+	o.OrgId = &v
 }
 
-// GetOrgName returns the OrgName field value
+// GetOrgName returns the OrgName field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetOrgName() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgName) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgName
+	return *o.OrgName
 }
 
-// GetOrgNameOk returns a tuple with the OrgName field value
+// GetOrgNameOk returns a tuple with the OrgName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetOrgNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgName) {
 		return nil, false
 	}
-	return &o.OrgName, true
+	return o.OrgName, true
 }
 
-// SetOrgName sets field value
+// HasOrgName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasOrgName() bool {
+	if o != nil && !IsNil(o.OrgName) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgName gets a reference to the given string and assigns it to the OrgName field.
 func (o *FormattedApiInstance) SetOrgName(v string) {
-	o.OrgName = v
+	o.OrgName = &v
 }
 
-// GetOrgSlug returns the OrgSlug field value
+// GetOrgSlug returns the OrgSlug field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetOrgSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgSlug
+	return *o.OrgSlug
 }
 
-// GetOrgSlugOk returns a tuple with the OrgSlug field value
+// GetOrgSlugOk returns a tuple with the OrgSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetOrgSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgSlug) {
 		return nil, false
 	}
-	return &o.OrgSlug, true
+	return o.OrgSlug, true
 }
 
-// SetOrgSlug sets field value
+// HasOrgSlug returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasOrgSlug() bool {
+	if o != nil && !IsNil(o.OrgSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgSlug gets a reference to the given string and assigns it to the OrgSlug field.
 func (o *FormattedApiInstance) SetOrgSlug(v string) {
-	o.OrgSlug = v
+	o.OrgSlug = &v
 }
 
-// GetPlan returns the Plan field value
+// GetPlan returns the Plan field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetPlan() string {
-	if o == nil {
+	if o == nil || IsNil(o.Plan) {
 		var ret string
 		return ret
 	}
-
-	return o.Plan
+	return *o.Plan
 }
 
-// GetPlanOk returns a tuple with the Plan field value
+// GetPlanOk returns a tuple with the Plan field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetPlanOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Plan) {
 		return nil, false
 	}
-	return &o.Plan, true
+	return o.Plan, true
 }
 
-// SetPlan sets field value
+// HasPlan returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasPlan() bool {
+	if o != nil && !IsNil(o.Plan) {
+		return true
+	}
+
+	return false
+}
+
+// SetPlan gets a reference to the given string and assigns it to the Plan field.
 func (o *FormattedApiInstance) SetPlan(v string) {
-	o.Plan = v
+	o.Plan = &v
 }
 
-// GetPlanName returns the PlanName field value
+// GetPlanName returns the PlanName field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetPlanName() string {
-	if o == nil {
+	if o == nil || IsNil(o.PlanName) {
 		var ret string
 		return ret
 	}
-
-	return o.PlanName
+	return *o.PlanName
 }
 
-// GetPlanNameOk returns a tuple with the PlanName field value
+// GetPlanNameOk returns a tuple with the PlanName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetPlanNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PlanName) {
 		return nil, false
 	}
-	return &o.PlanName, true
+	return o.PlanName, true
 }
 
-// SetPlanName sets field value
+// HasPlanName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasPlanName() bool {
+	if o != nil && !IsNil(o.PlanName) {
+		return true
+	}
+
+	return false
+}
+
+// SetPlanName gets a reference to the given string and assigns it to the PlanName field.
 func (o *FormattedApiInstance) SetPlanName(v string) {
-	o.PlanName = v
+	o.PlanName = &v
 }
 
-// GetRegionId returns the RegionId field value
+// GetRegionId returns the RegionId field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetRegionId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.RegionId) {
 		var ret float32
 		return ret
 	}
-
-	return o.RegionId
+	return *o.RegionId
 }
 
-// GetRegionIdOk returns a tuple with the RegionId field value
+// GetRegionIdOk returns a tuple with the RegionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetRegionIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RegionId) {
 		return nil, false
 	}
-	return &o.RegionId, true
+	return o.RegionId, true
 }
 
-// SetRegionId sets field value
+// HasRegionId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasRegionId() bool {
+	if o != nil && !IsNil(o.RegionId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegionId gets a reference to the given float32 and assigns it to the RegionId field.
 func (o *FormattedApiInstance) SetRegionId(v float32) {
-	o.RegionId = v
+	o.RegionId = &v
 }
 
-// GetRegionSlug returns the RegionSlug field value
+// GetRegionSlug returns the RegionSlug field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetRegionSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.RegionSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.RegionSlug
+	return *o.RegionSlug
 }
 
-// GetRegionSlugOk returns a tuple with the RegionSlug field value
+// GetRegionSlugOk returns a tuple with the RegionSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetRegionSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RegionSlug) {
 		return nil, false
 	}
-	return &o.RegionSlug, true
+	return o.RegionSlug, true
 }
 
-// SetRegionSlug sets field value
+// HasRegionSlug returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasRegionSlug() bool {
+	if o != nil && !IsNil(o.RegionSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegionSlug gets a reference to the given string and assigns it to the RegionSlug field.
 func (o *FormattedApiInstance) SetRegionSlug(v string) {
-	o.RegionSlug = v
+	o.RegionSlug = &v
 }
 
-// GetRegionPublicName returns the RegionPublicName field value
+// GetRegionPublicName returns the RegionPublicName field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetRegionPublicName() string {
-	if o == nil {
+	if o == nil || IsNil(o.RegionPublicName) {
 		var ret string
 		return ret
 	}
-
-	return o.RegionPublicName
+	return *o.RegionPublicName
 }
 
-// GetRegionPublicNameOk returns a tuple with the RegionPublicName field value
+// GetRegionPublicNameOk returns a tuple with the RegionPublicName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetRegionPublicNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RegionPublicName) {
 		return nil, false
 	}
-	return &o.RegionPublicName, true
+	return o.RegionPublicName, true
 }
 
-// SetRegionPublicName sets field value
+// HasRegionPublicName returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasRegionPublicName() bool {
+	if o != nil && !IsNil(o.RegionPublicName) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegionPublicName gets a reference to the given string and assigns it to the RegionPublicName field.
 func (o *FormattedApiInstance) SetRegionPublicName(v string) {
-	o.RegionPublicName = v
+	o.RegionPublicName = &v
 }
 
-// GetProvider returns the Provider field value
+// GetProvider returns the Provider field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetProvider() string {
-	if o == nil {
+	if o == nil || IsNil(o.Provider) {
 		var ret string
 		return ret
 	}
-
-	return o.Provider
+	return *o.Provider
 }
 
-// GetProviderOk returns a tuple with the Provider field value
+// GetProviderOk returns a tuple with the Provider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetProviderOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Provider) {
 		return nil, false
 	}
-	return &o.Provider, true
+	return o.Provider, true
 }
 
-// SetProvider sets field value
+// HasProvider returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasProvider() bool {
+	if o != nil && !IsNil(o.Provider) {
+		return true
+	}
+
+	return false
+}
+
+// SetProvider gets a reference to the given string and assigns it to the Provider field.
 func (o *FormattedApiInstance) SetProvider(v string) {
-	o.Provider = v
+	o.Provider = &v
 }
 
-// GetProviderRegion returns the ProviderRegion field value
+// GetProviderRegion returns the ProviderRegion field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetProviderRegion() string {
-	if o == nil {
+	if o == nil || IsNil(o.ProviderRegion) {
 		var ret string
 		return ret
 	}
-
-	return o.ProviderRegion
+	return *o.ProviderRegion
 }
 
-// GetProviderRegionOk returns a tuple with the ProviderRegion field value
+// GetProviderRegionOk returns a tuple with the ProviderRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetProviderRegionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProviderRegion) {
 		return nil, false
 	}
-	return &o.ProviderRegion, true
+	return o.ProviderRegion, true
 }
 
-// SetProviderRegion sets field value
+// HasProviderRegion returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasProviderRegion() bool {
+	if o != nil && !IsNil(o.ProviderRegion) {
+		return true
+	}
+
+	return false
+}
+
+// SetProviderRegion gets a reference to the given string and assigns it to the ProviderRegion field.
 func (o *FormattedApiInstance) SetProviderRegion(v string) {
-	o.ProviderRegion = v
+	o.ProviderRegion = &v
 }
 
-// GetRunningVersion returns the RunningVersion field value
+// GetRunningVersion returns the RunningVersion field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetRunningVersion() string {
-	if o == nil {
+	if o == nil || IsNil(o.RunningVersion) {
 		var ret string
 		return ret
 	}
-
-	return o.RunningVersion
+	return *o.RunningVersion
 }
 
-// GetRunningVersionOk returns a tuple with the RunningVersion field value
+// GetRunningVersionOk returns a tuple with the RunningVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetRunningVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunningVersion) {
 		return nil, false
 	}
-	return &o.RunningVersion, true
+	return o.RunningVersion, true
 }
 
-// SetRunningVersion sets field value
+// HasRunningVersion returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasRunningVersion() bool {
+	if o != nil && !IsNil(o.RunningVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetRunningVersion gets a reference to the given string and assigns it to the RunningVersion field.
 func (o *FormattedApiInstance) SetRunningVersion(v string) {
-	o.RunningVersion = v
+	o.RunningVersion = &v
 }
 
-// GetSlug returns the Slug field value
+// GetSlug returns the Slug field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.Slug) {
 		var ret string
 		return ret
 	}
-
-	return o.Slug
+	return *o.Slug
 }
 
-// GetSlugOk returns a tuple with the Slug field value
+// GetSlugOk returns a tuple with the Slug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Slug) {
 		return nil, false
 	}
-	return &o.Slug, true
+	return o.Slug, true
 }
 
-// SetSlug sets field value
+// HasSlug returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasSlug() bool {
+	if o != nil && !IsNil(o.Slug) {
+		return true
+	}
+
+	return false
+}
+
+// SetSlug gets a reference to the given string and assigns it to the Slug field.
 func (o *FormattedApiInstance) SetSlug(v string) {
-	o.Slug = v
+	o.Slug = &v
 }
 
-// GetSsl returns the Ssl field value
+// GetSsl returns the Ssl field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetSsl() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Ssl) {
 		var ret bool
 		return ret
 	}
-
-	return o.Ssl
+	return *o.Ssl
 }
 
-// GetSslOk returns a tuple with the Ssl field value
+// GetSslOk returns a tuple with the Ssl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetSslOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Ssl) {
 		return nil, false
 	}
-	return &o.Ssl, true
+	return o.Ssl, true
 }
 
-// SetSsl sets field value
+// HasSsl returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasSsl() bool {
+	if o != nil && !IsNil(o.Ssl) {
+		return true
+	}
+
+	return false
+}
+
+// SetSsl gets a reference to the given bool and assigns it to the Ssl field.
 func (o *FormattedApiInstance) SetSsl(v bool) {
-	o.Ssl = v
+	o.Ssl = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *FormattedApiInstance) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
 }
 
-// GetSupport returns the Support field value
+// GetSupport returns the Support field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetSupport() bool {
-	if o == nil {
+	if o == nil || IsNil(o.Support) {
 		var ret bool
 		return ret
 	}
-
-	return o.Support
+	return *o.Support
 }
 
-// GetSupportOk returns a tuple with the Support field value
+// GetSupportOk returns a tuple with the Support field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetSupportOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Support) {
 		return nil, false
 	}
-	return &o.Support, true
+	return o.Support, true
 }
 
-// SetSupport sets field value
+// HasSupport returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasSupport() bool {
+	if o != nil && !IsNil(o.Support) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupport gets a reference to the given bool and assigns it to the Support field.
 func (o *FormattedApiInstance) SetSupport(v bool) {
-	o.Support = v
+	o.Support = &v
 }
 
-// GetTrial returns the Trial field value
+// GetTrial returns the Trial field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetTrial() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Trial) {
 		var ret float32
 		return ret
 	}
-
-	return o.Trial
+	return *o.Trial
 }
 
-// GetTrialOk returns a tuple with the Trial field value
+// GetTrialOk returns a tuple with the Trial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetTrialOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Trial) {
 		return nil, false
 	}
-	return &o.Trial, true
+	return o.Trial, true
 }
 
-// SetTrial sets field value
+// HasTrial returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasTrial() bool {
+	if o != nil && !IsNil(o.Trial) {
+		return true
+	}
+
+	return false
+}
+
+// SetTrial gets a reference to the given float32 and assigns it to the Trial field.
 func (o *FormattedApiInstance) SetTrial(v float32) {
-	o.Trial = v
+	o.Trial = &v
 }
 
-// GetTrialExpiresAt returns the TrialExpiresAt field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetTrialExpiresAt returns the TrialExpiresAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiInstance) GetTrialExpiresAt() string {
-	if o == nil || o.TrialExpiresAt.Get() == nil {
+	if o == nil || IsNil(o.TrialExpiresAt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.TrialExpiresAt.Get()
 }
 
-// GetTrialExpiresAtOk returns a tuple with the TrialExpiresAt field value
+// GetTrialExpiresAtOk returns a tuple with the TrialExpiresAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiInstance) GetTrialExpiresAtOk() (*string, bool) {
@@ -2141,23 +2676,40 @@ func (o *FormattedApiInstance) GetTrialExpiresAtOk() (*string, bool) {
 	return o.TrialExpiresAt.Get(), o.TrialExpiresAt.IsSet()
 }
 
-// SetTrialExpiresAt sets field value
+// HasTrialExpiresAt returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasTrialExpiresAt() bool {
+	if o != nil && o.TrialExpiresAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTrialExpiresAt gets a reference to the given NullableString and assigns it to the TrialExpiresAt field.
 func (o *FormattedApiInstance) SetTrialExpiresAt(v string) {
 	o.TrialExpiresAt.Set(&v)
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetTrialExpiresAtNil sets the value for TrialExpiresAt to be an explicit nil
+func (o *FormattedApiInstance) SetTrialExpiresAtNil() {
+	o.TrialExpiresAt.Set(nil)
+}
+
+// UnsetTrialExpiresAt ensures that no value is present for TrialExpiresAt, not even an explicit nil
+func (o *FormattedApiInstance) UnsetTrialExpiresAt() {
+	o.TrialExpiresAt.Unset()
+}
+
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiInstance) GetUpdatedAt() string {
-	if o == nil || o.UpdatedAt.Get() == nil {
+	if o == nil || IsNil(o.UpdatedAt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.UpdatedAt.Get()
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiInstance) GetUpdatedAtOk() (*string, bool) {
@@ -2167,23 +2719,40 @@ func (o *FormattedApiInstance) GetUpdatedAtOk() (*string, bool) {
 	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
 }
 
-// SetUpdatedAt sets field value
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasUpdatedAt() bool {
+	if o != nil && o.UpdatedAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given NullableString and assigns it to the UpdatedAt field.
 func (o *FormattedApiInstance) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
 
-// GetUpdatedBy returns the UpdatedBy field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
+func (o *FormattedApiInstance) SetUpdatedAtNil() {
+	o.UpdatedAt.Set(nil)
+}
+
+// UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
+func (o *FormattedApiInstance) UnsetUpdatedAt() {
+	o.UpdatedAt.Unset()
+}
+
+// GetUpdatedBy returns the UpdatedBy field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiInstance) GetUpdatedBy() string {
-	if o == nil || o.UpdatedBy.Get() == nil {
+	if o == nil || IsNil(o.UpdatedBy.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.UpdatedBy.Get()
 }
 
-// GetUpdatedByOk returns a tuple with the UpdatedBy field value
+// GetUpdatedByOk returns a tuple with the UpdatedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiInstance) GetUpdatedByOk() (*string, bool) {
@@ -2193,105 +2762,156 @@ func (o *FormattedApiInstance) GetUpdatedByOk() (*string, bool) {
 	return o.UpdatedBy.Get(), o.UpdatedBy.IsSet()
 }
 
-// SetUpdatedBy sets field value
+// HasUpdatedBy returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasUpdatedBy() bool {
+	if o != nil && o.UpdatedBy.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedBy gets a reference to the given NullableString and assigns it to the UpdatedBy field.
 func (o *FormattedApiInstance) SetUpdatedBy(v string) {
 	o.UpdatedBy.Set(&v)
 }
 
-// GetUrl returns the Url field value
+// SetUpdatedByNil sets the value for UpdatedBy to be an explicit nil
+func (o *FormattedApiInstance) SetUpdatedByNil() {
+	o.UpdatedBy.Set(nil)
+}
+
+// UnsetUpdatedBy ensures that no value is present for UpdatedBy, not even an explicit nil
+func (o *FormattedApiInstance) UnsetUpdatedBy() {
+	o.UpdatedBy.Unset()
+}
+
+// GetUrl returns the Url field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url, true
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasUrl() bool {
+	if o != nil && !IsNil(o.Url) {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *FormattedApiInstance) SetUrl(v string) {
-	o.Url = v
+	o.Url = &v
 }
 
-// GetUserQuota returns the UserQuota field value
+// GetUserQuota returns the UserQuota field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetUserQuota() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.UserQuota) {
 		var ret float32
 		return ret
 	}
-
-	return o.UserQuota
+	return *o.UserQuota
 }
 
-// GetUserQuotaOk returns a tuple with the UserQuota field value
+// GetUserQuotaOk returns a tuple with the UserQuota field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetUserQuotaOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserQuota) {
 		return nil, false
 	}
-	return &o.UserQuota, true
+	return o.UserQuota, true
 }
 
-// SetUserQuota sets field value
+// HasUserQuota returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasUserQuota() bool {
+	if o != nil && !IsNil(o.UserQuota) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserQuota gets a reference to the given float32 and assigns it to the UserQuota field.
 func (o *FormattedApiInstance) SetUserQuota(v float32) {
-	o.UserQuota = v
+	o.UserQuota = &v
 }
 
-// GetVersion returns the Version field value
+// GetVersion returns the Version field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetVersion() string {
-	if o == nil {
+	if o == nil || IsNil(o.Version) {
 		var ret string
 		return ret
 	}
-
-	return o.Version
+	return *o.Version
 }
 
-// GetVersionOk returns a tuple with the Version field value
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Version) {
 		return nil, false
 	}
-	return &o.Version, true
+	return o.Version, true
 }
 
-// SetVersion sets field value
+// HasVersion returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasVersion() bool {
+	if o != nil && !IsNil(o.Version) {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given string and assigns it to the Version field.
 func (o *FormattedApiInstance) SetVersion(v string) {
-	o.Version = v
+	o.Version = &v
 }
 
-// GetAgentManagementInstanceId returns the AgentManagementInstanceId field value
+// GetAgentManagementInstanceId returns the AgentManagementInstanceId field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetAgentManagementInstanceId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AgentManagementInstanceId) {
 		var ret float32
 		return ret
 	}
-
-	return o.AgentManagementInstanceId
+	return *o.AgentManagementInstanceId
 }
 
-// GetAgentManagementInstanceIdOk returns a tuple with the AgentManagementInstanceId field value
+// GetAgentManagementInstanceIdOk returns a tuple with the AgentManagementInstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstance) GetAgentManagementInstanceIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AgentManagementInstanceId) {
 		return nil, false
 	}
-	return &o.AgentManagementInstanceId, true
+	return o.AgentManagementInstanceId, true
 }
 
-// SetAgentManagementInstanceId sets field value
+// HasAgentManagementInstanceId returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasAgentManagementInstanceId() bool {
+	if o != nil && !IsNil(o.AgentManagementInstanceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgentManagementInstanceId gets a reference to the given float32 and assigns it to the AgentManagementInstanceId field.
 func (o *FormattedApiInstance) SetAgentManagementInstanceId(v float32) {
-	o.AgentManagementInstanceId = v
+	o.AgentManagementInstanceId = &v
 }
 
 // GetConfig returns the Config field value if set, zero value otherwise.
@@ -2336,96 +2956,264 @@ func (o FormattedApiInstance) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["alertCnt"] = o.AlertCnt
-	toSerialize["alertQuota"] = o.AlertQuota
-	toSerialize["amInstanceGeneratorUrl"] = o.AmInstanceGeneratorUrl
-	toSerialize["amInstanceGeneratorUrlDatasource"] = o.AmInstanceGeneratorUrlDatasource
-	toSerialize["amInstanceId"] = o.AmInstanceId
-	toSerialize["amInstanceName"] = o.AmInstanceName
-	toSerialize["amInstanceStatus"] = o.AmInstanceStatus
-	toSerialize["amInstanceUrl"] = o.AmInstanceUrl
-	toSerialize["billingActiveUsers"] = o.BillingActiveUsers
-	toSerialize["billingEndDate"] = o.BillingEndDate
-	toSerialize["billingGrafanaActiveUsers"] = o.BillingGrafanaActiveUsers
-	toSerialize["billingOnCallActiveUsers"] = o.BillingOnCallActiveUsers
-	toSerialize["billingStartDate"] = o.BillingStartDate
-	toSerialize["clusterId"] = o.ClusterId
-	toSerialize["clusterName"] = o.ClusterName
-	toSerialize["clusterSlug"] = o.ClusterSlug
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["createdBy"] = o.CreatedBy
-	toSerialize["currentActiveAdminUsers"] = o.CurrentActiveAdminUsers
-	toSerialize["currentActiveEditorUsers"] = o.CurrentActiveEditorUsers
-	toSerialize["currentActiveUsers"] = o.CurrentActiveUsers
-	toSerialize["currentActiveViewerUsers"] = o.CurrentActiveViewerUsers
-	toSerialize["customAuth"] = o.CustomAuth
-	toSerialize["customDomain"] = o.CustomDomain
-	toSerialize["dailyAdminCnt"] = o.DailyAdminCnt
-	toSerialize["dailyEditorCnt"] = o.DailyEditorCnt
-	toSerialize["dailyUserCnt"] = o.DailyUserCnt
-	toSerialize["dailyViewerCnt"] = o.DailyViewerCnt
-	toSerialize["dashboardCnt"] = o.DashboardCnt
-	toSerialize["dashboardQuota"] = o.DashboardQuota
-	toSerialize["datasourceCnts"] = o.DatasourceCnts
-	toSerialize["description"] = o.Description
-	toSerialize["gateway"] = o.Gateway
-	toSerialize["hlInstanceCurrentUsage"] = o.HlInstanceCurrentUsage
-	toSerialize["hlInstanceId"] = o.HlInstanceId
-	toSerialize["hlInstanceName"] = o.HlInstanceName
-	toSerialize["hlInstanceStatus"] = o.HlInstanceStatus
-	toSerialize["hlInstanceUrl"] = o.HlInstanceUrl
-	toSerialize["hmInstanceGraphiteCurrentUsage"] = o.HmInstanceGraphiteCurrentUsage
-	toSerialize["hmInstanceGraphiteId"] = o.HmInstanceGraphiteId
-	toSerialize["hmInstanceGraphiteName"] = o.HmInstanceGraphiteName
-	toSerialize["hmInstanceGraphiteStatus"] = o.HmInstanceGraphiteStatus
-	toSerialize["hmInstanceGraphiteType"] = o.HmInstanceGraphiteType
-	toSerialize["hmInstanceGraphiteUrl"] = o.HmInstanceGraphiteUrl
+	if !IsNil(o.AlertCnt) {
+		toSerialize["alertCnt"] = o.AlertCnt
+	}
+	if !IsNil(o.AlertQuota) {
+		toSerialize["alertQuota"] = o.AlertQuota
+	}
+	if !IsNil(o.AmInstanceGeneratorUrl) {
+		toSerialize["amInstanceGeneratorUrl"] = o.AmInstanceGeneratorUrl
+	}
+	if !IsNil(o.AmInstanceGeneratorUrlDatasource) {
+		toSerialize["amInstanceGeneratorUrlDatasource"] = o.AmInstanceGeneratorUrlDatasource
+	}
+	if !IsNil(o.AmInstanceId) {
+		toSerialize["amInstanceId"] = o.AmInstanceId
+	}
+	if !IsNil(o.AmInstanceName) {
+		toSerialize["amInstanceName"] = o.AmInstanceName
+	}
+	if !IsNil(o.AmInstanceStatus) {
+		toSerialize["amInstanceStatus"] = o.AmInstanceStatus
+	}
+	if !IsNil(o.AmInstanceUrl) {
+		toSerialize["amInstanceUrl"] = o.AmInstanceUrl
+	}
+	if !IsNil(o.BillingActiveUsers) {
+		toSerialize["billingActiveUsers"] = o.BillingActiveUsers
+	}
+	if !IsNil(o.BillingEndDate) {
+		toSerialize["billingEndDate"] = o.BillingEndDate
+	}
+	if !IsNil(o.BillingGrafanaActiveUsers) {
+		toSerialize["billingGrafanaActiveUsers"] = o.BillingGrafanaActiveUsers
+	}
+	if !IsNil(o.BillingOnCallActiveUsers) {
+		toSerialize["billingOnCallActiveUsers"] = o.BillingOnCallActiveUsers
+	}
+	if !IsNil(o.BillingStartDate) {
+		toSerialize["billingStartDate"] = o.BillingStartDate
+	}
+	if !IsNil(o.ClusterId) {
+		toSerialize["clusterId"] = o.ClusterId
+	}
+	if !IsNil(o.ClusterName) {
+		toSerialize["clusterName"] = o.ClusterName
+	}
+	if !IsNil(o.ClusterSlug) {
+		toSerialize["clusterSlug"] = o.ClusterSlug
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if !IsNil(o.CreatedBy) {
+		toSerialize["createdBy"] = o.CreatedBy
+	}
+	if !IsNil(o.CurrentActiveAdminUsers) {
+		toSerialize["currentActiveAdminUsers"] = o.CurrentActiveAdminUsers
+	}
+	if !IsNil(o.CurrentActiveEditorUsers) {
+		toSerialize["currentActiveEditorUsers"] = o.CurrentActiveEditorUsers
+	}
+	if !IsNil(o.CurrentActiveUsers) {
+		toSerialize["currentActiveUsers"] = o.CurrentActiveUsers
+	}
+	if !IsNil(o.CurrentActiveViewerUsers) {
+		toSerialize["currentActiveViewerUsers"] = o.CurrentActiveViewerUsers
+	}
+	if !IsNil(o.CustomAuth) {
+		toSerialize["customAuth"] = o.CustomAuth
+	}
+	if !IsNil(o.CustomDomain) {
+		toSerialize["customDomain"] = o.CustomDomain
+	}
+	if !IsNil(o.DailyAdminCnt) {
+		toSerialize["dailyAdminCnt"] = o.DailyAdminCnt
+	}
+	if !IsNil(o.DailyEditorCnt) {
+		toSerialize["dailyEditorCnt"] = o.DailyEditorCnt
+	}
+	if !IsNil(o.DailyUserCnt) {
+		toSerialize["dailyUserCnt"] = o.DailyUserCnt
+	}
+	if !IsNil(o.DailyViewerCnt) {
+		toSerialize["dailyViewerCnt"] = o.DailyViewerCnt
+	}
+	if !IsNil(o.DashboardCnt) {
+		toSerialize["dashboardCnt"] = o.DashboardCnt
+	}
+	if !IsNil(o.DashboardQuota) {
+		toSerialize["dashboardQuota"] = o.DashboardQuota
+	}
+	if !IsNil(o.DatasourceCnts) {
+		toSerialize["datasourceCnts"] = o.DatasourceCnts
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Gateway) {
+		toSerialize["gateway"] = o.Gateway
+	}
+	if !IsNil(o.HlInstanceCurrentUsage) {
+		toSerialize["hlInstanceCurrentUsage"] = o.HlInstanceCurrentUsage
+	}
+	if !IsNil(o.HlInstanceId) {
+		toSerialize["hlInstanceId"] = o.HlInstanceId
+	}
+	if !IsNil(o.HlInstanceName) {
+		toSerialize["hlInstanceName"] = o.HlInstanceName
+	}
+	if !IsNil(o.HlInstanceStatus) {
+		toSerialize["hlInstanceStatus"] = o.HlInstanceStatus
+	}
+	if !IsNil(o.HlInstanceUrl) {
+		toSerialize["hlInstanceUrl"] = o.HlInstanceUrl
+	}
+	if !IsNil(o.HmInstanceGraphiteCurrentUsage) {
+		toSerialize["hmInstanceGraphiteCurrentUsage"] = o.HmInstanceGraphiteCurrentUsage
+	}
+	if !IsNil(o.HmInstanceGraphiteId) {
+		toSerialize["hmInstanceGraphiteId"] = o.HmInstanceGraphiteId
+	}
+	if !IsNil(o.HmInstanceGraphiteName) {
+		toSerialize["hmInstanceGraphiteName"] = o.HmInstanceGraphiteName
+	}
+	if !IsNil(o.HmInstanceGraphiteStatus) {
+		toSerialize["hmInstanceGraphiteStatus"] = o.HmInstanceGraphiteStatus
+	}
+	if !IsNil(o.HmInstanceGraphiteType) {
+		toSerialize["hmInstanceGraphiteType"] = o.HmInstanceGraphiteType
+	}
+	if !IsNil(o.HmInstanceGraphiteUrl) {
+		toSerialize["hmInstanceGraphiteUrl"] = o.HmInstanceGraphiteUrl
+	}
 	if o.HmInstancePromCurrentActiveSeries != nil {
 		toSerialize["hmInstancePromCurrentActiveSeries"] = o.HmInstancePromCurrentActiveSeries
 	}
-	toSerialize["hmInstancePromCurrentUsage"] = o.HmInstancePromCurrentUsage
-	toSerialize["hmInstancePromId"] = o.HmInstancePromId
-	toSerialize["hmInstancePromName"] = o.HmInstancePromName
-	toSerialize["hmInstancePromStatus"] = o.HmInstancePromStatus
-	toSerialize["hmInstancePromUrl"] = o.HmInstancePromUrl
-	toSerialize["htInstanceId"] = o.HtInstanceId
-	toSerialize["htInstanceName"] = o.HtInstanceName
-	toSerialize["htInstanceStatus"] = o.HtInstanceStatus
-	toSerialize["htInstanceUrl"] = o.HtInstanceUrl
-	toSerialize["hpInstanceId"] = o.HpInstanceId
-	toSerialize["hpInstanceName"] = o.HpInstanceName
-	toSerialize["hpInstanceStatus"] = o.HpInstanceStatus
-	toSerialize["hpInstanceUrl"] = o.HpInstanceUrl
-	toSerialize["id"] = o.Id
-	toSerialize["incident"] = o.Incident
+	if !IsNil(o.HmInstancePromCurrentUsage) {
+		toSerialize["hmInstancePromCurrentUsage"] = o.HmInstancePromCurrentUsage
+	}
+	if !IsNil(o.HmInstancePromId) {
+		toSerialize["hmInstancePromId"] = o.HmInstancePromId
+	}
+	if !IsNil(o.HmInstancePromName) {
+		toSerialize["hmInstancePromName"] = o.HmInstancePromName
+	}
+	if !IsNil(o.HmInstancePromStatus) {
+		toSerialize["hmInstancePromStatus"] = o.HmInstancePromStatus
+	}
+	if !IsNil(o.HmInstancePromUrl) {
+		toSerialize["hmInstancePromUrl"] = o.HmInstancePromUrl
+	}
+	if !IsNil(o.HtInstanceId) {
+		toSerialize["htInstanceId"] = o.HtInstanceId
+	}
+	if !IsNil(o.HtInstanceName) {
+		toSerialize["htInstanceName"] = o.HtInstanceName
+	}
+	if !IsNil(o.HtInstanceStatus) {
+		toSerialize["htInstanceStatus"] = o.HtInstanceStatus
+	}
+	if !IsNil(o.HtInstanceUrl) {
+		toSerialize["htInstanceUrl"] = o.HtInstanceUrl
+	}
+	if !IsNil(o.HpInstanceId) {
+		toSerialize["hpInstanceId"] = o.HpInstanceId
+	}
+	if !IsNil(o.HpInstanceName) {
+		toSerialize["hpInstanceName"] = o.HpInstanceName
+	}
+	if !IsNil(o.HpInstanceStatus) {
+		toSerialize["hpInstanceStatus"] = o.HpInstanceStatus
+	}
+	if !IsNil(o.HpInstanceUrl) {
+		toSerialize["hpInstanceUrl"] = o.HpInstanceUrl
+	}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Incident) {
+		toSerialize["incident"] = o.Incident
+	}
 	if !IsNil(o.Labels) {
 		toSerialize["labels"] = o.Labels
 	}
-	toSerialize["machineLearning"] = o.MachineLearning
-	toSerialize["name"] = o.Name
-	toSerialize["orgId"] = o.OrgId
-	toSerialize["orgName"] = o.OrgName
-	toSerialize["orgSlug"] = o.OrgSlug
-	toSerialize["plan"] = o.Plan
-	toSerialize["planName"] = o.PlanName
-	toSerialize["regionId"] = o.RegionId
-	toSerialize["regionSlug"] = o.RegionSlug
-	toSerialize["regionPublicName"] = o.RegionPublicName
-	toSerialize["provider"] = o.Provider
-	toSerialize["providerRegion"] = o.ProviderRegion
-	toSerialize["runningVersion"] = o.RunningVersion
-	toSerialize["slug"] = o.Slug
-	toSerialize["ssl"] = o.Ssl
-	toSerialize["status"] = o.Status
-	toSerialize["support"] = o.Support
-	toSerialize["trial"] = o.Trial
-	toSerialize["trialExpiresAt"] = o.TrialExpiresAt.Get()
-	toSerialize["updatedAt"] = o.UpdatedAt.Get()
-	toSerialize["updatedBy"] = o.UpdatedBy.Get()
-	toSerialize["url"] = o.Url
-	toSerialize["userQuota"] = o.UserQuota
-	toSerialize["version"] = o.Version
-	toSerialize["agentManagementInstanceId"] = o.AgentManagementInstanceId
+	if !IsNil(o.MachineLearning) {
+		toSerialize["machineLearning"] = o.MachineLearning
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
+	}
+	if !IsNil(o.OrgName) {
+		toSerialize["orgName"] = o.OrgName
+	}
+	if !IsNil(o.OrgSlug) {
+		toSerialize["orgSlug"] = o.OrgSlug
+	}
+	if !IsNil(o.Plan) {
+		toSerialize["plan"] = o.Plan
+	}
+	if !IsNil(o.PlanName) {
+		toSerialize["planName"] = o.PlanName
+	}
+	if !IsNil(o.RegionId) {
+		toSerialize["regionId"] = o.RegionId
+	}
+	if !IsNil(o.RegionSlug) {
+		toSerialize["regionSlug"] = o.RegionSlug
+	}
+	if !IsNil(o.RegionPublicName) {
+		toSerialize["regionPublicName"] = o.RegionPublicName
+	}
+	if !IsNil(o.Provider) {
+		toSerialize["provider"] = o.Provider
+	}
+	if !IsNil(o.ProviderRegion) {
+		toSerialize["providerRegion"] = o.ProviderRegion
+	}
+	if !IsNil(o.RunningVersion) {
+		toSerialize["runningVersion"] = o.RunningVersion
+	}
+	if !IsNil(o.Slug) {
+		toSerialize["slug"] = o.Slug
+	}
+	if !IsNil(o.Ssl) {
+		toSerialize["ssl"] = o.Ssl
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.Support) {
+		toSerialize["support"] = o.Support
+	}
+	if !IsNil(o.Trial) {
+		toSerialize["trial"] = o.Trial
+	}
+	if o.TrialExpiresAt.IsSet() {
+		toSerialize["trialExpiresAt"] = o.TrialExpiresAt.Get()
+	}
+	if o.UpdatedAt.IsSet() {
+		toSerialize["updatedAt"] = o.UpdatedAt.Get()
+	}
+	if o.UpdatedBy.IsSet() {
+		toSerialize["updatedBy"] = o.UpdatedBy.Get()
+	}
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.UserQuota) {
+		toSerialize["userQuota"] = o.UserQuota
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
+	if !IsNil(o.AgentManagementInstanceId) {
+		toSerialize["agentManagementInstanceId"] = o.AgentManagementInstanceId
+	}
 	if !IsNil(o.Config) {
 		toSerialize["config"] = o.Config
 	}
@@ -2438,111 +3226,6 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"alertCnt",
-		"alertQuota",
-		"amInstanceGeneratorUrl",
-		"amInstanceGeneratorUrlDatasource",
-		"amInstanceId",
-		"amInstanceName",
-		"amInstanceStatus",
-		"amInstanceUrl",
-		"billingActiveUsers",
-		"billingEndDate",
-		"billingGrafanaActiveUsers",
-		"billingOnCallActiveUsers",
-		"billingStartDate",
-		"clusterId",
-		"clusterName",
-		"clusterSlug",
-		"createdAt",
-		"createdBy",
-		"currentActiveAdminUsers",
-		"currentActiveEditorUsers",
-		"currentActiveUsers",
-		"currentActiveViewerUsers",
-		"customAuth",
-		"customDomain",
-		"dailyAdminCnt",
-		"dailyEditorCnt",
-		"dailyUserCnt",
-		"dailyViewerCnt",
-		"dashboardCnt",
-		"dashboardQuota",
-		"datasourceCnts",
-		"description",
-		"gateway",
-		"hlInstanceCurrentUsage",
-		"hlInstanceId",
-		"hlInstanceName",
-		"hlInstanceStatus",
-		"hlInstanceUrl",
-		"hmInstanceGraphiteCurrentUsage",
-		"hmInstanceGraphiteId",
-		"hmInstanceGraphiteName",
-		"hmInstanceGraphiteStatus",
-		"hmInstanceGraphiteType",
-		"hmInstanceGraphiteUrl",
-		"hmInstancePromCurrentActiveSeries",
-		"hmInstancePromCurrentUsage",
-		"hmInstancePromId",
-		"hmInstancePromName",
-		"hmInstancePromStatus",
-		"hmInstancePromUrl",
-		"htInstanceId",
-		"htInstanceName",
-		"htInstanceStatus",
-		"htInstanceUrl",
-		"hpInstanceId",
-		"hpInstanceName",
-		"hpInstanceStatus",
-		"hpInstanceUrl",
-		"id",
-		"incident",
-		"machineLearning",
-		"name",
-		"orgId",
-		"orgName",
-		"orgSlug",
-		"plan",
-		"planName",
-		"regionId",
-		"regionSlug",
-		"regionPublicName",
-		"provider",
-		"providerRegion",
-		"runningVersion",
-		"slug",
-		"ssl",
-		"status",
-		"support",
-		"trial",
-		"trialExpiresAt",
-		"updatedAt",
-		"updatedBy",
-		"url",
-		"userQuota",
-		"version",
-		"agentManagementInstanceId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varFormattedApiInstance := _FormattedApiInstance{}
 
 	err = json.Unmarshal(data, &varFormattedApiInstance)

@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 	"time"
 )
 
@@ -22,8 +21,8 @@ var _ MappedNullable = &AuthTokenWithSecret{}
 // AuthTokenWithSecret struct for AuthTokenWithSecret
 type AuthTokenWithSecret struct {
 	Id             *string `json:"id,omitempty"`
-	AccessPolicyId string  `json:"accessPolicyId"`
-	Name           string  `json:"name"`
+	AccessPolicyId *string `json:"accessPolicyId,omitempty"`
+	Name           *string `json:"name,omitempty"`
 	// Will be set to `name` if not provided.
 	DisplayName *string `json:"displayName,omitempty"`
 	// Token does not expire if not provided.
@@ -43,10 +42,8 @@ type _AuthTokenWithSecret AuthTokenWithSecret
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAuthTokenWithSecret(accessPolicyId string, name string) *AuthTokenWithSecret {
+func NewAuthTokenWithSecret() *AuthTokenWithSecret {
 	this := AuthTokenWithSecret{}
-	this.AccessPolicyId = accessPolicyId
-	this.Name = name
 	return &this
 }
 
@@ -90,52 +87,68 @@ func (o *AuthTokenWithSecret) SetId(v string) {
 	o.Id = &v
 }
 
-// GetAccessPolicyId returns the AccessPolicyId field value
+// GetAccessPolicyId returns the AccessPolicyId field value if set, zero value otherwise.
 func (o *AuthTokenWithSecret) GetAccessPolicyId() string {
-	if o == nil {
+	if o == nil || IsNil(o.AccessPolicyId) {
 		var ret string
 		return ret
 	}
-
-	return o.AccessPolicyId
+	return *o.AccessPolicyId
 }
 
-// GetAccessPolicyIdOk returns a tuple with the AccessPolicyId field value
+// GetAccessPolicyIdOk returns a tuple with the AccessPolicyId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AuthTokenWithSecret) GetAccessPolicyIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AccessPolicyId) {
 		return nil, false
 	}
-	return &o.AccessPolicyId, true
+	return o.AccessPolicyId, true
 }
 
-// SetAccessPolicyId sets field value
+// HasAccessPolicyId returns a boolean if a field has been set.
+func (o *AuthTokenWithSecret) HasAccessPolicyId() bool {
+	if o != nil && !IsNil(o.AccessPolicyId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAccessPolicyId gets a reference to the given string and assigns it to the AccessPolicyId field.
 func (o *AuthTokenWithSecret) SetAccessPolicyId(v string) {
-	o.AccessPolicyId = v
+	o.AccessPolicyId = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *AuthTokenWithSecret) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AuthTokenWithSecret) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *AuthTokenWithSecret) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *AuthTokenWithSecret) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
@@ -375,8 +388,12 @@ func (o AuthTokenWithSecret) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	toSerialize["accessPolicyId"] = o.AccessPolicyId
-	toSerialize["name"] = o.Name
+	if !IsNil(o.AccessPolicyId) {
+		toSerialize["accessPolicyId"] = o.AccessPolicyId
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	if !IsNil(o.DisplayName) {
 		toSerialize["displayName"] = o.DisplayName
 	}
@@ -407,28 +424,6 @@ func (o AuthTokenWithSecret) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *AuthTokenWithSecret) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"accessPolicyId",
-		"name",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varAuthTokenWithSecret := _AuthTokenWithSecret{}
 
 	err = json.Unmarshal(data, &varAuthTokenWithSecret)

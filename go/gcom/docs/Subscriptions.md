@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Current** | [**Current2**](Current2.md) |  | 
-**NextProduct** | **map[string]interface{}** |  | 
-**Next** | **map[string]interface{}** |  | 
+**Current** | Pointer to [**Current2**](Current2.md) |  | [optional] 
+**NextProduct** | Pointer to **map[string]interface{}** |  | [optional] 
+**Next** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewSubscriptions
 
-`func NewSubscriptions(current Current2, nextProduct map[string]interface{}, next map[string]interface{}, ) *Subscriptions`
+`func NewSubscriptions() *Subscriptions`
 
 NewSubscriptions instantiates a new Subscriptions object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetCurrent sets Current field to given value.
 
+### HasCurrent
+
+`func (o *Subscriptions) HasCurrent() bool`
+
+HasCurrent returns a boolean if a field has been set.
 
 ### GetNextProduct
 
@@ -66,6 +71,11 @@ and a boolean to check if the value has been set.
 
 SetNextProduct sets NextProduct field to given value.
 
+### HasNextProduct
+
+`func (o *Subscriptions) HasNextProduct() bool`
+
+HasNextProduct returns a boolean if a field has been set.
 
 ### SetNextProductNil
 
@@ -96,6 +106,11 @@ and a boolean to check if the value has been set.
 
 SetNext sets Next field to given value.
 
+### HasNext
+
+`func (o *Subscriptions) HasNext() bool`
+
+HasNext returns a boolean if a field has been set.
 
 ### SetNextNil
 

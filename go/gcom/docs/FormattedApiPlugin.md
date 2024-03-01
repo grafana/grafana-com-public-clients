@@ -4,44 +4,44 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** |  | 
-**Id** | **float32** |  | 
-**TypeId** | **float32** |  | 
-**TypeName** | **string** |  | 
-**TypeCode** | **string** |  | 
-**Slug** | **string** |  | 
-**Name** | **string** |  | 
-**Description** | **string** |  | 
+**Status** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **float32** |  | [optional] 
+**TypeId** | Pointer to **float32** |  | [optional] 
+**TypeName** | Pointer to **string** |  | [optional] 
+**TypeCode** | Pointer to **string** |  | [optional] 
+**Slug** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **RequestedPluginVersionId** | Pointer to **float32** |  | [optional] 
-**Version** | **string** |  | 
-**VersionStatus** | **string** |  | 
-**VersionSignatureType** | **string** |  | 
-**VersionSignedByOrg** | **string** |  | 
-**VersionSignedByOrgName** | **string** |  | 
-**UserId** | **float32** |  | 
-**OrgId** | **float32** |  | 
-**OrgName** | **string** |  | 
-**OrgSlug** | **string** |  | 
-**OrgUrl** | **string** |  | 
-**Url** | **string** |  | 
-**CreatedAt** | **string** |  | 
-**UpdatedAt** | **string** |  | 
-**Downloads** | **float32** |  | 
-**Verified** | **bool** |  | 
-**Featured** | **float32** |  | 
-**Internal** | **bool** |  | 
-**DownloadSlug** | **string** |  | 
-**Popularity** | **float32** |  | 
-**SignatureType** | **string** |  | 
-**Packages** | **map[string]interface{}** |  | 
-**Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
-**AngularDetected** | **bool** |  | 
+**Version** | Pointer to **string** |  | [optional] 
+**VersionStatus** | Pointer to **string** |  | [optional] 
+**VersionSignatureType** | Pointer to **string** |  | [optional] 
+**VersionSignedByOrg** | Pointer to **string** |  | [optional] 
+**VersionSignedByOrgName** | Pointer to **string** |  | [optional] 
+**UserId** | Pointer to **float32** |  | [optional] 
+**OrgId** | Pointer to **float32** |  | [optional] 
+**OrgName** | Pointer to **string** |  | [optional] 
+**OrgSlug** | Pointer to **string** |  | [optional] 
+**OrgUrl** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
+**CreatedAt** | Pointer to **string** |  | [optional] 
+**UpdatedAt** | Pointer to **string** |  | [optional] 
+**Downloads** | Pointer to **float32** |  | [optional] 
+**Verified** | Pointer to **bool** |  | [optional] 
+**Featured** | Pointer to **float32** |  | [optional] 
+**Internal** | Pointer to **bool** |  | [optional] 
+**DownloadSlug** | Pointer to **string** |  | [optional] 
+**Popularity** | Pointer to **float32** |  | [optional] 
+**SignatureType** | Pointer to **string** |  | [optional] 
+**Packages** | Pointer to **map[string]interface{}** |  | [optional] 
+**Links** | Pointer to [**[]LinksInner1**](LinksInner1.md) |  | [optional] 
+**AngularDetected** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiPlugin
 
-`func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool, ) *FormattedApiPlugin`
+`func NewFormattedApiPlugin() *FormattedApiPlugin`
 
 NewFormattedApiPlugin instantiates a new FormattedApiPlugin object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +75,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *FormattedApiPlugin) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetId
 
@@ -95,6 +100,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *FormattedApiPlugin) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetTypeId
 
@@ -115,6 +125,11 @@ and a boolean to check if the value has been set.
 
 SetTypeId sets TypeId field to given value.
 
+### HasTypeId
+
+`func (o *FormattedApiPlugin) HasTypeId() bool`
+
+HasTypeId returns a boolean if a field has been set.
 
 ### GetTypeName
 
@@ -135,6 +150,11 @@ and a boolean to check if the value has been set.
 
 SetTypeName sets TypeName field to given value.
 
+### HasTypeName
+
+`func (o *FormattedApiPlugin) HasTypeName() bool`
+
+HasTypeName returns a boolean if a field has been set.
 
 ### GetTypeCode
 
@@ -155,6 +175,11 @@ and a boolean to check if the value has been set.
 
 SetTypeCode sets TypeCode field to given value.
 
+### HasTypeCode
+
+`func (o *FormattedApiPlugin) HasTypeCode() bool`
+
+HasTypeCode returns a boolean if a field has been set.
 
 ### GetSlug
 
@@ -175,6 +200,11 @@ and a boolean to check if the value has been set.
 
 SetSlug sets Slug field to given value.
 
+### HasSlug
+
+`func (o *FormattedApiPlugin) HasSlug() bool`
+
+HasSlug returns a boolean if a field has been set.
 
 ### GetName
 
@@ -195,6 +225,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *FormattedApiPlugin) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -215,6 +250,11 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
+
+`func (o *FormattedApiPlugin) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetRequestedPluginVersionId
 
@@ -260,6 +300,11 @@ and a boolean to check if the value has been set.
 
 SetVersion sets Version field to given value.
 
+### HasVersion
+
+`func (o *FormattedApiPlugin) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
 
 ### GetVersionStatus
 
@@ -280,6 +325,11 @@ and a boolean to check if the value has been set.
 
 SetVersionStatus sets VersionStatus field to given value.
 
+### HasVersionStatus
+
+`func (o *FormattedApiPlugin) HasVersionStatus() bool`
+
+HasVersionStatus returns a boolean if a field has been set.
 
 ### GetVersionSignatureType
 
@@ -300,6 +350,11 @@ and a boolean to check if the value has been set.
 
 SetVersionSignatureType sets VersionSignatureType field to given value.
 
+### HasVersionSignatureType
+
+`func (o *FormattedApiPlugin) HasVersionSignatureType() bool`
+
+HasVersionSignatureType returns a boolean if a field has been set.
 
 ### GetVersionSignedByOrg
 
@@ -320,6 +375,11 @@ and a boolean to check if the value has been set.
 
 SetVersionSignedByOrg sets VersionSignedByOrg field to given value.
 
+### HasVersionSignedByOrg
+
+`func (o *FormattedApiPlugin) HasVersionSignedByOrg() bool`
+
+HasVersionSignedByOrg returns a boolean if a field has been set.
 
 ### GetVersionSignedByOrgName
 
@@ -340,6 +400,11 @@ and a boolean to check if the value has been set.
 
 SetVersionSignedByOrgName sets VersionSignedByOrgName field to given value.
 
+### HasVersionSignedByOrgName
+
+`func (o *FormattedApiPlugin) HasVersionSignedByOrgName() bool`
+
+HasVersionSignedByOrgName returns a boolean if a field has been set.
 
 ### GetUserId
 
@@ -360,6 +425,11 @@ and a boolean to check if the value has been set.
 
 SetUserId sets UserId field to given value.
 
+### HasUserId
+
+`func (o *FormattedApiPlugin) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
 
 ### GetOrgId
 
@@ -380,6 +450,11 @@ and a boolean to check if the value has been set.
 
 SetOrgId sets OrgId field to given value.
 
+### HasOrgId
+
+`func (o *FormattedApiPlugin) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetOrgName
 
@@ -400,6 +475,11 @@ and a boolean to check if the value has been set.
 
 SetOrgName sets OrgName field to given value.
 
+### HasOrgName
+
+`func (o *FormattedApiPlugin) HasOrgName() bool`
+
+HasOrgName returns a boolean if a field has been set.
 
 ### GetOrgSlug
 
@@ -420,6 +500,11 @@ and a boolean to check if the value has been set.
 
 SetOrgSlug sets OrgSlug field to given value.
 
+### HasOrgSlug
+
+`func (o *FormattedApiPlugin) HasOrgSlug() bool`
+
+HasOrgSlug returns a boolean if a field has been set.
 
 ### GetOrgUrl
 
@@ -440,6 +525,11 @@ and a boolean to check if the value has been set.
 
 SetOrgUrl sets OrgUrl field to given value.
 
+### HasOrgUrl
+
+`func (o *FormattedApiPlugin) HasOrgUrl() bool`
+
+HasOrgUrl returns a boolean if a field has been set.
 
 ### GetUrl
 
@@ -460,6 +550,11 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
+
+`func (o *FormattedApiPlugin) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -480,6 +575,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *FormattedApiPlugin) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 
@@ -500,6 +600,11 @@ and a boolean to check if the value has been set.
 
 SetUpdatedAt sets UpdatedAt field to given value.
 
+### HasUpdatedAt
+
+`func (o *FormattedApiPlugin) HasUpdatedAt() bool`
+
+HasUpdatedAt returns a boolean if a field has been set.
 
 ### GetDownloads
 
@@ -520,6 +625,11 @@ and a boolean to check if the value has been set.
 
 SetDownloads sets Downloads field to given value.
 
+### HasDownloads
+
+`func (o *FormattedApiPlugin) HasDownloads() bool`
+
+HasDownloads returns a boolean if a field has been set.
 
 ### GetVerified
 
@@ -540,6 +650,11 @@ and a boolean to check if the value has been set.
 
 SetVerified sets Verified field to given value.
 
+### HasVerified
+
+`func (o *FormattedApiPlugin) HasVerified() bool`
+
+HasVerified returns a boolean if a field has been set.
 
 ### GetFeatured
 
@@ -560,6 +675,11 @@ and a boolean to check if the value has been set.
 
 SetFeatured sets Featured field to given value.
 
+### HasFeatured
+
+`func (o *FormattedApiPlugin) HasFeatured() bool`
+
+HasFeatured returns a boolean if a field has been set.
 
 ### GetInternal
 
@@ -580,6 +700,11 @@ and a boolean to check if the value has been set.
 
 SetInternal sets Internal field to given value.
 
+### HasInternal
+
+`func (o *FormattedApiPlugin) HasInternal() bool`
+
+HasInternal returns a boolean if a field has been set.
 
 ### GetDownloadSlug
 
@@ -600,6 +725,11 @@ and a boolean to check if the value has been set.
 
 SetDownloadSlug sets DownloadSlug field to given value.
 
+### HasDownloadSlug
+
+`func (o *FormattedApiPlugin) HasDownloadSlug() bool`
+
+HasDownloadSlug returns a boolean if a field has been set.
 
 ### GetPopularity
 
@@ -620,6 +750,11 @@ and a boolean to check if the value has been set.
 
 SetPopularity sets Popularity field to given value.
 
+### HasPopularity
+
+`func (o *FormattedApiPlugin) HasPopularity() bool`
+
+HasPopularity returns a boolean if a field has been set.
 
 ### GetSignatureType
 
@@ -640,6 +775,11 @@ and a boolean to check if the value has been set.
 
 SetSignatureType sets SignatureType field to given value.
 
+### HasSignatureType
+
+`func (o *FormattedApiPlugin) HasSignatureType() bool`
+
+HasSignatureType returns a boolean if a field has been set.
 
 ### GetPackages
 
@@ -660,6 +800,11 @@ and a boolean to check if the value has been set.
 
 SetPackages sets Packages field to given value.
 
+### HasPackages
+
+`func (o *FormattedApiPlugin) HasPackages() bool`
+
+HasPackages returns a boolean if a field has been set.
 
 ### GetLinks
 
@@ -680,6 +825,11 @@ and a boolean to check if the value has been set.
 
 SetLinks sets Links field to given value.
 
+### HasLinks
+
+`func (o *FormattedApiPlugin) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
 
 ### GetAngularDetected
 
@@ -700,6 +850,11 @@ and a boolean to check if the value has been set.
 
 SetAngularDetected sets AngularDetected field to given value.
 
+### HasAngularDetected
+
+`func (o *FormattedApiPlugin) HasAngularDetected() bool`
+
+HasAngularDetected returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FormattedApiStackRegionAnyOf1 type satisfies the MappedNullable interface at compile time
@@ -20,65 +19,65 @@ var _ MappedNullable = &FormattedApiStackRegionAnyOf1{}
 
 // FormattedApiStackRegionAnyOf1 struct for FormattedApiStackRegionAnyOf1
 type FormattedApiStackRegionAnyOf1 struct {
-	StackStateServiceUrl        string                              `json:"stackStateServiceUrl"`
-	SyntheticMonitoringApiUrl   string                              `json:"syntheticMonitoringApiUrl"`
-	InsightsApiUrl              string                              `json:"insightsApiUrl"`
-	IntegrationsApiUrl          string                              `json:"integrationsApiUrl"`
-	HostedExportersApiUrl       string                              `json:"hostedExportersApiUrl"`
-	MachineLearningApiUrl       string                              `json:"machineLearningApiUrl"`
-	LlmGatewayUrl               string                              `json:"llmGatewayUrl"`
-	IncidentApiUrl              string                              `json:"incidentApiUrl"`
-	OncallApiUrl                string                              `json:"oncallApiUrl"`
-	FaroEndpointUrl             string                              `json:"faroEndpointUrl"`
-	PdcClusterSlug              string                              `json:"pdcClusterSlug"`
-	OtlpHttpUrl                 NullableString                      `json:"otlpHttpUrl"`
-	OtlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo `json:"otlpPrivateConnectivityInfo"`
-	AuthApiUrl                  string                              `json:"authApiUrl"`
-	AuthApiTokenSet             bool                                `json:"authApiTokenSet"`
-	HgClusterId                 float32                             `json:"hgClusterId"`
-	HgClusterSlug               string                              `json:"hgClusterSlug"`
-	HgClusterName               string                              `json:"hgClusterName"`
-	HgClusterUrl                string                              `json:"hgClusterUrl"`
-	HmPromClusterId             float32                             `json:"hmPromClusterId"`
-	HmPromClusterSlug           string                              `json:"hmPromClusterSlug"`
-	HmPromClusterName           string                              `json:"hmPromClusterName"`
-	HmPromClusterUrl            string                              `json:"hmPromClusterUrl"`
-	HmGraphiteClusterId         float32                             `json:"hmGraphiteClusterId"`
-	HmGraphiteClusterSlug       string                              `json:"hmGraphiteClusterSlug"`
-	HmGraphiteClusterName       string                              `json:"hmGraphiteClusterName"`
-	HmGraphiteClusterUrl        string                              `json:"hmGraphiteClusterUrl"`
-	HlClusterId                 float32                             `json:"hlClusterId"`
-	HlClusterSlug               string                              `json:"hlClusterSlug"`
-	HlClusterName               string                              `json:"hlClusterName"`
-	HlClusterUrl                string                              `json:"hlClusterUrl"`
-	AmClusterId                 float32                             `json:"amClusterId"`
-	AmClusterSlug               string                              `json:"amClusterSlug"`
-	AmClusterName               string                              `json:"amClusterName"`
-	AmClusterUrl                string                              `json:"amClusterUrl"`
-	HtClusterId                 float32                             `json:"htClusterId"`
-	HtClusterSlug               string                              `json:"htClusterSlug"`
-	HtClusterName               string                              `json:"htClusterName"`
-	HtClusterUrl                string                              `json:"htClusterUrl"`
-	HpClusterId                 float32                             `json:"hpClusterId"`
-	HpClusterSlug               string                              `json:"hpClusterSlug"`
-	HpClusterName               string                              `json:"hpClusterName"`
-	HpClusterUrl                string                              `json:"hpClusterUrl"`
-	AgmClusterId                float32                             `json:"agmClusterId"`
-	AgmClusterSlug              string                              `json:"agmClusterSlug"`
-	AgmClusterName              string                              `json:"agmClusterName"`
-	AgmClusterUrl               string                              `json:"agmClusterUrl"`
-	ProviderRegion              string                              `json:"providerRegion"`
-	Id                          float32                             `json:"id"`
-	Status                      string                              `json:"status"`
-	Visibility                  string                              `json:"visibility"`
-	Slug                        string                              `json:"slug"`
-	Name                        string                              `json:"name"`
-	PublicName                  string                              `json:"publicName"`
-	Description                 string                              `json:"description"`
-	Provider                    string                              `json:"provider"`
-	CreatedAt                   string                              `json:"createdAt"`
-	UpdatedAt                   NullableString                      `json:"updatedAt"`
-	SortOrder                   float32                             `json:"sortOrder"`
+	StackStateServiceUrl        *string                             `json:"stackStateServiceUrl,omitempty"`
+	SyntheticMonitoringApiUrl   *string                             `json:"syntheticMonitoringApiUrl,omitempty"`
+	InsightsApiUrl              *string                             `json:"insightsApiUrl,omitempty"`
+	IntegrationsApiUrl          *string                             `json:"integrationsApiUrl,omitempty"`
+	HostedExportersApiUrl       *string                             `json:"hostedExportersApiUrl,omitempty"`
+	MachineLearningApiUrl       *string                             `json:"machineLearningApiUrl,omitempty"`
+	LlmGatewayUrl               *string                             `json:"llmGatewayUrl,omitempty"`
+	IncidentApiUrl              *string                             `json:"incidentApiUrl,omitempty"`
+	OncallApiUrl                *string                             `json:"oncallApiUrl,omitempty"`
+	FaroEndpointUrl             *string                             `json:"faroEndpointUrl,omitempty"`
+	PdcClusterSlug              *string                             `json:"pdcClusterSlug,omitempty"`
+	OtlpHttpUrl                 NullableString                      `json:"otlpHttpUrl,omitempty"`
+	OtlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo `json:"otlpPrivateConnectivityInfo,omitempty"`
+	AuthApiUrl                  *string                             `json:"authApiUrl,omitempty"`
+	AuthApiTokenSet             *bool                               `json:"authApiTokenSet,omitempty"`
+	HgClusterId                 *float32                            `json:"hgClusterId,omitempty"`
+	HgClusterSlug               *string                             `json:"hgClusterSlug,omitempty"`
+	HgClusterName               *string                             `json:"hgClusterName,omitempty"`
+	HgClusterUrl                *string                             `json:"hgClusterUrl,omitempty"`
+	HmPromClusterId             *float32                            `json:"hmPromClusterId,omitempty"`
+	HmPromClusterSlug           *string                             `json:"hmPromClusterSlug,omitempty"`
+	HmPromClusterName           *string                             `json:"hmPromClusterName,omitempty"`
+	HmPromClusterUrl            *string                             `json:"hmPromClusterUrl,omitempty"`
+	HmGraphiteClusterId         *float32                            `json:"hmGraphiteClusterId,omitempty"`
+	HmGraphiteClusterSlug       *string                             `json:"hmGraphiteClusterSlug,omitempty"`
+	HmGraphiteClusterName       *string                             `json:"hmGraphiteClusterName,omitempty"`
+	HmGraphiteClusterUrl        *string                             `json:"hmGraphiteClusterUrl,omitempty"`
+	HlClusterId                 *float32                            `json:"hlClusterId,omitempty"`
+	HlClusterSlug               *string                             `json:"hlClusterSlug,omitempty"`
+	HlClusterName               *string                             `json:"hlClusterName,omitempty"`
+	HlClusterUrl                *string                             `json:"hlClusterUrl,omitempty"`
+	AmClusterId                 *float32                            `json:"amClusterId,omitempty"`
+	AmClusterSlug               *string                             `json:"amClusterSlug,omitempty"`
+	AmClusterName               *string                             `json:"amClusterName,omitempty"`
+	AmClusterUrl                *string                             `json:"amClusterUrl,omitempty"`
+	HtClusterId                 *float32                            `json:"htClusterId,omitempty"`
+	HtClusterSlug               *string                             `json:"htClusterSlug,omitempty"`
+	HtClusterName               *string                             `json:"htClusterName,omitempty"`
+	HtClusterUrl                *string                             `json:"htClusterUrl,omitempty"`
+	HpClusterId                 *float32                            `json:"hpClusterId,omitempty"`
+	HpClusterSlug               *string                             `json:"hpClusterSlug,omitempty"`
+	HpClusterName               *string                             `json:"hpClusterName,omitempty"`
+	HpClusterUrl                *string                             `json:"hpClusterUrl,omitempty"`
+	AgmClusterId                *float32                            `json:"agmClusterId,omitempty"`
+	AgmClusterSlug              *string                             `json:"agmClusterSlug,omitempty"`
+	AgmClusterName              *string                             `json:"agmClusterName,omitempty"`
+	AgmClusterUrl               *string                             `json:"agmClusterUrl,omitempty"`
+	ProviderRegion              *string                             `json:"providerRegion,omitempty"`
+	Id                          *float32                            `json:"id,omitempty"`
+	Status                      *string                             `json:"status,omitempty"`
+	Visibility                  *string                             `json:"visibility,omitempty"`
+	Slug                        *string                             `json:"slug,omitempty"`
+	Name                        *string                             `json:"name,omitempty"`
+	PublicName                  *string                             `json:"publicName,omitempty"`
+	Description                 *string                             `json:"description,omitempty"`
+	Provider                    *string                             `json:"provider,omitempty"`
+	CreatedAt                   *string                             `json:"createdAt,omitempty"`
+	UpdatedAt                   NullableString                      `json:"updatedAt,omitempty"`
+	SortOrder                   *float32                            `json:"sortOrder,omitempty"`
 	AdditionalProperties        map[string]interface{}
 }
 
@@ -88,67 +87,8 @@ type _FormattedApiStackRegionAnyOf1 FormattedApiStackRegionAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
+func NewFormattedApiStackRegionAnyOf1() *FormattedApiStackRegionAnyOf1 {
 	this := FormattedApiStackRegionAnyOf1{}
-	this.StackStateServiceUrl = stackStateServiceUrl
-	this.SyntheticMonitoringApiUrl = syntheticMonitoringApiUrl
-	this.InsightsApiUrl = insightsApiUrl
-	this.IntegrationsApiUrl = integrationsApiUrl
-	this.HostedExportersApiUrl = hostedExportersApiUrl
-	this.MachineLearningApiUrl = machineLearningApiUrl
-	this.LlmGatewayUrl = llmGatewayUrl
-	this.IncidentApiUrl = incidentApiUrl
-	this.OncallApiUrl = oncallApiUrl
-	this.FaroEndpointUrl = faroEndpointUrl
-	this.PdcClusterSlug = pdcClusterSlug
-	this.OtlpHttpUrl = otlpHttpUrl
-	this.OtlpPrivateConnectivityInfo = otlpPrivateConnectivityInfo
-	this.AuthApiUrl = authApiUrl
-	this.AuthApiTokenSet = authApiTokenSet
-	this.HgClusterId = hgClusterId
-	this.HgClusterSlug = hgClusterSlug
-	this.HgClusterName = hgClusterName
-	this.HgClusterUrl = hgClusterUrl
-	this.HmPromClusterId = hmPromClusterId
-	this.HmPromClusterSlug = hmPromClusterSlug
-	this.HmPromClusterName = hmPromClusterName
-	this.HmPromClusterUrl = hmPromClusterUrl
-	this.HmGraphiteClusterId = hmGraphiteClusterId
-	this.HmGraphiteClusterSlug = hmGraphiteClusterSlug
-	this.HmGraphiteClusterName = hmGraphiteClusterName
-	this.HmGraphiteClusterUrl = hmGraphiteClusterUrl
-	this.HlClusterId = hlClusterId
-	this.HlClusterSlug = hlClusterSlug
-	this.HlClusterName = hlClusterName
-	this.HlClusterUrl = hlClusterUrl
-	this.AmClusterId = amClusterId
-	this.AmClusterSlug = amClusterSlug
-	this.AmClusterName = amClusterName
-	this.AmClusterUrl = amClusterUrl
-	this.HtClusterId = htClusterId
-	this.HtClusterSlug = htClusterSlug
-	this.HtClusterName = htClusterName
-	this.HtClusterUrl = htClusterUrl
-	this.HpClusterId = hpClusterId
-	this.HpClusterSlug = hpClusterSlug
-	this.HpClusterName = hpClusterName
-	this.HpClusterUrl = hpClusterUrl
-	this.AgmClusterId = agmClusterId
-	this.AgmClusterSlug = agmClusterSlug
-	this.AgmClusterName = agmClusterName
-	this.AgmClusterUrl = agmClusterUrl
-	this.ProviderRegion = providerRegion
-	this.Id = id
-	this.Status = status
-	this.Visibility = visibility
-	this.Slug = slug
-	this.Name = name
-	this.PublicName = publicName
-	this.Description = description
-	this.Provider = provider
-	this.CreatedAt = createdAt
-	this.UpdatedAt = updatedAt
-	this.SortOrder = sortOrder
 	return &this
 }
 
@@ -160,282 +100,368 @@ func NewFormattedApiStackRegionAnyOf1WithDefaults() *FormattedApiStackRegionAnyO
 	return &this
 }
 
-// GetStackStateServiceUrl returns the StackStateServiceUrl field value
+// GetStackStateServiceUrl returns the StackStateServiceUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetStackStateServiceUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.StackStateServiceUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.StackStateServiceUrl
+	return *o.StackStateServiceUrl
 }
 
-// GetStackStateServiceUrlOk returns a tuple with the StackStateServiceUrl field value
+// GetStackStateServiceUrlOk returns a tuple with the StackStateServiceUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetStackStateServiceUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StackStateServiceUrl) {
 		return nil, false
 	}
-	return &o.StackStateServiceUrl, true
+	return o.StackStateServiceUrl, true
 }
 
-// SetStackStateServiceUrl sets field value
+// HasStackStateServiceUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasStackStateServiceUrl() bool {
+	if o != nil && !IsNil(o.StackStateServiceUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetStackStateServiceUrl gets a reference to the given string and assigns it to the StackStateServiceUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetStackStateServiceUrl(v string) {
-	o.StackStateServiceUrl = v
+	o.StackStateServiceUrl = &v
 }
 
-// GetSyntheticMonitoringApiUrl returns the SyntheticMonitoringApiUrl field value
+// GetSyntheticMonitoringApiUrl returns the SyntheticMonitoringApiUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetSyntheticMonitoringApiUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.SyntheticMonitoringApiUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.SyntheticMonitoringApiUrl
+	return *o.SyntheticMonitoringApiUrl
 }
 
-// GetSyntheticMonitoringApiUrlOk returns a tuple with the SyntheticMonitoringApiUrl field value
+// GetSyntheticMonitoringApiUrlOk returns a tuple with the SyntheticMonitoringApiUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetSyntheticMonitoringApiUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SyntheticMonitoringApiUrl) {
 		return nil, false
 	}
-	return &o.SyntheticMonitoringApiUrl, true
+	return o.SyntheticMonitoringApiUrl, true
 }
 
-// SetSyntheticMonitoringApiUrl sets field value
+// HasSyntheticMonitoringApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasSyntheticMonitoringApiUrl() bool {
+	if o != nil && !IsNil(o.SyntheticMonitoringApiUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetSyntheticMonitoringApiUrl gets a reference to the given string and assigns it to the SyntheticMonitoringApiUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetSyntheticMonitoringApiUrl(v string) {
-	o.SyntheticMonitoringApiUrl = v
+	o.SyntheticMonitoringApiUrl = &v
 }
 
-// GetInsightsApiUrl returns the InsightsApiUrl field value
+// GetInsightsApiUrl returns the InsightsApiUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetInsightsApiUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.InsightsApiUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.InsightsApiUrl
+	return *o.InsightsApiUrl
 }
 
-// GetInsightsApiUrlOk returns a tuple with the InsightsApiUrl field value
+// GetInsightsApiUrlOk returns a tuple with the InsightsApiUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetInsightsApiUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InsightsApiUrl) {
 		return nil, false
 	}
-	return &o.InsightsApiUrl, true
+	return o.InsightsApiUrl, true
 }
 
-// SetInsightsApiUrl sets field value
+// HasInsightsApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasInsightsApiUrl() bool {
+	if o != nil && !IsNil(o.InsightsApiUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetInsightsApiUrl gets a reference to the given string and assigns it to the InsightsApiUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetInsightsApiUrl(v string) {
-	o.InsightsApiUrl = v
+	o.InsightsApiUrl = &v
 }
 
-// GetIntegrationsApiUrl returns the IntegrationsApiUrl field value
+// GetIntegrationsApiUrl returns the IntegrationsApiUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetIntegrationsApiUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.IntegrationsApiUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.IntegrationsApiUrl
+	return *o.IntegrationsApiUrl
 }
 
-// GetIntegrationsApiUrlOk returns a tuple with the IntegrationsApiUrl field value
+// GetIntegrationsApiUrlOk returns a tuple with the IntegrationsApiUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetIntegrationsApiUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IntegrationsApiUrl) {
 		return nil, false
 	}
-	return &o.IntegrationsApiUrl, true
+	return o.IntegrationsApiUrl, true
 }
 
-// SetIntegrationsApiUrl sets field value
+// HasIntegrationsApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasIntegrationsApiUrl() bool {
+	if o != nil && !IsNil(o.IntegrationsApiUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetIntegrationsApiUrl gets a reference to the given string and assigns it to the IntegrationsApiUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetIntegrationsApiUrl(v string) {
-	o.IntegrationsApiUrl = v
+	o.IntegrationsApiUrl = &v
 }
 
-// GetHostedExportersApiUrl returns the HostedExportersApiUrl field value
+// GetHostedExportersApiUrl returns the HostedExportersApiUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHostedExportersApiUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HostedExportersApiUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HostedExportersApiUrl
+	return *o.HostedExportersApiUrl
 }
 
-// GetHostedExportersApiUrlOk returns a tuple with the HostedExportersApiUrl field value
+// GetHostedExportersApiUrlOk returns a tuple with the HostedExportersApiUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHostedExportersApiUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HostedExportersApiUrl) {
 		return nil, false
 	}
-	return &o.HostedExportersApiUrl, true
+	return o.HostedExportersApiUrl, true
 }
 
-// SetHostedExportersApiUrl sets field value
+// HasHostedExportersApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHostedExportersApiUrl() bool {
+	if o != nil && !IsNil(o.HostedExportersApiUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHostedExportersApiUrl gets a reference to the given string and assigns it to the HostedExportersApiUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetHostedExportersApiUrl(v string) {
-	o.HostedExportersApiUrl = v
+	o.HostedExportersApiUrl = &v
 }
 
-// GetMachineLearningApiUrl returns the MachineLearningApiUrl field value
+// GetMachineLearningApiUrl returns the MachineLearningApiUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetMachineLearningApiUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.MachineLearningApiUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.MachineLearningApiUrl
+	return *o.MachineLearningApiUrl
 }
 
-// GetMachineLearningApiUrlOk returns a tuple with the MachineLearningApiUrl field value
+// GetMachineLearningApiUrlOk returns a tuple with the MachineLearningApiUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetMachineLearningApiUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MachineLearningApiUrl) {
 		return nil, false
 	}
-	return &o.MachineLearningApiUrl, true
+	return o.MachineLearningApiUrl, true
 }
 
-// SetMachineLearningApiUrl sets field value
+// HasMachineLearningApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasMachineLearningApiUrl() bool {
+	if o != nil && !IsNil(o.MachineLearningApiUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetMachineLearningApiUrl gets a reference to the given string and assigns it to the MachineLearningApiUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetMachineLearningApiUrl(v string) {
-	o.MachineLearningApiUrl = v
+	o.MachineLearningApiUrl = &v
 }
 
-// GetLlmGatewayUrl returns the LlmGatewayUrl field value
+// GetLlmGatewayUrl returns the LlmGatewayUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetLlmGatewayUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.LlmGatewayUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.LlmGatewayUrl
+	return *o.LlmGatewayUrl
 }
 
-// GetLlmGatewayUrlOk returns a tuple with the LlmGatewayUrl field value
+// GetLlmGatewayUrlOk returns a tuple with the LlmGatewayUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetLlmGatewayUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LlmGatewayUrl) {
 		return nil, false
 	}
-	return &o.LlmGatewayUrl, true
+	return o.LlmGatewayUrl, true
 }
 
-// SetLlmGatewayUrl sets field value
+// HasLlmGatewayUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasLlmGatewayUrl() bool {
+	if o != nil && !IsNil(o.LlmGatewayUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetLlmGatewayUrl gets a reference to the given string and assigns it to the LlmGatewayUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetLlmGatewayUrl(v string) {
-	o.LlmGatewayUrl = v
+	o.LlmGatewayUrl = &v
 }
 
-// GetIncidentApiUrl returns the IncidentApiUrl field value
+// GetIncidentApiUrl returns the IncidentApiUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetIncidentApiUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.IncidentApiUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.IncidentApiUrl
+	return *o.IncidentApiUrl
 }
 
-// GetIncidentApiUrlOk returns a tuple with the IncidentApiUrl field value
+// GetIncidentApiUrlOk returns a tuple with the IncidentApiUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetIncidentApiUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IncidentApiUrl) {
 		return nil, false
 	}
-	return &o.IncidentApiUrl, true
+	return o.IncidentApiUrl, true
 }
 
-// SetIncidentApiUrl sets field value
+// HasIncidentApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasIncidentApiUrl() bool {
+	if o != nil && !IsNil(o.IncidentApiUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetIncidentApiUrl gets a reference to the given string and assigns it to the IncidentApiUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetIncidentApiUrl(v string) {
-	o.IncidentApiUrl = v
+	o.IncidentApiUrl = &v
 }
 
-// GetOncallApiUrl returns the OncallApiUrl field value
+// GetOncallApiUrl returns the OncallApiUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetOncallApiUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.OncallApiUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.OncallApiUrl
+	return *o.OncallApiUrl
 }
 
-// GetOncallApiUrlOk returns a tuple with the OncallApiUrl field value
+// GetOncallApiUrlOk returns a tuple with the OncallApiUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetOncallApiUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OncallApiUrl) {
 		return nil, false
 	}
-	return &o.OncallApiUrl, true
+	return o.OncallApiUrl, true
 }
 
-// SetOncallApiUrl sets field value
+// HasOncallApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasOncallApiUrl() bool {
+	if o != nil && !IsNil(o.OncallApiUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetOncallApiUrl gets a reference to the given string and assigns it to the OncallApiUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetOncallApiUrl(v string) {
-	o.OncallApiUrl = v
+	o.OncallApiUrl = &v
 }
 
-// GetFaroEndpointUrl returns the FaroEndpointUrl field value
+// GetFaroEndpointUrl returns the FaroEndpointUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetFaroEndpointUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.FaroEndpointUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.FaroEndpointUrl
+	return *o.FaroEndpointUrl
 }
 
-// GetFaroEndpointUrlOk returns a tuple with the FaroEndpointUrl field value
+// GetFaroEndpointUrlOk returns a tuple with the FaroEndpointUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetFaroEndpointUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FaroEndpointUrl) {
 		return nil, false
 	}
-	return &o.FaroEndpointUrl, true
+	return o.FaroEndpointUrl, true
 }
 
-// SetFaroEndpointUrl sets field value
+// HasFaroEndpointUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasFaroEndpointUrl() bool {
+	if o != nil && !IsNil(o.FaroEndpointUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetFaroEndpointUrl gets a reference to the given string and assigns it to the FaroEndpointUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetFaroEndpointUrl(v string) {
-	o.FaroEndpointUrl = v
+	o.FaroEndpointUrl = &v
 }
 
-// GetPdcClusterSlug returns the PdcClusterSlug field value
+// GetPdcClusterSlug returns the PdcClusterSlug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetPdcClusterSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.PdcClusterSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.PdcClusterSlug
+	return *o.PdcClusterSlug
 }
 
-// GetPdcClusterSlugOk returns a tuple with the PdcClusterSlug field value
+// GetPdcClusterSlugOk returns a tuple with the PdcClusterSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetPdcClusterSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PdcClusterSlug) {
 		return nil, false
 	}
-	return &o.PdcClusterSlug, true
+	return o.PdcClusterSlug, true
 }
 
-// SetPdcClusterSlug sets field value
+// HasPdcClusterSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasPdcClusterSlug() bool {
+	if o != nil && !IsNil(o.PdcClusterSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetPdcClusterSlug gets a reference to the given string and assigns it to the PdcClusterSlug field.
 func (o *FormattedApiStackRegionAnyOf1) SetPdcClusterSlug(v string) {
-	o.PdcClusterSlug = v
+	o.PdcClusterSlug = &v
 }
 
-// GetOtlpHttpUrl returns the OtlpHttpUrl field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetOtlpHttpUrl returns the OtlpHttpUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiStackRegionAnyOf1) GetOtlpHttpUrl() string {
-	if o == nil || o.OtlpHttpUrl.Get() == nil {
+	if o == nil || IsNil(o.OtlpHttpUrl.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.OtlpHttpUrl.Get()
 }
 
-// GetOtlpHttpUrlOk returns a tuple with the OtlpHttpUrl field value
+// GetOtlpHttpUrlOk returns a tuple with the OtlpHttpUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiStackRegionAnyOf1) GetOtlpHttpUrlOk() (*string, bool) {
@@ -445,23 +471,40 @@ func (o *FormattedApiStackRegionAnyOf1) GetOtlpHttpUrlOk() (*string, bool) {
 	return o.OtlpHttpUrl.Get(), o.OtlpHttpUrl.IsSet()
 }
 
-// SetOtlpHttpUrl sets field value
+// HasOtlpHttpUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasOtlpHttpUrl() bool {
+	if o != nil && o.OtlpHttpUrl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOtlpHttpUrl gets a reference to the given NullableString and assigns it to the OtlpHttpUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetOtlpHttpUrl(v string) {
 	o.OtlpHttpUrl.Set(&v)
 }
 
-// GetOtlpPrivateConnectivityInfo returns the OtlpPrivateConnectivityInfo field value
-// If the value is explicit nil, the zero value for OtlpPrivateConnectivityInfo will be returned
+// SetOtlpHttpUrlNil sets the value for OtlpHttpUrl to be an explicit nil
+func (o *FormattedApiStackRegionAnyOf1) SetOtlpHttpUrlNil() {
+	o.OtlpHttpUrl.Set(nil)
+}
+
+// UnsetOtlpHttpUrl ensures that no value is present for OtlpHttpUrl, not even an explicit nil
+func (o *FormattedApiStackRegionAnyOf1) UnsetOtlpHttpUrl() {
+	o.OtlpHttpUrl.Unset()
+}
+
+// GetOtlpPrivateConnectivityInfo returns the OtlpPrivateConnectivityInfo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiStackRegionAnyOf1) GetOtlpPrivateConnectivityInfo() OtlpPrivateConnectivityInfo {
-	if o == nil || o.OtlpPrivateConnectivityInfo.Get() == nil {
+	if o == nil || IsNil(o.OtlpPrivateConnectivityInfo.Get()) {
 		var ret OtlpPrivateConnectivityInfo
 		return ret
 	}
-
 	return *o.OtlpPrivateConnectivityInfo.Get()
 }
 
-// GetOtlpPrivateConnectivityInfoOk returns a tuple with the OtlpPrivateConnectivityInfo field value
+// GetOtlpPrivateConnectivityInfoOk returns a tuple with the OtlpPrivateConnectivityInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiStackRegionAnyOf1) GetOtlpPrivateConnectivityInfoOk() (*OtlpPrivateConnectivityInfo, bool) {
@@ -471,1079 +514,1448 @@ func (o *FormattedApiStackRegionAnyOf1) GetOtlpPrivateConnectivityInfoOk() (*Otl
 	return o.OtlpPrivateConnectivityInfo.Get(), o.OtlpPrivateConnectivityInfo.IsSet()
 }
 
-// SetOtlpPrivateConnectivityInfo sets field value
+// HasOtlpPrivateConnectivityInfo returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasOtlpPrivateConnectivityInfo() bool {
+	if o != nil && o.OtlpPrivateConnectivityInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOtlpPrivateConnectivityInfo gets a reference to the given NullableOtlpPrivateConnectivityInfo and assigns it to the OtlpPrivateConnectivityInfo field.
 func (o *FormattedApiStackRegionAnyOf1) SetOtlpPrivateConnectivityInfo(v OtlpPrivateConnectivityInfo) {
 	o.OtlpPrivateConnectivityInfo.Set(&v)
 }
 
-// GetAuthApiUrl returns the AuthApiUrl field value
+// SetOtlpPrivateConnectivityInfoNil sets the value for OtlpPrivateConnectivityInfo to be an explicit nil
+func (o *FormattedApiStackRegionAnyOf1) SetOtlpPrivateConnectivityInfoNil() {
+	o.OtlpPrivateConnectivityInfo.Set(nil)
+}
+
+// UnsetOtlpPrivateConnectivityInfo ensures that no value is present for OtlpPrivateConnectivityInfo, not even an explicit nil
+func (o *FormattedApiStackRegionAnyOf1) UnsetOtlpPrivateConnectivityInfo() {
+	o.OtlpPrivateConnectivityInfo.Unset()
+}
+
+// GetAuthApiUrl returns the AuthApiUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetAuthApiUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.AuthApiUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.AuthApiUrl
+	return *o.AuthApiUrl
 }
 
-// GetAuthApiUrlOk returns a tuple with the AuthApiUrl field value
+// GetAuthApiUrlOk returns a tuple with the AuthApiUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetAuthApiUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AuthApiUrl) {
 		return nil, false
 	}
-	return &o.AuthApiUrl, true
+	return o.AuthApiUrl, true
 }
 
-// SetAuthApiUrl sets field value
+// HasAuthApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAuthApiUrl() bool {
+	if o != nil && !IsNil(o.AuthApiUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthApiUrl gets a reference to the given string and assigns it to the AuthApiUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetAuthApiUrl(v string) {
-	o.AuthApiUrl = v
+	o.AuthApiUrl = &v
 }
 
-// GetAuthApiTokenSet returns the AuthApiTokenSet field value
+// GetAuthApiTokenSet returns the AuthApiTokenSet field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetAuthApiTokenSet() bool {
-	if o == nil {
+	if o == nil || IsNil(o.AuthApiTokenSet) {
 		var ret bool
 		return ret
 	}
-
-	return o.AuthApiTokenSet
+	return *o.AuthApiTokenSet
 }
 
-// GetAuthApiTokenSetOk returns a tuple with the AuthApiTokenSet field value
+// GetAuthApiTokenSetOk returns a tuple with the AuthApiTokenSet field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetAuthApiTokenSetOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AuthApiTokenSet) {
 		return nil, false
 	}
-	return &o.AuthApiTokenSet, true
+	return o.AuthApiTokenSet, true
 }
 
-// SetAuthApiTokenSet sets field value
+// HasAuthApiTokenSet returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAuthApiTokenSet() bool {
+	if o != nil && !IsNil(o.AuthApiTokenSet) {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthApiTokenSet gets a reference to the given bool and assigns it to the AuthApiTokenSet field.
 func (o *FormattedApiStackRegionAnyOf1) SetAuthApiTokenSet(v bool) {
-	o.AuthApiTokenSet = v
+	o.AuthApiTokenSet = &v
 }
 
-// GetHgClusterId returns the HgClusterId field value
+// GetHgClusterId returns the HgClusterId field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHgClusterId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgClusterId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgClusterId
+	return *o.HgClusterId
 }
 
-// GetHgClusterIdOk returns a tuple with the HgClusterId field value
+// GetHgClusterIdOk returns a tuple with the HgClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHgClusterIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgClusterId) {
 		return nil, false
 	}
-	return &o.HgClusterId, true
+	return o.HgClusterId, true
 }
 
-// SetHgClusterId sets field value
+// HasHgClusterId returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHgClusterId() bool {
+	if o != nil && !IsNil(o.HgClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgClusterId gets a reference to the given float32 and assigns it to the HgClusterId field.
 func (o *FormattedApiStackRegionAnyOf1) SetHgClusterId(v float32) {
-	o.HgClusterId = v
+	o.HgClusterId = &v
 }
 
-// GetHgClusterSlug returns the HgClusterSlug field value
+// GetHgClusterSlug returns the HgClusterSlug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHgClusterSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.HgClusterSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.HgClusterSlug
+	return *o.HgClusterSlug
 }
 
-// GetHgClusterSlugOk returns a tuple with the HgClusterSlug field value
+// GetHgClusterSlugOk returns a tuple with the HgClusterSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHgClusterSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgClusterSlug) {
 		return nil, false
 	}
-	return &o.HgClusterSlug, true
+	return o.HgClusterSlug, true
 }
 
-// SetHgClusterSlug sets field value
+// HasHgClusterSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHgClusterSlug() bool {
+	if o != nil && !IsNil(o.HgClusterSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgClusterSlug gets a reference to the given string and assigns it to the HgClusterSlug field.
 func (o *FormattedApiStackRegionAnyOf1) SetHgClusterSlug(v string) {
-	o.HgClusterSlug = v
+	o.HgClusterSlug = &v
 }
 
-// GetHgClusterName returns the HgClusterName field value
+// GetHgClusterName returns the HgClusterName field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHgClusterName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HgClusterName) {
 		var ret string
 		return ret
 	}
-
-	return o.HgClusterName
+	return *o.HgClusterName
 }
 
-// GetHgClusterNameOk returns a tuple with the HgClusterName field value
+// GetHgClusterNameOk returns a tuple with the HgClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHgClusterNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgClusterName) {
 		return nil, false
 	}
-	return &o.HgClusterName, true
+	return o.HgClusterName, true
 }
 
-// SetHgClusterName sets field value
+// HasHgClusterName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHgClusterName() bool {
+	if o != nil && !IsNil(o.HgClusterName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgClusterName gets a reference to the given string and assigns it to the HgClusterName field.
 func (o *FormattedApiStackRegionAnyOf1) SetHgClusterName(v string) {
-	o.HgClusterName = v
+	o.HgClusterName = &v
 }
 
-// GetHgClusterUrl returns the HgClusterUrl field value
+// GetHgClusterUrl returns the HgClusterUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHgClusterUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HgClusterUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HgClusterUrl
+	return *o.HgClusterUrl
 }
 
-// GetHgClusterUrlOk returns a tuple with the HgClusterUrl field value
+// GetHgClusterUrlOk returns a tuple with the HgClusterUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHgClusterUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgClusterUrl) {
 		return nil, false
 	}
-	return &o.HgClusterUrl, true
+	return o.HgClusterUrl, true
 }
 
-// SetHgClusterUrl sets field value
+// HasHgClusterUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHgClusterUrl() bool {
+	if o != nil && !IsNil(o.HgClusterUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgClusterUrl gets a reference to the given string and assigns it to the HgClusterUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetHgClusterUrl(v string) {
-	o.HgClusterUrl = v
+	o.HgClusterUrl = &v
 }
 
-// GetHmPromClusterId returns the HmPromClusterId field value
+// GetHmPromClusterId returns the HmPromClusterId field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHmPromClusterId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmPromClusterId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmPromClusterId
+	return *o.HmPromClusterId
 }
 
-// GetHmPromClusterIdOk returns a tuple with the HmPromClusterId field value
+// GetHmPromClusterIdOk returns a tuple with the HmPromClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHmPromClusterIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmPromClusterId) {
 		return nil, false
 	}
-	return &o.HmPromClusterId, true
+	return o.HmPromClusterId, true
 }
 
-// SetHmPromClusterId sets field value
+// HasHmPromClusterId returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHmPromClusterId() bool {
+	if o != nil && !IsNil(o.HmPromClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmPromClusterId gets a reference to the given float32 and assigns it to the HmPromClusterId field.
 func (o *FormattedApiStackRegionAnyOf1) SetHmPromClusterId(v float32) {
-	o.HmPromClusterId = v
+	o.HmPromClusterId = &v
 }
 
-// GetHmPromClusterSlug returns the HmPromClusterSlug field value
+// GetHmPromClusterSlug returns the HmPromClusterSlug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHmPromClusterSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmPromClusterSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.HmPromClusterSlug
+	return *o.HmPromClusterSlug
 }
 
-// GetHmPromClusterSlugOk returns a tuple with the HmPromClusterSlug field value
+// GetHmPromClusterSlugOk returns a tuple with the HmPromClusterSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHmPromClusterSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmPromClusterSlug) {
 		return nil, false
 	}
-	return &o.HmPromClusterSlug, true
+	return o.HmPromClusterSlug, true
 }
 
-// SetHmPromClusterSlug sets field value
+// HasHmPromClusterSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHmPromClusterSlug() bool {
+	if o != nil && !IsNil(o.HmPromClusterSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmPromClusterSlug gets a reference to the given string and assigns it to the HmPromClusterSlug field.
 func (o *FormattedApiStackRegionAnyOf1) SetHmPromClusterSlug(v string) {
-	o.HmPromClusterSlug = v
+	o.HmPromClusterSlug = &v
 }
 
-// GetHmPromClusterName returns the HmPromClusterName field value
+// GetHmPromClusterName returns the HmPromClusterName field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHmPromClusterName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmPromClusterName) {
 		var ret string
 		return ret
 	}
-
-	return o.HmPromClusterName
+	return *o.HmPromClusterName
 }
 
-// GetHmPromClusterNameOk returns a tuple with the HmPromClusterName field value
+// GetHmPromClusterNameOk returns a tuple with the HmPromClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHmPromClusterNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmPromClusterName) {
 		return nil, false
 	}
-	return &o.HmPromClusterName, true
+	return o.HmPromClusterName, true
 }
 
-// SetHmPromClusterName sets field value
+// HasHmPromClusterName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHmPromClusterName() bool {
+	if o != nil && !IsNil(o.HmPromClusterName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmPromClusterName gets a reference to the given string and assigns it to the HmPromClusterName field.
 func (o *FormattedApiStackRegionAnyOf1) SetHmPromClusterName(v string) {
-	o.HmPromClusterName = v
+	o.HmPromClusterName = &v
 }
 
-// GetHmPromClusterUrl returns the HmPromClusterUrl field value
+// GetHmPromClusterUrl returns the HmPromClusterUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHmPromClusterUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmPromClusterUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HmPromClusterUrl
+	return *o.HmPromClusterUrl
 }
 
-// GetHmPromClusterUrlOk returns a tuple with the HmPromClusterUrl field value
+// GetHmPromClusterUrlOk returns a tuple with the HmPromClusterUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHmPromClusterUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmPromClusterUrl) {
 		return nil, false
 	}
-	return &o.HmPromClusterUrl, true
+	return o.HmPromClusterUrl, true
 }
 
-// SetHmPromClusterUrl sets field value
+// HasHmPromClusterUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHmPromClusterUrl() bool {
+	if o != nil && !IsNil(o.HmPromClusterUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmPromClusterUrl gets a reference to the given string and assigns it to the HmPromClusterUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetHmPromClusterUrl(v string) {
-	o.HmPromClusterUrl = v
+	o.HmPromClusterUrl = &v
 }
 
-// GetHmGraphiteClusterId returns the HmGraphiteClusterId field value
+// GetHmGraphiteClusterId returns the HmGraphiteClusterId field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHmGraphiteClusterId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteClusterId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmGraphiteClusterId
+	return *o.HmGraphiteClusterId
 }
 
-// GetHmGraphiteClusterIdOk returns a tuple with the HmGraphiteClusterId field value
+// GetHmGraphiteClusterIdOk returns a tuple with the HmGraphiteClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHmGraphiteClusterIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteClusterId) {
 		return nil, false
 	}
-	return &o.HmGraphiteClusterId, true
+	return o.HmGraphiteClusterId, true
 }
 
-// SetHmGraphiteClusterId sets field value
+// HasHmGraphiteClusterId returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHmGraphiteClusterId() bool {
+	if o != nil && !IsNil(o.HmGraphiteClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteClusterId gets a reference to the given float32 and assigns it to the HmGraphiteClusterId field.
 func (o *FormattedApiStackRegionAnyOf1) SetHmGraphiteClusterId(v float32) {
-	o.HmGraphiteClusterId = v
+	o.HmGraphiteClusterId = &v
 }
 
-// GetHmGraphiteClusterSlug returns the HmGraphiteClusterSlug field value
+// GetHmGraphiteClusterSlug returns the HmGraphiteClusterSlug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHmGraphiteClusterSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteClusterSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.HmGraphiteClusterSlug
+	return *o.HmGraphiteClusterSlug
 }
 
-// GetHmGraphiteClusterSlugOk returns a tuple with the HmGraphiteClusterSlug field value
+// GetHmGraphiteClusterSlugOk returns a tuple with the HmGraphiteClusterSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHmGraphiteClusterSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteClusterSlug) {
 		return nil, false
 	}
-	return &o.HmGraphiteClusterSlug, true
+	return o.HmGraphiteClusterSlug, true
 }
 
-// SetHmGraphiteClusterSlug sets field value
+// HasHmGraphiteClusterSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHmGraphiteClusterSlug() bool {
+	if o != nil && !IsNil(o.HmGraphiteClusterSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteClusterSlug gets a reference to the given string and assigns it to the HmGraphiteClusterSlug field.
 func (o *FormattedApiStackRegionAnyOf1) SetHmGraphiteClusterSlug(v string) {
-	o.HmGraphiteClusterSlug = v
+	o.HmGraphiteClusterSlug = &v
 }
 
-// GetHmGraphiteClusterName returns the HmGraphiteClusterName field value
+// GetHmGraphiteClusterName returns the HmGraphiteClusterName field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHmGraphiteClusterName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteClusterName) {
 		var ret string
 		return ret
 	}
-
-	return o.HmGraphiteClusterName
+	return *o.HmGraphiteClusterName
 }
 
-// GetHmGraphiteClusterNameOk returns a tuple with the HmGraphiteClusterName field value
+// GetHmGraphiteClusterNameOk returns a tuple with the HmGraphiteClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHmGraphiteClusterNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteClusterName) {
 		return nil, false
 	}
-	return &o.HmGraphiteClusterName, true
+	return o.HmGraphiteClusterName, true
 }
 
-// SetHmGraphiteClusterName sets field value
+// HasHmGraphiteClusterName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHmGraphiteClusterName() bool {
+	if o != nil && !IsNil(o.HmGraphiteClusterName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteClusterName gets a reference to the given string and assigns it to the HmGraphiteClusterName field.
 func (o *FormattedApiStackRegionAnyOf1) SetHmGraphiteClusterName(v string) {
-	o.HmGraphiteClusterName = v
+	o.HmGraphiteClusterName = &v
 }
 
-// GetHmGraphiteClusterUrl returns the HmGraphiteClusterUrl field value
+// GetHmGraphiteClusterUrl returns the HmGraphiteClusterUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHmGraphiteClusterUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteClusterUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HmGraphiteClusterUrl
+	return *o.HmGraphiteClusterUrl
 }
 
-// GetHmGraphiteClusterUrlOk returns a tuple with the HmGraphiteClusterUrl field value
+// GetHmGraphiteClusterUrlOk returns a tuple with the HmGraphiteClusterUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHmGraphiteClusterUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteClusterUrl) {
 		return nil, false
 	}
-	return &o.HmGraphiteClusterUrl, true
+	return o.HmGraphiteClusterUrl, true
 }
 
-// SetHmGraphiteClusterUrl sets field value
+// HasHmGraphiteClusterUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHmGraphiteClusterUrl() bool {
+	if o != nil && !IsNil(o.HmGraphiteClusterUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteClusterUrl gets a reference to the given string and assigns it to the HmGraphiteClusterUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetHmGraphiteClusterUrl(v string) {
-	o.HmGraphiteClusterUrl = v
+	o.HmGraphiteClusterUrl = &v
 }
 
-// GetHlClusterId returns the HlClusterId field value
+// GetHlClusterId returns the HlClusterId field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHlClusterId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlClusterId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlClusterId
+	return *o.HlClusterId
 }
 
-// GetHlClusterIdOk returns a tuple with the HlClusterId field value
+// GetHlClusterIdOk returns a tuple with the HlClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHlClusterIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlClusterId) {
 		return nil, false
 	}
-	return &o.HlClusterId, true
+	return o.HlClusterId, true
 }
 
-// SetHlClusterId sets field value
+// HasHlClusterId returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHlClusterId() bool {
+	if o != nil && !IsNil(o.HlClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlClusterId gets a reference to the given float32 and assigns it to the HlClusterId field.
 func (o *FormattedApiStackRegionAnyOf1) SetHlClusterId(v float32) {
-	o.HlClusterId = v
+	o.HlClusterId = &v
 }
 
-// GetHlClusterSlug returns the HlClusterSlug field value
+// GetHlClusterSlug returns the HlClusterSlug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHlClusterSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.HlClusterSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.HlClusterSlug
+	return *o.HlClusterSlug
 }
 
-// GetHlClusterSlugOk returns a tuple with the HlClusterSlug field value
+// GetHlClusterSlugOk returns a tuple with the HlClusterSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHlClusterSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlClusterSlug) {
 		return nil, false
 	}
-	return &o.HlClusterSlug, true
+	return o.HlClusterSlug, true
 }
 
-// SetHlClusterSlug sets field value
+// HasHlClusterSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHlClusterSlug() bool {
+	if o != nil && !IsNil(o.HlClusterSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlClusterSlug gets a reference to the given string and assigns it to the HlClusterSlug field.
 func (o *FormattedApiStackRegionAnyOf1) SetHlClusterSlug(v string) {
-	o.HlClusterSlug = v
+	o.HlClusterSlug = &v
 }
 
-// GetHlClusterName returns the HlClusterName field value
+// GetHlClusterName returns the HlClusterName field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHlClusterName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HlClusterName) {
 		var ret string
 		return ret
 	}
-
-	return o.HlClusterName
+	return *o.HlClusterName
 }
 
-// GetHlClusterNameOk returns a tuple with the HlClusterName field value
+// GetHlClusterNameOk returns a tuple with the HlClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHlClusterNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlClusterName) {
 		return nil, false
 	}
-	return &o.HlClusterName, true
+	return o.HlClusterName, true
 }
 
-// SetHlClusterName sets field value
+// HasHlClusterName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHlClusterName() bool {
+	if o != nil && !IsNil(o.HlClusterName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlClusterName gets a reference to the given string and assigns it to the HlClusterName field.
 func (o *FormattedApiStackRegionAnyOf1) SetHlClusterName(v string) {
-	o.HlClusterName = v
+	o.HlClusterName = &v
 }
 
-// GetHlClusterUrl returns the HlClusterUrl field value
+// GetHlClusterUrl returns the HlClusterUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHlClusterUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HlClusterUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HlClusterUrl
+	return *o.HlClusterUrl
 }
 
-// GetHlClusterUrlOk returns a tuple with the HlClusterUrl field value
+// GetHlClusterUrlOk returns a tuple with the HlClusterUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHlClusterUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlClusterUrl) {
 		return nil, false
 	}
-	return &o.HlClusterUrl, true
+	return o.HlClusterUrl, true
 }
 
-// SetHlClusterUrl sets field value
+// HasHlClusterUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHlClusterUrl() bool {
+	if o != nil && !IsNil(o.HlClusterUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlClusterUrl gets a reference to the given string and assigns it to the HlClusterUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetHlClusterUrl(v string) {
-	o.HlClusterUrl = v
+	o.HlClusterUrl = &v
 }
 
-// GetAmClusterId returns the AmClusterId field value
+// GetAmClusterId returns the AmClusterId field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetAmClusterId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AmClusterId) {
 		var ret float32
 		return ret
 	}
-
-	return o.AmClusterId
+	return *o.AmClusterId
 }
 
-// GetAmClusterIdOk returns a tuple with the AmClusterId field value
+// GetAmClusterIdOk returns a tuple with the AmClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetAmClusterIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AmClusterId) {
 		return nil, false
 	}
-	return &o.AmClusterId, true
+	return o.AmClusterId, true
 }
 
-// SetAmClusterId sets field value
+// HasAmClusterId returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAmClusterId() bool {
+	if o != nil && !IsNil(o.AmClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmClusterId gets a reference to the given float32 and assigns it to the AmClusterId field.
 func (o *FormattedApiStackRegionAnyOf1) SetAmClusterId(v float32) {
-	o.AmClusterId = v
+	o.AmClusterId = &v
 }
 
-// GetAmClusterSlug returns the AmClusterSlug field value
+// GetAmClusterSlug returns the AmClusterSlug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetAmClusterSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.AmClusterSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.AmClusterSlug
+	return *o.AmClusterSlug
 }
 
-// GetAmClusterSlugOk returns a tuple with the AmClusterSlug field value
+// GetAmClusterSlugOk returns a tuple with the AmClusterSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetAmClusterSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AmClusterSlug) {
 		return nil, false
 	}
-	return &o.AmClusterSlug, true
+	return o.AmClusterSlug, true
 }
 
-// SetAmClusterSlug sets field value
+// HasAmClusterSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAmClusterSlug() bool {
+	if o != nil && !IsNil(o.AmClusterSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmClusterSlug gets a reference to the given string and assigns it to the AmClusterSlug field.
 func (o *FormattedApiStackRegionAnyOf1) SetAmClusterSlug(v string) {
-	o.AmClusterSlug = v
+	o.AmClusterSlug = &v
 }
 
-// GetAmClusterName returns the AmClusterName field value
+// GetAmClusterName returns the AmClusterName field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetAmClusterName() string {
-	if o == nil {
+	if o == nil || IsNil(o.AmClusterName) {
 		var ret string
 		return ret
 	}
-
-	return o.AmClusterName
+	return *o.AmClusterName
 }
 
-// GetAmClusterNameOk returns a tuple with the AmClusterName field value
+// GetAmClusterNameOk returns a tuple with the AmClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetAmClusterNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AmClusterName) {
 		return nil, false
 	}
-	return &o.AmClusterName, true
+	return o.AmClusterName, true
 }
 
-// SetAmClusterName sets field value
+// HasAmClusterName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAmClusterName() bool {
+	if o != nil && !IsNil(o.AmClusterName) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmClusterName gets a reference to the given string and assigns it to the AmClusterName field.
 func (o *FormattedApiStackRegionAnyOf1) SetAmClusterName(v string) {
-	o.AmClusterName = v
+	o.AmClusterName = &v
 }
 
-// GetAmClusterUrl returns the AmClusterUrl field value
+// GetAmClusterUrl returns the AmClusterUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetAmClusterUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.AmClusterUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.AmClusterUrl
+	return *o.AmClusterUrl
 }
 
-// GetAmClusterUrlOk returns a tuple with the AmClusterUrl field value
+// GetAmClusterUrlOk returns a tuple with the AmClusterUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetAmClusterUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AmClusterUrl) {
 		return nil, false
 	}
-	return &o.AmClusterUrl, true
+	return o.AmClusterUrl, true
 }
 
-// SetAmClusterUrl sets field value
+// HasAmClusterUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAmClusterUrl() bool {
+	if o != nil && !IsNil(o.AmClusterUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmClusterUrl gets a reference to the given string and assigns it to the AmClusterUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetAmClusterUrl(v string) {
-	o.AmClusterUrl = v
+	o.AmClusterUrl = &v
 }
 
-// GetHtClusterId returns the HtClusterId field value
+// GetHtClusterId returns the HtClusterId field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHtClusterId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HtClusterId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HtClusterId
+	return *o.HtClusterId
 }
 
-// GetHtClusterIdOk returns a tuple with the HtClusterId field value
+// GetHtClusterIdOk returns a tuple with the HtClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHtClusterIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtClusterId) {
 		return nil, false
 	}
-	return &o.HtClusterId, true
+	return o.HtClusterId, true
 }
 
-// SetHtClusterId sets field value
+// HasHtClusterId returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHtClusterId() bool {
+	if o != nil && !IsNil(o.HtClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtClusterId gets a reference to the given float32 and assigns it to the HtClusterId field.
 func (o *FormattedApiStackRegionAnyOf1) SetHtClusterId(v float32) {
-	o.HtClusterId = v
+	o.HtClusterId = &v
 }
 
-// GetHtClusterSlug returns the HtClusterSlug field value
+// GetHtClusterSlug returns the HtClusterSlug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHtClusterSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.HtClusterSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.HtClusterSlug
+	return *o.HtClusterSlug
 }
 
-// GetHtClusterSlugOk returns a tuple with the HtClusterSlug field value
+// GetHtClusterSlugOk returns a tuple with the HtClusterSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHtClusterSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtClusterSlug) {
 		return nil, false
 	}
-	return &o.HtClusterSlug, true
+	return o.HtClusterSlug, true
 }
 
-// SetHtClusterSlug sets field value
+// HasHtClusterSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHtClusterSlug() bool {
+	if o != nil && !IsNil(o.HtClusterSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtClusterSlug gets a reference to the given string and assigns it to the HtClusterSlug field.
 func (o *FormattedApiStackRegionAnyOf1) SetHtClusterSlug(v string) {
-	o.HtClusterSlug = v
+	o.HtClusterSlug = &v
 }
 
-// GetHtClusterName returns the HtClusterName field value
+// GetHtClusterName returns the HtClusterName field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHtClusterName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HtClusterName) {
 		var ret string
 		return ret
 	}
-
-	return o.HtClusterName
+	return *o.HtClusterName
 }
 
-// GetHtClusterNameOk returns a tuple with the HtClusterName field value
+// GetHtClusterNameOk returns a tuple with the HtClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHtClusterNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtClusterName) {
 		return nil, false
 	}
-	return &o.HtClusterName, true
+	return o.HtClusterName, true
 }
 
-// SetHtClusterName sets field value
+// HasHtClusterName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHtClusterName() bool {
+	if o != nil && !IsNil(o.HtClusterName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtClusterName gets a reference to the given string and assigns it to the HtClusterName field.
 func (o *FormattedApiStackRegionAnyOf1) SetHtClusterName(v string) {
-	o.HtClusterName = v
+	o.HtClusterName = &v
 }
 
-// GetHtClusterUrl returns the HtClusterUrl field value
+// GetHtClusterUrl returns the HtClusterUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHtClusterUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HtClusterUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HtClusterUrl
+	return *o.HtClusterUrl
 }
 
-// GetHtClusterUrlOk returns a tuple with the HtClusterUrl field value
+// GetHtClusterUrlOk returns a tuple with the HtClusterUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHtClusterUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtClusterUrl) {
 		return nil, false
 	}
-	return &o.HtClusterUrl, true
+	return o.HtClusterUrl, true
 }
 
-// SetHtClusterUrl sets field value
+// HasHtClusterUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHtClusterUrl() bool {
+	if o != nil && !IsNil(o.HtClusterUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtClusterUrl gets a reference to the given string and assigns it to the HtClusterUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetHtClusterUrl(v string) {
-	o.HtClusterUrl = v
+	o.HtClusterUrl = &v
 }
 
-// GetHpClusterId returns the HpClusterId field value
+// GetHpClusterId returns the HpClusterId field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHpClusterId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HpClusterId) {
 		var ret float32
 		return ret
 	}
-
-	return o.HpClusterId
+	return *o.HpClusterId
 }
 
-// GetHpClusterIdOk returns a tuple with the HpClusterId field value
+// GetHpClusterIdOk returns a tuple with the HpClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHpClusterIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpClusterId) {
 		return nil, false
 	}
-	return &o.HpClusterId, true
+	return o.HpClusterId, true
 }
 
-// SetHpClusterId sets field value
+// HasHpClusterId returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHpClusterId() bool {
+	if o != nil && !IsNil(o.HpClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpClusterId gets a reference to the given float32 and assigns it to the HpClusterId field.
 func (o *FormattedApiStackRegionAnyOf1) SetHpClusterId(v float32) {
-	o.HpClusterId = v
+	o.HpClusterId = &v
 }
 
-// GetHpClusterSlug returns the HpClusterSlug field value
+// GetHpClusterSlug returns the HpClusterSlug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHpClusterSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.HpClusterSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.HpClusterSlug
+	return *o.HpClusterSlug
 }
 
-// GetHpClusterSlugOk returns a tuple with the HpClusterSlug field value
+// GetHpClusterSlugOk returns a tuple with the HpClusterSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHpClusterSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpClusterSlug) {
 		return nil, false
 	}
-	return &o.HpClusterSlug, true
+	return o.HpClusterSlug, true
 }
 
-// SetHpClusterSlug sets field value
+// HasHpClusterSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHpClusterSlug() bool {
+	if o != nil && !IsNil(o.HpClusterSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpClusterSlug gets a reference to the given string and assigns it to the HpClusterSlug field.
 func (o *FormattedApiStackRegionAnyOf1) SetHpClusterSlug(v string) {
-	o.HpClusterSlug = v
+	o.HpClusterSlug = &v
 }
 
-// GetHpClusterName returns the HpClusterName field value
+// GetHpClusterName returns the HpClusterName field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHpClusterName() string {
-	if o == nil {
+	if o == nil || IsNil(o.HpClusterName) {
 		var ret string
 		return ret
 	}
-
-	return o.HpClusterName
+	return *o.HpClusterName
 }
 
-// GetHpClusterNameOk returns a tuple with the HpClusterName field value
+// GetHpClusterNameOk returns a tuple with the HpClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHpClusterNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpClusterName) {
 		return nil, false
 	}
-	return &o.HpClusterName, true
+	return o.HpClusterName, true
 }
 
-// SetHpClusterName sets field value
+// HasHpClusterName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHpClusterName() bool {
+	if o != nil && !IsNil(o.HpClusterName) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpClusterName gets a reference to the given string and assigns it to the HpClusterName field.
 func (o *FormattedApiStackRegionAnyOf1) SetHpClusterName(v string) {
-	o.HpClusterName = v
+	o.HpClusterName = &v
 }
 
-// GetHpClusterUrl returns the HpClusterUrl field value
+// GetHpClusterUrl returns the HpClusterUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetHpClusterUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.HpClusterUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.HpClusterUrl
+	return *o.HpClusterUrl
 }
 
-// GetHpClusterUrlOk returns a tuple with the HpClusterUrl field value
+// GetHpClusterUrlOk returns a tuple with the HpClusterUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetHpClusterUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpClusterUrl) {
 		return nil, false
 	}
-	return &o.HpClusterUrl, true
+	return o.HpClusterUrl, true
 }
 
-// SetHpClusterUrl sets field value
+// HasHpClusterUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasHpClusterUrl() bool {
+	if o != nil && !IsNil(o.HpClusterUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpClusterUrl gets a reference to the given string and assigns it to the HpClusterUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetHpClusterUrl(v string) {
-	o.HpClusterUrl = v
+	o.HpClusterUrl = &v
 }
 
-// GetAgmClusterId returns the AgmClusterId field value
+// GetAgmClusterId returns the AgmClusterId field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetAgmClusterId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AgmClusterId) {
 		var ret float32
 		return ret
 	}
-
-	return o.AgmClusterId
+	return *o.AgmClusterId
 }
 
-// GetAgmClusterIdOk returns a tuple with the AgmClusterId field value
+// GetAgmClusterIdOk returns a tuple with the AgmClusterId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetAgmClusterIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AgmClusterId) {
 		return nil, false
 	}
-	return &o.AgmClusterId, true
+	return o.AgmClusterId, true
 }
 
-// SetAgmClusterId sets field value
+// HasAgmClusterId returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAgmClusterId() bool {
+	if o != nil && !IsNil(o.AgmClusterId) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgmClusterId gets a reference to the given float32 and assigns it to the AgmClusterId field.
 func (o *FormattedApiStackRegionAnyOf1) SetAgmClusterId(v float32) {
-	o.AgmClusterId = v
+	o.AgmClusterId = &v
 }
 
-// GetAgmClusterSlug returns the AgmClusterSlug field value
+// GetAgmClusterSlug returns the AgmClusterSlug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetAgmClusterSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.AgmClusterSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.AgmClusterSlug
+	return *o.AgmClusterSlug
 }
 
-// GetAgmClusterSlugOk returns a tuple with the AgmClusterSlug field value
+// GetAgmClusterSlugOk returns a tuple with the AgmClusterSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetAgmClusterSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AgmClusterSlug) {
 		return nil, false
 	}
-	return &o.AgmClusterSlug, true
+	return o.AgmClusterSlug, true
 }
 
-// SetAgmClusterSlug sets field value
+// HasAgmClusterSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAgmClusterSlug() bool {
+	if o != nil && !IsNil(o.AgmClusterSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgmClusterSlug gets a reference to the given string and assigns it to the AgmClusterSlug field.
 func (o *FormattedApiStackRegionAnyOf1) SetAgmClusterSlug(v string) {
-	o.AgmClusterSlug = v
+	o.AgmClusterSlug = &v
 }
 
-// GetAgmClusterName returns the AgmClusterName field value
+// GetAgmClusterName returns the AgmClusterName field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetAgmClusterName() string {
-	if o == nil {
+	if o == nil || IsNil(o.AgmClusterName) {
 		var ret string
 		return ret
 	}
-
-	return o.AgmClusterName
+	return *o.AgmClusterName
 }
 
-// GetAgmClusterNameOk returns a tuple with the AgmClusterName field value
+// GetAgmClusterNameOk returns a tuple with the AgmClusterName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetAgmClusterNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AgmClusterName) {
 		return nil, false
 	}
-	return &o.AgmClusterName, true
+	return o.AgmClusterName, true
 }
 
-// SetAgmClusterName sets field value
+// HasAgmClusterName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAgmClusterName() bool {
+	if o != nil && !IsNil(o.AgmClusterName) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgmClusterName gets a reference to the given string and assigns it to the AgmClusterName field.
 func (o *FormattedApiStackRegionAnyOf1) SetAgmClusterName(v string) {
-	o.AgmClusterName = v
+	o.AgmClusterName = &v
 }
 
-// GetAgmClusterUrl returns the AgmClusterUrl field value
+// GetAgmClusterUrl returns the AgmClusterUrl field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetAgmClusterUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.AgmClusterUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.AgmClusterUrl
+	return *o.AgmClusterUrl
 }
 
-// GetAgmClusterUrlOk returns a tuple with the AgmClusterUrl field value
+// GetAgmClusterUrlOk returns a tuple with the AgmClusterUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetAgmClusterUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AgmClusterUrl) {
 		return nil, false
 	}
-	return &o.AgmClusterUrl, true
+	return o.AgmClusterUrl, true
 }
 
-// SetAgmClusterUrl sets field value
+// HasAgmClusterUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAgmClusterUrl() bool {
+	if o != nil && !IsNil(o.AgmClusterUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgmClusterUrl gets a reference to the given string and assigns it to the AgmClusterUrl field.
 func (o *FormattedApiStackRegionAnyOf1) SetAgmClusterUrl(v string) {
-	o.AgmClusterUrl = v
+	o.AgmClusterUrl = &v
 }
 
-// GetProviderRegion returns the ProviderRegion field value
+// GetProviderRegion returns the ProviderRegion field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetProviderRegion() string {
-	if o == nil {
+	if o == nil || IsNil(o.ProviderRegion) {
 		var ret string
 		return ret
 	}
-
-	return o.ProviderRegion
+	return *o.ProviderRegion
 }
 
-// GetProviderRegionOk returns a tuple with the ProviderRegion field value
+// GetProviderRegionOk returns a tuple with the ProviderRegion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetProviderRegionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProviderRegion) {
 		return nil, false
 	}
-	return &o.ProviderRegion, true
+	return o.ProviderRegion, true
 }
 
-// SetProviderRegion sets field value
+// HasProviderRegion returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasProviderRegion() bool {
+	if o != nil && !IsNil(o.ProviderRegion) {
+		return true
+	}
+
+	return false
+}
+
+// SetProviderRegion gets a reference to the given string and assigns it to the ProviderRegion field.
 func (o *FormattedApiStackRegionAnyOf1) SetProviderRegion(v string) {
-	o.ProviderRegion = v
+	o.ProviderRegion = &v
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given float32 and assigns it to the Id field.
 func (o *FormattedApiStackRegionAnyOf1) SetId(v float32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *FormattedApiStackRegionAnyOf1) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
 }
 
-// GetVisibility returns the Visibility field value
+// GetVisibility returns the Visibility field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetVisibility() string {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		var ret string
 		return ret
 	}
-
-	return o.Visibility
+	return *o.Visibility
 }
 
-// GetVisibilityOk returns a tuple with the Visibility field value
+// GetVisibilityOk returns a tuple with the Visibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetVisibilityOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		return nil, false
 	}
-	return &o.Visibility, true
+	return o.Visibility, true
 }
 
-// SetVisibility sets field value
+// HasVisibility returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasVisibility() bool {
+	if o != nil && !IsNil(o.Visibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetVisibility gets a reference to the given string and assigns it to the Visibility field.
 func (o *FormattedApiStackRegionAnyOf1) SetVisibility(v string) {
-	o.Visibility = v
+	o.Visibility = &v
 }
 
-// GetSlug returns the Slug field value
+// GetSlug returns the Slug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.Slug) {
 		var ret string
 		return ret
 	}
-
-	return o.Slug
+	return *o.Slug
 }
 
-// GetSlugOk returns a tuple with the Slug field value
+// GetSlugOk returns a tuple with the Slug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Slug) {
 		return nil, false
 	}
-	return &o.Slug, true
+	return o.Slug, true
 }
 
-// SetSlug sets field value
+// HasSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasSlug() bool {
+	if o != nil && !IsNil(o.Slug) {
+		return true
+	}
+
+	return false
+}
+
+// SetSlug gets a reference to the given string and assigns it to the Slug field.
 func (o *FormattedApiStackRegionAnyOf1) SetSlug(v string) {
-	o.Slug = v
+	o.Slug = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FormattedApiStackRegionAnyOf1) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetPublicName returns the PublicName field value
+// GetPublicName returns the PublicName field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetPublicName() string {
-	if o == nil {
+	if o == nil || IsNil(o.PublicName) {
 		var ret string
 		return ret
 	}
-
-	return o.PublicName
+	return *o.PublicName
 }
 
-// GetPublicNameOk returns a tuple with the PublicName field value
+// GetPublicNameOk returns a tuple with the PublicName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetPublicNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PublicName) {
 		return nil, false
 	}
-	return &o.PublicName, true
+	return o.PublicName, true
 }
 
-// SetPublicName sets field value
+// HasPublicName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasPublicName() bool {
+	if o != nil && !IsNil(o.PublicName) {
+		return true
+	}
+
+	return false
+}
+
+// SetPublicName gets a reference to the given string and assigns it to the PublicName field.
 func (o *FormattedApiStackRegionAnyOf1) SetPublicName(v string) {
-	o.PublicName = v
+	o.PublicName = &v
 }
 
-// GetDescription returns the Description field value
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetDescription() string {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-
-	return o.Description
+	return *o.Description
 }
 
-// GetDescriptionOk returns a tuple with the Description field value
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description, true
 }
 
-// SetDescription sets field value
+// HasDescription returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *FormattedApiStackRegionAnyOf1) SetDescription(v string) {
-	o.Description = v
+	o.Description = &v
 }
 
-// GetProvider returns the Provider field value
+// GetProvider returns the Provider field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetProvider() string {
-	if o == nil {
+	if o == nil || IsNil(o.Provider) {
 		var ret string
 		return ret
 	}
-
-	return o.Provider
+	return *o.Provider
 }
 
-// GetProviderOk returns a tuple with the Provider field value
+// GetProviderOk returns a tuple with the Provider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetProviderOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Provider) {
 		return nil, false
 	}
-	return &o.Provider, true
+	return o.Provider, true
 }
 
-// SetProvider sets field value
+// HasProvider returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasProvider() bool {
+	if o != nil && !IsNil(o.Provider) {
+		return true
+	}
+
+	return false
+}
+
+// SetProvider gets a reference to the given string and assigns it to the Provider field.
 func (o *FormattedApiStackRegionAnyOf1) SetProvider(v string) {
-	o.Provider = v
+	o.Provider = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *FormattedApiStackRegionAnyOf1) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiStackRegionAnyOf1) GetUpdatedAt() string {
-	if o == nil || o.UpdatedAt.Get() == nil {
+	if o == nil || IsNil(o.UpdatedAt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.UpdatedAt.Get()
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiStackRegionAnyOf1) GetUpdatedAtOk() (*string, bool) {
@@ -1553,33 +1965,60 @@ func (o *FormattedApiStackRegionAnyOf1) GetUpdatedAtOk() (*string, bool) {
 	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
 }
 
-// SetUpdatedAt sets field value
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasUpdatedAt() bool {
+	if o != nil && o.UpdatedAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given NullableString and assigns it to the UpdatedAt field.
 func (o *FormattedApiStackRegionAnyOf1) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
 
-// GetSortOrder returns the SortOrder field value
+// SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
+func (o *FormattedApiStackRegionAnyOf1) SetUpdatedAtNil() {
+	o.UpdatedAt.Set(nil)
+}
+
+// UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
+func (o *FormattedApiStackRegionAnyOf1) UnsetUpdatedAt() {
+	o.UpdatedAt.Unset()
+}
+
+// GetSortOrder returns the SortOrder field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf1) GetSortOrder() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.SortOrder) {
 		var ret float32
 		return ret
 	}
-
-	return o.SortOrder
+	return *o.SortOrder
 }
 
-// GetSortOrderOk returns a tuple with the SortOrder field value
+// GetSortOrderOk returns a tuple with the SortOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf1) GetSortOrderOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SortOrder) {
 		return nil, false
 	}
-	return &o.SortOrder, true
+	return o.SortOrder, true
 }
 
-// SetSortOrder sets field value
+// HasSortOrder returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasSortOrder() bool {
+	if o != nil && !IsNil(o.SortOrder) {
+		return true
+	}
+
+	return false
+}
+
+// SetSortOrder gets a reference to the given float32 and assigns it to the SortOrder field.
 func (o *FormattedApiStackRegionAnyOf1) SetSortOrder(v float32) {
-	o.SortOrder = v
+	o.SortOrder = &v
 }
 
 func (o FormattedApiStackRegionAnyOf1) MarshalJSON() ([]byte, error) {
@@ -1592,65 +2031,183 @@ func (o FormattedApiStackRegionAnyOf1) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["stackStateServiceUrl"] = o.StackStateServiceUrl
-	toSerialize["syntheticMonitoringApiUrl"] = o.SyntheticMonitoringApiUrl
-	toSerialize["insightsApiUrl"] = o.InsightsApiUrl
-	toSerialize["integrationsApiUrl"] = o.IntegrationsApiUrl
-	toSerialize["hostedExportersApiUrl"] = o.HostedExportersApiUrl
-	toSerialize["machineLearningApiUrl"] = o.MachineLearningApiUrl
-	toSerialize["llmGatewayUrl"] = o.LlmGatewayUrl
-	toSerialize["incidentApiUrl"] = o.IncidentApiUrl
-	toSerialize["oncallApiUrl"] = o.OncallApiUrl
-	toSerialize["faroEndpointUrl"] = o.FaroEndpointUrl
-	toSerialize["pdcClusterSlug"] = o.PdcClusterSlug
-	toSerialize["otlpHttpUrl"] = o.OtlpHttpUrl.Get()
-	toSerialize["otlpPrivateConnectivityInfo"] = o.OtlpPrivateConnectivityInfo.Get()
-	toSerialize["authApiUrl"] = o.AuthApiUrl
-	toSerialize["authApiTokenSet"] = o.AuthApiTokenSet
-	toSerialize["hgClusterId"] = o.HgClusterId
-	toSerialize["hgClusterSlug"] = o.HgClusterSlug
-	toSerialize["hgClusterName"] = o.HgClusterName
-	toSerialize["hgClusterUrl"] = o.HgClusterUrl
-	toSerialize["hmPromClusterId"] = o.HmPromClusterId
-	toSerialize["hmPromClusterSlug"] = o.HmPromClusterSlug
-	toSerialize["hmPromClusterName"] = o.HmPromClusterName
-	toSerialize["hmPromClusterUrl"] = o.HmPromClusterUrl
-	toSerialize["hmGraphiteClusterId"] = o.HmGraphiteClusterId
-	toSerialize["hmGraphiteClusterSlug"] = o.HmGraphiteClusterSlug
-	toSerialize["hmGraphiteClusterName"] = o.HmGraphiteClusterName
-	toSerialize["hmGraphiteClusterUrl"] = o.HmGraphiteClusterUrl
-	toSerialize["hlClusterId"] = o.HlClusterId
-	toSerialize["hlClusterSlug"] = o.HlClusterSlug
-	toSerialize["hlClusterName"] = o.HlClusterName
-	toSerialize["hlClusterUrl"] = o.HlClusterUrl
-	toSerialize["amClusterId"] = o.AmClusterId
-	toSerialize["amClusterSlug"] = o.AmClusterSlug
-	toSerialize["amClusterName"] = o.AmClusterName
-	toSerialize["amClusterUrl"] = o.AmClusterUrl
-	toSerialize["htClusterId"] = o.HtClusterId
-	toSerialize["htClusterSlug"] = o.HtClusterSlug
-	toSerialize["htClusterName"] = o.HtClusterName
-	toSerialize["htClusterUrl"] = o.HtClusterUrl
-	toSerialize["hpClusterId"] = o.HpClusterId
-	toSerialize["hpClusterSlug"] = o.HpClusterSlug
-	toSerialize["hpClusterName"] = o.HpClusterName
-	toSerialize["hpClusterUrl"] = o.HpClusterUrl
-	toSerialize["agmClusterId"] = o.AgmClusterId
-	toSerialize["agmClusterSlug"] = o.AgmClusterSlug
-	toSerialize["agmClusterName"] = o.AgmClusterName
-	toSerialize["agmClusterUrl"] = o.AgmClusterUrl
-	toSerialize["providerRegion"] = o.ProviderRegion
-	toSerialize["id"] = o.Id
-	toSerialize["status"] = o.Status
-	toSerialize["visibility"] = o.Visibility
-	toSerialize["slug"] = o.Slug
-	toSerialize["name"] = o.Name
-	toSerialize["publicName"] = o.PublicName
-	toSerialize["description"] = o.Description
-	toSerialize["provider"] = o.Provider
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["updatedAt"] = o.UpdatedAt.Get()
-	toSerialize["sortOrder"] = o.SortOrder
+	if !IsNil(o.StackStateServiceUrl) {
+		toSerialize["stackStateServiceUrl"] = o.StackStateServiceUrl
+	}
+	if !IsNil(o.SyntheticMonitoringApiUrl) {
+		toSerialize["syntheticMonitoringApiUrl"] = o.SyntheticMonitoringApiUrl
+	}
+	if !IsNil(o.InsightsApiUrl) {
+		toSerialize["insightsApiUrl"] = o.InsightsApiUrl
+	}
+	if !IsNil(o.IntegrationsApiUrl) {
+		toSerialize["integrationsApiUrl"] = o.IntegrationsApiUrl
+	}
+	if !IsNil(o.HostedExportersApiUrl) {
+		toSerialize["hostedExportersApiUrl"] = o.HostedExportersApiUrl
+	}
+	if !IsNil(o.MachineLearningApiUrl) {
+		toSerialize["machineLearningApiUrl"] = o.MachineLearningApiUrl
+	}
+	if !IsNil(o.LlmGatewayUrl) {
+		toSerialize["llmGatewayUrl"] = o.LlmGatewayUrl
+	}
+	if !IsNil(o.IncidentApiUrl) {
+		toSerialize["incidentApiUrl"] = o.IncidentApiUrl
+	}
+	if !IsNil(o.OncallApiUrl) {
+		toSerialize["oncallApiUrl"] = o.OncallApiUrl
+	}
+	if !IsNil(o.FaroEndpointUrl) {
+		toSerialize["faroEndpointUrl"] = o.FaroEndpointUrl
+	}
+	if !IsNil(o.PdcClusterSlug) {
+		toSerialize["pdcClusterSlug"] = o.PdcClusterSlug
+	}
+	if o.OtlpHttpUrl.IsSet() {
+		toSerialize["otlpHttpUrl"] = o.OtlpHttpUrl.Get()
+	}
+	if o.OtlpPrivateConnectivityInfo.IsSet() {
+		toSerialize["otlpPrivateConnectivityInfo"] = o.OtlpPrivateConnectivityInfo.Get()
+	}
+	if !IsNil(o.AuthApiUrl) {
+		toSerialize["authApiUrl"] = o.AuthApiUrl
+	}
+	if !IsNil(o.AuthApiTokenSet) {
+		toSerialize["authApiTokenSet"] = o.AuthApiTokenSet
+	}
+	if !IsNil(o.HgClusterId) {
+		toSerialize["hgClusterId"] = o.HgClusterId
+	}
+	if !IsNil(o.HgClusterSlug) {
+		toSerialize["hgClusterSlug"] = o.HgClusterSlug
+	}
+	if !IsNil(o.HgClusterName) {
+		toSerialize["hgClusterName"] = o.HgClusterName
+	}
+	if !IsNil(o.HgClusterUrl) {
+		toSerialize["hgClusterUrl"] = o.HgClusterUrl
+	}
+	if !IsNil(o.HmPromClusterId) {
+		toSerialize["hmPromClusterId"] = o.HmPromClusterId
+	}
+	if !IsNil(o.HmPromClusterSlug) {
+		toSerialize["hmPromClusterSlug"] = o.HmPromClusterSlug
+	}
+	if !IsNil(o.HmPromClusterName) {
+		toSerialize["hmPromClusterName"] = o.HmPromClusterName
+	}
+	if !IsNil(o.HmPromClusterUrl) {
+		toSerialize["hmPromClusterUrl"] = o.HmPromClusterUrl
+	}
+	if !IsNil(o.HmGraphiteClusterId) {
+		toSerialize["hmGraphiteClusterId"] = o.HmGraphiteClusterId
+	}
+	if !IsNil(o.HmGraphiteClusterSlug) {
+		toSerialize["hmGraphiteClusterSlug"] = o.HmGraphiteClusterSlug
+	}
+	if !IsNil(o.HmGraphiteClusterName) {
+		toSerialize["hmGraphiteClusterName"] = o.HmGraphiteClusterName
+	}
+	if !IsNil(o.HmGraphiteClusterUrl) {
+		toSerialize["hmGraphiteClusterUrl"] = o.HmGraphiteClusterUrl
+	}
+	if !IsNil(o.HlClusterId) {
+		toSerialize["hlClusterId"] = o.HlClusterId
+	}
+	if !IsNil(o.HlClusterSlug) {
+		toSerialize["hlClusterSlug"] = o.HlClusterSlug
+	}
+	if !IsNil(o.HlClusterName) {
+		toSerialize["hlClusterName"] = o.HlClusterName
+	}
+	if !IsNil(o.HlClusterUrl) {
+		toSerialize["hlClusterUrl"] = o.HlClusterUrl
+	}
+	if !IsNil(o.AmClusterId) {
+		toSerialize["amClusterId"] = o.AmClusterId
+	}
+	if !IsNil(o.AmClusterSlug) {
+		toSerialize["amClusterSlug"] = o.AmClusterSlug
+	}
+	if !IsNil(o.AmClusterName) {
+		toSerialize["amClusterName"] = o.AmClusterName
+	}
+	if !IsNil(o.AmClusterUrl) {
+		toSerialize["amClusterUrl"] = o.AmClusterUrl
+	}
+	if !IsNil(o.HtClusterId) {
+		toSerialize["htClusterId"] = o.HtClusterId
+	}
+	if !IsNil(o.HtClusterSlug) {
+		toSerialize["htClusterSlug"] = o.HtClusterSlug
+	}
+	if !IsNil(o.HtClusterName) {
+		toSerialize["htClusterName"] = o.HtClusterName
+	}
+	if !IsNil(o.HtClusterUrl) {
+		toSerialize["htClusterUrl"] = o.HtClusterUrl
+	}
+	if !IsNil(o.HpClusterId) {
+		toSerialize["hpClusterId"] = o.HpClusterId
+	}
+	if !IsNil(o.HpClusterSlug) {
+		toSerialize["hpClusterSlug"] = o.HpClusterSlug
+	}
+	if !IsNil(o.HpClusterName) {
+		toSerialize["hpClusterName"] = o.HpClusterName
+	}
+	if !IsNil(o.HpClusterUrl) {
+		toSerialize["hpClusterUrl"] = o.HpClusterUrl
+	}
+	if !IsNil(o.AgmClusterId) {
+		toSerialize["agmClusterId"] = o.AgmClusterId
+	}
+	if !IsNil(o.AgmClusterSlug) {
+		toSerialize["agmClusterSlug"] = o.AgmClusterSlug
+	}
+	if !IsNil(o.AgmClusterName) {
+		toSerialize["agmClusterName"] = o.AgmClusterName
+	}
+	if !IsNil(o.AgmClusterUrl) {
+		toSerialize["agmClusterUrl"] = o.AgmClusterUrl
+	}
+	if !IsNil(o.ProviderRegion) {
+		toSerialize["providerRegion"] = o.ProviderRegion
+	}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.Visibility) {
+		toSerialize["visibility"] = o.Visibility
+	}
+	if !IsNil(o.Slug) {
+		toSerialize["slug"] = o.Slug
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.PublicName) {
+		toSerialize["publicName"] = o.PublicName
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Provider) {
+		toSerialize["provider"] = o.Provider
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if o.UpdatedAt.IsSet() {
+		toSerialize["updatedAt"] = o.UpdatedAt.Get()
+	}
+	if !IsNil(o.SortOrder) {
+		toSerialize["sortOrder"] = o.SortOrder
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -1660,85 +2217,6 @@ func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"stackStateServiceUrl",
-		"syntheticMonitoringApiUrl",
-		"insightsApiUrl",
-		"integrationsApiUrl",
-		"hostedExportersApiUrl",
-		"machineLearningApiUrl",
-		"llmGatewayUrl",
-		"incidentApiUrl",
-		"oncallApiUrl",
-		"faroEndpointUrl",
-		"pdcClusterSlug",
-		"otlpHttpUrl",
-		"otlpPrivateConnectivityInfo",
-		"authApiUrl",
-		"authApiTokenSet",
-		"hgClusterId",
-		"hgClusterSlug",
-		"hgClusterName",
-		"hgClusterUrl",
-		"hmPromClusterId",
-		"hmPromClusterSlug",
-		"hmPromClusterName",
-		"hmPromClusterUrl",
-		"hmGraphiteClusterId",
-		"hmGraphiteClusterSlug",
-		"hmGraphiteClusterName",
-		"hmGraphiteClusterUrl",
-		"hlClusterId",
-		"hlClusterSlug",
-		"hlClusterName",
-		"hlClusterUrl",
-		"amClusterId",
-		"amClusterSlug",
-		"amClusterName",
-		"amClusterUrl",
-		"htClusterId",
-		"htClusterSlug",
-		"htClusterName",
-		"htClusterUrl",
-		"hpClusterId",
-		"hpClusterSlug",
-		"hpClusterName",
-		"hpClusterUrl",
-		"agmClusterId",
-		"agmClusterSlug",
-		"agmClusterName",
-		"agmClusterUrl",
-		"providerRegion",
-		"id",
-		"status",
-		"visibility",
-		"slug",
-		"name",
-		"publicName",
-		"description",
-		"provider",
-		"createdAt",
-		"updatedAt",
-		"sortOrder",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varFormattedApiStackRegionAnyOf1 := _FormattedApiStackRegionAnyOf1{}
 
 	err = json.Unmarshal(data, &varFormattedApiStackRegionAnyOf1)

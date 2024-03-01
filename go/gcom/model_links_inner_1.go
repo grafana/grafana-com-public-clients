@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the LinksInner1 type satisfies the MappedNullable interface at compile time
@@ -20,8 +19,8 @@ var _ MappedNullable = &LinksInner1{}
 
 // LinksInner1 struct for LinksInner1
 type LinksInner1 struct {
-	Rel                  string `json:"rel"`
-	Href                 string `json:"href"`
+	Rel                  *string `json:"rel,omitempty"`
+	Href                 *string `json:"href,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,10 +30,8 @@ type _LinksInner1 LinksInner1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLinksInner1(rel string, href string) *LinksInner1 {
+func NewLinksInner1() *LinksInner1 {
 	this := LinksInner1{}
-	this.Rel = rel
-	this.Href = href
 	return &this
 }
 
@@ -46,52 +43,68 @@ func NewLinksInner1WithDefaults() *LinksInner1 {
 	return &this
 }
 
-// GetRel returns the Rel field value
+// GetRel returns the Rel field value if set, zero value otherwise.
 func (o *LinksInner1) GetRel() string {
-	if o == nil {
+	if o == nil || IsNil(o.Rel) {
 		var ret string
 		return ret
 	}
-
-	return o.Rel
+	return *o.Rel
 }
 
-// GetRelOk returns a tuple with the Rel field value
+// GetRelOk returns a tuple with the Rel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LinksInner1) GetRelOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Rel) {
 		return nil, false
 	}
-	return &o.Rel, true
+	return o.Rel, true
 }
 
-// SetRel sets field value
+// HasRel returns a boolean if a field has been set.
+func (o *LinksInner1) HasRel() bool {
+	if o != nil && !IsNil(o.Rel) {
+		return true
+	}
+
+	return false
+}
+
+// SetRel gets a reference to the given string and assigns it to the Rel field.
 func (o *LinksInner1) SetRel(v string) {
-	o.Rel = v
+	o.Rel = &v
 }
 
-// GetHref returns the Href field value
+// GetHref returns the Href field value if set, zero value otherwise.
 func (o *LinksInner1) GetHref() string {
-	if o == nil {
+	if o == nil || IsNil(o.Href) {
 		var ret string
 		return ret
 	}
-
-	return o.Href
+	return *o.Href
 }
 
-// GetHrefOk returns a tuple with the Href field value
+// GetHrefOk returns a tuple with the Href field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *LinksInner1) GetHrefOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Href) {
 		return nil, false
 	}
-	return &o.Href, true
+	return o.Href, true
 }
 
-// SetHref sets field value
+// HasHref returns a boolean if a field has been set.
+func (o *LinksInner1) HasHref() bool {
+	if o != nil && !IsNil(o.Href) {
+		return true
+	}
+
+	return false
+}
+
+// SetHref gets a reference to the given string and assigns it to the Href field.
 func (o *LinksInner1) SetHref(v string) {
-	o.Href = v
+	o.Href = &v
 }
 
 func (o LinksInner1) MarshalJSON() ([]byte, error) {
@@ -104,8 +117,12 @@ func (o LinksInner1) MarshalJSON() ([]byte, error) {
 
 func (o LinksInner1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["rel"] = o.Rel
-	toSerialize["href"] = o.Href
+	if !IsNil(o.Rel) {
+		toSerialize["rel"] = o.Rel
+	}
+	if !IsNil(o.Href) {
+		toSerialize["href"] = o.Href
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -115,28 +132,6 @@ func (o LinksInner1) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *LinksInner1) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"rel",
-		"href",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varLinksInner1 := _LinksInner1{}
 
 	err = json.Unmarshal(data, &varLinksInner1)

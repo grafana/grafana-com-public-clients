@@ -4,43 +4,43 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
-**OrgId** | **float32** |  | 
-**UserId** | **float32** |  | 
-**Status** | **float32** |  | 
-**CreatedAt** | **string** |  | 
-**UpdatedAt** | **NullableString** |  | 
-**DefaultOrg** | **float32** |  | 
-**Role** | **string** |  | 
-**Privacy** | **float32** |  | 
-**Billing** | **float32** |  | 
-**CreatedBy** | **string** |  | 
-**UpdatedBy** | **string** |  | 
-**OrgName** | **string** |  | 
-**OrgSlug** | **string** |  | 
-**OrgUrl** | **string** |  | 
-**GrafanaCloud** | **float32** |  | 
-**ResellerId** | **NullableFloat32** |  | 
-**ContractTypeId** | **float32** |  | 
-**AllowGCloudTrial** | **bool** |  | 
-**HlUsage** | **float32** |  | 
-**HmCurrentGraphiteUsage** | **float32** |  | 
-**HmCurrentPrometheusUsage** | **float32** |  | 
-**HgDatasourceCnts** | **string** |  | 
-**UserFirstName** | **string** |  | 
-**UserLastName** | **string** |  | 
-**UserUsername** | **string** |  | 
-**UserStatus** | **float32** |  | 
-**UserEmail** | **string** |  | 
-**UserName** | **string** |  | 
-**Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
-**MarketplaceSubscription** | [**NullableItemsInner1MarketplaceSubscription**](ItemsInner1MarketplaceSubscription.md) |  | 
+**Id** | Pointer to **float32** |  | [optional] 
+**OrgId** | Pointer to **float32** |  | [optional] 
+**UserId** | Pointer to **float32** |  | [optional] 
+**Status** | Pointer to **float32** |  | [optional] 
+**CreatedAt** | Pointer to **string** |  | [optional] 
+**UpdatedAt** | Pointer to **NullableString** |  | [optional] 
+**DefaultOrg** | Pointer to **float32** |  | [optional] 
+**Role** | Pointer to **string** |  | [optional] 
+**Privacy** | Pointer to **float32** |  | [optional] 
+**Billing** | Pointer to **float32** |  | [optional] 
+**CreatedBy** | Pointer to **string** |  | [optional] 
+**UpdatedBy** | Pointer to **string** |  | [optional] 
+**OrgName** | Pointer to **string** |  | [optional] 
+**OrgSlug** | Pointer to **string** |  | [optional] 
+**OrgUrl** | Pointer to **string** |  | [optional] 
+**GrafanaCloud** | Pointer to **float32** |  | [optional] 
+**ResellerId** | Pointer to **NullableFloat32** |  | [optional] 
+**ContractTypeId** | Pointer to **float32** |  | [optional] 
+**AllowGCloudTrial** | Pointer to **bool** |  | [optional] 
+**HlUsage** | Pointer to **float32** |  | [optional] 
+**HmCurrentGraphiteUsage** | Pointer to **float32** |  | [optional] 
+**HmCurrentPrometheusUsage** | Pointer to **float32** |  | [optional] 
+**HgDatasourceCnts** | Pointer to **string** |  | [optional] 
+**UserFirstName** | Pointer to **string** |  | [optional] 
+**UserLastName** | Pointer to **string** |  | [optional] 
+**UserUsername** | Pointer to **string** |  | [optional] 
+**UserStatus** | Pointer to **float32** |  | [optional] 
+**UserEmail** | Pointer to **string** |  | [optional] 
+**UserName** | Pointer to **string** |  | [optional] 
+**Subscriptions** | Pointer to [**Subscriptions**](Subscriptions.md) |  | [optional] 
+**MarketplaceSubscription** | Pointer to [**NullableItemsInner1MarketplaceSubscription**](ItemsInner1MarketplaceSubscription.md) |  | [optional] 
 
 ## Methods
 
 ### NewFormattedOrgMembership
 
-`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial bool, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription, ) *FormattedOrgMembership`
+`func NewFormattedOrgMembership() *FormattedOrgMembership`
 
 NewFormattedOrgMembership instantiates a new FormattedOrgMembership object
 This constructor will assign default values to properties that have it defined,
@@ -74,6 +74,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *FormattedOrgMembership) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetOrgId
 
@@ -94,6 +99,11 @@ and a boolean to check if the value has been set.
 
 SetOrgId sets OrgId field to given value.
 
+### HasOrgId
+
+`func (o *FormattedOrgMembership) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetUserId
 
@@ -114,6 +124,11 @@ and a boolean to check if the value has been set.
 
 SetUserId sets UserId field to given value.
 
+### HasUserId
+
+`func (o *FormattedOrgMembership) HasUserId() bool`
+
+HasUserId returns a boolean if a field has been set.
 
 ### GetStatus
 
@@ -134,6 +149,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *FormattedOrgMembership) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -154,6 +174,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *FormattedOrgMembership) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 
@@ -174,6 +199,11 @@ and a boolean to check if the value has been set.
 
 SetUpdatedAt sets UpdatedAt field to given value.
 
+### HasUpdatedAt
+
+`func (o *FormattedOrgMembership) HasUpdatedAt() bool`
+
+HasUpdatedAt returns a boolean if a field has been set.
 
 ### SetUpdatedAtNil
 
@@ -204,6 +234,11 @@ and a boolean to check if the value has been set.
 
 SetDefaultOrg sets DefaultOrg field to given value.
 
+### HasDefaultOrg
+
+`func (o *FormattedOrgMembership) HasDefaultOrg() bool`
+
+HasDefaultOrg returns a boolean if a field has been set.
 
 ### GetRole
 
@@ -224,6 +259,11 @@ and a boolean to check if the value has been set.
 
 SetRole sets Role field to given value.
 
+### HasRole
+
+`func (o *FormattedOrgMembership) HasRole() bool`
+
+HasRole returns a boolean if a field has been set.
 
 ### GetPrivacy
 
@@ -244,6 +284,11 @@ and a boolean to check if the value has been set.
 
 SetPrivacy sets Privacy field to given value.
 
+### HasPrivacy
+
+`func (o *FormattedOrgMembership) HasPrivacy() bool`
+
+HasPrivacy returns a boolean if a field has been set.
 
 ### GetBilling
 
@@ -264,6 +309,11 @@ and a boolean to check if the value has been set.
 
 SetBilling sets Billing field to given value.
 
+### HasBilling
+
+`func (o *FormattedOrgMembership) HasBilling() bool`
+
+HasBilling returns a boolean if a field has been set.
 
 ### GetCreatedBy
 
@@ -284,6 +334,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedBy sets CreatedBy field to given value.
 
+### HasCreatedBy
+
+`func (o *FormattedOrgMembership) HasCreatedBy() bool`
+
+HasCreatedBy returns a boolean if a field has been set.
 
 ### GetUpdatedBy
 
@@ -304,6 +359,11 @@ and a boolean to check if the value has been set.
 
 SetUpdatedBy sets UpdatedBy field to given value.
 
+### HasUpdatedBy
+
+`func (o *FormattedOrgMembership) HasUpdatedBy() bool`
+
+HasUpdatedBy returns a boolean if a field has been set.
 
 ### GetOrgName
 
@@ -324,6 +384,11 @@ and a boolean to check if the value has been set.
 
 SetOrgName sets OrgName field to given value.
 
+### HasOrgName
+
+`func (o *FormattedOrgMembership) HasOrgName() bool`
+
+HasOrgName returns a boolean if a field has been set.
 
 ### GetOrgSlug
 
@@ -344,6 +409,11 @@ and a boolean to check if the value has been set.
 
 SetOrgSlug sets OrgSlug field to given value.
 
+### HasOrgSlug
+
+`func (o *FormattedOrgMembership) HasOrgSlug() bool`
+
+HasOrgSlug returns a boolean if a field has been set.
 
 ### GetOrgUrl
 
@@ -364,6 +434,11 @@ and a boolean to check if the value has been set.
 
 SetOrgUrl sets OrgUrl field to given value.
 
+### HasOrgUrl
+
+`func (o *FormattedOrgMembership) HasOrgUrl() bool`
+
+HasOrgUrl returns a boolean if a field has been set.
 
 ### GetGrafanaCloud
 
@@ -384,6 +459,11 @@ and a boolean to check if the value has been set.
 
 SetGrafanaCloud sets GrafanaCloud field to given value.
 
+### HasGrafanaCloud
+
+`func (o *FormattedOrgMembership) HasGrafanaCloud() bool`
+
+HasGrafanaCloud returns a boolean if a field has been set.
 
 ### GetResellerId
 
@@ -404,6 +484,11 @@ and a boolean to check if the value has been set.
 
 SetResellerId sets ResellerId field to given value.
 
+### HasResellerId
+
+`func (o *FormattedOrgMembership) HasResellerId() bool`
+
+HasResellerId returns a boolean if a field has been set.
 
 ### SetResellerIdNil
 
@@ -434,6 +519,11 @@ and a boolean to check if the value has been set.
 
 SetContractTypeId sets ContractTypeId field to given value.
 
+### HasContractTypeId
+
+`func (o *FormattedOrgMembership) HasContractTypeId() bool`
+
+HasContractTypeId returns a boolean if a field has been set.
 
 ### GetAllowGCloudTrial
 
@@ -454,6 +544,11 @@ and a boolean to check if the value has been set.
 
 SetAllowGCloudTrial sets AllowGCloudTrial field to given value.
 
+### HasAllowGCloudTrial
+
+`func (o *FormattedOrgMembership) HasAllowGCloudTrial() bool`
+
+HasAllowGCloudTrial returns a boolean if a field has been set.
 
 ### GetHlUsage
 
@@ -474,6 +569,11 @@ and a boolean to check if the value has been set.
 
 SetHlUsage sets HlUsage field to given value.
 
+### HasHlUsage
+
+`func (o *FormattedOrgMembership) HasHlUsage() bool`
+
+HasHlUsage returns a boolean if a field has been set.
 
 ### GetHmCurrentGraphiteUsage
 
@@ -494,6 +594,11 @@ and a boolean to check if the value has been set.
 
 SetHmCurrentGraphiteUsage sets HmCurrentGraphiteUsage field to given value.
 
+### HasHmCurrentGraphiteUsage
+
+`func (o *FormattedOrgMembership) HasHmCurrentGraphiteUsage() bool`
+
+HasHmCurrentGraphiteUsage returns a boolean if a field has been set.
 
 ### GetHmCurrentPrometheusUsage
 
@@ -514,6 +619,11 @@ and a boolean to check if the value has been set.
 
 SetHmCurrentPrometheusUsage sets HmCurrentPrometheusUsage field to given value.
 
+### HasHmCurrentPrometheusUsage
+
+`func (o *FormattedOrgMembership) HasHmCurrentPrometheusUsage() bool`
+
+HasHmCurrentPrometheusUsage returns a boolean if a field has been set.
 
 ### GetHgDatasourceCnts
 
@@ -534,6 +644,11 @@ and a boolean to check if the value has been set.
 
 SetHgDatasourceCnts sets HgDatasourceCnts field to given value.
 
+### HasHgDatasourceCnts
+
+`func (o *FormattedOrgMembership) HasHgDatasourceCnts() bool`
+
+HasHgDatasourceCnts returns a boolean if a field has been set.
 
 ### GetUserFirstName
 
@@ -554,6 +669,11 @@ and a boolean to check if the value has been set.
 
 SetUserFirstName sets UserFirstName field to given value.
 
+### HasUserFirstName
+
+`func (o *FormattedOrgMembership) HasUserFirstName() bool`
+
+HasUserFirstName returns a boolean if a field has been set.
 
 ### GetUserLastName
 
@@ -574,6 +694,11 @@ and a boolean to check if the value has been set.
 
 SetUserLastName sets UserLastName field to given value.
 
+### HasUserLastName
+
+`func (o *FormattedOrgMembership) HasUserLastName() bool`
+
+HasUserLastName returns a boolean if a field has been set.
 
 ### GetUserUsername
 
@@ -594,6 +719,11 @@ and a boolean to check if the value has been set.
 
 SetUserUsername sets UserUsername field to given value.
 
+### HasUserUsername
+
+`func (o *FormattedOrgMembership) HasUserUsername() bool`
+
+HasUserUsername returns a boolean if a field has been set.
 
 ### GetUserStatus
 
@@ -614,6 +744,11 @@ and a boolean to check if the value has been set.
 
 SetUserStatus sets UserStatus field to given value.
 
+### HasUserStatus
+
+`func (o *FormattedOrgMembership) HasUserStatus() bool`
+
+HasUserStatus returns a boolean if a field has been set.
 
 ### GetUserEmail
 
@@ -634,6 +769,11 @@ and a boolean to check if the value has been set.
 
 SetUserEmail sets UserEmail field to given value.
 
+### HasUserEmail
+
+`func (o *FormattedOrgMembership) HasUserEmail() bool`
+
+HasUserEmail returns a boolean if a field has been set.
 
 ### GetUserName
 
@@ -654,6 +794,11 @@ and a boolean to check if the value has been set.
 
 SetUserName sets UserName field to given value.
 
+### HasUserName
+
+`func (o *FormattedOrgMembership) HasUserName() bool`
+
+HasUserName returns a boolean if a field has been set.
 
 ### GetSubscriptions
 
@@ -674,6 +819,11 @@ and a boolean to check if the value has been set.
 
 SetSubscriptions sets Subscriptions field to given value.
 
+### HasSubscriptions
+
+`func (o *FormattedOrgMembership) HasSubscriptions() bool`
+
+HasSubscriptions returns a boolean if a field has been set.
 
 ### GetMarketplaceSubscription
 
@@ -694,6 +844,11 @@ and a boolean to check if the value has been set.
 
 SetMarketplaceSubscription sets MarketplaceSubscription field to given value.
 
+### HasMarketplaceSubscription
+
+`func (o *FormattedOrgMembership) HasMarketplaceSubscription() bool`
+
+HasMarketplaceSubscription returns a boolean if a field has been set.
 
 ### SetMarketplaceSubscriptionNil
 

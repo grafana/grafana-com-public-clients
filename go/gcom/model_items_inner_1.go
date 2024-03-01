@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ItemsInner1 type satisfies the MappedNullable interface at compile time
@@ -20,37 +19,37 @@ var _ MappedNullable = &ItemsInner1{}
 
 // ItemsInner1 struct for ItemsInner1
 type ItemsInner1 struct {
-	Id                       float32                                    `json:"id"`
-	OrgId                    float32                                    `json:"orgId"`
-	UserId                   float32                                    `json:"userId"`
-	Status                   float32                                    `json:"status"`
-	CreatedAt                string                                     `json:"createdAt"`
-	UpdatedAt                NullableString                             `json:"updatedAt"`
-	DefaultOrg               float32                                    `json:"defaultOrg"`
-	Role                     string                                     `json:"role"`
-	Privacy                  float32                                    `json:"privacy"`
-	Billing                  float32                                    `json:"billing"`
-	CreatedBy                string                                     `json:"createdBy"`
-	UpdatedBy                string                                     `json:"updatedBy"`
-	OrgName                  string                                     `json:"orgName"`
-	OrgSlug                  string                                     `json:"orgSlug"`
-	OrgUrl                   string                                     `json:"orgUrl"`
-	GrafanaCloud             float32                                    `json:"grafanaCloud"`
-	ResellerId               NullableFloat32                            `json:"resellerId"`
-	ContractTypeId           float32                                    `json:"contractTypeId"`
-	AllowGCloudTrial         bool                                       `json:"allowGCloudTrial"`
-	HlUsage                  float32                                    `json:"hlUsage"`
-	HmCurrentGraphiteUsage   float32                                    `json:"hmCurrentGraphiteUsage"`
-	HmCurrentPrometheusUsage float32                                    `json:"hmCurrentPrometheusUsage"`
-	HgDatasourceCnts         string                                     `json:"hgDatasourceCnts"`
-	UserFirstName            string                                     `json:"userFirstName"`
-	UserLastName             string                                     `json:"userLastName"`
-	UserUsername             string                                     `json:"userUsername"`
-	UserStatus               float32                                    `json:"userStatus"`
-	UserEmail                string                                     `json:"userEmail"`
-	UserName                 string                                     `json:"userName"`
-	Subscriptions            Subscriptions                              `json:"subscriptions"`
-	MarketplaceSubscription  NullableItemsInner1MarketplaceSubscription `json:"marketplaceSubscription"`
+	Id                       *float32                                   `json:"id,omitempty"`
+	OrgId                    *float32                                   `json:"orgId,omitempty"`
+	UserId                   *float32                                   `json:"userId,omitempty"`
+	Status                   *float32                                   `json:"status,omitempty"`
+	CreatedAt                *string                                    `json:"createdAt,omitempty"`
+	UpdatedAt                NullableString                             `json:"updatedAt,omitempty"`
+	DefaultOrg               *float32                                   `json:"defaultOrg,omitempty"`
+	Role                     *string                                    `json:"role,omitempty"`
+	Privacy                  *float32                                   `json:"privacy,omitempty"`
+	Billing                  *float32                                   `json:"billing,omitempty"`
+	CreatedBy                *string                                    `json:"createdBy,omitempty"`
+	UpdatedBy                *string                                    `json:"updatedBy,omitempty"`
+	OrgName                  *string                                    `json:"orgName,omitempty"`
+	OrgSlug                  *string                                    `json:"orgSlug,omitempty"`
+	OrgUrl                   *string                                    `json:"orgUrl,omitempty"`
+	GrafanaCloud             *float32                                   `json:"grafanaCloud,omitempty"`
+	ResellerId               NullableFloat32                            `json:"resellerId,omitempty"`
+	ContractTypeId           *float32                                   `json:"contractTypeId,omitempty"`
+	AllowGCloudTrial         *bool                                      `json:"allowGCloudTrial,omitempty"`
+	HlUsage                  *float32                                   `json:"hlUsage,omitempty"`
+	HmCurrentGraphiteUsage   *float32                                   `json:"hmCurrentGraphiteUsage,omitempty"`
+	HmCurrentPrometheusUsage *float32                                   `json:"hmCurrentPrometheusUsage,omitempty"`
+	HgDatasourceCnts         *string                                    `json:"hgDatasourceCnts,omitempty"`
+	UserFirstName            *string                                    `json:"userFirstName,omitempty"`
+	UserLastName             *string                                    `json:"userLastName,omitempty"`
+	UserUsername             *string                                    `json:"userUsername,omitempty"`
+	UserStatus               *float32                                   `json:"userStatus,omitempty"`
+	UserEmail                *string                                    `json:"userEmail,omitempty"`
+	UserName                 *string                                    `json:"userName,omitempty"`
+	Subscriptions            *Subscriptions                             `json:"subscriptions,omitempty"`
+	MarketplaceSubscription  NullableItemsInner1MarketplaceSubscription `json:"marketplaceSubscription,omitempty"`
 	AdditionalProperties     map[string]interface{}
 }
 
@@ -60,39 +59,8 @@ type _ItemsInner1 ItemsInner1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsInner1(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial bool, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription) *ItemsInner1 {
+func NewItemsInner1() *ItemsInner1 {
 	this := ItemsInner1{}
-	this.Id = id
-	this.OrgId = orgId
-	this.UserId = userId
-	this.Status = status
-	this.CreatedAt = createdAt
-	this.UpdatedAt = updatedAt
-	this.DefaultOrg = defaultOrg
-	this.Role = role
-	this.Privacy = privacy
-	this.Billing = billing
-	this.CreatedBy = createdBy
-	this.UpdatedBy = updatedBy
-	this.OrgName = orgName
-	this.OrgSlug = orgSlug
-	this.OrgUrl = orgUrl
-	this.GrafanaCloud = grafanaCloud
-	this.ResellerId = resellerId
-	this.ContractTypeId = contractTypeId
-	this.AllowGCloudTrial = allowGCloudTrial
-	this.HlUsage = hlUsage
-	this.HmCurrentGraphiteUsage = hmCurrentGraphiteUsage
-	this.HmCurrentPrometheusUsage = hmCurrentPrometheusUsage
-	this.HgDatasourceCnts = hgDatasourceCnts
-	this.UserFirstName = userFirstName
-	this.UserLastName = userLastName
-	this.UserUsername = userUsername
-	this.UserStatus = userStatus
-	this.UserEmail = userEmail
-	this.UserName = userName
-	this.Subscriptions = subscriptions
-	this.MarketplaceSubscription = marketplaceSubscription
 	return &this
 }
 
@@ -104,138 +72,176 @@ func NewItemsInner1WithDefaults() *ItemsInner1 {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *ItemsInner1) GetId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *ItemsInner1) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given float32 and assigns it to the Id field.
 func (o *ItemsInner1) SetId(v float32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetOrgId returns the OrgId field value
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
 func (o *ItemsInner1) GetOrgId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrgId) {
 		var ret float32
 		return ret
 	}
-
-	return o.OrgId
+	return *o.OrgId
 }
 
-// GetOrgIdOk returns a tuple with the OrgId field value
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetOrgIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgId) {
 		return nil, false
 	}
-	return &o.OrgId, true
+	return o.OrgId, true
 }
 
-// SetOrgId sets field value
+// HasOrgId returns a boolean if a field has been set.
+func (o *ItemsInner1) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given float32 and assigns it to the OrgId field.
 func (o *ItemsInner1) SetOrgId(v float32) {
-	o.OrgId = v
+	o.OrgId = &v
 }
 
-// GetUserId returns the UserId field value
+// GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *ItemsInner1) GetUserId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.UserId) {
 		var ret float32
 		return ret
 	}
-
-	return o.UserId
+	return *o.UserId
 }
 
-// GetUserIdOk returns a tuple with the UserId field value
+// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetUserIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserId) {
 		return nil, false
 	}
-	return &o.UserId, true
+	return o.UserId, true
 }
 
-// SetUserId sets field value
+// HasUserId returns a boolean if a field has been set.
+func (o *ItemsInner1) HasUserId() bool {
+	if o != nil && !IsNil(o.UserId) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserId gets a reference to the given float32 and assigns it to the UserId field.
 func (o *ItemsInner1) SetUserId(v float32) {
-	o.UserId = v
+	o.UserId = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ItemsInner1) GetStatus() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret float32
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetStatusOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *ItemsInner1) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given float32 and assigns it to the Status field.
 func (o *ItemsInner1) SetStatus(v float32) {
-	o.Status = v
+	o.Status = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ItemsInner1) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *ItemsInner1) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *ItemsInner1) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ItemsInner1) GetUpdatedAt() string {
-	if o == nil || o.UpdatedAt.Get() == nil {
+	if o == nil || IsNil(o.UpdatedAt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.UpdatedAt.Get()
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ItemsInner1) GetUpdatedAtOk() (*string, bool) {
@@ -245,263 +251,360 @@ func (o *ItemsInner1) GetUpdatedAtOk() (*string, bool) {
 	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
 }
 
-// SetUpdatedAt sets field value
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *ItemsInner1) HasUpdatedAt() bool {
+	if o != nil && o.UpdatedAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given NullableString and assigns it to the UpdatedAt field.
 func (o *ItemsInner1) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
 
-// GetDefaultOrg returns the DefaultOrg field value
+// SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
+func (o *ItemsInner1) SetUpdatedAtNil() {
+	o.UpdatedAt.Set(nil)
+}
+
+// UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
+func (o *ItemsInner1) UnsetUpdatedAt() {
+	o.UpdatedAt.Unset()
+}
+
+// GetDefaultOrg returns the DefaultOrg field value if set, zero value otherwise.
 func (o *ItemsInner1) GetDefaultOrg() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultOrg) {
 		var ret float32
 		return ret
 	}
-
-	return o.DefaultOrg
+	return *o.DefaultOrg
 }
 
-// GetDefaultOrgOk returns a tuple with the DefaultOrg field value
+// GetDefaultOrgOk returns a tuple with the DefaultOrg field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetDefaultOrgOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DefaultOrg) {
 		return nil, false
 	}
-	return &o.DefaultOrg, true
+	return o.DefaultOrg, true
 }
 
-// SetDefaultOrg sets field value
+// HasDefaultOrg returns a boolean if a field has been set.
+func (o *ItemsInner1) HasDefaultOrg() bool {
+	if o != nil && !IsNil(o.DefaultOrg) {
+		return true
+	}
+
+	return false
+}
+
+// SetDefaultOrg gets a reference to the given float32 and assigns it to the DefaultOrg field.
 func (o *ItemsInner1) SetDefaultOrg(v float32) {
-	o.DefaultOrg = v
+	o.DefaultOrg = &v
 }
 
-// GetRole returns the Role field value
+// GetRole returns the Role field value if set, zero value otherwise.
 func (o *ItemsInner1) GetRole() string {
-	if o == nil {
+	if o == nil || IsNil(o.Role) {
 		var ret string
 		return ret
 	}
-
-	return o.Role
+	return *o.Role
 }
 
-// GetRoleOk returns a tuple with the Role field value
+// GetRoleOk returns a tuple with the Role field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetRoleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Role) {
 		return nil, false
 	}
-	return &o.Role, true
+	return o.Role, true
 }
 
-// SetRole sets field value
+// HasRole returns a boolean if a field has been set.
+func (o *ItemsInner1) HasRole() bool {
+	if o != nil && !IsNil(o.Role) {
+		return true
+	}
+
+	return false
+}
+
+// SetRole gets a reference to the given string and assigns it to the Role field.
 func (o *ItemsInner1) SetRole(v string) {
-	o.Role = v
+	o.Role = &v
 }
 
-// GetPrivacy returns the Privacy field value
+// GetPrivacy returns the Privacy field value if set, zero value otherwise.
 func (o *ItemsInner1) GetPrivacy() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Privacy) {
 		var ret float32
 		return ret
 	}
-
-	return o.Privacy
+	return *o.Privacy
 }
 
-// GetPrivacyOk returns a tuple with the Privacy field value
+// GetPrivacyOk returns a tuple with the Privacy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetPrivacyOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Privacy) {
 		return nil, false
 	}
-	return &o.Privacy, true
+	return o.Privacy, true
 }
 
-// SetPrivacy sets field value
+// HasPrivacy returns a boolean if a field has been set.
+func (o *ItemsInner1) HasPrivacy() bool {
+	if o != nil && !IsNil(o.Privacy) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivacy gets a reference to the given float32 and assigns it to the Privacy field.
 func (o *ItemsInner1) SetPrivacy(v float32) {
-	o.Privacy = v
+	o.Privacy = &v
 }
 
-// GetBilling returns the Billing field value
+// GetBilling returns the Billing field value if set, zero value otherwise.
 func (o *ItemsInner1) GetBilling() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Billing) {
 		var ret float32
 		return ret
 	}
-
-	return o.Billing
+	return *o.Billing
 }
 
-// GetBillingOk returns a tuple with the Billing field value
+// GetBillingOk returns a tuple with the Billing field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetBillingOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Billing) {
 		return nil, false
 	}
-	return &o.Billing, true
+	return o.Billing, true
 }
 
-// SetBilling sets field value
+// HasBilling returns a boolean if a field has been set.
+func (o *ItemsInner1) HasBilling() bool {
+	if o != nil && !IsNil(o.Billing) {
+		return true
+	}
+
+	return false
+}
+
+// SetBilling gets a reference to the given float32 and assigns it to the Billing field.
 func (o *ItemsInner1) SetBilling(v float32) {
-	o.Billing = v
+	o.Billing = &v
 }
 
-// GetCreatedBy returns the CreatedBy field value
+// GetCreatedBy returns the CreatedBy field value if set, zero value otherwise.
 func (o *ItemsInner1) GetCreatedBy() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedBy) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedBy
+	return *o.CreatedBy
 }
 
-// GetCreatedByOk returns a tuple with the CreatedBy field value
+// GetCreatedByOk returns a tuple with the CreatedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetCreatedByOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedBy) {
 		return nil, false
 	}
-	return &o.CreatedBy, true
+	return o.CreatedBy, true
 }
 
-// SetCreatedBy sets field value
+// HasCreatedBy returns a boolean if a field has been set.
+func (o *ItemsInner1) HasCreatedBy() bool {
+	if o != nil && !IsNil(o.CreatedBy) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedBy gets a reference to the given string and assigns it to the CreatedBy field.
 func (o *ItemsInner1) SetCreatedBy(v string) {
-	o.CreatedBy = v
+	o.CreatedBy = &v
 }
 
-// GetUpdatedBy returns the UpdatedBy field value
+// GetUpdatedBy returns the UpdatedBy field value if set, zero value otherwise.
 func (o *ItemsInner1) GetUpdatedBy() string {
-	if o == nil {
+	if o == nil || IsNil(o.UpdatedBy) {
 		var ret string
 		return ret
 	}
-
-	return o.UpdatedBy
+	return *o.UpdatedBy
 }
 
-// GetUpdatedByOk returns a tuple with the UpdatedBy field value
+// GetUpdatedByOk returns a tuple with the UpdatedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetUpdatedByOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UpdatedBy) {
 		return nil, false
 	}
-	return &o.UpdatedBy, true
+	return o.UpdatedBy, true
 }
 
-// SetUpdatedBy sets field value
+// HasUpdatedBy returns a boolean if a field has been set.
+func (o *ItemsInner1) HasUpdatedBy() bool {
+	if o != nil && !IsNil(o.UpdatedBy) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedBy gets a reference to the given string and assigns it to the UpdatedBy field.
 func (o *ItemsInner1) SetUpdatedBy(v string) {
-	o.UpdatedBy = v
+	o.UpdatedBy = &v
 }
 
-// GetOrgName returns the OrgName field value
+// GetOrgName returns the OrgName field value if set, zero value otherwise.
 func (o *ItemsInner1) GetOrgName() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgName) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgName
+	return *o.OrgName
 }
 
-// GetOrgNameOk returns a tuple with the OrgName field value
+// GetOrgNameOk returns a tuple with the OrgName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetOrgNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgName) {
 		return nil, false
 	}
-	return &o.OrgName, true
+	return o.OrgName, true
 }
 
-// SetOrgName sets field value
+// HasOrgName returns a boolean if a field has been set.
+func (o *ItemsInner1) HasOrgName() bool {
+	if o != nil && !IsNil(o.OrgName) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgName gets a reference to the given string and assigns it to the OrgName field.
 func (o *ItemsInner1) SetOrgName(v string) {
-	o.OrgName = v
+	o.OrgName = &v
 }
 
-// GetOrgSlug returns the OrgSlug field value
+// GetOrgSlug returns the OrgSlug field value if set, zero value otherwise.
 func (o *ItemsInner1) GetOrgSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgSlug
+	return *o.OrgSlug
 }
 
-// GetOrgSlugOk returns a tuple with the OrgSlug field value
+// GetOrgSlugOk returns a tuple with the OrgSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetOrgSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgSlug) {
 		return nil, false
 	}
-	return &o.OrgSlug, true
+	return o.OrgSlug, true
 }
 
-// SetOrgSlug sets field value
+// HasOrgSlug returns a boolean if a field has been set.
+func (o *ItemsInner1) HasOrgSlug() bool {
+	if o != nil && !IsNil(o.OrgSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgSlug gets a reference to the given string and assigns it to the OrgSlug field.
 func (o *ItemsInner1) SetOrgSlug(v string) {
-	o.OrgSlug = v
+	o.OrgSlug = &v
 }
 
-// GetOrgUrl returns the OrgUrl field value
+// GetOrgUrl returns the OrgUrl field value if set, zero value otherwise.
 func (o *ItemsInner1) GetOrgUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgUrl
+	return *o.OrgUrl
 }
 
-// GetOrgUrlOk returns a tuple with the OrgUrl field value
+// GetOrgUrlOk returns a tuple with the OrgUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetOrgUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgUrl) {
 		return nil, false
 	}
-	return &o.OrgUrl, true
+	return o.OrgUrl, true
 }
 
-// SetOrgUrl sets field value
+// HasOrgUrl returns a boolean if a field has been set.
+func (o *ItemsInner1) HasOrgUrl() bool {
+	if o != nil && !IsNil(o.OrgUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgUrl gets a reference to the given string and assigns it to the OrgUrl field.
 func (o *ItemsInner1) SetOrgUrl(v string) {
-	o.OrgUrl = v
+	o.OrgUrl = &v
 }
 
-// GetGrafanaCloud returns the GrafanaCloud field value
+// GetGrafanaCloud returns the GrafanaCloud field value if set, zero value otherwise.
 func (o *ItemsInner1) GetGrafanaCloud() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GrafanaCloud) {
 		var ret float32
 		return ret
 	}
-
-	return o.GrafanaCloud
+	return *o.GrafanaCloud
 }
 
-// GetGrafanaCloudOk returns a tuple with the GrafanaCloud field value
+// GetGrafanaCloudOk returns a tuple with the GrafanaCloud field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetGrafanaCloudOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GrafanaCloud) {
 		return nil, false
 	}
-	return &o.GrafanaCloud, true
+	return o.GrafanaCloud, true
 }
 
-// SetGrafanaCloud sets field value
+// HasGrafanaCloud returns a boolean if a field has been set.
+func (o *ItemsInner1) HasGrafanaCloud() bool {
+	if o != nil && !IsNil(o.GrafanaCloud) {
+		return true
+	}
+
+	return false
+}
+
+// SetGrafanaCloud gets a reference to the given float32 and assigns it to the GrafanaCloud field.
 func (o *ItemsInner1) SetGrafanaCloud(v float32) {
-	o.GrafanaCloud = v
+	o.GrafanaCloud = &v
 }
 
-// GetResellerId returns the ResellerId field value
-// If the value is explicit nil, the zero value for float32 will be returned
+// GetResellerId returns the ResellerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ItemsInner1) GetResellerId() float32 {
-	if o == nil || o.ResellerId.Get() == nil {
+	if o == nil || IsNil(o.ResellerId.Get()) {
 		var ret float32
 		return ret
 	}
-
 	return *o.ResellerId.Get()
 }
 
-// GetResellerIdOk returns a tuple with the ResellerId field value
+// GetResellerIdOk returns a tuple with the ResellerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ItemsInner1) GetResellerIdOk() (*float32, bool) {
@@ -511,335 +614,456 @@ func (o *ItemsInner1) GetResellerIdOk() (*float32, bool) {
 	return o.ResellerId.Get(), o.ResellerId.IsSet()
 }
 
-// SetResellerId sets field value
+// HasResellerId returns a boolean if a field has been set.
+func (o *ItemsInner1) HasResellerId() bool {
+	if o != nil && o.ResellerId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetResellerId gets a reference to the given NullableFloat32 and assigns it to the ResellerId field.
 func (o *ItemsInner1) SetResellerId(v float32) {
 	o.ResellerId.Set(&v)
 }
 
-// GetContractTypeId returns the ContractTypeId field value
+// SetResellerIdNil sets the value for ResellerId to be an explicit nil
+func (o *ItemsInner1) SetResellerIdNil() {
+	o.ResellerId.Set(nil)
+}
+
+// UnsetResellerId ensures that no value is present for ResellerId, not even an explicit nil
+func (o *ItemsInner1) UnsetResellerId() {
+	o.ResellerId.Unset()
+}
+
+// GetContractTypeId returns the ContractTypeId field value if set, zero value otherwise.
 func (o *ItemsInner1) GetContractTypeId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.ContractTypeId) {
 		var ret float32
 		return ret
 	}
-
-	return o.ContractTypeId
+	return *o.ContractTypeId
 }
 
-// GetContractTypeIdOk returns a tuple with the ContractTypeId field value
+// GetContractTypeIdOk returns a tuple with the ContractTypeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetContractTypeIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ContractTypeId) {
 		return nil, false
 	}
-	return &o.ContractTypeId, true
+	return o.ContractTypeId, true
 }
 
-// SetContractTypeId sets field value
+// HasContractTypeId returns a boolean if a field has been set.
+func (o *ItemsInner1) HasContractTypeId() bool {
+	if o != nil && !IsNil(o.ContractTypeId) {
+		return true
+	}
+
+	return false
+}
+
+// SetContractTypeId gets a reference to the given float32 and assigns it to the ContractTypeId field.
 func (o *ItemsInner1) SetContractTypeId(v float32) {
-	o.ContractTypeId = v
+	o.ContractTypeId = &v
 }
 
-// GetAllowGCloudTrial returns the AllowGCloudTrial field value
+// GetAllowGCloudTrial returns the AllowGCloudTrial field value if set, zero value otherwise.
 func (o *ItemsInner1) GetAllowGCloudTrial() bool {
-	if o == nil {
+	if o == nil || IsNil(o.AllowGCloudTrial) {
 		var ret bool
 		return ret
 	}
-
-	return o.AllowGCloudTrial
+	return *o.AllowGCloudTrial
 }
 
-// GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value
+// GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetAllowGCloudTrialOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AllowGCloudTrial) {
 		return nil, false
 	}
-	return &o.AllowGCloudTrial, true
+	return o.AllowGCloudTrial, true
 }
 
-// SetAllowGCloudTrial sets field value
+// HasAllowGCloudTrial returns a boolean if a field has been set.
+func (o *ItemsInner1) HasAllowGCloudTrial() bool {
+	if o != nil && !IsNil(o.AllowGCloudTrial) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowGCloudTrial gets a reference to the given bool and assigns it to the AllowGCloudTrial field.
 func (o *ItemsInner1) SetAllowGCloudTrial(v bool) {
-	o.AllowGCloudTrial = v
+	o.AllowGCloudTrial = &v
 }
 
-// GetHlUsage returns the HlUsage field value
+// GetHlUsage returns the HlUsage field value if set, zero value otherwise.
 func (o *ItemsInner1) GetHlUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlUsage
+	return *o.HlUsage
 }
 
-// GetHlUsageOk returns a tuple with the HlUsage field value
+// GetHlUsageOk returns a tuple with the HlUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetHlUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlUsage) {
 		return nil, false
 	}
-	return &o.HlUsage, true
+	return o.HlUsage, true
 }
 
-// SetHlUsage sets field value
+// HasHlUsage returns a boolean if a field has been set.
+func (o *ItemsInner1) HasHlUsage() bool {
+	if o != nil && !IsNil(o.HlUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlUsage gets a reference to the given float32 and assigns it to the HlUsage field.
 func (o *ItemsInner1) SetHlUsage(v float32) {
-	o.HlUsage = v
+	o.HlUsage = &v
 }
 
-// GetHmCurrentGraphiteUsage returns the HmCurrentGraphiteUsage field value
+// GetHmCurrentGraphiteUsage returns the HmCurrentGraphiteUsage field value if set, zero value otherwise.
 func (o *ItemsInner1) GetHmCurrentGraphiteUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmCurrentGraphiteUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmCurrentGraphiteUsage
+	return *o.HmCurrentGraphiteUsage
 }
 
-// GetHmCurrentGraphiteUsageOk returns a tuple with the HmCurrentGraphiteUsage field value
+// GetHmCurrentGraphiteUsageOk returns a tuple with the HmCurrentGraphiteUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetHmCurrentGraphiteUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmCurrentGraphiteUsage) {
 		return nil, false
 	}
-	return &o.HmCurrentGraphiteUsage, true
+	return o.HmCurrentGraphiteUsage, true
 }
 
-// SetHmCurrentGraphiteUsage sets field value
+// HasHmCurrentGraphiteUsage returns a boolean if a field has been set.
+func (o *ItemsInner1) HasHmCurrentGraphiteUsage() bool {
+	if o != nil && !IsNil(o.HmCurrentGraphiteUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmCurrentGraphiteUsage gets a reference to the given float32 and assigns it to the HmCurrentGraphiteUsage field.
 func (o *ItemsInner1) SetHmCurrentGraphiteUsage(v float32) {
-	o.HmCurrentGraphiteUsage = v
+	o.HmCurrentGraphiteUsage = &v
 }
 
-// GetHmCurrentPrometheusUsage returns the HmCurrentPrometheusUsage field value
+// GetHmCurrentPrometheusUsage returns the HmCurrentPrometheusUsage field value if set, zero value otherwise.
 func (o *ItemsInner1) GetHmCurrentPrometheusUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmCurrentPrometheusUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmCurrentPrometheusUsage
+	return *o.HmCurrentPrometheusUsage
 }
 
-// GetHmCurrentPrometheusUsageOk returns a tuple with the HmCurrentPrometheusUsage field value
+// GetHmCurrentPrometheusUsageOk returns a tuple with the HmCurrentPrometheusUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetHmCurrentPrometheusUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmCurrentPrometheusUsage) {
 		return nil, false
 	}
-	return &o.HmCurrentPrometheusUsage, true
+	return o.HmCurrentPrometheusUsage, true
 }
 
-// SetHmCurrentPrometheusUsage sets field value
+// HasHmCurrentPrometheusUsage returns a boolean if a field has been set.
+func (o *ItemsInner1) HasHmCurrentPrometheusUsage() bool {
+	if o != nil && !IsNil(o.HmCurrentPrometheusUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmCurrentPrometheusUsage gets a reference to the given float32 and assigns it to the HmCurrentPrometheusUsage field.
 func (o *ItemsInner1) SetHmCurrentPrometheusUsage(v float32) {
-	o.HmCurrentPrometheusUsage = v
+	o.HmCurrentPrometheusUsage = &v
 }
 
-// GetHgDatasourceCnts returns the HgDatasourceCnts field value
+// GetHgDatasourceCnts returns the HgDatasourceCnts field value if set, zero value otherwise.
 func (o *ItemsInner1) GetHgDatasourceCnts() string {
-	if o == nil {
+	if o == nil || IsNil(o.HgDatasourceCnts) {
 		var ret string
 		return ret
 	}
-
-	return o.HgDatasourceCnts
+	return *o.HgDatasourceCnts
 }
 
-// GetHgDatasourceCntsOk returns a tuple with the HgDatasourceCnts field value
+// GetHgDatasourceCntsOk returns a tuple with the HgDatasourceCnts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetHgDatasourceCntsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgDatasourceCnts) {
 		return nil, false
 	}
-	return &o.HgDatasourceCnts, true
+	return o.HgDatasourceCnts, true
 }
 
-// SetHgDatasourceCnts sets field value
+// HasHgDatasourceCnts returns a boolean if a field has been set.
+func (o *ItemsInner1) HasHgDatasourceCnts() bool {
+	if o != nil && !IsNil(o.HgDatasourceCnts) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgDatasourceCnts gets a reference to the given string and assigns it to the HgDatasourceCnts field.
 func (o *ItemsInner1) SetHgDatasourceCnts(v string) {
-	o.HgDatasourceCnts = v
+	o.HgDatasourceCnts = &v
 }
 
-// GetUserFirstName returns the UserFirstName field value
+// GetUserFirstName returns the UserFirstName field value if set, zero value otherwise.
 func (o *ItemsInner1) GetUserFirstName() string {
-	if o == nil {
+	if o == nil || IsNil(o.UserFirstName) {
 		var ret string
 		return ret
 	}
-
-	return o.UserFirstName
+	return *o.UserFirstName
 }
 
-// GetUserFirstNameOk returns a tuple with the UserFirstName field value
+// GetUserFirstNameOk returns a tuple with the UserFirstName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetUserFirstNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserFirstName) {
 		return nil, false
 	}
-	return &o.UserFirstName, true
+	return o.UserFirstName, true
 }
 
-// SetUserFirstName sets field value
+// HasUserFirstName returns a boolean if a field has been set.
+func (o *ItemsInner1) HasUserFirstName() bool {
+	if o != nil && !IsNil(o.UserFirstName) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserFirstName gets a reference to the given string and assigns it to the UserFirstName field.
 func (o *ItemsInner1) SetUserFirstName(v string) {
-	o.UserFirstName = v
+	o.UserFirstName = &v
 }
 
-// GetUserLastName returns the UserLastName field value
+// GetUserLastName returns the UserLastName field value if set, zero value otherwise.
 func (o *ItemsInner1) GetUserLastName() string {
-	if o == nil {
+	if o == nil || IsNil(o.UserLastName) {
 		var ret string
 		return ret
 	}
-
-	return o.UserLastName
+	return *o.UserLastName
 }
 
-// GetUserLastNameOk returns a tuple with the UserLastName field value
+// GetUserLastNameOk returns a tuple with the UserLastName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetUserLastNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserLastName) {
 		return nil, false
 	}
-	return &o.UserLastName, true
+	return o.UserLastName, true
 }
 
-// SetUserLastName sets field value
+// HasUserLastName returns a boolean if a field has been set.
+func (o *ItemsInner1) HasUserLastName() bool {
+	if o != nil && !IsNil(o.UserLastName) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserLastName gets a reference to the given string and assigns it to the UserLastName field.
 func (o *ItemsInner1) SetUserLastName(v string) {
-	o.UserLastName = v
+	o.UserLastName = &v
 }
 
-// GetUserUsername returns the UserUsername field value
+// GetUserUsername returns the UserUsername field value if set, zero value otherwise.
 func (o *ItemsInner1) GetUserUsername() string {
-	if o == nil {
+	if o == nil || IsNil(o.UserUsername) {
 		var ret string
 		return ret
 	}
-
-	return o.UserUsername
+	return *o.UserUsername
 }
 
-// GetUserUsernameOk returns a tuple with the UserUsername field value
+// GetUserUsernameOk returns a tuple with the UserUsername field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetUserUsernameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserUsername) {
 		return nil, false
 	}
-	return &o.UserUsername, true
+	return o.UserUsername, true
 }
 
-// SetUserUsername sets field value
+// HasUserUsername returns a boolean if a field has been set.
+func (o *ItemsInner1) HasUserUsername() bool {
+	if o != nil && !IsNil(o.UserUsername) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserUsername gets a reference to the given string and assigns it to the UserUsername field.
 func (o *ItemsInner1) SetUserUsername(v string) {
-	o.UserUsername = v
+	o.UserUsername = &v
 }
 
-// GetUserStatus returns the UserStatus field value
+// GetUserStatus returns the UserStatus field value if set, zero value otherwise.
 func (o *ItemsInner1) GetUserStatus() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.UserStatus) {
 		var ret float32
 		return ret
 	}
-
-	return o.UserStatus
+	return *o.UserStatus
 }
 
-// GetUserStatusOk returns a tuple with the UserStatus field value
+// GetUserStatusOk returns a tuple with the UserStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetUserStatusOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserStatus) {
 		return nil, false
 	}
-	return &o.UserStatus, true
+	return o.UserStatus, true
 }
 
-// SetUserStatus sets field value
+// HasUserStatus returns a boolean if a field has been set.
+func (o *ItemsInner1) HasUserStatus() bool {
+	if o != nil && !IsNil(o.UserStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserStatus gets a reference to the given float32 and assigns it to the UserStatus field.
 func (o *ItemsInner1) SetUserStatus(v float32) {
-	o.UserStatus = v
+	o.UserStatus = &v
 }
 
-// GetUserEmail returns the UserEmail field value
+// GetUserEmail returns the UserEmail field value if set, zero value otherwise.
 func (o *ItemsInner1) GetUserEmail() string {
-	if o == nil {
+	if o == nil || IsNil(o.UserEmail) {
 		var ret string
 		return ret
 	}
-
-	return o.UserEmail
+	return *o.UserEmail
 }
 
-// GetUserEmailOk returns a tuple with the UserEmail field value
+// GetUserEmailOk returns a tuple with the UserEmail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetUserEmailOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserEmail) {
 		return nil, false
 	}
-	return &o.UserEmail, true
+	return o.UserEmail, true
 }
 
-// SetUserEmail sets field value
+// HasUserEmail returns a boolean if a field has been set.
+func (o *ItemsInner1) HasUserEmail() bool {
+	if o != nil && !IsNil(o.UserEmail) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserEmail gets a reference to the given string and assigns it to the UserEmail field.
 func (o *ItemsInner1) SetUserEmail(v string) {
-	o.UserEmail = v
+	o.UserEmail = &v
 }
 
-// GetUserName returns the UserName field value
+// GetUserName returns the UserName field value if set, zero value otherwise.
 func (o *ItemsInner1) GetUserName() string {
-	if o == nil {
+	if o == nil || IsNil(o.UserName) {
 		var ret string
 		return ret
 	}
-
-	return o.UserName
+	return *o.UserName
 }
 
-// GetUserNameOk returns a tuple with the UserName field value
+// GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetUserNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserName) {
 		return nil, false
 	}
-	return &o.UserName, true
+	return o.UserName, true
 }
 
-// SetUserName sets field value
+// HasUserName returns a boolean if a field has been set.
+func (o *ItemsInner1) HasUserName() bool {
+	if o != nil && !IsNil(o.UserName) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserName gets a reference to the given string and assigns it to the UserName field.
 func (o *ItemsInner1) SetUserName(v string) {
-	o.UserName = v
+	o.UserName = &v
 }
 
-// GetSubscriptions returns the Subscriptions field value
+// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise.
 func (o *ItemsInner1) GetSubscriptions() Subscriptions {
-	if o == nil {
+	if o == nil || IsNil(o.Subscriptions) {
 		var ret Subscriptions
 		return ret
 	}
-
-	return o.Subscriptions
+	return *o.Subscriptions
 }
 
-// GetSubscriptionsOk returns a tuple with the Subscriptions field value
+// GetSubscriptionsOk returns a tuple with the Subscriptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1) GetSubscriptionsOk() (*Subscriptions, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Subscriptions) {
 		return nil, false
 	}
-	return &o.Subscriptions, true
+	return o.Subscriptions, true
 }
 
-// SetSubscriptions sets field value
+// HasSubscriptions returns a boolean if a field has been set.
+func (o *ItemsInner1) HasSubscriptions() bool {
+	if o != nil && !IsNil(o.Subscriptions) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptions gets a reference to the given Subscriptions and assigns it to the Subscriptions field.
 func (o *ItemsInner1) SetSubscriptions(v Subscriptions) {
-	o.Subscriptions = v
+	o.Subscriptions = &v
 }
 
-// GetMarketplaceSubscription returns the MarketplaceSubscription field value
-// If the value is explicit nil, the zero value for ItemsInner1MarketplaceSubscription will be returned
+// GetMarketplaceSubscription returns the MarketplaceSubscription field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ItemsInner1) GetMarketplaceSubscription() ItemsInner1MarketplaceSubscription {
-	if o == nil || o.MarketplaceSubscription.Get() == nil {
+	if o == nil || IsNil(o.MarketplaceSubscription.Get()) {
 		var ret ItemsInner1MarketplaceSubscription
 		return ret
 	}
-
 	return *o.MarketplaceSubscription.Get()
 }
 
-// GetMarketplaceSubscriptionOk returns a tuple with the MarketplaceSubscription field value
+// GetMarketplaceSubscriptionOk returns a tuple with the MarketplaceSubscription field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ItemsInner1) GetMarketplaceSubscriptionOk() (*ItemsInner1MarketplaceSubscription, bool) {
@@ -849,9 +1073,28 @@ func (o *ItemsInner1) GetMarketplaceSubscriptionOk() (*ItemsInner1MarketplaceSub
 	return o.MarketplaceSubscription.Get(), o.MarketplaceSubscription.IsSet()
 }
 
-// SetMarketplaceSubscription sets field value
+// HasMarketplaceSubscription returns a boolean if a field has been set.
+func (o *ItemsInner1) HasMarketplaceSubscription() bool {
+	if o != nil && o.MarketplaceSubscription.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMarketplaceSubscription gets a reference to the given NullableItemsInner1MarketplaceSubscription and assigns it to the MarketplaceSubscription field.
 func (o *ItemsInner1) SetMarketplaceSubscription(v ItemsInner1MarketplaceSubscription) {
 	o.MarketplaceSubscription.Set(&v)
+}
+
+// SetMarketplaceSubscriptionNil sets the value for MarketplaceSubscription to be an explicit nil
+func (o *ItemsInner1) SetMarketplaceSubscriptionNil() {
+	o.MarketplaceSubscription.Set(nil)
+}
+
+// UnsetMarketplaceSubscription ensures that no value is present for MarketplaceSubscription, not even an explicit nil
+func (o *ItemsInner1) UnsetMarketplaceSubscription() {
+	o.MarketplaceSubscription.Unset()
 }
 
 func (o ItemsInner1) MarshalJSON() ([]byte, error) {
@@ -864,37 +1107,99 @@ func (o ItemsInner1) MarshalJSON() ([]byte, error) {
 
 func (o ItemsInner1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["orgId"] = o.OrgId
-	toSerialize["userId"] = o.UserId
-	toSerialize["status"] = o.Status
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["updatedAt"] = o.UpdatedAt.Get()
-	toSerialize["defaultOrg"] = o.DefaultOrg
-	toSerialize["role"] = o.Role
-	toSerialize["privacy"] = o.Privacy
-	toSerialize["billing"] = o.Billing
-	toSerialize["createdBy"] = o.CreatedBy
-	toSerialize["updatedBy"] = o.UpdatedBy
-	toSerialize["orgName"] = o.OrgName
-	toSerialize["orgSlug"] = o.OrgSlug
-	toSerialize["orgUrl"] = o.OrgUrl
-	toSerialize["grafanaCloud"] = o.GrafanaCloud
-	toSerialize["resellerId"] = o.ResellerId.Get()
-	toSerialize["contractTypeId"] = o.ContractTypeId
-	toSerialize["allowGCloudTrial"] = o.AllowGCloudTrial
-	toSerialize["hlUsage"] = o.HlUsage
-	toSerialize["hmCurrentGraphiteUsage"] = o.HmCurrentGraphiteUsage
-	toSerialize["hmCurrentPrometheusUsage"] = o.HmCurrentPrometheusUsage
-	toSerialize["hgDatasourceCnts"] = o.HgDatasourceCnts
-	toSerialize["userFirstName"] = o.UserFirstName
-	toSerialize["userLastName"] = o.UserLastName
-	toSerialize["userUsername"] = o.UserUsername
-	toSerialize["userStatus"] = o.UserStatus
-	toSerialize["userEmail"] = o.UserEmail
-	toSerialize["userName"] = o.UserName
-	toSerialize["subscriptions"] = o.Subscriptions
-	toSerialize["marketplaceSubscription"] = o.MarketplaceSubscription.Get()
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
+	}
+	if !IsNil(o.UserId) {
+		toSerialize["userId"] = o.UserId
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if o.UpdatedAt.IsSet() {
+		toSerialize["updatedAt"] = o.UpdatedAt.Get()
+	}
+	if !IsNil(o.DefaultOrg) {
+		toSerialize["defaultOrg"] = o.DefaultOrg
+	}
+	if !IsNil(o.Role) {
+		toSerialize["role"] = o.Role
+	}
+	if !IsNil(o.Privacy) {
+		toSerialize["privacy"] = o.Privacy
+	}
+	if !IsNil(o.Billing) {
+		toSerialize["billing"] = o.Billing
+	}
+	if !IsNil(o.CreatedBy) {
+		toSerialize["createdBy"] = o.CreatedBy
+	}
+	if !IsNil(o.UpdatedBy) {
+		toSerialize["updatedBy"] = o.UpdatedBy
+	}
+	if !IsNil(o.OrgName) {
+		toSerialize["orgName"] = o.OrgName
+	}
+	if !IsNil(o.OrgSlug) {
+		toSerialize["orgSlug"] = o.OrgSlug
+	}
+	if !IsNil(o.OrgUrl) {
+		toSerialize["orgUrl"] = o.OrgUrl
+	}
+	if !IsNil(o.GrafanaCloud) {
+		toSerialize["grafanaCloud"] = o.GrafanaCloud
+	}
+	if o.ResellerId.IsSet() {
+		toSerialize["resellerId"] = o.ResellerId.Get()
+	}
+	if !IsNil(o.ContractTypeId) {
+		toSerialize["contractTypeId"] = o.ContractTypeId
+	}
+	if !IsNil(o.AllowGCloudTrial) {
+		toSerialize["allowGCloudTrial"] = o.AllowGCloudTrial
+	}
+	if !IsNil(o.HlUsage) {
+		toSerialize["hlUsage"] = o.HlUsage
+	}
+	if !IsNil(o.HmCurrentGraphiteUsage) {
+		toSerialize["hmCurrentGraphiteUsage"] = o.HmCurrentGraphiteUsage
+	}
+	if !IsNil(o.HmCurrentPrometheusUsage) {
+		toSerialize["hmCurrentPrometheusUsage"] = o.HmCurrentPrometheusUsage
+	}
+	if !IsNil(o.HgDatasourceCnts) {
+		toSerialize["hgDatasourceCnts"] = o.HgDatasourceCnts
+	}
+	if !IsNil(o.UserFirstName) {
+		toSerialize["userFirstName"] = o.UserFirstName
+	}
+	if !IsNil(o.UserLastName) {
+		toSerialize["userLastName"] = o.UserLastName
+	}
+	if !IsNil(o.UserUsername) {
+		toSerialize["userUsername"] = o.UserUsername
+	}
+	if !IsNil(o.UserStatus) {
+		toSerialize["userStatus"] = o.UserStatus
+	}
+	if !IsNil(o.UserEmail) {
+		toSerialize["userEmail"] = o.UserEmail
+	}
+	if !IsNil(o.UserName) {
+		toSerialize["userName"] = o.UserName
+	}
+	if !IsNil(o.Subscriptions) {
+		toSerialize["subscriptions"] = o.Subscriptions
+	}
+	if o.MarketplaceSubscription.IsSet() {
+		toSerialize["marketplaceSubscription"] = o.MarketplaceSubscription.Get()
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -904,57 +1209,6 @@ func (o ItemsInner1) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *ItemsInner1) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"orgId",
-		"userId",
-		"status",
-		"createdAt",
-		"updatedAt",
-		"defaultOrg",
-		"role",
-		"privacy",
-		"billing",
-		"createdBy",
-		"updatedBy",
-		"orgName",
-		"orgSlug",
-		"orgUrl",
-		"grafanaCloud",
-		"resellerId",
-		"contractTypeId",
-		"allowGCloudTrial",
-		"hlUsage",
-		"hmCurrentGraphiteUsage",
-		"hmCurrentPrometheusUsage",
-		"hgDatasourceCnts",
-		"userFirstName",
-		"userLastName",
-		"userUsername",
-		"userStatus",
-		"userEmail",
-		"userName",
-		"subscriptions",
-		"marketplaceSubscription",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varItemsInner1 := _ItemsInner1{}
 
 	err = json.Unmarshal(data, &varItemsInner1)

@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the SubscriptionsAnyOf1 type satisfies the MappedNullable interface at compile time
@@ -20,9 +19,9 @@ var _ MappedNullable = &SubscriptionsAnyOf1{}
 
 // SubscriptionsAnyOf1 struct for SubscriptionsAnyOf1
 type SubscriptionsAnyOf1 struct {
-	Current              Current1 `json:"current"`
-	NextProduct          string   `json:"nextProduct"`
-	Next                 Next     `json:"next"`
+	Current              *Current1 `json:"current,omitempty"`
+	NextProduct          *string   `json:"nextProduct,omitempty"`
+	Next                 *Next     `json:"next,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -32,11 +31,8 @@ type _SubscriptionsAnyOf1 SubscriptionsAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSubscriptionsAnyOf1(current Current1, nextProduct string, next Next) *SubscriptionsAnyOf1 {
+func NewSubscriptionsAnyOf1() *SubscriptionsAnyOf1 {
 	this := SubscriptionsAnyOf1{}
-	this.Current = current
-	this.NextProduct = nextProduct
-	this.Next = next
 	return &this
 }
 
@@ -48,76 +44,100 @@ func NewSubscriptionsAnyOf1WithDefaults() *SubscriptionsAnyOf1 {
 	return &this
 }
 
-// GetCurrent returns the Current field value
+// GetCurrent returns the Current field value if set, zero value otherwise.
 func (o *SubscriptionsAnyOf1) GetCurrent() Current1 {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		var ret Current1
 		return ret
 	}
-
-	return o.Current
+	return *o.Current
 }
 
-// GetCurrentOk returns a tuple with the Current field value
+// GetCurrentOk returns a tuple with the Current field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionsAnyOf1) GetCurrentOk() (*Current1, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Current) {
 		return nil, false
 	}
-	return &o.Current, true
+	return o.Current, true
 }
 
-// SetCurrent sets field value
+// HasCurrent returns a boolean if a field has been set.
+func (o *SubscriptionsAnyOf1) HasCurrent() bool {
+	if o != nil && !IsNil(o.Current) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrent gets a reference to the given Current1 and assigns it to the Current field.
 func (o *SubscriptionsAnyOf1) SetCurrent(v Current1) {
-	o.Current = v
+	o.Current = &v
 }
 
-// GetNextProduct returns the NextProduct field value
+// GetNextProduct returns the NextProduct field value if set, zero value otherwise.
 func (o *SubscriptionsAnyOf1) GetNextProduct() string {
-	if o == nil {
+	if o == nil || IsNil(o.NextProduct) {
 		var ret string
 		return ret
 	}
-
-	return o.NextProduct
+	return *o.NextProduct
 }
 
-// GetNextProductOk returns a tuple with the NextProduct field value
+// GetNextProductOk returns a tuple with the NextProduct field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionsAnyOf1) GetNextProductOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NextProduct) {
 		return nil, false
 	}
-	return &o.NextProduct, true
+	return o.NextProduct, true
 }
 
-// SetNextProduct sets field value
+// HasNextProduct returns a boolean if a field has been set.
+func (o *SubscriptionsAnyOf1) HasNextProduct() bool {
+	if o != nil && !IsNil(o.NextProduct) {
+		return true
+	}
+
+	return false
+}
+
+// SetNextProduct gets a reference to the given string and assigns it to the NextProduct field.
 func (o *SubscriptionsAnyOf1) SetNextProduct(v string) {
-	o.NextProduct = v
+	o.NextProduct = &v
 }
 
-// GetNext returns the Next field value
+// GetNext returns the Next field value if set, zero value otherwise.
 func (o *SubscriptionsAnyOf1) GetNext() Next {
-	if o == nil {
+	if o == nil || IsNil(o.Next) {
 		var ret Next
 		return ret
 	}
-
-	return o.Next
+	return *o.Next
 }
 
-// GetNextOk returns a tuple with the Next field value
+// GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubscriptionsAnyOf1) GetNextOk() (*Next, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Next) {
 		return nil, false
 	}
-	return &o.Next, true
+	return o.Next, true
 }
 
-// SetNext sets field value
+// HasNext returns a boolean if a field has been set.
+func (o *SubscriptionsAnyOf1) HasNext() bool {
+	if o != nil && !IsNil(o.Next) {
+		return true
+	}
+
+	return false
+}
+
+// SetNext gets a reference to the given Next and assigns it to the Next field.
 func (o *SubscriptionsAnyOf1) SetNext(v Next) {
-	o.Next = v
+	o.Next = &v
 }
 
 func (o SubscriptionsAnyOf1) MarshalJSON() ([]byte, error) {
@@ -130,9 +150,15 @@ func (o SubscriptionsAnyOf1) MarshalJSON() ([]byte, error) {
 
 func (o SubscriptionsAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["current"] = o.Current
-	toSerialize["nextProduct"] = o.NextProduct
-	toSerialize["next"] = o.Next
+	if !IsNil(o.Current) {
+		toSerialize["current"] = o.Current
+	}
+	if !IsNil(o.NextProduct) {
+		toSerialize["nextProduct"] = o.NextProduct
+	}
+	if !IsNil(o.Next) {
+		toSerialize["next"] = o.Next
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -142,29 +168,6 @@ func (o SubscriptionsAnyOf1) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *SubscriptionsAnyOf1) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"current",
-		"nextProduct",
-		"next",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varSubscriptionsAnyOf1 := _SubscriptionsAnyOf1{}
 
 	err = json.Unmarshal(data, &varSubscriptionsAnyOf1)

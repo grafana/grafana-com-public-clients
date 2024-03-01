@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the OrgMemberListResponse type satisfies the MappedNullable interface at compile time
@@ -20,8 +19,8 @@ var _ MappedNullable = &OrgMemberListResponse{}
 
 // OrgMemberListResponse struct for OrgMemberListResponse
 type OrgMemberListResponse struct {
-	Items                []ItemsInner1 `json:"items"`
-	Links                []LinksInner1 `json:"links"`
+	Items                []ItemsInner1 `json:"items,omitempty"`
+	Links                []LinksInner1 `json:"links,omitempty"`
 	Total                *float32      `json:"total,omitempty"`
 	Pages                *float32      `json:"pages,omitempty"`
 	Page                 *float32      `json:"page,omitempty"`
@@ -40,10 +39,8 @@ type _OrgMemberListResponse OrgMemberListResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrgMemberListResponse(items []ItemsInner1, links []LinksInner1) *OrgMemberListResponse {
+func NewOrgMemberListResponse() *OrgMemberListResponse {
 	this := OrgMemberListResponse{}
-	this.Items = items
-	this.Links = links
 	return &this
 }
 
@@ -55,50 +52,66 @@ func NewOrgMemberListResponseWithDefaults() *OrgMemberListResponse {
 	return &this
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *OrgMemberListResponse) GetItems() []ItemsInner1 {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []ItemsInner1
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OrgMemberListResponse) GetItemsOk() ([]ItemsInner1, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *OrgMemberListResponse) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []ItemsInner1 and assigns it to the Items field.
 func (o *OrgMemberListResponse) SetItems(v []ItemsInner1) {
 	o.Items = v
 }
 
-// GetLinks returns the Links field value
+// GetLinks returns the Links field value if set, zero value otherwise.
 func (o *OrgMemberListResponse) GetLinks() []LinksInner1 {
-	if o == nil {
+	if o == nil || IsNil(o.Links) {
 		var ret []LinksInner1
 		return ret
 	}
-
 	return o.Links
 }
 
-// GetLinksOk returns a tuple with the Links field value
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OrgMemberListResponse) GetLinksOk() ([]LinksInner1, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Links) {
 		return nil, false
 	}
 	return o.Links, true
 }
 
-// SetLinks sets field value
+// HasLinks returns a boolean if a field has been set.
+func (o *OrgMemberListResponse) HasLinks() bool {
+	if o != nil && !IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given []LinksInner1 and assigns it to the Links field.
 func (o *OrgMemberListResponse) SetLinks(v []LinksInner1) {
 	o.Links = v
 }
@@ -401,8 +414,12 @@ func (o OrgMemberListResponse) MarshalJSON() ([]byte, error) {
 
 func (o OrgMemberListResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["items"] = o.Items
-	toSerialize["links"] = o.Links
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
+	if !IsNil(o.Links) {
+		toSerialize["links"] = o.Links
+	}
 	if !IsNil(o.Total) {
 		toSerialize["total"] = o.Total
 	}
@@ -439,28 +456,6 @@ func (o OrgMemberListResponse) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *OrgMemberListResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"items",
-		"links",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varOrgMemberListResponse := _OrgMemberListResponse{}
 
 	err = json.Unmarshal(data, &varOrgMemberListResponse)

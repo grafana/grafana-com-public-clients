@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the OtlpPrivateConnectivityInfoAnyOf1 type satisfies the MappedNullable interface at compile time
@@ -20,7 +19,7 @@ var _ MappedNullable = &OtlpPrivateConnectivityInfoAnyOf1{}
 
 // OtlpPrivateConnectivityInfoAnyOf1 struct for OtlpPrivateConnectivityInfoAnyOf1
 type OtlpPrivateConnectivityInfoAnyOf1 struct {
-	Mimir                Mimir     `json:"mimir"`
+	Mimir                *Mimir    `json:"mimir,omitempty"`
 	Graphite             *Graphite `json:"graphite,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -31,9 +30,8 @@ type _OtlpPrivateConnectivityInfoAnyOf1 OtlpPrivateConnectivityInfoAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOtlpPrivateConnectivityInfoAnyOf1(mimir Mimir) *OtlpPrivateConnectivityInfoAnyOf1 {
+func NewOtlpPrivateConnectivityInfoAnyOf1() *OtlpPrivateConnectivityInfoAnyOf1 {
 	this := OtlpPrivateConnectivityInfoAnyOf1{}
-	this.Mimir = mimir
 	return &this
 }
 
@@ -45,28 +43,36 @@ func NewOtlpPrivateConnectivityInfoAnyOf1WithDefaults() *OtlpPrivateConnectivity
 	return &this
 }
 
-// GetMimir returns the Mimir field value
+// GetMimir returns the Mimir field value if set, zero value otherwise.
 func (o *OtlpPrivateConnectivityInfoAnyOf1) GetMimir() Mimir {
-	if o == nil {
+	if o == nil || IsNil(o.Mimir) {
 		var ret Mimir
 		return ret
 	}
-
-	return o.Mimir
+	return *o.Mimir
 }
 
-// GetMimirOk returns a tuple with the Mimir field value
+// GetMimirOk returns a tuple with the Mimir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *OtlpPrivateConnectivityInfoAnyOf1) GetMimirOk() (*Mimir, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Mimir) {
 		return nil, false
 	}
-	return &o.Mimir, true
+	return o.Mimir, true
 }
 
-// SetMimir sets field value
+// HasMimir returns a boolean if a field has been set.
+func (o *OtlpPrivateConnectivityInfoAnyOf1) HasMimir() bool {
+	if o != nil && !IsNil(o.Mimir) {
+		return true
+	}
+
+	return false
+}
+
+// SetMimir gets a reference to the given Mimir and assigns it to the Mimir field.
 func (o *OtlpPrivateConnectivityInfoAnyOf1) SetMimir(v Mimir) {
-	o.Mimir = v
+	o.Mimir = &v
 }
 
 // GetGraphite returns the Graphite field value if set, zero value otherwise.
@@ -111,7 +117,9 @@ func (o OtlpPrivateConnectivityInfoAnyOf1) MarshalJSON() ([]byte, error) {
 
 func (o OtlpPrivateConnectivityInfoAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["mimir"] = o.Mimir
+	if !IsNil(o.Mimir) {
+		toSerialize["mimir"] = o.Mimir
+	}
 	if !IsNil(o.Graphite) {
 		toSerialize["graphite"] = o.Graphite
 	}
@@ -124,27 +132,6 @@ func (o OtlpPrivateConnectivityInfoAnyOf1) ToMap() (map[string]interface{}, erro
 }
 
 func (o *OtlpPrivateConnectivityInfoAnyOf1) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"mimir",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varOtlpPrivateConnectivityInfoAnyOf1 := _OtlpPrivateConnectivityInfoAnyOf1{}
 
 	err = json.Unmarshal(data, &varOtlpPrivateConnectivityInfoAnyOf1)

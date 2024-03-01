@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 	"time"
 )
 
@@ -21,15 +20,15 @@ var _ MappedNullable = &Current2{}
 
 // Current2 struct for Current2
 type Current2 struct {
-	Product                string         `json:"product"`
-	IsTrial                bool           `json:"isTrial"`
-	StartDate              time.Time      `json:"startDate"`
-	EndDate                interface{}    `json:"endDate"`
-	Payload                Payload        `json:"payload"`
-	Plan                   NullableString `json:"plan"`
-	PublicName             NullableString `json:"publicName"`
-	EnterprisePluginsAdded bool           `json:"enterprisePluginsAdded"`
-	PlanBillingCycle       string         `json:"planBillingCycle"`
+	Product                *string        `json:"product,omitempty"`
+	IsTrial                *bool          `json:"isTrial,omitempty"`
+	StartDate              *time.Time     `json:"startDate,omitempty"`
+	EndDate                interface{}    `json:"endDate,omitempty"`
+	Payload                *Payload       `json:"payload,omitempty"`
+	Plan                   NullableString `json:"plan,omitempty"`
+	PublicName             NullableString `json:"publicName,omitempty"`
+	EnterprisePluginsAdded *bool          `json:"enterprisePluginsAdded,omitempty"`
+	PlanBillingCycle       *string        `json:"planBillingCycle,omitempty"`
 	AdditionalProperties   map[string]interface{}
 }
 
@@ -39,17 +38,8 @@ type _Current2 Current2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCurrent2(product string, isTrial bool, startDate time.Time, endDate interface{}, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, planBillingCycle string) *Current2 {
+func NewCurrent2() *Current2 {
 	this := Current2{}
-	this.Product = product
-	this.IsTrial = isTrial
-	this.StartDate = startDate
-	this.EndDate = endDate
-	this.Payload = payload
-	this.Plan = plan
-	this.PublicName = publicName
-	this.EnterprisePluginsAdded = enterprisePluginsAdded
-	this.PlanBillingCycle = planBillingCycle
 	return &this
 }
 
@@ -61,90 +51,112 @@ func NewCurrent2WithDefaults() *Current2 {
 	return &this
 }
 
-// GetProduct returns the Product field value
+// GetProduct returns the Product field value if set, zero value otherwise.
 func (o *Current2) GetProduct() string {
-	if o == nil {
+	if o == nil || IsNil(o.Product) {
 		var ret string
 		return ret
 	}
-
-	return o.Product
+	return *o.Product
 }
 
-// GetProductOk returns a tuple with the Product field value
+// GetProductOk returns a tuple with the Product field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Current2) GetProductOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Product) {
 		return nil, false
 	}
-	return &o.Product, true
+	return o.Product, true
 }
 
-// SetProduct sets field value
+// HasProduct returns a boolean if a field has been set.
+func (o *Current2) HasProduct() bool {
+	if o != nil && !IsNil(o.Product) {
+		return true
+	}
+
+	return false
+}
+
+// SetProduct gets a reference to the given string and assigns it to the Product field.
 func (o *Current2) SetProduct(v string) {
-	o.Product = v
+	o.Product = &v
 }
 
-// GetIsTrial returns the IsTrial field value
+// GetIsTrial returns the IsTrial field value if set, zero value otherwise.
 func (o *Current2) GetIsTrial() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsTrial) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsTrial
+	return *o.IsTrial
 }
 
-// GetIsTrialOk returns a tuple with the IsTrial field value
+// GetIsTrialOk returns a tuple with the IsTrial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Current2) GetIsTrialOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsTrial) {
 		return nil, false
 	}
-	return &o.IsTrial, true
+	return o.IsTrial, true
 }
 
-// SetIsTrial sets field value
+// HasIsTrial returns a boolean if a field has been set.
+func (o *Current2) HasIsTrial() bool {
+	if o != nil && !IsNil(o.IsTrial) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsTrial gets a reference to the given bool and assigns it to the IsTrial field.
 func (o *Current2) SetIsTrial(v bool) {
-	o.IsTrial = v
+	o.IsTrial = &v
 }
 
-// GetStartDate returns the StartDate field value
+// GetStartDate returns the StartDate field value if set, zero value otherwise.
 func (o *Current2) GetStartDate() time.Time {
-	if o == nil {
+	if o == nil || IsNil(o.StartDate) {
 		var ret time.Time
 		return ret
 	}
-
-	return o.StartDate
+	return *o.StartDate
 }
 
-// GetStartDateOk returns a tuple with the StartDate field value
+// GetStartDateOk returns a tuple with the StartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Current2) GetStartDateOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDate) {
 		return nil, false
 	}
-	return &o.StartDate, true
+	return o.StartDate, true
 }
 
-// SetStartDate sets field value
+// HasStartDate returns a boolean if a field has been set.
+func (o *Current2) HasStartDate() bool {
+	if o != nil && !IsNil(o.StartDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetStartDate gets a reference to the given time.Time and assigns it to the StartDate field.
 func (o *Current2) SetStartDate(v time.Time) {
-	o.StartDate = v
+	o.StartDate = &v
 }
 
-// GetEndDate returns the EndDate field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetEndDate returns the EndDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Current2) GetEndDate() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.EndDate
 }
 
-// GetEndDateOk returns a tuple with the EndDate field value
+// GetEndDateOk returns a tuple with the EndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Current2) GetEndDateOk() (*interface{}, bool) {
@@ -154,47 +166,62 @@ func (o *Current2) GetEndDateOk() (*interface{}, bool) {
 	return &o.EndDate, true
 }
 
-// SetEndDate sets field value
+// HasEndDate returns a boolean if a field has been set.
+func (o *Current2) HasEndDate() bool {
+	if o != nil && IsNil(o.EndDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndDate gets a reference to the given interface{} and assigns it to the EndDate field.
 func (o *Current2) SetEndDate(v interface{}) {
 	o.EndDate = v
 }
 
-// GetPayload returns the Payload field value
+// GetPayload returns the Payload field value if set, zero value otherwise.
 func (o *Current2) GetPayload() Payload {
-	if o == nil {
+	if o == nil || IsNil(o.Payload) {
 		var ret Payload
 		return ret
 	}
-
-	return o.Payload
+	return *o.Payload
 }
 
-// GetPayloadOk returns a tuple with the Payload field value
+// GetPayloadOk returns a tuple with the Payload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Current2) GetPayloadOk() (*Payload, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Payload) {
 		return nil, false
 	}
-	return &o.Payload, true
+	return o.Payload, true
 }
 
-// SetPayload sets field value
+// HasPayload returns a boolean if a field has been set.
+func (o *Current2) HasPayload() bool {
+	if o != nil && !IsNil(o.Payload) {
+		return true
+	}
+
+	return false
+}
+
+// SetPayload gets a reference to the given Payload and assigns it to the Payload field.
 func (o *Current2) SetPayload(v Payload) {
-	o.Payload = v
+	o.Payload = &v
 }
 
-// GetPlan returns the Plan field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetPlan returns the Plan field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Current2) GetPlan() string {
-	if o == nil || o.Plan.Get() == nil {
+	if o == nil || IsNil(o.Plan.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.Plan.Get()
 }
 
-// GetPlanOk returns a tuple with the Plan field value
+// GetPlanOk returns a tuple with the Plan field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Current2) GetPlanOk() (*string, bool) {
@@ -204,23 +231,40 @@ func (o *Current2) GetPlanOk() (*string, bool) {
 	return o.Plan.Get(), o.Plan.IsSet()
 }
 
-// SetPlan sets field value
+// HasPlan returns a boolean if a field has been set.
+func (o *Current2) HasPlan() bool {
+	if o != nil && o.Plan.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPlan gets a reference to the given NullableString and assigns it to the Plan field.
 func (o *Current2) SetPlan(v string) {
 	o.Plan.Set(&v)
 }
 
-// GetPublicName returns the PublicName field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetPlanNil sets the value for Plan to be an explicit nil
+func (o *Current2) SetPlanNil() {
+	o.Plan.Set(nil)
+}
+
+// UnsetPlan ensures that no value is present for Plan, not even an explicit nil
+func (o *Current2) UnsetPlan() {
+	o.Plan.Unset()
+}
+
+// GetPublicName returns the PublicName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Current2) GetPublicName() string {
-	if o == nil || o.PublicName.Get() == nil {
+	if o == nil || IsNil(o.PublicName.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.PublicName.Get()
 }
 
-// GetPublicNameOk returns a tuple with the PublicName field value
+// GetPublicNameOk returns a tuple with the PublicName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Current2) GetPublicNameOk() (*string, bool) {
@@ -230,57 +274,92 @@ func (o *Current2) GetPublicNameOk() (*string, bool) {
 	return o.PublicName.Get(), o.PublicName.IsSet()
 }
 
-// SetPublicName sets field value
+// HasPublicName returns a boolean if a field has been set.
+func (o *Current2) HasPublicName() bool {
+	if o != nil && o.PublicName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPublicName gets a reference to the given NullableString and assigns it to the PublicName field.
 func (o *Current2) SetPublicName(v string) {
 	o.PublicName.Set(&v)
 }
 
-// GetEnterprisePluginsAdded returns the EnterprisePluginsAdded field value
+// SetPublicNameNil sets the value for PublicName to be an explicit nil
+func (o *Current2) SetPublicNameNil() {
+	o.PublicName.Set(nil)
+}
+
+// UnsetPublicName ensures that no value is present for PublicName, not even an explicit nil
+func (o *Current2) UnsetPublicName() {
+	o.PublicName.Unset()
+}
+
+// GetEnterprisePluginsAdded returns the EnterprisePluginsAdded field value if set, zero value otherwise.
 func (o *Current2) GetEnterprisePluginsAdded() bool {
-	if o == nil {
+	if o == nil || IsNil(o.EnterprisePluginsAdded) {
 		var ret bool
 		return ret
 	}
-
-	return o.EnterprisePluginsAdded
+	return *o.EnterprisePluginsAdded
 }
 
-// GetEnterprisePluginsAddedOk returns a tuple with the EnterprisePluginsAdded field value
+// GetEnterprisePluginsAddedOk returns a tuple with the EnterprisePluginsAdded field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Current2) GetEnterprisePluginsAddedOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EnterprisePluginsAdded) {
 		return nil, false
 	}
-	return &o.EnterprisePluginsAdded, true
+	return o.EnterprisePluginsAdded, true
 }
 
-// SetEnterprisePluginsAdded sets field value
+// HasEnterprisePluginsAdded returns a boolean if a field has been set.
+func (o *Current2) HasEnterprisePluginsAdded() bool {
+	if o != nil && !IsNil(o.EnterprisePluginsAdded) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnterprisePluginsAdded gets a reference to the given bool and assigns it to the EnterprisePluginsAdded field.
 func (o *Current2) SetEnterprisePluginsAdded(v bool) {
-	o.EnterprisePluginsAdded = v
+	o.EnterprisePluginsAdded = &v
 }
 
-// GetPlanBillingCycle returns the PlanBillingCycle field value
+// GetPlanBillingCycle returns the PlanBillingCycle field value if set, zero value otherwise.
 func (o *Current2) GetPlanBillingCycle() string {
-	if o == nil {
+	if o == nil || IsNil(o.PlanBillingCycle) {
 		var ret string
 		return ret
 	}
-
-	return o.PlanBillingCycle
+	return *o.PlanBillingCycle
 }
 
-// GetPlanBillingCycleOk returns a tuple with the PlanBillingCycle field value
+// GetPlanBillingCycleOk returns a tuple with the PlanBillingCycle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Current2) GetPlanBillingCycleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PlanBillingCycle) {
 		return nil, false
 	}
-	return &o.PlanBillingCycle, true
+	return o.PlanBillingCycle, true
 }
 
-// SetPlanBillingCycle sets field value
+// HasPlanBillingCycle returns a boolean if a field has been set.
+func (o *Current2) HasPlanBillingCycle() bool {
+	if o != nil && !IsNil(o.PlanBillingCycle) {
+		return true
+	}
+
+	return false
+}
+
+// SetPlanBillingCycle gets a reference to the given string and assigns it to the PlanBillingCycle field.
 func (o *Current2) SetPlanBillingCycle(v string) {
-	o.PlanBillingCycle = v
+	o.PlanBillingCycle = &v
 }
 
 func (o Current2) MarshalJSON() ([]byte, error) {
@@ -293,17 +372,33 @@ func (o Current2) MarshalJSON() ([]byte, error) {
 
 func (o Current2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["product"] = o.Product
-	toSerialize["isTrial"] = o.IsTrial
-	toSerialize["startDate"] = o.StartDate
+	if !IsNil(o.Product) {
+		toSerialize["product"] = o.Product
+	}
+	if !IsNil(o.IsTrial) {
+		toSerialize["isTrial"] = o.IsTrial
+	}
+	if !IsNil(o.StartDate) {
+		toSerialize["startDate"] = o.StartDate
+	}
 	if o.EndDate != nil {
 		toSerialize["endDate"] = o.EndDate
 	}
-	toSerialize["payload"] = o.Payload
-	toSerialize["plan"] = o.Plan.Get()
-	toSerialize["publicName"] = o.PublicName.Get()
-	toSerialize["enterprisePluginsAdded"] = o.EnterprisePluginsAdded
-	toSerialize["planBillingCycle"] = o.PlanBillingCycle
+	if !IsNil(o.Payload) {
+		toSerialize["payload"] = o.Payload
+	}
+	if o.Plan.IsSet() {
+		toSerialize["plan"] = o.Plan.Get()
+	}
+	if o.PublicName.IsSet() {
+		toSerialize["publicName"] = o.PublicName.Get()
+	}
+	if !IsNil(o.EnterprisePluginsAdded) {
+		toSerialize["enterprisePluginsAdded"] = o.EnterprisePluginsAdded
+	}
+	if !IsNil(o.PlanBillingCycle) {
+		toSerialize["planBillingCycle"] = o.PlanBillingCycle
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -313,35 +408,6 @@ func (o Current2) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *Current2) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"product",
-		"isTrial",
-		"startDate",
-		"endDate",
-		"payload",
-		"plan",
-		"publicName",
-		"enterprisePluginsAdded",
-		"planBillingCycle",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varCurrent2 := _Current2{}
 
 	err = json.Unmarshal(data, &varCurrent2)

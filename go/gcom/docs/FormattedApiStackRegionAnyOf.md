@@ -4,23 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
-**Status** | **string** |  | 
-**Visibility** | **string** |  | 
-**Slug** | **string** |  | 
-**Name** | **string** |  | 
-**PublicName** | **string** |  | 
-**Description** | **string** |  | 
-**Provider** | **string** |  | 
-**CreatedAt** | **string** |  | 
-**UpdatedAt** | **NullableString** |  | 
-**SortOrder** | **float32** |  | 
+**Id** | Pointer to **float32** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
+**Visibility** | Pointer to **string** |  | [optional] 
+**Slug** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**PublicName** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Provider** | Pointer to **string** |  | [optional] 
+**CreatedAt** | Pointer to **string** |  | [optional] 
+**UpdatedAt** | Pointer to **NullableString** |  | [optional] 
+**SortOrder** | Pointer to **float32** |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiStackRegionAnyOf
 
-`func NewFormattedApiStackRegionAnyOf(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, ) *FormattedApiStackRegionAnyOf`
+`func NewFormattedApiStackRegionAnyOf() *FormattedApiStackRegionAnyOf`
 
 NewFormattedApiStackRegionAnyOf instantiates a new FormattedApiStackRegionAnyOf object
 This constructor will assign default values to properties that have it defined,
@@ -54,6 +54,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *FormattedApiStackRegionAnyOf) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetStatus
 
@@ -74,6 +79,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *FormattedApiStackRegionAnyOf) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetVisibility
 
@@ -94,6 +104,11 @@ and a boolean to check if the value has been set.
 
 SetVisibility sets Visibility field to given value.
 
+### HasVisibility
+
+`func (o *FormattedApiStackRegionAnyOf) HasVisibility() bool`
+
+HasVisibility returns a boolean if a field has been set.
 
 ### GetSlug
 
@@ -114,6 +129,11 @@ and a boolean to check if the value has been set.
 
 SetSlug sets Slug field to given value.
 
+### HasSlug
+
+`func (o *FormattedApiStackRegionAnyOf) HasSlug() bool`
+
+HasSlug returns a boolean if a field has been set.
 
 ### GetName
 
@@ -134,6 +154,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *FormattedApiStackRegionAnyOf) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetPublicName
 
@@ -154,6 +179,11 @@ and a boolean to check if the value has been set.
 
 SetPublicName sets PublicName field to given value.
 
+### HasPublicName
+
+`func (o *FormattedApiStackRegionAnyOf) HasPublicName() bool`
+
+HasPublicName returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -174,6 +204,11 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
+
+`func (o *FormattedApiStackRegionAnyOf) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetProvider
 
@@ -194,6 +229,11 @@ and a boolean to check if the value has been set.
 
 SetProvider sets Provider field to given value.
 
+### HasProvider
+
+`func (o *FormattedApiStackRegionAnyOf) HasProvider() bool`
+
+HasProvider returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -214,6 +254,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *FormattedApiStackRegionAnyOf) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 
@@ -234,6 +279,11 @@ and a boolean to check if the value has been set.
 
 SetUpdatedAt sets UpdatedAt field to given value.
 
+### HasUpdatedAt
+
+`func (o *FormattedApiStackRegionAnyOf) HasUpdatedAt() bool`
+
+HasUpdatedAt returns a boolean if a field has been set.
 
 ### SetUpdatedAtNil
 
@@ -264,6 +314,11 @@ and a boolean to check if the value has been set.
 
 SetSortOrder sets SortOrder field to given value.
 
+### HasSortOrder
+
+`func (o *FormattedApiStackRegionAnyOf) HasSortOrder() bool`
+
+HasSortOrder returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

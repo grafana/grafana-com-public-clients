@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the AppPlatform type satisfies the MappedNullable interface at compile time
@@ -20,7 +19,7 @@ var _ MappedNullable = &AppPlatform{}
 
 // AppPlatform struct for AppPlatform
 type AppPlatform struct {
-	Url                  string         `json:"url"`
+	Url                  *string        `json:"url,omitempty"`
 	CaData               NullableString `json:"caData,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -31,9 +30,8 @@ type _AppPlatform AppPlatform
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAppPlatform(url string) *AppPlatform {
+func NewAppPlatform() *AppPlatform {
 	this := AppPlatform{}
-	this.Url = url
 	return &this
 }
 
@@ -45,28 +43,36 @@ func NewAppPlatformWithDefaults() *AppPlatform {
 	return &this
 }
 
-// GetUrl returns the Url field value
+// GetUrl returns the Url field value if set, zero value otherwise.
 func (o *AppPlatform) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AppPlatform) GetUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url, true
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *AppPlatform) HasUrl() bool {
+	if o != nil && !IsNil(o.Url) {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *AppPlatform) SetUrl(v string) {
-	o.Url = v
+	o.Url = &v
 }
 
 // GetCaData returns the CaData field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -122,7 +128,9 @@ func (o AppPlatform) MarshalJSON() ([]byte, error) {
 
 func (o AppPlatform) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["url"] = o.Url
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
+	}
 	if o.CaData.IsSet() {
 		toSerialize["caData"] = o.CaData.Get()
 	}
@@ -135,27 +143,6 @@ func (o AppPlatform) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *AppPlatform) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"url",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varAppPlatform := _AppPlatform{}
 
 	err = json.Unmarshal(data, &varAppPlatform)

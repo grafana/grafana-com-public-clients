@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FormattedApiApiKeyListResponse type satisfies the MappedNullable interface at compile time
@@ -20,7 +19,7 @@ var _ MappedNullable = &FormattedApiApiKeyListResponse{}
 
 // FormattedApiApiKeyListResponse struct for FormattedApiApiKeyListResponse
 type FormattedApiApiKeyListResponse struct {
-	Items                []ItemsInner  `json:"items"`
+	Items                []ItemsInner  `json:"items,omitempty"`
 	OrderBy              *string       `json:"orderBy,omitempty"`
 	Direction            *string       `json:"direction,omitempty"`
 	Total                *float32      `json:"total,omitempty"`
@@ -39,9 +38,8 @@ type _FormattedApiApiKeyListResponse FormattedApiApiKeyListResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiApiKeyListResponse(items []ItemsInner) *FormattedApiApiKeyListResponse {
+func NewFormattedApiApiKeyListResponse() *FormattedApiApiKeyListResponse {
 	this := FormattedApiApiKeyListResponse{}
-	this.Items = items
 	return &this
 }
 
@@ -53,26 +51,34 @@ func NewFormattedApiApiKeyListResponseWithDefaults() *FormattedApiApiKeyListResp
 	return &this
 }
 
-// GetItems returns the Items field value
+// GetItems returns the Items field value if set, zero value otherwise.
 func (o *FormattedApiApiKeyListResponse) GetItems() []ItemsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		var ret []ItemsInner
 		return ret
 	}
-
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiApiKeyListResponse) GetItemsOk() ([]ItemsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// SetItems sets field value
+// HasItems returns a boolean if a field has been set.
+func (o *FormattedApiApiKeyListResponse) HasItems() bool {
+	if o != nil && !IsNil(o.Items) {
+		return true
+	}
+
+	return false
+}
+
+// SetItems gets a reference to the given []ItemsInner and assigns it to the Items field.
 func (o *FormattedApiApiKeyListResponse) SetItems(v []ItemsInner) {
 	o.Items = v
 }
@@ -375,7 +381,9 @@ func (o FormattedApiApiKeyListResponse) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiApiKeyListResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["items"] = o.Items
+	if !IsNil(o.Items) {
+		toSerialize["items"] = o.Items
+	}
 	if !IsNil(o.OrderBy) {
 		toSerialize["orderBy"] = o.OrderBy
 	}
@@ -412,27 +420,6 @@ func (o FormattedApiApiKeyListResponse) ToMap() (map[string]interface{}, error) 
 }
 
 func (o *FormattedApiApiKeyListResponse) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"items",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varFormattedApiApiKeyListResponse := _FormattedApiApiKeyListResponse{}
 
 	err = json.Unmarshal(data, &varFormattedApiApiKeyListResponse)

@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Product** | **string** |  | 
-**Payload** | [**Payload**](Payload.md) |  | 
-**Plan** | **NullableString** |  | 
-**PublicName** | **NullableString** |  | 
+**Product** | Pointer to **string** |  | [optional] 
+**Payload** | Pointer to [**Payload**](Payload.md) |  | [optional] 
+**Plan** | Pointer to **NullableString** |  | [optional] 
+**PublicName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewNext
 
-`func NewNext(product string, payload Payload, plan NullableString, publicName NullableString, ) *Next`
+`func NewNext() *Next`
 
 NewNext instantiates a new Next object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetProduct sets Product field to given value.
 
+### HasProduct
+
+`func (o *Next) HasProduct() bool`
+
+HasProduct returns a boolean if a field has been set.
 
 ### GetPayload
 
@@ -67,6 +72,11 @@ and a boolean to check if the value has been set.
 
 SetPayload sets Payload field to given value.
 
+### HasPayload
+
+`func (o *Next) HasPayload() bool`
+
+HasPayload returns a boolean if a field has been set.
 
 ### GetPlan
 
@@ -87,6 +97,11 @@ and a boolean to check if the value has been set.
 
 SetPlan sets Plan field to given value.
 
+### HasPlan
+
+`func (o *Next) HasPlan() bool`
+
+HasPlan returns a boolean if a field has been set.
 
 ### SetPlanNil
 
@@ -117,6 +132,11 @@ and a boolean to check if the value has been set.
 
 SetPublicName sets PublicName field to given value.
 
+### HasPublicName
+
+`func (o *Next) HasPublicName() bool`
+
+HasPublicName returns a boolean if a field has been set.
 
 ### SetPublicNameNil
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ServiceName** | **string** |  | 
-**PrivateDNS** | **string** |  | 
+**ServiceName** | Pointer to **string** |  | [optional] 
+**PrivateDNS** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewInfo
 
-`func NewInfo(serviceName string, privateDNS string, ) *Info`
+`func NewInfo() *Info`
 
 NewInfo instantiates a new Info object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetServiceName sets ServiceName field to given value.
 
+### HasServiceName
+
+`func (o *Info) HasServiceName() bool`
+
+HasServiceName returns a boolean if a field has been set.
 
 ### GetPrivateDNS
 
@@ -65,6 +70,11 @@ and a boolean to check if the value has been set.
 
 SetPrivateDNS sets PrivateDNS field to given value.
 
+### HasPrivateDNS
+
+`func (o *Info) HasPrivateDNS() bool`
+
+HasPrivateDNS returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

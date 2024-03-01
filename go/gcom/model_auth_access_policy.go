@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 	"time"
 )
 
@@ -23,11 +22,11 @@ var _ MappedNullable = &AuthAccessPolicy{}
 type AuthAccessPolicy struct {
 	Id    *string `json:"id,omitempty"`
 	OrgId *string `json:"orgId,omitempty"`
-	Name  string  `json:"name"`
+	Name  *string `json:"name,omitempty"`
 	// Will be set to `name` if not provided.
 	DisplayName *string                       `json:"displayName,omitempty"`
-	Scopes      []string                      `json:"scopes"`
-	Realms      []AuthAccessPolicyRealmsInner `json:"realms"`
+	Scopes      []string                      `json:"scopes,omitempty"`
+	Realms      []AuthAccessPolicyRealmsInner `json:"realms,omitempty"`
 	CreatedAt   *time.Time                    `json:"createdAt,omitempty"`
 	UpdatedAt   *time.Time                    `json:"updatedAt,omitempty"`
 	Conditions  *AuthAccessPolicyConditions   `json:"conditions,omitempty"`
@@ -43,11 +42,8 @@ type _AuthAccessPolicy AuthAccessPolicy
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAuthAccessPolicy(name string, scopes []string, realms []AuthAccessPolicyRealmsInner) *AuthAccessPolicy {
+func NewAuthAccessPolicy() *AuthAccessPolicy {
 	this := AuthAccessPolicy{}
-	this.Name = name
-	this.Scopes = scopes
-	this.Realms = realms
 	return &this
 }
 
@@ -123,28 +119,36 @@ func (o *AuthAccessPolicy) SetOrgId(v string) {
 	o.OrgId = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *AuthAccessPolicy) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AuthAccessPolicy) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *AuthAccessPolicy) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *AuthAccessPolicy) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
@@ -179,50 +183,66 @@ func (o *AuthAccessPolicy) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
 
-// GetScopes returns the Scopes field value
+// GetScopes returns the Scopes field value if set, zero value otherwise.
 func (o *AuthAccessPolicy) GetScopes() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Scopes) {
 		var ret []string
 		return ret
 	}
-
 	return o.Scopes
 }
 
-// GetScopesOk returns a tuple with the Scopes field value
+// GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AuthAccessPolicy) GetScopesOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Scopes) {
 		return nil, false
 	}
 	return o.Scopes, true
 }
 
-// SetScopes sets field value
+// HasScopes returns a boolean if a field has been set.
+func (o *AuthAccessPolicy) HasScopes() bool {
+	if o != nil && !IsNil(o.Scopes) {
+		return true
+	}
+
+	return false
+}
+
+// SetScopes gets a reference to the given []string and assigns it to the Scopes field.
 func (o *AuthAccessPolicy) SetScopes(v []string) {
 	o.Scopes = v
 }
 
-// GetRealms returns the Realms field value
+// GetRealms returns the Realms field value if set, zero value otherwise.
 func (o *AuthAccessPolicy) GetRealms() []AuthAccessPolicyRealmsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Realms) {
 		var ret []AuthAccessPolicyRealmsInner
 		return ret
 	}
-
 	return o.Realms
 }
 
-// GetRealmsOk returns a tuple with the Realms field value
+// GetRealmsOk returns a tuple with the Realms field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *AuthAccessPolicy) GetRealmsOk() ([]AuthAccessPolicyRealmsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Realms) {
 		return nil, false
 	}
 	return o.Realms, true
 }
 
-// SetRealms sets field value
+// HasRealms returns a boolean if a field has been set.
+func (o *AuthAccessPolicy) HasRealms() bool {
+	if o != nil && !IsNil(o.Realms) {
+		return true
+	}
+
+	return false
+}
+
+// SetRealms gets a reference to the given []AuthAccessPolicyRealmsInner and assigns it to the Realms field.
 func (o *AuthAccessPolicy) SetRealms(v []AuthAccessPolicyRealmsInner) {
 	o.Realms = v
 }
@@ -403,12 +423,18 @@ func (o AuthAccessPolicy) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.OrgId) {
 		toSerialize["orgId"] = o.OrgId
 	}
-	toSerialize["name"] = o.Name
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
 	if !IsNil(o.DisplayName) {
 		toSerialize["displayName"] = o.DisplayName
 	}
-	toSerialize["scopes"] = o.Scopes
-	toSerialize["realms"] = o.Realms
+	if !IsNil(o.Scopes) {
+		toSerialize["scopes"] = o.Scopes
+	}
+	if !IsNil(o.Realms) {
+		toSerialize["realms"] = o.Realms
+	}
 	if !IsNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt
 	}
@@ -433,29 +459,6 @@ func (o AuthAccessPolicy) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *AuthAccessPolicy) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"name",
-		"scopes",
-		"realms",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varAuthAccessPolicy := _AuthAccessPolicy{}
 
 	err = json.Unmarshal(data, &varAuthAccessPolicy)

@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the Current type satisfies the MappedNullable interface at compile time
@@ -20,15 +19,15 @@ var _ MappedNullable = &Current{}
 
 // Current struct for Current
 type Current struct {
-	Product                interface{}            `json:"product"`
-	IsTrial                bool                   `json:"isTrial"`
-	StartDate              interface{}            `json:"startDate"`
-	EndDate                interface{}            `json:"endDate"`
-	Payload                map[string]interface{} `json:"payload"`
-	Plan                   interface{}            `json:"plan"`
-	PublicName             interface{}            `json:"publicName"`
-	EnterprisePluginsAdded bool                   `json:"enterprisePluginsAdded"`
-	PlanBillingCycle       interface{}            `json:"planBillingCycle"`
+	Product                interface{}            `json:"product,omitempty"`
+	IsTrial                *bool                  `json:"isTrial,omitempty"`
+	StartDate              interface{}            `json:"startDate,omitempty"`
+	EndDate                interface{}            `json:"endDate,omitempty"`
+	Payload                map[string]interface{} `json:"payload,omitempty"`
+	Plan                   interface{}            `json:"plan,omitempty"`
+	PublicName             interface{}            `json:"publicName,omitempty"`
+	EnterprisePluginsAdded *bool                  `json:"enterprisePluginsAdded,omitempty"`
+	PlanBillingCycle       interface{}            `json:"planBillingCycle,omitempty"`
 	AdditionalProperties   map[string]interface{}
 }
 
@@ -38,17 +37,8 @@ type _Current Current
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCurrent(product interface{}, isTrial bool, startDate interface{}, endDate interface{}, payload map[string]interface{}, plan interface{}, publicName interface{}, enterprisePluginsAdded bool, planBillingCycle interface{}) *Current {
+func NewCurrent() *Current {
 	this := Current{}
-	this.Product = product
-	this.IsTrial = isTrial
-	this.StartDate = startDate
-	this.EndDate = endDate
-	this.Payload = payload
-	this.Plan = plan
-	this.PublicName = publicName
-	this.EnterprisePluginsAdded = enterprisePluginsAdded
-	this.PlanBillingCycle = planBillingCycle
 	return &this
 }
 
@@ -60,18 +50,16 @@ func NewCurrentWithDefaults() *Current {
 	return &this
 }
 
-// GetProduct returns the Product field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetProduct returns the Product field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Current) GetProduct() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.Product
 }
 
-// GetProductOk returns a tuple with the Product field value
+// GetProductOk returns a tuple with the Product field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Current) GetProductOk() (*interface{}, bool) {
@@ -81,47 +69,62 @@ func (o *Current) GetProductOk() (*interface{}, bool) {
 	return &o.Product, true
 }
 
-// SetProduct sets field value
+// HasProduct returns a boolean if a field has been set.
+func (o *Current) HasProduct() bool {
+	if o != nil && IsNil(o.Product) {
+		return true
+	}
+
+	return false
+}
+
+// SetProduct gets a reference to the given interface{} and assigns it to the Product field.
 func (o *Current) SetProduct(v interface{}) {
 	o.Product = v
 }
 
-// GetIsTrial returns the IsTrial field value
+// GetIsTrial returns the IsTrial field value if set, zero value otherwise.
 func (o *Current) GetIsTrial() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsTrial) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsTrial
+	return *o.IsTrial
 }
 
-// GetIsTrialOk returns a tuple with the IsTrial field value
+// GetIsTrialOk returns a tuple with the IsTrial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Current) GetIsTrialOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsTrial) {
 		return nil, false
 	}
-	return &o.IsTrial, true
+	return o.IsTrial, true
 }
 
-// SetIsTrial sets field value
+// HasIsTrial returns a boolean if a field has been set.
+func (o *Current) HasIsTrial() bool {
+	if o != nil && !IsNil(o.IsTrial) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsTrial gets a reference to the given bool and assigns it to the IsTrial field.
 func (o *Current) SetIsTrial(v bool) {
-	o.IsTrial = v
+	o.IsTrial = &v
 }
 
-// GetStartDate returns the StartDate field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetStartDate returns the StartDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Current) GetStartDate() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.StartDate
 }
 
-// GetStartDateOk returns a tuple with the StartDate field value
+// GetStartDateOk returns a tuple with the StartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Current) GetStartDateOk() (*interface{}, bool) {
@@ -131,23 +134,30 @@ func (o *Current) GetStartDateOk() (*interface{}, bool) {
 	return &o.StartDate, true
 }
 
-// SetStartDate sets field value
+// HasStartDate returns a boolean if a field has been set.
+func (o *Current) HasStartDate() bool {
+	if o != nil && IsNil(o.StartDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetStartDate gets a reference to the given interface{} and assigns it to the StartDate field.
 func (o *Current) SetStartDate(v interface{}) {
 	o.StartDate = v
 }
 
-// GetEndDate returns the EndDate field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetEndDate returns the EndDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Current) GetEndDate() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.EndDate
 }
 
-// GetEndDateOk returns a tuple with the EndDate field value
+// GetEndDateOk returns a tuple with the EndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Current) GetEndDateOk() (*interface{}, bool) {
@@ -157,47 +167,62 @@ func (o *Current) GetEndDateOk() (*interface{}, bool) {
 	return &o.EndDate, true
 }
 
-// SetEndDate sets field value
+// HasEndDate returns a boolean if a field has been set.
+func (o *Current) HasEndDate() bool {
+	if o != nil && IsNil(o.EndDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndDate gets a reference to the given interface{} and assigns it to the EndDate field.
 func (o *Current) SetEndDate(v interface{}) {
 	o.EndDate = v
 }
 
-// GetPayload returns the Payload field value
+// GetPayload returns the Payload field value if set, zero value otherwise.
 func (o *Current) GetPayload() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Payload) {
 		var ret map[string]interface{}
 		return ret
 	}
-
 	return o.Payload
 }
 
-// GetPayloadOk returns a tuple with the Payload field value
+// GetPayloadOk returns a tuple with the Payload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Current) GetPayloadOk() (map[string]interface{}, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Payload) {
 		return map[string]interface{}{}, false
 	}
 	return o.Payload, true
 }
 
-// SetPayload sets field value
+// HasPayload returns a boolean if a field has been set.
+func (o *Current) HasPayload() bool {
+	if o != nil && !IsNil(o.Payload) {
+		return true
+	}
+
+	return false
+}
+
+// SetPayload gets a reference to the given map[string]interface{} and assigns it to the Payload field.
 func (o *Current) SetPayload(v map[string]interface{}) {
 	o.Payload = v
 }
 
-// GetPlan returns the Plan field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetPlan returns the Plan field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Current) GetPlan() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.Plan
 }
 
-// GetPlanOk returns a tuple with the Plan field value
+// GetPlanOk returns a tuple with the Plan field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Current) GetPlanOk() (*interface{}, bool) {
@@ -207,23 +232,30 @@ func (o *Current) GetPlanOk() (*interface{}, bool) {
 	return &o.Plan, true
 }
 
-// SetPlan sets field value
+// HasPlan returns a boolean if a field has been set.
+func (o *Current) HasPlan() bool {
+	if o != nil && IsNil(o.Plan) {
+		return true
+	}
+
+	return false
+}
+
+// SetPlan gets a reference to the given interface{} and assigns it to the Plan field.
 func (o *Current) SetPlan(v interface{}) {
 	o.Plan = v
 }
 
-// GetPublicName returns the PublicName field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetPublicName returns the PublicName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Current) GetPublicName() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.PublicName
 }
 
-// GetPublicNameOk returns a tuple with the PublicName field value
+// GetPublicNameOk returns a tuple with the PublicName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Current) GetPublicNameOk() (*interface{}, bool) {
@@ -233,47 +265,62 @@ func (o *Current) GetPublicNameOk() (*interface{}, bool) {
 	return &o.PublicName, true
 }
 
-// SetPublicName sets field value
+// HasPublicName returns a boolean if a field has been set.
+func (o *Current) HasPublicName() bool {
+	if o != nil && IsNil(o.PublicName) {
+		return true
+	}
+
+	return false
+}
+
+// SetPublicName gets a reference to the given interface{} and assigns it to the PublicName field.
 func (o *Current) SetPublicName(v interface{}) {
 	o.PublicName = v
 }
 
-// GetEnterprisePluginsAdded returns the EnterprisePluginsAdded field value
+// GetEnterprisePluginsAdded returns the EnterprisePluginsAdded field value if set, zero value otherwise.
 func (o *Current) GetEnterprisePluginsAdded() bool {
-	if o == nil {
+	if o == nil || IsNil(o.EnterprisePluginsAdded) {
 		var ret bool
 		return ret
 	}
-
-	return o.EnterprisePluginsAdded
+	return *o.EnterprisePluginsAdded
 }
 
-// GetEnterprisePluginsAddedOk returns a tuple with the EnterprisePluginsAdded field value
+// GetEnterprisePluginsAddedOk returns a tuple with the EnterprisePluginsAdded field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Current) GetEnterprisePluginsAddedOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EnterprisePluginsAdded) {
 		return nil, false
 	}
-	return &o.EnterprisePluginsAdded, true
+	return o.EnterprisePluginsAdded, true
 }
 
-// SetEnterprisePluginsAdded sets field value
+// HasEnterprisePluginsAdded returns a boolean if a field has been set.
+func (o *Current) HasEnterprisePluginsAdded() bool {
+	if o != nil && !IsNil(o.EnterprisePluginsAdded) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnterprisePluginsAdded gets a reference to the given bool and assigns it to the EnterprisePluginsAdded field.
 func (o *Current) SetEnterprisePluginsAdded(v bool) {
-	o.EnterprisePluginsAdded = v
+	o.EnterprisePluginsAdded = &v
 }
 
-// GetPlanBillingCycle returns the PlanBillingCycle field value
-// If the value is explicit nil, the zero value for interface{} will be returned
+// GetPlanBillingCycle returns the PlanBillingCycle field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Current) GetPlanBillingCycle() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
-
 	return o.PlanBillingCycle
 }
 
-// GetPlanBillingCycleOk returns a tuple with the PlanBillingCycle field value
+// GetPlanBillingCycleOk returns a tuple with the PlanBillingCycle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Current) GetPlanBillingCycleOk() (*interface{}, bool) {
@@ -283,7 +330,16 @@ func (o *Current) GetPlanBillingCycleOk() (*interface{}, bool) {
 	return &o.PlanBillingCycle, true
 }
 
-// SetPlanBillingCycle sets field value
+// HasPlanBillingCycle returns a boolean if a field has been set.
+func (o *Current) HasPlanBillingCycle() bool {
+	if o != nil && IsNil(o.PlanBillingCycle) {
+		return true
+	}
+
+	return false
+}
+
+// SetPlanBillingCycle gets a reference to the given interface{} and assigns it to the PlanBillingCycle field.
 func (o *Current) SetPlanBillingCycle(v interface{}) {
 	o.PlanBillingCycle = v
 }
@@ -301,21 +357,27 @@ func (o Current) ToMap() (map[string]interface{}, error) {
 	if o.Product != nil {
 		toSerialize["product"] = o.Product
 	}
-	toSerialize["isTrial"] = o.IsTrial
+	if !IsNil(o.IsTrial) {
+		toSerialize["isTrial"] = o.IsTrial
+	}
 	if o.StartDate != nil {
 		toSerialize["startDate"] = o.StartDate
 	}
 	if o.EndDate != nil {
 		toSerialize["endDate"] = o.EndDate
 	}
-	toSerialize["payload"] = o.Payload
+	if !IsNil(o.Payload) {
+		toSerialize["payload"] = o.Payload
+	}
 	if o.Plan != nil {
 		toSerialize["plan"] = o.Plan
 	}
 	if o.PublicName != nil {
 		toSerialize["publicName"] = o.PublicName
 	}
-	toSerialize["enterprisePluginsAdded"] = o.EnterprisePluginsAdded
+	if !IsNil(o.EnterprisePluginsAdded) {
+		toSerialize["enterprisePluginsAdded"] = o.EnterprisePluginsAdded
+	}
 	if o.PlanBillingCycle != nil {
 		toSerialize["planBillingCycle"] = o.PlanBillingCycle
 	}
@@ -328,35 +390,6 @@ func (o Current) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *Current) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"product",
-		"isTrial",
-		"startDate",
-		"endDate",
-		"payload",
-		"plan",
-		"publicName",
-		"enterprisePluginsAdded",
-		"planBillingCycle",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varCurrent := _Current{}
 
 	err = json.Unmarshal(data, &varCurrent)

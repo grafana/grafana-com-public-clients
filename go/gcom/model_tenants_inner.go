@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the TenantsInner type satisfies the MappedNullable interface at compile time
@@ -20,9 +19,9 @@ var _ MappedNullable = &TenantsInner{}
 
 // TenantsInner struct for TenantsInner
 type TenantsInner struct {
-	Type                 string  `json:"type"`
-	Id                   float32 `json:"id"`
-	Info                 Info    `json:"info"`
+	Type                 *string  `json:"type,omitempty"`
+	Id                   *float32 `json:"id,omitempty"`
+	Info                 *Info    `json:"info,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -32,11 +31,8 @@ type _TenantsInner TenantsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTenantsInner(type_ string, id float32, info Info) *TenantsInner {
+func NewTenantsInner() *TenantsInner {
 	this := TenantsInner{}
-	this.Type = type_
-	this.Id = id
-	this.Info = info
 	return &this
 }
 
@@ -48,76 +44,100 @@ func NewTenantsInnerWithDefaults() *TenantsInner {
 	return &this
 }
 
-// GetType returns the Type field value
+// GetType returns the Type field value if set, zero value otherwise.
 func (o *TenantsInner) GetType() string {
-	if o == nil {
+	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
 	}
-
-	return o.Type
+	return *o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TenantsInner) GetTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
-	return &o.Type, true
+	return o.Type, true
 }
 
-// SetType sets field value
+// HasType returns a boolean if a field has been set.
+func (o *TenantsInner) HasType() bool {
+	if o != nil && !IsNil(o.Type) {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given string and assigns it to the Type field.
 func (o *TenantsInner) SetType(v string) {
-	o.Type = v
+	o.Type = &v
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *TenantsInner) GetId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TenantsInner) GetIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *TenantsInner) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given float32 and assigns it to the Id field.
 func (o *TenantsInner) SetId(v float32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetInfo returns the Info field value
+// GetInfo returns the Info field value if set, zero value otherwise.
 func (o *TenantsInner) GetInfo() Info {
-	if o == nil {
+	if o == nil || IsNil(o.Info) {
 		var ret Info
 		return ret
 	}
-
-	return o.Info
+	return *o.Info
 }
 
-// GetInfoOk returns a tuple with the Info field value
+// GetInfoOk returns a tuple with the Info field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TenantsInner) GetInfoOk() (*Info, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Info) {
 		return nil, false
 	}
-	return &o.Info, true
+	return o.Info, true
 }
 
-// SetInfo sets field value
+// HasInfo returns a boolean if a field has been set.
+func (o *TenantsInner) HasInfo() bool {
+	if o != nil && !IsNil(o.Info) {
+		return true
+	}
+
+	return false
+}
+
+// SetInfo gets a reference to the given Info and assigns it to the Info field.
 func (o *TenantsInner) SetInfo(v Info) {
-	o.Info = v
+	o.Info = &v
 }
 
 func (o TenantsInner) MarshalJSON() ([]byte, error) {
@@ -130,9 +150,15 @@ func (o TenantsInner) MarshalJSON() ([]byte, error) {
 
 func (o TenantsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["type"] = o.Type
-	toSerialize["id"] = o.Id
-	toSerialize["info"] = o.Info
+	if !IsNil(o.Type) {
+		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Info) {
+		toSerialize["info"] = o.Info
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -142,29 +168,6 @@ func (o TenantsInner) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *TenantsInner) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"type",
-		"id",
-		"info",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varTenantsInner := _TenantsInner{}
 
 	err = json.Unmarshal(data, &varTenantsInner)

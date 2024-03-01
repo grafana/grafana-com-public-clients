@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]ItemsInner**](ItemsInner.md) |  | 
+**Items** | Pointer to [**[]ItemsInner**](ItemsInner.md) |  | [optional] 
 **OrderBy** | Pointer to **string** |  | [optional] 
 **Direction** | Pointer to **string** |  | [optional] 
 **Total** | Pointer to **float32** |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiApiKeyListResponse
 
-`func NewFormattedApiApiKeyListResponse(items []ItemsInner, ) *FormattedApiApiKeyListResponse`
+`func NewFormattedApiApiKeyListResponse() *FormattedApiApiKeyListResponse`
 
 NewFormattedApiApiKeyListResponse instantiates a new FormattedApiApiKeyListResponse object
 This constructor will assign default values to properties that have it defined,
@@ -53,6 +53,11 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
+### HasItems
+
+`func (o *FormattedApiApiKeyListResponse) HasItems() bool`
+
+HasItems returns a boolean if a field has been set.
 
 ### GetOrderBy
 

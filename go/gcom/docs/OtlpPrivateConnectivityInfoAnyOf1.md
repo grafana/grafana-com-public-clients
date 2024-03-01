@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Mimir** | [**Mimir**](Mimir.md) |  | 
+**Mimir** | Pointer to [**Mimir**](Mimir.md) |  | [optional] 
 **Graphite** | Pointer to [**Graphite**](Graphite.md) |  | [optional] 
 
 ## Methods
 
 ### NewOtlpPrivateConnectivityInfoAnyOf1
 
-`func NewOtlpPrivateConnectivityInfoAnyOf1(mimir Mimir, ) *OtlpPrivateConnectivityInfoAnyOf1`
+`func NewOtlpPrivateConnectivityInfoAnyOf1() *OtlpPrivateConnectivityInfoAnyOf1`
 
 NewOtlpPrivateConnectivityInfoAnyOf1 instantiates a new OtlpPrivateConnectivityInfoAnyOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetMimir sets Mimir field to given value.
 
+### HasMimir
+
+`func (o *OtlpPrivateConnectivityInfoAnyOf1) HasMimir() bool`
+
+HasMimir returns a boolean if a field has been set.
 
 ### GetGraphite
 

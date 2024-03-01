@@ -4,71 +4,71 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
-**Status** | **string** |  | 
-**Visibility** | **string** |  | 
-**Slug** | **string** |  | 
-**Name** | **string** |  | 
-**PublicName** | **string** |  | 
-**Description** | **string** |  | 
-**Provider** | **string** |  | 
-**CreatedAt** | **string** |  | 
-**UpdatedAt** | **NullableString** |  | 
-**SortOrder** | **float32** |  | 
-**StackStateServiceUrl** | **string** |  | 
-**SyntheticMonitoringApiUrl** | **string** |  | 
-**InsightsApiUrl** | **string** |  | 
-**IntegrationsApiUrl** | **string** |  | 
-**HostedExportersApiUrl** | **string** |  | 
-**MachineLearningApiUrl** | **string** |  | 
-**LlmGatewayUrl** | **string** |  | 
-**IncidentApiUrl** | **string** |  | 
-**OncallApiUrl** | **string** |  | 
-**FaroEndpointUrl** | **string** |  | 
-**PdcClusterSlug** | **string** |  | 
-**OtlpHttpUrl** | **NullableString** |  | 
-**OtlpPrivateConnectivityInfo** | [**NullableOtlpPrivateConnectivityInfo**](OtlpPrivateConnectivityInfo.md) |  | 
-**AuthApiUrl** | **string** |  | 
-**AuthApiTokenSet** | **bool** |  | 
-**HgClusterId** | **float32** |  | 
-**HgClusterSlug** | **string** |  | 
-**HgClusterName** | **string** |  | 
-**HgClusterUrl** | **string** |  | 
-**HmPromClusterId** | **float32** |  | 
-**HmPromClusterSlug** | **string** |  | 
-**HmPromClusterName** | **string** |  | 
-**HmPromClusterUrl** | **string** |  | 
-**HmGraphiteClusterId** | **float32** |  | 
-**HmGraphiteClusterSlug** | **string** |  | 
-**HmGraphiteClusterName** | **string** |  | 
-**HmGraphiteClusterUrl** | **string** |  | 
-**HlClusterId** | **float32** |  | 
-**HlClusterSlug** | **string** |  | 
-**HlClusterName** | **string** |  | 
-**HlClusterUrl** | **string** |  | 
-**AmClusterId** | **float32** |  | 
-**AmClusterSlug** | **string** |  | 
-**AmClusterName** | **string** |  | 
-**AmClusterUrl** | **string** |  | 
-**HtClusterId** | **float32** |  | 
-**HtClusterSlug** | **string** |  | 
-**HtClusterName** | **string** |  | 
-**HtClusterUrl** | **string** |  | 
-**HpClusterId** | **float32** |  | 
-**HpClusterSlug** | **string** |  | 
-**HpClusterName** | **string** |  | 
-**HpClusterUrl** | **string** |  | 
-**AgmClusterId** | **float32** |  | 
-**AgmClusterSlug** | **string** |  | 
-**AgmClusterName** | **string** |  | 
-**AgmClusterUrl** | **string** |  | 
-**ProviderRegion** | **string** |  | 
+**Id** | Pointer to **float32** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
+**Visibility** | Pointer to **string** |  | [optional] 
+**Slug** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**PublicName** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Provider** | Pointer to **string** |  | [optional] 
+**CreatedAt** | Pointer to **string** |  | [optional] 
+**UpdatedAt** | Pointer to **NullableString** |  | [optional] 
+**SortOrder** | Pointer to **float32** |  | [optional] 
+**StackStateServiceUrl** | Pointer to **string** |  | [optional] 
+**SyntheticMonitoringApiUrl** | Pointer to **string** |  | [optional] 
+**InsightsApiUrl** | Pointer to **string** |  | [optional] 
+**IntegrationsApiUrl** | Pointer to **string** |  | [optional] 
+**HostedExportersApiUrl** | Pointer to **string** |  | [optional] 
+**MachineLearningApiUrl** | Pointer to **string** |  | [optional] 
+**LlmGatewayUrl** | Pointer to **string** |  | [optional] 
+**IncidentApiUrl** | Pointer to **string** |  | [optional] 
+**OncallApiUrl** | Pointer to **string** |  | [optional] 
+**FaroEndpointUrl** | Pointer to **string** |  | [optional] 
+**PdcClusterSlug** | Pointer to **string** |  | [optional] 
+**OtlpHttpUrl** | Pointer to **NullableString** |  | [optional] 
+**OtlpPrivateConnectivityInfo** | Pointer to [**NullableOtlpPrivateConnectivityInfo**](OtlpPrivateConnectivityInfo.md) |  | [optional] 
+**AuthApiUrl** | Pointer to **string** |  | [optional] 
+**AuthApiTokenSet** | Pointer to **bool** |  | [optional] 
+**HgClusterId** | Pointer to **float32** |  | [optional] 
+**HgClusterSlug** | Pointer to **string** |  | [optional] 
+**HgClusterName** | Pointer to **string** |  | [optional] 
+**HgClusterUrl** | Pointer to **string** |  | [optional] 
+**HmPromClusterId** | Pointer to **float32** |  | [optional] 
+**HmPromClusterSlug** | Pointer to **string** |  | [optional] 
+**HmPromClusterName** | Pointer to **string** |  | [optional] 
+**HmPromClusterUrl** | Pointer to **string** |  | [optional] 
+**HmGraphiteClusterId** | Pointer to **float32** |  | [optional] 
+**HmGraphiteClusterSlug** | Pointer to **string** |  | [optional] 
+**HmGraphiteClusterName** | Pointer to **string** |  | [optional] 
+**HmGraphiteClusterUrl** | Pointer to **string** |  | [optional] 
+**HlClusterId** | Pointer to **float32** |  | [optional] 
+**HlClusterSlug** | Pointer to **string** |  | [optional] 
+**HlClusterName** | Pointer to **string** |  | [optional] 
+**HlClusterUrl** | Pointer to **string** |  | [optional] 
+**AmClusterId** | Pointer to **float32** |  | [optional] 
+**AmClusterSlug** | Pointer to **string** |  | [optional] 
+**AmClusterName** | Pointer to **string** |  | [optional] 
+**AmClusterUrl** | Pointer to **string** |  | [optional] 
+**HtClusterId** | Pointer to **float32** |  | [optional] 
+**HtClusterSlug** | Pointer to **string** |  | [optional] 
+**HtClusterName** | Pointer to **string** |  | [optional] 
+**HtClusterUrl** | Pointer to **string** |  | [optional] 
+**HpClusterId** | Pointer to **float32** |  | [optional] 
+**HpClusterSlug** | Pointer to **string** |  | [optional] 
+**HpClusterName** | Pointer to **string** |  | [optional] 
+**HpClusterUrl** | Pointer to **string** |  | [optional] 
+**AgmClusterId** | Pointer to **float32** |  | [optional] 
+**AgmClusterSlug** | Pointer to **string** |  | [optional] 
+**AgmClusterName** | Pointer to **string** |  | [optional] 
+**AgmClusterUrl** | Pointer to **string** |  | [optional] 
+**ProviderRegion** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiStackRegion
 
-`func NewFormattedApiStackRegion(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, ) *FormattedApiStackRegion`
+`func NewFormattedApiStackRegion() *FormattedApiStackRegion`
 
 NewFormattedApiStackRegion instantiates a new FormattedApiStackRegion object
 This constructor will assign default values to properties that have it defined,
@@ -102,6 +102,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *FormattedApiStackRegion) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetStatus
 
@@ -122,6 +127,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *FormattedApiStackRegion) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetVisibility
 
@@ -142,6 +152,11 @@ and a boolean to check if the value has been set.
 
 SetVisibility sets Visibility field to given value.
 
+### HasVisibility
+
+`func (o *FormattedApiStackRegion) HasVisibility() bool`
+
+HasVisibility returns a boolean if a field has been set.
 
 ### GetSlug
 
@@ -162,6 +177,11 @@ and a boolean to check if the value has been set.
 
 SetSlug sets Slug field to given value.
 
+### HasSlug
+
+`func (o *FormattedApiStackRegion) HasSlug() bool`
+
+HasSlug returns a boolean if a field has been set.
 
 ### GetName
 
@@ -182,6 +202,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *FormattedApiStackRegion) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetPublicName
 
@@ -202,6 +227,11 @@ and a boolean to check if the value has been set.
 
 SetPublicName sets PublicName field to given value.
 
+### HasPublicName
+
+`func (o *FormattedApiStackRegion) HasPublicName() bool`
+
+HasPublicName returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -222,6 +252,11 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
+
+`func (o *FormattedApiStackRegion) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetProvider
 
@@ -242,6 +277,11 @@ and a boolean to check if the value has been set.
 
 SetProvider sets Provider field to given value.
 
+### HasProvider
+
+`func (o *FormattedApiStackRegion) HasProvider() bool`
+
+HasProvider returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -262,6 +302,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *FormattedApiStackRegion) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 
@@ -282,6 +327,11 @@ and a boolean to check if the value has been set.
 
 SetUpdatedAt sets UpdatedAt field to given value.
 
+### HasUpdatedAt
+
+`func (o *FormattedApiStackRegion) HasUpdatedAt() bool`
+
+HasUpdatedAt returns a boolean if a field has been set.
 
 ### SetUpdatedAtNil
 
@@ -312,6 +362,11 @@ and a boolean to check if the value has been set.
 
 SetSortOrder sets SortOrder field to given value.
 
+### HasSortOrder
+
+`func (o *FormattedApiStackRegion) HasSortOrder() bool`
+
+HasSortOrder returns a boolean if a field has been set.
 
 ### GetStackStateServiceUrl
 
@@ -332,6 +387,11 @@ and a boolean to check if the value has been set.
 
 SetStackStateServiceUrl sets StackStateServiceUrl field to given value.
 
+### HasStackStateServiceUrl
+
+`func (o *FormattedApiStackRegion) HasStackStateServiceUrl() bool`
+
+HasStackStateServiceUrl returns a boolean if a field has been set.
 
 ### GetSyntheticMonitoringApiUrl
 
@@ -352,6 +412,11 @@ and a boolean to check if the value has been set.
 
 SetSyntheticMonitoringApiUrl sets SyntheticMonitoringApiUrl field to given value.
 
+### HasSyntheticMonitoringApiUrl
+
+`func (o *FormattedApiStackRegion) HasSyntheticMonitoringApiUrl() bool`
+
+HasSyntheticMonitoringApiUrl returns a boolean if a field has been set.
 
 ### GetInsightsApiUrl
 
@@ -372,6 +437,11 @@ and a boolean to check if the value has been set.
 
 SetInsightsApiUrl sets InsightsApiUrl field to given value.
 
+### HasInsightsApiUrl
+
+`func (o *FormattedApiStackRegion) HasInsightsApiUrl() bool`
+
+HasInsightsApiUrl returns a boolean if a field has been set.
 
 ### GetIntegrationsApiUrl
 
@@ -392,6 +462,11 @@ and a boolean to check if the value has been set.
 
 SetIntegrationsApiUrl sets IntegrationsApiUrl field to given value.
 
+### HasIntegrationsApiUrl
+
+`func (o *FormattedApiStackRegion) HasIntegrationsApiUrl() bool`
+
+HasIntegrationsApiUrl returns a boolean if a field has been set.
 
 ### GetHostedExportersApiUrl
 
@@ -412,6 +487,11 @@ and a boolean to check if the value has been set.
 
 SetHostedExportersApiUrl sets HostedExportersApiUrl field to given value.
 
+### HasHostedExportersApiUrl
+
+`func (o *FormattedApiStackRegion) HasHostedExportersApiUrl() bool`
+
+HasHostedExportersApiUrl returns a boolean if a field has been set.
 
 ### GetMachineLearningApiUrl
 
@@ -432,6 +512,11 @@ and a boolean to check if the value has been set.
 
 SetMachineLearningApiUrl sets MachineLearningApiUrl field to given value.
 
+### HasMachineLearningApiUrl
+
+`func (o *FormattedApiStackRegion) HasMachineLearningApiUrl() bool`
+
+HasMachineLearningApiUrl returns a boolean if a field has been set.
 
 ### GetLlmGatewayUrl
 
@@ -452,6 +537,11 @@ and a boolean to check if the value has been set.
 
 SetLlmGatewayUrl sets LlmGatewayUrl field to given value.
 
+### HasLlmGatewayUrl
+
+`func (o *FormattedApiStackRegion) HasLlmGatewayUrl() bool`
+
+HasLlmGatewayUrl returns a boolean if a field has been set.
 
 ### GetIncidentApiUrl
 
@@ -472,6 +562,11 @@ and a boolean to check if the value has been set.
 
 SetIncidentApiUrl sets IncidentApiUrl field to given value.
 
+### HasIncidentApiUrl
+
+`func (o *FormattedApiStackRegion) HasIncidentApiUrl() bool`
+
+HasIncidentApiUrl returns a boolean if a field has been set.
 
 ### GetOncallApiUrl
 
@@ -492,6 +587,11 @@ and a boolean to check if the value has been set.
 
 SetOncallApiUrl sets OncallApiUrl field to given value.
 
+### HasOncallApiUrl
+
+`func (o *FormattedApiStackRegion) HasOncallApiUrl() bool`
+
+HasOncallApiUrl returns a boolean if a field has been set.
 
 ### GetFaroEndpointUrl
 
@@ -512,6 +612,11 @@ and a boolean to check if the value has been set.
 
 SetFaroEndpointUrl sets FaroEndpointUrl field to given value.
 
+### HasFaroEndpointUrl
+
+`func (o *FormattedApiStackRegion) HasFaroEndpointUrl() bool`
+
+HasFaroEndpointUrl returns a boolean if a field has been set.
 
 ### GetPdcClusterSlug
 
@@ -532,6 +637,11 @@ and a boolean to check if the value has been set.
 
 SetPdcClusterSlug sets PdcClusterSlug field to given value.
 
+### HasPdcClusterSlug
+
+`func (o *FormattedApiStackRegion) HasPdcClusterSlug() bool`
+
+HasPdcClusterSlug returns a boolean if a field has been set.
 
 ### GetOtlpHttpUrl
 
@@ -552,6 +662,11 @@ and a boolean to check if the value has been set.
 
 SetOtlpHttpUrl sets OtlpHttpUrl field to given value.
 
+### HasOtlpHttpUrl
+
+`func (o *FormattedApiStackRegion) HasOtlpHttpUrl() bool`
+
+HasOtlpHttpUrl returns a boolean if a field has been set.
 
 ### SetOtlpHttpUrlNil
 
@@ -582,6 +697,11 @@ and a boolean to check if the value has been set.
 
 SetOtlpPrivateConnectivityInfo sets OtlpPrivateConnectivityInfo field to given value.
 
+### HasOtlpPrivateConnectivityInfo
+
+`func (o *FormattedApiStackRegion) HasOtlpPrivateConnectivityInfo() bool`
+
+HasOtlpPrivateConnectivityInfo returns a boolean if a field has been set.
 
 ### SetOtlpPrivateConnectivityInfoNil
 
@@ -612,6 +732,11 @@ and a boolean to check if the value has been set.
 
 SetAuthApiUrl sets AuthApiUrl field to given value.
 
+### HasAuthApiUrl
+
+`func (o *FormattedApiStackRegion) HasAuthApiUrl() bool`
+
+HasAuthApiUrl returns a boolean if a field has been set.
 
 ### GetAuthApiTokenSet
 
@@ -632,6 +757,11 @@ and a boolean to check if the value has been set.
 
 SetAuthApiTokenSet sets AuthApiTokenSet field to given value.
 
+### HasAuthApiTokenSet
+
+`func (o *FormattedApiStackRegion) HasAuthApiTokenSet() bool`
+
+HasAuthApiTokenSet returns a boolean if a field has been set.
 
 ### GetHgClusterId
 
@@ -652,6 +782,11 @@ and a boolean to check if the value has been set.
 
 SetHgClusterId sets HgClusterId field to given value.
 
+### HasHgClusterId
+
+`func (o *FormattedApiStackRegion) HasHgClusterId() bool`
+
+HasHgClusterId returns a boolean if a field has been set.
 
 ### GetHgClusterSlug
 
@@ -672,6 +807,11 @@ and a boolean to check if the value has been set.
 
 SetHgClusterSlug sets HgClusterSlug field to given value.
 
+### HasHgClusterSlug
+
+`func (o *FormattedApiStackRegion) HasHgClusterSlug() bool`
+
+HasHgClusterSlug returns a boolean if a field has been set.
 
 ### GetHgClusterName
 
@@ -692,6 +832,11 @@ and a boolean to check if the value has been set.
 
 SetHgClusterName sets HgClusterName field to given value.
 
+### HasHgClusterName
+
+`func (o *FormattedApiStackRegion) HasHgClusterName() bool`
+
+HasHgClusterName returns a boolean if a field has been set.
 
 ### GetHgClusterUrl
 
@@ -712,6 +857,11 @@ and a boolean to check if the value has been set.
 
 SetHgClusterUrl sets HgClusterUrl field to given value.
 
+### HasHgClusterUrl
+
+`func (o *FormattedApiStackRegion) HasHgClusterUrl() bool`
+
+HasHgClusterUrl returns a boolean if a field has been set.
 
 ### GetHmPromClusterId
 
@@ -732,6 +882,11 @@ and a boolean to check if the value has been set.
 
 SetHmPromClusterId sets HmPromClusterId field to given value.
 
+### HasHmPromClusterId
+
+`func (o *FormattedApiStackRegion) HasHmPromClusterId() bool`
+
+HasHmPromClusterId returns a boolean if a field has been set.
 
 ### GetHmPromClusterSlug
 
@@ -752,6 +907,11 @@ and a boolean to check if the value has been set.
 
 SetHmPromClusterSlug sets HmPromClusterSlug field to given value.
 
+### HasHmPromClusterSlug
+
+`func (o *FormattedApiStackRegion) HasHmPromClusterSlug() bool`
+
+HasHmPromClusterSlug returns a boolean if a field has been set.
 
 ### GetHmPromClusterName
 
@@ -772,6 +932,11 @@ and a boolean to check if the value has been set.
 
 SetHmPromClusterName sets HmPromClusterName field to given value.
 
+### HasHmPromClusterName
+
+`func (o *FormattedApiStackRegion) HasHmPromClusterName() bool`
+
+HasHmPromClusterName returns a boolean if a field has been set.
 
 ### GetHmPromClusterUrl
 
@@ -792,6 +957,11 @@ and a boolean to check if the value has been set.
 
 SetHmPromClusterUrl sets HmPromClusterUrl field to given value.
 
+### HasHmPromClusterUrl
+
+`func (o *FormattedApiStackRegion) HasHmPromClusterUrl() bool`
+
+HasHmPromClusterUrl returns a boolean if a field has been set.
 
 ### GetHmGraphiteClusterId
 
@@ -812,6 +982,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteClusterId sets HmGraphiteClusterId field to given value.
 
+### HasHmGraphiteClusterId
+
+`func (o *FormattedApiStackRegion) HasHmGraphiteClusterId() bool`
+
+HasHmGraphiteClusterId returns a boolean if a field has been set.
 
 ### GetHmGraphiteClusterSlug
 
@@ -832,6 +1007,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteClusterSlug sets HmGraphiteClusterSlug field to given value.
 
+### HasHmGraphiteClusterSlug
+
+`func (o *FormattedApiStackRegion) HasHmGraphiteClusterSlug() bool`
+
+HasHmGraphiteClusterSlug returns a boolean if a field has been set.
 
 ### GetHmGraphiteClusterName
 
@@ -852,6 +1032,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteClusterName sets HmGraphiteClusterName field to given value.
 
+### HasHmGraphiteClusterName
+
+`func (o *FormattedApiStackRegion) HasHmGraphiteClusterName() bool`
+
+HasHmGraphiteClusterName returns a boolean if a field has been set.
 
 ### GetHmGraphiteClusterUrl
 
@@ -872,6 +1057,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteClusterUrl sets HmGraphiteClusterUrl field to given value.
 
+### HasHmGraphiteClusterUrl
+
+`func (o *FormattedApiStackRegion) HasHmGraphiteClusterUrl() bool`
+
+HasHmGraphiteClusterUrl returns a boolean if a field has been set.
 
 ### GetHlClusterId
 
@@ -892,6 +1082,11 @@ and a boolean to check if the value has been set.
 
 SetHlClusterId sets HlClusterId field to given value.
 
+### HasHlClusterId
+
+`func (o *FormattedApiStackRegion) HasHlClusterId() bool`
+
+HasHlClusterId returns a boolean if a field has been set.
 
 ### GetHlClusterSlug
 
@@ -912,6 +1107,11 @@ and a boolean to check if the value has been set.
 
 SetHlClusterSlug sets HlClusterSlug field to given value.
 
+### HasHlClusterSlug
+
+`func (o *FormattedApiStackRegion) HasHlClusterSlug() bool`
+
+HasHlClusterSlug returns a boolean if a field has been set.
 
 ### GetHlClusterName
 
@@ -932,6 +1132,11 @@ and a boolean to check if the value has been set.
 
 SetHlClusterName sets HlClusterName field to given value.
 
+### HasHlClusterName
+
+`func (o *FormattedApiStackRegion) HasHlClusterName() bool`
+
+HasHlClusterName returns a boolean if a field has been set.
 
 ### GetHlClusterUrl
 
@@ -952,6 +1157,11 @@ and a boolean to check if the value has been set.
 
 SetHlClusterUrl sets HlClusterUrl field to given value.
 
+### HasHlClusterUrl
+
+`func (o *FormattedApiStackRegion) HasHlClusterUrl() bool`
+
+HasHlClusterUrl returns a boolean if a field has been set.
 
 ### GetAmClusterId
 
@@ -972,6 +1182,11 @@ and a boolean to check if the value has been set.
 
 SetAmClusterId sets AmClusterId field to given value.
 
+### HasAmClusterId
+
+`func (o *FormattedApiStackRegion) HasAmClusterId() bool`
+
+HasAmClusterId returns a boolean if a field has been set.
 
 ### GetAmClusterSlug
 
@@ -992,6 +1207,11 @@ and a boolean to check if the value has been set.
 
 SetAmClusterSlug sets AmClusterSlug field to given value.
 
+### HasAmClusterSlug
+
+`func (o *FormattedApiStackRegion) HasAmClusterSlug() bool`
+
+HasAmClusterSlug returns a boolean if a field has been set.
 
 ### GetAmClusterName
 
@@ -1012,6 +1232,11 @@ and a boolean to check if the value has been set.
 
 SetAmClusterName sets AmClusterName field to given value.
 
+### HasAmClusterName
+
+`func (o *FormattedApiStackRegion) HasAmClusterName() bool`
+
+HasAmClusterName returns a boolean if a field has been set.
 
 ### GetAmClusterUrl
 
@@ -1032,6 +1257,11 @@ and a boolean to check if the value has been set.
 
 SetAmClusterUrl sets AmClusterUrl field to given value.
 
+### HasAmClusterUrl
+
+`func (o *FormattedApiStackRegion) HasAmClusterUrl() bool`
+
+HasAmClusterUrl returns a boolean if a field has been set.
 
 ### GetHtClusterId
 
@@ -1052,6 +1282,11 @@ and a boolean to check if the value has been set.
 
 SetHtClusterId sets HtClusterId field to given value.
 
+### HasHtClusterId
+
+`func (o *FormattedApiStackRegion) HasHtClusterId() bool`
+
+HasHtClusterId returns a boolean if a field has been set.
 
 ### GetHtClusterSlug
 
@@ -1072,6 +1307,11 @@ and a boolean to check if the value has been set.
 
 SetHtClusterSlug sets HtClusterSlug field to given value.
 
+### HasHtClusterSlug
+
+`func (o *FormattedApiStackRegion) HasHtClusterSlug() bool`
+
+HasHtClusterSlug returns a boolean if a field has been set.
 
 ### GetHtClusterName
 
@@ -1092,6 +1332,11 @@ and a boolean to check if the value has been set.
 
 SetHtClusterName sets HtClusterName field to given value.
 
+### HasHtClusterName
+
+`func (o *FormattedApiStackRegion) HasHtClusterName() bool`
+
+HasHtClusterName returns a boolean if a field has been set.
 
 ### GetHtClusterUrl
 
@@ -1112,6 +1357,11 @@ and a boolean to check if the value has been set.
 
 SetHtClusterUrl sets HtClusterUrl field to given value.
 
+### HasHtClusterUrl
+
+`func (o *FormattedApiStackRegion) HasHtClusterUrl() bool`
+
+HasHtClusterUrl returns a boolean if a field has been set.
 
 ### GetHpClusterId
 
@@ -1132,6 +1382,11 @@ and a boolean to check if the value has been set.
 
 SetHpClusterId sets HpClusterId field to given value.
 
+### HasHpClusterId
+
+`func (o *FormattedApiStackRegion) HasHpClusterId() bool`
+
+HasHpClusterId returns a boolean if a field has been set.
 
 ### GetHpClusterSlug
 
@@ -1152,6 +1407,11 @@ and a boolean to check if the value has been set.
 
 SetHpClusterSlug sets HpClusterSlug field to given value.
 
+### HasHpClusterSlug
+
+`func (o *FormattedApiStackRegion) HasHpClusterSlug() bool`
+
+HasHpClusterSlug returns a boolean if a field has been set.
 
 ### GetHpClusterName
 
@@ -1172,6 +1432,11 @@ and a boolean to check if the value has been set.
 
 SetHpClusterName sets HpClusterName field to given value.
 
+### HasHpClusterName
+
+`func (o *FormattedApiStackRegion) HasHpClusterName() bool`
+
+HasHpClusterName returns a boolean if a field has been set.
 
 ### GetHpClusterUrl
 
@@ -1192,6 +1457,11 @@ and a boolean to check if the value has been set.
 
 SetHpClusterUrl sets HpClusterUrl field to given value.
 
+### HasHpClusterUrl
+
+`func (o *FormattedApiStackRegion) HasHpClusterUrl() bool`
+
+HasHpClusterUrl returns a boolean if a field has been set.
 
 ### GetAgmClusterId
 
@@ -1212,6 +1482,11 @@ and a boolean to check if the value has been set.
 
 SetAgmClusterId sets AgmClusterId field to given value.
 
+### HasAgmClusterId
+
+`func (o *FormattedApiStackRegion) HasAgmClusterId() bool`
+
+HasAgmClusterId returns a boolean if a field has been set.
 
 ### GetAgmClusterSlug
 
@@ -1232,6 +1507,11 @@ and a boolean to check if the value has been set.
 
 SetAgmClusterSlug sets AgmClusterSlug field to given value.
 
+### HasAgmClusterSlug
+
+`func (o *FormattedApiStackRegion) HasAgmClusterSlug() bool`
+
+HasAgmClusterSlug returns a boolean if a field has been set.
 
 ### GetAgmClusterName
 
@@ -1252,6 +1532,11 @@ and a boolean to check if the value has been set.
 
 SetAgmClusterName sets AgmClusterName field to given value.
 
+### HasAgmClusterName
+
+`func (o *FormattedApiStackRegion) HasAgmClusterName() bool`
+
+HasAgmClusterName returns a boolean if a field has been set.
 
 ### GetAgmClusterUrl
 
@@ -1272,6 +1557,11 @@ and a boolean to check if the value has been set.
 
 SetAgmClusterUrl sets AgmClusterUrl field to given value.
 
+### HasAgmClusterUrl
+
+`func (o *FormattedApiStackRegion) HasAgmClusterUrl() bool`
+
+HasAgmClusterUrl returns a boolean if a field has been set.
 
 ### GetProviderRegion
 
@@ -1292,6 +1582,11 @@ and a boolean to check if the value has been set.
 
 SetProviderRegion sets ProviderRegion field to given value.
 
+### HasProviderRegion
+
+`func (o *FormattedApiStackRegion) HasProviderRegion() bool`
+
+HasProviderRegion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

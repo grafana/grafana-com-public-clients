@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the PrivateConnectivityInfo type satisfies the MappedNullable interface at compile time
@@ -20,7 +19,7 @@ var _ MappedNullable = &PrivateConnectivityInfo{}
 
 // PrivateConnectivityInfo struct for PrivateConnectivityInfo
 type PrivateConnectivityInfo struct {
-	Tenants              []TenantsInner `json:"tenants"`
+	Tenants              []TenantsInner `json:"tenants,omitempty"`
 	Otlp                 *Otlp          `json:"otlp,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -31,9 +30,8 @@ type _PrivateConnectivityInfo PrivateConnectivityInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPrivateConnectivityInfo(tenants []TenantsInner) *PrivateConnectivityInfo {
+func NewPrivateConnectivityInfo() *PrivateConnectivityInfo {
 	this := PrivateConnectivityInfo{}
-	this.Tenants = tenants
 	return &this
 }
 
@@ -45,26 +43,34 @@ func NewPrivateConnectivityInfoWithDefaults() *PrivateConnectivityInfo {
 	return &this
 }
 
-// GetTenants returns the Tenants field value
+// GetTenants returns the Tenants field value if set, zero value otherwise.
 func (o *PrivateConnectivityInfo) GetTenants() []TenantsInner {
-	if o == nil {
+	if o == nil || IsNil(o.Tenants) {
 		var ret []TenantsInner
 		return ret
 	}
-
 	return o.Tenants
 }
 
-// GetTenantsOk returns a tuple with the Tenants field value
+// GetTenantsOk returns a tuple with the Tenants field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *PrivateConnectivityInfo) GetTenantsOk() ([]TenantsInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Tenants) {
 		return nil, false
 	}
 	return o.Tenants, true
 }
 
-// SetTenants sets field value
+// HasTenants returns a boolean if a field has been set.
+func (o *PrivateConnectivityInfo) HasTenants() bool {
+	if o != nil && !IsNil(o.Tenants) {
+		return true
+	}
+
+	return false
+}
+
+// SetTenants gets a reference to the given []TenantsInner and assigns it to the Tenants field.
 func (o *PrivateConnectivityInfo) SetTenants(v []TenantsInner) {
 	o.Tenants = v
 }
@@ -111,7 +117,9 @@ func (o PrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
 
 func (o PrivateConnectivityInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["tenants"] = o.Tenants
+	if !IsNil(o.Tenants) {
+		toSerialize["tenants"] = o.Tenants
+	}
 	if !IsNil(o.Otlp) {
 		toSerialize["otlp"] = o.Otlp
 	}
@@ -124,27 +132,6 @@ func (o PrivateConnectivityInfo) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *PrivateConnectivityInfo) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"tenants",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varPrivateConnectivityInfo := _PrivateConnectivityInfo{}
 
 	err = json.Unmarshal(data, &varPrivateConnectivityInfo)

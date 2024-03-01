@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the ItemsInner1MarketplaceSubscription type satisfies the MappedNullable interface at compile time
@@ -20,8 +19,8 @@ var _ MappedNullable = &ItemsInner1MarketplaceSubscription{}
 
 // ItemsInner1MarketplaceSubscription struct for ItemsInner1MarketplaceSubscription
 type ItemsInner1MarketplaceSubscription struct {
-	Provider             string `json:"provider"`
-	IsLegacy             bool   `json:"isLegacy"`
+	Provider             *string `json:"provider,omitempty"`
+	IsLegacy             *bool   `json:"isLegacy,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,10 +30,8 @@ type _ItemsInner1MarketplaceSubscription ItemsInner1MarketplaceSubscription
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsInner1MarketplaceSubscription(provider string, isLegacy bool) *ItemsInner1MarketplaceSubscription {
+func NewItemsInner1MarketplaceSubscription() *ItemsInner1MarketplaceSubscription {
 	this := ItemsInner1MarketplaceSubscription{}
-	this.Provider = provider
-	this.IsLegacy = isLegacy
 	return &this
 }
 
@@ -46,52 +43,68 @@ func NewItemsInner1MarketplaceSubscriptionWithDefaults() *ItemsInner1Marketplace
 	return &this
 }
 
-// GetProvider returns the Provider field value
+// GetProvider returns the Provider field value if set, zero value otherwise.
 func (o *ItemsInner1MarketplaceSubscription) GetProvider() string {
-	if o == nil {
+	if o == nil || IsNil(o.Provider) {
 		var ret string
 		return ret
 	}
-
-	return o.Provider
+	return *o.Provider
 }
 
-// GetProviderOk returns a tuple with the Provider field value
+// GetProviderOk returns a tuple with the Provider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1MarketplaceSubscription) GetProviderOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Provider) {
 		return nil, false
 	}
-	return &o.Provider, true
+	return o.Provider, true
 }
 
-// SetProvider sets field value
+// HasProvider returns a boolean if a field has been set.
+func (o *ItemsInner1MarketplaceSubscription) HasProvider() bool {
+	if o != nil && !IsNil(o.Provider) {
+		return true
+	}
+
+	return false
+}
+
+// SetProvider gets a reference to the given string and assigns it to the Provider field.
 func (o *ItemsInner1MarketplaceSubscription) SetProvider(v string) {
-	o.Provider = v
+	o.Provider = &v
 }
 
-// GetIsLegacy returns the IsLegacy field value
+// GetIsLegacy returns the IsLegacy field value if set, zero value otherwise.
 func (o *ItemsInner1MarketplaceSubscription) GetIsLegacy() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsLegacy) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsLegacy
+	return *o.IsLegacy
 }
 
-// GetIsLegacyOk returns a tuple with the IsLegacy field value
+// GetIsLegacyOk returns a tuple with the IsLegacy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ItemsInner1MarketplaceSubscription) GetIsLegacyOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsLegacy) {
 		return nil, false
 	}
-	return &o.IsLegacy, true
+	return o.IsLegacy, true
 }
 
-// SetIsLegacy sets field value
+// HasIsLegacy returns a boolean if a field has been set.
+func (o *ItemsInner1MarketplaceSubscription) HasIsLegacy() bool {
+	if o != nil && !IsNil(o.IsLegacy) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsLegacy gets a reference to the given bool and assigns it to the IsLegacy field.
 func (o *ItemsInner1MarketplaceSubscription) SetIsLegacy(v bool) {
-	o.IsLegacy = v
+	o.IsLegacy = &v
 }
 
 func (o ItemsInner1MarketplaceSubscription) MarshalJSON() ([]byte, error) {
@@ -104,8 +117,12 @@ func (o ItemsInner1MarketplaceSubscription) MarshalJSON() ([]byte, error) {
 
 func (o ItemsInner1MarketplaceSubscription) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["provider"] = o.Provider
-	toSerialize["isLegacy"] = o.IsLegacy
+	if !IsNil(o.Provider) {
+		toSerialize["provider"] = o.Provider
+	}
+	if !IsNil(o.IsLegacy) {
+		toSerialize["isLegacy"] = o.IsLegacy
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -115,28 +132,6 @@ func (o ItemsInner1MarketplaceSubscription) ToMap() (map[string]interface{}, err
 }
 
 func (o *ItemsInner1MarketplaceSubscription) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"provider",
-		"isLegacy",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varItemsInner1MarketplaceSubscription := _ItemsInner1MarketplaceSubscription{}
 
 	err = json.Unmarshal(data, &varItemsInner1MarketplaceSubscription)

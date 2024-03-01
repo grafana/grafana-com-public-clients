@@ -4,154 +4,154 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
-**Slug** | **string** |  | 
-**Name** | **string** |  | 
-**Url** | **string** |  | 
-**CreatedAt** | **string** |  | 
-**CreatedBy** | **NullableString** |  | 
-**UpdatedAt** | **NullableString** |  | 
-**UpdatedBy** | **NullableString** |  | 
-**Avatar** | **NullableString** |  | 
-**ChecksPerMonth** | **float32** |  | 
-**WpPlan** | **string** |  | 
-**HgInstanceLimit** | **float32** |  | 
-**HmInstanceLimit** | **float32** |  | 
-**HlInstanceLimit** | **float32** |  | 
-**UserQuota** | **float32** |  | 
-**SupportPlan** | **string** |  | 
-**CreditApproved** | **float32** |  | 
-**MsaSignedAt** | **NullableString** |  | 
-**MsaSignedBy** | **NullableString** |  | 
-**EnterprisePlugins** | **float32** |  | 
-**GrafanaCloud** | **float32** |  | 
-**Privacy** | **string** |  | 
-**Reseller** | **string** |  | 
-**ResellerId** | **NullableFloat32** |  | 
-**ResellerName** | **NullableString** |  | 
-**EmergencySupport** | **bool** |  | 
-**GcloudMonthlyCost** | **float32** |  | 
-**HgIncludedUsers** | **float32** |  | 
-**HgTier1Rate** | **float32** |  | 
-**HgTier2Min** | **float32** |  | 
-**HgTier2Rate** | **float32** |  | 
-**HgTier3Min** | **float32** |  | 
-**HgTier3Rate** | **float32** |  | 
-**HgUsage** | **float32** |  | 
-**HgCurrentActiveUsers** | **float32** |  | 
-**HgGrafanaUsage** | **float32** |  | 
-**HgOnCallUsage** | **float32** |  | 
-**HmIncludedSeries** | **float32** |  | 
-**HmAverageDpm** | **float32** |  | 
-**HmTier1Rate** | **float32** |  | 
-**HmTier2Min** | **float32** |  | 
-**HmTier2Rate** | **float32** |  | 
-**HmTier3Min** | **float32** |  | 
-**HmTier3Rate** | **float32** |  | 
-**HmUsage** | **float32** |  | 
-**HmCurrentUsage** | **float32** |  | 
-**HmGraphiteIncludedUsage** | **float32** |  | 
-**HmGraphiteTier1Rate** | **float32** |  | 
-**HmGraphiteTier2Min** | **float32** |  | 
-**HmGraphiteTier2Rate** | **float32** |  | 
-**HmGraphiteTier3Min** | **float32** |  | 
-**HmGraphiteTier3Rate** | **float32** |  | 
-**HmGraphiteUsage** | **float32** |  | 
-**HlIncludedUsage** | **float32** |  | 
-**HlQueryToIngestRatio** | **float32** |  | 
-**HlTier1Rate** | **float32** |  | 
-**HlTier2Min** | **float32** |  | 
-**HlTier2Rate** | **float32** |  | 
-**HlTier3Min** | **float32** |  | 
-**HlTier3Rate** | **float32** |  | 
-**HlUsage** | **float32** |  | 
-**HlRetentionIncludedUsage** | **float32** |  | 
-**HlRetentionTier1Rate** | **float32** |  | 
-**HlRetentionTier2Min** | **float32** |  | 
-**HlRetentionTier2Rate** | **float32** |  | 
-**HlRetentionTier3Min** | **float32** |  | 
-**HlRetentionTier3Rate** | **float32** |  | 
-**HlRetentionUsage** | **float32** |  | 
-**HtIncludedUsage** | **float32** |  | 
-**HtTier1Rate** | **float32** |  | 
-**HtTier2Min** | **float32** |  | 
-**HtTier2Rate** | **float32** |  | 
-**HtTier3Min** | **float32** |  | 
-**HtTier3Rate** | **float32** |  | 
-**HtUsage** | **float32** |  | 
-**HpIncludedUsage** | **float32** |  | 
-**HpTier1Rate** | **float32** |  | 
-**HpTier2Min** | **float32** |  | 
-**HpTier2Rate** | **float32** |  | 
-**HpTier3Min** | **float32** |  | 
-**HpTier3Rate** | **float32** |  | 
-**HpUsage** | **float32** |  | 
-**IrmStatus** | **float32** |  | 
-**IrmIncludedUsage** | **float32** |  | 
-**IrmTier1Rate** | **float32** |  | 
-**IrmTier2Min** | **float32** |  | 
-**IrmTier2Rate** | **float32** |  | 
-**IrmTier3Min** | **float32** |  | 
-**IrmTier3Rate** | **float32** |  | 
-**IrmUsage** | **float32** |  | 
-**K6VuhIncludedUsage** | **float32** |  | 
-**K6VuhTier1Rate** | **float32** |  | 
-**K6VuhTier2Min** | **float32** |  | 
-**K6VuhTier2Rate** | **float32** |  | 
-**K6VuhTier3Min** | **float32** |  | 
-**K6VuhTier3Rate** | **float32** |  | 
-**K6VuhUnits** | **float32** |  | 
-**K6VuhUsage** | **float32** |  | 
-**K6IPIncludedUsage** | **float32** |  | 
-**K6IPTier1Rate** | **float32** |  | 
-**K6IPTier2Min** | **float32** |  | 
-**K6IPTier2Rate** | **float32** |  | 
-**K6IPTier3Min** | **float32** |  | 
-**K6IPTier3Rate** | **float32** |  | 
-**K6IPUsage** | **float32** |  | 
-**FeO11YIncludedUsage** | **float32** |  | 
-**FeO11YTier1Rate** | **float32** |  | 
-**FeO11YTier2Min** | **float32** |  | 
-**FeO11YTier2Rate** | **float32** |  | 
-**FeO11YTier3Min** | **float32** |  | 
-**FeO11YTier3Rate** | **float32** |  | 
-**FeO11YUnits** | **float32** |  | 
-**FeO11YUsage** | **float32** |  | 
-**GeUsersIncludedUsage** | **float32** |  | 
-**GeUsersTier1Rate** | **float32** |  | 
-**GeUsersTier2Min** | **float32** |  | 
-**GeUsersTier2Rate** | **float32** |  | 
-**GeUsersTier3Min** | **float32** |  | 
-**GeUsersTier3Rate** | **float32** |  | 
-**GeUsersUsage** | **float32** |  | 
-**GeInstancesIncludedUsage** | **float32** |  | 
-**GeInstancesTier1Rate** | **float32** |  | 
-**GeInstancesTier2Min** | **float32** |  | 
-**GeInstancesTier2Rate** | **float32** |  | 
-**GeInstancesTier3Min** | **float32** |  | 
-**GeInstancesTier3Rate** | **float32** |  | 
-**GeInstancesUsage** | **float32** |  | 
-**HgPluginUsersOverageRate** | **NullableFloat32** |  | 
-**HgPluginUsersIncludedUsage** | **NullableFloat32** |  | 
-**AwsMarketplaceSupport** | **float32** |  | 
-**TrialStartDate** | **NullableString** |  | 
-**TrialEndDate** | **NullableString** |  | 
-**TrialLengthDays** | **NullableFloat32** |  | 
-**TrialNoticeDate** | **NullableString** |  | 
-**CancellationDate** | **NullableString** |  | 
-**RetainedStackId** | **float32** |  | 
-**AllowGCloudTrial** | [**FormattedApiOrgPublicAllowGCloudTrial**](FormattedApiOrgPublicAllowGCloudTrial.md) |  | 
-**PluginSignatureType** | **string** |  | 
-**ContractType** | **string** |  | 
-**ContractTypeId** | **float32** |  | 
-**Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
-**Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
+**Id** | Pointer to **float32** |  | [optional] 
+**Slug** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
+**CreatedAt** | Pointer to **string** |  | [optional] 
+**CreatedBy** | Pointer to **NullableString** |  | [optional] 
+**UpdatedAt** | Pointer to **NullableString** |  | [optional] 
+**UpdatedBy** | Pointer to **NullableString** |  | [optional] 
+**Avatar** | Pointer to **NullableString** |  | [optional] 
+**ChecksPerMonth** | Pointer to **float32** |  | [optional] 
+**WpPlan** | Pointer to **string** |  | [optional] 
+**HgInstanceLimit** | Pointer to **float32** |  | [optional] 
+**HmInstanceLimit** | Pointer to **float32** |  | [optional] 
+**HlInstanceLimit** | Pointer to **float32** |  | [optional] 
+**UserQuota** | Pointer to **float32** |  | [optional] 
+**SupportPlan** | Pointer to **string** |  | [optional] 
+**CreditApproved** | Pointer to **float32** |  | [optional] 
+**MsaSignedAt** | Pointer to **NullableString** |  | [optional] 
+**MsaSignedBy** | Pointer to **NullableString** |  | [optional] 
+**EnterprisePlugins** | Pointer to **float32** |  | [optional] 
+**GrafanaCloud** | Pointer to **float32** |  | [optional] 
+**Privacy** | Pointer to **string** |  | [optional] 
+**Reseller** | Pointer to **string** |  | [optional] 
+**ResellerId** | Pointer to **NullableFloat32** |  | [optional] 
+**ResellerName** | Pointer to **NullableString** |  | [optional] 
+**EmergencySupport** | Pointer to **bool** |  | [optional] 
+**GcloudMonthlyCost** | Pointer to **float32** |  | [optional] 
+**HgIncludedUsers** | Pointer to **float32** |  | [optional] 
+**HgTier1Rate** | Pointer to **float32** |  | [optional] 
+**HgTier2Min** | Pointer to **float32** |  | [optional] 
+**HgTier2Rate** | Pointer to **float32** |  | [optional] 
+**HgTier3Min** | Pointer to **float32** |  | [optional] 
+**HgTier3Rate** | Pointer to **float32** |  | [optional] 
+**HgUsage** | Pointer to **float32** |  | [optional] 
+**HgCurrentActiveUsers** | Pointer to **float32** |  | [optional] 
+**HgGrafanaUsage** | Pointer to **float32** |  | [optional] 
+**HgOnCallUsage** | Pointer to **float32** |  | [optional] 
+**HmIncludedSeries** | Pointer to **float32** |  | [optional] 
+**HmAverageDpm** | Pointer to **float32** |  | [optional] 
+**HmTier1Rate** | Pointer to **float32** |  | [optional] 
+**HmTier2Min** | Pointer to **float32** |  | [optional] 
+**HmTier2Rate** | Pointer to **float32** |  | [optional] 
+**HmTier3Min** | Pointer to **float32** |  | [optional] 
+**HmTier3Rate** | Pointer to **float32** |  | [optional] 
+**HmUsage** | Pointer to **float32** |  | [optional] 
+**HmCurrentUsage** | Pointer to **float32** |  | [optional] 
+**HmGraphiteIncludedUsage** | Pointer to **float32** |  | [optional] 
+**HmGraphiteTier1Rate** | Pointer to **float32** |  | [optional] 
+**HmGraphiteTier2Min** | Pointer to **float32** |  | [optional] 
+**HmGraphiteTier2Rate** | Pointer to **float32** |  | [optional] 
+**HmGraphiteTier3Min** | Pointer to **float32** |  | [optional] 
+**HmGraphiteTier3Rate** | Pointer to **float32** |  | [optional] 
+**HmGraphiteUsage** | Pointer to **float32** |  | [optional] 
+**HlIncludedUsage** | Pointer to **float32** |  | [optional] 
+**HlQueryToIngestRatio** | Pointer to **float32** |  | [optional] 
+**HlTier1Rate** | Pointer to **float32** |  | [optional] 
+**HlTier2Min** | Pointer to **float32** |  | [optional] 
+**HlTier2Rate** | Pointer to **float32** |  | [optional] 
+**HlTier3Min** | Pointer to **float32** |  | [optional] 
+**HlTier3Rate** | Pointer to **float32** |  | [optional] 
+**HlUsage** | Pointer to **float32** |  | [optional] 
+**HlRetentionIncludedUsage** | Pointer to **float32** |  | [optional] 
+**HlRetentionTier1Rate** | Pointer to **float32** |  | [optional] 
+**HlRetentionTier2Min** | Pointer to **float32** |  | [optional] 
+**HlRetentionTier2Rate** | Pointer to **float32** |  | [optional] 
+**HlRetentionTier3Min** | Pointer to **float32** |  | [optional] 
+**HlRetentionTier3Rate** | Pointer to **float32** |  | [optional] 
+**HlRetentionUsage** | Pointer to **float32** |  | [optional] 
+**HtIncludedUsage** | Pointer to **float32** |  | [optional] 
+**HtTier1Rate** | Pointer to **float32** |  | [optional] 
+**HtTier2Min** | Pointer to **float32** |  | [optional] 
+**HtTier2Rate** | Pointer to **float32** |  | [optional] 
+**HtTier3Min** | Pointer to **float32** |  | [optional] 
+**HtTier3Rate** | Pointer to **float32** |  | [optional] 
+**HtUsage** | Pointer to **float32** |  | [optional] 
+**HpIncludedUsage** | Pointer to **float32** |  | [optional] 
+**HpTier1Rate** | Pointer to **float32** |  | [optional] 
+**HpTier2Min** | Pointer to **float32** |  | [optional] 
+**HpTier2Rate** | Pointer to **float32** |  | [optional] 
+**HpTier3Min** | Pointer to **float32** |  | [optional] 
+**HpTier3Rate** | Pointer to **float32** |  | [optional] 
+**HpUsage** | Pointer to **float32** |  | [optional] 
+**IrmStatus** | Pointer to **float32** |  | [optional] 
+**IrmIncludedUsage** | Pointer to **float32** |  | [optional] 
+**IrmTier1Rate** | Pointer to **float32** |  | [optional] 
+**IrmTier2Min** | Pointer to **float32** |  | [optional] 
+**IrmTier2Rate** | Pointer to **float32** |  | [optional] 
+**IrmTier3Min** | Pointer to **float32** |  | [optional] 
+**IrmTier3Rate** | Pointer to **float32** |  | [optional] 
+**IrmUsage** | Pointer to **float32** |  | [optional] 
+**K6VuhIncludedUsage** | Pointer to **float32** |  | [optional] 
+**K6VuhTier1Rate** | Pointer to **float32** |  | [optional] 
+**K6VuhTier2Min** | Pointer to **float32** |  | [optional] 
+**K6VuhTier2Rate** | Pointer to **float32** |  | [optional] 
+**K6VuhTier3Min** | Pointer to **float32** |  | [optional] 
+**K6VuhTier3Rate** | Pointer to **float32** |  | [optional] 
+**K6VuhUnits** | Pointer to **float32** |  | [optional] 
+**K6VuhUsage** | Pointer to **float32** |  | [optional] 
+**K6IPIncludedUsage** | Pointer to **float32** |  | [optional] 
+**K6IPTier1Rate** | Pointer to **float32** |  | [optional] 
+**K6IPTier2Min** | Pointer to **float32** |  | [optional] 
+**K6IPTier2Rate** | Pointer to **float32** |  | [optional] 
+**K6IPTier3Min** | Pointer to **float32** |  | [optional] 
+**K6IPTier3Rate** | Pointer to **float32** |  | [optional] 
+**K6IPUsage** | Pointer to **float32** |  | [optional] 
+**FeO11YIncludedUsage** | Pointer to **float32** |  | [optional] 
+**FeO11YTier1Rate** | Pointer to **float32** |  | [optional] 
+**FeO11YTier2Min** | Pointer to **float32** |  | [optional] 
+**FeO11YTier2Rate** | Pointer to **float32** |  | [optional] 
+**FeO11YTier3Min** | Pointer to **float32** |  | [optional] 
+**FeO11YTier3Rate** | Pointer to **float32** |  | [optional] 
+**FeO11YUnits** | Pointer to **float32** |  | [optional] 
+**FeO11YUsage** | Pointer to **float32** |  | [optional] 
+**GeUsersIncludedUsage** | Pointer to **float32** |  | [optional] 
+**GeUsersTier1Rate** | Pointer to **float32** |  | [optional] 
+**GeUsersTier2Min** | Pointer to **float32** |  | [optional] 
+**GeUsersTier2Rate** | Pointer to **float32** |  | [optional] 
+**GeUsersTier3Min** | Pointer to **float32** |  | [optional] 
+**GeUsersTier3Rate** | Pointer to **float32** |  | [optional] 
+**GeUsersUsage** | Pointer to **float32** |  | [optional] 
+**GeInstancesIncludedUsage** | Pointer to **float32** |  | [optional] 
+**GeInstancesTier1Rate** | Pointer to **float32** |  | [optional] 
+**GeInstancesTier2Min** | Pointer to **float32** |  | [optional] 
+**GeInstancesTier2Rate** | Pointer to **float32** |  | [optional] 
+**GeInstancesTier3Min** | Pointer to **float32** |  | [optional] 
+**GeInstancesTier3Rate** | Pointer to **float32** |  | [optional] 
+**GeInstancesUsage** | Pointer to **float32** |  | [optional] 
+**HgPluginUsersOverageRate** | Pointer to **NullableFloat32** |  | [optional] 
+**HgPluginUsersIncludedUsage** | Pointer to **NullableFloat32** |  | [optional] 
+**AwsMarketplaceSupport** | Pointer to **float32** |  | [optional] 
+**TrialStartDate** | Pointer to **NullableString** |  | [optional] 
+**TrialEndDate** | Pointer to **NullableString** |  | [optional] 
+**TrialLengthDays** | Pointer to **NullableFloat32** |  | [optional] 
+**TrialNoticeDate** | Pointer to **NullableString** |  | [optional] 
+**CancellationDate** | Pointer to **NullableString** |  | [optional] 
+**RetainedStackId** | Pointer to **float32** |  | [optional] 
+**AllowGCloudTrial** | Pointer to [**FormattedApiOrgPublicAllowGCloudTrial**](FormattedApiOrgPublicAllowGCloudTrial.md) |  | [optional] 
+**PluginSignatureType** | Pointer to **string** |  | [optional] 
+**ContractType** | Pointer to **string** |  | [optional] 
+**ContractTypeId** | Pointer to **float32** |  | [optional] 
+**Links** | Pointer to [**[]LinksInner1**](LinksInner1.md) |  | [optional] 
+**Subscriptions** | Pointer to [**Subscriptions**](Subscriptions.md) |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiOrgPublic
 
-`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
+`func NewFormattedApiOrgPublic() *FormattedApiOrgPublic`
 
 NewFormattedApiOrgPublic instantiates a new FormattedApiOrgPublic object
 This constructor will assign default values to properties that have it defined,
@@ -185,6 +185,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *FormattedApiOrgPublic) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetSlug
 
@@ -205,6 +210,11 @@ and a boolean to check if the value has been set.
 
 SetSlug sets Slug field to given value.
 
+### HasSlug
+
+`func (o *FormattedApiOrgPublic) HasSlug() bool`
+
+HasSlug returns a boolean if a field has been set.
 
 ### GetName
 
@@ -225,6 +235,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *FormattedApiOrgPublic) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetUrl
 
@@ -245,6 +260,11 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
+
+`func (o *FormattedApiOrgPublic) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -265,6 +285,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *FormattedApiOrgPublic) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetCreatedBy
 
@@ -285,6 +310,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedBy sets CreatedBy field to given value.
 
+### HasCreatedBy
+
+`func (o *FormattedApiOrgPublic) HasCreatedBy() bool`
+
+HasCreatedBy returns a boolean if a field has been set.
 
 ### SetCreatedByNil
 
@@ -315,6 +345,11 @@ and a boolean to check if the value has been set.
 
 SetUpdatedAt sets UpdatedAt field to given value.
 
+### HasUpdatedAt
+
+`func (o *FormattedApiOrgPublic) HasUpdatedAt() bool`
+
+HasUpdatedAt returns a boolean if a field has been set.
 
 ### SetUpdatedAtNil
 
@@ -345,6 +380,11 @@ and a boolean to check if the value has been set.
 
 SetUpdatedBy sets UpdatedBy field to given value.
 
+### HasUpdatedBy
+
+`func (o *FormattedApiOrgPublic) HasUpdatedBy() bool`
+
+HasUpdatedBy returns a boolean if a field has been set.
 
 ### SetUpdatedByNil
 
@@ -375,6 +415,11 @@ and a boolean to check if the value has been set.
 
 SetAvatar sets Avatar field to given value.
 
+### HasAvatar
+
+`func (o *FormattedApiOrgPublic) HasAvatar() bool`
+
+HasAvatar returns a boolean if a field has been set.
 
 ### SetAvatarNil
 
@@ -405,6 +450,11 @@ and a boolean to check if the value has been set.
 
 SetChecksPerMonth sets ChecksPerMonth field to given value.
 
+### HasChecksPerMonth
+
+`func (o *FormattedApiOrgPublic) HasChecksPerMonth() bool`
+
+HasChecksPerMonth returns a boolean if a field has been set.
 
 ### GetWpPlan
 
@@ -425,6 +475,11 @@ and a boolean to check if the value has been set.
 
 SetWpPlan sets WpPlan field to given value.
 
+### HasWpPlan
+
+`func (o *FormattedApiOrgPublic) HasWpPlan() bool`
+
+HasWpPlan returns a boolean if a field has been set.
 
 ### GetHgInstanceLimit
 
@@ -445,6 +500,11 @@ and a boolean to check if the value has been set.
 
 SetHgInstanceLimit sets HgInstanceLimit field to given value.
 
+### HasHgInstanceLimit
+
+`func (o *FormattedApiOrgPublic) HasHgInstanceLimit() bool`
+
+HasHgInstanceLimit returns a boolean if a field has been set.
 
 ### GetHmInstanceLimit
 
@@ -465,6 +525,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstanceLimit sets HmInstanceLimit field to given value.
 
+### HasHmInstanceLimit
+
+`func (o *FormattedApiOrgPublic) HasHmInstanceLimit() bool`
+
+HasHmInstanceLimit returns a boolean if a field has been set.
 
 ### GetHlInstanceLimit
 
@@ -485,6 +550,11 @@ and a boolean to check if the value has been set.
 
 SetHlInstanceLimit sets HlInstanceLimit field to given value.
 
+### HasHlInstanceLimit
+
+`func (o *FormattedApiOrgPublic) HasHlInstanceLimit() bool`
+
+HasHlInstanceLimit returns a boolean if a field has been set.
 
 ### GetUserQuota
 
@@ -505,6 +575,11 @@ and a boolean to check if the value has been set.
 
 SetUserQuota sets UserQuota field to given value.
 
+### HasUserQuota
+
+`func (o *FormattedApiOrgPublic) HasUserQuota() bool`
+
+HasUserQuota returns a boolean if a field has been set.
 
 ### GetSupportPlan
 
@@ -525,6 +600,11 @@ and a boolean to check if the value has been set.
 
 SetSupportPlan sets SupportPlan field to given value.
 
+### HasSupportPlan
+
+`func (o *FormattedApiOrgPublic) HasSupportPlan() bool`
+
+HasSupportPlan returns a boolean if a field has been set.
 
 ### GetCreditApproved
 
@@ -545,6 +625,11 @@ and a boolean to check if the value has been set.
 
 SetCreditApproved sets CreditApproved field to given value.
 
+### HasCreditApproved
+
+`func (o *FormattedApiOrgPublic) HasCreditApproved() bool`
+
+HasCreditApproved returns a boolean if a field has been set.
 
 ### GetMsaSignedAt
 
@@ -565,6 +650,11 @@ and a boolean to check if the value has been set.
 
 SetMsaSignedAt sets MsaSignedAt field to given value.
 
+### HasMsaSignedAt
+
+`func (o *FormattedApiOrgPublic) HasMsaSignedAt() bool`
+
+HasMsaSignedAt returns a boolean if a field has been set.
 
 ### SetMsaSignedAtNil
 
@@ -595,6 +685,11 @@ and a boolean to check if the value has been set.
 
 SetMsaSignedBy sets MsaSignedBy field to given value.
 
+### HasMsaSignedBy
+
+`func (o *FormattedApiOrgPublic) HasMsaSignedBy() bool`
+
+HasMsaSignedBy returns a boolean if a field has been set.
 
 ### SetMsaSignedByNil
 
@@ -625,6 +720,11 @@ and a boolean to check if the value has been set.
 
 SetEnterprisePlugins sets EnterprisePlugins field to given value.
 
+### HasEnterprisePlugins
+
+`func (o *FormattedApiOrgPublic) HasEnterprisePlugins() bool`
+
+HasEnterprisePlugins returns a boolean if a field has been set.
 
 ### GetGrafanaCloud
 
@@ -645,6 +745,11 @@ and a boolean to check if the value has been set.
 
 SetGrafanaCloud sets GrafanaCloud field to given value.
 
+### HasGrafanaCloud
+
+`func (o *FormattedApiOrgPublic) HasGrafanaCloud() bool`
+
+HasGrafanaCloud returns a boolean if a field has been set.
 
 ### GetPrivacy
 
@@ -665,6 +770,11 @@ and a boolean to check if the value has been set.
 
 SetPrivacy sets Privacy field to given value.
 
+### HasPrivacy
+
+`func (o *FormattedApiOrgPublic) HasPrivacy() bool`
+
+HasPrivacy returns a boolean if a field has been set.
 
 ### GetReseller
 
@@ -685,6 +795,11 @@ and a boolean to check if the value has been set.
 
 SetReseller sets Reseller field to given value.
 
+### HasReseller
+
+`func (o *FormattedApiOrgPublic) HasReseller() bool`
+
+HasReseller returns a boolean if a field has been set.
 
 ### GetResellerId
 
@@ -705,6 +820,11 @@ and a boolean to check if the value has been set.
 
 SetResellerId sets ResellerId field to given value.
 
+### HasResellerId
+
+`func (o *FormattedApiOrgPublic) HasResellerId() bool`
+
+HasResellerId returns a boolean if a field has been set.
 
 ### SetResellerIdNil
 
@@ -735,6 +855,11 @@ and a boolean to check if the value has been set.
 
 SetResellerName sets ResellerName field to given value.
 
+### HasResellerName
+
+`func (o *FormattedApiOrgPublic) HasResellerName() bool`
+
+HasResellerName returns a boolean if a field has been set.
 
 ### SetResellerNameNil
 
@@ -765,6 +890,11 @@ and a boolean to check if the value has been set.
 
 SetEmergencySupport sets EmergencySupport field to given value.
 
+### HasEmergencySupport
+
+`func (o *FormattedApiOrgPublic) HasEmergencySupport() bool`
+
+HasEmergencySupport returns a boolean if a field has been set.
 
 ### GetGcloudMonthlyCost
 
@@ -785,6 +915,11 @@ and a boolean to check if the value has been set.
 
 SetGcloudMonthlyCost sets GcloudMonthlyCost field to given value.
 
+### HasGcloudMonthlyCost
+
+`func (o *FormattedApiOrgPublic) HasGcloudMonthlyCost() bool`
+
+HasGcloudMonthlyCost returns a boolean if a field has been set.
 
 ### GetHgIncludedUsers
 
@@ -805,6 +940,11 @@ and a boolean to check if the value has been set.
 
 SetHgIncludedUsers sets HgIncludedUsers field to given value.
 
+### HasHgIncludedUsers
+
+`func (o *FormattedApiOrgPublic) HasHgIncludedUsers() bool`
+
+HasHgIncludedUsers returns a boolean if a field has been set.
 
 ### GetHgTier1Rate
 
@@ -825,6 +965,11 @@ and a boolean to check if the value has been set.
 
 SetHgTier1Rate sets HgTier1Rate field to given value.
 
+### HasHgTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasHgTier1Rate() bool`
+
+HasHgTier1Rate returns a boolean if a field has been set.
 
 ### GetHgTier2Min
 
@@ -845,6 +990,11 @@ and a boolean to check if the value has been set.
 
 SetHgTier2Min sets HgTier2Min field to given value.
 
+### HasHgTier2Min
+
+`func (o *FormattedApiOrgPublic) HasHgTier2Min() bool`
+
+HasHgTier2Min returns a boolean if a field has been set.
 
 ### GetHgTier2Rate
 
@@ -865,6 +1015,11 @@ and a boolean to check if the value has been set.
 
 SetHgTier2Rate sets HgTier2Rate field to given value.
 
+### HasHgTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasHgTier2Rate() bool`
+
+HasHgTier2Rate returns a boolean if a field has been set.
 
 ### GetHgTier3Min
 
@@ -885,6 +1040,11 @@ and a boolean to check if the value has been set.
 
 SetHgTier3Min sets HgTier3Min field to given value.
 
+### HasHgTier3Min
+
+`func (o *FormattedApiOrgPublic) HasHgTier3Min() bool`
+
+HasHgTier3Min returns a boolean if a field has been set.
 
 ### GetHgTier3Rate
 
@@ -905,6 +1065,11 @@ and a boolean to check if the value has been set.
 
 SetHgTier3Rate sets HgTier3Rate field to given value.
 
+### HasHgTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasHgTier3Rate() bool`
+
+HasHgTier3Rate returns a boolean if a field has been set.
 
 ### GetHgUsage
 
@@ -925,6 +1090,11 @@ and a boolean to check if the value has been set.
 
 SetHgUsage sets HgUsage field to given value.
 
+### HasHgUsage
+
+`func (o *FormattedApiOrgPublic) HasHgUsage() bool`
+
+HasHgUsage returns a boolean if a field has been set.
 
 ### GetHgCurrentActiveUsers
 
@@ -945,6 +1115,11 @@ and a boolean to check if the value has been set.
 
 SetHgCurrentActiveUsers sets HgCurrentActiveUsers field to given value.
 
+### HasHgCurrentActiveUsers
+
+`func (o *FormattedApiOrgPublic) HasHgCurrentActiveUsers() bool`
+
+HasHgCurrentActiveUsers returns a boolean if a field has been set.
 
 ### GetHgGrafanaUsage
 
@@ -965,6 +1140,11 @@ and a boolean to check if the value has been set.
 
 SetHgGrafanaUsage sets HgGrafanaUsage field to given value.
 
+### HasHgGrafanaUsage
+
+`func (o *FormattedApiOrgPublic) HasHgGrafanaUsage() bool`
+
+HasHgGrafanaUsage returns a boolean if a field has been set.
 
 ### GetHgOnCallUsage
 
@@ -985,6 +1165,11 @@ and a boolean to check if the value has been set.
 
 SetHgOnCallUsage sets HgOnCallUsage field to given value.
 
+### HasHgOnCallUsage
+
+`func (o *FormattedApiOrgPublic) HasHgOnCallUsage() bool`
+
+HasHgOnCallUsage returns a boolean if a field has been set.
 
 ### GetHmIncludedSeries
 
@@ -1005,6 +1190,11 @@ and a boolean to check if the value has been set.
 
 SetHmIncludedSeries sets HmIncludedSeries field to given value.
 
+### HasHmIncludedSeries
+
+`func (o *FormattedApiOrgPublic) HasHmIncludedSeries() bool`
+
+HasHmIncludedSeries returns a boolean if a field has been set.
 
 ### GetHmAverageDpm
 
@@ -1025,6 +1215,11 @@ and a boolean to check if the value has been set.
 
 SetHmAverageDpm sets HmAverageDpm field to given value.
 
+### HasHmAverageDpm
+
+`func (o *FormattedApiOrgPublic) HasHmAverageDpm() bool`
+
+HasHmAverageDpm returns a boolean if a field has been set.
 
 ### GetHmTier1Rate
 
@@ -1045,6 +1240,11 @@ and a boolean to check if the value has been set.
 
 SetHmTier1Rate sets HmTier1Rate field to given value.
 
+### HasHmTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasHmTier1Rate() bool`
+
+HasHmTier1Rate returns a boolean if a field has been set.
 
 ### GetHmTier2Min
 
@@ -1065,6 +1265,11 @@ and a boolean to check if the value has been set.
 
 SetHmTier2Min sets HmTier2Min field to given value.
 
+### HasHmTier2Min
+
+`func (o *FormattedApiOrgPublic) HasHmTier2Min() bool`
+
+HasHmTier2Min returns a boolean if a field has been set.
 
 ### GetHmTier2Rate
 
@@ -1085,6 +1290,11 @@ and a boolean to check if the value has been set.
 
 SetHmTier2Rate sets HmTier2Rate field to given value.
 
+### HasHmTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasHmTier2Rate() bool`
+
+HasHmTier2Rate returns a boolean if a field has been set.
 
 ### GetHmTier3Min
 
@@ -1105,6 +1315,11 @@ and a boolean to check if the value has been set.
 
 SetHmTier3Min sets HmTier3Min field to given value.
 
+### HasHmTier3Min
+
+`func (o *FormattedApiOrgPublic) HasHmTier3Min() bool`
+
+HasHmTier3Min returns a boolean if a field has been set.
 
 ### GetHmTier3Rate
 
@@ -1125,6 +1340,11 @@ and a boolean to check if the value has been set.
 
 SetHmTier3Rate sets HmTier3Rate field to given value.
 
+### HasHmTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasHmTier3Rate() bool`
+
+HasHmTier3Rate returns a boolean if a field has been set.
 
 ### GetHmUsage
 
@@ -1145,6 +1365,11 @@ and a boolean to check if the value has been set.
 
 SetHmUsage sets HmUsage field to given value.
 
+### HasHmUsage
+
+`func (o *FormattedApiOrgPublic) HasHmUsage() bool`
+
+HasHmUsage returns a boolean if a field has been set.
 
 ### GetHmCurrentUsage
 
@@ -1165,6 +1390,11 @@ and a boolean to check if the value has been set.
 
 SetHmCurrentUsage sets HmCurrentUsage field to given value.
 
+### HasHmCurrentUsage
+
+`func (o *FormattedApiOrgPublic) HasHmCurrentUsage() bool`
+
+HasHmCurrentUsage returns a boolean if a field has been set.
 
 ### GetHmGraphiteIncludedUsage
 
@@ -1185,6 +1415,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteIncludedUsage sets HmGraphiteIncludedUsage field to given value.
 
+### HasHmGraphiteIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasHmGraphiteIncludedUsage() bool`
+
+HasHmGraphiteIncludedUsage returns a boolean if a field has been set.
 
 ### GetHmGraphiteTier1Rate
 
@@ -1205,6 +1440,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteTier1Rate sets HmGraphiteTier1Rate field to given value.
 
+### HasHmGraphiteTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasHmGraphiteTier1Rate() bool`
+
+HasHmGraphiteTier1Rate returns a boolean if a field has been set.
 
 ### GetHmGraphiteTier2Min
 
@@ -1225,6 +1465,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteTier2Min sets HmGraphiteTier2Min field to given value.
 
+### HasHmGraphiteTier2Min
+
+`func (o *FormattedApiOrgPublic) HasHmGraphiteTier2Min() bool`
+
+HasHmGraphiteTier2Min returns a boolean if a field has been set.
 
 ### GetHmGraphiteTier2Rate
 
@@ -1245,6 +1490,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteTier2Rate sets HmGraphiteTier2Rate field to given value.
 
+### HasHmGraphiteTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasHmGraphiteTier2Rate() bool`
+
+HasHmGraphiteTier2Rate returns a boolean if a field has been set.
 
 ### GetHmGraphiteTier3Min
 
@@ -1265,6 +1515,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteTier3Min sets HmGraphiteTier3Min field to given value.
 
+### HasHmGraphiteTier3Min
+
+`func (o *FormattedApiOrgPublic) HasHmGraphiteTier3Min() bool`
+
+HasHmGraphiteTier3Min returns a boolean if a field has been set.
 
 ### GetHmGraphiteTier3Rate
 
@@ -1285,6 +1540,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteTier3Rate sets HmGraphiteTier3Rate field to given value.
 
+### HasHmGraphiteTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasHmGraphiteTier3Rate() bool`
+
+HasHmGraphiteTier3Rate returns a boolean if a field has been set.
 
 ### GetHmGraphiteUsage
 
@@ -1305,6 +1565,11 @@ and a boolean to check if the value has been set.
 
 SetHmGraphiteUsage sets HmGraphiteUsage field to given value.
 
+### HasHmGraphiteUsage
+
+`func (o *FormattedApiOrgPublic) HasHmGraphiteUsage() bool`
+
+HasHmGraphiteUsage returns a boolean if a field has been set.
 
 ### GetHlIncludedUsage
 
@@ -1325,6 +1590,11 @@ and a boolean to check if the value has been set.
 
 SetHlIncludedUsage sets HlIncludedUsage field to given value.
 
+### HasHlIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasHlIncludedUsage() bool`
+
+HasHlIncludedUsage returns a boolean if a field has been set.
 
 ### GetHlQueryToIngestRatio
 
@@ -1345,6 +1615,11 @@ and a boolean to check if the value has been set.
 
 SetHlQueryToIngestRatio sets HlQueryToIngestRatio field to given value.
 
+### HasHlQueryToIngestRatio
+
+`func (o *FormattedApiOrgPublic) HasHlQueryToIngestRatio() bool`
+
+HasHlQueryToIngestRatio returns a boolean if a field has been set.
 
 ### GetHlTier1Rate
 
@@ -1365,6 +1640,11 @@ and a boolean to check if the value has been set.
 
 SetHlTier1Rate sets HlTier1Rate field to given value.
 
+### HasHlTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasHlTier1Rate() bool`
+
+HasHlTier1Rate returns a boolean if a field has been set.
 
 ### GetHlTier2Min
 
@@ -1385,6 +1665,11 @@ and a boolean to check if the value has been set.
 
 SetHlTier2Min sets HlTier2Min field to given value.
 
+### HasHlTier2Min
+
+`func (o *FormattedApiOrgPublic) HasHlTier2Min() bool`
+
+HasHlTier2Min returns a boolean if a field has been set.
 
 ### GetHlTier2Rate
 
@@ -1405,6 +1690,11 @@ and a boolean to check if the value has been set.
 
 SetHlTier2Rate sets HlTier2Rate field to given value.
 
+### HasHlTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasHlTier2Rate() bool`
+
+HasHlTier2Rate returns a boolean if a field has been set.
 
 ### GetHlTier3Min
 
@@ -1425,6 +1715,11 @@ and a boolean to check if the value has been set.
 
 SetHlTier3Min sets HlTier3Min field to given value.
 
+### HasHlTier3Min
+
+`func (o *FormattedApiOrgPublic) HasHlTier3Min() bool`
+
+HasHlTier3Min returns a boolean if a field has been set.
 
 ### GetHlTier3Rate
 
@@ -1445,6 +1740,11 @@ and a boolean to check if the value has been set.
 
 SetHlTier3Rate sets HlTier3Rate field to given value.
 
+### HasHlTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasHlTier3Rate() bool`
+
+HasHlTier3Rate returns a boolean if a field has been set.
 
 ### GetHlUsage
 
@@ -1465,6 +1765,11 @@ and a boolean to check if the value has been set.
 
 SetHlUsage sets HlUsage field to given value.
 
+### HasHlUsage
+
+`func (o *FormattedApiOrgPublic) HasHlUsage() bool`
+
+HasHlUsage returns a boolean if a field has been set.
 
 ### GetHlRetentionIncludedUsage
 
@@ -1485,6 +1790,11 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionIncludedUsage sets HlRetentionIncludedUsage field to given value.
 
+### HasHlRetentionIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasHlRetentionIncludedUsage() bool`
+
+HasHlRetentionIncludedUsage returns a boolean if a field has been set.
 
 ### GetHlRetentionTier1Rate
 
@@ -1505,6 +1815,11 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionTier1Rate sets HlRetentionTier1Rate field to given value.
 
+### HasHlRetentionTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasHlRetentionTier1Rate() bool`
+
+HasHlRetentionTier1Rate returns a boolean if a field has been set.
 
 ### GetHlRetentionTier2Min
 
@@ -1525,6 +1840,11 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionTier2Min sets HlRetentionTier2Min field to given value.
 
+### HasHlRetentionTier2Min
+
+`func (o *FormattedApiOrgPublic) HasHlRetentionTier2Min() bool`
+
+HasHlRetentionTier2Min returns a boolean if a field has been set.
 
 ### GetHlRetentionTier2Rate
 
@@ -1545,6 +1865,11 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionTier2Rate sets HlRetentionTier2Rate field to given value.
 
+### HasHlRetentionTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasHlRetentionTier2Rate() bool`
+
+HasHlRetentionTier2Rate returns a boolean if a field has been set.
 
 ### GetHlRetentionTier3Min
 
@@ -1565,6 +1890,11 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionTier3Min sets HlRetentionTier3Min field to given value.
 
+### HasHlRetentionTier3Min
+
+`func (o *FormattedApiOrgPublic) HasHlRetentionTier3Min() bool`
+
+HasHlRetentionTier3Min returns a boolean if a field has been set.
 
 ### GetHlRetentionTier3Rate
 
@@ -1585,6 +1915,11 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionTier3Rate sets HlRetentionTier3Rate field to given value.
 
+### HasHlRetentionTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasHlRetentionTier3Rate() bool`
+
+HasHlRetentionTier3Rate returns a boolean if a field has been set.
 
 ### GetHlRetentionUsage
 
@@ -1605,6 +1940,11 @@ and a boolean to check if the value has been set.
 
 SetHlRetentionUsage sets HlRetentionUsage field to given value.
 
+### HasHlRetentionUsage
+
+`func (o *FormattedApiOrgPublic) HasHlRetentionUsage() bool`
+
+HasHlRetentionUsage returns a boolean if a field has been set.
 
 ### GetHtIncludedUsage
 
@@ -1625,6 +1965,11 @@ and a boolean to check if the value has been set.
 
 SetHtIncludedUsage sets HtIncludedUsage field to given value.
 
+### HasHtIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasHtIncludedUsage() bool`
+
+HasHtIncludedUsage returns a boolean if a field has been set.
 
 ### GetHtTier1Rate
 
@@ -1645,6 +1990,11 @@ and a boolean to check if the value has been set.
 
 SetHtTier1Rate sets HtTier1Rate field to given value.
 
+### HasHtTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasHtTier1Rate() bool`
+
+HasHtTier1Rate returns a boolean if a field has been set.
 
 ### GetHtTier2Min
 
@@ -1665,6 +2015,11 @@ and a boolean to check if the value has been set.
 
 SetHtTier2Min sets HtTier2Min field to given value.
 
+### HasHtTier2Min
+
+`func (o *FormattedApiOrgPublic) HasHtTier2Min() bool`
+
+HasHtTier2Min returns a boolean if a field has been set.
 
 ### GetHtTier2Rate
 
@@ -1685,6 +2040,11 @@ and a boolean to check if the value has been set.
 
 SetHtTier2Rate sets HtTier2Rate field to given value.
 
+### HasHtTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasHtTier2Rate() bool`
+
+HasHtTier2Rate returns a boolean if a field has been set.
 
 ### GetHtTier3Min
 
@@ -1705,6 +2065,11 @@ and a boolean to check if the value has been set.
 
 SetHtTier3Min sets HtTier3Min field to given value.
 
+### HasHtTier3Min
+
+`func (o *FormattedApiOrgPublic) HasHtTier3Min() bool`
+
+HasHtTier3Min returns a boolean if a field has been set.
 
 ### GetHtTier3Rate
 
@@ -1725,6 +2090,11 @@ and a boolean to check if the value has been set.
 
 SetHtTier3Rate sets HtTier3Rate field to given value.
 
+### HasHtTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasHtTier3Rate() bool`
+
+HasHtTier3Rate returns a boolean if a field has been set.
 
 ### GetHtUsage
 
@@ -1745,6 +2115,11 @@ and a boolean to check if the value has been set.
 
 SetHtUsage sets HtUsage field to given value.
 
+### HasHtUsage
+
+`func (o *FormattedApiOrgPublic) HasHtUsage() bool`
+
+HasHtUsage returns a boolean if a field has been set.
 
 ### GetHpIncludedUsage
 
@@ -1765,6 +2140,11 @@ and a boolean to check if the value has been set.
 
 SetHpIncludedUsage sets HpIncludedUsage field to given value.
 
+### HasHpIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasHpIncludedUsage() bool`
+
+HasHpIncludedUsage returns a boolean if a field has been set.
 
 ### GetHpTier1Rate
 
@@ -1785,6 +2165,11 @@ and a boolean to check if the value has been set.
 
 SetHpTier1Rate sets HpTier1Rate field to given value.
 
+### HasHpTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasHpTier1Rate() bool`
+
+HasHpTier1Rate returns a boolean if a field has been set.
 
 ### GetHpTier2Min
 
@@ -1805,6 +2190,11 @@ and a boolean to check if the value has been set.
 
 SetHpTier2Min sets HpTier2Min field to given value.
 
+### HasHpTier2Min
+
+`func (o *FormattedApiOrgPublic) HasHpTier2Min() bool`
+
+HasHpTier2Min returns a boolean if a field has been set.
 
 ### GetHpTier2Rate
 
@@ -1825,6 +2215,11 @@ and a boolean to check if the value has been set.
 
 SetHpTier2Rate sets HpTier2Rate field to given value.
 
+### HasHpTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasHpTier2Rate() bool`
+
+HasHpTier2Rate returns a boolean if a field has been set.
 
 ### GetHpTier3Min
 
@@ -1845,6 +2240,11 @@ and a boolean to check if the value has been set.
 
 SetHpTier3Min sets HpTier3Min field to given value.
 
+### HasHpTier3Min
+
+`func (o *FormattedApiOrgPublic) HasHpTier3Min() bool`
+
+HasHpTier3Min returns a boolean if a field has been set.
 
 ### GetHpTier3Rate
 
@@ -1865,6 +2265,11 @@ and a boolean to check if the value has been set.
 
 SetHpTier3Rate sets HpTier3Rate field to given value.
 
+### HasHpTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasHpTier3Rate() bool`
+
+HasHpTier3Rate returns a boolean if a field has been set.
 
 ### GetHpUsage
 
@@ -1885,6 +2290,11 @@ and a boolean to check if the value has been set.
 
 SetHpUsage sets HpUsage field to given value.
 
+### HasHpUsage
+
+`func (o *FormattedApiOrgPublic) HasHpUsage() bool`
+
+HasHpUsage returns a boolean if a field has been set.
 
 ### GetIrmStatus
 
@@ -1905,6 +2315,11 @@ and a boolean to check if the value has been set.
 
 SetIrmStatus sets IrmStatus field to given value.
 
+### HasIrmStatus
+
+`func (o *FormattedApiOrgPublic) HasIrmStatus() bool`
+
+HasIrmStatus returns a boolean if a field has been set.
 
 ### GetIrmIncludedUsage
 
@@ -1925,6 +2340,11 @@ and a boolean to check if the value has been set.
 
 SetIrmIncludedUsage sets IrmIncludedUsage field to given value.
 
+### HasIrmIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasIrmIncludedUsage() bool`
+
+HasIrmIncludedUsage returns a boolean if a field has been set.
 
 ### GetIrmTier1Rate
 
@@ -1945,6 +2365,11 @@ and a boolean to check if the value has been set.
 
 SetIrmTier1Rate sets IrmTier1Rate field to given value.
 
+### HasIrmTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasIrmTier1Rate() bool`
+
+HasIrmTier1Rate returns a boolean if a field has been set.
 
 ### GetIrmTier2Min
 
@@ -1965,6 +2390,11 @@ and a boolean to check if the value has been set.
 
 SetIrmTier2Min sets IrmTier2Min field to given value.
 
+### HasIrmTier2Min
+
+`func (o *FormattedApiOrgPublic) HasIrmTier2Min() bool`
+
+HasIrmTier2Min returns a boolean if a field has been set.
 
 ### GetIrmTier2Rate
 
@@ -1985,6 +2415,11 @@ and a boolean to check if the value has been set.
 
 SetIrmTier2Rate sets IrmTier2Rate field to given value.
 
+### HasIrmTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasIrmTier2Rate() bool`
+
+HasIrmTier2Rate returns a boolean if a field has been set.
 
 ### GetIrmTier3Min
 
@@ -2005,6 +2440,11 @@ and a boolean to check if the value has been set.
 
 SetIrmTier3Min sets IrmTier3Min field to given value.
 
+### HasIrmTier3Min
+
+`func (o *FormattedApiOrgPublic) HasIrmTier3Min() bool`
+
+HasIrmTier3Min returns a boolean if a field has been set.
 
 ### GetIrmTier3Rate
 
@@ -2025,6 +2465,11 @@ and a boolean to check if the value has been set.
 
 SetIrmTier3Rate sets IrmTier3Rate field to given value.
 
+### HasIrmTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasIrmTier3Rate() bool`
+
+HasIrmTier3Rate returns a boolean if a field has been set.
 
 ### GetIrmUsage
 
@@ -2045,6 +2490,11 @@ and a boolean to check if the value has been set.
 
 SetIrmUsage sets IrmUsage field to given value.
 
+### HasIrmUsage
+
+`func (o *FormattedApiOrgPublic) HasIrmUsage() bool`
+
+HasIrmUsage returns a boolean if a field has been set.
 
 ### GetK6VuhIncludedUsage
 
@@ -2065,6 +2515,11 @@ and a boolean to check if the value has been set.
 
 SetK6VuhIncludedUsage sets K6VuhIncludedUsage field to given value.
 
+### HasK6VuhIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasK6VuhIncludedUsage() bool`
+
+HasK6VuhIncludedUsage returns a boolean if a field has been set.
 
 ### GetK6VuhTier1Rate
 
@@ -2085,6 +2540,11 @@ and a boolean to check if the value has been set.
 
 SetK6VuhTier1Rate sets K6VuhTier1Rate field to given value.
 
+### HasK6VuhTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasK6VuhTier1Rate() bool`
+
+HasK6VuhTier1Rate returns a boolean if a field has been set.
 
 ### GetK6VuhTier2Min
 
@@ -2105,6 +2565,11 @@ and a boolean to check if the value has been set.
 
 SetK6VuhTier2Min sets K6VuhTier2Min field to given value.
 
+### HasK6VuhTier2Min
+
+`func (o *FormattedApiOrgPublic) HasK6VuhTier2Min() bool`
+
+HasK6VuhTier2Min returns a boolean if a field has been set.
 
 ### GetK6VuhTier2Rate
 
@@ -2125,6 +2590,11 @@ and a boolean to check if the value has been set.
 
 SetK6VuhTier2Rate sets K6VuhTier2Rate field to given value.
 
+### HasK6VuhTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasK6VuhTier2Rate() bool`
+
+HasK6VuhTier2Rate returns a boolean if a field has been set.
 
 ### GetK6VuhTier3Min
 
@@ -2145,6 +2615,11 @@ and a boolean to check if the value has been set.
 
 SetK6VuhTier3Min sets K6VuhTier3Min field to given value.
 
+### HasK6VuhTier3Min
+
+`func (o *FormattedApiOrgPublic) HasK6VuhTier3Min() bool`
+
+HasK6VuhTier3Min returns a boolean if a field has been set.
 
 ### GetK6VuhTier3Rate
 
@@ -2165,6 +2640,11 @@ and a boolean to check if the value has been set.
 
 SetK6VuhTier3Rate sets K6VuhTier3Rate field to given value.
 
+### HasK6VuhTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasK6VuhTier3Rate() bool`
+
+HasK6VuhTier3Rate returns a boolean if a field has been set.
 
 ### GetK6VuhUnits
 
@@ -2185,6 +2665,11 @@ and a boolean to check if the value has been set.
 
 SetK6VuhUnits sets K6VuhUnits field to given value.
 
+### HasK6VuhUnits
+
+`func (o *FormattedApiOrgPublic) HasK6VuhUnits() bool`
+
+HasK6VuhUnits returns a boolean if a field has been set.
 
 ### GetK6VuhUsage
 
@@ -2205,6 +2690,11 @@ and a boolean to check if the value has been set.
 
 SetK6VuhUsage sets K6VuhUsage field to given value.
 
+### HasK6VuhUsage
+
+`func (o *FormattedApiOrgPublic) HasK6VuhUsage() bool`
+
+HasK6VuhUsage returns a boolean if a field has been set.
 
 ### GetK6IPIncludedUsage
 
@@ -2225,6 +2715,11 @@ and a boolean to check if the value has been set.
 
 SetK6IPIncludedUsage sets K6IPIncludedUsage field to given value.
 
+### HasK6IPIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasK6IPIncludedUsage() bool`
+
+HasK6IPIncludedUsage returns a boolean if a field has been set.
 
 ### GetK6IPTier1Rate
 
@@ -2245,6 +2740,11 @@ and a boolean to check if the value has been set.
 
 SetK6IPTier1Rate sets K6IPTier1Rate field to given value.
 
+### HasK6IPTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasK6IPTier1Rate() bool`
+
+HasK6IPTier1Rate returns a boolean if a field has been set.
 
 ### GetK6IPTier2Min
 
@@ -2265,6 +2765,11 @@ and a boolean to check if the value has been set.
 
 SetK6IPTier2Min sets K6IPTier2Min field to given value.
 
+### HasK6IPTier2Min
+
+`func (o *FormattedApiOrgPublic) HasK6IPTier2Min() bool`
+
+HasK6IPTier2Min returns a boolean if a field has been set.
 
 ### GetK6IPTier2Rate
 
@@ -2285,6 +2790,11 @@ and a boolean to check if the value has been set.
 
 SetK6IPTier2Rate sets K6IPTier2Rate field to given value.
 
+### HasK6IPTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasK6IPTier2Rate() bool`
+
+HasK6IPTier2Rate returns a boolean if a field has been set.
 
 ### GetK6IPTier3Min
 
@@ -2305,6 +2815,11 @@ and a boolean to check if the value has been set.
 
 SetK6IPTier3Min sets K6IPTier3Min field to given value.
 
+### HasK6IPTier3Min
+
+`func (o *FormattedApiOrgPublic) HasK6IPTier3Min() bool`
+
+HasK6IPTier3Min returns a boolean if a field has been set.
 
 ### GetK6IPTier3Rate
 
@@ -2325,6 +2840,11 @@ and a boolean to check if the value has been set.
 
 SetK6IPTier3Rate sets K6IPTier3Rate field to given value.
 
+### HasK6IPTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasK6IPTier3Rate() bool`
+
+HasK6IPTier3Rate returns a boolean if a field has been set.
 
 ### GetK6IPUsage
 
@@ -2345,6 +2865,11 @@ and a boolean to check if the value has been set.
 
 SetK6IPUsage sets K6IPUsage field to given value.
 
+### HasK6IPUsage
+
+`func (o *FormattedApiOrgPublic) HasK6IPUsage() bool`
+
+HasK6IPUsage returns a boolean if a field has been set.
 
 ### GetFeO11YIncludedUsage
 
@@ -2365,6 +2890,11 @@ and a boolean to check if the value has been set.
 
 SetFeO11YIncludedUsage sets FeO11YIncludedUsage field to given value.
 
+### HasFeO11YIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasFeO11YIncludedUsage() bool`
+
+HasFeO11YIncludedUsage returns a boolean if a field has been set.
 
 ### GetFeO11YTier1Rate
 
@@ -2385,6 +2915,11 @@ and a boolean to check if the value has been set.
 
 SetFeO11YTier1Rate sets FeO11YTier1Rate field to given value.
 
+### HasFeO11YTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasFeO11YTier1Rate() bool`
+
+HasFeO11YTier1Rate returns a boolean if a field has been set.
 
 ### GetFeO11YTier2Min
 
@@ -2405,6 +2940,11 @@ and a boolean to check if the value has been set.
 
 SetFeO11YTier2Min sets FeO11YTier2Min field to given value.
 
+### HasFeO11YTier2Min
+
+`func (o *FormattedApiOrgPublic) HasFeO11YTier2Min() bool`
+
+HasFeO11YTier2Min returns a boolean if a field has been set.
 
 ### GetFeO11YTier2Rate
 
@@ -2425,6 +2965,11 @@ and a boolean to check if the value has been set.
 
 SetFeO11YTier2Rate sets FeO11YTier2Rate field to given value.
 
+### HasFeO11YTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasFeO11YTier2Rate() bool`
+
+HasFeO11YTier2Rate returns a boolean if a field has been set.
 
 ### GetFeO11YTier3Min
 
@@ -2445,6 +2990,11 @@ and a boolean to check if the value has been set.
 
 SetFeO11YTier3Min sets FeO11YTier3Min field to given value.
 
+### HasFeO11YTier3Min
+
+`func (o *FormattedApiOrgPublic) HasFeO11YTier3Min() bool`
+
+HasFeO11YTier3Min returns a boolean if a field has been set.
 
 ### GetFeO11YTier3Rate
 
@@ -2465,6 +3015,11 @@ and a boolean to check if the value has been set.
 
 SetFeO11YTier3Rate sets FeO11YTier3Rate field to given value.
 
+### HasFeO11YTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasFeO11YTier3Rate() bool`
+
+HasFeO11YTier3Rate returns a boolean if a field has been set.
 
 ### GetFeO11YUnits
 
@@ -2485,6 +3040,11 @@ and a boolean to check if the value has been set.
 
 SetFeO11YUnits sets FeO11YUnits field to given value.
 
+### HasFeO11YUnits
+
+`func (o *FormattedApiOrgPublic) HasFeO11YUnits() bool`
+
+HasFeO11YUnits returns a boolean if a field has been set.
 
 ### GetFeO11YUsage
 
@@ -2505,6 +3065,11 @@ and a boolean to check if the value has been set.
 
 SetFeO11YUsage sets FeO11YUsage field to given value.
 
+### HasFeO11YUsage
+
+`func (o *FormattedApiOrgPublic) HasFeO11YUsage() bool`
+
+HasFeO11YUsage returns a boolean if a field has been set.
 
 ### GetGeUsersIncludedUsage
 
@@ -2525,6 +3090,11 @@ and a boolean to check if the value has been set.
 
 SetGeUsersIncludedUsage sets GeUsersIncludedUsage field to given value.
 
+### HasGeUsersIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasGeUsersIncludedUsage() bool`
+
+HasGeUsersIncludedUsage returns a boolean if a field has been set.
 
 ### GetGeUsersTier1Rate
 
@@ -2545,6 +3115,11 @@ and a boolean to check if the value has been set.
 
 SetGeUsersTier1Rate sets GeUsersTier1Rate field to given value.
 
+### HasGeUsersTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasGeUsersTier1Rate() bool`
+
+HasGeUsersTier1Rate returns a boolean if a field has been set.
 
 ### GetGeUsersTier2Min
 
@@ -2565,6 +3140,11 @@ and a boolean to check if the value has been set.
 
 SetGeUsersTier2Min sets GeUsersTier2Min field to given value.
 
+### HasGeUsersTier2Min
+
+`func (o *FormattedApiOrgPublic) HasGeUsersTier2Min() bool`
+
+HasGeUsersTier2Min returns a boolean if a field has been set.
 
 ### GetGeUsersTier2Rate
 
@@ -2585,6 +3165,11 @@ and a boolean to check if the value has been set.
 
 SetGeUsersTier2Rate sets GeUsersTier2Rate field to given value.
 
+### HasGeUsersTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasGeUsersTier2Rate() bool`
+
+HasGeUsersTier2Rate returns a boolean if a field has been set.
 
 ### GetGeUsersTier3Min
 
@@ -2605,6 +3190,11 @@ and a boolean to check if the value has been set.
 
 SetGeUsersTier3Min sets GeUsersTier3Min field to given value.
 
+### HasGeUsersTier3Min
+
+`func (o *FormattedApiOrgPublic) HasGeUsersTier3Min() bool`
+
+HasGeUsersTier3Min returns a boolean if a field has been set.
 
 ### GetGeUsersTier3Rate
 
@@ -2625,6 +3215,11 @@ and a boolean to check if the value has been set.
 
 SetGeUsersTier3Rate sets GeUsersTier3Rate field to given value.
 
+### HasGeUsersTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasGeUsersTier3Rate() bool`
+
+HasGeUsersTier3Rate returns a boolean if a field has been set.
 
 ### GetGeUsersUsage
 
@@ -2645,6 +3240,11 @@ and a boolean to check if the value has been set.
 
 SetGeUsersUsage sets GeUsersUsage field to given value.
 
+### HasGeUsersUsage
+
+`func (o *FormattedApiOrgPublic) HasGeUsersUsage() bool`
+
+HasGeUsersUsage returns a boolean if a field has been set.
 
 ### GetGeInstancesIncludedUsage
 
@@ -2665,6 +3265,11 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesIncludedUsage sets GeInstancesIncludedUsage field to given value.
 
+### HasGeInstancesIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasGeInstancesIncludedUsage() bool`
+
+HasGeInstancesIncludedUsage returns a boolean if a field has been set.
 
 ### GetGeInstancesTier1Rate
 
@@ -2685,6 +3290,11 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesTier1Rate sets GeInstancesTier1Rate field to given value.
 
+### HasGeInstancesTier1Rate
+
+`func (o *FormattedApiOrgPublic) HasGeInstancesTier1Rate() bool`
+
+HasGeInstancesTier1Rate returns a boolean if a field has been set.
 
 ### GetGeInstancesTier2Min
 
@@ -2705,6 +3315,11 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesTier2Min sets GeInstancesTier2Min field to given value.
 
+### HasGeInstancesTier2Min
+
+`func (o *FormattedApiOrgPublic) HasGeInstancesTier2Min() bool`
+
+HasGeInstancesTier2Min returns a boolean if a field has been set.
 
 ### GetGeInstancesTier2Rate
 
@@ -2725,6 +3340,11 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesTier2Rate sets GeInstancesTier2Rate field to given value.
 
+### HasGeInstancesTier2Rate
+
+`func (o *FormattedApiOrgPublic) HasGeInstancesTier2Rate() bool`
+
+HasGeInstancesTier2Rate returns a boolean if a field has been set.
 
 ### GetGeInstancesTier3Min
 
@@ -2745,6 +3365,11 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesTier3Min sets GeInstancesTier3Min field to given value.
 
+### HasGeInstancesTier3Min
+
+`func (o *FormattedApiOrgPublic) HasGeInstancesTier3Min() bool`
+
+HasGeInstancesTier3Min returns a boolean if a field has been set.
 
 ### GetGeInstancesTier3Rate
 
@@ -2765,6 +3390,11 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesTier3Rate sets GeInstancesTier3Rate field to given value.
 
+### HasGeInstancesTier3Rate
+
+`func (o *FormattedApiOrgPublic) HasGeInstancesTier3Rate() bool`
+
+HasGeInstancesTier3Rate returns a boolean if a field has been set.
 
 ### GetGeInstancesUsage
 
@@ -2785,6 +3415,11 @@ and a boolean to check if the value has been set.
 
 SetGeInstancesUsage sets GeInstancesUsage field to given value.
 
+### HasGeInstancesUsage
+
+`func (o *FormattedApiOrgPublic) HasGeInstancesUsage() bool`
+
+HasGeInstancesUsage returns a boolean if a field has been set.
 
 ### GetHgPluginUsersOverageRate
 
@@ -2805,6 +3440,11 @@ and a boolean to check if the value has been set.
 
 SetHgPluginUsersOverageRate sets HgPluginUsersOverageRate field to given value.
 
+### HasHgPluginUsersOverageRate
+
+`func (o *FormattedApiOrgPublic) HasHgPluginUsersOverageRate() bool`
+
+HasHgPluginUsersOverageRate returns a boolean if a field has been set.
 
 ### SetHgPluginUsersOverageRateNil
 
@@ -2835,6 +3475,11 @@ and a boolean to check if the value has been set.
 
 SetHgPluginUsersIncludedUsage sets HgPluginUsersIncludedUsage field to given value.
 
+### HasHgPluginUsersIncludedUsage
+
+`func (o *FormattedApiOrgPublic) HasHgPluginUsersIncludedUsage() bool`
+
+HasHgPluginUsersIncludedUsage returns a boolean if a field has been set.
 
 ### SetHgPluginUsersIncludedUsageNil
 
@@ -2865,6 +3510,11 @@ and a boolean to check if the value has been set.
 
 SetAwsMarketplaceSupport sets AwsMarketplaceSupport field to given value.
 
+### HasAwsMarketplaceSupport
+
+`func (o *FormattedApiOrgPublic) HasAwsMarketplaceSupport() bool`
+
+HasAwsMarketplaceSupport returns a boolean if a field has been set.
 
 ### GetTrialStartDate
 
@@ -2885,6 +3535,11 @@ and a boolean to check if the value has been set.
 
 SetTrialStartDate sets TrialStartDate field to given value.
 
+### HasTrialStartDate
+
+`func (o *FormattedApiOrgPublic) HasTrialStartDate() bool`
+
+HasTrialStartDate returns a boolean if a field has been set.
 
 ### SetTrialStartDateNil
 
@@ -2915,6 +3570,11 @@ and a boolean to check if the value has been set.
 
 SetTrialEndDate sets TrialEndDate field to given value.
 
+### HasTrialEndDate
+
+`func (o *FormattedApiOrgPublic) HasTrialEndDate() bool`
+
+HasTrialEndDate returns a boolean if a field has been set.
 
 ### SetTrialEndDateNil
 
@@ -2945,6 +3605,11 @@ and a boolean to check if the value has been set.
 
 SetTrialLengthDays sets TrialLengthDays field to given value.
 
+### HasTrialLengthDays
+
+`func (o *FormattedApiOrgPublic) HasTrialLengthDays() bool`
+
+HasTrialLengthDays returns a boolean if a field has been set.
 
 ### SetTrialLengthDaysNil
 
@@ -2975,6 +3640,11 @@ and a boolean to check if the value has been set.
 
 SetTrialNoticeDate sets TrialNoticeDate field to given value.
 
+### HasTrialNoticeDate
+
+`func (o *FormattedApiOrgPublic) HasTrialNoticeDate() bool`
+
+HasTrialNoticeDate returns a boolean if a field has been set.
 
 ### SetTrialNoticeDateNil
 
@@ -3005,6 +3675,11 @@ and a boolean to check if the value has been set.
 
 SetCancellationDate sets CancellationDate field to given value.
 
+### HasCancellationDate
+
+`func (o *FormattedApiOrgPublic) HasCancellationDate() bool`
+
+HasCancellationDate returns a boolean if a field has been set.
 
 ### SetCancellationDateNil
 
@@ -3035,6 +3710,11 @@ and a boolean to check if the value has been set.
 
 SetRetainedStackId sets RetainedStackId field to given value.
 
+### HasRetainedStackId
+
+`func (o *FormattedApiOrgPublic) HasRetainedStackId() bool`
+
+HasRetainedStackId returns a boolean if a field has been set.
 
 ### GetAllowGCloudTrial
 
@@ -3055,6 +3735,11 @@ and a boolean to check if the value has been set.
 
 SetAllowGCloudTrial sets AllowGCloudTrial field to given value.
 
+### HasAllowGCloudTrial
+
+`func (o *FormattedApiOrgPublic) HasAllowGCloudTrial() bool`
+
+HasAllowGCloudTrial returns a boolean if a field has been set.
 
 ### GetPluginSignatureType
 
@@ -3075,6 +3760,11 @@ and a boolean to check if the value has been set.
 
 SetPluginSignatureType sets PluginSignatureType field to given value.
 
+### HasPluginSignatureType
+
+`func (o *FormattedApiOrgPublic) HasPluginSignatureType() bool`
+
+HasPluginSignatureType returns a boolean if a field has been set.
 
 ### GetContractType
 
@@ -3095,6 +3785,11 @@ and a boolean to check if the value has been set.
 
 SetContractType sets ContractType field to given value.
 
+### HasContractType
+
+`func (o *FormattedApiOrgPublic) HasContractType() bool`
+
+HasContractType returns a boolean if a field has been set.
 
 ### GetContractTypeId
 
@@ -3115,6 +3810,11 @@ and a boolean to check if the value has been set.
 
 SetContractTypeId sets ContractTypeId field to given value.
 
+### HasContractTypeId
+
+`func (o *FormattedApiOrgPublic) HasContractTypeId() bool`
+
+HasContractTypeId returns a boolean if a field has been set.
 
 ### GetLinks
 
@@ -3135,6 +3835,11 @@ and a boolean to check if the value has been set.
 
 SetLinks sets Links field to given value.
 
+### HasLinks
+
+`func (o *FormattedApiOrgPublic) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
 
 ### GetSubscriptions
 
@@ -3155,6 +3860,11 @@ and a boolean to check if the value has been set.
 
 SetSubscriptions sets Subscriptions field to given value.
 
+### HasSubscriptions
+
+`func (o *FormattedApiOrgPublic) HasSubscriptions() bool`
+
+HasSubscriptions returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

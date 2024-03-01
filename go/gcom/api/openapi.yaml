@@ -3414,10 +3414,6 @@ components:
           - inactive
           example: active
           type: string
-      required:
-      - name
-      - realms
-      - scopes
       type: object
     FormattedApiApiKeyListResponse:
       example:
@@ -3505,8 +3501,6 @@ components:
             $ref: '#/components/schemas/links_inner_1'
           title: links
           type: array
-      required:
-      - items
       type: object
     FormattedApiApiKey:
       example:
@@ -3577,18 +3571,6 @@ components:
             $ref: '#/components/schemas/links_inner'
           title: links
           type: array
-      required:
-      - createdAt
-      - firstUsed
-      - id
-      - instanceId
-      - links
-      - name
-      - orgId
-      - orgName
-      - orgSlug
-      - role
-      - updatedAt
       type: object
     FormattedApiInstancePlugin:
       example:
@@ -3648,18 +3630,6 @@ components:
             $ref: '#/components/schemas/links_inner'
           title: links
           type: array
-      required:
-      - createdAt
-      - id
-      - instanceId
-      - instanceSlug
-      - instanceUrl
-      - latestVersion
-      - links
-      - pluginId
-      - pluginName
-      - pluginSlug
-      - version
       type: object
     FormattedApiInstance:
       example:
@@ -4064,92 +4034,6 @@ components:
         config:
           title: config
           type: object
-      required:
-      - agentManagementInstanceId
-      - alertCnt
-      - alertQuota
-      - amInstanceGeneratorUrl
-      - amInstanceGeneratorUrlDatasource
-      - amInstanceId
-      - amInstanceName
-      - amInstanceStatus
-      - amInstanceUrl
-      - billingActiveUsers
-      - billingEndDate
-      - billingGrafanaActiveUsers
-      - billingOnCallActiveUsers
-      - billingStartDate
-      - clusterId
-      - clusterName
-      - clusterSlug
-      - createdAt
-      - createdBy
-      - currentActiveAdminUsers
-      - currentActiveEditorUsers
-      - currentActiveUsers
-      - currentActiveViewerUsers
-      - customAuth
-      - customDomain
-      - dailyAdminCnt
-      - dailyEditorCnt
-      - dailyUserCnt
-      - dailyViewerCnt
-      - dashboardCnt
-      - dashboardQuota
-      - datasourceCnts
-      - description
-      - gateway
-      - hlInstanceCurrentUsage
-      - hlInstanceId
-      - hlInstanceName
-      - hlInstanceStatus
-      - hlInstanceUrl
-      - hmInstanceGraphiteCurrentUsage
-      - hmInstanceGraphiteId
-      - hmInstanceGraphiteName
-      - hmInstanceGraphiteStatus
-      - hmInstanceGraphiteType
-      - hmInstanceGraphiteUrl
-      - hmInstancePromCurrentActiveSeries
-      - hmInstancePromCurrentUsage
-      - hmInstancePromId
-      - hmInstancePromName
-      - hmInstancePromStatus
-      - hmInstancePromUrl
-      - hpInstanceId
-      - hpInstanceName
-      - hpInstanceStatus
-      - hpInstanceUrl
-      - htInstanceId
-      - htInstanceName
-      - htInstanceStatus
-      - htInstanceUrl
-      - id
-      - incident
-      - machineLearning
-      - name
-      - orgId
-      - orgName
-      - orgSlug
-      - plan
-      - planName
-      - provider
-      - providerRegion
-      - regionId
-      - regionPublicName
-      - regionSlug
-      - runningVersion
-      - slug
-      - ssl
-      - status
-      - support
-      - trial
-      - trialExpiresAt
-      - updatedAt
-      - updatedBy
-      - url
-      - userQuota
-      - version
       type: object
     GrafanaServiceAccountDTO:
       description: "swagger: model"
@@ -4258,8 +4142,6 @@ components:
           nullable: true
           title: otlpHttpUrl
           type: string
-      required:
-      - privateConnectivityInfo
       type: object
     OrgMemberListResponse:
       example:
@@ -4382,9 +4264,6 @@ components:
         nextCursor:
           title: nextCursor
           type: number
-      required:
-      - items
-      - links
       type: object
     FormattedOrgMembership:
       example:
@@ -4537,38 +4416,6 @@ components:
           $ref: '#/components/schemas/subscriptions'
         marketplaceSubscription:
           $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
-      required:
-      - allowGCloudTrial
-      - billing
-      - contractTypeId
-      - createdAt
-      - createdBy
-      - defaultOrg
-      - grafanaCloud
-      - hgDatasourceCnts
-      - hlUsage
-      - hmCurrentGraphiteUsage
-      - hmCurrentPrometheusUsage
-      - id
-      - marketplaceSubscription
-      - orgId
-      - orgName
-      - orgSlug
-      - orgUrl
-      - privacy
-      - resellerId
-      - role
-      - status
-      - subscriptions
-      - updatedAt
-      - updatedBy
-      - userEmail
-      - userFirstName
-      - userId
-      - userLastName
-      - userName
-      - userStatus
-      - userUsername
       type: object
     FormattedApiOrgPublic:
       example:
@@ -5180,149 +5027,6 @@ components:
           type: array
         subscriptions:
           $ref: '#/components/schemas/subscriptions'
-      required:
-      - allowGCloudTrial
-      - avatar
-      - awsMarketplaceSupport
-      - cancellationDate
-      - checksPerMonth
-      - contractType
-      - contractTypeId
-      - createdAt
-      - createdBy
-      - creditApproved
-      - emergencySupport
-      - enterprisePlugins
-      - feO11YIncludedUsage
-      - feO11YTier1Rate
-      - feO11YTier2Min
-      - feO11YTier2Rate
-      - feO11YTier3Min
-      - feO11YTier3Rate
-      - feO11YUnits
-      - feO11YUsage
-      - gcloudMonthlyCost
-      - geInstancesIncludedUsage
-      - geInstancesTier1Rate
-      - geInstancesTier2Min
-      - geInstancesTier2Rate
-      - geInstancesTier3Min
-      - geInstancesTier3Rate
-      - geInstancesUsage
-      - geUsersIncludedUsage
-      - geUsersTier1Rate
-      - geUsersTier2Min
-      - geUsersTier2Rate
-      - geUsersTier3Min
-      - geUsersTier3Rate
-      - geUsersUsage
-      - grafanaCloud
-      - hgCurrentActiveUsers
-      - hgGrafanaUsage
-      - hgIncludedUsers
-      - hgInstanceLimit
-      - hgOnCallUsage
-      - hgPluginUsersIncludedUsage
-      - hgPluginUsersOverageRate
-      - hgTier1Rate
-      - hgTier2Min
-      - hgTier2Rate
-      - hgTier3Min
-      - hgTier3Rate
-      - hgUsage
-      - hlIncludedUsage
-      - hlInstanceLimit
-      - hlQueryToIngestRatio
-      - hlRetentionIncludedUsage
-      - hlRetentionTier1Rate
-      - hlRetentionTier2Min
-      - hlRetentionTier2Rate
-      - hlRetentionTier3Min
-      - hlRetentionTier3Rate
-      - hlRetentionUsage
-      - hlTier1Rate
-      - hlTier2Min
-      - hlTier2Rate
-      - hlTier3Min
-      - hlTier3Rate
-      - hlUsage
-      - hmAverageDpm
-      - hmCurrentUsage
-      - hmGraphiteIncludedUsage
-      - hmGraphiteTier1Rate
-      - hmGraphiteTier2Min
-      - hmGraphiteTier2Rate
-      - hmGraphiteTier3Min
-      - hmGraphiteTier3Rate
-      - hmGraphiteUsage
-      - hmIncludedSeries
-      - hmInstanceLimit
-      - hmTier1Rate
-      - hmTier2Min
-      - hmTier2Rate
-      - hmTier3Min
-      - hmTier3Rate
-      - hmUsage
-      - hpIncludedUsage
-      - hpTier1Rate
-      - hpTier2Min
-      - hpTier2Rate
-      - hpTier3Min
-      - hpTier3Rate
-      - hpUsage
-      - htIncludedUsage
-      - htTier1Rate
-      - htTier2Min
-      - htTier2Rate
-      - htTier3Min
-      - htTier3Rate
-      - htUsage
-      - id
-      - irmIncludedUsage
-      - irmStatus
-      - irmTier1Rate
-      - irmTier2Min
-      - irmTier2Rate
-      - irmTier3Min
-      - irmTier3Rate
-      - irmUsage
-      - k6IPIncludedUsage
-      - k6IPTier1Rate
-      - k6IPTier2Min
-      - k6IPTier2Rate
-      - k6IPTier3Min
-      - k6IPTier3Rate
-      - k6IPUsage
-      - k6VuhIncludedUsage
-      - k6VuhTier1Rate
-      - k6VuhTier2Min
-      - k6VuhTier2Rate
-      - k6VuhTier3Min
-      - k6VuhTier3Rate
-      - k6VuhUnits
-      - k6VuhUsage
-      - links
-      - msaSignedAt
-      - msaSignedBy
-      - name
-      - pluginSignatureType
-      - privacy
-      - reseller
-      - resellerId
-      - resellerName
-      - retainedStackId
-      - slug
-      - subscriptions
-      - supportPlan
-      - trialEndDate
-      - trialLengthDays
-      - trialNoticeDate
-      - trialStartDate
-      - updatedAt
-      - updatedBy
-      - url
-      - userQuota
-      - wpPlan
       type: object
     FormattedApiPlugin:
       example:
@@ -5461,38 +5165,6 @@ components:
         angularDetected:
           title: angularDetected
           type: boolean
-      required:
-      - angularDetected
-      - createdAt
-      - description
-      - downloadSlug
-      - downloads
-      - featured
-      - id
-      - internal
-      - links
-      - name
-      - orgId
-      - orgName
-      - orgSlug
-      - orgUrl
-      - packages
-      - popularity
-      - signatureType
-      - slug
-      - status
-      - typeCode
-      - typeId
-      - typeName
-      - updatedAt
-      - url
-      - userId
-      - verified
-      - version
-      - versionSignatureType
-      - versionSignedByOrg
-      - versionSignedByOrgName
-      - versionStatus
       type: object
     FormattedApiStackRegion:
       anyOf:
@@ -5546,9 +5218,6 @@ components:
           format: date-time
           readOnly: true
           type: string
-      required:
-      - accessPolicyId
-      - name
       type: object
     AuthTokenWithSecret:
       allOf:
@@ -5589,9 +5258,6 @@ components:
             format: date-time
             readOnly: true
             type: string
-        required:
-        - accessPolicyId
-        - name
         type: object
       - properties:
           token:
@@ -6558,9 +6224,6 @@ components:
         href:
           title: href
           type: string
-      required:
-      - href
-      - rel
       type: object
     items_inner:
       example:
@@ -6631,18 +6294,6 @@ components:
             $ref: '#/components/schemas/links_inner'
           title: links
           type: array
-      required:
-      - createdAt
-      - firstUsed
-      - id
-      - instanceId
-      - links
-      - name
-      - orgId
-      - orgName
-      - orgSlug
-      - role
-      - updatedAt
       type: object
     links_inner_1:
       example:
@@ -6655,9 +6306,6 @@ components:
         href:
           title: href
           type: string
-      required:
-      - href
-      - rel
       type: object
     info:
       example:
@@ -6670,9 +6318,6 @@ components:
         privateDNS:
           title: privateDNS
           type: string
-      required:
-      - privateDNS
-      - serviceName
       title: info
       type: object
     tenants_inner:
@@ -6691,10 +6336,6 @@ components:
           type: number
         info:
           $ref: '#/components/schemas/info'
-      required:
-      - id
-      - info
-      - type
       type: object
     otlp:
       example:
@@ -6707,9 +6348,6 @@ components:
         privateDNS:
           title: privateDNS
           type: string
-      required:
-      - privateDNS
-      - serviceName
       title: otlp
       type: object
     privateConnectivityInfo:
@@ -6736,8 +6374,6 @@ components:
           type: array
         otlp:
           $ref: '#/components/schemas/otlp'
-      required:
-      - tenants
       title: privateConnectivityInfo
       type: object
     appPlatform:
@@ -6752,8 +6388,6 @@ components:
           nullable: true
           title: caData
           type: string
-      required:
-      - url
       title: appPlatform
       type: object
     current:
@@ -6785,16 +6419,6 @@ components:
         planBillingCycle:
           nullable: true
           title: planBillingCycle
-      required:
-      - endDate
-      - enterprisePluginsAdded
-      - isTrial
-      - payload
-      - plan
-      - planBillingCycle
-      - product
-      - publicName
-      - startDate
       title: current
       type: object
     subscriptions_anyOf:
@@ -6807,10 +6431,6 @@ components:
         next:
           nullable: true
           title: next
-      required:
-      - current
-      - next
-      - nextProduct
       type: object
     payload:
       additionalProperties: {}
@@ -6859,16 +6479,6 @@ components:
         planBillingCycle:
           title: planBillingCycle
           type: string
-      required:
-      - endDate
-      - enterprisePluginsAdded
-      - isTrial
-      - payload
-      - plan
-      - planBillingCycle
-      - product
-      - publicName
-      - startDate
       title: current
       type: object
     next:
@@ -6891,11 +6501,6 @@ components:
           nullable: true
           title: publicName
           type: string
-      required:
-      - payload
-      - plan
-      - product
-      - publicName
       title: next
       type: object
     subscriptions_anyOf_1:
@@ -6912,10 +6517,6 @@ components:
           type: string
         next:
           $ref: '#/components/schemas/next'
-      required:
-      - current
-      - next
-      - nextProduct
       type: object
     current_2:
       properties:
@@ -6953,16 +6554,6 @@ components:
         planBillingCycle:
           title: planBillingCycle
           type: string
-      required:
-      - endDate
-      - enterprisePluginsAdded
-      - isTrial
-      - payload
-      - plan
-      - planBillingCycle
-      - product
-      - publicName
-      - startDate
       title: current
       type: object
     subscriptions_anyOf_2:
@@ -6975,10 +6566,6 @@ components:
         next:
           nullable: true
           title: next
-      required:
-      - current
-      - next
-      - nextProduct
       type: object
     subscriptions:
       anyOf:
@@ -7002,9 +6589,6 @@ components:
         isLegacy:
           title: isLegacy
           type: boolean
-      required:
-      - isLegacy
-      - provider
       type: object
     items_inner_1:
       example:
@@ -7157,38 +6741,6 @@ components:
           $ref: '#/components/schemas/subscriptions'
         marketplaceSubscription:
           $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
-      required:
-      - allowGCloudTrial
-      - billing
-      - contractTypeId
-      - createdAt
-      - createdBy
-      - defaultOrg
-      - grafanaCloud
-      - hgDatasourceCnts
-      - hlUsage
-      - hmCurrentGraphiteUsage
-      - hmCurrentPrometheusUsage
-      - id
-      - marketplaceSubscription
-      - orgId
-      - orgName
-      - orgSlug
-      - orgUrl
-      - privacy
-      - resellerId
-      - role
-      - status
-      - subscriptions
-      - updatedAt
-      - updatedBy
-      - userEmail
-      - userFirstName
-      - userId
-      - userLastName
-      - userName
-      - userStatus
-      - userUsername
       type: object
     FormattedApiOrgPublic_allowGCloudTrial:
       anyOf:
@@ -7234,18 +6786,6 @@ components:
         sortOrder:
           title: sortOrder
           type: number
-      required:
-      - createdAt
-      - description
-      - id
-      - name
-      - provider
-      - publicName
-      - slug
-      - sortOrder
-      - status
-      - updatedAt
-      - visibility
       type: object
     otlpPrivateConnectivityInfo_anyOf:
       properties:
@@ -7255,9 +6795,6 @@ components:
         serviceName:
           title: serviceName
           type: string
-      required:
-      - privateDNS
-      - serviceName
       type: object
     mimir:
       properties:
@@ -7267,9 +6804,6 @@ components:
         serviceName:
           title: serviceName
           type: string
-      required:
-      - privateDNS
-      - serviceName
       title: mimir
       type: object
     graphite:
@@ -7280,9 +6814,6 @@ components:
         serviceName:
           title: serviceName
           type: string
-      required:
-      - privateDNS
-      - serviceName
       title: graphite
       type: object
     otlpPrivateConnectivityInfo_anyOf_1:
@@ -7291,8 +6822,6 @@ components:
           $ref: '#/components/schemas/mimir'
         graphite:
           $ref: '#/components/schemas/graphite'
-      required:
-      - mimir
       type: object
     otlpPrivateConnectivityInfo:
       anyOf:
@@ -7484,66 +7013,6 @@ components:
         sortOrder:
           title: sortOrder
           type: number
-      required:
-      - agmClusterId
-      - agmClusterName
-      - agmClusterSlug
-      - agmClusterUrl
-      - amClusterId
-      - amClusterName
-      - amClusterSlug
-      - amClusterUrl
-      - authApiTokenSet
-      - authApiUrl
-      - createdAt
-      - description
-      - faroEndpointUrl
-      - hgClusterId
-      - hgClusterName
-      - hgClusterSlug
-      - hgClusterUrl
-      - hlClusterId
-      - hlClusterName
-      - hlClusterSlug
-      - hlClusterUrl
-      - hmGraphiteClusterId
-      - hmGraphiteClusterName
-      - hmGraphiteClusterSlug
-      - hmGraphiteClusterUrl
-      - hmPromClusterId
-      - hmPromClusterName
-      - hmPromClusterSlug
-      - hmPromClusterUrl
-      - hostedExportersApiUrl
-      - hpClusterId
-      - hpClusterName
-      - hpClusterSlug
-      - hpClusterUrl
-      - htClusterId
-      - htClusterName
-      - htClusterSlug
-      - htClusterUrl
-      - id
-      - incidentApiUrl
-      - insightsApiUrl
-      - integrationsApiUrl
-      - llmGatewayUrl
-      - machineLearningApiUrl
-      - name
-      - oncallApiUrl
-      - otlpHttpUrl
-      - otlpPrivateConnectivityInfo
-      - pdcClusterSlug
-      - provider
-      - providerRegion
-      - publicName
-      - slug
-      - sortOrder
-      - stackStateServiceUrl
-      - status
-      - syntheticMonitoringApiUrl
-      - updatedAt
-      - visibility
       type: object
   securitySchemes:
     BearerAuth:

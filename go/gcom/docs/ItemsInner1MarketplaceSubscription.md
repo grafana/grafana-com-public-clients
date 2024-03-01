@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Provider** | **string** |  | 
-**IsLegacy** | **bool** |  | 
+**Provider** | Pointer to **string** |  | [optional] 
+**IsLegacy** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewItemsInner1MarketplaceSubscription
 
-`func NewItemsInner1MarketplaceSubscription(provider string, isLegacy bool, ) *ItemsInner1MarketplaceSubscription`
+`func NewItemsInner1MarketplaceSubscription() *ItemsInner1MarketplaceSubscription`
 
 NewItemsInner1MarketplaceSubscription instantiates a new ItemsInner1MarketplaceSubscription object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetProvider sets Provider field to given value.
 
+### HasProvider
+
+`func (o *ItemsInner1MarketplaceSubscription) HasProvider() bool`
+
+HasProvider returns a boolean if a field has been set.
 
 ### GetIsLegacy
 
@@ -65,6 +70,11 @@ and a boolean to check if the value has been set.
 
 SetIsLegacy sets IsLegacy field to given value.
 
+### HasIsLegacy
+
+`func (o *ItemsInner1MarketplaceSubscription) HasIsLegacy() bool`
+
+HasIsLegacy returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

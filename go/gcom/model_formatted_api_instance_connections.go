@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FormattedApiInstanceConnections type satisfies the MappedNullable interface at compile time
@@ -20,10 +19,10 @@ var _ MappedNullable = &FormattedApiInstanceConnections{}
 
 // FormattedApiInstanceConnections struct for FormattedApiInstanceConnections
 type FormattedApiInstanceConnections struct {
-	PrivateConnectivityInfo PrivateConnectivityInfo `json:"privateConnectivityInfo"`
-	AppPlatform             *AppPlatform            `json:"appPlatform,omitempty"`
-	InfluxUrl               NullableString          `json:"influxUrl,omitempty"`
-	OtlpHttpUrl             NullableString          `json:"otlpHttpUrl,omitempty"`
+	PrivateConnectivityInfo *PrivateConnectivityInfo `json:"privateConnectivityInfo,omitempty"`
+	AppPlatform             *AppPlatform             `json:"appPlatform,omitempty"`
+	InfluxUrl               NullableString           `json:"influxUrl,omitempty"`
+	OtlpHttpUrl             NullableString           `json:"otlpHttpUrl,omitempty"`
 	AdditionalProperties    map[string]interface{}
 }
 
@@ -33,9 +32,8 @@ type _FormattedApiInstanceConnections FormattedApiInstanceConnections
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiInstanceConnections(privateConnectivityInfo PrivateConnectivityInfo) *FormattedApiInstanceConnections {
+func NewFormattedApiInstanceConnections() *FormattedApiInstanceConnections {
 	this := FormattedApiInstanceConnections{}
-	this.PrivateConnectivityInfo = privateConnectivityInfo
 	return &this
 }
 
@@ -47,28 +45,36 @@ func NewFormattedApiInstanceConnectionsWithDefaults() *FormattedApiInstanceConne
 	return &this
 }
 
-// GetPrivateConnectivityInfo returns the PrivateConnectivityInfo field value
+// GetPrivateConnectivityInfo returns the PrivateConnectivityInfo field value if set, zero value otherwise.
 func (o *FormattedApiInstanceConnections) GetPrivateConnectivityInfo() PrivateConnectivityInfo {
-	if o == nil {
+	if o == nil || IsNil(o.PrivateConnectivityInfo) {
 		var ret PrivateConnectivityInfo
 		return ret
 	}
-
-	return o.PrivateConnectivityInfo
+	return *o.PrivateConnectivityInfo
 }
 
-// GetPrivateConnectivityInfoOk returns a tuple with the PrivateConnectivityInfo field value
+// GetPrivateConnectivityInfoOk returns a tuple with the PrivateConnectivityInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstanceConnections) GetPrivateConnectivityInfoOk() (*PrivateConnectivityInfo, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PrivateConnectivityInfo) {
 		return nil, false
 	}
-	return &o.PrivateConnectivityInfo, true
+	return o.PrivateConnectivityInfo, true
 }
 
-// SetPrivateConnectivityInfo sets field value
+// HasPrivateConnectivityInfo returns a boolean if a field has been set.
+func (o *FormattedApiInstanceConnections) HasPrivateConnectivityInfo() bool {
+	if o != nil && !IsNil(o.PrivateConnectivityInfo) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivateConnectivityInfo gets a reference to the given PrivateConnectivityInfo and assigns it to the PrivateConnectivityInfo field.
 func (o *FormattedApiInstanceConnections) SetPrivateConnectivityInfo(v PrivateConnectivityInfo) {
-	o.PrivateConnectivityInfo = v
+	o.PrivateConnectivityInfo = &v
 }
 
 // GetAppPlatform returns the AppPlatform field value if set, zero value otherwise.
@@ -199,7 +205,9 @@ func (o FormattedApiInstanceConnections) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiInstanceConnections) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["privateConnectivityInfo"] = o.PrivateConnectivityInfo
+	if !IsNil(o.PrivateConnectivityInfo) {
+		toSerialize["privateConnectivityInfo"] = o.PrivateConnectivityInfo
+	}
 	if !IsNil(o.AppPlatform) {
 		toSerialize["appPlatform"] = o.AppPlatform
 	}
@@ -218,27 +226,6 @@ func (o FormattedApiInstanceConnections) ToMap() (map[string]interface{}, error)
 }
 
 func (o *FormattedApiInstanceConnections) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"privateConnectivityInfo",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varFormattedApiInstanceConnections := _FormattedApiInstanceConnections{}
 
 	err = json.Unmarshal(data, &varFormattedApiInstanceConnections)

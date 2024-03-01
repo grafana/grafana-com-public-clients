@@ -4,99 +4,99 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AlertCnt** | **float32** |  | 
-**AlertQuota** | **float32** |  | 
-**AmInstanceGeneratorUrl** | **string** |  | 
-**AmInstanceGeneratorUrlDatasource** | **string** |  | 
-**AmInstanceId** | **float32** |  | 
-**AmInstanceName** | **string** |  | 
-**AmInstanceStatus** | **string** |  | 
-**AmInstanceUrl** | **string** |  | 
-**BillingActiveUsers** | **float32** |  | 
-**BillingEndDate** | **string** |  | 
-**BillingGrafanaActiveUsers** | **float32** |  | 
-**BillingOnCallActiveUsers** | **float32** |  | 
-**BillingStartDate** | **string** |  | 
-**ClusterId** | **float32** |  | 
-**ClusterName** | **string** |  | 
-**ClusterSlug** | **string** |  | 
-**CreatedAt** | **string** |  | 
-**CreatedBy** | **string** |  | 
-**CurrentActiveAdminUsers** | **float32** |  | 
-**CurrentActiveEditorUsers** | **float32** |  | 
-**CurrentActiveUsers** | **float32** |  | 
-**CurrentActiveViewerUsers** | **float32** |  | 
-**CustomAuth** | **bool** |  | 
-**CustomDomain** | **bool** |  | 
-**DailyAdminCnt** | **float32** |  | 
-**DailyEditorCnt** | **float32** |  | 
-**DailyUserCnt** | **float32** |  | 
-**DailyViewerCnt** | **float32** |  | 
-**DashboardCnt** | **float32** |  | 
-**DashboardQuota** | **float32** |  | 
-**DatasourceCnts** | **map[string]interface{}** |  | 
-**Description** | **string** |  | 
-**Gateway** | **string** |  | 
-**HlInstanceCurrentUsage** | **float32** |  | 
-**HlInstanceId** | **float32** |  | 
-**HlInstanceName** | **string** |  | 
-**HlInstanceStatus** | **string** |  | 
-**HlInstanceUrl** | **string** |  | 
-**HmInstanceGraphiteCurrentUsage** | **float32** |  | 
-**HmInstanceGraphiteId** | **float32** |  | 
-**HmInstanceGraphiteName** | **string** |  | 
-**HmInstanceGraphiteStatus** | **string** |  | 
-**HmInstanceGraphiteType** | **string** |  | 
-**HmInstanceGraphiteUrl** | **string** |  | 
-**HmInstancePromCurrentActiveSeries** | **interface{}** |  | 
-**HmInstancePromCurrentUsage** | **float32** |  | 
-**HmInstancePromId** | **float32** |  | 
-**HmInstancePromName** | **string** |  | 
-**HmInstancePromStatus** | **string** |  | 
-**HmInstancePromUrl** | **string** |  | 
-**HtInstanceId** | **float32** |  | 
-**HtInstanceName** | **string** |  | 
-**HtInstanceStatus** | **string** |  | 
-**HtInstanceUrl** | **string** |  | 
-**HpInstanceId** | **float32** |  | 
-**HpInstanceName** | **string** |  | 
-**HpInstanceStatus** | **string** |  | 
-**HpInstanceUrl** | **string** |  | 
-**Id** | **float32** |  | 
-**Incident** | **float32** |  | 
+**AlertCnt** | Pointer to **float32** |  | [optional] 
+**AlertQuota** | Pointer to **float32** |  | [optional] 
+**AmInstanceGeneratorUrl** | Pointer to **string** |  | [optional] 
+**AmInstanceGeneratorUrlDatasource** | Pointer to **string** |  | [optional] 
+**AmInstanceId** | Pointer to **float32** |  | [optional] 
+**AmInstanceName** | Pointer to **string** |  | [optional] 
+**AmInstanceStatus** | Pointer to **string** |  | [optional] 
+**AmInstanceUrl** | Pointer to **string** |  | [optional] 
+**BillingActiveUsers** | Pointer to **float32** |  | [optional] 
+**BillingEndDate** | Pointer to **string** |  | [optional] 
+**BillingGrafanaActiveUsers** | Pointer to **float32** |  | [optional] 
+**BillingOnCallActiveUsers** | Pointer to **float32** |  | [optional] 
+**BillingStartDate** | Pointer to **string** |  | [optional] 
+**ClusterId** | Pointer to **float32** |  | [optional] 
+**ClusterName** | Pointer to **string** |  | [optional] 
+**ClusterSlug** | Pointer to **string** |  | [optional] 
+**CreatedAt** | Pointer to **string** |  | [optional] 
+**CreatedBy** | Pointer to **string** |  | [optional] 
+**CurrentActiveAdminUsers** | Pointer to **float32** |  | [optional] 
+**CurrentActiveEditorUsers** | Pointer to **float32** |  | [optional] 
+**CurrentActiveUsers** | Pointer to **float32** |  | [optional] 
+**CurrentActiveViewerUsers** | Pointer to **float32** |  | [optional] 
+**CustomAuth** | Pointer to **bool** |  | [optional] 
+**CustomDomain** | Pointer to **bool** |  | [optional] 
+**DailyAdminCnt** | Pointer to **float32** |  | [optional] 
+**DailyEditorCnt** | Pointer to **float32** |  | [optional] 
+**DailyUserCnt** | Pointer to **float32** |  | [optional] 
+**DailyViewerCnt** | Pointer to **float32** |  | [optional] 
+**DashboardCnt** | Pointer to **float32** |  | [optional] 
+**DashboardQuota** | Pointer to **float32** |  | [optional] 
+**DatasourceCnts** | Pointer to **map[string]interface{}** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Gateway** | Pointer to **string** |  | [optional] 
+**HlInstanceCurrentUsage** | Pointer to **float32** |  | [optional] 
+**HlInstanceId** | Pointer to **float32** |  | [optional] 
+**HlInstanceName** | Pointer to **string** |  | [optional] 
+**HlInstanceStatus** | Pointer to **string** |  | [optional] 
+**HlInstanceUrl** | Pointer to **string** |  | [optional] 
+**HmInstanceGraphiteCurrentUsage** | Pointer to **float32** |  | [optional] 
+**HmInstanceGraphiteId** | Pointer to **float32** |  | [optional] 
+**HmInstanceGraphiteName** | Pointer to **string** |  | [optional] 
+**HmInstanceGraphiteStatus** | Pointer to **string** |  | [optional] 
+**HmInstanceGraphiteType** | Pointer to **string** |  | [optional] 
+**HmInstanceGraphiteUrl** | Pointer to **string** |  | [optional] 
+**HmInstancePromCurrentActiveSeries** | Pointer to **interface{}** |  | [optional] 
+**HmInstancePromCurrentUsage** | Pointer to **float32** |  | [optional] 
+**HmInstancePromId** | Pointer to **float32** |  | [optional] 
+**HmInstancePromName** | Pointer to **string** |  | [optional] 
+**HmInstancePromStatus** | Pointer to **string** |  | [optional] 
+**HmInstancePromUrl** | Pointer to **string** |  | [optional] 
+**HtInstanceId** | Pointer to **float32** |  | [optional] 
+**HtInstanceName** | Pointer to **string** |  | [optional] 
+**HtInstanceStatus** | Pointer to **string** |  | [optional] 
+**HtInstanceUrl** | Pointer to **string** |  | [optional] 
+**HpInstanceId** | Pointer to **float32** |  | [optional] 
+**HpInstanceName** | Pointer to **string** |  | [optional] 
+**HpInstanceStatus** | Pointer to **string** |  | [optional] 
+**HpInstanceUrl** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **float32** |  | [optional] 
+**Incident** | Pointer to **float32** |  | [optional] 
 **Labels** | Pointer to **map[string]interface{}** |  | [optional] 
-**MachineLearning** | **float32** |  | 
-**Name** | **string** |  | 
-**OrgId** | **float32** |  | 
-**OrgName** | **string** |  | 
-**OrgSlug** | **string** |  | 
-**Plan** | **string** |  | 
-**PlanName** | **string** |  | 
-**RegionId** | **float32** |  | 
-**RegionSlug** | **string** |  | 
-**RegionPublicName** | **string** |  | 
-**Provider** | **string** |  | 
-**ProviderRegion** | **string** |  | 
-**RunningVersion** | **string** |  | 
-**Slug** | **string** |  | 
-**Ssl** | **bool** |  | 
-**Status** | **string** |  | 
-**Support** | **bool** |  | 
-**Trial** | **float32** |  | 
-**TrialExpiresAt** | **NullableString** |  | 
-**UpdatedAt** | **NullableString** |  | 
-**UpdatedBy** | **NullableString** |  | 
-**Url** | **string** |  | 
-**UserQuota** | **float32** |  | 
-**Version** | **string** |  | 
-**AgentManagementInstanceId** | **float32** |  | 
+**MachineLearning** | Pointer to **float32** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**OrgId** | Pointer to **float32** |  | [optional] 
+**OrgName** | Pointer to **string** |  | [optional] 
+**OrgSlug** | Pointer to **string** |  | [optional] 
+**Plan** | Pointer to **string** |  | [optional] 
+**PlanName** | Pointer to **string** |  | [optional] 
+**RegionId** | Pointer to **float32** |  | [optional] 
+**RegionSlug** | Pointer to **string** |  | [optional] 
+**RegionPublicName** | Pointer to **string** |  | [optional] 
+**Provider** | Pointer to **string** |  | [optional] 
+**ProviderRegion** | Pointer to **string** |  | [optional] 
+**RunningVersion** | Pointer to **string** |  | [optional] 
+**Slug** | Pointer to **string** |  | [optional] 
+**Ssl** | Pointer to **bool** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
+**Support** | Pointer to **bool** |  | [optional] 
+**Trial** | Pointer to **float32** |  | [optional] 
+**TrialExpiresAt** | Pointer to **NullableString** |  | [optional] 
+**UpdatedAt** | Pointer to **NullableString** |  | [optional] 
+**UpdatedBy** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
+**UserQuota** | Pointer to **float32** |  | [optional] 
+**Version** | Pointer to **string** |  | [optional] 
+**AgentManagementInstanceId** | Pointer to **float32** |  | [optional] 
 **Config** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiInstance
 
-`func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, billingActiveUsers float32, billingEndDate string, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromCurrentActiveSeries interface{}, hmInstancePromCurrentUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, ) *FormattedApiInstance`
+`func NewFormattedApiInstance() *FormattedApiInstance`
 
 NewFormattedApiInstance instantiates a new FormattedApiInstance object
 This constructor will assign default values to properties that have it defined,
@@ -130,6 +130,11 @@ and a boolean to check if the value has been set.
 
 SetAlertCnt sets AlertCnt field to given value.
 
+### HasAlertCnt
+
+`func (o *FormattedApiInstance) HasAlertCnt() bool`
+
+HasAlertCnt returns a boolean if a field has been set.
 
 ### GetAlertQuota
 
@@ -150,6 +155,11 @@ and a boolean to check if the value has been set.
 
 SetAlertQuota sets AlertQuota field to given value.
 
+### HasAlertQuota
+
+`func (o *FormattedApiInstance) HasAlertQuota() bool`
+
+HasAlertQuota returns a boolean if a field has been set.
 
 ### GetAmInstanceGeneratorUrl
 
@@ -170,6 +180,11 @@ and a boolean to check if the value has been set.
 
 SetAmInstanceGeneratorUrl sets AmInstanceGeneratorUrl field to given value.
 
+### HasAmInstanceGeneratorUrl
+
+`func (o *FormattedApiInstance) HasAmInstanceGeneratorUrl() bool`
+
+HasAmInstanceGeneratorUrl returns a boolean if a field has been set.
 
 ### GetAmInstanceGeneratorUrlDatasource
 
@@ -190,6 +205,11 @@ and a boolean to check if the value has been set.
 
 SetAmInstanceGeneratorUrlDatasource sets AmInstanceGeneratorUrlDatasource field to given value.
 
+### HasAmInstanceGeneratorUrlDatasource
+
+`func (o *FormattedApiInstance) HasAmInstanceGeneratorUrlDatasource() bool`
+
+HasAmInstanceGeneratorUrlDatasource returns a boolean if a field has been set.
 
 ### GetAmInstanceId
 
@@ -210,6 +230,11 @@ and a boolean to check if the value has been set.
 
 SetAmInstanceId sets AmInstanceId field to given value.
 
+### HasAmInstanceId
+
+`func (o *FormattedApiInstance) HasAmInstanceId() bool`
+
+HasAmInstanceId returns a boolean if a field has been set.
 
 ### GetAmInstanceName
 
@@ -230,6 +255,11 @@ and a boolean to check if the value has been set.
 
 SetAmInstanceName sets AmInstanceName field to given value.
 
+### HasAmInstanceName
+
+`func (o *FormattedApiInstance) HasAmInstanceName() bool`
+
+HasAmInstanceName returns a boolean if a field has been set.
 
 ### GetAmInstanceStatus
 
@@ -250,6 +280,11 @@ and a boolean to check if the value has been set.
 
 SetAmInstanceStatus sets AmInstanceStatus field to given value.
 
+### HasAmInstanceStatus
+
+`func (o *FormattedApiInstance) HasAmInstanceStatus() bool`
+
+HasAmInstanceStatus returns a boolean if a field has been set.
 
 ### GetAmInstanceUrl
 
@@ -270,6 +305,11 @@ and a boolean to check if the value has been set.
 
 SetAmInstanceUrl sets AmInstanceUrl field to given value.
 
+### HasAmInstanceUrl
+
+`func (o *FormattedApiInstance) HasAmInstanceUrl() bool`
+
+HasAmInstanceUrl returns a boolean if a field has been set.
 
 ### GetBillingActiveUsers
 
@@ -290,6 +330,11 @@ and a boolean to check if the value has been set.
 
 SetBillingActiveUsers sets BillingActiveUsers field to given value.
 
+### HasBillingActiveUsers
+
+`func (o *FormattedApiInstance) HasBillingActiveUsers() bool`
+
+HasBillingActiveUsers returns a boolean if a field has been set.
 
 ### GetBillingEndDate
 
@@ -310,6 +355,11 @@ and a boolean to check if the value has been set.
 
 SetBillingEndDate sets BillingEndDate field to given value.
 
+### HasBillingEndDate
+
+`func (o *FormattedApiInstance) HasBillingEndDate() bool`
+
+HasBillingEndDate returns a boolean if a field has been set.
 
 ### GetBillingGrafanaActiveUsers
 
@@ -330,6 +380,11 @@ and a boolean to check if the value has been set.
 
 SetBillingGrafanaActiveUsers sets BillingGrafanaActiveUsers field to given value.
 
+### HasBillingGrafanaActiveUsers
+
+`func (o *FormattedApiInstance) HasBillingGrafanaActiveUsers() bool`
+
+HasBillingGrafanaActiveUsers returns a boolean if a field has been set.
 
 ### GetBillingOnCallActiveUsers
 
@@ -350,6 +405,11 @@ and a boolean to check if the value has been set.
 
 SetBillingOnCallActiveUsers sets BillingOnCallActiveUsers field to given value.
 
+### HasBillingOnCallActiveUsers
+
+`func (o *FormattedApiInstance) HasBillingOnCallActiveUsers() bool`
+
+HasBillingOnCallActiveUsers returns a boolean if a field has been set.
 
 ### GetBillingStartDate
 
@@ -370,6 +430,11 @@ and a boolean to check if the value has been set.
 
 SetBillingStartDate sets BillingStartDate field to given value.
 
+### HasBillingStartDate
+
+`func (o *FormattedApiInstance) HasBillingStartDate() bool`
+
+HasBillingStartDate returns a boolean if a field has been set.
 
 ### GetClusterId
 
@@ -390,6 +455,11 @@ and a boolean to check if the value has been set.
 
 SetClusterId sets ClusterId field to given value.
 
+### HasClusterId
+
+`func (o *FormattedApiInstance) HasClusterId() bool`
+
+HasClusterId returns a boolean if a field has been set.
 
 ### GetClusterName
 
@@ -410,6 +480,11 @@ and a boolean to check if the value has been set.
 
 SetClusterName sets ClusterName field to given value.
 
+### HasClusterName
+
+`func (o *FormattedApiInstance) HasClusterName() bool`
+
+HasClusterName returns a boolean if a field has been set.
 
 ### GetClusterSlug
 
@@ -430,6 +505,11 @@ and a boolean to check if the value has been set.
 
 SetClusterSlug sets ClusterSlug field to given value.
 
+### HasClusterSlug
+
+`func (o *FormattedApiInstance) HasClusterSlug() bool`
+
+HasClusterSlug returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -450,6 +530,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *FormattedApiInstance) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetCreatedBy
 
@@ -470,6 +555,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedBy sets CreatedBy field to given value.
 
+### HasCreatedBy
+
+`func (o *FormattedApiInstance) HasCreatedBy() bool`
+
+HasCreatedBy returns a boolean if a field has been set.
 
 ### GetCurrentActiveAdminUsers
 
@@ -490,6 +580,11 @@ and a boolean to check if the value has been set.
 
 SetCurrentActiveAdminUsers sets CurrentActiveAdminUsers field to given value.
 
+### HasCurrentActiveAdminUsers
+
+`func (o *FormattedApiInstance) HasCurrentActiveAdminUsers() bool`
+
+HasCurrentActiveAdminUsers returns a boolean if a field has been set.
 
 ### GetCurrentActiveEditorUsers
 
@@ -510,6 +605,11 @@ and a boolean to check if the value has been set.
 
 SetCurrentActiveEditorUsers sets CurrentActiveEditorUsers field to given value.
 
+### HasCurrentActiveEditorUsers
+
+`func (o *FormattedApiInstance) HasCurrentActiveEditorUsers() bool`
+
+HasCurrentActiveEditorUsers returns a boolean if a field has been set.
 
 ### GetCurrentActiveUsers
 
@@ -530,6 +630,11 @@ and a boolean to check if the value has been set.
 
 SetCurrentActiveUsers sets CurrentActiveUsers field to given value.
 
+### HasCurrentActiveUsers
+
+`func (o *FormattedApiInstance) HasCurrentActiveUsers() bool`
+
+HasCurrentActiveUsers returns a boolean if a field has been set.
 
 ### GetCurrentActiveViewerUsers
 
@@ -550,6 +655,11 @@ and a boolean to check if the value has been set.
 
 SetCurrentActiveViewerUsers sets CurrentActiveViewerUsers field to given value.
 
+### HasCurrentActiveViewerUsers
+
+`func (o *FormattedApiInstance) HasCurrentActiveViewerUsers() bool`
+
+HasCurrentActiveViewerUsers returns a boolean if a field has been set.
 
 ### GetCustomAuth
 
@@ -570,6 +680,11 @@ and a boolean to check if the value has been set.
 
 SetCustomAuth sets CustomAuth field to given value.
 
+### HasCustomAuth
+
+`func (o *FormattedApiInstance) HasCustomAuth() bool`
+
+HasCustomAuth returns a boolean if a field has been set.
 
 ### GetCustomDomain
 
@@ -590,6 +705,11 @@ and a boolean to check if the value has been set.
 
 SetCustomDomain sets CustomDomain field to given value.
 
+### HasCustomDomain
+
+`func (o *FormattedApiInstance) HasCustomDomain() bool`
+
+HasCustomDomain returns a boolean if a field has been set.
 
 ### GetDailyAdminCnt
 
@@ -610,6 +730,11 @@ and a boolean to check if the value has been set.
 
 SetDailyAdminCnt sets DailyAdminCnt field to given value.
 
+### HasDailyAdminCnt
+
+`func (o *FormattedApiInstance) HasDailyAdminCnt() bool`
+
+HasDailyAdminCnt returns a boolean if a field has been set.
 
 ### GetDailyEditorCnt
 
@@ -630,6 +755,11 @@ and a boolean to check if the value has been set.
 
 SetDailyEditorCnt sets DailyEditorCnt field to given value.
 
+### HasDailyEditorCnt
+
+`func (o *FormattedApiInstance) HasDailyEditorCnt() bool`
+
+HasDailyEditorCnt returns a boolean if a field has been set.
 
 ### GetDailyUserCnt
 
@@ -650,6 +780,11 @@ and a boolean to check if the value has been set.
 
 SetDailyUserCnt sets DailyUserCnt field to given value.
 
+### HasDailyUserCnt
+
+`func (o *FormattedApiInstance) HasDailyUserCnt() bool`
+
+HasDailyUserCnt returns a boolean if a field has been set.
 
 ### GetDailyViewerCnt
 
@@ -670,6 +805,11 @@ and a boolean to check if the value has been set.
 
 SetDailyViewerCnt sets DailyViewerCnt field to given value.
 
+### HasDailyViewerCnt
+
+`func (o *FormattedApiInstance) HasDailyViewerCnt() bool`
+
+HasDailyViewerCnt returns a boolean if a field has been set.
 
 ### GetDashboardCnt
 
@@ -690,6 +830,11 @@ and a boolean to check if the value has been set.
 
 SetDashboardCnt sets DashboardCnt field to given value.
 
+### HasDashboardCnt
+
+`func (o *FormattedApiInstance) HasDashboardCnt() bool`
+
+HasDashboardCnt returns a boolean if a field has been set.
 
 ### GetDashboardQuota
 
@@ -710,6 +855,11 @@ and a boolean to check if the value has been set.
 
 SetDashboardQuota sets DashboardQuota field to given value.
 
+### HasDashboardQuota
+
+`func (o *FormattedApiInstance) HasDashboardQuota() bool`
+
+HasDashboardQuota returns a boolean if a field has been set.
 
 ### GetDatasourceCnts
 
@@ -730,6 +880,11 @@ and a boolean to check if the value has been set.
 
 SetDatasourceCnts sets DatasourceCnts field to given value.
 
+### HasDatasourceCnts
+
+`func (o *FormattedApiInstance) HasDatasourceCnts() bool`
+
+HasDatasourceCnts returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -750,6 +905,11 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
+
+`func (o *FormattedApiInstance) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetGateway
 
@@ -770,6 +930,11 @@ and a boolean to check if the value has been set.
 
 SetGateway sets Gateway field to given value.
 
+### HasGateway
+
+`func (o *FormattedApiInstance) HasGateway() bool`
+
+HasGateway returns a boolean if a field has been set.
 
 ### GetHlInstanceCurrentUsage
 
@@ -790,6 +955,11 @@ and a boolean to check if the value has been set.
 
 SetHlInstanceCurrentUsage sets HlInstanceCurrentUsage field to given value.
 
+### HasHlInstanceCurrentUsage
+
+`func (o *FormattedApiInstance) HasHlInstanceCurrentUsage() bool`
+
+HasHlInstanceCurrentUsage returns a boolean if a field has been set.
 
 ### GetHlInstanceId
 
@@ -810,6 +980,11 @@ and a boolean to check if the value has been set.
 
 SetHlInstanceId sets HlInstanceId field to given value.
 
+### HasHlInstanceId
+
+`func (o *FormattedApiInstance) HasHlInstanceId() bool`
+
+HasHlInstanceId returns a boolean if a field has been set.
 
 ### GetHlInstanceName
 
@@ -830,6 +1005,11 @@ and a boolean to check if the value has been set.
 
 SetHlInstanceName sets HlInstanceName field to given value.
 
+### HasHlInstanceName
+
+`func (o *FormattedApiInstance) HasHlInstanceName() bool`
+
+HasHlInstanceName returns a boolean if a field has been set.
 
 ### GetHlInstanceStatus
 
@@ -850,6 +1030,11 @@ and a boolean to check if the value has been set.
 
 SetHlInstanceStatus sets HlInstanceStatus field to given value.
 
+### HasHlInstanceStatus
+
+`func (o *FormattedApiInstance) HasHlInstanceStatus() bool`
+
+HasHlInstanceStatus returns a boolean if a field has been set.
 
 ### GetHlInstanceUrl
 
@@ -870,6 +1055,11 @@ and a boolean to check if the value has been set.
 
 SetHlInstanceUrl sets HlInstanceUrl field to given value.
 
+### HasHlInstanceUrl
+
+`func (o *FormattedApiInstance) HasHlInstanceUrl() bool`
+
+HasHlInstanceUrl returns a boolean if a field has been set.
 
 ### GetHmInstanceGraphiteCurrentUsage
 
@@ -890,6 +1080,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstanceGraphiteCurrentUsage sets HmInstanceGraphiteCurrentUsage field to given value.
 
+### HasHmInstanceGraphiteCurrentUsage
+
+`func (o *FormattedApiInstance) HasHmInstanceGraphiteCurrentUsage() bool`
+
+HasHmInstanceGraphiteCurrentUsage returns a boolean if a field has been set.
 
 ### GetHmInstanceGraphiteId
 
@@ -910,6 +1105,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstanceGraphiteId sets HmInstanceGraphiteId field to given value.
 
+### HasHmInstanceGraphiteId
+
+`func (o *FormattedApiInstance) HasHmInstanceGraphiteId() bool`
+
+HasHmInstanceGraphiteId returns a boolean if a field has been set.
 
 ### GetHmInstanceGraphiteName
 
@@ -930,6 +1130,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstanceGraphiteName sets HmInstanceGraphiteName field to given value.
 
+### HasHmInstanceGraphiteName
+
+`func (o *FormattedApiInstance) HasHmInstanceGraphiteName() bool`
+
+HasHmInstanceGraphiteName returns a boolean if a field has been set.
 
 ### GetHmInstanceGraphiteStatus
 
@@ -950,6 +1155,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstanceGraphiteStatus sets HmInstanceGraphiteStatus field to given value.
 
+### HasHmInstanceGraphiteStatus
+
+`func (o *FormattedApiInstance) HasHmInstanceGraphiteStatus() bool`
+
+HasHmInstanceGraphiteStatus returns a boolean if a field has been set.
 
 ### GetHmInstanceGraphiteType
 
@@ -970,6 +1180,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstanceGraphiteType sets HmInstanceGraphiteType field to given value.
 
+### HasHmInstanceGraphiteType
+
+`func (o *FormattedApiInstance) HasHmInstanceGraphiteType() bool`
+
+HasHmInstanceGraphiteType returns a boolean if a field has been set.
 
 ### GetHmInstanceGraphiteUrl
 
@@ -990,6 +1205,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstanceGraphiteUrl sets HmInstanceGraphiteUrl field to given value.
 
+### HasHmInstanceGraphiteUrl
+
+`func (o *FormattedApiInstance) HasHmInstanceGraphiteUrl() bool`
+
+HasHmInstanceGraphiteUrl returns a boolean if a field has been set.
 
 ### GetHmInstancePromCurrentActiveSeries
 
@@ -1010,6 +1230,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstancePromCurrentActiveSeries sets HmInstancePromCurrentActiveSeries field to given value.
 
+### HasHmInstancePromCurrentActiveSeries
+
+`func (o *FormattedApiInstance) HasHmInstancePromCurrentActiveSeries() bool`
+
+HasHmInstancePromCurrentActiveSeries returns a boolean if a field has been set.
 
 ### SetHmInstancePromCurrentActiveSeriesNil
 
@@ -1040,6 +1265,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstancePromCurrentUsage sets HmInstancePromCurrentUsage field to given value.
 
+### HasHmInstancePromCurrentUsage
+
+`func (o *FormattedApiInstance) HasHmInstancePromCurrentUsage() bool`
+
+HasHmInstancePromCurrentUsage returns a boolean if a field has been set.
 
 ### GetHmInstancePromId
 
@@ -1060,6 +1290,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstancePromId sets HmInstancePromId field to given value.
 
+### HasHmInstancePromId
+
+`func (o *FormattedApiInstance) HasHmInstancePromId() bool`
+
+HasHmInstancePromId returns a boolean if a field has been set.
 
 ### GetHmInstancePromName
 
@@ -1080,6 +1315,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstancePromName sets HmInstancePromName field to given value.
 
+### HasHmInstancePromName
+
+`func (o *FormattedApiInstance) HasHmInstancePromName() bool`
+
+HasHmInstancePromName returns a boolean if a field has been set.
 
 ### GetHmInstancePromStatus
 
@@ -1100,6 +1340,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstancePromStatus sets HmInstancePromStatus field to given value.
 
+### HasHmInstancePromStatus
+
+`func (o *FormattedApiInstance) HasHmInstancePromStatus() bool`
+
+HasHmInstancePromStatus returns a boolean if a field has been set.
 
 ### GetHmInstancePromUrl
 
@@ -1120,6 +1365,11 @@ and a boolean to check if the value has been set.
 
 SetHmInstancePromUrl sets HmInstancePromUrl field to given value.
 
+### HasHmInstancePromUrl
+
+`func (o *FormattedApiInstance) HasHmInstancePromUrl() bool`
+
+HasHmInstancePromUrl returns a boolean if a field has been set.
 
 ### GetHtInstanceId
 
@@ -1140,6 +1390,11 @@ and a boolean to check if the value has been set.
 
 SetHtInstanceId sets HtInstanceId field to given value.
 
+### HasHtInstanceId
+
+`func (o *FormattedApiInstance) HasHtInstanceId() bool`
+
+HasHtInstanceId returns a boolean if a field has been set.
 
 ### GetHtInstanceName
 
@@ -1160,6 +1415,11 @@ and a boolean to check if the value has been set.
 
 SetHtInstanceName sets HtInstanceName field to given value.
 
+### HasHtInstanceName
+
+`func (o *FormattedApiInstance) HasHtInstanceName() bool`
+
+HasHtInstanceName returns a boolean if a field has been set.
 
 ### GetHtInstanceStatus
 
@@ -1180,6 +1440,11 @@ and a boolean to check if the value has been set.
 
 SetHtInstanceStatus sets HtInstanceStatus field to given value.
 
+### HasHtInstanceStatus
+
+`func (o *FormattedApiInstance) HasHtInstanceStatus() bool`
+
+HasHtInstanceStatus returns a boolean if a field has been set.
 
 ### GetHtInstanceUrl
 
@@ -1200,6 +1465,11 @@ and a boolean to check if the value has been set.
 
 SetHtInstanceUrl sets HtInstanceUrl field to given value.
 
+### HasHtInstanceUrl
+
+`func (o *FormattedApiInstance) HasHtInstanceUrl() bool`
+
+HasHtInstanceUrl returns a boolean if a field has been set.
 
 ### GetHpInstanceId
 
@@ -1220,6 +1490,11 @@ and a boolean to check if the value has been set.
 
 SetHpInstanceId sets HpInstanceId field to given value.
 
+### HasHpInstanceId
+
+`func (o *FormattedApiInstance) HasHpInstanceId() bool`
+
+HasHpInstanceId returns a boolean if a field has been set.
 
 ### GetHpInstanceName
 
@@ -1240,6 +1515,11 @@ and a boolean to check if the value has been set.
 
 SetHpInstanceName sets HpInstanceName field to given value.
 
+### HasHpInstanceName
+
+`func (o *FormattedApiInstance) HasHpInstanceName() bool`
+
+HasHpInstanceName returns a boolean if a field has been set.
 
 ### GetHpInstanceStatus
 
@@ -1260,6 +1540,11 @@ and a boolean to check if the value has been set.
 
 SetHpInstanceStatus sets HpInstanceStatus field to given value.
 
+### HasHpInstanceStatus
+
+`func (o *FormattedApiInstance) HasHpInstanceStatus() bool`
+
+HasHpInstanceStatus returns a boolean if a field has been set.
 
 ### GetHpInstanceUrl
 
@@ -1280,6 +1565,11 @@ and a boolean to check if the value has been set.
 
 SetHpInstanceUrl sets HpInstanceUrl field to given value.
 
+### HasHpInstanceUrl
+
+`func (o *FormattedApiInstance) HasHpInstanceUrl() bool`
+
+HasHpInstanceUrl returns a boolean if a field has been set.
 
 ### GetId
 
@@ -1300,6 +1590,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *FormattedApiInstance) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetIncident
 
@@ -1320,6 +1615,11 @@ and a boolean to check if the value has been set.
 
 SetIncident sets Incident field to given value.
 
+### HasIncident
+
+`func (o *FormattedApiInstance) HasIncident() bool`
+
+HasIncident returns a boolean if a field has been set.
 
 ### GetLabels
 
@@ -1365,6 +1665,11 @@ and a boolean to check if the value has been set.
 
 SetMachineLearning sets MachineLearning field to given value.
 
+### HasMachineLearning
+
+`func (o *FormattedApiInstance) HasMachineLearning() bool`
+
+HasMachineLearning returns a boolean if a field has been set.
 
 ### GetName
 
@@ -1385,6 +1690,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *FormattedApiInstance) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetOrgId
 
@@ -1405,6 +1715,11 @@ and a boolean to check if the value has been set.
 
 SetOrgId sets OrgId field to given value.
 
+### HasOrgId
+
+`func (o *FormattedApiInstance) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetOrgName
 
@@ -1425,6 +1740,11 @@ and a boolean to check if the value has been set.
 
 SetOrgName sets OrgName field to given value.
 
+### HasOrgName
+
+`func (o *FormattedApiInstance) HasOrgName() bool`
+
+HasOrgName returns a boolean if a field has been set.
 
 ### GetOrgSlug
 
@@ -1445,6 +1765,11 @@ and a boolean to check if the value has been set.
 
 SetOrgSlug sets OrgSlug field to given value.
 
+### HasOrgSlug
+
+`func (o *FormattedApiInstance) HasOrgSlug() bool`
+
+HasOrgSlug returns a boolean if a field has been set.
 
 ### GetPlan
 
@@ -1465,6 +1790,11 @@ and a boolean to check if the value has been set.
 
 SetPlan sets Plan field to given value.
 
+### HasPlan
+
+`func (o *FormattedApiInstance) HasPlan() bool`
+
+HasPlan returns a boolean if a field has been set.
 
 ### GetPlanName
 
@@ -1485,6 +1815,11 @@ and a boolean to check if the value has been set.
 
 SetPlanName sets PlanName field to given value.
 
+### HasPlanName
+
+`func (o *FormattedApiInstance) HasPlanName() bool`
+
+HasPlanName returns a boolean if a field has been set.
 
 ### GetRegionId
 
@@ -1505,6 +1840,11 @@ and a boolean to check if the value has been set.
 
 SetRegionId sets RegionId field to given value.
 
+### HasRegionId
+
+`func (o *FormattedApiInstance) HasRegionId() bool`
+
+HasRegionId returns a boolean if a field has been set.
 
 ### GetRegionSlug
 
@@ -1525,6 +1865,11 @@ and a boolean to check if the value has been set.
 
 SetRegionSlug sets RegionSlug field to given value.
 
+### HasRegionSlug
+
+`func (o *FormattedApiInstance) HasRegionSlug() bool`
+
+HasRegionSlug returns a boolean if a field has been set.
 
 ### GetRegionPublicName
 
@@ -1545,6 +1890,11 @@ and a boolean to check if the value has been set.
 
 SetRegionPublicName sets RegionPublicName field to given value.
 
+### HasRegionPublicName
+
+`func (o *FormattedApiInstance) HasRegionPublicName() bool`
+
+HasRegionPublicName returns a boolean if a field has been set.
 
 ### GetProvider
 
@@ -1565,6 +1915,11 @@ and a boolean to check if the value has been set.
 
 SetProvider sets Provider field to given value.
 
+### HasProvider
+
+`func (o *FormattedApiInstance) HasProvider() bool`
+
+HasProvider returns a boolean if a field has been set.
 
 ### GetProviderRegion
 
@@ -1585,6 +1940,11 @@ and a boolean to check if the value has been set.
 
 SetProviderRegion sets ProviderRegion field to given value.
 
+### HasProviderRegion
+
+`func (o *FormattedApiInstance) HasProviderRegion() bool`
+
+HasProviderRegion returns a boolean if a field has been set.
 
 ### GetRunningVersion
 
@@ -1605,6 +1965,11 @@ and a boolean to check if the value has been set.
 
 SetRunningVersion sets RunningVersion field to given value.
 
+### HasRunningVersion
+
+`func (o *FormattedApiInstance) HasRunningVersion() bool`
+
+HasRunningVersion returns a boolean if a field has been set.
 
 ### GetSlug
 
@@ -1625,6 +1990,11 @@ and a boolean to check if the value has been set.
 
 SetSlug sets Slug field to given value.
 
+### HasSlug
+
+`func (o *FormattedApiInstance) HasSlug() bool`
+
+HasSlug returns a boolean if a field has been set.
 
 ### GetSsl
 
@@ -1645,6 +2015,11 @@ and a boolean to check if the value has been set.
 
 SetSsl sets Ssl field to given value.
 
+### HasSsl
+
+`func (o *FormattedApiInstance) HasSsl() bool`
+
+HasSsl returns a boolean if a field has been set.
 
 ### GetStatus
 
@@ -1665,6 +2040,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *FormattedApiInstance) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetSupport
 
@@ -1685,6 +2065,11 @@ and a boolean to check if the value has been set.
 
 SetSupport sets Support field to given value.
 
+### HasSupport
+
+`func (o *FormattedApiInstance) HasSupport() bool`
+
+HasSupport returns a boolean if a field has been set.
 
 ### GetTrial
 
@@ -1705,6 +2090,11 @@ and a boolean to check if the value has been set.
 
 SetTrial sets Trial field to given value.
 
+### HasTrial
+
+`func (o *FormattedApiInstance) HasTrial() bool`
+
+HasTrial returns a boolean if a field has been set.
 
 ### GetTrialExpiresAt
 
@@ -1725,6 +2115,11 @@ and a boolean to check if the value has been set.
 
 SetTrialExpiresAt sets TrialExpiresAt field to given value.
 
+### HasTrialExpiresAt
+
+`func (o *FormattedApiInstance) HasTrialExpiresAt() bool`
+
+HasTrialExpiresAt returns a boolean if a field has been set.
 
 ### SetTrialExpiresAtNil
 
@@ -1755,6 +2150,11 @@ and a boolean to check if the value has been set.
 
 SetUpdatedAt sets UpdatedAt field to given value.
 
+### HasUpdatedAt
+
+`func (o *FormattedApiInstance) HasUpdatedAt() bool`
+
+HasUpdatedAt returns a boolean if a field has been set.
 
 ### SetUpdatedAtNil
 
@@ -1785,6 +2185,11 @@ and a boolean to check if the value has been set.
 
 SetUpdatedBy sets UpdatedBy field to given value.
 
+### HasUpdatedBy
+
+`func (o *FormattedApiInstance) HasUpdatedBy() bool`
+
+HasUpdatedBy returns a boolean if a field has been set.
 
 ### SetUpdatedByNil
 
@@ -1815,6 +2220,11 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
+
+`func (o *FormattedApiInstance) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
 
 ### GetUserQuota
 
@@ -1835,6 +2245,11 @@ and a boolean to check if the value has been set.
 
 SetUserQuota sets UserQuota field to given value.
 
+### HasUserQuota
+
+`func (o *FormattedApiInstance) HasUserQuota() bool`
+
+HasUserQuota returns a boolean if a field has been set.
 
 ### GetVersion
 
@@ -1855,6 +2270,11 @@ and a boolean to check if the value has been set.
 
 SetVersion sets Version field to given value.
 
+### HasVersion
+
+`func (o *FormattedApiInstance) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
 
 ### GetAgentManagementInstanceId
 
@@ -1875,6 +2295,11 @@ and a boolean to check if the value has been set.
 
 SetAgentManagementInstanceId sets AgentManagementInstanceId field to given value.
 
+### HasAgentManagementInstanceId
+
+`func (o *FormattedApiInstance) HasAgentManagementInstanceId() bool`
+
+HasAgentManagementInstanceId returns a boolean if a field has been set.
 
 ### GetConfig
 

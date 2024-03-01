@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Rel** | **string** |  | [default to "self"]
-**Href** | **string** |  | 
+**Rel** | Pointer to **string** |  | [optional] [default to "self"]
+**Href** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewLinksInner
 
-`func NewLinksInner(rel string, href string, ) *LinksInner`
+`func NewLinksInner() *LinksInner`
 
 NewLinksInner instantiates a new LinksInner object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetRel sets Rel field to given value.
 
+### HasRel
+
+`func (o *LinksInner) HasRel() bool`
+
+HasRel returns a boolean if a field has been set.
 
 ### GetHref
 
@@ -65,6 +70,11 @@ and a boolean to check if the value has been set.
 
 SetHref sets Href field to given value.
 
+### HasHref
+
+`func (o *LinksInner) HasHref() bool`
+
+HasHref returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

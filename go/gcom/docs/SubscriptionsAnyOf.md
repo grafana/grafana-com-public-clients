@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Current** | [**Current**](Current.md) |  | 
-**NextProduct** | **interface{}** |  | 
-**Next** | **interface{}** |  | 
+**Current** | Pointer to [**Current**](Current.md) |  | [optional] 
+**NextProduct** | Pointer to **interface{}** |  | [optional] 
+**Next** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewSubscriptionsAnyOf
 
-`func NewSubscriptionsAnyOf(current Current, nextProduct interface{}, next interface{}, ) *SubscriptionsAnyOf`
+`func NewSubscriptionsAnyOf() *SubscriptionsAnyOf`
 
 NewSubscriptionsAnyOf instantiates a new SubscriptionsAnyOf object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetCurrent sets Current field to given value.
 
+### HasCurrent
+
+`func (o *SubscriptionsAnyOf) HasCurrent() bool`
+
+HasCurrent returns a boolean if a field has been set.
 
 ### GetNextProduct
 
@@ -66,6 +71,11 @@ and a boolean to check if the value has been set.
 
 SetNextProduct sets NextProduct field to given value.
 
+### HasNextProduct
+
+`func (o *SubscriptionsAnyOf) HasNextProduct() bool`
+
+HasNextProduct returns a boolean if a field has been set.
 
 ### SetNextProductNil
 
@@ -96,6 +106,11 @@ and a boolean to check if the value has been set.
 
 SetNext sets Next field to given value.
 
+### HasNext
+
+`func (o *SubscriptionsAnyOf) HasNext() bool`
+
+HasNext returns a boolean if a field has been set.
 
 ### SetNextNil
 

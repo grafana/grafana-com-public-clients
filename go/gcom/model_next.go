@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the Next type satisfies the MappedNullable interface at compile time
@@ -20,10 +19,10 @@ var _ MappedNullable = &Next{}
 
 // Next struct for Next
 type Next struct {
-	Product              string         `json:"product"`
-	Payload              Payload        `json:"payload"`
-	Plan                 NullableString `json:"plan"`
-	PublicName           NullableString `json:"publicName"`
+	Product              *string        `json:"product,omitempty"`
+	Payload              *Payload       `json:"payload,omitempty"`
+	Plan                 NullableString `json:"plan,omitempty"`
+	PublicName           NullableString `json:"publicName,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -33,12 +32,8 @@ type _Next Next
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNext(product string, payload Payload, plan NullableString, publicName NullableString) *Next {
+func NewNext() *Next {
 	this := Next{}
-	this.Product = product
-	this.Payload = payload
-	this.Plan = plan
-	this.PublicName = publicName
 	return &this
 }
 
@@ -50,66 +45,80 @@ func NewNextWithDefaults() *Next {
 	return &this
 }
 
-// GetProduct returns the Product field value
+// GetProduct returns the Product field value if set, zero value otherwise.
 func (o *Next) GetProduct() string {
-	if o == nil {
+	if o == nil || IsNil(o.Product) {
 		var ret string
 		return ret
 	}
-
-	return o.Product
+	return *o.Product
 }
 
-// GetProductOk returns a tuple with the Product field value
+// GetProductOk returns a tuple with the Product field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Next) GetProductOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Product) {
 		return nil, false
 	}
-	return &o.Product, true
+	return o.Product, true
 }
 
-// SetProduct sets field value
+// HasProduct returns a boolean if a field has been set.
+func (o *Next) HasProduct() bool {
+	if o != nil && !IsNil(o.Product) {
+		return true
+	}
+
+	return false
+}
+
+// SetProduct gets a reference to the given string and assigns it to the Product field.
 func (o *Next) SetProduct(v string) {
-	o.Product = v
+	o.Product = &v
 }
 
-// GetPayload returns the Payload field value
+// GetPayload returns the Payload field value if set, zero value otherwise.
 func (o *Next) GetPayload() Payload {
-	if o == nil {
+	if o == nil || IsNil(o.Payload) {
 		var ret Payload
 		return ret
 	}
-
-	return o.Payload
+	return *o.Payload
 }
 
-// GetPayloadOk returns a tuple with the Payload field value
+// GetPayloadOk returns a tuple with the Payload field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Next) GetPayloadOk() (*Payload, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Payload) {
 		return nil, false
 	}
-	return &o.Payload, true
+	return o.Payload, true
 }
 
-// SetPayload sets field value
+// HasPayload returns a boolean if a field has been set.
+func (o *Next) HasPayload() bool {
+	if o != nil && !IsNil(o.Payload) {
+		return true
+	}
+
+	return false
+}
+
+// SetPayload gets a reference to the given Payload and assigns it to the Payload field.
 func (o *Next) SetPayload(v Payload) {
-	o.Payload = v
+	o.Payload = &v
 }
 
-// GetPlan returns the Plan field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetPlan returns the Plan field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Next) GetPlan() string {
-	if o == nil || o.Plan.Get() == nil {
+	if o == nil || IsNil(o.Plan.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.Plan.Get()
 }
 
-// GetPlanOk returns a tuple with the Plan field value
+// GetPlanOk returns a tuple with the Plan field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Next) GetPlanOk() (*string, bool) {
@@ -119,23 +128,40 @@ func (o *Next) GetPlanOk() (*string, bool) {
 	return o.Plan.Get(), o.Plan.IsSet()
 }
 
-// SetPlan sets field value
+// HasPlan returns a boolean if a field has been set.
+func (o *Next) HasPlan() bool {
+	if o != nil && o.Plan.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPlan gets a reference to the given NullableString and assigns it to the Plan field.
 func (o *Next) SetPlan(v string) {
 	o.Plan.Set(&v)
 }
 
-// GetPublicName returns the PublicName field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetPlanNil sets the value for Plan to be an explicit nil
+func (o *Next) SetPlanNil() {
+	o.Plan.Set(nil)
+}
+
+// UnsetPlan ensures that no value is present for Plan, not even an explicit nil
+func (o *Next) UnsetPlan() {
+	o.Plan.Unset()
+}
+
+// GetPublicName returns the PublicName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Next) GetPublicName() string {
-	if o == nil || o.PublicName.Get() == nil {
+	if o == nil || IsNil(o.PublicName.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.PublicName.Get()
 }
 
-// GetPublicNameOk returns a tuple with the PublicName field value
+// GetPublicNameOk returns a tuple with the PublicName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Next) GetPublicNameOk() (*string, bool) {
@@ -145,9 +171,28 @@ func (o *Next) GetPublicNameOk() (*string, bool) {
 	return o.PublicName.Get(), o.PublicName.IsSet()
 }
 
-// SetPublicName sets field value
+// HasPublicName returns a boolean if a field has been set.
+func (o *Next) HasPublicName() bool {
+	if o != nil && o.PublicName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPublicName gets a reference to the given NullableString and assigns it to the PublicName field.
 func (o *Next) SetPublicName(v string) {
 	o.PublicName.Set(&v)
+}
+
+// SetPublicNameNil sets the value for PublicName to be an explicit nil
+func (o *Next) SetPublicNameNil() {
+	o.PublicName.Set(nil)
+}
+
+// UnsetPublicName ensures that no value is present for PublicName, not even an explicit nil
+func (o *Next) UnsetPublicName() {
+	o.PublicName.Unset()
 }
 
 func (o Next) MarshalJSON() ([]byte, error) {
@@ -160,10 +205,18 @@ func (o Next) MarshalJSON() ([]byte, error) {
 
 func (o Next) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["product"] = o.Product
-	toSerialize["payload"] = o.Payload
-	toSerialize["plan"] = o.Plan.Get()
-	toSerialize["publicName"] = o.PublicName.Get()
+	if !IsNil(o.Product) {
+		toSerialize["product"] = o.Product
+	}
+	if !IsNil(o.Payload) {
+		toSerialize["payload"] = o.Payload
+	}
+	if o.Plan.IsSet() {
+		toSerialize["plan"] = o.Plan.Get()
+	}
+	if o.PublicName.IsSet() {
+		toSerialize["publicName"] = o.PublicName.Get()
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -173,30 +226,6 @@ func (o Next) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *Next) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"product",
-		"payload",
-		"plan",
-		"publicName",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varNext := _Next{}
 
 	err = json.Unmarshal(data, &varNext)

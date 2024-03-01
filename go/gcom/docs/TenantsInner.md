@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** |  | 
-**Id** | **float32** |  | 
-**Info** | [**Info**](Info.md) |  | 
+**Type** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **float32** |  | [optional] 
+**Info** | Pointer to [**Info**](Info.md) |  | [optional] 
 
 ## Methods
 
 ### NewTenantsInner
 
-`func NewTenantsInner(type_ string, id float32, info Info, ) *TenantsInner`
+`func NewTenantsInner() *TenantsInner`
 
 NewTenantsInner instantiates a new TenantsInner object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+### HasType
+
+`func (o *TenantsInner) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 ### GetId
 
@@ -66,6 +71,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *TenantsInner) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetInfo
 
@@ -86,6 +96,11 @@ and a boolean to check if the value has been set.
 
 SetInfo sets Info field to given value.
 
+### HasInfo
+
+`func (o *TenantsInner) HasInfo() bool`
+
+HasInfo returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

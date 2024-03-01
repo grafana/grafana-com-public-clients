@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PrivateDNS** | **string** |  | 
-**ServiceName** | **string** |  | 
-**Mimir** | [**Mimir**](Mimir.md) |  | 
+**PrivateDNS** | Pointer to **string** |  | [optional] 
+**ServiceName** | Pointer to **string** |  | [optional] 
+**Mimir** | Pointer to [**Mimir**](Mimir.md) |  | [optional] 
 **Graphite** | Pointer to [**Graphite**](Graphite.md) |  | [optional] 
 
 ## Methods
 
 ### NewOtlpPrivateConnectivityInfo
 
-`func NewOtlpPrivateConnectivityInfo(privateDNS string, serviceName string, mimir Mimir, ) *OtlpPrivateConnectivityInfo`
+`func NewOtlpPrivateConnectivityInfo() *OtlpPrivateConnectivityInfo`
 
 NewOtlpPrivateConnectivityInfo instantiates a new OtlpPrivateConnectivityInfo object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetPrivateDNS sets PrivateDNS field to given value.
 
+### HasPrivateDNS
+
+`func (o *OtlpPrivateConnectivityInfo) HasPrivateDNS() bool`
+
+HasPrivateDNS returns a boolean if a field has been set.
 
 ### GetServiceName
 
@@ -67,6 +72,11 @@ and a boolean to check if the value has been set.
 
 SetServiceName sets ServiceName field to given value.
 
+### HasServiceName
+
+`func (o *OtlpPrivateConnectivityInfo) HasServiceName() bool`
+
+HasServiceName returns a boolean if a field has been set.
 
 ### GetMimir
 
@@ -87,6 +97,11 @@ and a boolean to check if the value has been set.
 
 SetMimir sets Mimir field to given value.
 
+### HasMimir
+
+`func (o *OtlpPrivateConnectivityInfo) HasMimir() bool`
+
+HasMimir returns a boolean if a field has been set.
 
 ### GetGraphite
 

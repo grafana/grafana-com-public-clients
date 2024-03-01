@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PrivateConnectivityInfo** | [**PrivateConnectivityInfo**](PrivateConnectivityInfo.md) |  | 
+**PrivateConnectivityInfo** | Pointer to [**PrivateConnectivityInfo**](PrivateConnectivityInfo.md) |  | [optional] 
 **AppPlatform** | Pointer to [**AppPlatform**](AppPlatform.md) |  | [optional] 
 **InfluxUrl** | Pointer to **NullableString** |  | [optional] 
 **OtlpHttpUrl** | Pointer to **NullableString** |  | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiInstanceConnections
 
-`func NewFormattedApiInstanceConnections(privateConnectivityInfo PrivateConnectivityInfo, ) *FormattedApiInstanceConnections`
+`func NewFormattedApiInstanceConnections() *FormattedApiInstanceConnections`
 
 NewFormattedApiInstanceConnections instantiates a new FormattedApiInstanceConnections object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetPrivateConnectivityInfo sets PrivateConnectivityInfo field to given value.
 
+### HasPrivateConnectivityInfo
+
+`func (o *FormattedApiInstanceConnections) HasPrivateConnectivityInfo() bool`
+
+HasPrivateConnectivityInfo returns a boolean if a field has been set.
 
 ### GetAppPlatform
 

@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Current** | [**Current1**](Current1.md) |  | 
-**NextProduct** | **string** |  | 
-**Next** | [**Next**](Next.md) |  | 
+**Current** | Pointer to [**Current1**](Current1.md) |  | [optional] 
+**NextProduct** | Pointer to **string** |  | [optional] 
+**Next** | Pointer to [**Next**](Next.md) |  | [optional] 
 
 ## Methods
 
 ### NewSubscriptionsAnyOf1
 
-`func NewSubscriptionsAnyOf1(current Current1, nextProduct string, next Next, ) *SubscriptionsAnyOf1`
+`func NewSubscriptionsAnyOf1() *SubscriptionsAnyOf1`
 
 NewSubscriptionsAnyOf1 instantiates a new SubscriptionsAnyOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +46,11 @@ and a boolean to check if the value has been set.
 
 SetCurrent sets Current field to given value.
 
+### HasCurrent
+
+`func (o *SubscriptionsAnyOf1) HasCurrent() bool`
+
+HasCurrent returns a boolean if a field has been set.
 
 ### GetNextProduct
 
@@ -66,6 +71,11 @@ and a boolean to check if the value has been set.
 
 SetNextProduct sets NextProduct field to given value.
 
+### HasNextProduct
+
+`func (o *SubscriptionsAnyOf1) HasNextProduct() bool`
+
+HasNextProduct returns a boolean if a field has been set.
 
 ### GetNext
 
@@ -86,6 +96,11 @@ and a boolean to check if the value has been set.
 
 SetNext sets Next field to given value.
 
+### HasNext
+
+`func (o *SubscriptionsAnyOf1) HasNext() bool`
+
+HasNext returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

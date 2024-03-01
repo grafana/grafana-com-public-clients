@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] [readonly] 
-**AccessPolicyId** | **string** |  | 
-**Name** | **string** |  | 
+**AccessPolicyId** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **DisplayName** | Pointer to **string** | Will be set to &#x60;name&#x60; if not provided. | [optional] 
 **ExpiresAt** | Pointer to **time.Time** | Token does not expire if not provided. | [optional] 
 **FirstUsedAt** | Pointer to **time.Time** |  | [optional] [readonly] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewAuthTokenWithSecret
 
-`func NewAuthTokenWithSecret(accessPolicyId string, name string, ) *AuthTokenWithSecret`
+`func NewAuthTokenWithSecret() *AuthTokenWithSecret`
 
 NewAuthTokenWithSecret instantiates a new AuthTokenWithSecret object
 This constructor will assign default values to properties that have it defined,
@@ -78,6 +78,11 @@ and a boolean to check if the value has been set.
 
 SetAccessPolicyId sets AccessPolicyId field to given value.
 
+### HasAccessPolicyId
+
+`func (o *AuthTokenWithSecret) HasAccessPolicyId() bool`
+
+HasAccessPolicyId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -98,6 +103,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *AuthTokenWithSecret) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetDisplayName
 

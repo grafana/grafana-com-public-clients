@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FormattedApiStackRegionAnyOf type satisfies the MappedNullable interface at compile time
@@ -20,17 +19,17 @@ var _ MappedNullable = &FormattedApiStackRegionAnyOf{}
 
 // FormattedApiStackRegionAnyOf struct for FormattedApiStackRegionAnyOf
 type FormattedApiStackRegionAnyOf struct {
-	Id                   float32        `json:"id"`
-	Status               string         `json:"status"`
-	Visibility           string         `json:"visibility"`
-	Slug                 string         `json:"slug"`
-	Name                 string         `json:"name"`
-	PublicName           string         `json:"publicName"`
-	Description          string         `json:"description"`
-	Provider             string         `json:"provider"`
-	CreatedAt            string         `json:"createdAt"`
-	UpdatedAt            NullableString `json:"updatedAt"`
-	SortOrder            float32        `json:"sortOrder"`
+	Id                   *float32       `json:"id,omitempty"`
+	Status               *string        `json:"status,omitempty"`
+	Visibility           *string        `json:"visibility,omitempty"`
+	Slug                 *string        `json:"slug,omitempty"`
+	Name                 *string        `json:"name,omitempty"`
+	PublicName           *string        `json:"publicName,omitempty"`
+	Description          *string        `json:"description,omitempty"`
+	Provider             *string        `json:"provider,omitempty"`
+	CreatedAt            *string        `json:"createdAt,omitempty"`
+	UpdatedAt            NullableString `json:"updatedAt,omitempty"`
+	SortOrder            *float32       `json:"sortOrder,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -40,19 +39,8 @@ type _FormattedApiStackRegionAnyOf FormattedApiStackRegionAnyOf
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiStackRegionAnyOf(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf {
+func NewFormattedApiStackRegionAnyOf() *FormattedApiStackRegionAnyOf {
 	this := FormattedApiStackRegionAnyOf{}
-	this.Id = id
-	this.Status = status
-	this.Visibility = visibility
-	this.Slug = slug
-	this.Name = name
-	this.PublicName = publicName
-	this.Description = description
-	this.Provider = provider
-	this.CreatedAt = createdAt
-	this.UpdatedAt = updatedAt
-	this.SortOrder = sortOrder
 	return &this
 }
 
@@ -64,234 +52,304 @@ func NewFormattedApiStackRegionAnyOfWithDefaults() *FormattedApiStackRegionAnyOf
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf) GetId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf) GetIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given float32 and assigns it to the Id field.
 func (o *FormattedApiStackRegionAnyOf) SetId(v float32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetStatus returns the Status field value
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf) GetStatus() string {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-
-	return o.Status
+	return *o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return &o.Status, true
+	return o.Status, true
 }
 
-// SetStatus sets field value
+// HasStatus returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasStatus() bool {
+	if o != nil && !IsNil(o.Status) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *FormattedApiStackRegionAnyOf) SetStatus(v string) {
-	o.Status = v
+	o.Status = &v
 }
 
-// GetVisibility returns the Visibility field value
+// GetVisibility returns the Visibility field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf) GetVisibility() string {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		var ret string
 		return ret
 	}
-
-	return o.Visibility
+	return *o.Visibility
 }
 
-// GetVisibilityOk returns a tuple with the Visibility field value
+// GetVisibilityOk returns a tuple with the Visibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf) GetVisibilityOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Visibility) {
 		return nil, false
 	}
-	return &o.Visibility, true
+	return o.Visibility, true
 }
 
-// SetVisibility sets field value
+// HasVisibility returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasVisibility() bool {
+	if o != nil && !IsNil(o.Visibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetVisibility gets a reference to the given string and assigns it to the Visibility field.
 func (o *FormattedApiStackRegionAnyOf) SetVisibility(v string) {
-	o.Visibility = v
+	o.Visibility = &v
 }
 
-// GetSlug returns the Slug field value
+// GetSlug returns the Slug field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf) GetSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.Slug) {
 		var ret string
 		return ret
 	}
-
-	return o.Slug
+	return *o.Slug
 }
 
-// GetSlugOk returns a tuple with the Slug field value
+// GetSlugOk returns a tuple with the Slug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf) GetSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Slug) {
 		return nil, false
 	}
-	return &o.Slug, true
+	return o.Slug, true
 }
 
-// SetSlug sets field value
+// HasSlug returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasSlug() bool {
+	if o != nil && !IsNil(o.Slug) {
+		return true
+	}
+
+	return false
+}
+
+// SetSlug gets a reference to the given string and assigns it to the Slug field.
 func (o *FormattedApiStackRegionAnyOf) SetSlug(v string) {
-	o.Slug = v
+	o.Slug = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FormattedApiStackRegionAnyOf) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetPublicName returns the PublicName field value
+// GetPublicName returns the PublicName field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf) GetPublicName() string {
-	if o == nil {
+	if o == nil || IsNil(o.PublicName) {
 		var ret string
 		return ret
 	}
-
-	return o.PublicName
+	return *o.PublicName
 }
 
-// GetPublicNameOk returns a tuple with the PublicName field value
+// GetPublicNameOk returns a tuple with the PublicName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf) GetPublicNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PublicName) {
 		return nil, false
 	}
-	return &o.PublicName, true
+	return o.PublicName, true
 }
 
-// SetPublicName sets field value
+// HasPublicName returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasPublicName() bool {
+	if o != nil && !IsNil(o.PublicName) {
+		return true
+	}
+
+	return false
+}
+
+// SetPublicName gets a reference to the given string and assigns it to the PublicName field.
 func (o *FormattedApiStackRegionAnyOf) SetPublicName(v string) {
-	o.PublicName = v
+	o.PublicName = &v
 }
 
-// GetDescription returns the Description field value
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf) GetDescription() string {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-
-	return o.Description
+	return *o.Description
 }
 
-// GetDescriptionOk returns a tuple with the Description field value
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return &o.Description, true
+	return o.Description, true
 }
 
-// SetDescription sets field value
+// HasDescription returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *FormattedApiStackRegionAnyOf) SetDescription(v string) {
-	o.Description = v
+	o.Description = &v
 }
 
-// GetProvider returns the Provider field value
+// GetProvider returns the Provider field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf) GetProvider() string {
-	if o == nil {
+	if o == nil || IsNil(o.Provider) {
 		var ret string
 		return ret
 	}
-
-	return o.Provider
+	return *o.Provider
 }
 
-// GetProviderOk returns a tuple with the Provider field value
+// GetProviderOk returns a tuple with the Provider field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf) GetProviderOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Provider) {
 		return nil, false
 	}
-	return &o.Provider, true
+	return o.Provider, true
 }
 
-// SetProvider sets field value
+// HasProvider returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasProvider() bool {
+	if o != nil && !IsNil(o.Provider) {
+		return true
+	}
+
+	return false
+}
+
+// SetProvider gets a reference to the given string and assigns it to the Provider field.
 func (o *FormattedApiStackRegionAnyOf) SetProvider(v string) {
-	o.Provider = v
+	o.Provider = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *FormattedApiStackRegionAnyOf) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiStackRegionAnyOf) GetUpdatedAt() string {
-	if o == nil || o.UpdatedAt.Get() == nil {
+	if o == nil || IsNil(o.UpdatedAt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.UpdatedAt.Get()
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiStackRegionAnyOf) GetUpdatedAtOk() (*string, bool) {
@@ -301,33 +359,60 @@ func (o *FormattedApiStackRegionAnyOf) GetUpdatedAtOk() (*string, bool) {
 	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
 }
 
-// SetUpdatedAt sets field value
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasUpdatedAt() bool {
+	if o != nil && o.UpdatedAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given NullableString and assigns it to the UpdatedAt field.
 func (o *FormattedApiStackRegionAnyOf) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
 
-// GetSortOrder returns the SortOrder field value
+// SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
+func (o *FormattedApiStackRegionAnyOf) SetUpdatedAtNil() {
+	o.UpdatedAt.Set(nil)
+}
+
+// UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
+func (o *FormattedApiStackRegionAnyOf) UnsetUpdatedAt() {
+	o.UpdatedAt.Unset()
+}
+
+// GetSortOrder returns the SortOrder field value if set, zero value otherwise.
 func (o *FormattedApiStackRegionAnyOf) GetSortOrder() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.SortOrder) {
 		var ret float32
 		return ret
 	}
-
-	return o.SortOrder
+	return *o.SortOrder
 }
 
-// GetSortOrderOk returns a tuple with the SortOrder field value
+// GetSortOrderOk returns a tuple with the SortOrder field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiStackRegionAnyOf) GetSortOrderOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SortOrder) {
 		return nil, false
 	}
-	return &o.SortOrder, true
+	return o.SortOrder, true
 }
 
-// SetSortOrder sets field value
+// HasSortOrder returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf) HasSortOrder() bool {
+	if o != nil && !IsNil(o.SortOrder) {
+		return true
+	}
+
+	return false
+}
+
+// SetSortOrder gets a reference to the given float32 and assigns it to the SortOrder field.
 func (o *FormattedApiStackRegionAnyOf) SetSortOrder(v float32) {
-	o.SortOrder = v
+	o.SortOrder = &v
 }
 
 func (o FormattedApiStackRegionAnyOf) MarshalJSON() ([]byte, error) {
@@ -340,17 +425,39 @@ func (o FormattedApiStackRegionAnyOf) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiStackRegionAnyOf) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["status"] = o.Status
-	toSerialize["visibility"] = o.Visibility
-	toSerialize["slug"] = o.Slug
-	toSerialize["name"] = o.Name
-	toSerialize["publicName"] = o.PublicName
-	toSerialize["description"] = o.Description
-	toSerialize["provider"] = o.Provider
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["updatedAt"] = o.UpdatedAt.Get()
-	toSerialize["sortOrder"] = o.SortOrder
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
+	if !IsNil(o.Visibility) {
+		toSerialize["visibility"] = o.Visibility
+	}
+	if !IsNil(o.Slug) {
+		toSerialize["slug"] = o.Slug
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.PublicName) {
+		toSerialize["publicName"] = o.PublicName
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	if !IsNil(o.Provider) {
+		toSerialize["provider"] = o.Provider
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if o.UpdatedAt.IsSet() {
+		toSerialize["updatedAt"] = o.UpdatedAt.Get()
+	}
+	if !IsNil(o.SortOrder) {
+		toSerialize["sortOrder"] = o.SortOrder
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -360,37 +467,6 @@ func (o FormattedApiStackRegionAnyOf) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *FormattedApiStackRegionAnyOf) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"status",
-		"visibility",
-		"slug",
-		"name",
-		"publicName",
-		"description",
-		"provider",
-		"createdAt",
-		"updatedAt",
-		"sortOrder",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varFormattedApiStackRegionAnyOf := _FormattedApiStackRegionAnyOf{}
 
 	err = json.Unmarshal(data, &varFormattedApiStackRegionAnyOf)

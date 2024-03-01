@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Product** | **string** |  | 
-**IsTrial** | **bool** |  | 
-**StartDate** | **time.Time** |  | 
-**EndDate** | **interface{}** |  | 
-**Payload** | [**Payload**](Payload.md) |  | 
-**Plan** | **NullableString** |  | 
-**PublicName** | **NullableString** |  | 
-**EnterprisePluginsAdded** | **bool** |  | 
-**PlanBillingCycle** | **string** |  | 
+**Product** | Pointer to **string** |  | [optional] 
+**IsTrial** | Pointer to **bool** |  | [optional] 
+**StartDate** | Pointer to **time.Time** |  | [optional] 
+**EndDate** | Pointer to **interface{}** |  | [optional] 
+**Payload** | Pointer to [**Payload**](Payload.md) |  | [optional] 
+**Plan** | Pointer to **NullableString** |  | [optional] 
+**PublicName** | Pointer to **NullableString** |  | [optional] 
+**EnterprisePluginsAdded** | Pointer to **bool** |  | [optional] 
+**PlanBillingCycle** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewCurrent2
 
-`func NewCurrent2(product string, isTrial bool, startDate time.Time, endDate interface{}, payload Payload, plan NullableString, publicName NullableString, enterprisePluginsAdded bool, planBillingCycle string, ) *Current2`
+`func NewCurrent2() *Current2`
 
 NewCurrent2 instantiates a new Current2 object
 This constructor will assign default values to properties that have it defined,
@@ -52,6 +52,11 @@ and a boolean to check if the value has been set.
 
 SetProduct sets Product field to given value.
 
+### HasProduct
+
+`func (o *Current2) HasProduct() bool`
+
+HasProduct returns a boolean if a field has been set.
 
 ### GetIsTrial
 
@@ -72,6 +77,11 @@ and a boolean to check if the value has been set.
 
 SetIsTrial sets IsTrial field to given value.
 
+### HasIsTrial
+
+`func (o *Current2) HasIsTrial() bool`
+
+HasIsTrial returns a boolean if a field has been set.
 
 ### GetStartDate
 
@@ -92,6 +102,11 @@ and a boolean to check if the value has been set.
 
 SetStartDate sets StartDate field to given value.
 
+### HasStartDate
+
+`func (o *Current2) HasStartDate() bool`
+
+HasStartDate returns a boolean if a field has been set.
 
 ### GetEndDate
 
@@ -112,6 +127,11 @@ and a boolean to check if the value has been set.
 
 SetEndDate sets EndDate field to given value.
 
+### HasEndDate
+
+`func (o *Current2) HasEndDate() bool`
+
+HasEndDate returns a boolean if a field has been set.
 
 ### SetEndDateNil
 
@@ -142,6 +162,11 @@ and a boolean to check if the value has been set.
 
 SetPayload sets Payload field to given value.
 
+### HasPayload
+
+`func (o *Current2) HasPayload() bool`
+
+HasPayload returns a boolean if a field has been set.
 
 ### GetPlan
 
@@ -162,6 +187,11 @@ and a boolean to check if the value has been set.
 
 SetPlan sets Plan field to given value.
 
+### HasPlan
+
+`func (o *Current2) HasPlan() bool`
+
+HasPlan returns a boolean if a field has been set.
 
 ### SetPlanNil
 
@@ -192,6 +222,11 @@ and a boolean to check if the value has been set.
 
 SetPublicName sets PublicName field to given value.
 
+### HasPublicName
+
+`func (o *Current2) HasPublicName() bool`
+
+HasPublicName returns a boolean if a field has been set.
 
 ### SetPublicNameNil
 
@@ -222,6 +257,11 @@ and a boolean to check if the value has been set.
 
 SetEnterprisePluginsAdded sets EnterprisePluginsAdded field to given value.
 
+### HasEnterprisePluginsAdded
+
+`func (o *Current2) HasEnterprisePluginsAdded() bool`
+
+HasEnterprisePluginsAdded returns a boolean if a field has been set.
 
 ### GetPlanBillingCycle
 
@@ -242,6 +282,11 @@ and a boolean to check if the value has been set.
 
 SetPlanBillingCycle sets PlanBillingCycle field to given value.
 
+### HasPlanBillingCycle
+
+`func (o *Current2) HasPlanBillingCycle() bool`
+
+HasPlanBillingCycle returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] [readonly] 
 **OrgId** | Pointer to **string** |  | [optional] [readonly] 
-**Name** | **string** |  | 
+**Name** | Pointer to **string** |  | [optional] 
 **DisplayName** | Pointer to **string** | Will be set to &#x60;name&#x60; if not provided. | [optional] 
-**Scopes** | **[]string** |  | 
-**Realms** | [**[]AuthAccessPolicyRealmsInner**](AuthAccessPolicyRealmsInner.md) |  | 
+**Scopes** | Pointer to **[]string** |  | [optional] 
+**Realms** | Pointer to [**[]AuthAccessPolicyRealmsInner**](AuthAccessPolicyRealmsInner.md) |  | [optional] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] [readonly] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] [readonly] 
 **Conditions** | Pointer to [**AuthAccessPolicyConditions**](AuthAccessPolicyConditions.md) |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewAuthAccessPolicy
 
-`func NewAuthAccessPolicy(name string, scopes []string, realms []AuthAccessPolicyRealmsInner, ) *AuthAccessPolicy`
+`func NewAuthAccessPolicy() *AuthAccessPolicy`
 
 NewAuthAccessPolicy instantiates a new AuthAccessPolicy object
 This constructor will assign default values to properties that have it defined,
@@ -104,6 +104,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *AuthAccessPolicy) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetDisplayName
 
@@ -149,6 +154,11 @@ and a boolean to check if the value has been set.
 
 SetScopes sets Scopes field to given value.
 
+### HasScopes
+
+`func (o *AuthAccessPolicy) HasScopes() bool`
+
+HasScopes returns a boolean if a field has been set.
 
 ### GetRealms
 
@@ -169,6 +179,11 @@ and a boolean to check if the value has been set.
 
 SetRealms sets Realms field to given value.
 
+### HasRealms
+
+`func (o *AuthAccessPolicy) HasRealms() bool`
+
+HasRealms returns a boolean if a field has been set.
 
 ### GetCreatedAt
 

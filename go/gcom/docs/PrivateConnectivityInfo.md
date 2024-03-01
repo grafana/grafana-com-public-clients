@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tenants** | [**[]TenantsInner**](TenantsInner.md) |  | 
+**Tenants** | Pointer to [**[]TenantsInner**](TenantsInner.md) |  | [optional] 
 **Otlp** | Pointer to [**Otlp**](Otlp.md) |  | [optional] 
 
 ## Methods
 
 ### NewPrivateConnectivityInfo
 
-`func NewPrivateConnectivityInfo(tenants []TenantsInner, ) *PrivateConnectivityInfo`
+`func NewPrivateConnectivityInfo() *PrivateConnectivityInfo`
 
 NewPrivateConnectivityInfo instantiates a new PrivateConnectivityInfo object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetTenants sets Tenants field to given value.
 
+### HasTenants
+
+`func (o *PrivateConnectivityInfo) HasTenants() bool`
+
+HasTenants returns a boolean if a field has been set.
 
 ### GetOtlp
 

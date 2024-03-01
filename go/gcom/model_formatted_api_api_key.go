@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FormattedApiApiKey type satisfies the MappedNullable interface at compile time
@@ -20,18 +19,18 @@ var _ MappedNullable = &FormattedApiApiKey{}
 
 // FormattedApiApiKey struct for FormattedApiApiKey
 type FormattedApiApiKey struct {
-	Id                   float32         `json:"id"`
-	OrgId                float32         `json:"orgId"`
-	OrgSlug              string          `json:"orgSlug"`
-	OrgName              string          `json:"orgName"`
-	InstanceId           NullableFloat32 `json:"instanceId"`
-	Name                 string          `json:"name"`
-	Role                 string          `json:"role"`
-	CreatedAt            string          `json:"createdAt"`
-	UpdatedAt            NullableString  `json:"updatedAt"`
-	FirstUsed            NullableString  `json:"firstUsed"`
+	Id                   *float32        `json:"id,omitempty"`
+	OrgId                *float32        `json:"orgId,omitempty"`
+	OrgSlug              *string         `json:"orgSlug,omitempty"`
+	OrgName              *string         `json:"orgName,omitempty"`
+	InstanceId           NullableFloat32 `json:"instanceId,omitempty"`
+	Name                 *string         `json:"name,omitempty"`
+	Role                 *string         `json:"role,omitempty"`
+	CreatedAt            *string         `json:"createdAt,omitempty"`
+	UpdatedAt            NullableString  `json:"updatedAt,omitempty"`
+	FirstUsed            NullableString  `json:"firstUsed,omitempty"`
 	Token                *string         `json:"token,omitempty"`
-	Links                []LinksInner    `json:"links"`
+	Links                []LinksInner    `json:"links,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -41,19 +40,8 @@ type _FormattedApiApiKey FormattedApiApiKey
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiApiKey(id float32, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner) *FormattedApiApiKey {
+func NewFormattedApiApiKey() *FormattedApiApiKey {
 	this := FormattedApiApiKey{}
-	this.Id = id
-	this.OrgId = orgId
-	this.OrgSlug = orgSlug
-	this.OrgName = orgName
-	this.InstanceId = instanceId
-	this.Name = name
-	this.Role = role
-	this.CreatedAt = createdAt
-	this.UpdatedAt = updatedAt
-	this.FirstUsed = firstUsed
-	this.Links = links
 	return &this
 }
 
@@ -65,114 +53,144 @@ func NewFormattedApiApiKeyWithDefaults() *FormattedApiApiKey {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *FormattedApiApiKey) GetId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiApiKey) GetIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given float32 and assigns it to the Id field.
 func (o *FormattedApiApiKey) SetId(v float32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetOrgId returns the OrgId field value
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
 func (o *FormattedApiApiKey) GetOrgId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.OrgId) {
 		var ret float32
 		return ret
 	}
-
-	return o.OrgId
+	return *o.OrgId
 }
 
-// GetOrgIdOk returns a tuple with the OrgId field value
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiApiKey) GetOrgIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgId) {
 		return nil, false
 	}
-	return &o.OrgId, true
+	return o.OrgId, true
 }
 
-// SetOrgId sets field value
+// HasOrgId returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given float32 and assigns it to the OrgId field.
 func (o *FormattedApiApiKey) SetOrgId(v float32) {
-	o.OrgId = v
+	o.OrgId = &v
 }
 
-// GetOrgSlug returns the OrgSlug field value
+// GetOrgSlug returns the OrgSlug field value if set, zero value otherwise.
 func (o *FormattedApiApiKey) GetOrgSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgSlug
+	return *o.OrgSlug
 }
 
-// GetOrgSlugOk returns a tuple with the OrgSlug field value
+// GetOrgSlugOk returns a tuple with the OrgSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiApiKey) GetOrgSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgSlug) {
 		return nil, false
 	}
-	return &o.OrgSlug, true
+	return o.OrgSlug, true
 }
 
-// SetOrgSlug sets field value
+// HasOrgSlug returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasOrgSlug() bool {
+	if o != nil && !IsNil(o.OrgSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgSlug gets a reference to the given string and assigns it to the OrgSlug field.
 func (o *FormattedApiApiKey) SetOrgSlug(v string) {
-	o.OrgSlug = v
+	o.OrgSlug = &v
 }
 
-// GetOrgName returns the OrgName field value
+// GetOrgName returns the OrgName field value if set, zero value otherwise.
 func (o *FormattedApiApiKey) GetOrgName() string {
-	if o == nil {
+	if o == nil || IsNil(o.OrgName) {
 		var ret string
 		return ret
 	}
-
-	return o.OrgName
+	return *o.OrgName
 }
 
-// GetOrgNameOk returns a tuple with the OrgName field value
+// GetOrgNameOk returns a tuple with the OrgName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiApiKey) GetOrgNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrgName) {
 		return nil, false
 	}
-	return &o.OrgName, true
+	return o.OrgName, true
 }
 
-// SetOrgName sets field value
+// HasOrgName returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasOrgName() bool {
+	if o != nil && !IsNil(o.OrgName) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgName gets a reference to the given string and assigns it to the OrgName field.
 func (o *FormattedApiApiKey) SetOrgName(v string) {
-	o.OrgName = v
+	o.OrgName = &v
 }
 
-// GetInstanceId returns the InstanceId field value
-// If the value is explicit nil, the zero value for float32 will be returned
+// GetInstanceId returns the InstanceId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiApiKey) GetInstanceId() float32 {
-	if o == nil || o.InstanceId.Get() == nil {
+	if o == nil || IsNil(o.InstanceId.Get()) {
 		var ret float32
 		return ret
 	}
-
 	return *o.InstanceId.Get()
 }
 
-// GetInstanceIdOk returns a tuple with the InstanceId field value
+// GetInstanceIdOk returns a tuple with the InstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiApiKey) GetInstanceIdOk() (*float32, bool) {
@@ -182,95 +200,136 @@ func (o *FormattedApiApiKey) GetInstanceIdOk() (*float32, bool) {
 	return o.InstanceId.Get(), o.InstanceId.IsSet()
 }
 
-// SetInstanceId sets field value
+// HasInstanceId returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasInstanceId() bool {
+	if o != nil && o.InstanceId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceId gets a reference to the given NullableFloat32 and assigns it to the InstanceId field.
 func (o *FormattedApiApiKey) SetInstanceId(v float32) {
 	o.InstanceId.Set(&v)
 }
 
-// GetName returns the Name field value
+// SetInstanceIdNil sets the value for InstanceId to be an explicit nil
+func (o *FormattedApiApiKey) SetInstanceIdNil() {
+	o.InstanceId.Set(nil)
+}
+
+// UnsetInstanceId ensures that no value is present for InstanceId, not even an explicit nil
+func (o *FormattedApiApiKey) UnsetInstanceId() {
+	o.InstanceId.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *FormattedApiApiKey) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiApiKey) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FormattedApiApiKey) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetRole returns the Role field value
+// GetRole returns the Role field value if set, zero value otherwise.
 func (o *FormattedApiApiKey) GetRole() string {
-	if o == nil {
+	if o == nil || IsNil(o.Role) {
 		var ret string
 		return ret
 	}
-
-	return o.Role
+	return *o.Role
 }
 
-// GetRoleOk returns a tuple with the Role field value
+// GetRoleOk returns a tuple with the Role field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiApiKey) GetRoleOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Role) {
 		return nil, false
 	}
-	return &o.Role, true
+	return o.Role, true
 }
 
-// SetRole sets field value
+// HasRole returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasRole() bool {
+	if o != nil && !IsNil(o.Role) {
+		return true
+	}
+
+	return false
+}
+
+// SetRole gets a reference to the given string and assigns it to the Role field.
 func (o *FormattedApiApiKey) SetRole(v string) {
-	o.Role = v
+	o.Role = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *FormattedApiApiKey) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiApiKey) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *FormattedApiApiKey) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiApiKey) GetUpdatedAt() string {
-	if o == nil || o.UpdatedAt.Get() == nil {
+	if o == nil || IsNil(o.UpdatedAt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.UpdatedAt.Get()
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiApiKey) GetUpdatedAtOk() (*string, bool) {
@@ -280,23 +339,40 @@ func (o *FormattedApiApiKey) GetUpdatedAtOk() (*string, bool) {
 	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
 }
 
-// SetUpdatedAt sets field value
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasUpdatedAt() bool {
+	if o != nil && o.UpdatedAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given NullableString and assigns it to the UpdatedAt field.
 func (o *FormattedApiApiKey) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
 
-// GetFirstUsed returns the FirstUsed field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
+func (o *FormattedApiApiKey) SetUpdatedAtNil() {
+	o.UpdatedAt.Set(nil)
+}
+
+// UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
+func (o *FormattedApiApiKey) UnsetUpdatedAt() {
+	o.UpdatedAt.Unset()
+}
+
+// GetFirstUsed returns the FirstUsed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiApiKey) GetFirstUsed() string {
-	if o == nil || o.FirstUsed.Get() == nil {
+	if o == nil || IsNil(o.FirstUsed.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.FirstUsed.Get()
 }
 
-// GetFirstUsedOk returns a tuple with the FirstUsed field value
+// GetFirstUsedOk returns a tuple with the FirstUsed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiApiKey) GetFirstUsedOk() (*string, bool) {
@@ -306,9 +382,28 @@ func (o *FormattedApiApiKey) GetFirstUsedOk() (*string, bool) {
 	return o.FirstUsed.Get(), o.FirstUsed.IsSet()
 }
 
-// SetFirstUsed sets field value
+// HasFirstUsed returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasFirstUsed() bool {
+	if o != nil && o.FirstUsed.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFirstUsed gets a reference to the given NullableString and assigns it to the FirstUsed field.
 func (o *FormattedApiApiKey) SetFirstUsed(v string) {
 	o.FirstUsed.Set(&v)
+}
+
+// SetFirstUsedNil sets the value for FirstUsed to be an explicit nil
+func (o *FormattedApiApiKey) SetFirstUsedNil() {
+	o.FirstUsed.Set(nil)
+}
+
+// UnsetFirstUsed ensures that no value is present for FirstUsed, not even an explicit nil
+func (o *FormattedApiApiKey) UnsetFirstUsed() {
+	o.FirstUsed.Unset()
 }
 
 // GetToken returns the Token field value if set, zero value otherwise.
@@ -343,26 +438,34 @@ func (o *FormattedApiApiKey) SetToken(v string) {
 	o.Token = &v
 }
 
-// GetLinks returns the Links field value
+// GetLinks returns the Links field value if set, zero value otherwise.
 func (o *FormattedApiApiKey) GetLinks() []LinksInner {
-	if o == nil {
+	if o == nil || IsNil(o.Links) {
 		var ret []LinksInner
 		return ret
 	}
-
 	return o.Links
 }
 
-// GetLinksOk returns a tuple with the Links field value
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiApiKey) GetLinksOk() ([]LinksInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Links) {
 		return nil, false
 	}
 	return o.Links, true
 }
 
-// SetLinks sets field value
+// HasLinks returns a boolean if a field has been set.
+func (o *FormattedApiApiKey) HasLinks() bool {
+	if o != nil && !IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given []LinksInner and assigns it to the Links field.
 func (o *FormattedApiApiKey) SetLinks(v []LinksInner) {
 	o.Links = v
 }
@@ -377,20 +480,42 @@ func (o FormattedApiApiKey) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiApiKey) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["orgId"] = o.OrgId
-	toSerialize["orgSlug"] = o.OrgSlug
-	toSerialize["orgName"] = o.OrgName
-	toSerialize["instanceId"] = o.InstanceId.Get()
-	toSerialize["name"] = o.Name
-	toSerialize["role"] = o.Role
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["updatedAt"] = o.UpdatedAt.Get()
-	toSerialize["firstUsed"] = o.FirstUsed.Get()
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
+	}
+	if !IsNil(o.OrgSlug) {
+		toSerialize["orgSlug"] = o.OrgSlug
+	}
+	if !IsNil(o.OrgName) {
+		toSerialize["orgName"] = o.OrgName
+	}
+	if o.InstanceId.IsSet() {
+		toSerialize["instanceId"] = o.InstanceId.Get()
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Role) {
+		toSerialize["role"] = o.Role
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if o.UpdatedAt.IsSet() {
+		toSerialize["updatedAt"] = o.UpdatedAt.Get()
+	}
+	if o.FirstUsed.IsSet() {
+		toSerialize["firstUsed"] = o.FirstUsed.Get()
+	}
 	if !IsNil(o.Token) {
 		toSerialize["token"] = o.Token
 	}
-	toSerialize["links"] = o.Links
+	if !IsNil(o.Links) {
+		toSerialize["links"] = o.Links
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -400,37 +525,6 @@ func (o FormattedApiApiKey) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *FormattedApiApiKey) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"orgId",
-		"orgSlug",
-		"orgName",
-		"instanceId",
-		"name",
-		"role",
-		"createdAt",
-		"updatedAt",
-		"firstUsed",
-		"links",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varFormattedApiApiKey := _FormattedApiApiKey{}
 
 	err = json.Unmarshal(data, &varFormattedApiApiKey)

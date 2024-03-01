@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PrivateDNS** | **string** |  | 
-**ServiceName** | **string** |  | 
+**PrivateDNS** | Pointer to **string** |  | [optional] 
+**ServiceName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewOtlpPrivateConnectivityInfoAnyOf
 
-`func NewOtlpPrivateConnectivityInfoAnyOf(privateDNS string, serviceName string, ) *OtlpPrivateConnectivityInfoAnyOf`
+`func NewOtlpPrivateConnectivityInfoAnyOf() *OtlpPrivateConnectivityInfoAnyOf`
 
 NewOtlpPrivateConnectivityInfoAnyOf instantiates a new OtlpPrivateConnectivityInfoAnyOf object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetPrivateDNS sets PrivateDNS field to given value.
 
+### HasPrivateDNS
+
+`func (o *OtlpPrivateConnectivityInfoAnyOf) HasPrivateDNS() bool`
+
+HasPrivateDNS returns a boolean if a field has been set.
 
 ### GetServiceName
 
@@ -65,6 +70,11 @@ and a boolean to check if the value has been set.
 
 SetServiceName sets ServiceName field to given value.
 
+### HasServiceName
+
+`func (o *OtlpPrivateConnectivityInfoAnyOf) HasServiceName() bool`
+
+HasServiceName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

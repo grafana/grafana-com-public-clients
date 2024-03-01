@@ -1,7 +1,10 @@
 #!/bin/bash
 set -eo pipefail
 
-wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.2.0/openapi-generator-cli-7.2.0.jar -O ./openapi-generator-cli.jar
+# Download the openapi-generator-cli (if not already present)
+if ! [ -f ./openapi-generator-cli.jar ]; then
+  wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.2.0/openapi-generator-cli-7.2.0.jar -O ./openapi-generator-cli.jar
+fi
 
 # Cleanup old files
 rm -rf ./go/gcom
@@ -12,6 +15,8 @@ modify() {
     SCHEMA="$(echo "${SCHEMA}" | jq "${1}")"
 }
 modify '.components.schemas.FormattedApiOrgPublic.properties.allowGCloudTrial = { "anyOf": [ { "type": "boolean" }, { "type": "number" } ] }'
+# Remove all required fields on models, these objects aren't used in requests and validating the response doesn't work well
+modify '.components = (.components | walk(if type == "object" then del(.required) else . end))'
 
 TEMP_OPENAPI_FILE="openapi-temp.json"
 echo "${SCHEMA}" > $TEMP_OPENAPI_FILE

@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the Graphite type satisfies the MappedNullable interface at compile time
@@ -20,8 +19,8 @@ var _ MappedNullable = &Graphite{}
 
 // Graphite struct for Graphite
 type Graphite struct {
-	PrivateDNS           string `json:"privateDNS"`
-	ServiceName          string `json:"serviceName"`
+	PrivateDNS           *string `json:"privateDNS,omitempty"`
+	ServiceName          *string `json:"serviceName,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,10 +30,8 @@ type _Graphite Graphite
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphite(privateDNS string, serviceName string) *Graphite {
+func NewGraphite() *Graphite {
 	this := Graphite{}
-	this.PrivateDNS = privateDNS
-	this.ServiceName = serviceName
 	return &this
 }
 
@@ -46,52 +43,68 @@ func NewGraphiteWithDefaults() *Graphite {
 	return &this
 }
 
-// GetPrivateDNS returns the PrivateDNS field value
+// GetPrivateDNS returns the PrivateDNS field value if set, zero value otherwise.
 func (o *Graphite) GetPrivateDNS() string {
-	if o == nil {
+	if o == nil || IsNil(o.PrivateDNS) {
 		var ret string
 		return ret
 	}
-
-	return o.PrivateDNS
+	return *o.PrivateDNS
 }
 
-// GetPrivateDNSOk returns a tuple with the PrivateDNS field value
+// GetPrivateDNSOk returns a tuple with the PrivateDNS field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Graphite) GetPrivateDNSOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PrivateDNS) {
 		return nil, false
 	}
-	return &o.PrivateDNS, true
+	return o.PrivateDNS, true
 }
 
-// SetPrivateDNS sets field value
+// HasPrivateDNS returns a boolean if a field has been set.
+func (o *Graphite) HasPrivateDNS() bool {
+	if o != nil && !IsNil(o.PrivateDNS) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivateDNS gets a reference to the given string and assigns it to the PrivateDNS field.
 func (o *Graphite) SetPrivateDNS(v string) {
-	o.PrivateDNS = v
+	o.PrivateDNS = &v
 }
 
-// GetServiceName returns the ServiceName field value
+// GetServiceName returns the ServiceName field value if set, zero value otherwise.
 func (o *Graphite) GetServiceName() string {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceName) {
 		var ret string
 		return ret
 	}
-
-	return o.ServiceName
+	return *o.ServiceName
 }
 
-// GetServiceNameOk returns a tuple with the ServiceName field value
+// GetServiceNameOk returns a tuple with the ServiceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Graphite) GetServiceNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ServiceName) {
 		return nil, false
 	}
-	return &o.ServiceName, true
+	return o.ServiceName, true
 }
 
-// SetServiceName sets field value
+// HasServiceName returns a boolean if a field has been set.
+func (o *Graphite) HasServiceName() bool {
+	if o != nil && !IsNil(o.ServiceName) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceName gets a reference to the given string and assigns it to the ServiceName field.
 func (o *Graphite) SetServiceName(v string) {
-	o.ServiceName = v
+	o.ServiceName = &v
 }
 
 func (o Graphite) MarshalJSON() ([]byte, error) {
@@ -104,8 +117,12 @@ func (o Graphite) MarshalJSON() ([]byte, error) {
 
 func (o Graphite) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["privateDNS"] = o.PrivateDNS
-	toSerialize["serviceName"] = o.ServiceName
+	if !IsNil(o.PrivateDNS) {
+		toSerialize["privateDNS"] = o.PrivateDNS
+	}
+	if !IsNil(o.ServiceName) {
+		toSerialize["serviceName"] = o.ServiceName
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -115,28 +132,6 @@ func (o Graphite) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *Graphite) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"privateDNS",
-		"serviceName",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varGraphite := _Graphite{}
 
 	err = json.Unmarshal(data, &varGraphite)

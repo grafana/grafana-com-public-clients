@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 	"time"
 )
 
@@ -21,18 +20,18 @@ var _ MappedNullable = &FormattedApiInstancePlugin{}
 
 // FormattedApiInstancePlugin struct for FormattedApiInstancePlugin
 type FormattedApiInstancePlugin struct {
-	Id                   float32      `json:"id"`
-	InstanceId           float32      `json:"instanceId"`
-	InstanceUrl          string       `json:"instanceUrl"`
-	InstanceSlug         string       `json:"instanceSlug"`
-	PluginId             float32      `json:"pluginId"`
-	PluginSlug           string       `json:"pluginSlug"`
-	PluginName           string       `json:"pluginName"`
-	Version              string       `json:"version"`
-	LatestVersion        string       `json:"latestVersion"`
-	CreatedAt            string       `json:"createdAt"`
+	Id                   *float32     `json:"id,omitempty"`
+	InstanceId           *float32     `json:"instanceId,omitempty"`
+	InstanceUrl          *string      `json:"instanceUrl,omitempty"`
+	InstanceSlug         *string      `json:"instanceSlug,omitempty"`
+	PluginId             *float32     `json:"pluginId,omitempty"`
+	PluginSlug           *string      `json:"pluginSlug,omitempty"`
+	PluginName           *string      `json:"pluginName,omitempty"`
+	Version              *string      `json:"version,omitempty"`
+	LatestVersion        *string      `json:"latestVersion,omitempty"`
+	CreatedAt            *string      `json:"createdAt,omitempty"`
 	UpdatedAt            *time.Time   `json:"updatedAt,omitempty"`
-	Links                []LinksInner `json:"links"`
+	Links                []LinksInner `json:"links,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -42,19 +41,8 @@ type _FormattedApiInstancePlugin FormattedApiInstancePlugin
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiInstancePlugin(id float32, instanceId float32, instanceUrl string, instanceSlug string, pluginId float32, pluginSlug string, pluginName string, version string, latestVersion string, createdAt string, links []LinksInner) *FormattedApiInstancePlugin {
+func NewFormattedApiInstancePlugin() *FormattedApiInstancePlugin {
 	this := FormattedApiInstancePlugin{}
-	this.Id = id
-	this.InstanceId = instanceId
-	this.InstanceUrl = instanceUrl
-	this.InstanceSlug = instanceSlug
-	this.PluginId = pluginId
-	this.PluginSlug = pluginSlug
-	this.PluginName = pluginName
-	this.Version = version
-	this.LatestVersion = latestVersion
-	this.CreatedAt = createdAt
-	this.Links = links
 	return &this
 }
 
@@ -66,244 +54,324 @@ func NewFormattedApiInstancePluginWithDefaults() *FormattedApiInstancePlugin {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given float32 and assigns it to the Id field.
 func (o *FormattedApiInstancePlugin) SetId(v float32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetInstanceId returns the InstanceId field value
+// GetInstanceId returns the InstanceId field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetInstanceId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceId) {
 		var ret float32
 		return ret
 	}
-
-	return o.InstanceId
+	return *o.InstanceId
 }
 
-// GetInstanceIdOk returns a tuple with the InstanceId field value
+// GetInstanceIdOk returns a tuple with the InstanceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetInstanceIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceId) {
 		return nil, false
 	}
-	return &o.InstanceId, true
+	return o.InstanceId, true
 }
 
-// SetInstanceId sets field value
+// HasInstanceId returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasInstanceId() bool {
+	if o != nil && !IsNil(o.InstanceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceId gets a reference to the given float32 and assigns it to the InstanceId field.
 func (o *FormattedApiInstancePlugin) SetInstanceId(v float32) {
-	o.InstanceId = v
+	o.InstanceId = &v
 }
 
-// GetInstanceUrl returns the InstanceUrl field value
+// GetInstanceUrl returns the InstanceUrl field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetInstanceUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.InstanceUrl
+	return *o.InstanceUrl
 }
 
-// GetInstanceUrlOk returns a tuple with the InstanceUrl field value
+// GetInstanceUrlOk returns a tuple with the InstanceUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetInstanceUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceUrl) {
 		return nil, false
 	}
-	return &o.InstanceUrl, true
+	return o.InstanceUrl, true
 }
 
-// SetInstanceUrl sets field value
+// HasInstanceUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasInstanceUrl() bool {
+	if o != nil && !IsNil(o.InstanceUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceUrl gets a reference to the given string and assigns it to the InstanceUrl field.
 func (o *FormattedApiInstancePlugin) SetInstanceUrl(v string) {
-	o.InstanceUrl = v
+	o.InstanceUrl = &v
 }
 
-// GetInstanceSlug returns the InstanceSlug field value
+// GetInstanceSlug returns the InstanceSlug field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetInstanceSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.InstanceSlug
+	return *o.InstanceSlug
 }
 
-// GetInstanceSlugOk returns a tuple with the InstanceSlug field value
+// GetInstanceSlugOk returns a tuple with the InstanceSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetInstanceSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InstanceSlug) {
 		return nil, false
 	}
-	return &o.InstanceSlug, true
+	return o.InstanceSlug, true
 }
 
-// SetInstanceSlug sets field value
+// HasInstanceSlug returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasInstanceSlug() bool {
+	if o != nil && !IsNil(o.InstanceSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetInstanceSlug gets a reference to the given string and assigns it to the InstanceSlug field.
 func (o *FormattedApiInstancePlugin) SetInstanceSlug(v string) {
-	o.InstanceSlug = v
+	o.InstanceSlug = &v
 }
 
-// GetPluginId returns the PluginId field value
+// GetPluginId returns the PluginId field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetPluginId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.PluginId) {
 		var ret float32
 		return ret
 	}
-
-	return o.PluginId
+	return *o.PluginId
 }
 
-// GetPluginIdOk returns a tuple with the PluginId field value
+// GetPluginIdOk returns a tuple with the PluginId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetPluginIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PluginId) {
 		return nil, false
 	}
-	return &o.PluginId, true
+	return o.PluginId, true
 }
 
-// SetPluginId sets field value
+// HasPluginId returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasPluginId() bool {
+	if o != nil && !IsNil(o.PluginId) {
+		return true
+	}
+
+	return false
+}
+
+// SetPluginId gets a reference to the given float32 and assigns it to the PluginId field.
 func (o *FormattedApiInstancePlugin) SetPluginId(v float32) {
-	o.PluginId = v
+	o.PluginId = &v
 }
 
-// GetPluginSlug returns the PluginSlug field value
+// GetPluginSlug returns the PluginSlug field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetPluginSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.PluginSlug) {
 		var ret string
 		return ret
 	}
-
-	return o.PluginSlug
+	return *o.PluginSlug
 }
 
-// GetPluginSlugOk returns a tuple with the PluginSlug field value
+// GetPluginSlugOk returns a tuple with the PluginSlug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetPluginSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PluginSlug) {
 		return nil, false
 	}
-	return &o.PluginSlug, true
+	return o.PluginSlug, true
 }
 
-// SetPluginSlug sets field value
+// HasPluginSlug returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasPluginSlug() bool {
+	if o != nil && !IsNil(o.PluginSlug) {
+		return true
+	}
+
+	return false
+}
+
+// SetPluginSlug gets a reference to the given string and assigns it to the PluginSlug field.
 func (o *FormattedApiInstancePlugin) SetPluginSlug(v string) {
-	o.PluginSlug = v
+	o.PluginSlug = &v
 }
 
-// GetPluginName returns the PluginName field value
+// GetPluginName returns the PluginName field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetPluginName() string {
-	if o == nil {
+	if o == nil || IsNil(o.PluginName) {
 		var ret string
 		return ret
 	}
-
-	return o.PluginName
+	return *o.PluginName
 }
 
-// GetPluginNameOk returns a tuple with the PluginName field value
+// GetPluginNameOk returns a tuple with the PluginName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetPluginNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PluginName) {
 		return nil, false
 	}
-	return &o.PluginName, true
+	return o.PluginName, true
 }
 
-// SetPluginName sets field value
+// HasPluginName returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasPluginName() bool {
+	if o != nil && !IsNil(o.PluginName) {
+		return true
+	}
+
+	return false
+}
+
+// SetPluginName gets a reference to the given string and assigns it to the PluginName field.
 func (o *FormattedApiInstancePlugin) SetPluginName(v string) {
-	o.PluginName = v
+	o.PluginName = &v
 }
 
-// GetVersion returns the Version field value
+// GetVersion returns the Version field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetVersion() string {
-	if o == nil {
+	if o == nil || IsNil(o.Version) {
 		var ret string
 		return ret
 	}
-
-	return o.Version
+	return *o.Version
 }
 
-// GetVersionOk returns a tuple with the Version field value
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Version) {
 		return nil, false
 	}
-	return &o.Version, true
+	return o.Version, true
 }
 
-// SetVersion sets field value
+// HasVersion returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasVersion() bool {
+	if o != nil && !IsNil(o.Version) {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given string and assigns it to the Version field.
 func (o *FormattedApiInstancePlugin) SetVersion(v string) {
-	o.Version = v
+	o.Version = &v
 }
 
-// GetLatestVersion returns the LatestVersion field value
+// GetLatestVersion returns the LatestVersion field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetLatestVersion() string {
-	if o == nil {
+	if o == nil || IsNil(o.LatestVersion) {
 		var ret string
 		return ret
 	}
-
-	return o.LatestVersion
+	return *o.LatestVersion
 }
 
-// GetLatestVersionOk returns a tuple with the LatestVersion field value
+// GetLatestVersionOk returns a tuple with the LatestVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetLatestVersionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LatestVersion) {
 		return nil, false
 	}
-	return &o.LatestVersion, true
+	return o.LatestVersion, true
 }
 
-// SetLatestVersion sets field value
+// HasLatestVersion returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasLatestVersion() bool {
+	if o != nil && !IsNil(o.LatestVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetLatestVersion gets a reference to the given string and assigns it to the LatestVersion field.
 func (o *FormattedApiInstancePlugin) SetLatestVersion(v string) {
-	o.LatestVersion = v
+	o.LatestVersion = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *FormattedApiInstancePlugin) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
@@ -338,26 +406,34 @@ func (o *FormattedApiInstancePlugin) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = &v
 }
 
-// GetLinks returns the Links field value
+// GetLinks returns the Links field value if set, zero value otherwise.
 func (o *FormattedApiInstancePlugin) GetLinks() []LinksInner {
-	if o == nil {
+	if o == nil || IsNil(o.Links) {
 		var ret []LinksInner
 		return ret
 	}
-
 	return o.Links
 }
 
-// GetLinksOk returns a tuple with the Links field value
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiInstancePlugin) GetLinksOk() ([]LinksInner, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Links) {
 		return nil, false
 	}
 	return o.Links, true
 }
 
-// SetLinks sets field value
+// HasLinks returns a boolean if a field has been set.
+func (o *FormattedApiInstancePlugin) HasLinks() bool {
+	if o != nil && !IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given []LinksInner and assigns it to the Links field.
 func (o *FormattedApiInstancePlugin) SetLinks(v []LinksInner) {
 	o.Links = v
 }
@@ -372,20 +448,42 @@ func (o FormattedApiInstancePlugin) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiInstancePlugin) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["instanceId"] = o.InstanceId
-	toSerialize["instanceUrl"] = o.InstanceUrl
-	toSerialize["instanceSlug"] = o.InstanceSlug
-	toSerialize["pluginId"] = o.PluginId
-	toSerialize["pluginSlug"] = o.PluginSlug
-	toSerialize["pluginName"] = o.PluginName
-	toSerialize["version"] = o.Version
-	toSerialize["latestVersion"] = o.LatestVersion
-	toSerialize["createdAt"] = o.CreatedAt
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.InstanceId) {
+		toSerialize["instanceId"] = o.InstanceId
+	}
+	if !IsNil(o.InstanceUrl) {
+		toSerialize["instanceUrl"] = o.InstanceUrl
+	}
+	if !IsNil(o.InstanceSlug) {
+		toSerialize["instanceSlug"] = o.InstanceSlug
+	}
+	if !IsNil(o.PluginId) {
+		toSerialize["pluginId"] = o.PluginId
+	}
+	if !IsNil(o.PluginSlug) {
+		toSerialize["pluginSlug"] = o.PluginSlug
+	}
+	if !IsNil(o.PluginName) {
+		toSerialize["pluginName"] = o.PluginName
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
+	}
+	if !IsNil(o.LatestVersion) {
+		toSerialize["latestVersion"] = o.LatestVersion
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
 	if !IsNil(o.UpdatedAt) {
 		toSerialize["updatedAt"] = o.UpdatedAt
 	}
-	toSerialize["links"] = o.Links
+	if !IsNil(o.Links) {
+		toSerialize["links"] = o.Links
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -395,37 +493,6 @@ func (o FormattedApiInstancePlugin) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *FormattedApiInstancePlugin) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"instanceId",
-		"instanceUrl",
-		"instanceSlug",
-		"pluginId",
-		"pluginSlug",
-		"pluginName",
-		"version",
-		"latestVersion",
-		"createdAt",
-		"links",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varFormattedApiInstancePlugin := _FormattedApiInstancePlugin{}
 
 	err = json.Unmarshal(data, &varFormattedApiInstancePlugin)

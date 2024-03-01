@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FormattedApiOrgPublic type satisfies the MappedNullable interface at compile time
@@ -20,148 +19,148 @@ var _ MappedNullable = &FormattedApiOrgPublic{}
 
 // FormattedApiOrgPublic struct for FormattedApiOrgPublic
 type FormattedApiOrgPublic struct {
-	Id                         float32                               `json:"id"`
-	Slug                       string                                `json:"slug"`
-	Name                       string                                `json:"name"`
-	Url                        string                                `json:"url"`
-	CreatedAt                  string                                `json:"createdAt"`
-	CreatedBy                  NullableString                        `json:"createdBy"`
-	UpdatedAt                  NullableString                        `json:"updatedAt"`
-	UpdatedBy                  NullableString                        `json:"updatedBy"`
-	Avatar                     NullableString                        `json:"avatar"`
-	ChecksPerMonth             float32                               `json:"checksPerMonth"`
-	WpPlan                     string                                `json:"wpPlan"`
-	HgInstanceLimit            float32                               `json:"hgInstanceLimit"`
-	HmInstanceLimit            float32                               `json:"hmInstanceLimit"`
-	HlInstanceLimit            float32                               `json:"hlInstanceLimit"`
-	UserQuota                  float32                               `json:"userQuota"`
-	SupportPlan                string                                `json:"supportPlan"`
-	CreditApproved             float32                               `json:"creditApproved"`
-	MsaSignedAt                NullableString                        `json:"msaSignedAt"`
-	MsaSignedBy                NullableString                        `json:"msaSignedBy"`
-	EnterprisePlugins          float32                               `json:"enterprisePlugins"`
-	GrafanaCloud               float32                               `json:"grafanaCloud"`
-	Privacy                    string                                `json:"privacy"`
-	Reseller                   string                                `json:"reseller"`
-	ResellerId                 NullableFloat32                       `json:"resellerId"`
-	ResellerName               NullableString                        `json:"resellerName"`
-	EmergencySupport           bool                                  `json:"emergencySupport"`
-	GcloudMonthlyCost          float32                               `json:"gcloudMonthlyCost"`
-	HgIncludedUsers            float32                               `json:"hgIncludedUsers"`
-	HgTier1Rate                float32                               `json:"hgTier1Rate"`
-	HgTier2Min                 float32                               `json:"hgTier2Min"`
-	HgTier2Rate                float32                               `json:"hgTier2Rate"`
-	HgTier3Min                 float32                               `json:"hgTier3Min"`
-	HgTier3Rate                float32                               `json:"hgTier3Rate"`
-	HgUsage                    float32                               `json:"hgUsage"`
-	HgCurrentActiveUsers       float32                               `json:"hgCurrentActiveUsers"`
-	HgGrafanaUsage             float32                               `json:"hgGrafanaUsage"`
-	HgOnCallUsage              float32                               `json:"hgOnCallUsage"`
-	HmIncludedSeries           float32                               `json:"hmIncludedSeries"`
-	HmAverageDpm               float32                               `json:"hmAverageDpm"`
-	HmTier1Rate                float32                               `json:"hmTier1Rate"`
-	HmTier2Min                 float32                               `json:"hmTier2Min"`
-	HmTier2Rate                float32                               `json:"hmTier2Rate"`
-	HmTier3Min                 float32                               `json:"hmTier3Min"`
-	HmTier3Rate                float32                               `json:"hmTier3Rate"`
-	HmUsage                    float32                               `json:"hmUsage"`
-	HmCurrentUsage             float32                               `json:"hmCurrentUsage"`
-	HmGraphiteIncludedUsage    float32                               `json:"hmGraphiteIncludedUsage"`
-	HmGraphiteTier1Rate        float32                               `json:"hmGraphiteTier1Rate"`
-	HmGraphiteTier2Min         float32                               `json:"hmGraphiteTier2Min"`
-	HmGraphiteTier2Rate        float32                               `json:"hmGraphiteTier2Rate"`
-	HmGraphiteTier3Min         float32                               `json:"hmGraphiteTier3Min"`
-	HmGraphiteTier3Rate        float32                               `json:"hmGraphiteTier3Rate"`
-	HmGraphiteUsage            float32                               `json:"hmGraphiteUsage"`
-	HlIncludedUsage            float32                               `json:"hlIncludedUsage"`
-	HlQueryToIngestRatio       float32                               `json:"hlQueryToIngestRatio"`
-	HlTier1Rate                float32                               `json:"hlTier1Rate"`
-	HlTier2Min                 float32                               `json:"hlTier2Min"`
-	HlTier2Rate                float32                               `json:"hlTier2Rate"`
-	HlTier3Min                 float32                               `json:"hlTier3Min"`
-	HlTier3Rate                float32                               `json:"hlTier3Rate"`
-	HlUsage                    float32                               `json:"hlUsage"`
-	HlRetentionIncludedUsage   float32                               `json:"hlRetentionIncludedUsage"`
-	HlRetentionTier1Rate       float32                               `json:"hlRetentionTier1Rate"`
-	HlRetentionTier2Min        float32                               `json:"hlRetentionTier2Min"`
-	HlRetentionTier2Rate       float32                               `json:"hlRetentionTier2Rate"`
-	HlRetentionTier3Min        float32                               `json:"hlRetentionTier3Min"`
-	HlRetentionTier3Rate       float32                               `json:"hlRetentionTier3Rate"`
-	HlRetentionUsage           float32                               `json:"hlRetentionUsage"`
-	HtIncludedUsage            float32                               `json:"htIncludedUsage"`
-	HtTier1Rate                float32                               `json:"htTier1Rate"`
-	HtTier2Min                 float32                               `json:"htTier2Min"`
-	HtTier2Rate                float32                               `json:"htTier2Rate"`
-	HtTier3Min                 float32                               `json:"htTier3Min"`
-	HtTier3Rate                float32                               `json:"htTier3Rate"`
-	HtUsage                    float32                               `json:"htUsage"`
-	HpIncludedUsage            float32                               `json:"hpIncludedUsage"`
-	HpTier1Rate                float32                               `json:"hpTier1Rate"`
-	HpTier2Min                 float32                               `json:"hpTier2Min"`
-	HpTier2Rate                float32                               `json:"hpTier2Rate"`
-	HpTier3Min                 float32                               `json:"hpTier3Min"`
-	HpTier3Rate                float32                               `json:"hpTier3Rate"`
-	HpUsage                    float32                               `json:"hpUsage"`
-	IrmStatus                  float32                               `json:"irmStatus"`
-	IrmIncludedUsage           float32                               `json:"irmIncludedUsage"`
-	IrmTier1Rate               float32                               `json:"irmTier1Rate"`
-	IrmTier2Min                float32                               `json:"irmTier2Min"`
-	IrmTier2Rate               float32                               `json:"irmTier2Rate"`
-	IrmTier3Min                float32                               `json:"irmTier3Min"`
-	IrmTier3Rate               float32                               `json:"irmTier3Rate"`
-	IrmUsage                   float32                               `json:"irmUsage"`
-	K6VuhIncludedUsage         float32                               `json:"k6VuhIncludedUsage"`
-	K6VuhTier1Rate             float32                               `json:"k6VuhTier1Rate"`
-	K6VuhTier2Min              float32                               `json:"k6VuhTier2Min"`
-	K6VuhTier2Rate             float32                               `json:"k6VuhTier2Rate"`
-	K6VuhTier3Min              float32                               `json:"k6VuhTier3Min"`
-	K6VuhTier3Rate             float32                               `json:"k6VuhTier3Rate"`
-	K6VuhUnits                 float32                               `json:"k6VuhUnits"`
-	K6VuhUsage                 float32                               `json:"k6VuhUsage"`
-	K6IPIncludedUsage          float32                               `json:"k6IPIncludedUsage"`
-	K6IPTier1Rate              float32                               `json:"k6IPTier1Rate"`
-	K6IPTier2Min               float32                               `json:"k6IPTier2Min"`
-	K6IPTier2Rate              float32                               `json:"k6IPTier2Rate"`
-	K6IPTier3Min               float32                               `json:"k6IPTier3Min"`
-	K6IPTier3Rate              float32                               `json:"k6IPTier3Rate"`
-	K6IPUsage                  float32                               `json:"k6IPUsage"`
-	FeO11YIncludedUsage        float32                               `json:"feO11YIncludedUsage"`
-	FeO11YTier1Rate            float32                               `json:"feO11YTier1Rate"`
-	FeO11YTier2Min             float32                               `json:"feO11YTier2Min"`
-	FeO11YTier2Rate            float32                               `json:"feO11YTier2Rate"`
-	FeO11YTier3Min             float32                               `json:"feO11YTier3Min"`
-	FeO11YTier3Rate            float32                               `json:"feO11YTier3Rate"`
-	FeO11YUnits                float32                               `json:"feO11YUnits"`
-	FeO11YUsage                float32                               `json:"feO11YUsage"`
-	GeUsersIncludedUsage       float32                               `json:"geUsersIncludedUsage"`
-	GeUsersTier1Rate           float32                               `json:"geUsersTier1Rate"`
-	GeUsersTier2Min            float32                               `json:"geUsersTier2Min"`
-	GeUsersTier2Rate           float32                               `json:"geUsersTier2Rate"`
-	GeUsersTier3Min            float32                               `json:"geUsersTier3Min"`
-	GeUsersTier3Rate           float32                               `json:"geUsersTier3Rate"`
-	GeUsersUsage               float32                               `json:"geUsersUsage"`
-	GeInstancesIncludedUsage   float32                               `json:"geInstancesIncludedUsage"`
-	GeInstancesTier1Rate       float32                               `json:"geInstancesTier1Rate"`
-	GeInstancesTier2Min        float32                               `json:"geInstancesTier2Min"`
-	GeInstancesTier2Rate       float32                               `json:"geInstancesTier2Rate"`
-	GeInstancesTier3Min        float32                               `json:"geInstancesTier3Min"`
-	GeInstancesTier3Rate       float32                               `json:"geInstancesTier3Rate"`
-	GeInstancesUsage           float32                               `json:"geInstancesUsage"`
-	HgPluginUsersOverageRate   NullableFloat32                       `json:"hgPluginUsersOverageRate"`
-	HgPluginUsersIncludedUsage NullableFloat32                       `json:"hgPluginUsersIncludedUsage"`
-	AwsMarketplaceSupport      float32                               `json:"awsMarketplaceSupport"`
-	TrialStartDate             NullableString                        `json:"trialStartDate"`
-	TrialEndDate               NullableString                        `json:"trialEndDate"`
-	TrialLengthDays            NullableFloat32                       `json:"trialLengthDays"`
-	TrialNoticeDate            NullableString                        `json:"trialNoticeDate"`
-	CancellationDate           NullableString                        `json:"cancellationDate"`
-	RetainedStackId            float32                               `json:"retainedStackId"`
-	AllowGCloudTrial           FormattedApiOrgPublicAllowGCloudTrial `json:"allowGCloudTrial"`
-	PluginSignatureType        string                                `json:"pluginSignatureType"`
-	ContractType               string                                `json:"contractType"`
-	ContractTypeId             float32                               `json:"contractTypeId"`
-	Links                      []LinksInner1                         `json:"links"`
-	Subscriptions              Subscriptions                         `json:"subscriptions"`
+	Id                         *float32                               `json:"id,omitempty"`
+	Slug                       *string                                `json:"slug,omitempty"`
+	Name                       *string                                `json:"name,omitempty"`
+	Url                        *string                                `json:"url,omitempty"`
+	CreatedAt                  *string                                `json:"createdAt,omitempty"`
+	CreatedBy                  NullableString                         `json:"createdBy,omitempty"`
+	UpdatedAt                  NullableString                         `json:"updatedAt,omitempty"`
+	UpdatedBy                  NullableString                         `json:"updatedBy,omitempty"`
+	Avatar                     NullableString                         `json:"avatar,omitempty"`
+	ChecksPerMonth             *float32                               `json:"checksPerMonth,omitempty"`
+	WpPlan                     *string                                `json:"wpPlan,omitempty"`
+	HgInstanceLimit            *float32                               `json:"hgInstanceLimit,omitempty"`
+	HmInstanceLimit            *float32                               `json:"hmInstanceLimit,omitempty"`
+	HlInstanceLimit            *float32                               `json:"hlInstanceLimit,omitempty"`
+	UserQuota                  *float32                               `json:"userQuota,omitempty"`
+	SupportPlan                *string                                `json:"supportPlan,omitempty"`
+	CreditApproved             *float32                               `json:"creditApproved,omitempty"`
+	MsaSignedAt                NullableString                         `json:"msaSignedAt,omitempty"`
+	MsaSignedBy                NullableString                         `json:"msaSignedBy,omitempty"`
+	EnterprisePlugins          *float32                               `json:"enterprisePlugins,omitempty"`
+	GrafanaCloud               *float32                               `json:"grafanaCloud,omitempty"`
+	Privacy                    *string                                `json:"privacy,omitempty"`
+	Reseller                   *string                                `json:"reseller,omitempty"`
+	ResellerId                 NullableFloat32                        `json:"resellerId,omitempty"`
+	ResellerName               NullableString                         `json:"resellerName,omitempty"`
+	EmergencySupport           *bool                                  `json:"emergencySupport,omitempty"`
+	GcloudMonthlyCost          *float32                               `json:"gcloudMonthlyCost,omitempty"`
+	HgIncludedUsers            *float32                               `json:"hgIncludedUsers,omitempty"`
+	HgTier1Rate                *float32                               `json:"hgTier1Rate,omitempty"`
+	HgTier2Min                 *float32                               `json:"hgTier2Min,omitempty"`
+	HgTier2Rate                *float32                               `json:"hgTier2Rate,omitempty"`
+	HgTier3Min                 *float32                               `json:"hgTier3Min,omitempty"`
+	HgTier3Rate                *float32                               `json:"hgTier3Rate,omitempty"`
+	HgUsage                    *float32                               `json:"hgUsage,omitempty"`
+	HgCurrentActiveUsers       *float32                               `json:"hgCurrentActiveUsers,omitempty"`
+	HgGrafanaUsage             *float32                               `json:"hgGrafanaUsage,omitempty"`
+	HgOnCallUsage              *float32                               `json:"hgOnCallUsage,omitempty"`
+	HmIncludedSeries           *float32                               `json:"hmIncludedSeries,omitempty"`
+	HmAverageDpm               *float32                               `json:"hmAverageDpm,omitempty"`
+	HmTier1Rate                *float32                               `json:"hmTier1Rate,omitempty"`
+	HmTier2Min                 *float32                               `json:"hmTier2Min,omitempty"`
+	HmTier2Rate                *float32                               `json:"hmTier2Rate,omitempty"`
+	HmTier3Min                 *float32                               `json:"hmTier3Min,omitempty"`
+	HmTier3Rate                *float32                               `json:"hmTier3Rate,omitempty"`
+	HmUsage                    *float32                               `json:"hmUsage,omitempty"`
+	HmCurrentUsage             *float32                               `json:"hmCurrentUsage,omitempty"`
+	HmGraphiteIncludedUsage    *float32                               `json:"hmGraphiteIncludedUsage,omitempty"`
+	HmGraphiteTier1Rate        *float32                               `json:"hmGraphiteTier1Rate,omitempty"`
+	HmGraphiteTier2Min         *float32                               `json:"hmGraphiteTier2Min,omitempty"`
+	HmGraphiteTier2Rate        *float32                               `json:"hmGraphiteTier2Rate,omitempty"`
+	HmGraphiteTier3Min         *float32                               `json:"hmGraphiteTier3Min,omitempty"`
+	HmGraphiteTier3Rate        *float32                               `json:"hmGraphiteTier3Rate,omitempty"`
+	HmGraphiteUsage            *float32                               `json:"hmGraphiteUsage,omitempty"`
+	HlIncludedUsage            *float32                               `json:"hlIncludedUsage,omitempty"`
+	HlQueryToIngestRatio       *float32                               `json:"hlQueryToIngestRatio,omitempty"`
+	HlTier1Rate                *float32                               `json:"hlTier1Rate,omitempty"`
+	HlTier2Min                 *float32                               `json:"hlTier2Min,omitempty"`
+	HlTier2Rate                *float32                               `json:"hlTier2Rate,omitempty"`
+	HlTier3Min                 *float32                               `json:"hlTier3Min,omitempty"`
+	HlTier3Rate                *float32                               `json:"hlTier3Rate,omitempty"`
+	HlUsage                    *float32                               `json:"hlUsage,omitempty"`
+	HlRetentionIncludedUsage   *float32                               `json:"hlRetentionIncludedUsage,omitempty"`
+	HlRetentionTier1Rate       *float32                               `json:"hlRetentionTier1Rate,omitempty"`
+	HlRetentionTier2Min        *float32                               `json:"hlRetentionTier2Min,omitempty"`
+	HlRetentionTier2Rate       *float32                               `json:"hlRetentionTier2Rate,omitempty"`
+	HlRetentionTier3Min        *float32                               `json:"hlRetentionTier3Min,omitempty"`
+	HlRetentionTier3Rate       *float32                               `json:"hlRetentionTier3Rate,omitempty"`
+	HlRetentionUsage           *float32                               `json:"hlRetentionUsage,omitempty"`
+	HtIncludedUsage            *float32                               `json:"htIncludedUsage,omitempty"`
+	HtTier1Rate                *float32                               `json:"htTier1Rate,omitempty"`
+	HtTier2Min                 *float32                               `json:"htTier2Min,omitempty"`
+	HtTier2Rate                *float32                               `json:"htTier2Rate,omitempty"`
+	HtTier3Min                 *float32                               `json:"htTier3Min,omitempty"`
+	HtTier3Rate                *float32                               `json:"htTier3Rate,omitempty"`
+	HtUsage                    *float32                               `json:"htUsage,omitempty"`
+	HpIncludedUsage            *float32                               `json:"hpIncludedUsage,omitempty"`
+	HpTier1Rate                *float32                               `json:"hpTier1Rate,omitempty"`
+	HpTier2Min                 *float32                               `json:"hpTier2Min,omitempty"`
+	HpTier2Rate                *float32                               `json:"hpTier2Rate,omitempty"`
+	HpTier3Min                 *float32                               `json:"hpTier3Min,omitempty"`
+	HpTier3Rate                *float32                               `json:"hpTier3Rate,omitempty"`
+	HpUsage                    *float32                               `json:"hpUsage,omitempty"`
+	IrmStatus                  *float32                               `json:"irmStatus,omitempty"`
+	IrmIncludedUsage           *float32                               `json:"irmIncludedUsage,omitempty"`
+	IrmTier1Rate               *float32                               `json:"irmTier1Rate,omitempty"`
+	IrmTier2Min                *float32                               `json:"irmTier2Min,omitempty"`
+	IrmTier2Rate               *float32                               `json:"irmTier2Rate,omitempty"`
+	IrmTier3Min                *float32                               `json:"irmTier3Min,omitempty"`
+	IrmTier3Rate               *float32                               `json:"irmTier3Rate,omitempty"`
+	IrmUsage                   *float32                               `json:"irmUsage,omitempty"`
+	K6VuhIncludedUsage         *float32                               `json:"k6VuhIncludedUsage,omitempty"`
+	K6VuhTier1Rate             *float32                               `json:"k6VuhTier1Rate,omitempty"`
+	K6VuhTier2Min              *float32                               `json:"k6VuhTier2Min,omitempty"`
+	K6VuhTier2Rate             *float32                               `json:"k6VuhTier2Rate,omitempty"`
+	K6VuhTier3Min              *float32                               `json:"k6VuhTier3Min,omitempty"`
+	K6VuhTier3Rate             *float32                               `json:"k6VuhTier3Rate,omitempty"`
+	K6VuhUnits                 *float32                               `json:"k6VuhUnits,omitempty"`
+	K6VuhUsage                 *float32                               `json:"k6VuhUsage,omitempty"`
+	K6IPIncludedUsage          *float32                               `json:"k6IPIncludedUsage,omitempty"`
+	K6IPTier1Rate              *float32                               `json:"k6IPTier1Rate,omitempty"`
+	K6IPTier2Min               *float32                               `json:"k6IPTier2Min,omitempty"`
+	K6IPTier2Rate              *float32                               `json:"k6IPTier2Rate,omitempty"`
+	K6IPTier3Min               *float32                               `json:"k6IPTier3Min,omitempty"`
+	K6IPTier3Rate              *float32                               `json:"k6IPTier3Rate,omitempty"`
+	K6IPUsage                  *float32                               `json:"k6IPUsage,omitempty"`
+	FeO11YIncludedUsage        *float32                               `json:"feO11YIncludedUsage,omitempty"`
+	FeO11YTier1Rate            *float32                               `json:"feO11YTier1Rate,omitempty"`
+	FeO11YTier2Min             *float32                               `json:"feO11YTier2Min,omitempty"`
+	FeO11YTier2Rate            *float32                               `json:"feO11YTier2Rate,omitempty"`
+	FeO11YTier3Min             *float32                               `json:"feO11YTier3Min,omitempty"`
+	FeO11YTier3Rate            *float32                               `json:"feO11YTier3Rate,omitempty"`
+	FeO11YUnits                *float32                               `json:"feO11YUnits,omitempty"`
+	FeO11YUsage                *float32                               `json:"feO11YUsage,omitempty"`
+	GeUsersIncludedUsage       *float32                               `json:"geUsersIncludedUsage,omitempty"`
+	GeUsersTier1Rate           *float32                               `json:"geUsersTier1Rate,omitempty"`
+	GeUsersTier2Min            *float32                               `json:"geUsersTier2Min,omitempty"`
+	GeUsersTier2Rate           *float32                               `json:"geUsersTier2Rate,omitempty"`
+	GeUsersTier3Min            *float32                               `json:"geUsersTier3Min,omitempty"`
+	GeUsersTier3Rate           *float32                               `json:"geUsersTier3Rate,omitempty"`
+	GeUsersUsage               *float32                               `json:"geUsersUsage,omitempty"`
+	GeInstancesIncludedUsage   *float32                               `json:"geInstancesIncludedUsage,omitempty"`
+	GeInstancesTier1Rate       *float32                               `json:"geInstancesTier1Rate,omitempty"`
+	GeInstancesTier2Min        *float32                               `json:"geInstancesTier2Min,omitempty"`
+	GeInstancesTier2Rate       *float32                               `json:"geInstancesTier2Rate,omitempty"`
+	GeInstancesTier3Min        *float32                               `json:"geInstancesTier3Min,omitempty"`
+	GeInstancesTier3Rate       *float32                               `json:"geInstancesTier3Rate,omitempty"`
+	GeInstancesUsage           *float32                               `json:"geInstancesUsage,omitempty"`
+	HgPluginUsersOverageRate   NullableFloat32                        `json:"hgPluginUsersOverageRate,omitempty"`
+	HgPluginUsersIncludedUsage NullableFloat32                        `json:"hgPluginUsersIncludedUsage,omitempty"`
+	AwsMarketplaceSupport      *float32                               `json:"awsMarketplaceSupport,omitempty"`
+	TrialStartDate             NullableString                         `json:"trialStartDate,omitempty"`
+	TrialEndDate               NullableString                         `json:"trialEndDate,omitempty"`
+	TrialLengthDays            NullableFloat32                        `json:"trialLengthDays,omitempty"`
+	TrialNoticeDate            NullableString                         `json:"trialNoticeDate,omitempty"`
+	CancellationDate           NullableString                         `json:"cancellationDate,omitempty"`
+	RetainedStackId            *float32                               `json:"retainedStackId,omitempty"`
+	AllowGCloudTrial           *FormattedApiOrgPublicAllowGCloudTrial `json:"allowGCloudTrial,omitempty"`
+	PluginSignatureType        *string                                `json:"pluginSignatureType,omitempty"`
+	ContractType               *string                                `json:"contractType,omitempty"`
+	ContractTypeId             *float32                               `json:"contractTypeId,omitempty"`
+	Links                      []LinksInner1                          `json:"links,omitempty"`
+	Subscriptions              *Subscriptions                         `json:"subscriptions,omitempty"`
 	AdditionalProperties       map[string]interface{}
 }
 
@@ -171,150 +170,8 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic() *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
-	this.Id = id
-	this.Slug = slug
-	this.Name = name
-	this.Url = url
-	this.CreatedAt = createdAt
-	this.CreatedBy = createdBy
-	this.UpdatedAt = updatedAt
-	this.UpdatedBy = updatedBy
-	this.Avatar = avatar
-	this.ChecksPerMonth = checksPerMonth
-	this.WpPlan = wpPlan
-	this.HgInstanceLimit = hgInstanceLimit
-	this.HmInstanceLimit = hmInstanceLimit
-	this.HlInstanceLimit = hlInstanceLimit
-	this.UserQuota = userQuota
-	this.SupportPlan = supportPlan
-	this.CreditApproved = creditApproved
-	this.MsaSignedAt = msaSignedAt
-	this.MsaSignedBy = msaSignedBy
-	this.EnterprisePlugins = enterprisePlugins
-	this.GrafanaCloud = grafanaCloud
-	this.Privacy = privacy
-	this.Reseller = reseller
-	this.ResellerId = resellerId
-	this.ResellerName = resellerName
-	this.EmergencySupport = emergencySupport
-	this.GcloudMonthlyCost = gcloudMonthlyCost
-	this.HgIncludedUsers = hgIncludedUsers
-	this.HgTier1Rate = hgTier1Rate
-	this.HgTier2Min = hgTier2Min
-	this.HgTier2Rate = hgTier2Rate
-	this.HgTier3Min = hgTier3Min
-	this.HgTier3Rate = hgTier3Rate
-	this.HgUsage = hgUsage
-	this.HgCurrentActiveUsers = hgCurrentActiveUsers
-	this.HgGrafanaUsage = hgGrafanaUsage
-	this.HgOnCallUsage = hgOnCallUsage
-	this.HmIncludedSeries = hmIncludedSeries
-	this.HmAverageDpm = hmAverageDpm
-	this.HmTier1Rate = hmTier1Rate
-	this.HmTier2Min = hmTier2Min
-	this.HmTier2Rate = hmTier2Rate
-	this.HmTier3Min = hmTier3Min
-	this.HmTier3Rate = hmTier3Rate
-	this.HmUsage = hmUsage
-	this.HmCurrentUsage = hmCurrentUsage
-	this.HmGraphiteIncludedUsage = hmGraphiteIncludedUsage
-	this.HmGraphiteTier1Rate = hmGraphiteTier1Rate
-	this.HmGraphiteTier2Min = hmGraphiteTier2Min
-	this.HmGraphiteTier2Rate = hmGraphiteTier2Rate
-	this.HmGraphiteTier3Min = hmGraphiteTier3Min
-	this.HmGraphiteTier3Rate = hmGraphiteTier3Rate
-	this.HmGraphiteUsage = hmGraphiteUsage
-	this.HlIncludedUsage = hlIncludedUsage
-	this.HlQueryToIngestRatio = hlQueryToIngestRatio
-	this.HlTier1Rate = hlTier1Rate
-	this.HlTier2Min = hlTier2Min
-	this.HlTier2Rate = hlTier2Rate
-	this.HlTier3Min = hlTier3Min
-	this.HlTier3Rate = hlTier3Rate
-	this.HlUsage = hlUsage
-	this.HlRetentionIncludedUsage = hlRetentionIncludedUsage
-	this.HlRetentionTier1Rate = hlRetentionTier1Rate
-	this.HlRetentionTier2Min = hlRetentionTier2Min
-	this.HlRetentionTier2Rate = hlRetentionTier2Rate
-	this.HlRetentionTier3Min = hlRetentionTier3Min
-	this.HlRetentionTier3Rate = hlRetentionTier3Rate
-	this.HlRetentionUsage = hlRetentionUsage
-	this.HtIncludedUsage = htIncludedUsage
-	this.HtTier1Rate = htTier1Rate
-	this.HtTier2Min = htTier2Min
-	this.HtTier2Rate = htTier2Rate
-	this.HtTier3Min = htTier3Min
-	this.HtTier3Rate = htTier3Rate
-	this.HtUsage = htUsage
-	this.HpIncludedUsage = hpIncludedUsage
-	this.HpTier1Rate = hpTier1Rate
-	this.HpTier2Min = hpTier2Min
-	this.HpTier2Rate = hpTier2Rate
-	this.HpTier3Min = hpTier3Min
-	this.HpTier3Rate = hpTier3Rate
-	this.HpUsage = hpUsage
-	this.IrmStatus = irmStatus
-	this.IrmIncludedUsage = irmIncludedUsage
-	this.IrmTier1Rate = irmTier1Rate
-	this.IrmTier2Min = irmTier2Min
-	this.IrmTier2Rate = irmTier2Rate
-	this.IrmTier3Min = irmTier3Min
-	this.IrmTier3Rate = irmTier3Rate
-	this.IrmUsage = irmUsage
-	this.K6VuhIncludedUsage = k6VuhIncludedUsage
-	this.K6VuhTier1Rate = k6VuhTier1Rate
-	this.K6VuhTier2Min = k6VuhTier2Min
-	this.K6VuhTier2Rate = k6VuhTier2Rate
-	this.K6VuhTier3Min = k6VuhTier3Min
-	this.K6VuhTier3Rate = k6VuhTier3Rate
-	this.K6VuhUnits = k6VuhUnits
-	this.K6VuhUsage = k6VuhUsage
-	this.K6IPIncludedUsage = k6IPIncludedUsage
-	this.K6IPTier1Rate = k6IPTier1Rate
-	this.K6IPTier2Min = k6IPTier2Min
-	this.K6IPTier2Rate = k6IPTier2Rate
-	this.K6IPTier3Min = k6IPTier3Min
-	this.K6IPTier3Rate = k6IPTier3Rate
-	this.K6IPUsage = k6IPUsage
-	this.FeO11YIncludedUsage = feO11YIncludedUsage
-	this.FeO11YTier1Rate = feO11YTier1Rate
-	this.FeO11YTier2Min = feO11YTier2Min
-	this.FeO11YTier2Rate = feO11YTier2Rate
-	this.FeO11YTier3Min = feO11YTier3Min
-	this.FeO11YTier3Rate = feO11YTier3Rate
-	this.FeO11YUnits = feO11YUnits
-	this.FeO11YUsage = feO11YUsage
-	this.GeUsersIncludedUsage = geUsersIncludedUsage
-	this.GeUsersTier1Rate = geUsersTier1Rate
-	this.GeUsersTier2Min = geUsersTier2Min
-	this.GeUsersTier2Rate = geUsersTier2Rate
-	this.GeUsersTier3Min = geUsersTier3Min
-	this.GeUsersTier3Rate = geUsersTier3Rate
-	this.GeUsersUsage = geUsersUsage
-	this.GeInstancesIncludedUsage = geInstancesIncludedUsage
-	this.GeInstancesTier1Rate = geInstancesTier1Rate
-	this.GeInstancesTier2Min = geInstancesTier2Min
-	this.GeInstancesTier2Rate = geInstancesTier2Rate
-	this.GeInstancesTier3Min = geInstancesTier3Min
-	this.GeInstancesTier3Rate = geInstancesTier3Rate
-	this.GeInstancesUsage = geInstancesUsage
-	this.HgPluginUsersOverageRate = hgPluginUsersOverageRate
-	this.HgPluginUsersIncludedUsage = hgPluginUsersIncludedUsage
-	this.AwsMarketplaceSupport = awsMarketplaceSupport
-	this.TrialStartDate = trialStartDate
-	this.TrialEndDate = trialEndDate
-	this.TrialLengthDays = trialLengthDays
-	this.TrialNoticeDate = trialNoticeDate
-	this.CancellationDate = cancellationDate
-	this.RetainedStackId = retainedStackId
-	this.AllowGCloudTrial = allowGCloudTrial
-	this.PluginSignatureType = pluginSignatureType
-	this.ContractType = contractType
-	this.ContractTypeId = contractTypeId
-	this.Links = links
-	this.Subscriptions = subscriptions
 	return &this
 }
 
@@ -326,138 +183,176 @@ func NewFormattedApiOrgPublicWithDefaults() *FormattedApiOrgPublic {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret float32
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given float32 and assigns it to the Id field.
 func (o *FormattedApiOrgPublic) SetId(v float32) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetSlug returns the Slug field value
+// GetSlug returns the Slug field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetSlug() string {
-	if o == nil {
+	if o == nil || IsNil(o.Slug) {
 		var ret string
 		return ret
 	}
-
-	return o.Slug
+	return *o.Slug
 }
 
-// GetSlugOk returns a tuple with the Slug field value
+// GetSlugOk returns a tuple with the Slug field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetSlugOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Slug) {
 		return nil, false
 	}
-	return &o.Slug, true
+	return o.Slug, true
 }
 
-// SetSlug sets field value
+// HasSlug returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasSlug() bool {
+	if o != nil && !IsNil(o.Slug) {
+		return true
+	}
+
+	return false
+}
+
+// SetSlug gets a reference to the given string and assigns it to the Slug field.
 func (o *FormattedApiOrgPublic) SetSlug(v string) {
-	o.Slug = v
+	o.Slug = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name, true
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasName() bool {
+	if o != nil && !IsNil(o.Name) {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FormattedApiOrgPublic) SetName(v string) {
-	o.Name = v
+	o.Name = &v
 }
 
-// GetUrl returns the Url field value
+// GetUrl returns the Url field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetUrl() string {
-	if o == nil {
+	if o == nil || IsNil(o.Url) {
 		var ret string
 		return ret
 	}
-
-	return o.Url
+	return *o.Url
 }
 
-// GetUrlOk returns a tuple with the Url field value
+// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Url) {
 		return nil, false
 	}
-	return &o.Url, true
+	return o.Url, true
 }
 
-// SetUrl sets field value
+// HasUrl returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasUrl() bool {
+	if o != nil && !IsNil(o.Url) {
+		return true
+	}
+
+	return false
+}
+
+// SetUrl gets a reference to the given string and assigns it to the Url field.
 func (o *FormattedApiOrgPublic) SetUrl(v string) {
-	o.Url = v
+	o.Url = &v
 }
 
-// GetCreatedAt returns the CreatedAt field value
+// GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetCreatedAt() string {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		var ret string
 		return ret
 	}
-
-	return o.CreatedAt
+	return *o.CreatedAt
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreatedAt) {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return o.CreatedAt, true
 }
 
-// SetCreatedAt sets field value
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasCreatedAt() bool {
+	if o != nil && !IsNil(o.CreatedAt) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
 func (o *FormattedApiOrgPublic) SetCreatedAt(v string) {
-	o.CreatedAt = v
+	o.CreatedAt = &v
 }
 
-// GetCreatedBy returns the CreatedBy field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetCreatedBy returns the CreatedBy field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetCreatedBy() string {
-	if o == nil || o.CreatedBy.Get() == nil {
+	if o == nil || IsNil(o.CreatedBy.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.CreatedBy.Get()
 }
 
-// GetCreatedByOk returns a tuple with the CreatedBy field value
+// GetCreatedByOk returns a tuple with the CreatedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetCreatedByOk() (*string, bool) {
@@ -467,23 +362,40 @@ func (o *FormattedApiOrgPublic) GetCreatedByOk() (*string, bool) {
 	return o.CreatedBy.Get(), o.CreatedBy.IsSet()
 }
 
-// SetCreatedBy sets field value
+// HasCreatedBy returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasCreatedBy() bool {
+	if o != nil && o.CreatedBy.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedBy gets a reference to the given NullableString and assigns it to the CreatedBy field.
 func (o *FormattedApiOrgPublic) SetCreatedBy(v string) {
 	o.CreatedBy.Set(&v)
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetCreatedByNil sets the value for CreatedBy to be an explicit nil
+func (o *FormattedApiOrgPublic) SetCreatedByNil() {
+	o.CreatedBy.Set(nil)
+}
+
+// UnsetCreatedBy ensures that no value is present for CreatedBy, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetCreatedBy() {
+	o.CreatedBy.Unset()
+}
+
+// GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetUpdatedAt() string {
-	if o == nil || o.UpdatedAt.Get() == nil {
+	if o == nil || IsNil(o.UpdatedAt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.UpdatedAt.Get()
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetUpdatedAtOk() (*string, bool) {
@@ -493,23 +405,40 @@ func (o *FormattedApiOrgPublic) GetUpdatedAtOk() (*string, bool) {
 	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
 }
 
-// SetUpdatedAt sets field value
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasUpdatedAt() bool {
+	if o != nil && o.UpdatedAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAt gets a reference to the given NullableString and assigns it to the UpdatedAt field.
 func (o *FormattedApiOrgPublic) SetUpdatedAt(v string) {
 	o.UpdatedAt.Set(&v)
 }
 
-// GetUpdatedBy returns the UpdatedBy field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
+func (o *FormattedApiOrgPublic) SetUpdatedAtNil() {
+	o.UpdatedAt.Set(nil)
+}
+
+// UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetUpdatedAt() {
+	o.UpdatedAt.Unset()
+}
+
+// GetUpdatedBy returns the UpdatedBy field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetUpdatedBy() string {
-	if o == nil || o.UpdatedBy.Get() == nil {
+	if o == nil || IsNil(o.UpdatedBy.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.UpdatedBy.Get()
 }
 
-// GetUpdatedByOk returns a tuple with the UpdatedBy field value
+// GetUpdatedByOk returns a tuple with the UpdatedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetUpdatedByOk() (*string, bool) {
@@ -519,23 +448,40 @@ func (o *FormattedApiOrgPublic) GetUpdatedByOk() (*string, bool) {
 	return o.UpdatedBy.Get(), o.UpdatedBy.IsSet()
 }
 
-// SetUpdatedBy sets field value
+// HasUpdatedBy returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasUpdatedBy() bool {
+	if o != nil && o.UpdatedBy.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedBy gets a reference to the given NullableString and assigns it to the UpdatedBy field.
 func (o *FormattedApiOrgPublic) SetUpdatedBy(v string) {
 	o.UpdatedBy.Set(&v)
 }
 
-// GetAvatar returns the Avatar field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetUpdatedByNil sets the value for UpdatedBy to be an explicit nil
+func (o *FormattedApiOrgPublic) SetUpdatedByNil() {
+	o.UpdatedBy.Set(nil)
+}
+
+// UnsetUpdatedBy ensures that no value is present for UpdatedBy, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetUpdatedBy() {
+	o.UpdatedBy.Unset()
+}
+
+// GetAvatar returns the Avatar field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetAvatar() string {
-	if o == nil || o.Avatar.Get() == nil {
+	if o == nil || IsNil(o.Avatar.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.Avatar.Get()
 }
 
-// GetAvatarOk returns a tuple with the Avatar field value
+// GetAvatarOk returns a tuple with the Avatar field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetAvatarOk() (*string, bool) {
@@ -545,215 +491,296 @@ func (o *FormattedApiOrgPublic) GetAvatarOk() (*string, bool) {
 	return o.Avatar.Get(), o.Avatar.IsSet()
 }
 
-// SetAvatar sets field value
+// HasAvatar returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasAvatar() bool {
+	if o != nil && o.Avatar.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAvatar gets a reference to the given NullableString and assigns it to the Avatar field.
 func (o *FormattedApiOrgPublic) SetAvatar(v string) {
 	o.Avatar.Set(&v)
 }
 
-// GetChecksPerMonth returns the ChecksPerMonth field value
+// SetAvatarNil sets the value for Avatar to be an explicit nil
+func (o *FormattedApiOrgPublic) SetAvatarNil() {
+	o.Avatar.Set(nil)
+}
+
+// UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetAvatar() {
+	o.Avatar.Unset()
+}
+
+// GetChecksPerMonth returns the ChecksPerMonth field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetChecksPerMonth() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.ChecksPerMonth) {
 		var ret float32
 		return ret
 	}
-
-	return o.ChecksPerMonth
+	return *o.ChecksPerMonth
 }
 
-// GetChecksPerMonthOk returns a tuple with the ChecksPerMonth field value
+// GetChecksPerMonthOk returns a tuple with the ChecksPerMonth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetChecksPerMonthOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ChecksPerMonth) {
 		return nil, false
 	}
-	return &o.ChecksPerMonth, true
+	return o.ChecksPerMonth, true
 }
 
-// SetChecksPerMonth sets field value
+// HasChecksPerMonth returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasChecksPerMonth() bool {
+	if o != nil && !IsNil(o.ChecksPerMonth) {
+		return true
+	}
+
+	return false
+}
+
+// SetChecksPerMonth gets a reference to the given float32 and assigns it to the ChecksPerMonth field.
 func (o *FormattedApiOrgPublic) SetChecksPerMonth(v float32) {
-	o.ChecksPerMonth = v
+	o.ChecksPerMonth = &v
 }
 
-// GetWpPlan returns the WpPlan field value
+// GetWpPlan returns the WpPlan field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetWpPlan() string {
-	if o == nil {
+	if o == nil || IsNil(o.WpPlan) {
 		var ret string
 		return ret
 	}
-
-	return o.WpPlan
+	return *o.WpPlan
 }
 
-// GetWpPlanOk returns a tuple with the WpPlan field value
+// GetWpPlanOk returns a tuple with the WpPlan field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetWpPlanOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.WpPlan) {
 		return nil, false
 	}
-	return &o.WpPlan, true
+	return o.WpPlan, true
 }
 
-// SetWpPlan sets field value
+// HasWpPlan returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasWpPlan() bool {
+	if o != nil && !IsNil(o.WpPlan) {
+		return true
+	}
+
+	return false
+}
+
+// SetWpPlan gets a reference to the given string and assigns it to the WpPlan field.
 func (o *FormattedApiOrgPublic) SetWpPlan(v string) {
-	o.WpPlan = v
+	o.WpPlan = &v
 }
 
-// GetHgInstanceLimit returns the HgInstanceLimit field value
+// GetHgInstanceLimit returns the HgInstanceLimit field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgInstanceLimit() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgInstanceLimit) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgInstanceLimit
+	return *o.HgInstanceLimit
 }
 
-// GetHgInstanceLimitOk returns a tuple with the HgInstanceLimit field value
+// GetHgInstanceLimitOk returns a tuple with the HgInstanceLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgInstanceLimitOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgInstanceLimit) {
 		return nil, false
 	}
-	return &o.HgInstanceLimit, true
+	return o.HgInstanceLimit, true
 }
 
-// SetHgInstanceLimit sets field value
+// HasHgInstanceLimit returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgInstanceLimit() bool {
+	if o != nil && !IsNil(o.HgInstanceLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgInstanceLimit gets a reference to the given float32 and assigns it to the HgInstanceLimit field.
 func (o *FormattedApiOrgPublic) SetHgInstanceLimit(v float32) {
-	o.HgInstanceLimit = v
+	o.HgInstanceLimit = &v
 }
 
-// GetHmInstanceLimit returns the HmInstanceLimit field value
+// GetHmInstanceLimit returns the HmInstanceLimit field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmInstanceLimit() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceLimit) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmInstanceLimit
+	return *o.HmInstanceLimit
 }
 
-// GetHmInstanceLimitOk returns a tuple with the HmInstanceLimit field value
+// GetHmInstanceLimitOk returns a tuple with the HmInstanceLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmInstanceLimitOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmInstanceLimit) {
 		return nil, false
 	}
-	return &o.HmInstanceLimit, true
+	return o.HmInstanceLimit, true
 }
 
-// SetHmInstanceLimit sets field value
+// HasHmInstanceLimit returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmInstanceLimit() bool {
+	if o != nil && !IsNil(o.HmInstanceLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmInstanceLimit gets a reference to the given float32 and assigns it to the HmInstanceLimit field.
 func (o *FormattedApiOrgPublic) SetHmInstanceLimit(v float32) {
-	o.HmInstanceLimit = v
+	o.HmInstanceLimit = &v
 }
 
-// GetHlInstanceLimit returns the HlInstanceLimit field value
+// GetHlInstanceLimit returns the HlInstanceLimit field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlInstanceLimit() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceLimit) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlInstanceLimit
+	return *o.HlInstanceLimit
 }
 
-// GetHlInstanceLimitOk returns a tuple with the HlInstanceLimit field value
+// GetHlInstanceLimitOk returns a tuple with the HlInstanceLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlInstanceLimitOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlInstanceLimit) {
 		return nil, false
 	}
-	return &o.HlInstanceLimit, true
+	return o.HlInstanceLimit, true
 }
 
-// SetHlInstanceLimit sets field value
+// HasHlInstanceLimit returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlInstanceLimit() bool {
+	if o != nil && !IsNil(o.HlInstanceLimit) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlInstanceLimit gets a reference to the given float32 and assigns it to the HlInstanceLimit field.
 func (o *FormattedApiOrgPublic) SetHlInstanceLimit(v float32) {
-	o.HlInstanceLimit = v
+	o.HlInstanceLimit = &v
 }
 
-// GetUserQuota returns the UserQuota field value
+// GetUserQuota returns the UserQuota field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetUserQuota() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.UserQuota) {
 		var ret float32
 		return ret
 	}
-
-	return o.UserQuota
+	return *o.UserQuota
 }
 
-// GetUserQuotaOk returns a tuple with the UserQuota field value
+// GetUserQuotaOk returns a tuple with the UserQuota field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetUserQuotaOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UserQuota) {
 		return nil, false
 	}
-	return &o.UserQuota, true
+	return o.UserQuota, true
 }
 
-// SetUserQuota sets field value
+// HasUserQuota returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasUserQuota() bool {
+	if o != nil && !IsNil(o.UserQuota) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserQuota gets a reference to the given float32 and assigns it to the UserQuota field.
 func (o *FormattedApiOrgPublic) SetUserQuota(v float32) {
-	o.UserQuota = v
+	o.UserQuota = &v
 }
 
-// GetSupportPlan returns the SupportPlan field value
+// GetSupportPlan returns the SupportPlan field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetSupportPlan() string {
-	if o == nil {
+	if o == nil || IsNil(o.SupportPlan) {
 		var ret string
 		return ret
 	}
-
-	return o.SupportPlan
+	return *o.SupportPlan
 }
 
-// GetSupportPlanOk returns a tuple with the SupportPlan field value
+// GetSupportPlanOk returns a tuple with the SupportPlan field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetSupportPlanOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SupportPlan) {
 		return nil, false
 	}
-	return &o.SupportPlan, true
+	return o.SupportPlan, true
 }
 
-// SetSupportPlan sets field value
+// HasSupportPlan returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasSupportPlan() bool {
+	if o != nil && !IsNil(o.SupportPlan) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportPlan gets a reference to the given string and assigns it to the SupportPlan field.
 func (o *FormattedApiOrgPublic) SetSupportPlan(v string) {
-	o.SupportPlan = v
+	o.SupportPlan = &v
 }
 
-// GetCreditApproved returns the CreditApproved field value
+// GetCreditApproved returns the CreditApproved field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetCreditApproved() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.CreditApproved) {
 		var ret float32
 		return ret
 	}
-
-	return o.CreditApproved
+	return *o.CreditApproved
 }
 
-// GetCreditApprovedOk returns a tuple with the CreditApproved field value
+// GetCreditApprovedOk returns a tuple with the CreditApproved field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetCreditApprovedOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CreditApproved) {
 		return nil, false
 	}
-	return &o.CreditApproved, true
+	return o.CreditApproved, true
 }
 
-// SetCreditApproved sets field value
+// HasCreditApproved returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasCreditApproved() bool {
+	if o != nil && !IsNil(o.CreditApproved) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreditApproved gets a reference to the given float32 and assigns it to the CreditApproved field.
 func (o *FormattedApiOrgPublic) SetCreditApproved(v float32) {
-	o.CreditApproved = v
+	o.CreditApproved = &v
 }
 
-// GetMsaSignedAt returns the MsaSignedAt field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetMsaSignedAt returns the MsaSignedAt field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetMsaSignedAt() string {
-	if o == nil || o.MsaSignedAt.Get() == nil {
+	if o == nil || IsNil(o.MsaSignedAt.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.MsaSignedAt.Get()
 }
 
-// GetMsaSignedAtOk returns a tuple with the MsaSignedAt field value
+// GetMsaSignedAtOk returns a tuple with the MsaSignedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetMsaSignedAtOk() (*string, bool) {
@@ -763,23 +790,40 @@ func (o *FormattedApiOrgPublic) GetMsaSignedAtOk() (*string, bool) {
 	return o.MsaSignedAt.Get(), o.MsaSignedAt.IsSet()
 }
 
-// SetMsaSignedAt sets field value
+// HasMsaSignedAt returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasMsaSignedAt() bool {
+	if o != nil && o.MsaSignedAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMsaSignedAt gets a reference to the given NullableString and assigns it to the MsaSignedAt field.
 func (o *FormattedApiOrgPublic) SetMsaSignedAt(v string) {
 	o.MsaSignedAt.Set(&v)
 }
 
-// GetMsaSignedBy returns the MsaSignedBy field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetMsaSignedAtNil sets the value for MsaSignedAt to be an explicit nil
+func (o *FormattedApiOrgPublic) SetMsaSignedAtNil() {
+	o.MsaSignedAt.Set(nil)
+}
+
+// UnsetMsaSignedAt ensures that no value is present for MsaSignedAt, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetMsaSignedAt() {
+	o.MsaSignedAt.Unset()
+}
+
+// GetMsaSignedBy returns the MsaSignedBy field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetMsaSignedBy() string {
-	if o == nil || o.MsaSignedBy.Get() == nil {
+	if o == nil || IsNil(o.MsaSignedBy.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.MsaSignedBy.Get()
 }
 
-// GetMsaSignedByOk returns a tuple with the MsaSignedBy field value
+// GetMsaSignedByOk returns a tuple with the MsaSignedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetMsaSignedByOk() (*string, bool) {
@@ -789,119 +833,168 @@ func (o *FormattedApiOrgPublic) GetMsaSignedByOk() (*string, bool) {
 	return o.MsaSignedBy.Get(), o.MsaSignedBy.IsSet()
 }
 
-// SetMsaSignedBy sets field value
+// HasMsaSignedBy returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasMsaSignedBy() bool {
+	if o != nil && o.MsaSignedBy.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMsaSignedBy gets a reference to the given NullableString and assigns it to the MsaSignedBy field.
 func (o *FormattedApiOrgPublic) SetMsaSignedBy(v string) {
 	o.MsaSignedBy.Set(&v)
 }
 
-// GetEnterprisePlugins returns the EnterprisePlugins field value
+// SetMsaSignedByNil sets the value for MsaSignedBy to be an explicit nil
+func (o *FormattedApiOrgPublic) SetMsaSignedByNil() {
+	o.MsaSignedBy.Set(nil)
+}
+
+// UnsetMsaSignedBy ensures that no value is present for MsaSignedBy, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetMsaSignedBy() {
+	o.MsaSignedBy.Unset()
+}
+
+// GetEnterprisePlugins returns the EnterprisePlugins field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetEnterprisePlugins() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.EnterprisePlugins) {
 		var ret float32
 		return ret
 	}
-
-	return o.EnterprisePlugins
+	return *o.EnterprisePlugins
 }
 
-// GetEnterprisePluginsOk returns a tuple with the EnterprisePlugins field value
+// GetEnterprisePluginsOk returns a tuple with the EnterprisePlugins field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetEnterprisePluginsOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EnterprisePlugins) {
 		return nil, false
 	}
-	return &o.EnterprisePlugins, true
+	return o.EnterprisePlugins, true
 }
 
-// SetEnterprisePlugins sets field value
+// HasEnterprisePlugins returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasEnterprisePlugins() bool {
+	if o != nil && !IsNil(o.EnterprisePlugins) {
+		return true
+	}
+
+	return false
+}
+
+// SetEnterprisePlugins gets a reference to the given float32 and assigns it to the EnterprisePlugins field.
 func (o *FormattedApiOrgPublic) SetEnterprisePlugins(v float32) {
-	o.EnterprisePlugins = v
+	o.EnterprisePlugins = &v
 }
 
-// GetGrafanaCloud returns the GrafanaCloud field value
+// GetGrafanaCloud returns the GrafanaCloud field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGrafanaCloud() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GrafanaCloud) {
 		var ret float32
 		return ret
 	}
-
-	return o.GrafanaCloud
+	return *o.GrafanaCloud
 }
 
-// GetGrafanaCloudOk returns a tuple with the GrafanaCloud field value
+// GetGrafanaCloudOk returns a tuple with the GrafanaCloud field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGrafanaCloudOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GrafanaCloud) {
 		return nil, false
 	}
-	return &o.GrafanaCloud, true
+	return o.GrafanaCloud, true
 }
 
-// SetGrafanaCloud sets field value
+// HasGrafanaCloud returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGrafanaCloud() bool {
+	if o != nil && !IsNil(o.GrafanaCloud) {
+		return true
+	}
+
+	return false
+}
+
+// SetGrafanaCloud gets a reference to the given float32 and assigns it to the GrafanaCloud field.
 func (o *FormattedApiOrgPublic) SetGrafanaCloud(v float32) {
-	o.GrafanaCloud = v
+	o.GrafanaCloud = &v
 }
 
-// GetPrivacy returns the Privacy field value
+// GetPrivacy returns the Privacy field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetPrivacy() string {
-	if o == nil {
+	if o == nil || IsNil(o.Privacy) {
 		var ret string
 		return ret
 	}
-
-	return o.Privacy
+	return *o.Privacy
 }
 
-// GetPrivacyOk returns a tuple with the Privacy field value
+// GetPrivacyOk returns a tuple with the Privacy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetPrivacyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Privacy) {
 		return nil, false
 	}
-	return &o.Privacy, true
+	return o.Privacy, true
 }
 
-// SetPrivacy sets field value
+// HasPrivacy returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasPrivacy() bool {
+	if o != nil && !IsNil(o.Privacy) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrivacy gets a reference to the given string and assigns it to the Privacy field.
 func (o *FormattedApiOrgPublic) SetPrivacy(v string) {
-	o.Privacy = v
+	o.Privacy = &v
 }
 
-// GetReseller returns the Reseller field value
+// GetReseller returns the Reseller field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetReseller() string {
-	if o == nil {
+	if o == nil || IsNil(o.Reseller) {
 		var ret string
 		return ret
 	}
-
-	return o.Reseller
+	return *o.Reseller
 }
 
-// GetResellerOk returns a tuple with the Reseller field value
+// GetResellerOk returns a tuple with the Reseller field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetResellerOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Reseller) {
 		return nil, false
 	}
-	return &o.Reseller, true
+	return o.Reseller, true
 }
 
-// SetReseller sets field value
+// HasReseller returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasReseller() bool {
+	if o != nil && !IsNil(o.Reseller) {
+		return true
+	}
+
+	return false
+}
+
+// SetReseller gets a reference to the given string and assigns it to the Reseller field.
 func (o *FormattedApiOrgPublic) SetReseller(v string) {
-	o.Reseller = v
+	o.Reseller = &v
 }
 
-// GetResellerId returns the ResellerId field value
-// If the value is explicit nil, the zero value for float32 will be returned
+// GetResellerId returns the ResellerId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetResellerId() float32 {
-	if o == nil || o.ResellerId.Get() == nil {
+	if o == nil || IsNil(o.ResellerId.Get()) {
 		var ret float32
 		return ret
 	}
-
 	return *o.ResellerId.Get()
 }
 
-// GetResellerIdOk returns a tuple with the ResellerId field value
+// GetResellerIdOk returns a tuple with the ResellerId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetResellerIdOk() (*float32, bool) {
@@ -911,23 +1004,40 @@ func (o *FormattedApiOrgPublic) GetResellerIdOk() (*float32, bool) {
 	return o.ResellerId.Get(), o.ResellerId.IsSet()
 }
 
-// SetResellerId sets field value
+// HasResellerId returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasResellerId() bool {
+	if o != nil && o.ResellerId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetResellerId gets a reference to the given NullableFloat32 and assigns it to the ResellerId field.
 func (o *FormattedApiOrgPublic) SetResellerId(v float32) {
 	o.ResellerId.Set(&v)
 }
 
-// GetResellerName returns the ResellerName field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetResellerIdNil sets the value for ResellerId to be an explicit nil
+func (o *FormattedApiOrgPublic) SetResellerIdNil() {
+	o.ResellerId.Set(nil)
+}
+
+// UnsetResellerId ensures that no value is present for ResellerId, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetResellerId() {
+	o.ResellerId.Unset()
+}
+
+// GetResellerName returns the ResellerName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetResellerName() string {
-	if o == nil || o.ResellerName.Get() == nil {
+	if o == nil || IsNil(o.ResellerName.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.ResellerName.Get()
 }
 
-// GetResellerNameOk returns a tuple with the ResellerName field value
+// GetResellerNameOk returns a tuple with the ResellerName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetResellerNameOk() (*string, bool) {
@@ -937,2471 +1047,3304 @@ func (o *FormattedApiOrgPublic) GetResellerNameOk() (*string, bool) {
 	return o.ResellerName.Get(), o.ResellerName.IsSet()
 }
 
-// SetResellerName sets field value
+// HasResellerName returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasResellerName() bool {
+	if o != nil && o.ResellerName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetResellerName gets a reference to the given NullableString and assigns it to the ResellerName field.
 func (o *FormattedApiOrgPublic) SetResellerName(v string) {
 	o.ResellerName.Set(&v)
 }
 
-// GetEmergencySupport returns the EmergencySupport field value
+// SetResellerNameNil sets the value for ResellerName to be an explicit nil
+func (o *FormattedApiOrgPublic) SetResellerNameNil() {
+	o.ResellerName.Set(nil)
+}
+
+// UnsetResellerName ensures that no value is present for ResellerName, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetResellerName() {
+	o.ResellerName.Unset()
+}
+
+// GetEmergencySupport returns the EmergencySupport field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetEmergencySupport() bool {
-	if o == nil {
+	if o == nil || IsNil(o.EmergencySupport) {
 		var ret bool
 		return ret
 	}
-
-	return o.EmergencySupport
+	return *o.EmergencySupport
 }
 
-// GetEmergencySupportOk returns a tuple with the EmergencySupport field value
+// GetEmergencySupportOk returns a tuple with the EmergencySupport field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetEmergencySupportOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EmergencySupport) {
 		return nil, false
 	}
-	return &o.EmergencySupport, true
+	return o.EmergencySupport, true
 }
 
-// SetEmergencySupport sets field value
+// HasEmergencySupport returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasEmergencySupport() bool {
+	if o != nil && !IsNil(o.EmergencySupport) {
+		return true
+	}
+
+	return false
+}
+
+// SetEmergencySupport gets a reference to the given bool and assigns it to the EmergencySupport field.
 func (o *FormattedApiOrgPublic) SetEmergencySupport(v bool) {
-	o.EmergencySupport = v
+	o.EmergencySupport = &v
 }
 
-// GetGcloudMonthlyCost returns the GcloudMonthlyCost field value
+// GetGcloudMonthlyCost returns the GcloudMonthlyCost field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGcloudMonthlyCost() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GcloudMonthlyCost) {
 		var ret float32
 		return ret
 	}
-
-	return o.GcloudMonthlyCost
+	return *o.GcloudMonthlyCost
 }
 
-// GetGcloudMonthlyCostOk returns a tuple with the GcloudMonthlyCost field value
+// GetGcloudMonthlyCostOk returns a tuple with the GcloudMonthlyCost field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGcloudMonthlyCostOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GcloudMonthlyCost) {
 		return nil, false
 	}
-	return &o.GcloudMonthlyCost, true
+	return o.GcloudMonthlyCost, true
 }
 
-// SetGcloudMonthlyCost sets field value
+// HasGcloudMonthlyCost returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGcloudMonthlyCost() bool {
+	if o != nil && !IsNil(o.GcloudMonthlyCost) {
+		return true
+	}
+
+	return false
+}
+
+// SetGcloudMonthlyCost gets a reference to the given float32 and assigns it to the GcloudMonthlyCost field.
 func (o *FormattedApiOrgPublic) SetGcloudMonthlyCost(v float32) {
-	o.GcloudMonthlyCost = v
+	o.GcloudMonthlyCost = &v
 }
 
-// GetHgIncludedUsers returns the HgIncludedUsers field value
+// GetHgIncludedUsers returns the HgIncludedUsers field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgIncludedUsers() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgIncludedUsers) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgIncludedUsers
+	return *o.HgIncludedUsers
 }
 
-// GetHgIncludedUsersOk returns a tuple with the HgIncludedUsers field value
+// GetHgIncludedUsersOk returns a tuple with the HgIncludedUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgIncludedUsersOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgIncludedUsers) {
 		return nil, false
 	}
-	return &o.HgIncludedUsers, true
+	return o.HgIncludedUsers, true
 }
 
-// SetHgIncludedUsers sets field value
+// HasHgIncludedUsers returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgIncludedUsers() bool {
+	if o != nil && !IsNil(o.HgIncludedUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgIncludedUsers gets a reference to the given float32 and assigns it to the HgIncludedUsers field.
 func (o *FormattedApiOrgPublic) SetHgIncludedUsers(v float32) {
-	o.HgIncludedUsers = v
+	o.HgIncludedUsers = &v
 }
 
-// GetHgTier1Rate returns the HgTier1Rate field value
+// GetHgTier1Rate returns the HgTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgTier1Rate
+	return *o.HgTier1Rate
 }
 
-// GetHgTier1RateOk returns a tuple with the HgTier1Rate field value
+// GetHgTier1RateOk returns a tuple with the HgTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgTier1Rate) {
 		return nil, false
 	}
-	return &o.HgTier1Rate, true
+	return o.HgTier1Rate, true
 }
 
-// SetHgTier1Rate sets field value
+// HasHgTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgTier1Rate() bool {
+	if o != nil && !IsNil(o.HgTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgTier1Rate gets a reference to the given float32 and assigns it to the HgTier1Rate field.
 func (o *FormattedApiOrgPublic) SetHgTier1Rate(v float32) {
-	o.HgTier1Rate = v
+	o.HgTier1Rate = &v
 }
 
-// GetHgTier2Min returns the HgTier2Min field value
+// GetHgTier2Min returns the HgTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgTier2Min
+	return *o.HgTier2Min
 }
 
-// GetHgTier2MinOk returns a tuple with the HgTier2Min field value
+// GetHgTier2MinOk returns a tuple with the HgTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgTier2Min) {
 		return nil, false
 	}
-	return &o.HgTier2Min, true
+	return o.HgTier2Min, true
 }
 
-// SetHgTier2Min sets field value
+// HasHgTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgTier2Min() bool {
+	if o != nil && !IsNil(o.HgTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgTier2Min gets a reference to the given float32 and assigns it to the HgTier2Min field.
 func (o *FormattedApiOrgPublic) SetHgTier2Min(v float32) {
-	o.HgTier2Min = v
+	o.HgTier2Min = &v
 }
 
-// GetHgTier2Rate returns the HgTier2Rate field value
+// GetHgTier2Rate returns the HgTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgTier2Rate
+	return *o.HgTier2Rate
 }
 
-// GetHgTier2RateOk returns a tuple with the HgTier2Rate field value
+// GetHgTier2RateOk returns a tuple with the HgTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgTier2Rate) {
 		return nil, false
 	}
-	return &o.HgTier2Rate, true
+	return o.HgTier2Rate, true
 }
 
-// SetHgTier2Rate sets field value
+// HasHgTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgTier2Rate() bool {
+	if o != nil && !IsNil(o.HgTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgTier2Rate gets a reference to the given float32 and assigns it to the HgTier2Rate field.
 func (o *FormattedApiOrgPublic) SetHgTier2Rate(v float32) {
-	o.HgTier2Rate = v
+	o.HgTier2Rate = &v
 }
 
-// GetHgTier3Min returns the HgTier3Min field value
+// GetHgTier3Min returns the HgTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgTier3Min
+	return *o.HgTier3Min
 }
 
-// GetHgTier3MinOk returns a tuple with the HgTier3Min field value
+// GetHgTier3MinOk returns a tuple with the HgTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgTier3Min) {
 		return nil, false
 	}
-	return &o.HgTier3Min, true
+	return o.HgTier3Min, true
 }
 
-// SetHgTier3Min sets field value
+// HasHgTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgTier3Min() bool {
+	if o != nil && !IsNil(o.HgTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgTier3Min gets a reference to the given float32 and assigns it to the HgTier3Min field.
 func (o *FormattedApiOrgPublic) SetHgTier3Min(v float32) {
-	o.HgTier3Min = v
+	o.HgTier3Min = &v
 }
 
-// GetHgTier3Rate returns the HgTier3Rate field value
+// GetHgTier3Rate returns the HgTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgTier3Rate
+	return *o.HgTier3Rate
 }
 
-// GetHgTier3RateOk returns a tuple with the HgTier3Rate field value
+// GetHgTier3RateOk returns a tuple with the HgTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgTier3Rate) {
 		return nil, false
 	}
-	return &o.HgTier3Rate, true
+	return o.HgTier3Rate, true
 }
 
-// SetHgTier3Rate sets field value
+// HasHgTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgTier3Rate() bool {
+	if o != nil && !IsNil(o.HgTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgTier3Rate gets a reference to the given float32 and assigns it to the HgTier3Rate field.
 func (o *FormattedApiOrgPublic) SetHgTier3Rate(v float32) {
-	o.HgTier3Rate = v
+	o.HgTier3Rate = &v
 }
 
-// GetHgUsage returns the HgUsage field value
+// GetHgUsage returns the HgUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgUsage
+	return *o.HgUsage
 }
 
-// GetHgUsageOk returns a tuple with the HgUsage field value
+// GetHgUsageOk returns a tuple with the HgUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgUsage) {
 		return nil, false
 	}
-	return &o.HgUsage, true
+	return o.HgUsage, true
 }
 
-// SetHgUsage sets field value
+// HasHgUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgUsage() bool {
+	if o != nil && !IsNil(o.HgUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgUsage gets a reference to the given float32 and assigns it to the HgUsage field.
 func (o *FormattedApiOrgPublic) SetHgUsage(v float32) {
-	o.HgUsage = v
+	o.HgUsage = &v
 }
 
-// GetHgCurrentActiveUsers returns the HgCurrentActiveUsers field value
+// GetHgCurrentActiveUsers returns the HgCurrentActiveUsers field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgCurrentActiveUsers() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgCurrentActiveUsers) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgCurrentActiveUsers
+	return *o.HgCurrentActiveUsers
 }
 
-// GetHgCurrentActiveUsersOk returns a tuple with the HgCurrentActiveUsers field value
+// GetHgCurrentActiveUsersOk returns a tuple with the HgCurrentActiveUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgCurrentActiveUsersOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgCurrentActiveUsers) {
 		return nil, false
 	}
-	return &o.HgCurrentActiveUsers, true
+	return o.HgCurrentActiveUsers, true
 }
 
-// SetHgCurrentActiveUsers sets field value
+// HasHgCurrentActiveUsers returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgCurrentActiveUsers() bool {
+	if o != nil && !IsNil(o.HgCurrentActiveUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgCurrentActiveUsers gets a reference to the given float32 and assigns it to the HgCurrentActiveUsers field.
 func (o *FormattedApiOrgPublic) SetHgCurrentActiveUsers(v float32) {
-	o.HgCurrentActiveUsers = v
+	o.HgCurrentActiveUsers = &v
 }
 
-// GetHgGrafanaUsage returns the HgGrafanaUsage field value
+// GetHgGrafanaUsage returns the HgGrafanaUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgGrafanaUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgGrafanaUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgGrafanaUsage
+	return *o.HgGrafanaUsage
 }
 
-// GetHgGrafanaUsageOk returns a tuple with the HgGrafanaUsage field value
+// GetHgGrafanaUsageOk returns a tuple with the HgGrafanaUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgGrafanaUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgGrafanaUsage) {
 		return nil, false
 	}
-	return &o.HgGrafanaUsage, true
+	return o.HgGrafanaUsage, true
 }
 
-// SetHgGrafanaUsage sets field value
+// HasHgGrafanaUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgGrafanaUsage() bool {
+	if o != nil && !IsNil(o.HgGrafanaUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgGrafanaUsage gets a reference to the given float32 and assigns it to the HgGrafanaUsage field.
 func (o *FormattedApiOrgPublic) SetHgGrafanaUsage(v float32) {
-	o.HgGrafanaUsage = v
+	o.HgGrafanaUsage = &v
 }
 
-// GetHgOnCallUsage returns the HgOnCallUsage field value
+// GetHgOnCallUsage returns the HgOnCallUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHgOnCallUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HgOnCallUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HgOnCallUsage
+	return *o.HgOnCallUsage
 }
 
-// GetHgOnCallUsageOk returns a tuple with the HgOnCallUsage field value
+// GetHgOnCallUsageOk returns a tuple with the HgOnCallUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHgOnCallUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HgOnCallUsage) {
 		return nil, false
 	}
-	return &o.HgOnCallUsage, true
+	return o.HgOnCallUsage, true
 }
 
-// SetHgOnCallUsage sets field value
+// HasHgOnCallUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgOnCallUsage() bool {
+	if o != nil && !IsNil(o.HgOnCallUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHgOnCallUsage gets a reference to the given float32 and assigns it to the HgOnCallUsage field.
 func (o *FormattedApiOrgPublic) SetHgOnCallUsage(v float32) {
-	o.HgOnCallUsage = v
+	o.HgOnCallUsage = &v
 }
 
-// GetHmIncludedSeries returns the HmIncludedSeries field value
+// GetHmIncludedSeries returns the HmIncludedSeries field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmIncludedSeries() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmIncludedSeries) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmIncludedSeries
+	return *o.HmIncludedSeries
 }
 
-// GetHmIncludedSeriesOk returns a tuple with the HmIncludedSeries field value
+// GetHmIncludedSeriesOk returns a tuple with the HmIncludedSeries field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmIncludedSeriesOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmIncludedSeries) {
 		return nil, false
 	}
-	return &o.HmIncludedSeries, true
+	return o.HmIncludedSeries, true
 }
 
-// SetHmIncludedSeries sets field value
+// HasHmIncludedSeries returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmIncludedSeries() bool {
+	if o != nil && !IsNil(o.HmIncludedSeries) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmIncludedSeries gets a reference to the given float32 and assigns it to the HmIncludedSeries field.
 func (o *FormattedApiOrgPublic) SetHmIncludedSeries(v float32) {
-	o.HmIncludedSeries = v
+	o.HmIncludedSeries = &v
 }
 
-// GetHmAverageDpm returns the HmAverageDpm field value
+// GetHmAverageDpm returns the HmAverageDpm field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmAverageDpm() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmAverageDpm) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmAverageDpm
+	return *o.HmAverageDpm
 }
 
-// GetHmAverageDpmOk returns a tuple with the HmAverageDpm field value
+// GetHmAverageDpmOk returns a tuple with the HmAverageDpm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmAverageDpmOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmAverageDpm) {
 		return nil, false
 	}
-	return &o.HmAverageDpm, true
+	return o.HmAverageDpm, true
 }
 
-// SetHmAverageDpm sets field value
+// HasHmAverageDpm returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmAverageDpm() bool {
+	if o != nil && !IsNil(o.HmAverageDpm) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmAverageDpm gets a reference to the given float32 and assigns it to the HmAverageDpm field.
 func (o *FormattedApiOrgPublic) SetHmAverageDpm(v float32) {
-	o.HmAverageDpm = v
+	o.HmAverageDpm = &v
 }
 
-// GetHmTier1Rate returns the HmTier1Rate field value
+// GetHmTier1Rate returns the HmTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmTier1Rate
+	return *o.HmTier1Rate
 }
 
-// GetHmTier1RateOk returns a tuple with the HmTier1Rate field value
+// GetHmTier1RateOk returns a tuple with the HmTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmTier1Rate) {
 		return nil, false
 	}
-	return &o.HmTier1Rate, true
+	return o.HmTier1Rate, true
 }
 
-// SetHmTier1Rate sets field value
+// HasHmTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmTier1Rate() bool {
+	if o != nil && !IsNil(o.HmTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmTier1Rate gets a reference to the given float32 and assigns it to the HmTier1Rate field.
 func (o *FormattedApiOrgPublic) SetHmTier1Rate(v float32) {
-	o.HmTier1Rate = v
+	o.HmTier1Rate = &v
 }
 
-// GetHmTier2Min returns the HmTier2Min field value
+// GetHmTier2Min returns the HmTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmTier2Min
+	return *o.HmTier2Min
 }
 
-// GetHmTier2MinOk returns a tuple with the HmTier2Min field value
+// GetHmTier2MinOk returns a tuple with the HmTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmTier2Min) {
 		return nil, false
 	}
-	return &o.HmTier2Min, true
+	return o.HmTier2Min, true
 }
 
-// SetHmTier2Min sets field value
+// HasHmTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmTier2Min() bool {
+	if o != nil && !IsNil(o.HmTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmTier2Min gets a reference to the given float32 and assigns it to the HmTier2Min field.
 func (o *FormattedApiOrgPublic) SetHmTier2Min(v float32) {
-	o.HmTier2Min = v
+	o.HmTier2Min = &v
 }
 
-// GetHmTier2Rate returns the HmTier2Rate field value
+// GetHmTier2Rate returns the HmTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmTier2Rate
+	return *o.HmTier2Rate
 }
 
-// GetHmTier2RateOk returns a tuple with the HmTier2Rate field value
+// GetHmTier2RateOk returns a tuple with the HmTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmTier2Rate) {
 		return nil, false
 	}
-	return &o.HmTier2Rate, true
+	return o.HmTier2Rate, true
 }
 
-// SetHmTier2Rate sets field value
+// HasHmTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmTier2Rate() bool {
+	if o != nil && !IsNil(o.HmTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmTier2Rate gets a reference to the given float32 and assigns it to the HmTier2Rate field.
 func (o *FormattedApiOrgPublic) SetHmTier2Rate(v float32) {
-	o.HmTier2Rate = v
+	o.HmTier2Rate = &v
 }
 
-// GetHmTier3Min returns the HmTier3Min field value
+// GetHmTier3Min returns the HmTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmTier3Min
+	return *o.HmTier3Min
 }
 
-// GetHmTier3MinOk returns a tuple with the HmTier3Min field value
+// GetHmTier3MinOk returns a tuple with the HmTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmTier3Min) {
 		return nil, false
 	}
-	return &o.HmTier3Min, true
+	return o.HmTier3Min, true
 }
 
-// SetHmTier3Min sets field value
+// HasHmTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmTier3Min() bool {
+	if o != nil && !IsNil(o.HmTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmTier3Min gets a reference to the given float32 and assigns it to the HmTier3Min field.
 func (o *FormattedApiOrgPublic) SetHmTier3Min(v float32) {
-	o.HmTier3Min = v
+	o.HmTier3Min = &v
 }
 
-// GetHmTier3Rate returns the HmTier3Rate field value
+// GetHmTier3Rate returns the HmTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmTier3Rate
+	return *o.HmTier3Rate
 }
 
-// GetHmTier3RateOk returns a tuple with the HmTier3Rate field value
+// GetHmTier3RateOk returns a tuple with the HmTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmTier3Rate) {
 		return nil, false
 	}
-	return &o.HmTier3Rate, true
+	return o.HmTier3Rate, true
 }
 
-// SetHmTier3Rate sets field value
+// HasHmTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmTier3Rate() bool {
+	if o != nil && !IsNil(o.HmTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmTier3Rate gets a reference to the given float32 and assigns it to the HmTier3Rate field.
 func (o *FormattedApiOrgPublic) SetHmTier3Rate(v float32) {
-	o.HmTier3Rate = v
+	o.HmTier3Rate = &v
 }
 
-// GetHmUsage returns the HmUsage field value
+// GetHmUsage returns the HmUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmUsage
+	return *o.HmUsage
 }
 
-// GetHmUsageOk returns a tuple with the HmUsage field value
+// GetHmUsageOk returns a tuple with the HmUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmUsage) {
 		return nil, false
 	}
-	return &o.HmUsage, true
+	return o.HmUsage, true
 }
 
-// SetHmUsage sets field value
+// HasHmUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmUsage() bool {
+	if o != nil && !IsNil(o.HmUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmUsage gets a reference to the given float32 and assigns it to the HmUsage field.
 func (o *FormattedApiOrgPublic) SetHmUsage(v float32) {
-	o.HmUsage = v
+	o.HmUsage = &v
 }
 
-// GetHmCurrentUsage returns the HmCurrentUsage field value
+// GetHmCurrentUsage returns the HmCurrentUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmCurrentUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmCurrentUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmCurrentUsage
+	return *o.HmCurrentUsage
 }
 
-// GetHmCurrentUsageOk returns a tuple with the HmCurrentUsage field value
+// GetHmCurrentUsageOk returns a tuple with the HmCurrentUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmCurrentUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmCurrentUsage) {
 		return nil, false
 	}
-	return &o.HmCurrentUsage, true
+	return o.HmCurrentUsage, true
 }
 
-// SetHmCurrentUsage sets field value
+// HasHmCurrentUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmCurrentUsage() bool {
+	if o != nil && !IsNil(o.HmCurrentUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmCurrentUsage gets a reference to the given float32 and assigns it to the HmCurrentUsage field.
 func (o *FormattedApiOrgPublic) SetHmCurrentUsage(v float32) {
-	o.HmCurrentUsage = v
+	o.HmCurrentUsage = &v
 }
 
-// GetHmGraphiteIncludedUsage returns the HmGraphiteIncludedUsage field value
+// GetHmGraphiteIncludedUsage returns the HmGraphiteIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmGraphiteIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmGraphiteIncludedUsage
+	return *o.HmGraphiteIncludedUsage
 }
 
-// GetHmGraphiteIncludedUsageOk returns a tuple with the HmGraphiteIncludedUsage field value
+// GetHmGraphiteIncludedUsageOk returns a tuple with the HmGraphiteIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmGraphiteIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteIncludedUsage) {
 		return nil, false
 	}
-	return &o.HmGraphiteIncludedUsage, true
+	return o.HmGraphiteIncludedUsage, true
 }
 
-// SetHmGraphiteIncludedUsage sets field value
+// HasHmGraphiteIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmGraphiteIncludedUsage() bool {
+	if o != nil && !IsNil(o.HmGraphiteIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteIncludedUsage gets a reference to the given float32 and assigns it to the HmGraphiteIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetHmGraphiteIncludedUsage(v float32) {
-	o.HmGraphiteIncludedUsage = v
+	o.HmGraphiteIncludedUsage = &v
 }
 
-// GetHmGraphiteTier1Rate returns the HmGraphiteTier1Rate field value
+// GetHmGraphiteTier1Rate returns the HmGraphiteTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmGraphiteTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmGraphiteTier1Rate
+	return *o.HmGraphiteTier1Rate
 }
 
-// GetHmGraphiteTier1RateOk returns a tuple with the HmGraphiteTier1Rate field value
+// GetHmGraphiteTier1RateOk returns a tuple with the HmGraphiteTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmGraphiteTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteTier1Rate) {
 		return nil, false
 	}
-	return &o.HmGraphiteTier1Rate, true
+	return o.HmGraphiteTier1Rate, true
 }
 
-// SetHmGraphiteTier1Rate sets field value
+// HasHmGraphiteTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmGraphiteTier1Rate() bool {
+	if o != nil && !IsNil(o.HmGraphiteTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteTier1Rate gets a reference to the given float32 and assigns it to the HmGraphiteTier1Rate field.
 func (o *FormattedApiOrgPublic) SetHmGraphiteTier1Rate(v float32) {
-	o.HmGraphiteTier1Rate = v
+	o.HmGraphiteTier1Rate = &v
 }
 
-// GetHmGraphiteTier2Min returns the HmGraphiteTier2Min field value
+// GetHmGraphiteTier2Min returns the HmGraphiteTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmGraphiteTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmGraphiteTier2Min
+	return *o.HmGraphiteTier2Min
 }
 
-// GetHmGraphiteTier2MinOk returns a tuple with the HmGraphiteTier2Min field value
+// GetHmGraphiteTier2MinOk returns a tuple with the HmGraphiteTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmGraphiteTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteTier2Min) {
 		return nil, false
 	}
-	return &o.HmGraphiteTier2Min, true
+	return o.HmGraphiteTier2Min, true
 }
 
-// SetHmGraphiteTier2Min sets field value
+// HasHmGraphiteTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmGraphiteTier2Min() bool {
+	if o != nil && !IsNil(o.HmGraphiteTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteTier2Min gets a reference to the given float32 and assigns it to the HmGraphiteTier2Min field.
 func (o *FormattedApiOrgPublic) SetHmGraphiteTier2Min(v float32) {
-	o.HmGraphiteTier2Min = v
+	o.HmGraphiteTier2Min = &v
 }
 
-// GetHmGraphiteTier2Rate returns the HmGraphiteTier2Rate field value
+// GetHmGraphiteTier2Rate returns the HmGraphiteTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmGraphiteTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmGraphiteTier2Rate
+	return *o.HmGraphiteTier2Rate
 }
 
-// GetHmGraphiteTier2RateOk returns a tuple with the HmGraphiteTier2Rate field value
+// GetHmGraphiteTier2RateOk returns a tuple with the HmGraphiteTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmGraphiteTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteTier2Rate) {
 		return nil, false
 	}
-	return &o.HmGraphiteTier2Rate, true
+	return o.HmGraphiteTier2Rate, true
 }
 
-// SetHmGraphiteTier2Rate sets field value
+// HasHmGraphiteTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmGraphiteTier2Rate() bool {
+	if o != nil && !IsNil(o.HmGraphiteTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteTier2Rate gets a reference to the given float32 and assigns it to the HmGraphiteTier2Rate field.
 func (o *FormattedApiOrgPublic) SetHmGraphiteTier2Rate(v float32) {
-	o.HmGraphiteTier2Rate = v
+	o.HmGraphiteTier2Rate = &v
 }
 
-// GetHmGraphiteTier3Min returns the HmGraphiteTier3Min field value
+// GetHmGraphiteTier3Min returns the HmGraphiteTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmGraphiteTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmGraphiteTier3Min
+	return *o.HmGraphiteTier3Min
 }
 
-// GetHmGraphiteTier3MinOk returns a tuple with the HmGraphiteTier3Min field value
+// GetHmGraphiteTier3MinOk returns a tuple with the HmGraphiteTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmGraphiteTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteTier3Min) {
 		return nil, false
 	}
-	return &o.HmGraphiteTier3Min, true
+	return o.HmGraphiteTier3Min, true
 }
 
-// SetHmGraphiteTier3Min sets field value
+// HasHmGraphiteTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmGraphiteTier3Min() bool {
+	if o != nil && !IsNil(o.HmGraphiteTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteTier3Min gets a reference to the given float32 and assigns it to the HmGraphiteTier3Min field.
 func (o *FormattedApiOrgPublic) SetHmGraphiteTier3Min(v float32) {
-	o.HmGraphiteTier3Min = v
+	o.HmGraphiteTier3Min = &v
 }
 
-// GetHmGraphiteTier3Rate returns the HmGraphiteTier3Rate field value
+// GetHmGraphiteTier3Rate returns the HmGraphiteTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmGraphiteTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmGraphiteTier3Rate
+	return *o.HmGraphiteTier3Rate
 }
 
-// GetHmGraphiteTier3RateOk returns a tuple with the HmGraphiteTier3Rate field value
+// GetHmGraphiteTier3RateOk returns a tuple with the HmGraphiteTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmGraphiteTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteTier3Rate) {
 		return nil, false
 	}
-	return &o.HmGraphiteTier3Rate, true
+	return o.HmGraphiteTier3Rate, true
 }
 
-// SetHmGraphiteTier3Rate sets field value
+// HasHmGraphiteTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmGraphiteTier3Rate() bool {
+	if o != nil && !IsNil(o.HmGraphiteTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteTier3Rate gets a reference to the given float32 and assigns it to the HmGraphiteTier3Rate field.
 func (o *FormattedApiOrgPublic) SetHmGraphiteTier3Rate(v float32) {
-	o.HmGraphiteTier3Rate = v
+	o.HmGraphiteTier3Rate = &v
 }
 
-// GetHmGraphiteUsage returns the HmGraphiteUsage field value
+// GetHmGraphiteUsage returns the HmGraphiteUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHmGraphiteUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HmGraphiteUsage
+	return *o.HmGraphiteUsage
 }
 
-// GetHmGraphiteUsageOk returns a tuple with the HmGraphiteUsage field value
+// GetHmGraphiteUsageOk returns a tuple with the HmGraphiteUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHmGraphiteUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HmGraphiteUsage) {
 		return nil, false
 	}
-	return &o.HmGraphiteUsage, true
+	return o.HmGraphiteUsage, true
 }
 
-// SetHmGraphiteUsage sets field value
+// HasHmGraphiteUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHmGraphiteUsage() bool {
+	if o != nil && !IsNil(o.HmGraphiteUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteUsage gets a reference to the given float32 and assigns it to the HmGraphiteUsage field.
 func (o *FormattedApiOrgPublic) SetHmGraphiteUsage(v float32) {
-	o.HmGraphiteUsage = v
+	o.HmGraphiteUsage = &v
 }
 
-// GetHlIncludedUsage returns the HlIncludedUsage field value
+// GetHlIncludedUsage returns the HlIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlIncludedUsage
+	return *o.HlIncludedUsage
 }
 
-// GetHlIncludedUsageOk returns a tuple with the HlIncludedUsage field value
+// GetHlIncludedUsageOk returns a tuple with the HlIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlIncludedUsage) {
 		return nil, false
 	}
-	return &o.HlIncludedUsage, true
+	return o.HlIncludedUsage, true
 }
 
-// SetHlIncludedUsage sets field value
+// HasHlIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlIncludedUsage() bool {
+	if o != nil && !IsNil(o.HlIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlIncludedUsage gets a reference to the given float32 and assigns it to the HlIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetHlIncludedUsage(v float32) {
-	o.HlIncludedUsage = v
+	o.HlIncludedUsage = &v
 }
 
-// GetHlQueryToIngestRatio returns the HlQueryToIngestRatio field value
+// GetHlQueryToIngestRatio returns the HlQueryToIngestRatio field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlQueryToIngestRatio() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlQueryToIngestRatio) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlQueryToIngestRatio
+	return *o.HlQueryToIngestRatio
 }
 
-// GetHlQueryToIngestRatioOk returns a tuple with the HlQueryToIngestRatio field value
+// GetHlQueryToIngestRatioOk returns a tuple with the HlQueryToIngestRatio field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlQueryToIngestRatioOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlQueryToIngestRatio) {
 		return nil, false
 	}
-	return &o.HlQueryToIngestRatio, true
+	return o.HlQueryToIngestRatio, true
 }
 
-// SetHlQueryToIngestRatio sets field value
+// HasHlQueryToIngestRatio returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlQueryToIngestRatio() bool {
+	if o != nil && !IsNil(o.HlQueryToIngestRatio) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlQueryToIngestRatio gets a reference to the given float32 and assigns it to the HlQueryToIngestRatio field.
 func (o *FormattedApiOrgPublic) SetHlQueryToIngestRatio(v float32) {
-	o.HlQueryToIngestRatio = v
+	o.HlQueryToIngestRatio = &v
 }
 
-// GetHlTier1Rate returns the HlTier1Rate field value
+// GetHlTier1Rate returns the HlTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlTier1Rate
+	return *o.HlTier1Rate
 }
 
-// GetHlTier1RateOk returns a tuple with the HlTier1Rate field value
+// GetHlTier1RateOk returns a tuple with the HlTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlTier1Rate) {
 		return nil, false
 	}
-	return &o.HlTier1Rate, true
+	return o.HlTier1Rate, true
 }
 
-// SetHlTier1Rate sets field value
+// HasHlTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlTier1Rate() bool {
+	if o != nil && !IsNil(o.HlTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlTier1Rate gets a reference to the given float32 and assigns it to the HlTier1Rate field.
 func (o *FormattedApiOrgPublic) SetHlTier1Rate(v float32) {
-	o.HlTier1Rate = v
+	o.HlTier1Rate = &v
 }
 
-// GetHlTier2Min returns the HlTier2Min field value
+// GetHlTier2Min returns the HlTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlTier2Min
+	return *o.HlTier2Min
 }
 
-// GetHlTier2MinOk returns a tuple with the HlTier2Min field value
+// GetHlTier2MinOk returns a tuple with the HlTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlTier2Min) {
 		return nil, false
 	}
-	return &o.HlTier2Min, true
+	return o.HlTier2Min, true
 }
 
-// SetHlTier2Min sets field value
+// HasHlTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlTier2Min() bool {
+	if o != nil && !IsNil(o.HlTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlTier2Min gets a reference to the given float32 and assigns it to the HlTier2Min field.
 func (o *FormattedApiOrgPublic) SetHlTier2Min(v float32) {
-	o.HlTier2Min = v
+	o.HlTier2Min = &v
 }
 
-// GetHlTier2Rate returns the HlTier2Rate field value
+// GetHlTier2Rate returns the HlTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlTier2Rate
+	return *o.HlTier2Rate
 }
 
-// GetHlTier2RateOk returns a tuple with the HlTier2Rate field value
+// GetHlTier2RateOk returns a tuple with the HlTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlTier2Rate) {
 		return nil, false
 	}
-	return &o.HlTier2Rate, true
+	return o.HlTier2Rate, true
 }
 
-// SetHlTier2Rate sets field value
+// HasHlTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlTier2Rate() bool {
+	if o != nil && !IsNil(o.HlTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlTier2Rate gets a reference to the given float32 and assigns it to the HlTier2Rate field.
 func (o *FormattedApiOrgPublic) SetHlTier2Rate(v float32) {
-	o.HlTier2Rate = v
+	o.HlTier2Rate = &v
 }
 
-// GetHlTier3Min returns the HlTier3Min field value
+// GetHlTier3Min returns the HlTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlTier3Min
+	return *o.HlTier3Min
 }
 
-// GetHlTier3MinOk returns a tuple with the HlTier3Min field value
+// GetHlTier3MinOk returns a tuple with the HlTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlTier3Min) {
 		return nil, false
 	}
-	return &o.HlTier3Min, true
+	return o.HlTier3Min, true
 }
 
-// SetHlTier3Min sets field value
+// HasHlTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlTier3Min() bool {
+	if o != nil && !IsNil(o.HlTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlTier3Min gets a reference to the given float32 and assigns it to the HlTier3Min field.
 func (o *FormattedApiOrgPublic) SetHlTier3Min(v float32) {
-	o.HlTier3Min = v
+	o.HlTier3Min = &v
 }
 
-// GetHlTier3Rate returns the HlTier3Rate field value
+// GetHlTier3Rate returns the HlTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlTier3Rate
+	return *o.HlTier3Rate
 }
 
-// GetHlTier3RateOk returns a tuple with the HlTier3Rate field value
+// GetHlTier3RateOk returns a tuple with the HlTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlTier3Rate) {
 		return nil, false
 	}
-	return &o.HlTier3Rate, true
+	return o.HlTier3Rate, true
 }
 
-// SetHlTier3Rate sets field value
+// HasHlTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlTier3Rate() bool {
+	if o != nil && !IsNil(o.HlTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlTier3Rate gets a reference to the given float32 and assigns it to the HlTier3Rate field.
 func (o *FormattedApiOrgPublic) SetHlTier3Rate(v float32) {
-	o.HlTier3Rate = v
+	o.HlTier3Rate = &v
 }
 
-// GetHlUsage returns the HlUsage field value
+// GetHlUsage returns the HlUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlUsage
+	return *o.HlUsage
 }
 
-// GetHlUsageOk returns a tuple with the HlUsage field value
+// GetHlUsageOk returns a tuple with the HlUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlUsage) {
 		return nil, false
 	}
-	return &o.HlUsage, true
+	return o.HlUsage, true
 }
 
-// SetHlUsage sets field value
+// HasHlUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlUsage() bool {
+	if o != nil && !IsNil(o.HlUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlUsage gets a reference to the given float32 and assigns it to the HlUsage field.
 func (o *FormattedApiOrgPublic) SetHlUsage(v float32) {
-	o.HlUsage = v
+	o.HlUsage = &v
 }
 
-// GetHlRetentionIncludedUsage returns the HlRetentionIncludedUsage field value
+// GetHlRetentionIncludedUsage returns the HlRetentionIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlRetentionIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlRetentionIncludedUsage
+	return *o.HlRetentionIncludedUsage
 }
 
-// GetHlRetentionIncludedUsageOk returns a tuple with the HlRetentionIncludedUsage field value
+// GetHlRetentionIncludedUsageOk returns a tuple with the HlRetentionIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlRetentionIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionIncludedUsage) {
 		return nil, false
 	}
-	return &o.HlRetentionIncludedUsage, true
+	return o.HlRetentionIncludedUsage, true
 }
 
-// SetHlRetentionIncludedUsage sets field value
+// HasHlRetentionIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlRetentionIncludedUsage() bool {
+	if o != nil && !IsNil(o.HlRetentionIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlRetentionIncludedUsage gets a reference to the given float32 and assigns it to the HlRetentionIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetHlRetentionIncludedUsage(v float32) {
-	o.HlRetentionIncludedUsage = v
+	o.HlRetentionIncludedUsage = &v
 }
 
-// GetHlRetentionTier1Rate returns the HlRetentionTier1Rate field value
+// GetHlRetentionTier1Rate returns the HlRetentionTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlRetentionTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlRetentionTier1Rate
+	return *o.HlRetentionTier1Rate
 }
 
-// GetHlRetentionTier1RateOk returns a tuple with the HlRetentionTier1Rate field value
+// GetHlRetentionTier1RateOk returns a tuple with the HlRetentionTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlRetentionTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionTier1Rate) {
 		return nil, false
 	}
-	return &o.HlRetentionTier1Rate, true
+	return o.HlRetentionTier1Rate, true
 }
 
-// SetHlRetentionTier1Rate sets field value
+// HasHlRetentionTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlRetentionTier1Rate() bool {
+	if o != nil && !IsNil(o.HlRetentionTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlRetentionTier1Rate gets a reference to the given float32 and assigns it to the HlRetentionTier1Rate field.
 func (o *FormattedApiOrgPublic) SetHlRetentionTier1Rate(v float32) {
-	o.HlRetentionTier1Rate = v
+	o.HlRetentionTier1Rate = &v
 }
 
-// GetHlRetentionTier2Min returns the HlRetentionTier2Min field value
+// GetHlRetentionTier2Min returns the HlRetentionTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlRetentionTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlRetentionTier2Min
+	return *o.HlRetentionTier2Min
 }
 
-// GetHlRetentionTier2MinOk returns a tuple with the HlRetentionTier2Min field value
+// GetHlRetentionTier2MinOk returns a tuple with the HlRetentionTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlRetentionTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionTier2Min) {
 		return nil, false
 	}
-	return &o.HlRetentionTier2Min, true
+	return o.HlRetentionTier2Min, true
 }
 
-// SetHlRetentionTier2Min sets field value
+// HasHlRetentionTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlRetentionTier2Min() bool {
+	if o != nil && !IsNil(o.HlRetentionTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlRetentionTier2Min gets a reference to the given float32 and assigns it to the HlRetentionTier2Min field.
 func (o *FormattedApiOrgPublic) SetHlRetentionTier2Min(v float32) {
-	o.HlRetentionTier2Min = v
+	o.HlRetentionTier2Min = &v
 }
 
-// GetHlRetentionTier2Rate returns the HlRetentionTier2Rate field value
+// GetHlRetentionTier2Rate returns the HlRetentionTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlRetentionTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlRetentionTier2Rate
+	return *o.HlRetentionTier2Rate
 }
 
-// GetHlRetentionTier2RateOk returns a tuple with the HlRetentionTier2Rate field value
+// GetHlRetentionTier2RateOk returns a tuple with the HlRetentionTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlRetentionTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionTier2Rate) {
 		return nil, false
 	}
-	return &o.HlRetentionTier2Rate, true
+	return o.HlRetentionTier2Rate, true
 }
 
-// SetHlRetentionTier2Rate sets field value
+// HasHlRetentionTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlRetentionTier2Rate() bool {
+	if o != nil && !IsNil(o.HlRetentionTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlRetentionTier2Rate gets a reference to the given float32 and assigns it to the HlRetentionTier2Rate field.
 func (o *FormattedApiOrgPublic) SetHlRetentionTier2Rate(v float32) {
-	o.HlRetentionTier2Rate = v
+	o.HlRetentionTier2Rate = &v
 }
 
-// GetHlRetentionTier3Min returns the HlRetentionTier3Min field value
+// GetHlRetentionTier3Min returns the HlRetentionTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlRetentionTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlRetentionTier3Min
+	return *o.HlRetentionTier3Min
 }
 
-// GetHlRetentionTier3MinOk returns a tuple with the HlRetentionTier3Min field value
+// GetHlRetentionTier3MinOk returns a tuple with the HlRetentionTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlRetentionTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionTier3Min) {
 		return nil, false
 	}
-	return &o.HlRetentionTier3Min, true
+	return o.HlRetentionTier3Min, true
 }
 
-// SetHlRetentionTier3Min sets field value
+// HasHlRetentionTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlRetentionTier3Min() bool {
+	if o != nil && !IsNil(o.HlRetentionTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlRetentionTier3Min gets a reference to the given float32 and assigns it to the HlRetentionTier3Min field.
 func (o *FormattedApiOrgPublic) SetHlRetentionTier3Min(v float32) {
-	o.HlRetentionTier3Min = v
+	o.HlRetentionTier3Min = &v
 }
 
-// GetHlRetentionTier3Rate returns the HlRetentionTier3Rate field value
+// GetHlRetentionTier3Rate returns the HlRetentionTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlRetentionTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlRetentionTier3Rate
+	return *o.HlRetentionTier3Rate
 }
 
-// GetHlRetentionTier3RateOk returns a tuple with the HlRetentionTier3Rate field value
+// GetHlRetentionTier3RateOk returns a tuple with the HlRetentionTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlRetentionTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionTier3Rate) {
 		return nil, false
 	}
-	return &o.HlRetentionTier3Rate, true
+	return o.HlRetentionTier3Rate, true
 }
 
-// SetHlRetentionTier3Rate sets field value
+// HasHlRetentionTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlRetentionTier3Rate() bool {
+	if o != nil && !IsNil(o.HlRetentionTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlRetentionTier3Rate gets a reference to the given float32 and assigns it to the HlRetentionTier3Rate field.
 func (o *FormattedApiOrgPublic) SetHlRetentionTier3Rate(v float32) {
-	o.HlRetentionTier3Rate = v
+	o.HlRetentionTier3Rate = &v
 }
 
-// GetHlRetentionUsage returns the HlRetentionUsage field value
+// GetHlRetentionUsage returns the HlRetentionUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHlRetentionUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HlRetentionUsage
+	return *o.HlRetentionUsage
 }
 
-// GetHlRetentionUsageOk returns a tuple with the HlRetentionUsage field value
+// GetHlRetentionUsageOk returns a tuple with the HlRetentionUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHlRetentionUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HlRetentionUsage) {
 		return nil, false
 	}
-	return &o.HlRetentionUsage, true
+	return o.HlRetentionUsage, true
 }
 
-// SetHlRetentionUsage sets field value
+// HasHlRetentionUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHlRetentionUsage() bool {
+	if o != nil && !IsNil(o.HlRetentionUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHlRetentionUsage gets a reference to the given float32 and assigns it to the HlRetentionUsage field.
 func (o *FormattedApiOrgPublic) SetHlRetentionUsage(v float32) {
-	o.HlRetentionUsage = v
+	o.HlRetentionUsage = &v
 }
 
-// GetHtIncludedUsage returns the HtIncludedUsage field value
+// GetHtIncludedUsage returns the HtIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHtIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HtIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HtIncludedUsage
+	return *o.HtIncludedUsage
 }
 
-// GetHtIncludedUsageOk returns a tuple with the HtIncludedUsage field value
+// GetHtIncludedUsageOk returns a tuple with the HtIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHtIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtIncludedUsage) {
 		return nil, false
 	}
-	return &o.HtIncludedUsage, true
+	return o.HtIncludedUsage, true
 }
 
-// SetHtIncludedUsage sets field value
+// HasHtIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHtIncludedUsage() bool {
+	if o != nil && !IsNil(o.HtIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtIncludedUsage gets a reference to the given float32 and assigns it to the HtIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetHtIncludedUsage(v float32) {
-	o.HtIncludedUsage = v
+	o.HtIncludedUsage = &v
 }
 
-// GetHtTier1Rate returns the HtTier1Rate field value
+// GetHtTier1Rate returns the HtTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHtTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HtTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HtTier1Rate
+	return *o.HtTier1Rate
 }
 
-// GetHtTier1RateOk returns a tuple with the HtTier1Rate field value
+// GetHtTier1RateOk returns a tuple with the HtTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHtTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtTier1Rate) {
 		return nil, false
 	}
-	return &o.HtTier1Rate, true
+	return o.HtTier1Rate, true
 }
 
-// SetHtTier1Rate sets field value
+// HasHtTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHtTier1Rate() bool {
+	if o != nil && !IsNil(o.HtTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtTier1Rate gets a reference to the given float32 and assigns it to the HtTier1Rate field.
 func (o *FormattedApiOrgPublic) SetHtTier1Rate(v float32) {
-	o.HtTier1Rate = v
+	o.HtTier1Rate = &v
 }
 
-// GetHtTier2Min returns the HtTier2Min field value
+// GetHtTier2Min returns the HtTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHtTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HtTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HtTier2Min
+	return *o.HtTier2Min
 }
 
-// GetHtTier2MinOk returns a tuple with the HtTier2Min field value
+// GetHtTier2MinOk returns a tuple with the HtTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHtTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtTier2Min) {
 		return nil, false
 	}
-	return &o.HtTier2Min, true
+	return o.HtTier2Min, true
 }
 
-// SetHtTier2Min sets field value
+// HasHtTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHtTier2Min() bool {
+	if o != nil && !IsNil(o.HtTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtTier2Min gets a reference to the given float32 and assigns it to the HtTier2Min field.
 func (o *FormattedApiOrgPublic) SetHtTier2Min(v float32) {
-	o.HtTier2Min = v
+	o.HtTier2Min = &v
 }
 
-// GetHtTier2Rate returns the HtTier2Rate field value
+// GetHtTier2Rate returns the HtTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHtTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HtTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HtTier2Rate
+	return *o.HtTier2Rate
 }
 
-// GetHtTier2RateOk returns a tuple with the HtTier2Rate field value
+// GetHtTier2RateOk returns a tuple with the HtTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHtTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtTier2Rate) {
 		return nil, false
 	}
-	return &o.HtTier2Rate, true
+	return o.HtTier2Rate, true
 }
 
-// SetHtTier2Rate sets field value
+// HasHtTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHtTier2Rate() bool {
+	if o != nil && !IsNil(o.HtTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtTier2Rate gets a reference to the given float32 and assigns it to the HtTier2Rate field.
 func (o *FormattedApiOrgPublic) SetHtTier2Rate(v float32) {
-	o.HtTier2Rate = v
+	o.HtTier2Rate = &v
 }
 
-// GetHtTier3Min returns the HtTier3Min field value
+// GetHtTier3Min returns the HtTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHtTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HtTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HtTier3Min
+	return *o.HtTier3Min
 }
 
-// GetHtTier3MinOk returns a tuple with the HtTier3Min field value
+// GetHtTier3MinOk returns a tuple with the HtTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHtTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtTier3Min) {
 		return nil, false
 	}
-	return &o.HtTier3Min, true
+	return o.HtTier3Min, true
 }
 
-// SetHtTier3Min sets field value
+// HasHtTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHtTier3Min() bool {
+	if o != nil && !IsNil(o.HtTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtTier3Min gets a reference to the given float32 and assigns it to the HtTier3Min field.
 func (o *FormattedApiOrgPublic) SetHtTier3Min(v float32) {
-	o.HtTier3Min = v
+	o.HtTier3Min = &v
 }
 
-// GetHtTier3Rate returns the HtTier3Rate field value
+// GetHtTier3Rate returns the HtTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHtTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HtTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HtTier3Rate
+	return *o.HtTier3Rate
 }
 
-// GetHtTier3RateOk returns a tuple with the HtTier3Rate field value
+// GetHtTier3RateOk returns a tuple with the HtTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHtTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtTier3Rate) {
 		return nil, false
 	}
-	return &o.HtTier3Rate, true
+	return o.HtTier3Rate, true
 }
 
-// SetHtTier3Rate sets field value
+// HasHtTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHtTier3Rate() bool {
+	if o != nil && !IsNil(o.HtTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtTier3Rate gets a reference to the given float32 and assigns it to the HtTier3Rate field.
 func (o *FormattedApiOrgPublic) SetHtTier3Rate(v float32) {
-	o.HtTier3Rate = v
+	o.HtTier3Rate = &v
 }
 
-// GetHtUsage returns the HtUsage field value
+// GetHtUsage returns the HtUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHtUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HtUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HtUsage
+	return *o.HtUsage
 }
 
-// GetHtUsageOk returns a tuple with the HtUsage field value
+// GetHtUsageOk returns a tuple with the HtUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHtUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HtUsage) {
 		return nil, false
 	}
-	return &o.HtUsage, true
+	return o.HtUsage, true
 }
 
-// SetHtUsage sets field value
+// HasHtUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHtUsage() bool {
+	if o != nil && !IsNil(o.HtUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtUsage gets a reference to the given float32 and assigns it to the HtUsage field.
 func (o *FormattedApiOrgPublic) SetHtUsage(v float32) {
-	o.HtUsage = v
+	o.HtUsage = &v
 }
 
-// GetHpIncludedUsage returns the HpIncludedUsage field value
+// GetHpIncludedUsage returns the HpIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHpIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HpIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HpIncludedUsage
+	return *o.HpIncludedUsage
 }
 
-// GetHpIncludedUsageOk returns a tuple with the HpIncludedUsage field value
+// GetHpIncludedUsageOk returns a tuple with the HpIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHpIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpIncludedUsage) {
 		return nil, false
 	}
-	return &o.HpIncludedUsage, true
+	return o.HpIncludedUsage, true
 }
 
-// SetHpIncludedUsage sets field value
+// HasHpIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHpIncludedUsage() bool {
+	if o != nil && !IsNil(o.HpIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpIncludedUsage gets a reference to the given float32 and assigns it to the HpIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetHpIncludedUsage(v float32) {
-	o.HpIncludedUsage = v
+	o.HpIncludedUsage = &v
 }
 
-// GetHpTier1Rate returns the HpTier1Rate field value
+// GetHpTier1Rate returns the HpTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHpTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HpTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HpTier1Rate
+	return *o.HpTier1Rate
 }
 
-// GetHpTier1RateOk returns a tuple with the HpTier1Rate field value
+// GetHpTier1RateOk returns a tuple with the HpTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHpTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpTier1Rate) {
 		return nil, false
 	}
-	return &o.HpTier1Rate, true
+	return o.HpTier1Rate, true
 }
 
-// SetHpTier1Rate sets field value
+// HasHpTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHpTier1Rate() bool {
+	if o != nil && !IsNil(o.HpTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpTier1Rate gets a reference to the given float32 and assigns it to the HpTier1Rate field.
 func (o *FormattedApiOrgPublic) SetHpTier1Rate(v float32) {
-	o.HpTier1Rate = v
+	o.HpTier1Rate = &v
 }
 
-// GetHpTier2Min returns the HpTier2Min field value
+// GetHpTier2Min returns the HpTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHpTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HpTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HpTier2Min
+	return *o.HpTier2Min
 }
 
-// GetHpTier2MinOk returns a tuple with the HpTier2Min field value
+// GetHpTier2MinOk returns a tuple with the HpTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHpTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpTier2Min) {
 		return nil, false
 	}
-	return &o.HpTier2Min, true
+	return o.HpTier2Min, true
 }
 
-// SetHpTier2Min sets field value
+// HasHpTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHpTier2Min() bool {
+	if o != nil && !IsNil(o.HpTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpTier2Min gets a reference to the given float32 and assigns it to the HpTier2Min field.
 func (o *FormattedApiOrgPublic) SetHpTier2Min(v float32) {
-	o.HpTier2Min = v
+	o.HpTier2Min = &v
 }
 
-// GetHpTier2Rate returns the HpTier2Rate field value
+// GetHpTier2Rate returns the HpTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHpTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HpTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HpTier2Rate
+	return *o.HpTier2Rate
 }
 
-// GetHpTier2RateOk returns a tuple with the HpTier2Rate field value
+// GetHpTier2RateOk returns a tuple with the HpTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHpTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpTier2Rate) {
 		return nil, false
 	}
-	return &o.HpTier2Rate, true
+	return o.HpTier2Rate, true
 }
 
-// SetHpTier2Rate sets field value
+// HasHpTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHpTier2Rate() bool {
+	if o != nil && !IsNil(o.HpTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpTier2Rate gets a reference to the given float32 and assigns it to the HpTier2Rate field.
 func (o *FormattedApiOrgPublic) SetHpTier2Rate(v float32) {
-	o.HpTier2Rate = v
+	o.HpTier2Rate = &v
 }
 
-// GetHpTier3Min returns the HpTier3Min field value
+// GetHpTier3Min returns the HpTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHpTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HpTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.HpTier3Min
+	return *o.HpTier3Min
 }
 
-// GetHpTier3MinOk returns a tuple with the HpTier3Min field value
+// GetHpTier3MinOk returns a tuple with the HpTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHpTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpTier3Min) {
 		return nil, false
 	}
-	return &o.HpTier3Min, true
+	return o.HpTier3Min, true
 }
 
-// SetHpTier3Min sets field value
+// HasHpTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHpTier3Min() bool {
+	if o != nil && !IsNil(o.HpTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpTier3Min gets a reference to the given float32 and assigns it to the HpTier3Min field.
 func (o *FormattedApiOrgPublic) SetHpTier3Min(v float32) {
-	o.HpTier3Min = v
+	o.HpTier3Min = &v
 }
 
-// GetHpTier3Rate returns the HpTier3Rate field value
+// GetHpTier3Rate returns the HpTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHpTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HpTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.HpTier3Rate
+	return *o.HpTier3Rate
 }
 
-// GetHpTier3RateOk returns a tuple with the HpTier3Rate field value
+// GetHpTier3RateOk returns a tuple with the HpTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHpTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpTier3Rate) {
 		return nil, false
 	}
-	return &o.HpTier3Rate, true
+	return o.HpTier3Rate, true
 }
 
-// SetHpTier3Rate sets field value
+// HasHpTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHpTier3Rate() bool {
+	if o != nil && !IsNil(o.HpTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpTier3Rate gets a reference to the given float32 and assigns it to the HpTier3Rate field.
 func (o *FormattedApiOrgPublic) SetHpTier3Rate(v float32) {
-	o.HpTier3Rate = v
+	o.HpTier3Rate = &v
 }
 
-// GetHpUsage returns the HpUsage field value
+// GetHpUsage returns the HpUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetHpUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.HpUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.HpUsage
+	return *o.HpUsage
 }
 
-// GetHpUsageOk returns a tuple with the HpUsage field value
+// GetHpUsageOk returns a tuple with the HpUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetHpUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HpUsage) {
 		return nil, false
 	}
-	return &o.HpUsage, true
+	return o.HpUsage, true
 }
 
-// SetHpUsage sets field value
+// HasHpUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHpUsage() bool {
+	if o != nil && !IsNil(o.HpUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpUsage gets a reference to the given float32 and assigns it to the HpUsage field.
 func (o *FormattedApiOrgPublic) SetHpUsage(v float32) {
-	o.HpUsage = v
+	o.HpUsage = &v
 }
 
-// GetIrmStatus returns the IrmStatus field value
+// GetIrmStatus returns the IrmStatus field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetIrmStatus() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.IrmStatus) {
 		var ret float32
 		return ret
 	}
-
-	return o.IrmStatus
+	return *o.IrmStatus
 }
 
-// GetIrmStatusOk returns a tuple with the IrmStatus field value
+// GetIrmStatusOk returns a tuple with the IrmStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetIrmStatusOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IrmStatus) {
 		return nil, false
 	}
-	return &o.IrmStatus, true
+	return o.IrmStatus, true
 }
 
-// SetIrmStatus sets field value
+// HasIrmStatus returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasIrmStatus() bool {
+	if o != nil && !IsNil(o.IrmStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetIrmStatus gets a reference to the given float32 and assigns it to the IrmStatus field.
 func (o *FormattedApiOrgPublic) SetIrmStatus(v float32) {
-	o.IrmStatus = v
+	o.IrmStatus = &v
 }
 
-// GetIrmIncludedUsage returns the IrmIncludedUsage field value
+// GetIrmIncludedUsage returns the IrmIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetIrmIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.IrmIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.IrmIncludedUsage
+	return *o.IrmIncludedUsage
 }
 
-// GetIrmIncludedUsageOk returns a tuple with the IrmIncludedUsage field value
+// GetIrmIncludedUsageOk returns a tuple with the IrmIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetIrmIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IrmIncludedUsage) {
 		return nil, false
 	}
-	return &o.IrmIncludedUsage, true
+	return o.IrmIncludedUsage, true
 }
 
-// SetIrmIncludedUsage sets field value
+// HasIrmIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasIrmIncludedUsage() bool {
+	if o != nil && !IsNil(o.IrmIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetIrmIncludedUsage gets a reference to the given float32 and assigns it to the IrmIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetIrmIncludedUsage(v float32) {
-	o.IrmIncludedUsage = v
+	o.IrmIncludedUsage = &v
 }
 
-// GetIrmTier1Rate returns the IrmTier1Rate field value
+// GetIrmTier1Rate returns the IrmTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetIrmTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.IrmTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.IrmTier1Rate
+	return *o.IrmTier1Rate
 }
 
-// GetIrmTier1RateOk returns a tuple with the IrmTier1Rate field value
+// GetIrmTier1RateOk returns a tuple with the IrmTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetIrmTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IrmTier1Rate) {
 		return nil, false
 	}
-	return &o.IrmTier1Rate, true
+	return o.IrmTier1Rate, true
 }
 
-// SetIrmTier1Rate sets field value
+// HasIrmTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasIrmTier1Rate() bool {
+	if o != nil && !IsNil(o.IrmTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetIrmTier1Rate gets a reference to the given float32 and assigns it to the IrmTier1Rate field.
 func (o *FormattedApiOrgPublic) SetIrmTier1Rate(v float32) {
-	o.IrmTier1Rate = v
+	o.IrmTier1Rate = &v
 }
 
-// GetIrmTier2Min returns the IrmTier2Min field value
+// GetIrmTier2Min returns the IrmTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetIrmTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.IrmTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.IrmTier2Min
+	return *o.IrmTier2Min
 }
 
-// GetIrmTier2MinOk returns a tuple with the IrmTier2Min field value
+// GetIrmTier2MinOk returns a tuple with the IrmTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetIrmTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IrmTier2Min) {
 		return nil, false
 	}
-	return &o.IrmTier2Min, true
+	return o.IrmTier2Min, true
 }
 
-// SetIrmTier2Min sets field value
+// HasIrmTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasIrmTier2Min() bool {
+	if o != nil && !IsNil(o.IrmTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetIrmTier2Min gets a reference to the given float32 and assigns it to the IrmTier2Min field.
 func (o *FormattedApiOrgPublic) SetIrmTier2Min(v float32) {
-	o.IrmTier2Min = v
+	o.IrmTier2Min = &v
 }
 
-// GetIrmTier2Rate returns the IrmTier2Rate field value
+// GetIrmTier2Rate returns the IrmTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetIrmTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.IrmTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.IrmTier2Rate
+	return *o.IrmTier2Rate
 }
 
-// GetIrmTier2RateOk returns a tuple with the IrmTier2Rate field value
+// GetIrmTier2RateOk returns a tuple with the IrmTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetIrmTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IrmTier2Rate) {
 		return nil, false
 	}
-	return &o.IrmTier2Rate, true
+	return o.IrmTier2Rate, true
 }
 
-// SetIrmTier2Rate sets field value
+// HasIrmTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasIrmTier2Rate() bool {
+	if o != nil && !IsNil(o.IrmTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetIrmTier2Rate gets a reference to the given float32 and assigns it to the IrmTier2Rate field.
 func (o *FormattedApiOrgPublic) SetIrmTier2Rate(v float32) {
-	o.IrmTier2Rate = v
+	o.IrmTier2Rate = &v
 }
 
-// GetIrmTier3Min returns the IrmTier3Min field value
+// GetIrmTier3Min returns the IrmTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetIrmTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.IrmTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.IrmTier3Min
+	return *o.IrmTier3Min
 }
 
-// GetIrmTier3MinOk returns a tuple with the IrmTier3Min field value
+// GetIrmTier3MinOk returns a tuple with the IrmTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetIrmTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IrmTier3Min) {
 		return nil, false
 	}
-	return &o.IrmTier3Min, true
+	return o.IrmTier3Min, true
 }
 
-// SetIrmTier3Min sets field value
+// HasIrmTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasIrmTier3Min() bool {
+	if o != nil && !IsNil(o.IrmTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetIrmTier3Min gets a reference to the given float32 and assigns it to the IrmTier3Min field.
 func (o *FormattedApiOrgPublic) SetIrmTier3Min(v float32) {
-	o.IrmTier3Min = v
+	o.IrmTier3Min = &v
 }
 
-// GetIrmTier3Rate returns the IrmTier3Rate field value
+// GetIrmTier3Rate returns the IrmTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetIrmTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.IrmTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.IrmTier3Rate
+	return *o.IrmTier3Rate
 }
 
-// GetIrmTier3RateOk returns a tuple with the IrmTier3Rate field value
+// GetIrmTier3RateOk returns a tuple with the IrmTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetIrmTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IrmTier3Rate) {
 		return nil, false
 	}
-	return &o.IrmTier3Rate, true
+	return o.IrmTier3Rate, true
 }
 
-// SetIrmTier3Rate sets field value
+// HasIrmTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasIrmTier3Rate() bool {
+	if o != nil && !IsNil(o.IrmTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetIrmTier3Rate gets a reference to the given float32 and assigns it to the IrmTier3Rate field.
 func (o *FormattedApiOrgPublic) SetIrmTier3Rate(v float32) {
-	o.IrmTier3Rate = v
+	o.IrmTier3Rate = &v
 }
 
-// GetIrmUsage returns the IrmUsage field value
+// GetIrmUsage returns the IrmUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetIrmUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.IrmUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.IrmUsage
+	return *o.IrmUsage
 }
 
-// GetIrmUsageOk returns a tuple with the IrmUsage field value
+// GetIrmUsageOk returns a tuple with the IrmUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetIrmUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IrmUsage) {
 		return nil, false
 	}
-	return &o.IrmUsage, true
+	return o.IrmUsage, true
 }
 
-// SetIrmUsage sets field value
+// HasIrmUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasIrmUsage() bool {
+	if o != nil && !IsNil(o.IrmUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetIrmUsage gets a reference to the given float32 and assigns it to the IrmUsage field.
 func (o *FormattedApiOrgPublic) SetIrmUsage(v float32) {
-	o.IrmUsage = v
+	o.IrmUsage = &v
 }
 
-// GetK6VuhIncludedUsage returns the K6VuhIncludedUsage field value
+// GetK6VuhIncludedUsage returns the K6VuhIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6VuhIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6VuhIncludedUsage
+	return *o.K6VuhIncludedUsage
 }
 
-// GetK6VuhIncludedUsageOk returns a tuple with the K6VuhIncludedUsage field value
+// GetK6VuhIncludedUsageOk returns a tuple with the K6VuhIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6VuhIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhIncludedUsage) {
 		return nil, false
 	}
-	return &o.K6VuhIncludedUsage, true
+	return o.K6VuhIncludedUsage, true
 }
 
-// SetK6VuhIncludedUsage sets field value
+// HasK6VuhIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6VuhIncludedUsage() bool {
+	if o != nil && !IsNil(o.K6VuhIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6VuhIncludedUsage gets a reference to the given float32 and assigns it to the K6VuhIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetK6VuhIncludedUsage(v float32) {
-	o.K6VuhIncludedUsage = v
+	o.K6VuhIncludedUsage = &v
 }
 
-// GetK6VuhTier1Rate returns the K6VuhTier1Rate field value
+// GetK6VuhTier1Rate returns the K6VuhTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6VuhTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6VuhTier1Rate
+	return *o.K6VuhTier1Rate
 }
 
-// GetK6VuhTier1RateOk returns a tuple with the K6VuhTier1Rate field value
+// GetK6VuhTier1RateOk returns a tuple with the K6VuhTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6VuhTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhTier1Rate) {
 		return nil, false
 	}
-	return &o.K6VuhTier1Rate, true
+	return o.K6VuhTier1Rate, true
 }
 
-// SetK6VuhTier1Rate sets field value
+// HasK6VuhTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6VuhTier1Rate() bool {
+	if o != nil && !IsNil(o.K6VuhTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6VuhTier1Rate gets a reference to the given float32 and assigns it to the K6VuhTier1Rate field.
 func (o *FormattedApiOrgPublic) SetK6VuhTier1Rate(v float32) {
-	o.K6VuhTier1Rate = v
+	o.K6VuhTier1Rate = &v
 }
 
-// GetK6VuhTier2Min returns the K6VuhTier2Min field value
+// GetK6VuhTier2Min returns the K6VuhTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6VuhTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6VuhTier2Min
+	return *o.K6VuhTier2Min
 }
 
-// GetK6VuhTier2MinOk returns a tuple with the K6VuhTier2Min field value
+// GetK6VuhTier2MinOk returns a tuple with the K6VuhTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6VuhTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhTier2Min) {
 		return nil, false
 	}
-	return &o.K6VuhTier2Min, true
+	return o.K6VuhTier2Min, true
 }
 
-// SetK6VuhTier2Min sets field value
+// HasK6VuhTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6VuhTier2Min() bool {
+	if o != nil && !IsNil(o.K6VuhTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6VuhTier2Min gets a reference to the given float32 and assigns it to the K6VuhTier2Min field.
 func (o *FormattedApiOrgPublic) SetK6VuhTier2Min(v float32) {
-	o.K6VuhTier2Min = v
+	o.K6VuhTier2Min = &v
 }
 
-// GetK6VuhTier2Rate returns the K6VuhTier2Rate field value
+// GetK6VuhTier2Rate returns the K6VuhTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6VuhTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6VuhTier2Rate
+	return *o.K6VuhTier2Rate
 }
 
-// GetK6VuhTier2RateOk returns a tuple with the K6VuhTier2Rate field value
+// GetK6VuhTier2RateOk returns a tuple with the K6VuhTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6VuhTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhTier2Rate) {
 		return nil, false
 	}
-	return &o.K6VuhTier2Rate, true
+	return o.K6VuhTier2Rate, true
 }
 
-// SetK6VuhTier2Rate sets field value
+// HasK6VuhTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6VuhTier2Rate() bool {
+	if o != nil && !IsNil(o.K6VuhTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6VuhTier2Rate gets a reference to the given float32 and assigns it to the K6VuhTier2Rate field.
 func (o *FormattedApiOrgPublic) SetK6VuhTier2Rate(v float32) {
-	o.K6VuhTier2Rate = v
+	o.K6VuhTier2Rate = &v
 }
 
-// GetK6VuhTier3Min returns the K6VuhTier3Min field value
+// GetK6VuhTier3Min returns the K6VuhTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6VuhTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6VuhTier3Min
+	return *o.K6VuhTier3Min
 }
 
-// GetK6VuhTier3MinOk returns a tuple with the K6VuhTier3Min field value
+// GetK6VuhTier3MinOk returns a tuple with the K6VuhTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6VuhTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhTier3Min) {
 		return nil, false
 	}
-	return &o.K6VuhTier3Min, true
+	return o.K6VuhTier3Min, true
 }
 
-// SetK6VuhTier3Min sets field value
+// HasK6VuhTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6VuhTier3Min() bool {
+	if o != nil && !IsNil(o.K6VuhTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6VuhTier3Min gets a reference to the given float32 and assigns it to the K6VuhTier3Min field.
 func (o *FormattedApiOrgPublic) SetK6VuhTier3Min(v float32) {
-	o.K6VuhTier3Min = v
+	o.K6VuhTier3Min = &v
 }
 
-// GetK6VuhTier3Rate returns the K6VuhTier3Rate field value
+// GetK6VuhTier3Rate returns the K6VuhTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6VuhTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6VuhTier3Rate
+	return *o.K6VuhTier3Rate
 }
 
-// GetK6VuhTier3RateOk returns a tuple with the K6VuhTier3Rate field value
+// GetK6VuhTier3RateOk returns a tuple with the K6VuhTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6VuhTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhTier3Rate) {
 		return nil, false
 	}
-	return &o.K6VuhTier3Rate, true
+	return o.K6VuhTier3Rate, true
 }
 
-// SetK6VuhTier3Rate sets field value
+// HasK6VuhTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6VuhTier3Rate() bool {
+	if o != nil && !IsNil(o.K6VuhTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6VuhTier3Rate gets a reference to the given float32 and assigns it to the K6VuhTier3Rate field.
 func (o *FormattedApiOrgPublic) SetK6VuhTier3Rate(v float32) {
-	o.K6VuhTier3Rate = v
+	o.K6VuhTier3Rate = &v
 }
 
-// GetK6VuhUnits returns the K6VuhUnits field value
+// GetK6VuhUnits returns the K6VuhUnits field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6VuhUnits() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhUnits) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6VuhUnits
+	return *o.K6VuhUnits
 }
 
-// GetK6VuhUnitsOk returns a tuple with the K6VuhUnits field value
+// GetK6VuhUnitsOk returns a tuple with the K6VuhUnits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6VuhUnitsOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhUnits) {
 		return nil, false
 	}
-	return &o.K6VuhUnits, true
+	return o.K6VuhUnits, true
 }
 
-// SetK6VuhUnits sets field value
+// HasK6VuhUnits returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6VuhUnits() bool {
+	if o != nil && !IsNil(o.K6VuhUnits) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6VuhUnits gets a reference to the given float32 and assigns it to the K6VuhUnits field.
 func (o *FormattedApiOrgPublic) SetK6VuhUnits(v float32) {
-	o.K6VuhUnits = v
+	o.K6VuhUnits = &v
 }
 
-// GetK6VuhUsage returns the K6VuhUsage field value
+// GetK6VuhUsage returns the K6VuhUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6VuhUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6VuhUsage
+	return *o.K6VuhUsage
 }
 
-// GetK6VuhUsageOk returns a tuple with the K6VuhUsage field value
+// GetK6VuhUsageOk returns a tuple with the K6VuhUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6VuhUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6VuhUsage) {
 		return nil, false
 	}
-	return &o.K6VuhUsage, true
+	return o.K6VuhUsage, true
 }
 
-// SetK6VuhUsage sets field value
+// HasK6VuhUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6VuhUsage() bool {
+	if o != nil && !IsNil(o.K6VuhUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6VuhUsage gets a reference to the given float32 and assigns it to the K6VuhUsage field.
 func (o *FormattedApiOrgPublic) SetK6VuhUsage(v float32) {
-	o.K6VuhUsage = v
+	o.K6VuhUsage = &v
 }
 
-// GetK6IPIncludedUsage returns the K6IPIncludedUsage field value
+// GetK6IPIncludedUsage returns the K6IPIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6IPIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6IPIncludedUsage
+	return *o.K6IPIncludedUsage
 }
 
-// GetK6IPIncludedUsageOk returns a tuple with the K6IPIncludedUsage field value
+// GetK6IPIncludedUsageOk returns a tuple with the K6IPIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6IPIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPIncludedUsage) {
 		return nil, false
 	}
-	return &o.K6IPIncludedUsage, true
+	return o.K6IPIncludedUsage, true
 }
 
-// SetK6IPIncludedUsage sets field value
+// HasK6IPIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6IPIncludedUsage() bool {
+	if o != nil && !IsNil(o.K6IPIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6IPIncludedUsage gets a reference to the given float32 and assigns it to the K6IPIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetK6IPIncludedUsage(v float32) {
-	o.K6IPIncludedUsage = v
+	o.K6IPIncludedUsage = &v
 }
 
-// GetK6IPTier1Rate returns the K6IPTier1Rate field value
+// GetK6IPTier1Rate returns the K6IPTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6IPTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6IPTier1Rate
+	return *o.K6IPTier1Rate
 }
 
-// GetK6IPTier1RateOk returns a tuple with the K6IPTier1Rate field value
+// GetK6IPTier1RateOk returns a tuple with the K6IPTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6IPTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPTier1Rate) {
 		return nil, false
 	}
-	return &o.K6IPTier1Rate, true
+	return o.K6IPTier1Rate, true
 }
 
-// SetK6IPTier1Rate sets field value
+// HasK6IPTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6IPTier1Rate() bool {
+	if o != nil && !IsNil(o.K6IPTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6IPTier1Rate gets a reference to the given float32 and assigns it to the K6IPTier1Rate field.
 func (o *FormattedApiOrgPublic) SetK6IPTier1Rate(v float32) {
-	o.K6IPTier1Rate = v
+	o.K6IPTier1Rate = &v
 }
 
-// GetK6IPTier2Min returns the K6IPTier2Min field value
+// GetK6IPTier2Min returns the K6IPTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6IPTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6IPTier2Min
+	return *o.K6IPTier2Min
 }
 
-// GetK6IPTier2MinOk returns a tuple with the K6IPTier2Min field value
+// GetK6IPTier2MinOk returns a tuple with the K6IPTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6IPTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPTier2Min) {
 		return nil, false
 	}
-	return &o.K6IPTier2Min, true
+	return o.K6IPTier2Min, true
 }
 
-// SetK6IPTier2Min sets field value
+// HasK6IPTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6IPTier2Min() bool {
+	if o != nil && !IsNil(o.K6IPTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6IPTier2Min gets a reference to the given float32 and assigns it to the K6IPTier2Min field.
 func (o *FormattedApiOrgPublic) SetK6IPTier2Min(v float32) {
-	o.K6IPTier2Min = v
+	o.K6IPTier2Min = &v
 }
 
-// GetK6IPTier2Rate returns the K6IPTier2Rate field value
+// GetK6IPTier2Rate returns the K6IPTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6IPTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6IPTier2Rate
+	return *o.K6IPTier2Rate
 }
 
-// GetK6IPTier2RateOk returns a tuple with the K6IPTier2Rate field value
+// GetK6IPTier2RateOk returns a tuple with the K6IPTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6IPTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPTier2Rate) {
 		return nil, false
 	}
-	return &o.K6IPTier2Rate, true
+	return o.K6IPTier2Rate, true
 }
 
-// SetK6IPTier2Rate sets field value
+// HasK6IPTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6IPTier2Rate() bool {
+	if o != nil && !IsNil(o.K6IPTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6IPTier2Rate gets a reference to the given float32 and assigns it to the K6IPTier2Rate field.
 func (o *FormattedApiOrgPublic) SetK6IPTier2Rate(v float32) {
-	o.K6IPTier2Rate = v
+	o.K6IPTier2Rate = &v
 }
 
-// GetK6IPTier3Min returns the K6IPTier3Min field value
+// GetK6IPTier3Min returns the K6IPTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6IPTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6IPTier3Min
+	return *o.K6IPTier3Min
 }
 
-// GetK6IPTier3MinOk returns a tuple with the K6IPTier3Min field value
+// GetK6IPTier3MinOk returns a tuple with the K6IPTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6IPTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPTier3Min) {
 		return nil, false
 	}
-	return &o.K6IPTier3Min, true
+	return o.K6IPTier3Min, true
 }
 
-// SetK6IPTier3Min sets field value
+// HasK6IPTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6IPTier3Min() bool {
+	if o != nil && !IsNil(o.K6IPTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6IPTier3Min gets a reference to the given float32 and assigns it to the K6IPTier3Min field.
 func (o *FormattedApiOrgPublic) SetK6IPTier3Min(v float32) {
-	o.K6IPTier3Min = v
+	o.K6IPTier3Min = &v
 }
 
-// GetK6IPTier3Rate returns the K6IPTier3Rate field value
+// GetK6IPTier3Rate returns the K6IPTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6IPTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6IPTier3Rate
+	return *o.K6IPTier3Rate
 }
 
-// GetK6IPTier3RateOk returns a tuple with the K6IPTier3Rate field value
+// GetK6IPTier3RateOk returns a tuple with the K6IPTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6IPTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPTier3Rate) {
 		return nil, false
 	}
-	return &o.K6IPTier3Rate, true
+	return o.K6IPTier3Rate, true
 }
 
-// SetK6IPTier3Rate sets field value
+// HasK6IPTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6IPTier3Rate() bool {
+	if o != nil && !IsNil(o.K6IPTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6IPTier3Rate gets a reference to the given float32 and assigns it to the K6IPTier3Rate field.
 func (o *FormattedApiOrgPublic) SetK6IPTier3Rate(v float32) {
-	o.K6IPTier3Rate = v
+	o.K6IPTier3Rate = &v
 }
 
-// GetK6IPUsage returns the K6IPUsage field value
+// GetK6IPUsage returns the K6IPUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetK6IPUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.K6IPUsage
+	return *o.K6IPUsage
 }
 
-// GetK6IPUsageOk returns a tuple with the K6IPUsage field value
+// GetK6IPUsageOk returns a tuple with the K6IPUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetK6IPUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.K6IPUsage) {
 		return nil, false
 	}
-	return &o.K6IPUsage, true
+	return o.K6IPUsage, true
 }
 
-// SetK6IPUsage sets field value
+// HasK6IPUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasK6IPUsage() bool {
+	if o != nil && !IsNil(o.K6IPUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetK6IPUsage gets a reference to the given float32 and assigns it to the K6IPUsage field.
 func (o *FormattedApiOrgPublic) SetK6IPUsage(v float32) {
-	o.K6IPUsage = v
+	o.K6IPUsage = &v
 }
 
-// GetFeO11YIncludedUsage returns the FeO11YIncludedUsage field value
+// GetFeO11YIncludedUsage returns the FeO11YIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetFeO11YIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeO11YIncludedUsage
+	return *o.FeO11YIncludedUsage
 }
 
-// GetFeO11YIncludedUsageOk returns a tuple with the FeO11YIncludedUsage field value
+// GetFeO11YIncludedUsageOk returns a tuple with the FeO11YIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetFeO11YIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YIncludedUsage) {
 		return nil, false
 	}
-	return &o.FeO11YIncludedUsage, true
+	return o.FeO11YIncludedUsage, true
 }
 
-// SetFeO11YIncludedUsage sets field value
+// HasFeO11YIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasFeO11YIncludedUsage() bool {
+	if o != nil && !IsNil(o.FeO11YIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeO11YIncludedUsage gets a reference to the given float32 and assigns it to the FeO11YIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetFeO11YIncludedUsage(v float32) {
-	o.FeO11YIncludedUsage = v
+	o.FeO11YIncludedUsage = &v
 }
 
-// GetFeO11YTier1Rate returns the FeO11YTier1Rate field value
+// GetFeO11YTier1Rate returns the FeO11YTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetFeO11YTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeO11YTier1Rate
+	return *o.FeO11YTier1Rate
 }
 
-// GetFeO11YTier1RateOk returns a tuple with the FeO11YTier1Rate field value
+// GetFeO11YTier1RateOk returns a tuple with the FeO11YTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetFeO11YTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YTier1Rate) {
 		return nil, false
 	}
-	return &o.FeO11YTier1Rate, true
+	return o.FeO11YTier1Rate, true
 }
 
-// SetFeO11YTier1Rate sets field value
+// HasFeO11YTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasFeO11YTier1Rate() bool {
+	if o != nil && !IsNil(o.FeO11YTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeO11YTier1Rate gets a reference to the given float32 and assigns it to the FeO11YTier1Rate field.
 func (o *FormattedApiOrgPublic) SetFeO11YTier1Rate(v float32) {
-	o.FeO11YTier1Rate = v
+	o.FeO11YTier1Rate = &v
 }
 
-// GetFeO11YTier2Min returns the FeO11YTier2Min field value
+// GetFeO11YTier2Min returns the FeO11YTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetFeO11YTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeO11YTier2Min
+	return *o.FeO11YTier2Min
 }
 
-// GetFeO11YTier2MinOk returns a tuple with the FeO11YTier2Min field value
+// GetFeO11YTier2MinOk returns a tuple with the FeO11YTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetFeO11YTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YTier2Min) {
 		return nil, false
 	}
-	return &o.FeO11YTier2Min, true
+	return o.FeO11YTier2Min, true
 }
 
-// SetFeO11YTier2Min sets field value
+// HasFeO11YTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasFeO11YTier2Min() bool {
+	if o != nil && !IsNil(o.FeO11YTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeO11YTier2Min gets a reference to the given float32 and assigns it to the FeO11YTier2Min field.
 func (o *FormattedApiOrgPublic) SetFeO11YTier2Min(v float32) {
-	o.FeO11YTier2Min = v
+	o.FeO11YTier2Min = &v
 }
 
-// GetFeO11YTier2Rate returns the FeO11YTier2Rate field value
+// GetFeO11YTier2Rate returns the FeO11YTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetFeO11YTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeO11YTier2Rate
+	return *o.FeO11YTier2Rate
 }
 
-// GetFeO11YTier2RateOk returns a tuple with the FeO11YTier2Rate field value
+// GetFeO11YTier2RateOk returns a tuple with the FeO11YTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetFeO11YTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YTier2Rate) {
 		return nil, false
 	}
-	return &o.FeO11YTier2Rate, true
+	return o.FeO11YTier2Rate, true
 }
 
-// SetFeO11YTier2Rate sets field value
+// HasFeO11YTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasFeO11YTier2Rate() bool {
+	if o != nil && !IsNil(o.FeO11YTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeO11YTier2Rate gets a reference to the given float32 and assigns it to the FeO11YTier2Rate field.
 func (o *FormattedApiOrgPublic) SetFeO11YTier2Rate(v float32) {
-	o.FeO11YTier2Rate = v
+	o.FeO11YTier2Rate = &v
 }
 
-// GetFeO11YTier3Min returns the FeO11YTier3Min field value
+// GetFeO11YTier3Min returns the FeO11YTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetFeO11YTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeO11YTier3Min
+	return *o.FeO11YTier3Min
 }
 
-// GetFeO11YTier3MinOk returns a tuple with the FeO11YTier3Min field value
+// GetFeO11YTier3MinOk returns a tuple with the FeO11YTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetFeO11YTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YTier3Min) {
 		return nil, false
 	}
-	return &o.FeO11YTier3Min, true
+	return o.FeO11YTier3Min, true
 }
 
-// SetFeO11YTier3Min sets field value
+// HasFeO11YTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasFeO11YTier3Min() bool {
+	if o != nil && !IsNil(o.FeO11YTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeO11YTier3Min gets a reference to the given float32 and assigns it to the FeO11YTier3Min field.
 func (o *FormattedApiOrgPublic) SetFeO11YTier3Min(v float32) {
-	o.FeO11YTier3Min = v
+	o.FeO11YTier3Min = &v
 }
 
-// GetFeO11YTier3Rate returns the FeO11YTier3Rate field value
+// GetFeO11YTier3Rate returns the FeO11YTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetFeO11YTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeO11YTier3Rate
+	return *o.FeO11YTier3Rate
 }
 
-// GetFeO11YTier3RateOk returns a tuple with the FeO11YTier3Rate field value
+// GetFeO11YTier3RateOk returns a tuple with the FeO11YTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetFeO11YTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YTier3Rate) {
 		return nil, false
 	}
-	return &o.FeO11YTier3Rate, true
+	return o.FeO11YTier3Rate, true
 }
 
-// SetFeO11YTier3Rate sets field value
+// HasFeO11YTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasFeO11YTier3Rate() bool {
+	if o != nil && !IsNil(o.FeO11YTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeO11YTier3Rate gets a reference to the given float32 and assigns it to the FeO11YTier3Rate field.
 func (o *FormattedApiOrgPublic) SetFeO11YTier3Rate(v float32) {
-	o.FeO11YTier3Rate = v
+	o.FeO11YTier3Rate = &v
 }
 
-// GetFeO11YUnits returns the FeO11YUnits field value
+// GetFeO11YUnits returns the FeO11YUnits field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetFeO11YUnits() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YUnits) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeO11YUnits
+	return *o.FeO11YUnits
 }
 
-// GetFeO11YUnitsOk returns a tuple with the FeO11YUnits field value
+// GetFeO11YUnitsOk returns a tuple with the FeO11YUnits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetFeO11YUnitsOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YUnits) {
 		return nil, false
 	}
-	return &o.FeO11YUnits, true
+	return o.FeO11YUnits, true
 }
 
-// SetFeO11YUnits sets field value
+// HasFeO11YUnits returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasFeO11YUnits() bool {
+	if o != nil && !IsNil(o.FeO11YUnits) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeO11YUnits gets a reference to the given float32 and assigns it to the FeO11YUnits field.
 func (o *FormattedApiOrgPublic) SetFeO11YUnits(v float32) {
-	o.FeO11YUnits = v
+	o.FeO11YUnits = &v
 }
 
-// GetFeO11YUsage returns the FeO11YUsage field value
+// GetFeO11YUsage returns the FeO11YUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetFeO11YUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.FeO11YUsage
+	return *o.FeO11YUsage
 }
 
-// GetFeO11YUsageOk returns a tuple with the FeO11YUsage field value
+// GetFeO11YUsageOk returns a tuple with the FeO11YUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetFeO11YUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FeO11YUsage) {
 		return nil, false
 	}
-	return &o.FeO11YUsage, true
+	return o.FeO11YUsage, true
 }
 
-// SetFeO11YUsage sets field value
+// HasFeO11YUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasFeO11YUsage() bool {
+	if o != nil && !IsNil(o.FeO11YUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeO11YUsage gets a reference to the given float32 and assigns it to the FeO11YUsage field.
 func (o *FormattedApiOrgPublic) SetFeO11YUsage(v float32) {
-	o.FeO11YUsage = v
+	o.FeO11YUsage = &v
 }
 
-// GetGeUsersIncludedUsage returns the GeUsersIncludedUsage field value
+// GetGeUsersIncludedUsage returns the GeUsersIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeUsersIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeUsersIncludedUsage
+	return *o.GeUsersIncludedUsage
 }
 
-// GetGeUsersIncludedUsageOk returns a tuple with the GeUsersIncludedUsage field value
+// GetGeUsersIncludedUsageOk returns a tuple with the GeUsersIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeUsersIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersIncludedUsage) {
 		return nil, false
 	}
-	return &o.GeUsersIncludedUsage, true
+	return o.GeUsersIncludedUsage, true
 }
 
-// SetGeUsersIncludedUsage sets field value
+// HasGeUsersIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeUsersIncludedUsage() bool {
+	if o != nil && !IsNil(o.GeUsersIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeUsersIncludedUsage gets a reference to the given float32 and assigns it to the GeUsersIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetGeUsersIncludedUsage(v float32) {
-	o.GeUsersIncludedUsage = v
+	o.GeUsersIncludedUsage = &v
 }
 
-// GetGeUsersTier1Rate returns the GeUsersTier1Rate field value
+// GetGeUsersTier1Rate returns the GeUsersTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeUsersTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeUsersTier1Rate
+	return *o.GeUsersTier1Rate
 }
 
-// GetGeUsersTier1RateOk returns a tuple with the GeUsersTier1Rate field value
+// GetGeUsersTier1RateOk returns a tuple with the GeUsersTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeUsersTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersTier1Rate) {
 		return nil, false
 	}
-	return &o.GeUsersTier1Rate, true
+	return o.GeUsersTier1Rate, true
 }
 
-// SetGeUsersTier1Rate sets field value
+// HasGeUsersTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeUsersTier1Rate() bool {
+	if o != nil && !IsNil(o.GeUsersTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeUsersTier1Rate gets a reference to the given float32 and assigns it to the GeUsersTier1Rate field.
 func (o *FormattedApiOrgPublic) SetGeUsersTier1Rate(v float32) {
-	o.GeUsersTier1Rate = v
+	o.GeUsersTier1Rate = &v
 }
 
-// GetGeUsersTier2Min returns the GeUsersTier2Min field value
+// GetGeUsersTier2Min returns the GeUsersTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeUsersTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeUsersTier2Min
+	return *o.GeUsersTier2Min
 }
 
-// GetGeUsersTier2MinOk returns a tuple with the GeUsersTier2Min field value
+// GetGeUsersTier2MinOk returns a tuple with the GeUsersTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeUsersTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersTier2Min) {
 		return nil, false
 	}
-	return &o.GeUsersTier2Min, true
+	return o.GeUsersTier2Min, true
 }
 
-// SetGeUsersTier2Min sets field value
+// HasGeUsersTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeUsersTier2Min() bool {
+	if o != nil && !IsNil(o.GeUsersTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeUsersTier2Min gets a reference to the given float32 and assigns it to the GeUsersTier2Min field.
 func (o *FormattedApiOrgPublic) SetGeUsersTier2Min(v float32) {
-	o.GeUsersTier2Min = v
+	o.GeUsersTier2Min = &v
 }
 
-// GetGeUsersTier2Rate returns the GeUsersTier2Rate field value
+// GetGeUsersTier2Rate returns the GeUsersTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeUsersTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeUsersTier2Rate
+	return *o.GeUsersTier2Rate
 }
 
-// GetGeUsersTier2RateOk returns a tuple with the GeUsersTier2Rate field value
+// GetGeUsersTier2RateOk returns a tuple with the GeUsersTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeUsersTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersTier2Rate) {
 		return nil, false
 	}
-	return &o.GeUsersTier2Rate, true
+	return o.GeUsersTier2Rate, true
 }
 
-// SetGeUsersTier2Rate sets field value
+// HasGeUsersTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeUsersTier2Rate() bool {
+	if o != nil && !IsNil(o.GeUsersTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeUsersTier2Rate gets a reference to the given float32 and assigns it to the GeUsersTier2Rate field.
 func (o *FormattedApiOrgPublic) SetGeUsersTier2Rate(v float32) {
-	o.GeUsersTier2Rate = v
+	o.GeUsersTier2Rate = &v
 }
 
-// GetGeUsersTier3Min returns the GeUsersTier3Min field value
+// GetGeUsersTier3Min returns the GeUsersTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeUsersTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeUsersTier3Min
+	return *o.GeUsersTier3Min
 }
 
-// GetGeUsersTier3MinOk returns a tuple with the GeUsersTier3Min field value
+// GetGeUsersTier3MinOk returns a tuple with the GeUsersTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeUsersTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersTier3Min) {
 		return nil, false
 	}
-	return &o.GeUsersTier3Min, true
+	return o.GeUsersTier3Min, true
 }
 
-// SetGeUsersTier3Min sets field value
+// HasGeUsersTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeUsersTier3Min() bool {
+	if o != nil && !IsNil(o.GeUsersTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeUsersTier3Min gets a reference to the given float32 and assigns it to the GeUsersTier3Min field.
 func (o *FormattedApiOrgPublic) SetGeUsersTier3Min(v float32) {
-	o.GeUsersTier3Min = v
+	o.GeUsersTier3Min = &v
 }
 
-// GetGeUsersTier3Rate returns the GeUsersTier3Rate field value
+// GetGeUsersTier3Rate returns the GeUsersTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeUsersTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeUsersTier3Rate
+	return *o.GeUsersTier3Rate
 }
 
-// GetGeUsersTier3RateOk returns a tuple with the GeUsersTier3Rate field value
+// GetGeUsersTier3RateOk returns a tuple with the GeUsersTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeUsersTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersTier3Rate) {
 		return nil, false
 	}
-	return &o.GeUsersTier3Rate, true
+	return o.GeUsersTier3Rate, true
 }
 
-// SetGeUsersTier3Rate sets field value
+// HasGeUsersTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeUsersTier3Rate() bool {
+	if o != nil && !IsNil(o.GeUsersTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeUsersTier3Rate gets a reference to the given float32 and assigns it to the GeUsersTier3Rate field.
 func (o *FormattedApiOrgPublic) SetGeUsersTier3Rate(v float32) {
-	o.GeUsersTier3Rate = v
+	o.GeUsersTier3Rate = &v
 }
 
-// GetGeUsersUsage returns the GeUsersUsage field value
+// GetGeUsersUsage returns the GeUsersUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeUsersUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeUsersUsage
+	return *o.GeUsersUsage
 }
 
-// GetGeUsersUsageOk returns a tuple with the GeUsersUsage field value
+// GetGeUsersUsageOk returns a tuple with the GeUsersUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeUsersUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeUsersUsage) {
 		return nil, false
 	}
-	return &o.GeUsersUsage, true
+	return o.GeUsersUsage, true
 }
 
-// SetGeUsersUsage sets field value
+// HasGeUsersUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeUsersUsage() bool {
+	if o != nil && !IsNil(o.GeUsersUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeUsersUsage gets a reference to the given float32 and assigns it to the GeUsersUsage field.
 func (o *FormattedApiOrgPublic) SetGeUsersUsage(v float32) {
-	o.GeUsersUsage = v
+	o.GeUsersUsage = &v
 }
 
-// GetGeInstancesIncludedUsage returns the GeInstancesIncludedUsage field value
+// GetGeInstancesIncludedUsage returns the GeInstancesIncludedUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeInstancesIncludedUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesIncludedUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeInstancesIncludedUsage
+	return *o.GeInstancesIncludedUsage
 }
 
-// GetGeInstancesIncludedUsageOk returns a tuple with the GeInstancesIncludedUsage field value
+// GetGeInstancesIncludedUsageOk returns a tuple with the GeInstancesIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeInstancesIncludedUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesIncludedUsage) {
 		return nil, false
 	}
-	return &o.GeInstancesIncludedUsage, true
+	return o.GeInstancesIncludedUsage, true
 }
 
-// SetGeInstancesIncludedUsage sets field value
+// HasGeInstancesIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeInstancesIncludedUsage() bool {
+	if o != nil && !IsNil(o.GeInstancesIncludedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeInstancesIncludedUsage gets a reference to the given float32 and assigns it to the GeInstancesIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetGeInstancesIncludedUsage(v float32) {
-	o.GeInstancesIncludedUsage = v
+	o.GeInstancesIncludedUsage = &v
 }
 
-// GetGeInstancesTier1Rate returns the GeInstancesTier1Rate field value
+// GetGeInstancesTier1Rate returns the GeInstancesTier1Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeInstancesTier1Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesTier1Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeInstancesTier1Rate
+	return *o.GeInstancesTier1Rate
 }
 
-// GetGeInstancesTier1RateOk returns a tuple with the GeInstancesTier1Rate field value
+// GetGeInstancesTier1RateOk returns a tuple with the GeInstancesTier1Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeInstancesTier1RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesTier1Rate) {
 		return nil, false
 	}
-	return &o.GeInstancesTier1Rate, true
+	return o.GeInstancesTier1Rate, true
 }
 
-// SetGeInstancesTier1Rate sets field value
+// HasGeInstancesTier1Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeInstancesTier1Rate() bool {
+	if o != nil && !IsNil(o.GeInstancesTier1Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeInstancesTier1Rate gets a reference to the given float32 and assigns it to the GeInstancesTier1Rate field.
 func (o *FormattedApiOrgPublic) SetGeInstancesTier1Rate(v float32) {
-	o.GeInstancesTier1Rate = v
+	o.GeInstancesTier1Rate = &v
 }
 
-// GetGeInstancesTier2Min returns the GeInstancesTier2Min field value
+// GetGeInstancesTier2Min returns the GeInstancesTier2Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeInstancesTier2Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesTier2Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeInstancesTier2Min
+	return *o.GeInstancesTier2Min
 }
 
-// GetGeInstancesTier2MinOk returns a tuple with the GeInstancesTier2Min field value
+// GetGeInstancesTier2MinOk returns a tuple with the GeInstancesTier2Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeInstancesTier2MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesTier2Min) {
 		return nil, false
 	}
-	return &o.GeInstancesTier2Min, true
+	return o.GeInstancesTier2Min, true
 }
 
-// SetGeInstancesTier2Min sets field value
+// HasGeInstancesTier2Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeInstancesTier2Min() bool {
+	if o != nil && !IsNil(o.GeInstancesTier2Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeInstancesTier2Min gets a reference to the given float32 and assigns it to the GeInstancesTier2Min field.
 func (o *FormattedApiOrgPublic) SetGeInstancesTier2Min(v float32) {
-	o.GeInstancesTier2Min = v
+	o.GeInstancesTier2Min = &v
 }
 
-// GetGeInstancesTier2Rate returns the GeInstancesTier2Rate field value
+// GetGeInstancesTier2Rate returns the GeInstancesTier2Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeInstancesTier2Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesTier2Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeInstancesTier2Rate
+	return *o.GeInstancesTier2Rate
 }
 
-// GetGeInstancesTier2RateOk returns a tuple with the GeInstancesTier2Rate field value
+// GetGeInstancesTier2RateOk returns a tuple with the GeInstancesTier2Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeInstancesTier2RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesTier2Rate) {
 		return nil, false
 	}
-	return &o.GeInstancesTier2Rate, true
+	return o.GeInstancesTier2Rate, true
 }
 
-// SetGeInstancesTier2Rate sets field value
+// HasGeInstancesTier2Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeInstancesTier2Rate() bool {
+	if o != nil && !IsNil(o.GeInstancesTier2Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeInstancesTier2Rate gets a reference to the given float32 and assigns it to the GeInstancesTier2Rate field.
 func (o *FormattedApiOrgPublic) SetGeInstancesTier2Rate(v float32) {
-	o.GeInstancesTier2Rate = v
+	o.GeInstancesTier2Rate = &v
 }
 
-// GetGeInstancesTier3Min returns the GeInstancesTier3Min field value
+// GetGeInstancesTier3Min returns the GeInstancesTier3Min field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeInstancesTier3Min() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesTier3Min) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeInstancesTier3Min
+	return *o.GeInstancesTier3Min
 }
 
-// GetGeInstancesTier3MinOk returns a tuple with the GeInstancesTier3Min field value
+// GetGeInstancesTier3MinOk returns a tuple with the GeInstancesTier3Min field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeInstancesTier3MinOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesTier3Min) {
 		return nil, false
 	}
-	return &o.GeInstancesTier3Min, true
+	return o.GeInstancesTier3Min, true
 }
 
-// SetGeInstancesTier3Min sets field value
+// HasGeInstancesTier3Min returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeInstancesTier3Min() bool {
+	if o != nil && !IsNil(o.GeInstancesTier3Min) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeInstancesTier3Min gets a reference to the given float32 and assigns it to the GeInstancesTier3Min field.
 func (o *FormattedApiOrgPublic) SetGeInstancesTier3Min(v float32) {
-	o.GeInstancesTier3Min = v
+	o.GeInstancesTier3Min = &v
 }
 
-// GetGeInstancesTier3Rate returns the GeInstancesTier3Rate field value
+// GetGeInstancesTier3Rate returns the GeInstancesTier3Rate field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeInstancesTier3Rate() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesTier3Rate) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeInstancesTier3Rate
+	return *o.GeInstancesTier3Rate
 }
 
-// GetGeInstancesTier3RateOk returns a tuple with the GeInstancesTier3Rate field value
+// GetGeInstancesTier3RateOk returns a tuple with the GeInstancesTier3Rate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeInstancesTier3RateOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesTier3Rate) {
 		return nil, false
 	}
-	return &o.GeInstancesTier3Rate, true
+	return o.GeInstancesTier3Rate, true
 }
 
-// SetGeInstancesTier3Rate sets field value
+// HasGeInstancesTier3Rate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeInstancesTier3Rate() bool {
+	if o != nil && !IsNil(o.GeInstancesTier3Rate) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeInstancesTier3Rate gets a reference to the given float32 and assigns it to the GeInstancesTier3Rate field.
 func (o *FormattedApiOrgPublic) SetGeInstancesTier3Rate(v float32) {
-	o.GeInstancesTier3Rate = v
+	o.GeInstancesTier3Rate = &v
 }
 
-// GetGeInstancesUsage returns the GeInstancesUsage field value
+// GetGeInstancesUsage returns the GeInstancesUsage field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetGeInstancesUsage() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesUsage) {
 		var ret float32
 		return ret
 	}
-
-	return o.GeInstancesUsage
+	return *o.GeInstancesUsage
 }
 
-// GetGeInstancesUsageOk returns a tuple with the GeInstancesUsage field value
+// GetGeInstancesUsageOk returns a tuple with the GeInstancesUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetGeInstancesUsageOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.GeInstancesUsage) {
 		return nil, false
 	}
-	return &o.GeInstancesUsage, true
+	return o.GeInstancesUsage, true
 }
 
-// SetGeInstancesUsage sets field value
+// HasGeInstancesUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasGeInstancesUsage() bool {
+	if o != nil && !IsNil(o.GeInstancesUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeInstancesUsage gets a reference to the given float32 and assigns it to the GeInstancesUsage field.
 func (o *FormattedApiOrgPublic) SetGeInstancesUsage(v float32) {
-	o.GeInstancesUsage = v
+	o.GeInstancesUsage = &v
 }
 
-// GetHgPluginUsersOverageRate returns the HgPluginUsersOverageRate field value
-// If the value is explicit nil, the zero value for float32 will be returned
+// GetHgPluginUsersOverageRate returns the HgPluginUsersOverageRate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetHgPluginUsersOverageRate() float32 {
-	if o == nil || o.HgPluginUsersOverageRate.Get() == nil {
+	if o == nil || IsNil(o.HgPluginUsersOverageRate.Get()) {
 		var ret float32
 		return ret
 	}
-
 	return *o.HgPluginUsersOverageRate.Get()
 }
 
-// GetHgPluginUsersOverageRateOk returns a tuple with the HgPluginUsersOverageRate field value
+// GetHgPluginUsersOverageRateOk returns a tuple with the HgPluginUsersOverageRate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetHgPluginUsersOverageRateOk() (*float32, bool) {
@@ -3411,23 +4354,40 @@ func (o *FormattedApiOrgPublic) GetHgPluginUsersOverageRateOk() (*float32, bool)
 	return o.HgPluginUsersOverageRate.Get(), o.HgPluginUsersOverageRate.IsSet()
 }
 
-// SetHgPluginUsersOverageRate sets field value
+// HasHgPluginUsersOverageRate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgPluginUsersOverageRate() bool {
+	if o != nil && o.HgPluginUsersOverageRate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHgPluginUsersOverageRate gets a reference to the given NullableFloat32 and assigns it to the HgPluginUsersOverageRate field.
 func (o *FormattedApiOrgPublic) SetHgPluginUsersOverageRate(v float32) {
 	o.HgPluginUsersOverageRate.Set(&v)
 }
 
-// GetHgPluginUsersIncludedUsage returns the HgPluginUsersIncludedUsage field value
-// If the value is explicit nil, the zero value for float32 will be returned
+// SetHgPluginUsersOverageRateNil sets the value for HgPluginUsersOverageRate to be an explicit nil
+func (o *FormattedApiOrgPublic) SetHgPluginUsersOverageRateNil() {
+	o.HgPluginUsersOverageRate.Set(nil)
+}
+
+// UnsetHgPluginUsersOverageRate ensures that no value is present for HgPluginUsersOverageRate, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetHgPluginUsersOverageRate() {
+	o.HgPluginUsersOverageRate.Unset()
+}
+
+// GetHgPluginUsersIncludedUsage returns the HgPluginUsersIncludedUsage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetHgPluginUsersIncludedUsage() float32 {
-	if o == nil || o.HgPluginUsersIncludedUsage.Get() == nil {
+	if o == nil || IsNil(o.HgPluginUsersIncludedUsage.Get()) {
 		var ret float32
 		return ret
 	}
-
 	return *o.HgPluginUsersIncludedUsage.Get()
 }
 
-// GetHgPluginUsersIncludedUsageOk returns a tuple with the HgPluginUsersIncludedUsage field value
+// GetHgPluginUsersIncludedUsageOk returns a tuple with the HgPluginUsersIncludedUsage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetHgPluginUsersIncludedUsageOk() (*float32, bool) {
@@ -3437,47 +4397,72 @@ func (o *FormattedApiOrgPublic) GetHgPluginUsersIncludedUsageOk() (*float32, boo
 	return o.HgPluginUsersIncludedUsage.Get(), o.HgPluginUsersIncludedUsage.IsSet()
 }
 
-// SetHgPluginUsersIncludedUsage sets field value
+// HasHgPluginUsersIncludedUsage returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasHgPluginUsersIncludedUsage() bool {
+	if o != nil && o.HgPluginUsersIncludedUsage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHgPluginUsersIncludedUsage gets a reference to the given NullableFloat32 and assigns it to the HgPluginUsersIncludedUsage field.
 func (o *FormattedApiOrgPublic) SetHgPluginUsersIncludedUsage(v float32) {
 	o.HgPluginUsersIncludedUsage.Set(&v)
 }
 
-// GetAwsMarketplaceSupport returns the AwsMarketplaceSupport field value
+// SetHgPluginUsersIncludedUsageNil sets the value for HgPluginUsersIncludedUsage to be an explicit nil
+func (o *FormattedApiOrgPublic) SetHgPluginUsersIncludedUsageNil() {
+	o.HgPluginUsersIncludedUsage.Set(nil)
+}
+
+// UnsetHgPluginUsersIncludedUsage ensures that no value is present for HgPluginUsersIncludedUsage, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetHgPluginUsersIncludedUsage() {
+	o.HgPluginUsersIncludedUsage.Unset()
+}
+
+// GetAwsMarketplaceSupport returns the AwsMarketplaceSupport field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetAwsMarketplaceSupport() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.AwsMarketplaceSupport) {
 		var ret float32
 		return ret
 	}
-
-	return o.AwsMarketplaceSupport
+	return *o.AwsMarketplaceSupport
 }
 
-// GetAwsMarketplaceSupportOk returns a tuple with the AwsMarketplaceSupport field value
+// GetAwsMarketplaceSupportOk returns a tuple with the AwsMarketplaceSupport field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetAwsMarketplaceSupportOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AwsMarketplaceSupport) {
 		return nil, false
 	}
-	return &o.AwsMarketplaceSupport, true
+	return o.AwsMarketplaceSupport, true
 }
 
-// SetAwsMarketplaceSupport sets field value
+// HasAwsMarketplaceSupport returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasAwsMarketplaceSupport() bool {
+	if o != nil && !IsNil(o.AwsMarketplaceSupport) {
+		return true
+	}
+
+	return false
+}
+
+// SetAwsMarketplaceSupport gets a reference to the given float32 and assigns it to the AwsMarketplaceSupport field.
 func (o *FormattedApiOrgPublic) SetAwsMarketplaceSupport(v float32) {
-	o.AwsMarketplaceSupport = v
+	o.AwsMarketplaceSupport = &v
 }
 
-// GetTrialStartDate returns the TrialStartDate field value
-// If the value is explicit nil, the zero value for string will be returned
+// GetTrialStartDate returns the TrialStartDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetTrialStartDate() string {
-	if o == nil || o.TrialStartDate.Get() == nil {
+	if o == nil || IsNil(o.TrialStartDate.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.TrialStartDate.Get()
 }
 
-// GetTrialStartDateOk returns a tuple with the TrialStartDate field value
+// GetTrialStartDateOk returns a tuple with the TrialStartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetTrialStartDateOk() (*string, bool) {
@@ -3487,23 +4472,40 @@ func (o *FormattedApiOrgPublic) GetTrialStartDateOk() (*string, bool) {
 	return o.TrialStartDate.Get(), o.TrialStartDate.IsSet()
 }
 
-// SetTrialStartDate sets field value
+// HasTrialStartDate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasTrialStartDate() bool {
+	if o != nil && o.TrialStartDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTrialStartDate gets a reference to the given NullableString and assigns it to the TrialStartDate field.
 func (o *FormattedApiOrgPublic) SetTrialStartDate(v string) {
 	o.TrialStartDate.Set(&v)
 }
 
-// GetTrialEndDate returns the TrialEndDate field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetTrialStartDateNil sets the value for TrialStartDate to be an explicit nil
+func (o *FormattedApiOrgPublic) SetTrialStartDateNil() {
+	o.TrialStartDate.Set(nil)
+}
+
+// UnsetTrialStartDate ensures that no value is present for TrialStartDate, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetTrialStartDate() {
+	o.TrialStartDate.Unset()
+}
+
+// GetTrialEndDate returns the TrialEndDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetTrialEndDate() string {
-	if o == nil || o.TrialEndDate.Get() == nil {
+	if o == nil || IsNil(o.TrialEndDate.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.TrialEndDate.Get()
 }
 
-// GetTrialEndDateOk returns a tuple with the TrialEndDate field value
+// GetTrialEndDateOk returns a tuple with the TrialEndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetTrialEndDateOk() (*string, bool) {
@@ -3513,23 +4515,40 @@ func (o *FormattedApiOrgPublic) GetTrialEndDateOk() (*string, bool) {
 	return o.TrialEndDate.Get(), o.TrialEndDate.IsSet()
 }
 
-// SetTrialEndDate sets field value
+// HasTrialEndDate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasTrialEndDate() bool {
+	if o != nil && o.TrialEndDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTrialEndDate gets a reference to the given NullableString and assigns it to the TrialEndDate field.
 func (o *FormattedApiOrgPublic) SetTrialEndDate(v string) {
 	o.TrialEndDate.Set(&v)
 }
 
-// GetTrialLengthDays returns the TrialLengthDays field value
-// If the value is explicit nil, the zero value for float32 will be returned
+// SetTrialEndDateNil sets the value for TrialEndDate to be an explicit nil
+func (o *FormattedApiOrgPublic) SetTrialEndDateNil() {
+	o.TrialEndDate.Set(nil)
+}
+
+// UnsetTrialEndDate ensures that no value is present for TrialEndDate, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetTrialEndDate() {
+	o.TrialEndDate.Unset()
+}
+
+// GetTrialLengthDays returns the TrialLengthDays field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetTrialLengthDays() float32 {
-	if o == nil || o.TrialLengthDays.Get() == nil {
+	if o == nil || IsNil(o.TrialLengthDays.Get()) {
 		var ret float32
 		return ret
 	}
-
 	return *o.TrialLengthDays.Get()
 }
 
-// GetTrialLengthDaysOk returns a tuple with the TrialLengthDays field value
+// GetTrialLengthDaysOk returns a tuple with the TrialLengthDays field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetTrialLengthDaysOk() (*float32, bool) {
@@ -3539,23 +4558,40 @@ func (o *FormattedApiOrgPublic) GetTrialLengthDaysOk() (*float32, bool) {
 	return o.TrialLengthDays.Get(), o.TrialLengthDays.IsSet()
 }
 
-// SetTrialLengthDays sets field value
+// HasTrialLengthDays returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasTrialLengthDays() bool {
+	if o != nil && o.TrialLengthDays.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTrialLengthDays gets a reference to the given NullableFloat32 and assigns it to the TrialLengthDays field.
 func (o *FormattedApiOrgPublic) SetTrialLengthDays(v float32) {
 	o.TrialLengthDays.Set(&v)
 }
 
-// GetTrialNoticeDate returns the TrialNoticeDate field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetTrialLengthDaysNil sets the value for TrialLengthDays to be an explicit nil
+func (o *FormattedApiOrgPublic) SetTrialLengthDaysNil() {
+	o.TrialLengthDays.Set(nil)
+}
+
+// UnsetTrialLengthDays ensures that no value is present for TrialLengthDays, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetTrialLengthDays() {
+	o.TrialLengthDays.Unset()
+}
+
+// GetTrialNoticeDate returns the TrialNoticeDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetTrialNoticeDate() string {
-	if o == nil || o.TrialNoticeDate.Get() == nil {
+	if o == nil || IsNil(o.TrialNoticeDate.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.TrialNoticeDate.Get()
 }
 
-// GetTrialNoticeDateOk returns a tuple with the TrialNoticeDate field value
+// GetTrialNoticeDateOk returns a tuple with the TrialNoticeDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetTrialNoticeDateOk() (*string, bool) {
@@ -3565,23 +4601,40 @@ func (o *FormattedApiOrgPublic) GetTrialNoticeDateOk() (*string, bool) {
 	return o.TrialNoticeDate.Get(), o.TrialNoticeDate.IsSet()
 }
 
-// SetTrialNoticeDate sets field value
+// HasTrialNoticeDate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasTrialNoticeDate() bool {
+	if o != nil && o.TrialNoticeDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTrialNoticeDate gets a reference to the given NullableString and assigns it to the TrialNoticeDate field.
 func (o *FormattedApiOrgPublic) SetTrialNoticeDate(v string) {
 	o.TrialNoticeDate.Set(&v)
 }
 
-// GetCancellationDate returns the CancellationDate field value
-// If the value is explicit nil, the zero value for string will be returned
+// SetTrialNoticeDateNil sets the value for TrialNoticeDate to be an explicit nil
+func (o *FormattedApiOrgPublic) SetTrialNoticeDateNil() {
+	o.TrialNoticeDate.Set(nil)
+}
+
+// UnsetTrialNoticeDate ensures that no value is present for TrialNoticeDate, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetTrialNoticeDate() {
+	o.TrialNoticeDate.Unset()
+}
+
+// GetCancellationDate returns the CancellationDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiOrgPublic) GetCancellationDate() string {
-	if o == nil || o.CancellationDate.Get() == nil {
+	if o == nil || IsNil(o.CancellationDate.Get()) {
 		var ret string
 		return ret
 	}
-
 	return *o.CancellationDate.Get()
 }
 
-// GetCancellationDateOk returns a tuple with the CancellationDate field value
+// GetCancellationDateOk returns a tuple with the CancellationDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiOrgPublic) GetCancellationDateOk() (*string, bool) {
@@ -3591,177 +4644,252 @@ func (o *FormattedApiOrgPublic) GetCancellationDateOk() (*string, bool) {
 	return o.CancellationDate.Get(), o.CancellationDate.IsSet()
 }
 
-// SetCancellationDate sets field value
+// HasCancellationDate returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasCancellationDate() bool {
+	if o != nil && o.CancellationDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCancellationDate gets a reference to the given NullableString and assigns it to the CancellationDate field.
 func (o *FormattedApiOrgPublic) SetCancellationDate(v string) {
 	o.CancellationDate.Set(&v)
 }
 
-// GetRetainedStackId returns the RetainedStackId field value
+// SetCancellationDateNil sets the value for CancellationDate to be an explicit nil
+func (o *FormattedApiOrgPublic) SetCancellationDateNil() {
+	o.CancellationDate.Set(nil)
+}
+
+// UnsetCancellationDate ensures that no value is present for CancellationDate, not even an explicit nil
+func (o *FormattedApiOrgPublic) UnsetCancellationDate() {
+	o.CancellationDate.Unset()
+}
+
+// GetRetainedStackId returns the RetainedStackId field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetRetainedStackId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.RetainedStackId) {
 		var ret float32
 		return ret
 	}
-
-	return o.RetainedStackId
+	return *o.RetainedStackId
 }
 
-// GetRetainedStackIdOk returns a tuple with the RetainedStackId field value
+// GetRetainedStackIdOk returns a tuple with the RetainedStackId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetRetainedStackIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RetainedStackId) {
 		return nil, false
 	}
-	return &o.RetainedStackId, true
+	return o.RetainedStackId, true
 }
 
-// SetRetainedStackId sets field value
+// HasRetainedStackId returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasRetainedStackId() bool {
+	if o != nil && !IsNil(o.RetainedStackId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRetainedStackId gets a reference to the given float32 and assigns it to the RetainedStackId field.
 func (o *FormattedApiOrgPublic) SetRetainedStackId(v float32) {
-	o.RetainedStackId = v
+	o.RetainedStackId = &v
 }
 
-// GetAllowGCloudTrial returns the AllowGCloudTrial field value
+// GetAllowGCloudTrial returns the AllowGCloudTrial field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetAllowGCloudTrial() FormattedApiOrgPublicAllowGCloudTrial {
-	if o == nil {
+	if o == nil || IsNil(o.AllowGCloudTrial) {
 		var ret FormattedApiOrgPublicAllowGCloudTrial
 		return ret
 	}
-
-	return o.AllowGCloudTrial
+	return *o.AllowGCloudTrial
 }
 
-// GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value
+// GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetAllowGCloudTrialOk() (*FormattedApiOrgPublicAllowGCloudTrial, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AllowGCloudTrial) {
 		return nil, false
 	}
-	return &o.AllowGCloudTrial, true
+	return o.AllowGCloudTrial, true
 }
 
-// SetAllowGCloudTrial sets field value
+// HasAllowGCloudTrial returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasAllowGCloudTrial() bool {
+	if o != nil && !IsNil(o.AllowGCloudTrial) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowGCloudTrial gets a reference to the given FormattedApiOrgPublicAllowGCloudTrial and assigns it to the AllowGCloudTrial field.
 func (o *FormattedApiOrgPublic) SetAllowGCloudTrial(v FormattedApiOrgPublicAllowGCloudTrial) {
-	o.AllowGCloudTrial = v
+	o.AllowGCloudTrial = &v
 }
 
-// GetPluginSignatureType returns the PluginSignatureType field value
+// GetPluginSignatureType returns the PluginSignatureType field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetPluginSignatureType() string {
-	if o == nil {
+	if o == nil || IsNil(o.PluginSignatureType) {
 		var ret string
 		return ret
 	}
-
-	return o.PluginSignatureType
+	return *o.PluginSignatureType
 }
 
-// GetPluginSignatureTypeOk returns a tuple with the PluginSignatureType field value
+// GetPluginSignatureTypeOk returns a tuple with the PluginSignatureType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetPluginSignatureTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PluginSignatureType) {
 		return nil, false
 	}
-	return &o.PluginSignatureType, true
+	return o.PluginSignatureType, true
 }
 
-// SetPluginSignatureType sets field value
+// HasPluginSignatureType returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasPluginSignatureType() bool {
+	if o != nil && !IsNil(o.PluginSignatureType) {
+		return true
+	}
+
+	return false
+}
+
+// SetPluginSignatureType gets a reference to the given string and assigns it to the PluginSignatureType field.
 func (o *FormattedApiOrgPublic) SetPluginSignatureType(v string) {
-	o.PluginSignatureType = v
+	o.PluginSignatureType = &v
 }
 
-// GetContractType returns the ContractType field value
+// GetContractType returns the ContractType field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetContractType() string {
-	if o == nil {
+	if o == nil || IsNil(o.ContractType) {
 		var ret string
 		return ret
 	}
-
-	return o.ContractType
+	return *o.ContractType
 }
 
-// GetContractTypeOk returns a tuple with the ContractType field value
+// GetContractTypeOk returns a tuple with the ContractType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetContractTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ContractType) {
 		return nil, false
 	}
-	return &o.ContractType, true
+	return o.ContractType, true
 }
 
-// SetContractType sets field value
+// HasContractType returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasContractType() bool {
+	if o != nil && !IsNil(o.ContractType) {
+		return true
+	}
+
+	return false
+}
+
+// SetContractType gets a reference to the given string and assigns it to the ContractType field.
 func (o *FormattedApiOrgPublic) SetContractType(v string) {
-	o.ContractType = v
+	o.ContractType = &v
 }
 
-// GetContractTypeId returns the ContractTypeId field value
+// GetContractTypeId returns the ContractTypeId field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetContractTypeId() float32 {
-	if o == nil {
+	if o == nil || IsNil(o.ContractTypeId) {
 		var ret float32
 		return ret
 	}
-
-	return o.ContractTypeId
+	return *o.ContractTypeId
 }
 
-// GetContractTypeIdOk returns a tuple with the ContractTypeId field value
+// GetContractTypeIdOk returns a tuple with the ContractTypeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetContractTypeIdOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ContractTypeId) {
 		return nil, false
 	}
-	return &o.ContractTypeId, true
+	return o.ContractTypeId, true
 }
 
-// SetContractTypeId sets field value
+// HasContractTypeId returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasContractTypeId() bool {
+	if o != nil && !IsNil(o.ContractTypeId) {
+		return true
+	}
+
+	return false
+}
+
+// SetContractTypeId gets a reference to the given float32 and assigns it to the ContractTypeId field.
 func (o *FormattedApiOrgPublic) SetContractTypeId(v float32) {
-	o.ContractTypeId = v
+	o.ContractTypeId = &v
 }
 
-// GetLinks returns the Links field value
+// GetLinks returns the Links field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetLinks() []LinksInner1 {
-	if o == nil {
+	if o == nil || IsNil(o.Links) {
 		var ret []LinksInner1
 		return ret
 	}
-
 	return o.Links
 }
 
-// GetLinksOk returns a tuple with the Links field value
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetLinksOk() ([]LinksInner1, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Links) {
 		return nil, false
 	}
 	return o.Links, true
 }
 
-// SetLinks sets field value
+// HasLinks returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasLinks() bool {
+	if o != nil && !IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given []LinksInner1 and assigns it to the Links field.
 func (o *FormattedApiOrgPublic) SetLinks(v []LinksInner1) {
 	o.Links = v
 }
 
-// GetSubscriptions returns the Subscriptions field value
+// GetSubscriptions returns the Subscriptions field value if set, zero value otherwise.
 func (o *FormattedApiOrgPublic) GetSubscriptions() Subscriptions {
-	if o == nil {
+	if o == nil || IsNil(o.Subscriptions) {
 		var ret Subscriptions
 		return ret
 	}
-
-	return o.Subscriptions
+	return *o.Subscriptions
 }
 
-// GetSubscriptionsOk returns a tuple with the Subscriptions field value
+// GetSubscriptionsOk returns a tuple with the Subscriptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *FormattedApiOrgPublic) GetSubscriptionsOk() (*Subscriptions, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Subscriptions) {
 		return nil, false
 	}
-	return &o.Subscriptions, true
+	return o.Subscriptions, true
 }
 
-// SetSubscriptions sets field value
+// HasSubscriptions returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasSubscriptions() bool {
+	if o != nil && !IsNil(o.Subscriptions) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubscriptions gets a reference to the given Subscriptions and assigns it to the Subscriptions field.
 func (o *FormattedApiOrgPublic) SetSubscriptions(v Subscriptions) {
-	o.Subscriptions = v
+	o.Subscriptions = &v
 }
 
 func (o FormattedApiOrgPublic) MarshalJSON() ([]byte, error) {
@@ -3774,148 +4902,432 @@ func (o FormattedApiOrgPublic) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["slug"] = o.Slug
-	toSerialize["name"] = o.Name
-	toSerialize["url"] = o.Url
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["createdBy"] = o.CreatedBy.Get()
-	toSerialize["updatedAt"] = o.UpdatedAt.Get()
-	toSerialize["updatedBy"] = o.UpdatedBy.Get()
-	toSerialize["avatar"] = o.Avatar.Get()
-	toSerialize["checksPerMonth"] = o.ChecksPerMonth
-	toSerialize["wpPlan"] = o.WpPlan
-	toSerialize["hgInstanceLimit"] = o.HgInstanceLimit
-	toSerialize["hmInstanceLimit"] = o.HmInstanceLimit
-	toSerialize["hlInstanceLimit"] = o.HlInstanceLimit
-	toSerialize["userQuota"] = o.UserQuota
-	toSerialize["supportPlan"] = o.SupportPlan
-	toSerialize["creditApproved"] = o.CreditApproved
-	toSerialize["msaSignedAt"] = o.MsaSignedAt.Get()
-	toSerialize["msaSignedBy"] = o.MsaSignedBy.Get()
-	toSerialize["enterprisePlugins"] = o.EnterprisePlugins
-	toSerialize["grafanaCloud"] = o.GrafanaCloud
-	toSerialize["privacy"] = o.Privacy
-	toSerialize["reseller"] = o.Reseller
-	toSerialize["resellerId"] = o.ResellerId.Get()
-	toSerialize["resellerName"] = o.ResellerName.Get()
-	toSerialize["emergencySupport"] = o.EmergencySupport
-	toSerialize["gcloudMonthlyCost"] = o.GcloudMonthlyCost
-	toSerialize["hgIncludedUsers"] = o.HgIncludedUsers
-	toSerialize["hgTier1Rate"] = o.HgTier1Rate
-	toSerialize["hgTier2Min"] = o.HgTier2Min
-	toSerialize["hgTier2Rate"] = o.HgTier2Rate
-	toSerialize["hgTier3Min"] = o.HgTier3Min
-	toSerialize["hgTier3Rate"] = o.HgTier3Rate
-	toSerialize["hgUsage"] = o.HgUsage
-	toSerialize["hgCurrentActiveUsers"] = o.HgCurrentActiveUsers
-	toSerialize["hgGrafanaUsage"] = o.HgGrafanaUsage
-	toSerialize["hgOnCallUsage"] = o.HgOnCallUsage
-	toSerialize["hmIncludedSeries"] = o.HmIncludedSeries
-	toSerialize["hmAverageDpm"] = o.HmAverageDpm
-	toSerialize["hmTier1Rate"] = o.HmTier1Rate
-	toSerialize["hmTier2Min"] = o.HmTier2Min
-	toSerialize["hmTier2Rate"] = o.HmTier2Rate
-	toSerialize["hmTier3Min"] = o.HmTier3Min
-	toSerialize["hmTier3Rate"] = o.HmTier3Rate
-	toSerialize["hmUsage"] = o.HmUsage
-	toSerialize["hmCurrentUsage"] = o.HmCurrentUsage
-	toSerialize["hmGraphiteIncludedUsage"] = o.HmGraphiteIncludedUsage
-	toSerialize["hmGraphiteTier1Rate"] = o.HmGraphiteTier1Rate
-	toSerialize["hmGraphiteTier2Min"] = o.HmGraphiteTier2Min
-	toSerialize["hmGraphiteTier2Rate"] = o.HmGraphiteTier2Rate
-	toSerialize["hmGraphiteTier3Min"] = o.HmGraphiteTier3Min
-	toSerialize["hmGraphiteTier3Rate"] = o.HmGraphiteTier3Rate
-	toSerialize["hmGraphiteUsage"] = o.HmGraphiteUsage
-	toSerialize["hlIncludedUsage"] = o.HlIncludedUsage
-	toSerialize["hlQueryToIngestRatio"] = o.HlQueryToIngestRatio
-	toSerialize["hlTier1Rate"] = o.HlTier1Rate
-	toSerialize["hlTier2Min"] = o.HlTier2Min
-	toSerialize["hlTier2Rate"] = o.HlTier2Rate
-	toSerialize["hlTier3Min"] = o.HlTier3Min
-	toSerialize["hlTier3Rate"] = o.HlTier3Rate
-	toSerialize["hlUsage"] = o.HlUsage
-	toSerialize["hlRetentionIncludedUsage"] = o.HlRetentionIncludedUsage
-	toSerialize["hlRetentionTier1Rate"] = o.HlRetentionTier1Rate
-	toSerialize["hlRetentionTier2Min"] = o.HlRetentionTier2Min
-	toSerialize["hlRetentionTier2Rate"] = o.HlRetentionTier2Rate
-	toSerialize["hlRetentionTier3Min"] = o.HlRetentionTier3Min
-	toSerialize["hlRetentionTier3Rate"] = o.HlRetentionTier3Rate
-	toSerialize["hlRetentionUsage"] = o.HlRetentionUsage
-	toSerialize["htIncludedUsage"] = o.HtIncludedUsage
-	toSerialize["htTier1Rate"] = o.HtTier1Rate
-	toSerialize["htTier2Min"] = o.HtTier2Min
-	toSerialize["htTier2Rate"] = o.HtTier2Rate
-	toSerialize["htTier3Min"] = o.HtTier3Min
-	toSerialize["htTier3Rate"] = o.HtTier3Rate
-	toSerialize["htUsage"] = o.HtUsage
-	toSerialize["hpIncludedUsage"] = o.HpIncludedUsage
-	toSerialize["hpTier1Rate"] = o.HpTier1Rate
-	toSerialize["hpTier2Min"] = o.HpTier2Min
-	toSerialize["hpTier2Rate"] = o.HpTier2Rate
-	toSerialize["hpTier3Min"] = o.HpTier3Min
-	toSerialize["hpTier3Rate"] = o.HpTier3Rate
-	toSerialize["hpUsage"] = o.HpUsage
-	toSerialize["irmStatus"] = o.IrmStatus
-	toSerialize["irmIncludedUsage"] = o.IrmIncludedUsage
-	toSerialize["irmTier1Rate"] = o.IrmTier1Rate
-	toSerialize["irmTier2Min"] = o.IrmTier2Min
-	toSerialize["irmTier2Rate"] = o.IrmTier2Rate
-	toSerialize["irmTier3Min"] = o.IrmTier3Min
-	toSerialize["irmTier3Rate"] = o.IrmTier3Rate
-	toSerialize["irmUsage"] = o.IrmUsage
-	toSerialize["k6VuhIncludedUsage"] = o.K6VuhIncludedUsage
-	toSerialize["k6VuhTier1Rate"] = o.K6VuhTier1Rate
-	toSerialize["k6VuhTier2Min"] = o.K6VuhTier2Min
-	toSerialize["k6VuhTier2Rate"] = o.K6VuhTier2Rate
-	toSerialize["k6VuhTier3Min"] = o.K6VuhTier3Min
-	toSerialize["k6VuhTier3Rate"] = o.K6VuhTier3Rate
-	toSerialize["k6VuhUnits"] = o.K6VuhUnits
-	toSerialize["k6VuhUsage"] = o.K6VuhUsage
-	toSerialize["k6IPIncludedUsage"] = o.K6IPIncludedUsage
-	toSerialize["k6IPTier1Rate"] = o.K6IPTier1Rate
-	toSerialize["k6IPTier2Min"] = o.K6IPTier2Min
-	toSerialize["k6IPTier2Rate"] = o.K6IPTier2Rate
-	toSerialize["k6IPTier3Min"] = o.K6IPTier3Min
-	toSerialize["k6IPTier3Rate"] = o.K6IPTier3Rate
-	toSerialize["k6IPUsage"] = o.K6IPUsage
-	toSerialize["feO11YIncludedUsage"] = o.FeO11YIncludedUsage
-	toSerialize["feO11YTier1Rate"] = o.FeO11YTier1Rate
-	toSerialize["feO11YTier2Min"] = o.FeO11YTier2Min
-	toSerialize["feO11YTier2Rate"] = o.FeO11YTier2Rate
-	toSerialize["feO11YTier3Min"] = o.FeO11YTier3Min
-	toSerialize["feO11YTier3Rate"] = o.FeO11YTier3Rate
-	toSerialize["feO11YUnits"] = o.FeO11YUnits
-	toSerialize["feO11YUsage"] = o.FeO11YUsage
-	toSerialize["geUsersIncludedUsage"] = o.GeUsersIncludedUsage
-	toSerialize["geUsersTier1Rate"] = o.GeUsersTier1Rate
-	toSerialize["geUsersTier2Min"] = o.GeUsersTier2Min
-	toSerialize["geUsersTier2Rate"] = o.GeUsersTier2Rate
-	toSerialize["geUsersTier3Min"] = o.GeUsersTier3Min
-	toSerialize["geUsersTier3Rate"] = o.GeUsersTier3Rate
-	toSerialize["geUsersUsage"] = o.GeUsersUsage
-	toSerialize["geInstancesIncludedUsage"] = o.GeInstancesIncludedUsage
-	toSerialize["geInstancesTier1Rate"] = o.GeInstancesTier1Rate
-	toSerialize["geInstancesTier2Min"] = o.GeInstancesTier2Min
-	toSerialize["geInstancesTier2Rate"] = o.GeInstancesTier2Rate
-	toSerialize["geInstancesTier3Min"] = o.GeInstancesTier3Min
-	toSerialize["geInstancesTier3Rate"] = o.GeInstancesTier3Rate
-	toSerialize["geInstancesUsage"] = o.GeInstancesUsage
-	toSerialize["hgPluginUsersOverageRate"] = o.HgPluginUsersOverageRate.Get()
-	toSerialize["hgPluginUsersIncludedUsage"] = o.HgPluginUsersIncludedUsage.Get()
-	toSerialize["awsMarketplaceSupport"] = o.AwsMarketplaceSupport
-	toSerialize["trialStartDate"] = o.TrialStartDate.Get()
-	toSerialize["trialEndDate"] = o.TrialEndDate.Get()
-	toSerialize["trialLengthDays"] = o.TrialLengthDays.Get()
-	toSerialize["trialNoticeDate"] = o.TrialNoticeDate.Get()
-	toSerialize["cancellationDate"] = o.CancellationDate.Get()
-	toSerialize["retainedStackId"] = o.RetainedStackId
-	toSerialize["allowGCloudTrial"] = o.AllowGCloudTrial
-	toSerialize["pluginSignatureType"] = o.PluginSignatureType
-	toSerialize["contractType"] = o.ContractType
-	toSerialize["contractTypeId"] = o.ContractTypeId
-	toSerialize["links"] = o.Links
-	toSerialize["subscriptions"] = o.Subscriptions
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.Slug) {
+		toSerialize["slug"] = o.Slug
+	}
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["createdAt"] = o.CreatedAt
+	}
+	if o.CreatedBy.IsSet() {
+		toSerialize["createdBy"] = o.CreatedBy.Get()
+	}
+	if o.UpdatedAt.IsSet() {
+		toSerialize["updatedAt"] = o.UpdatedAt.Get()
+	}
+	if o.UpdatedBy.IsSet() {
+		toSerialize["updatedBy"] = o.UpdatedBy.Get()
+	}
+	if o.Avatar.IsSet() {
+		toSerialize["avatar"] = o.Avatar.Get()
+	}
+	if !IsNil(o.ChecksPerMonth) {
+		toSerialize["checksPerMonth"] = o.ChecksPerMonth
+	}
+	if !IsNil(o.WpPlan) {
+		toSerialize["wpPlan"] = o.WpPlan
+	}
+	if !IsNil(o.HgInstanceLimit) {
+		toSerialize["hgInstanceLimit"] = o.HgInstanceLimit
+	}
+	if !IsNil(o.HmInstanceLimit) {
+		toSerialize["hmInstanceLimit"] = o.HmInstanceLimit
+	}
+	if !IsNil(o.HlInstanceLimit) {
+		toSerialize["hlInstanceLimit"] = o.HlInstanceLimit
+	}
+	if !IsNil(o.UserQuota) {
+		toSerialize["userQuota"] = o.UserQuota
+	}
+	if !IsNil(o.SupportPlan) {
+		toSerialize["supportPlan"] = o.SupportPlan
+	}
+	if !IsNil(o.CreditApproved) {
+		toSerialize["creditApproved"] = o.CreditApproved
+	}
+	if o.MsaSignedAt.IsSet() {
+		toSerialize["msaSignedAt"] = o.MsaSignedAt.Get()
+	}
+	if o.MsaSignedBy.IsSet() {
+		toSerialize["msaSignedBy"] = o.MsaSignedBy.Get()
+	}
+	if !IsNil(o.EnterprisePlugins) {
+		toSerialize["enterprisePlugins"] = o.EnterprisePlugins
+	}
+	if !IsNil(o.GrafanaCloud) {
+		toSerialize["grafanaCloud"] = o.GrafanaCloud
+	}
+	if !IsNil(o.Privacy) {
+		toSerialize["privacy"] = o.Privacy
+	}
+	if !IsNil(o.Reseller) {
+		toSerialize["reseller"] = o.Reseller
+	}
+	if o.ResellerId.IsSet() {
+		toSerialize["resellerId"] = o.ResellerId.Get()
+	}
+	if o.ResellerName.IsSet() {
+		toSerialize["resellerName"] = o.ResellerName.Get()
+	}
+	if !IsNil(o.EmergencySupport) {
+		toSerialize["emergencySupport"] = o.EmergencySupport
+	}
+	if !IsNil(o.GcloudMonthlyCost) {
+		toSerialize["gcloudMonthlyCost"] = o.GcloudMonthlyCost
+	}
+	if !IsNil(o.HgIncludedUsers) {
+		toSerialize["hgIncludedUsers"] = o.HgIncludedUsers
+	}
+	if !IsNil(o.HgTier1Rate) {
+		toSerialize["hgTier1Rate"] = o.HgTier1Rate
+	}
+	if !IsNil(o.HgTier2Min) {
+		toSerialize["hgTier2Min"] = o.HgTier2Min
+	}
+	if !IsNil(o.HgTier2Rate) {
+		toSerialize["hgTier2Rate"] = o.HgTier2Rate
+	}
+	if !IsNil(o.HgTier3Min) {
+		toSerialize["hgTier3Min"] = o.HgTier3Min
+	}
+	if !IsNil(o.HgTier3Rate) {
+		toSerialize["hgTier3Rate"] = o.HgTier3Rate
+	}
+	if !IsNil(o.HgUsage) {
+		toSerialize["hgUsage"] = o.HgUsage
+	}
+	if !IsNil(o.HgCurrentActiveUsers) {
+		toSerialize["hgCurrentActiveUsers"] = o.HgCurrentActiveUsers
+	}
+	if !IsNil(o.HgGrafanaUsage) {
+		toSerialize["hgGrafanaUsage"] = o.HgGrafanaUsage
+	}
+	if !IsNil(o.HgOnCallUsage) {
+		toSerialize["hgOnCallUsage"] = o.HgOnCallUsage
+	}
+	if !IsNil(o.HmIncludedSeries) {
+		toSerialize["hmIncludedSeries"] = o.HmIncludedSeries
+	}
+	if !IsNil(o.HmAverageDpm) {
+		toSerialize["hmAverageDpm"] = o.HmAverageDpm
+	}
+	if !IsNil(o.HmTier1Rate) {
+		toSerialize["hmTier1Rate"] = o.HmTier1Rate
+	}
+	if !IsNil(o.HmTier2Min) {
+		toSerialize["hmTier2Min"] = o.HmTier2Min
+	}
+	if !IsNil(o.HmTier2Rate) {
+		toSerialize["hmTier2Rate"] = o.HmTier2Rate
+	}
+	if !IsNil(o.HmTier3Min) {
+		toSerialize["hmTier3Min"] = o.HmTier3Min
+	}
+	if !IsNil(o.HmTier3Rate) {
+		toSerialize["hmTier3Rate"] = o.HmTier3Rate
+	}
+	if !IsNil(o.HmUsage) {
+		toSerialize["hmUsage"] = o.HmUsage
+	}
+	if !IsNil(o.HmCurrentUsage) {
+		toSerialize["hmCurrentUsage"] = o.HmCurrentUsage
+	}
+	if !IsNil(o.HmGraphiteIncludedUsage) {
+		toSerialize["hmGraphiteIncludedUsage"] = o.HmGraphiteIncludedUsage
+	}
+	if !IsNil(o.HmGraphiteTier1Rate) {
+		toSerialize["hmGraphiteTier1Rate"] = o.HmGraphiteTier1Rate
+	}
+	if !IsNil(o.HmGraphiteTier2Min) {
+		toSerialize["hmGraphiteTier2Min"] = o.HmGraphiteTier2Min
+	}
+	if !IsNil(o.HmGraphiteTier2Rate) {
+		toSerialize["hmGraphiteTier2Rate"] = o.HmGraphiteTier2Rate
+	}
+	if !IsNil(o.HmGraphiteTier3Min) {
+		toSerialize["hmGraphiteTier3Min"] = o.HmGraphiteTier3Min
+	}
+	if !IsNil(o.HmGraphiteTier3Rate) {
+		toSerialize["hmGraphiteTier3Rate"] = o.HmGraphiteTier3Rate
+	}
+	if !IsNil(o.HmGraphiteUsage) {
+		toSerialize["hmGraphiteUsage"] = o.HmGraphiteUsage
+	}
+	if !IsNil(o.HlIncludedUsage) {
+		toSerialize["hlIncludedUsage"] = o.HlIncludedUsage
+	}
+	if !IsNil(o.HlQueryToIngestRatio) {
+		toSerialize["hlQueryToIngestRatio"] = o.HlQueryToIngestRatio
+	}
+	if !IsNil(o.HlTier1Rate) {
+		toSerialize["hlTier1Rate"] = o.HlTier1Rate
+	}
+	if !IsNil(o.HlTier2Min) {
+		toSerialize["hlTier2Min"] = o.HlTier2Min
+	}
+	if !IsNil(o.HlTier2Rate) {
+		toSerialize["hlTier2Rate"] = o.HlTier2Rate
+	}
+	if !IsNil(o.HlTier3Min) {
+		toSerialize["hlTier3Min"] = o.HlTier3Min
+	}
+	if !IsNil(o.HlTier3Rate) {
+		toSerialize["hlTier3Rate"] = o.HlTier3Rate
+	}
+	if !IsNil(o.HlUsage) {
+		toSerialize["hlUsage"] = o.HlUsage
+	}
+	if !IsNil(o.HlRetentionIncludedUsage) {
+		toSerialize["hlRetentionIncludedUsage"] = o.HlRetentionIncludedUsage
+	}
+	if !IsNil(o.HlRetentionTier1Rate) {
+		toSerialize["hlRetentionTier1Rate"] = o.HlRetentionTier1Rate
+	}
+	if !IsNil(o.HlRetentionTier2Min) {
+		toSerialize["hlRetentionTier2Min"] = o.HlRetentionTier2Min
+	}
+	if !IsNil(o.HlRetentionTier2Rate) {
+		toSerialize["hlRetentionTier2Rate"] = o.HlRetentionTier2Rate
+	}
+	if !IsNil(o.HlRetentionTier3Min) {
+		toSerialize["hlRetentionTier3Min"] = o.HlRetentionTier3Min
+	}
+	if !IsNil(o.HlRetentionTier3Rate) {
+		toSerialize["hlRetentionTier3Rate"] = o.HlRetentionTier3Rate
+	}
+	if !IsNil(o.HlRetentionUsage) {
+		toSerialize["hlRetentionUsage"] = o.HlRetentionUsage
+	}
+	if !IsNil(o.HtIncludedUsage) {
+		toSerialize["htIncludedUsage"] = o.HtIncludedUsage
+	}
+	if !IsNil(o.HtTier1Rate) {
+		toSerialize["htTier1Rate"] = o.HtTier1Rate
+	}
+	if !IsNil(o.HtTier2Min) {
+		toSerialize["htTier2Min"] = o.HtTier2Min
+	}
+	if !IsNil(o.HtTier2Rate) {
+		toSerialize["htTier2Rate"] = o.HtTier2Rate
+	}
+	if !IsNil(o.HtTier3Min) {
+		toSerialize["htTier3Min"] = o.HtTier3Min
+	}
+	if !IsNil(o.HtTier3Rate) {
+		toSerialize["htTier3Rate"] = o.HtTier3Rate
+	}
+	if !IsNil(o.HtUsage) {
+		toSerialize["htUsage"] = o.HtUsage
+	}
+	if !IsNil(o.HpIncludedUsage) {
+		toSerialize["hpIncludedUsage"] = o.HpIncludedUsage
+	}
+	if !IsNil(o.HpTier1Rate) {
+		toSerialize["hpTier1Rate"] = o.HpTier1Rate
+	}
+	if !IsNil(o.HpTier2Min) {
+		toSerialize["hpTier2Min"] = o.HpTier2Min
+	}
+	if !IsNil(o.HpTier2Rate) {
+		toSerialize["hpTier2Rate"] = o.HpTier2Rate
+	}
+	if !IsNil(o.HpTier3Min) {
+		toSerialize["hpTier3Min"] = o.HpTier3Min
+	}
+	if !IsNil(o.HpTier3Rate) {
+		toSerialize["hpTier3Rate"] = o.HpTier3Rate
+	}
+	if !IsNil(o.HpUsage) {
+		toSerialize["hpUsage"] = o.HpUsage
+	}
+	if !IsNil(o.IrmStatus) {
+		toSerialize["irmStatus"] = o.IrmStatus
+	}
+	if !IsNil(o.IrmIncludedUsage) {
+		toSerialize["irmIncludedUsage"] = o.IrmIncludedUsage
+	}
+	if !IsNil(o.IrmTier1Rate) {
+		toSerialize["irmTier1Rate"] = o.IrmTier1Rate
+	}
+	if !IsNil(o.IrmTier2Min) {
+		toSerialize["irmTier2Min"] = o.IrmTier2Min
+	}
+	if !IsNil(o.IrmTier2Rate) {
+		toSerialize["irmTier2Rate"] = o.IrmTier2Rate
+	}
+	if !IsNil(o.IrmTier3Min) {
+		toSerialize["irmTier3Min"] = o.IrmTier3Min
+	}
+	if !IsNil(o.IrmTier3Rate) {
+		toSerialize["irmTier3Rate"] = o.IrmTier3Rate
+	}
+	if !IsNil(o.IrmUsage) {
+		toSerialize["irmUsage"] = o.IrmUsage
+	}
+	if !IsNil(o.K6VuhIncludedUsage) {
+		toSerialize["k6VuhIncludedUsage"] = o.K6VuhIncludedUsage
+	}
+	if !IsNil(o.K6VuhTier1Rate) {
+		toSerialize["k6VuhTier1Rate"] = o.K6VuhTier1Rate
+	}
+	if !IsNil(o.K6VuhTier2Min) {
+		toSerialize["k6VuhTier2Min"] = o.K6VuhTier2Min
+	}
+	if !IsNil(o.K6VuhTier2Rate) {
+		toSerialize["k6VuhTier2Rate"] = o.K6VuhTier2Rate
+	}
+	if !IsNil(o.K6VuhTier3Min) {
+		toSerialize["k6VuhTier3Min"] = o.K6VuhTier3Min
+	}
+	if !IsNil(o.K6VuhTier3Rate) {
+		toSerialize["k6VuhTier3Rate"] = o.K6VuhTier3Rate
+	}
+	if !IsNil(o.K6VuhUnits) {
+		toSerialize["k6VuhUnits"] = o.K6VuhUnits
+	}
+	if !IsNil(o.K6VuhUsage) {
+		toSerialize["k6VuhUsage"] = o.K6VuhUsage
+	}
+	if !IsNil(o.K6IPIncludedUsage) {
+		toSerialize["k6IPIncludedUsage"] = o.K6IPIncludedUsage
+	}
+	if !IsNil(o.K6IPTier1Rate) {
+		toSerialize["k6IPTier1Rate"] = o.K6IPTier1Rate
+	}
+	if !IsNil(o.K6IPTier2Min) {
+		toSerialize["k6IPTier2Min"] = o.K6IPTier2Min
+	}
+	if !IsNil(o.K6IPTier2Rate) {
+		toSerialize["k6IPTier2Rate"] = o.K6IPTier2Rate
+	}
+	if !IsNil(o.K6IPTier3Min) {
+		toSerialize["k6IPTier3Min"] = o.K6IPTier3Min
+	}
+	if !IsNil(o.K6IPTier3Rate) {
+		toSerialize["k6IPTier3Rate"] = o.K6IPTier3Rate
+	}
+	if !IsNil(o.K6IPUsage) {
+		toSerialize["k6IPUsage"] = o.K6IPUsage
+	}
+	if !IsNil(o.FeO11YIncludedUsage) {
+		toSerialize["feO11YIncludedUsage"] = o.FeO11YIncludedUsage
+	}
+	if !IsNil(o.FeO11YTier1Rate) {
+		toSerialize["feO11YTier1Rate"] = o.FeO11YTier1Rate
+	}
+	if !IsNil(o.FeO11YTier2Min) {
+		toSerialize["feO11YTier2Min"] = o.FeO11YTier2Min
+	}
+	if !IsNil(o.FeO11YTier2Rate) {
+		toSerialize["feO11YTier2Rate"] = o.FeO11YTier2Rate
+	}
+	if !IsNil(o.FeO11YTier3Min) {
+		toSerialize["feO11YTier3Min"] = o.FeO11YTier3Min
+	}
+	if !IsNil(o.FeO11YTier3Rate) {
+		toSerialize["feO11YTier3Rate"] = o.FeO11YTier3Rate
+	}
+	if !IsNil(o.FeO11YUnits) {
+		toSerialize["feO11YUnits"] = o.FeO11YUnits
+	}
+	if !IsNil(o.FeO11YUsage) {
+		toSerialize["feO11YUsage"] = o.FeO11YUsage
+	}
+	if !IsNil(o.GeUsersIncludedUsage) {
+		toSerialize["geUsersIncludedUsage"] = o.GeUsersIncludedUsage
+	}
+	if !IsNil(o.GeUsersTier1Rate) {
+		toSerialize["geUsersTier1Rate"] = o.GeUsersTier1Rate
+	}
+	if !IsNil(o.GeUsersTier2Min) {
+		toSerialize["geUsersTier2Min"] = o.GeUsersTier2Min
+	}
+	if !IsNil(o.GeUsersTier2Rate) {
+		toSerialize["geUsersTier2Rate"] = o.GeUsersTier2Rate
+	}
+	if !IsNil(o.GeUsersTier3Min) {
+		toSerialize["geUsersTier3Min"] = o.GeUsersTier3Min
+	}
+	if !IsNil(o.GeUsersTier3Rate) {
+		toSerialize["geUsersTier3Rate"] = o.GeUsersTier3Rate
+	}
+	if !IsNil(o.GeUsersUsage) {
+		toSerialize["geUsersUsage"] = o.GeUsersUsage
+	}
+	if !IsNil(o.GeInstancesIncludedUsage) {
+		toSerialize["geInstancesIncludedUsage"] = o.GeInstancesIncludedUsage
+	}
+	if !IsNil(o.GeInstancesTier1Rate) {
+		toSerialize["geInstancesTier1Rate"] = o.GeInstancesTier1Rate
+	}
+	if !IsNil(o.GeInstancesTier2Min) {
+		toSerialize["geInstancesTier2Min"] = o.GeInstancesTier2Min
+	}
+	if !IsNil(o.GeInstancesTier2Rate) {
+		toSerialize["geInstancesTier2Rate"] = o.GeInstancesTier2Rate
+	}
+	if !IsNil(o.GeInstancesTier3Min) {
+		toSerialize["geInstancesTier3Min"] = o.GeInstancesTier3Min
+	}
+	if !IsNil(o.GeInstancesTier3Rate) {
+		toSerialize["geInstancesTier3Rate"] = o.GeInstancesTier3Rate
+	}
+	if !IsNil(o.GeInstancesUsage) {
+		toSerialize["geInstancesUsage"] = o.GeInstancesUsage
+	}
+	if o.HgPluginUsersOverageRate.IsSet() {
+		toSerialize["hgPluginUsersOverageRate"] = o.HgPluginUsersOverageRate.Get()
+	}
+	if o.HgPluginUsersIncludedUsage.IsSet() {
+		toSerialize["hgPluginUsersIncludedUsage"] = o.HgPluginUsersIncludedUsage.Get()
+	}
+	if !IsNil(o.AwsMarketplaceSupport) {
+		toSerialize["awsMarketplaceSupport"] = o.AwsMarketplaceSupport
+	}
+	if o.TrialStartDate.IsSet() {
+		toSerialize["trialStartDate"] = o.TrialStartDate.Get()
+	}
+	if o.TrialEndDate.IsSet() {
+		toSerialize["trialEndDate"] = o.TrialEndDate.Get()
+	}
+	if o.TrialLengthDays.IsSet() {
+		toSerialize["trialLengthDays"] = o.TrialLengthDays.Get()
+	}
+	if o.TrialNoticeDate.IsSet() {
+		toSerialize["trialNoticeDate"] = o.TrialNoticeDate.Get()
+	}
+	if o.CancellationDate.IsSet() {
+		toSerialize["cancellationDate"] = o.CancellationDate.Get()
+	}
+	if !IsNil(o.RetainedStackId) {
+		toSerialize["retainedStackId"] = o.RetainedStackId
+	}
+	if !IsNil(o.AllowGCloudTrial) {
+		toSerialize["allowGCloudTrial"] = o.AllowGCloudTrial
+	}
+	if !IsNil(o.PluginSignatureType) {
+		toSerialize["pluginSignatureType"] = o.PluginSignatureType
+	}
+	if !IsNil(o.ContractType) {
+		toSerialize["contractType"] = o.ContractType
+	}
+	if !IsNil(o.ContractTypeId) {
+		toSerialize["contractTypeId"] = o.ContractTypeId
+	}
+	if !IsNil(o.Links) {
+		toSerialize["links"] = o.Links
+	}
+	if !IsNil(o.Subscriptions) {
+		toSerialize["subscriptions"] = o.Subscriptions
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -3925,168 +5337,6 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"slug",
-		"name",
-		"url",
-		"createdAt",
-		"createdBy",
-		"updatedAt",
-		"updatedBy",
-		"avatar",
-		"checksPerMonth",
-		"wpPlan",
-		"hgInstanceLimit",
-		"hmInstanceLimit",
-		"hlInstanceLimit",
-		"userQuota",
-		"supportPlan",
-		"creditApproved",
-		"msaSignedAt",
-		"msaSignedBy",
-		"enterprisePlugins",
-		"grafanaCloud",
-		"privacy",
-		"reseller",
-		"resellerId",
-		"resellerName",
-		"emergencySupport",
-		"gcloudMonthlyCost",
-		"hgIncludedUsers",
-		"hgTier1Rate",
-		"hgTier2Min",
-		"hgTier2Rate",
-		"hgTier3Min",
-		"hgTier3Rate",
-		"hgUsage",
-		"hgCurrentActiveUsers",
-		"hgGrafanaUsage",
-		"hgOnCallUsage",
-		"hmIncludedSeries",
-		"hmAverageDpm",
-		"hmTier1Rate",
-		"hmTier2Min",
-		"hmTier2Rate",
-		"hmTier3Min",
-		"hmTier3Rate",
-		"hmUsage",
-		"hmCurrentUsage",
-		"hmGraphiteIncludedUsage",
-		"hmGraphiteTier1Rate",
-		"hmGraphiteTier2Min",
-		"hmGraphiteTier2Rate",
-		"hmGraphiteTier3Min",
-		"hmGraphiteTier3Rate",
-		"hmGraphiteUsage",
-		"hlIncludedUsage",
-		"hlQueryToIngestRatio",
-		"hlTier1Rate",
-		"hlTier2Min",
-		"hlTier2Rate",
-		"hlTier3Min",
-		"hlTier3Rate",
-		"hlUsage",
-		"hlRetentionIncludedUsage",
-		"hlRetentionTier1Rate",
-		"hlRetentionTier2Min",
-		"hlRetentionTier2Rate",
-		"hlRetentionTier3Min",
-		"hlRetentionTier3Rate",
-		"hlRetentionUsage",
-		"htIncludedUsage",
-		"htTier1Rate",
-		"htTier2Min",
-		"htTier2Rate",
-		"htTier3Min",
-		"htTier3Rate",
-		"htUsage",
-		"hpIncludedUsage",
-		"hpTier1Rate",
-		"hpTier2Min",
-		"hpTier2Rate",
-		"hpTier3Min",
-		"hpTier3Rate",
-		"hpUsage",
-		"irmStatus",
-		"irmIncludedUsage",
-		"irmTier1Rate",
-		"irmTier2Min",
-		"irmTier2Rate",
-		"irmTier3Min",
-		"irmTier3Rate",
-		"irmUsage",
-		"k6VuhIncludedUsage",
-		"k6VuhTier1Rate",
-		"k6VuhTier2Min",
-		"k6VuhTier2Rate",
-		"k6VuhTier3Min",
-		"k6VuhTier3Rate",
-		"k6VuhUnits",
-		"k6VuhUsage",
-		"k6IPIncludedUsage",
-		"k6IPTier1Rate",
-		"k6IPTier2Min",
-		"k6IPTier2Rate",
-		"k6IPTier3Min",
-		"k6IPTier3Rate",
-		"k6IPUsage",
-		"feO11YIncludedUsage",
-		"feO11YTier1Rate",
-		"feO11YTier2Min",
-		"feO11YTier2Rate",
-		"feO11YTier3Min",
-		"feO11YTier3Rate",
-		"feO11YUnits",
-		"feO11YUsage",
-		"geUsersIncludedUsage",
-		"geUsersTier1Rate",
-		"geUsersTier2Min",
-		"geUsersTier2Rate",
-		"geUsersTier3Min",
-		"geUsersTier3Rate",
-		"geUsersUsage",
-		"geInstancesIncludedUsage",
-		"geInstancesTier1Rate",
-		"geInstancesTier2Min",
-		"geInstancesTier2Rate",
-		"geInstancesTier3Min",
-		"geInstancesTier3Rate",
-		"geInstancesUsage",
-		"hgPluginUsersOverageRate",
-		"hgPluginUsersIncludedUsage",
-		"awsMarketplaceSupport",
-		"trialStartDate",
-		"trialEndDate",
-		"trialLengthDays",
-		"trialNoticeDate",
-		"cancellationDate",
-		"retainedStackId",
-		"allowGCloudTrial",
-		"pluginSignatureType",
-		"contractType",
-		"contractTypeId",
-		"links",
-		"subscriptions",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
 	varFormattedApiOrgPublic := _FormattedApiOrgPublic{}
 
 	err = json.Unmarshal(data, &varFormattedApiOrgPublic)

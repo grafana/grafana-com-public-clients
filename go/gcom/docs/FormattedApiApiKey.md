@@ -4,24 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
-**OrgId** | **float32** |  | 
-**OrgSlug** | **string** |  | 
-**OrgName** | **string** |  | 
-**InstanceId** | **NullableFloat32** |  | 
-**Name** | **string** |  | 
-**Role** | **string** |  | 
-**CreatedAt** | **string** |  | 
-**UpdatedAt** | **NullableString** |  | 
-**FirstUsed** | **NullableString** |  | 
+**Id** | Pointer to **float32** |  | [optional] 
+**OrgId** | Pointer to **float32** |  | [optional] 
+**OrgSlug** | Pointer to **string** |  | [optional] 
+**OrgName** | Pointer to **string** |  | [optional] 
+**InstanceId** | Pointer to **NullableFloat32** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Role** | Pointer to **string** |  | [optional] 
+**CreatedAt** | Pointer to **string** |  | [optional] 
+**UpdatedAt** | Pointer to **NullableString** |  | [optional] 
+**FirstUsed** | Pointer to **NullableString** |  | [optional] 
 **Token** | Pointer to **string** |  | [optional] 
-**Links** | [**[]LinksInner**](LinksInner.md) |  | 
+**Links** | Pointer to [**[]LinksInner**](LinksInner.md) |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiApiKey
 
-`func NewFormattedApiApiKey(id float32, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner, ) *FormattedApiApiKey`
+`func NewFormattedApiApiKey() *FormattedApiApiKey`
 
 NewFormattedApiApiKey instantiates a new FormattedApiApiKey object
 This constructor will assign default values to properties that have it defined,
@@ -55,6 +55,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *FormattedApiApiKey) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetOrgId
 
@@ -75,6 +80,11 @@ and a boolean to check if the value has been set.
 
 SetOrgId sets OrgId field to given value.
 
+### HasOrgId
+
+`func (o *FormattedApiApiKey) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetOrgSlug
 
@@ -95,6 +105,11 @@ and a boolean to check if the value has been set.
 
 SetOrgSlug sets OrgSlug field to given value.
 
+### HasOrgSlug
+
+`func (o *FormattedApiApiKey) HasOrgSlug() bool`
+
+HasOrgSlug returns a boolean if a field has been set.
 
 ### GetOrgName
 
@@ -115,6 +130,11 @@ and a boolean to check if the value has been set.
 
 SetOrgName sets OrgName field to given value.
 
+### HasOrgName
+
+`func (o *FormattedApiApiKey) HasOrgName() bool`
+
+HasOrgName returns a boolean if a field has been set.
 
 ### GetInstanceId
 
@@ -135,6 +155,11 @@ and a boolean to check if the value has been set.
 
 SetInstanceId sets InstanceId field to given value.
 
+### HasInstanceId
+
+`func (o *FormattedApiApiKey) HasInstanceId() bool`
+
+HasInstanceId returns a boolean if a field has been set.
 
 ### SetInstanceIdNil
 
@@ -165,6 +190,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *FormattedApiApiKey) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetRole
 
@@ -185,6 +215,11 @@ and a boolean to check if the value has been set.
 
 SetRole sets Role field to given value.
 
+### HasRole
+
+`func (o *FormattedApiApiKey) HasRole() bool`
+
+HasRole returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -205,6 +240,11 @@ and a boolean to check if the value has been set.
 
 SetCreatedAt sets CreatedAt field to given value.
 
+### HasCreatedAt
+
+`func (o *FormattedApiApiKey) HasCreatedAt() bool`
+
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 
@@ -225,6 +265,11 @@ and a boolean to check if the value has been set.
 
 SetUpdatedAt sets UpdatedAt field to given value.
 
+### HasUpdatedAt
+
+`func (o *FormattedApiApiKey) HasUpdatedAt() bool`
+
+HasUpdatedAt returns a boolean if a field has been set.
 
 ### SetUpdatedAtNil
 
@@ -255,6 +300,11 @@ and a boolean to check if the value has been set.
 
 SetFirstUsed sets FirstUsed field to given value.
 
+### HasFirstUsed
+
+`func (o *FormattedApiApiKey) HasFirstUsed() bool`
+
+HasFirstUsed returns a boolean if a field has been set.
 
 ### SetFirstUsedNil
 
@@ -310,6 +360,11 @@ and a boolean to check if the value has been set.
 
 SetLinks sets Links field to given value.
 
+### HasLinks
+
+`func (o *FormattedApiApiKey) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

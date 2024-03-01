@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | **string** |  | 
+**Url** | Pointer to **string** |  | [optional] 
 **CaData** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewAppPlatform
 
-`func NewAppPlatform(url string, ) *AppPlatform`
+`func NewAppPlatform() *AppPlatform`
 
 NewAppPlatform instantiates a new AppPlatform object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
+### HasUrl
+
+`func (o *AppPlatform) HasUrl() bool`
+
+HasUrl returns a boolean if a field has been set.
 
 ### GetCaData
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]ItemsInner1**](ItemsInner1.md) |  | 
-**Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
+**Items** | Pointer to [**[]ItemsInner1**](ItemsInner1.md) |  | [optional] 
+**Links** | Pointer to [**[]LinksInner1**](LinksInner1.md) |  | [optional] 
 **Total** | Pointer to **float32** |  | [optional] 
 **Pages** | Pointer to **float32** |  | [optional] 
 **Page** | Pointer to **float32** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewOrgMemberListResponse
 
-`func NewOrgMemberListResponse(items []ItemsInner1, links []LinksInner1, ) *OrgMemberListResponse`
+`func NewOrgMemberListResponse() *OrgMemberListResponse`
 
 NewOrgMemberListResponse instantiates a new OrgMemberListResponse object
 This constructor will assign default values to properties that have it defined,
@@ -54,6 +54,11 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
+### HasItems
+
+`func (o *OrgMemberListResponse) HasItems() bool`
+
+HasItems returns a boolean if a field has been set.
 
 ### GetLinks
 
@@ -74,6 +79,11 @@ and a boolean to check if the value has been set.
 
 SetLinks sets Links field to given value.
 
+### HasLinks
+
+`func (o *OrgMemberListResponse) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
 
 ### GetTotal
 
