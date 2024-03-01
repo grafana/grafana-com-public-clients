@@ -76,8 +76,8 @@ func (r ApiGetStackRegionsRequest) Execute() (*GetStackRegions200Response, *http
 /*
 GetStackRegions Method for GetStackRegions
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetStackRegionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetStackRegionsRequest
 */
 func (a *StackRegionsAPIService) GetStackRegions(ctx context.Context) ApiGetStackRegionsRequest {
 	return ApiGetStackRegionsRequest{
@@ -87,7 +87,8 @@ func (a *StackRegionsAPIService) GetStackRegions(ctx context.Context) ApiGetStac
 }
 
 // Execute executes the request
-//  @return GetStackRegions200Response
+//
+//	@return GetStackRegions200Response
 func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequest) (*GetStackRegions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet

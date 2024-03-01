@@ -12,7 +12,6 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // checks if the FormattedApiInstance type satisfies the MappedNullable interface at compile time
@@ -2438,109 +2437,12 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"alertCnt",
-		"alertQuota",
-		"amInstanceGeneratorUrl",
-		"amInstanceGeneratorUrlDatasource",
-		"amInstanceId",
-		"amInstanceName",
-		"amInstanceStatus",
-		"amInstanceUrl",
-		"billingActiveUsers",
-		"billingEndDate",
-		"billingGrafanaActiveUsers",
-		"billingOnCallActiveUsers",
-		"billingStartDate",
-		"clusterId",
-		"clusterName",
-		"clusterSlug",
-		"createdAt",
-		"createdBy",
-		"currentActiveAdminUsers",
-		"currentActiveEditorUsers",
-		"currentActiveUsers",
-		"currentActiveViewerUsers",
-		"customAuth",
-		"customDomain",
-		"dailyAdminCnt",
-		"dailyEditorCnt",
-		"dailyUserCnt",
-		"dailyViewerCnt",
-		"dashboardCnt",
-		"dashboardQuota",
-		"datasourceCnts",
-		"description",
-		"gateway",
-		"hlInstanceCurrentUsage",
-		"hlInstanceId",
-		"hlInstanceName",
-		"hlInstanceStatus",
-		"hlInstanceUrl",
-		"hmInstanceGraphiteCurrentUsage",
-		"hmInstanceGraphiteId",
-		"hmInstanceGraphiteName",
-		"hmInstanceGraphiteStatus",
-		"hmInstanceGraphiteType",
-		"hmInstanceGraphiteUrl",
-		"hmInstancePromCurrentActiveSeries",
-		"hmInstancePromCurrentUsage",
-		"hmInstancePromId",
-		"hmInstancePromName",
-		"hmInstancePromStatus",
-		"hmInstancePromUrl",
-		"htInstanceId",
-		"htInstanceName",
-		"htInstanceStatus",
-		"htInstanceUrl",
-		"hpInstanceId",
-		"hpInstanceName",
-		"hpInstanceStatus",
-		"hpInstanceUrl",
-		"id",
-		"incident",
-		"machineLearning",
-		"name",
-		"orgId",
-		"orgName",
-		"orgSlug",
-		"plan",
-		"planName",
-		"regionId",
-		"regionSlug",
-		"regionPublicName",
-		"provider",
-		"providerRegion",
-		"runningVersion",
-		"slug",
-		"ssl",
-		"status",
-		"support",
-		"trial",
-		"trialExpiresAt",
-		"updatedAt",
-		"updatedBy",
-		"url",
-		"userQuota",
-		"version",
-		"agentManagementInstanceId",
-	}
-
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
 		return err
-	}
-
-	for _, requiredProperty := range requiredProperties {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
 	}
 
 	varFormattedApiInstance := _FormattedApiInstance{}

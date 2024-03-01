@@ -43,9 +43,9 @@ func (r ApiDelInstanceOAuthAzureADRequest) Execute() (*FormattedApiInstance, *ht
 /*
 DelInstanceOAuthAzureAD Disable Azure OAuth in an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiDelInstanceOAuthAzureADRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiDelInstanceOAuthAzureADRequest
 */
 func (a *InstancesAPIService) DelInstanceOAuthAzureAD(ctx context.Context, instanceId string) ApiDelInstanceOAuthAzureADRequest {
 	return ApiDelInstanceOAuthAzureADRequest{
@@ -56,7 +56,8 @@ func (a *InstancesAPIService) DelInstanceOAuthAzureAD(ctx context.Context, insta
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) DelInstanceOAuthAzureADExecute(r ApiDelInstanceOAuthAzureADRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodDelete
@@ -208,9 +209,9 @@ func (r ApiDelInstanceOAuthGithubRequest) Execute() (*FormattedApiInstance, *htt
 /*
 DelInstanceOAuthGithub Disable Github OAuth in an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiDelInstanceOAuthGithubRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiDelInstanceOAuthGithubRequest
 */
 func (a *InstancesAPIService) DelInstanceOAuthGithub(ctx context.Context, instanceId string) ApiDelInstanceOAuthGithubRequest {
 	return ApiDelInstanceOAuthGithubRequest{
@@ -221,7 +222,8 @@ func (a *InstancesAPIService) DelInstanceOAuthGithub(ctx context.Context, instan
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) DelInstanceOAuthGithubExecute(r ApiDelInstanceOAuthGithubRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodDelete
@@ -373,9 +375,9 @@ func (r ApiDelInstanceOAuthGoogleRequest) Execute() (*FormattedApiInstance, *htt
 /*
 DelInstanceOAuthGoogle Disable Google OAuth in an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiDelInstanceOAuthGoogleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiDelInstanceOAuthGoogleRequest
 */
 func (a *InstancesAPIService) DelInstanceOAuthGoogle(ctx context.Context, instanceId string) ApiDelInstanceOAuthGoogleRequest {
 	return ApiDelInstanceOAuthGoogleRequest{
@@ -386,7 +388,8 @@ func (a *InstancesAPIService) DelInstanceOAuthGoogle(ctx context.Context, instan
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) DelInstanceOAuthGoogleExecute(r ApiDelInstanceOAuthGoogleRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodDelete
@@ -538,9 +541,9 @@ func (r ApiDelInstanceOAuthOktaRequest) Execute() (*FormattedApiInstance, *http.
 /*
 DelInstanceOAuthOkta Disable Okta OAuth in an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiDelInstanceOAuthOktaRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiDelInstanceOAuthOktaRequest
 */
 func (a *InstancesAPIService) DelInstanceOAuthOkta(ctx context.Context, instanceId string) ApiDelInstanceOAuthOktaRequest {
 	return ApiDelInstanceOAuthOktaRequest{
@@ -551,7 +554,8 @@ func (a *InstancesAPIService) DelInstanceOAuthOkta(ctx context.Context, instance
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) DelInstanceOAuthOktaExecute(r ApiDelInstanceOAuthOktaRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodDelete
@@ -703,9 +707,9 @@ func (r ApiDeleteInstanceRequest) Execute() (*FormattedApiInstance, *http.Respon
 /*
 DeleteInstance Deletes an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiDeleteInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiDeleteInstanceRequest
 */
 func (a *InstancesAPIService) DeleteInstance(ctx context.Context, instanceId string) ApiDeleteInstanceRequest {
 	return ApiDeleteInstanceRequest{
@@ -716,7 +720,8 @@ func (a *InstancesAPIService) DeleteInstance(ctx context.Context, instanceId str
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodDelete
@@ -869,10 +874,10 @@ func (r ApiDeleteInstancePluginRequest) Execute() (*FormattedApiInstancePlugin, 
 /*
 DeleteInstancePlugin Method for DeleteInstancePlugin
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @param pluginSlugOrId
- @return ApiDeleteInstancePluginRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@param pluginSlugOrId
+	@return ApiDeleteInstancePluginRequest
 */
 func (a *InstancesAPIService) DeleteInstancePlugin(ctx context.Context, instanceId string, pluginSlugOrId string) ApiDeleteInstancePluginRequest {
 	return ApiDeleteInstancePluginRequest{
@@ -884,7 +889,8 @@ func (a *InstancesAPIService) DeleteInstancePlugin(ctx context.Context, instance
 }
 
 // Execute executes the request
-//  @return FormattedApiInstancePlugin
+//
+//	@return FormattedApiInstancePlugin
 func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePluginRequest) (*FormattedApiInstancePlugin, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodDelete
@@ -1037,9 +1043,9 @@ func (r ApiGetConnectionsRequest) Execute() (*FormattedApiInstanceConnections, *
 /*
 GetConnections Gets an instance's connectivity information (InfluxDB, OTEL, AWS private link, etc.)
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiGetConnectionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiGetConnectionsRequest
 */
 func (a *InstancesAPIService) GetConnections(ctx context.Context, instanceId string) ApiGetConnectionsRequest {
 	return ApiGetConnectionsRequest{
@@ -1050,7 +1056,8 @@ func (a *InstancesAPIService) GetConnections(ctx context.Context, instanceId str
 }
 
 // Execute executes the request
-//  @return FormattedApiInstanceConnections
+//
+//	@return FormattedApiInstanceConnections
 func (a *InstancesAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest) (*FormattedApiInstanceConnections, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -1190,9 +1197,9 @@ func (r ApiGetInstanceRequest) Execute() (*FormattedApiInstance, *http.Response,
 /*
 GetInstance Gets an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiGetInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiGetInstanceRequest
 */
 func (a *InstancesAPIService) GetInstance(ctx context.Context, instanceId string) ApiGetInstanceRequest {
 	return ApiGetInstanceRequest{
@@ -1203,7 +1210,8 @@ func (a *InstancesAPIService) GetInstance(ctx context.Context, instanceId string
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -1338,10 +1346,10 @@ func (r ApiGetInstancePluginRequest) Execute() (*FormattedApiInstancePlugin, *ht
 /*
 GetInstancePlugin Method for GetInstancePlugin
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @param pluginSlugOrId
- @return ApiGetInstancePluginRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@param pluginSlugOrId
+	@return ApiGetInstancePluginRequest
 */
 func (a *InstancesAPIService) GetInstancePlugin(ctx context.Context, instanceId string, pluginSlugOrId string) ApiGetInstancePluginRequest {
 	return ApiGetInstancePluginRequest{
@@ -1353,7 +1361,8 @@ func (a *InstancesAPIService) GetInstancePlugin(ctx context.Context, instanceId 
 }
 
 // Execute executes the request
-//  @return FormattedApiInstancePlugin
+//
+//	@return FormattedApiInstancePlugin
 func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginRequest) (*FormattedApiInstancePlugin, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -1497,9 +1506,9 @@ func (r ApiGetInstancePluginsRequest) Execute() (*GetInstancePlugins200Response,
 /*
 GetInstancePlugins Method for GetInstancePlugins
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiGetInstancePluginsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiGetInstancePluginsRequest
 */
 func (a *InstancesAPIService) GetInstancePlugins(ctx context.Context, instanceId string) ApiGetInstancePluginsRequest {
 	return ApiGetInstancePluginsRequest{
@@ -1510,7 +1519,8 @@ func (a *InstancesAPIService) GetInstancePlugins(ctx context.Context, instanceId
 }
 
 // Execute executes the request
-//  @return GetInstancePlugins200Response
+//
+//	@return GetInstancePlugins200Response
 func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsRequest) (*GetInstancePlugins200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -1838,8 +1848,8 @@ func (r ApiGetInstancesRequest) Execute() (*GetInstances200Response, *http.Respo
 /*
 GetInstances Get a list of instances
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetInstancesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetInstancesRequest
 */
 func (a *InstancesAPIService) GetInstances(ctx context.Context) ApiGetInstancesRequest {
 	return ApiGetInstancesRequest{
@@ -1849,7 +1859,8 @@ func (a *InstancesAPIService) GetInstances(ctx context.Context) ApiGetInstancesR
 }
 
 // Execute executes the request
-//  @return GetInstances200Response
+//
+//	@return GetInstances200Response
 func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*GetInstances200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -2108,9 +2119,9 @@ func (r ApiPostInstanceRequest) Execute() (*FormattedApiInstance, *http.Response
 /*
 PostInstance Updates an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiPostInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiPostInstanceRequest
 */
 func (a *InstancesAPIService) PostInstance(ctx context.Context, instanceId string) ApiPostInstanceRequest {
 	return ApiPostInstanceRequest{
@@ -2121,7 +2132,8 @@ func (a *InstancesAPIService) PostInstance(ctx context.Context, instanceId strin
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -2284,9 +2296,9 @@ func (r ApiPostInstanceOAuthAzureADRequest) Execute() (*FormattedApiInstance, *h
 /*
 PostInstanceOAuthAzureAD Configure Azure OAuth in an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiPostInstanceOAuthAzureADRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiPostInstanceOAuthAzureADRequest
 */
 func (a *InstancesAPIService) PostInstanceOAuthAzureAD(ctx context.Context, instanceId string) ApiPostInstanceOAuthAzureADRequest {
 	return ApiPostInstanceOAuthAzureADRequest{
@@ -2297,7 +2309,8 @@ func (a *InstancesAPIService) PostInstanceOAuthAzureAD(ctx context.Context, inst
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) PostInstanceOAuthAzureADExecute(r ApiPostInstanceOAuthAzureADRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -2460,9 +2473,9 @@ func (r ApiPostInstanceOAuthGithubRequest) Execute() (*FormattedApiInstance, *ht
 /*
 PostInstanceOAuthGithub Configure Github OAuth in an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiPostInstanceOAuthGithubRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiPostInstanceOAuthGithubRequest
 */
 func (a *InstancesAPIService) PostInstanceOAuthGithub(ctx context.Context, instanceId string) ApiPostInstanceOAuthGithubRequest {
 	return ApiPostInstanceOAuthGithubRequest{
@@ -2473,7 +2486,8 @@ func (a *InstancesAPIService) PostInstanceOAuthGithub(ctx context.Context, insta
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) PostInstanceOAuthGithubExecute(r ApiPostInstanceOAuthGithubRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -2636,9 +2650,9 @@ func (r ApiPostInstanceOAuthGoogleRequest) Execute() (*FormattedApiInstance, *ht
 /*
 PostInstanceOAuthGoogle Configure Google OAuth in an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiPostInstanceOAuthGoogleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiPostInstanceOAuthGoogleRequest
 */
 func (a *InstancesAPIService) PostInstanceOAuthGoogle(ctx context.Context, instanceId string) ApiPostInstanceOAuthGoogleRequest {
 	return ApiPostInstanceOAuthGoogleRequest{
@@ -2649,7 +2663,8 @@ func (a *InstancesAPIService) PostInstanceOAuthGoogle(ctx context.Context, insta
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) PostInstanceOAuthGoogleExecute(r ApiPostInstanceOAuthGoogleRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -2812,9 +2827,9 @@ func (r ApiPostInstanceOAuthOktaRequest) Execute() (*FormattedApiInstance, *http
 /*
 PostInstanceOAuthOkta Configure Okta OAuth in an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiPostInstanceOAuthOktaRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiPostInstanceOAuthOktaRequest
 */
 func (a *InstancesAPIService) PostInstanceOAuthOkta(ctx context.Context, instanceId string) ApiPostInstanceOAuthOktaRequest {
 	return ApiPostInstanceOAuthOktaRequest{
@@ -2825,7 +2840,8 @@ func (a *InstancesAPIService) PostInstanceOAuthOkta(ctx context.Context, instanc
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) PostInstanceOAuthOktaExecute(r ApiPostInstanceOAuthOktaRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -2989,10 +3005,10 @@ func (r ApiPostInstancePluginRequest) Execute() (*FormattedApiInstancePlugin, *h
 /*
 PostInstancePlugin Method for PostInstancePlugin
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @param pluginSlugOrId
- @return ApiPostInstancePluginRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@param pluginSlugOrId
+	@return ApiPostInstancePluginRequest
 */
 func (a *InstancesAPIService) PostInstancePlugin(ctx context.Context, instanceId string, pluginSlugOrId string) ApiPostInstancePluginRequest {
 	return ApiPostInstancePluginRequest{
@@ -3004,7 +3020,8 @@ func (a *InstancesAPIService) PostInstancePlugin(ctx context.Context, instanceId
 }
 
 // Execute executes the request
-//  @return FormattedApiInstancePlugin
+//
+//	@return FormattedApiInstancePlugin
 func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginRequest) (*FormattedApiInstancePlugin, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -3168,9 +3185,9 @@ func (r ApiPostInstancePluginsRequest) Execute() (*FormattedApiInstancePlugin, *
 /*
 PostInstancePlugins Method for PostInstancePlugins
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiPostInstancePluginsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiPostInstancePluginsRequest
 */
 func (a *InstancesAPIService) PostInstancePlugins(ctx context.Context, instanceId string) ApiPostInstancePluginsRequest {
 	return ApiPostInstancePluginsRequest{
@@ -3181,7 +3198,8 @@ func (a *InstancesAPIService) PostInstancePlugins(ctx context.Context, instanceI
 }
 
 // Execute executes the request
-//  @return FormattedApiInstancePlugin
+//
+//	@return FormattedApiInstancePlugin
 func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePluginsRequest) (*FormattedApiInstancePlugin, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -3345,10 +3363,10 @@ func (r ApiPostInstanceServiceAccountTokensRequest) Execute() (*GrafanaNewApiKey
 /*
 PostInstanceServiceAccountTokens Creates a service account token on a Grafana instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @param serviceAccountId
- @return ApiPostInstanceServiceAccountTokensRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@param serviceAccountId
+	@return ApiPostInstanceServiceAccountTokensRequest
 */
 func (a *InstancesAPIService) PostInstanceServiceAccountTokens(ctx context.Context, instanceId string, serviceAccountId string) ApiPostInstanceServiceAccountTokensRequest {
 	return ApiPostInstanceServiceAccountTokensRequest{
@@ -3360,7 +3378,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokens(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return GrafanaNewApiKeyResult
+//
+//	@return GrafanaNewApiKeyResult
 func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostInstanceServiceAccountTokensRequest) (*GrafanaNewApiKeyResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -3524,9 +3543,9 @@ func (r ApiPostInstanceServiceAccountsRequest) Execute() (*GrafanaServiceAccount
 /*
 PostInstanceServiceAccounts Creates a service account on a Grafana instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceId
- @return ApiPostInstanceServiceAccountsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiPostInstanceServiceAccountsRequest
 */
 func (a *InstancesAPIService) PostInstanceServiceAccounts(ctx context.Context, instanceId string) ApiPostInstanceServiceAccountsRequest {
 	return ApiPostInstanceServiceAccountsRequest{
@@ -3537,7 +3556,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccounts(ctx context.Context, i
 }
 
 // Execute executes the request
-//  @return GrafanaServiceAccountDTO
+//
+//	@return GrafanaServiceAccountDTO
 func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstanceServiceAccountsRequest) (*GrafanaServiceAccountDTO, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -3699,8 +3719,8 @@ func (r ApiPostInstancesRequest) Execute() (*FormattedApiInstance, *http.Respons
 /*
 PostInstances Create a new instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostInstancesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPostInstancesRequest
 */
 func (a *InstancesAPIService) PostInstances(ctx context.Context) ApiPostInstancesRequest {
 	return ApiPostInstancesRequest{
@@ -3710,7 +3730,8 @@ func (a *InstancesAPIService) PostInstances(ctx context.Context) ApiPostInstance
 }
 
 // Execute executes the request
-//  @return FormattedApiInstance
+//
+//	@return FormattedApiInstance
 func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*FormattedApiInstance, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
