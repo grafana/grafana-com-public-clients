@@ -7700,8 +7700,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "82f20f1",
-    "x-generated-at": "2024-02-23T13:32:41.325Z"
+    "x-commit-sha": "e130965",
+    "x-generated-at": "2024-03-01T00:08:10.155Z"
   },
   "security": [
     {
@@ -10513,37 +10513,37 @@
             "type": "number",
             "title": "k6IPUsage"
           },
-          "feO11yIncludedUsage": {
+          "feO11YIncludedUsage": {
             "type": "number",
-            "title": "feO11yIncludedUsage"
+            "title": "feO11YIncludedUsage"
           },
-          "feO11yTier1Rate": {
+          "feO11YTier1Rate": {
             "type": "number",
-            "title": "feO11yTier1Rate"
+            "title": "feO11YTier1Rate"
           },
-          "feO11yTier2Min": {
+          "feO11YTier2Min": {
             "type": "number",
-            "title": "feO11yTier2Min"
+            "title": "feO11YTier2Min"
           },
-          "feO11yTier2Rate": {
+          "feO11YTier2Rate": {
             "type": "number",
-            "title": "feO11yTier2Rate"
+            "title": "feO11YTier2Rate"
           },
-          "feO11yTier3Min": {
+          "feO11YTier3Min": {
             "type": "number",
-            "title": "feO11yTier3Min"
+            "title": "feO11YTier3Min"
           },
-          "feO11yTier3Rate": {
+          "feO11YTier3Rate": {
             "type": "number",
-            "title": "feO11yTier3Rate"
+            "title": "feO11YTier3Rate"
           },
-          "feO11yUnits": {
+          "feO11YUnits": {
             "type": "number",
-            "title": "feO11yUnits"
+            "title": "feO11YUnits"
           },
-          "feO11yUsage": {
+          "feO11YUsage": {
             "type": "number",
-            "title": "feO11yUsage"
+            "title": "feO11YUsage"
           },
           "geUsersIncludedUsage": {
             "type": "number",
@@ -11011,14 +11011,14 @@
           "creditApproved",
           "emergencySupport",
           "enterprisePlugins",
-          "feO11yIncludedUsage",
-          "feO11yTier1Rate",
-          "feO11yTier2Min",
-          "feO11yTier2Rate",
-          "feO11yTier3Min",
-          "feO11yTier3Rate",
-          "feO11yUnits",
-          "feO11yUsage",
+          "feO11YIncludedUsage",
+          "feO11YTier1Rate",
+          "feO11YTier2Min",
+          "feO11YTier2Rate",
+          "feO11YTier3Min",
+          "feO11YTier3Rate",
+          "feO11YUnits",
+          "feO11YUsage",
           "gcloudMonthlyCost",
           "geInstancesIncludedUsage",
           "geInstancesTier1Rate",
