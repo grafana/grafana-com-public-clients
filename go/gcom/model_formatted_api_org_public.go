@@ -125,14 +125,14 @@ type FormattedApiOrgPublic struct {
 	K6IPTier3Min               float32                               `json:"k6IPTier3Min"`
 	K6IPTier3Rate              float32                               `json:"k6IPTier3Rate"`
 	K6IPUsage                  float32                               `json:"k6IPUsage"`
-	FeO11yIncludedUsage        float32                               `json:"feO11yIncludedUsage"`
-	FeO11yTier1Rate            float32                               `json:"feO11yTier1Rate"`
-	FeO11yTier2Min             float32                               `json:"feO11yTier2Min"`
-	FeO11yTier2Rate            float32                               `json:"feO11yTier2Rate"`
-	FeO11yTier3Min             float32                               `json:"feO11yTier3Min"`
-	FeO11yTier3Rate            float32                               `json:"feO11yTier3Rate"`
-	FeO11yUnits                float32                               `json:"feO11yUnits"`
-	FeO11yUsage                float32                               `json:"feO11yUsage"`
+	FeO11YIncludedUsage        float32                               `json:"feO11YIncludedUsage"`
+	FeO11YTier1Rate            float32                               `json:"feO11YTier1Rate"`
+	FeO11YTier2Min             float32                               `json:"feO11YTier2Min"`
+	FeO11YTier2Rate            float32                               `json:"feO11YTier2Rate"`
+	FeO11YTier3Min             float32                               `json:"feO11YTier3Min"`
+	FeO11YTier3Rate            float32                               `json:"feO11YTier3Rate"`
+	FeO11YUnits                float32                               `json:"feO11YUnits"`
+	FeO11YUsage                float32                               `json:"feO11YUsage"`
 	GeUsersIncludedUsage       float32                               `json:"geUsersIncludedUsage"`
 	GeUsersTier1Rate           float32                               `json:"geUsersTier1Rate"`
 	GeUsersTier2Min            float32                               `json:"geUsersTier2Min"`
@@ -171,7 +171,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11yIncludedUsage float32, feO11yTier1Rate float32, feO11yTier2Min float32, feO11yTier2Rate float32, feO11yTier3Min float32, feO11yTier3Rate float32, feO11yUnits float32, feO11yUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -278,14 +278,14 @@ func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, 
 	this.K6IPTier3Min = k6IPTier3Min
 	this.K6IPTier3Rate = k6IPTier3Rate
 	this.K6IPUsage = k6IPUsage
-	this.FeO11yIncludedUsage = feO11yIncludedUsage
-	this.FeO11yTier1Rate = feO11yTier1Rate
-	this.FeO11yTier2Min = feO11yTier2Min
-	this.FeO11yTier2Rate = feO11yTier2Rate
-	this.FeO11yTier3Min = feO11yTier3Min
-	this.FeO11yTier3Rate = feO11yTier3Rate
-	this.FeO11yUnits = feO11yUnits
-	this.FeO11yUsage = feO11yUsage
+	this.FeO11YIncludedUsage = feO11YIncludedUsage
+	this.FeO11YTier1Rate = feO11YTier1Rate
+	this.FeO11YTier2Min = feO11YTier2Min
+	this.FeO11YTier2Rate = feO11YTier2Rate
+	this.FeO11YTier3Min = feO11YTier3Min
+	this.FeO11YTier3Rate = feO11YTier3Rate
+	this.FeO11YUnits = feO11YUnits
+	this.FeO11YUsage = feO11YUsage
 	this.GeUsersIncludedUsage = geUsersIncludedUsage
 	this.GeUsersTier1Rate = geUsersTier1Rate
 	this.GeUsersTier2Min = geUsersTier2Min
@@ -2862,196 +2862,196 @@ func (o *FormattedApiOrgPublic) SetK6IPUsage(v float32) {
 	o.K6IPUsage = v
 }
 
-// GetFeO11yIncludedUsage returns the FeO11yIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetFeO11yIncludedUsage() float32 {
+// GetFeO11YIncludedUsage returns the FeO11YIncludedUsage field value
+func (o *FormattedApiOrgPublic) GetFeO11YIncludedUsage() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.FeO11yIncludedUsage
+	return o.FeO11YIncludedUsage
 }
 
-// GetFeO11yIncludedUsageOk returns a tuple with the FeO11yIncludedUsage field value
+// GetFeO11YIncludedUsageOk returns a tuple with the FeO11YIncludedUsage field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11yIncludedUsageOk() (*float32, bool) {
+func (o *FormattedApiOrgPublic) GetFeO11YIncludedUsageOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FeO11yIncludedUsage, true
+	return &o.FeO11YIncludedUsage, true
 }
 
-// SetFeO11yIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetFeO11yIncludedUsage(v float32) {
-	o.FeO11yIncludedUsage = v
+// SetFeO11YIncludedUsage sets field value
+func (o *FormattedApiOrgPublic) SetFeO11YIncludedUsage(v float32) {
+	o.FeO11YIncludedUsage = v
 }
 
-// GetFeO11yTier1Rate returns the FeO11yTier1Rate field value
-func (o *FormattedApiOrgPublic) GetFeO11yTier1Rate() float32 {
+// GetFeO11YTier1Rate returns the FeO11YTier1Rate field value
+func (o *FormattedApiOrgPublic) GetFeO11YTier1Rate() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.FeO11yTier1Rate
+	return o.FeO11YTier1Rate
 }
 
-// GetFeO11yTier1RateOk returns a tuple with the FeO11yTier1Rate field value
+// GetFeO11YTier1RateOk returns a tuple with the FeO11YTier1Rate field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11yTier1RateOk() (*float32, bool) {
+func (o *FormattedApiOrgPublic) GetFeO11YTier1RateOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FeO11yTier1Rate, true
+	return &o.FeO11YTier1Rate, true
 }
 
-// SetFeO11yTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetFeO11yTier1Rate(v float32) {
-	o.FeO11yTier1Rate = v
+// SetFeO11YTier1Rate sets field value
+func (o *FormattedApiOrgPublic) SetFeO11YTier1Rate(v float32) {
+	o.FeO11YTier1Rate = v
 }
 
-// GetFeO11yTier2Min returns the FeO11yTier2Min field value
-func (o *FormattedApiOrgPublic) GetFeO11yTier2Min() float32 {
+// GetFeO11YTier2Min returns the FeO11YTier2Min field value
+func (o *FormattedApiOrgPublic) GetFeO11YTier2Min() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.FeO11yTier2Min
+	return o.FeO11YTier2Min
 }
 
-// GetFeO11yTier2MinOk returns a tuple with the FeO11yTier2Min field value
+// GetFeO11YTier2MinOk returns a tuple with the FeO11YTier2Min field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11yTier2MinOk() (*float32, bool) {
+func (o *FormattedApiOrgPublic) GetFeO11YTier2MinOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FeO11yTier2Min, true
+	return &o.FeO11YTier2Min, true
 }
 
-// SetFeO11yTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetFeO11yTier2Min(v float32) {
-	o.FeO11yTier2Min = v
+// SetFeO11YTier2Min sets field value
+func (o *FormattedApiOrgPublic) SetFeO11YTier2Min(v float32) {
+	o.FeO11YTier2Min = v
 }
 
-// GetFeO11yTier2Rate returns the FeO11yTier2Rate field value
-func (o *FormattedApiOrgPublic) GetFeO11yTier2Rate() float32 {
+// GetFeO11YTier2Rate returns the FeO11YTier2Rate field value
+func (o *FormattedApiOrgPublic) GetFeO11YTier2Rate() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.FeO11yTier2Rate
+	return o.FeO11YTier2Rate
 }
 
-// GetFeO11yTier2RateOk returns a tuple with the FeO11yTier2Rate field value
+// GetFeO11YTier2RateOk returns a tuple with the FeO11YTier2Rate field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11yTier2RateOk() (*float32, bool) {
+func (o *FormattedApiOrgPublic) GetFeO11YTier2RateOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FeO11yTier2Rate, true
+	return &o.FeO11YTier2Rate, true
 }
 
-// SetFeO11yTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetFeO11yTier2Rate(v float32) {
-	o.FeO11yTier2Rate = v
+// SetFeO11YTier2Rate sets field value
+func (o *FormattedApiOrgPublic) SetFeO11YTier2Rate(v float32) {
+	o.FeO11YTier2Rate = v
 }
 
-// GetFeO11yTier3Min returns the FeO11yTier3Min field value
-func (o *FormattedApiOrgPublic) GetFeO11yTier3Min() float32 {
+// GetFeO11YTier3Min returns the FeO11YTier3Min field value
+func (o *FormattedApiOrgPublic) GetFeO11YTier3Min() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.FeO11yTier3Min
+	return o.FeO11YTier3Min
 }
 
-// GetFeO11yTier3MinOk returns a tuple with the FeO11yTier3Min field value
+// GetFeO11YTier3MinOk returns a tuple with the FeO11YTier3Min field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11yTier3MinOk() (*float32, bool) {
+func (o *FormattedApiOrgPublic) GetFeO11YTier3MinOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FeO11yTier3Min, true
+	return &o.FeO11YTier3Min, true
 }
 
-// SetFeO11yTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetFeO11yTier3Min(v float32) {
-	o.FeO11yTier3Min = v
+// SetFeO11YTier3Min sets field value
+func (o *FormattedApiOrgPublic) SetFeO11YTier3Min(v float32) {
+	o.FeO11YTier3Min = v
 }
 
-// GetFeO11yTier3Rate returns the FeO11yTier3Rate field value
-func (o *FormattedApiOrgPublic) GetFeO11yTier3Rate() float32 {
+// GetFeO11YTier3Rate returns the FeO11YTier3Rate field value
+func (o *FormattedApiOrgPublic) GetFeO11YTier3Rate() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.FeO11yTier3Rate
+	return o.FeO11YTier3Rate
 }
 
-// GetFeO11yTier3RateOk returns a tuple with the FeO11yTier3Rate field value
+// GetFeO11YTier3RateOk returns a tuple with the FeO11YTier3Rate field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11yTier3RateOk() (*float32, bool) {
+func (o *FormattedApiOrgPublic) GetFeO11YTier3RateOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FeO11yTier3Rate, true
+	return &o.FeO11YTier3Rate, true
 }
 
-// SetFeO11yTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetFeO11yTier3Rate(v float32) {
-	o.FeO11yTier3Rate = v
+// SetFeO11YTier3Rate sets field value
+func (o *FormattedApiOrgPublic) SetFeO11YTier3Rate(v float32) {
+	o.FeO11YTier3Rate = v
 }
 
-// GetFeO11yUnits returns the FeO11yUnits field value
-func (o *FormattedApiOrgPublic) GetFeO11yUnits() float32 {
+// GetFeO11YUnits returns the FeO11YUnits field value
+func (o *FormattedApiOrgPublic) GetFeO11YUnits() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.FeO11yUnits
+	return o.FeO11YUnits
 }
 
-// GetFeO11yUnitsOk returns a tuple with the FeO11yUnits field value
+// GetFeO11YUnitsOk returns a tuple with the FeO11YUnits field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11yUnitsOk() (*float32, bool) {
+func (o *FormattedApiOrgPublic) GetFeO11YUnitsOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FeO11yUnits, true
+	return &o.FeO11YUnits, true
 }
 
-// SetFeO11yUnits sets field value
-func (o *FormattedApiOrgPublic) SetFeO11yUnits(v float32) {
-	o.FeO11yUnits = v
+// SetFeO11YUnits sets field value
+func (o *FormattedApiOrgPublic) SetFeO11YUnits(v float32) {
+	o.FeO11YUnits = v
 }
 
-// GetFeO11yUsage returns the FeO11yUsage field value
-func (o *FormattedApiOrgPublic) GetFeO11yUsage() float32 {
+// GetFeO11YUsage returns the FeO11YUsage field value
+func (o *FormattedApiOrgPublic) GetFeO11YUsage() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.FeO11yUsage
+	return o.FeO11YUsage
 }
 
-// GetFeO11yUsageOk returns a tuple with the FeO11yUsage field value
+// GetFeO11YUsageOk returns a tuple with the FeO11YUsage field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11yUsageOk() (*float32, bool) {
+func (o *FormattedApiOrgPublic) GetFeO11YUsageOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FeO11yUsage, true
+	return &o.FeO11YUsage, true
 }
 
-// SetFeO11yUsage sets field value
-func (o *FormattedApiOrgPublic) SetFeO11yUsage(v float32) {
-	o.FeO11yUsage = v
+// SetFeO11YUsage sets field value
+func (o *FormattedApiOrgPublic) SetFeO11YUsage(v float32) {
+	o.FeO11YUsage = v
 }
 
 // GetGeUsersIncludedUsage returns the GeUsersIncludedUsage field value
@@ -3879,14 +3879,14 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["k6IPTier3Min"] = o.K6IPTier3Min
 	toSerialize["k6IPTier3Rate"] = o.K6IPTier3Rate
 	toSerialize["k6IPUsage"] = o.K6IPUsage
-	toSerialize["feO11yIncludedUsage"] = o.FeO11yIncludedUsage
-	toSerialize["feO11yTier1Rate"] = o.FeO11yTier1Rate
-	toSerialize["feO11yTier2Min"] = o.FeO11yTier2Min
-	toSerialize["feO11yTier2Rate"] = o.FeO11yTier2Rate
-	toSerialize["feO11yTier3Min"] = o.FeO11yTier3Min
-	toSerialize["feO11yTier3Rate"] = o.FeO11yTier3Rate
-	toSerialize["feO11yUnits"] = o.FeO11yUnits
-	toSerialize["feO11yUsage"] = o.FeO11yUsage
+	toSerialize["feO11YIncludedUsage"] = o.FeO11YIncludedUsage
+	toSerialize["feO11YTier1Rate"] = o.FeO11YTier1Rate
+	toSerialize["feO11YTier2Min"] = o.FeO11YTier2Min
+	toSerialize["feO11YTier2Rate"] = o.FeO11YTier2Rate
+	toSerialize["feO11YTier3Min"] = o.FeO11YTier3Min
+	toSerialize["feO11YTier3Rate"] = o.FeO11YTier3Rate
+	toSerialize["feO11YUnits"] = o.FeO11YUnits
+	toSerialize["feO11YUsage"] = o.FeO11YUsage
 	toSerialize["geUsersIncludedUsage"] = o.GeUsersIncludedUsage
 	toSerialize["geUsersTier1Rate"] = o.GeUsersTier1Rate
 	toSerialize["geUsersTier2Min"] = o.GeUsersTier2Min
@@ -4034,14 +4034,14 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		"k6IPTier3Min",
 		"k6IPTier3Rate",
 		"k6IPUsage",
-		"feO11yIncludedUsage",
-		"feO11yTier1Rate",
-		"feO11yTier2Min",
-		"feO11yTier2Rate",
-		"feO11yTier3Min",
-		"feO11yTier3Rate",
-		"feO11yUnits",
-		"feO11yUsage",
+		"feO11YIncludedUsage",
+		"feO11YTier1Rate",
+		"feO11YTier2Min",
+		"feO11YTier2Rate",
+		"feO11YTier3Min",
+		"feO11YTier3Rate",
+		"feO11YUnits",
+		"feO11YUsage",
 		"geUsersIncludedUsage",
 		"geUsersTier1Rate",
 		"geUsersTier2Min",
@@ -4205,14 +4205,14 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "k6IPTier3Min")
 		delete(additionalProperties, "k6IPTier3Rate")
 		delete(additionalProperties, "k6IPUsage")
-		delete(additionalProperties, "feO11yIncludedUsage")
-		delete(additionalProperties, "feO11yTier1Rate")
-		delete(additionalProperties, "feO11yTier2Min")
-		delete(additionalProperties, "feO11yTier2Rate")
-		delete(additionalProperties, "feO11yTier3Min")
-		delete(additionalProperties, "feO11yTier3Rate")
-		delete(additionalProperties, "feO11yUnits")
-		delete(additionalProperties, "feO11yUsage")
+		delete(additionalProperties, "feO11YIncludedUsage")
+		delete(additionalProperties, "feO11YTier1Rate")
+		delete(additionalProperties, "feO11YTier2Min")
+		delete(additionalProperties, "feO11YTier2Rate")
+		delete(additionalProperties, "feO11YTier3Min")
+		delete(additionalProperties, "feO11YTier3Rate")
+		delete(additionalProperties, "feO11YUnits")
+		delete(additionalProperties, "feO11YUsage")
 		delete(additionalProperties, "geUsersIncludedUsage")
 		delete(additionalProperties, "geUsersTier1Rate")
 		delete(additionalProperties, "geUsersTier2Min")

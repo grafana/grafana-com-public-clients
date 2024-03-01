@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 82f20f1
-  x-generated-at: 2024-02-23T13:32:41.325Z
+  x-commit-sha: e130965
+  x-generated-at: 2024-03-01T00:08:10.155Z
 servers:
 - description: Main API server
   url: /api
@@ -4573,16 +4573,18 @@ components:
     FormattedApiOrgPublic:
       example:
         grafanaCloud: 3.616076749251911
+        feO11YTier2Min: 2.380090174313445
         hlRetentionIncludedUsage: 3.0576100241049344
+        feO11YUnits: 0.4833312865174044
         hpTier2Min: 5.507386964179881
         geInstancesTier2Rate: 1.3949519358941398
         contractType: contractType
         hmGraphiteTier3Rate: 3.0937452626664474
         k6IPUsage: 7.835035282970782
+        feO11YTier2Rate: 3.804112695731078
         k6VuhTier3Min: 8.761432466225475
         irmTier1Rate: 2.9409642974827896
         irmTier3Rate: 4.573936264232251
-        feO11yTier3Min: 8.675064425986758
         hmGraphiteTier1Rate: 6.878052220127876
         geInstancesTier3Min: 1.2555055362323109
         userQuota: 2.3021358869347655
@@ -4608,7 +4610,6 @@ components:
         geUsersTier2Min: 2.7977867356748476
         hgTier3Min: 6.84685269835264
         hmTier2Rate: 6.438423552598547
-        feO11yTier2Rate: 3.804112695731078
         hgTier3Rate: 7.457744773683766
         hlUsage: 3.0205796992916243
         htTier1Rate: 1.041444916118296
@@ -4618,10 +4619,12 @@ components:
         hlInstanceLimit: 5.637376656633329
         emergencySupport: true
         cancellationDate: cancellationDate
+        feO11YTier3Min: 8.675064425986758
         awsMarketplaceSupport: 5.7911894223693885
         trialStartDate: trialStartDate
         hmGraphiteIncludedUsage: 6.778324963048013
         k6IPTier2Rate: 3.111202833403195
+        feO11YIncludedUsage: 0.4768402382624515
         reseller: reseller
         hlRetentionTier2Rate: 3.2588565619047607
         k6IPTier3Min: 9.897492629215506
@@ -4637,13 +4640,13 @@ components:
         geInstancesTier2Min: 9.806951670467935
         hlTier2Min: 0.10263654006109402
         hgPluginUsersOverageRate: 1.5970080735609526
+        feO11YUsage: 0.35262192099236644
         hlTier1Rate: 6.519180951018382
         irmTier2Rate: 8.28965939814297
         subscriptions: null
+        feO11YTier3Rate: 4.518309517874243
         hmGraphiteTier2Rate: 6.704019297950036
-        feO11yUsage: 0.35262192099236644
         trialNoticeDate: trialNoticeDate
-        feO11yIncludedUsage: 0.4768402382624515
         geInstancesTier1Rate: 6.966044574347761
         irmTier2Min: 1.7325933120207193
         hgCurrentActiveUsers: 4.965218492984954
@@ -4672,27 +4675,23 @@ components:
         geUsersTier3Rate: 2.535258963197524
         hgTier1Rate: 1.2315135367772556
         hgGrafanaUsage: 5.025004791520295
-        feO11yTier2Min: 2.380090174313445
         hmGraphiteTier3Min: 3.353193347011243
         msaSignedAt: msaSignedAt
         name: name
         k6VuhUsage: 5.312489704336296
         hlRetentionTier2Min: 5.533258397034986
-        feO11yUnits: 0.4833312865174044
         hmTier1Rate: 8.762042012749001
         geInstancesUsage: 5.6644160867523485
         wpPlan: wpPlan
         htIncludedUsage: 4.258773108174356
         hpTier3Rate: 8.251625748923757
         hmTier2Min: 9.018348186070783
-        feO11yTier1Rate: 3.1497903714250555
         privacy: privacy
         checksPerMonth: 6.027456183070403
         hgUsage: 1.1730742509559433
         htTier3Min: 9.132027271330688
         hlIncludedUsage: 0.8851374739011653
         k6VuhTier3Rate: 0.4182561061793122
-        feO11yTier3Rate: 4.518309517874243
         geUsersTier1Rate: 4.332304821875894
         hgTier2Rate: 1.4894159098541704
         hlRetentionTier3Rate: 0.2025324113236393
@@ -4709,6 +4708,7 @@ components:
         k6IPTier1Rate: 7.606863723092579
         irmIncludedUsage: 0.43431398824148815
         hpUsage: 4.459605034958679
+        feO11YTier1Rate: 3.1497903714250555
         trialEndDate: trialEndDate
         createdBy: createdBy
         geInstancesTier3Rate: 3.812761638325517
@@ -5058,29 +5058,29 @@ components:
         k6IPUsage:
           title: k6IPUsage
           type: number
-        feO11yIncludedUsage:
-          title: feO11yIncludedUsage
+        feO11YIncludedUsage:
+          title: feO11YIncludedUsage
           type: number
-        feO11yTier1Rate:
-          title: feO11yTier1Rate
+        feO11YTier1Rate:
+          title: feO11YTier1Rate
           type: number
-        feO11yTier2Min:
-          title: feO11yTier2Min
+        feO11YTier2Min:
+          title: feO11YTier2Min
           type: number
-        feO11yTier2Rate:
-          title: feO11yTier2Rate
+        feO11YTier2Rate:
+          title: feO11YTier2Rate
           type: number
-        feO11yTier3Min:
-          title: feO11yTier3Min
+        feO11YTier3Min:
+          title: feO11YTier3Min
           type: number
-        feO11yTier3Rate:
-          title: feO11yTier3Rate
+        feO11YTier3Rate:
+          title: feO11YTier3Rate
           type: number
-        feO11yUnits:
-          title: feO11yUnits
+        feO11YUnits:
+          title: feO11YUnits
           type: number
-        feO11yUsage:
-          title: feO11yUsage
+        feO11YUsage:
+          title: feO11YUsage
           type: number
         geUsersIncludedUsage:
           title: geUsersIncludedUsage
@@ -5193,14 +5193,14 @@ components:
       - creditApproved
       - emergencySupport
       - enterprisePlugins
-      - feO11yIncludedUsage
-      - feO11yTier1Rate
-      - feO11yTier2Min
-      - feO11yTier2Rate
-      - feO11yTier3Min
-      - feO11yTier3Rate
-      - feO11yUnits
-      - feO11yUsage
+      - feO11YIncludedUsage
+      - feO11YTier1Rate
+      - feO11YTier2Min
+      - feO11YTier2Rate
+      - feO11YTier3Min
+      - feO11YTier3Rate
+      - feO11YUnits
+      - feO11YUsage
       - gcloudMonthlyCost
       - geInstancesIncludedUsage
       - geInstancesTier1Rate

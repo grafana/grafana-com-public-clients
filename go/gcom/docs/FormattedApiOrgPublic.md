@@ -109,14 +109,14 @@ Name | Type | Description | Notes
 **K6IPTier3Min** | **float32** |  | 
 **K6IPTier3Rate** | **float32** |  | 
 **K6IPUsage** | **float32** |  | 
-**FeO11yIncludedUsage** | **float32** |  | 
-**FeO11yTier1Rate** | **float32** |  | 
-**FeO11yTier2Min** | **float32** |  | 
-**FeO11yTier2Rate** | **float32** |  | 
-**FeO11yTier3Min** | **float32** |  | 
-**FeO11yTier3Rate** | **float32** |  | 
-**FeO11yUnits** | **float32** |  | 
-**FeO11yUsage** | **float32** |  | 
+**FeO11YIncludedUsage** | **float32** |  | 
+**FeO11YTier1Rate** | **float32** |  | 
+**FeO11YTier2Min** | **float32** |  | 
+**FeO11YTier2Rate** | **float32** |  | 
+**FeO11YTier3Min** | **float32** |  | 
+**FeO11YTier3Rate** | **float32** |  | 
+**FeO11YUnits** | **float32** |  | 
+**FeO11YUsage** | **float32** |  | 
 **GeUsersIncludedUsage** | **float32** |  | 
 **GeUsersTier1Rate** | **float32** |  | 
 **GeUsersTier2Min** | **float32** |  | 
@@ -151,7 +151,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiOrgPublic
 
-`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11yIncludedUsage float32, feO11yTier1Rate float32, feO11yTier2Min float32, feO11yTier2Rate float32, feO11yTier3Min float32, feO11yTier3Rate float32, feO11yUnits float32, feO11yUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
+`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
 
 NewFormattedApiOrgPublic instantiates a new FormattedApiOrgPublic object
 This constructor will assign default values to properties that have it defined,
@@ -2346,164 +2346,164 @@ and a boolean to check if the value has been set.
 SetK6IPUsage sets K6IPUsage field to given value.
 
 
-### GetFeO11yIncludedUsage
+### GetFeO11YIncludedUsage
 
-`func (o *FormattedApiOrgPublic) GetFeO11yIncludedUsage() float32`
+`func (o *FormattedApiOrgPublic) GetFeO11YIncludedUsage() float32`
 
-GetFeO11yIncludedUsage returns the FeO11yIncludedUsage field if non-nil, zero value otherwise.
+GetFeO11YIncludedUsage returns the FeO11YIncludedUsage field if non-nil, zero value otherwise.
 
-### GetFeO11yIncludedUsageOk
+### GetFeO11YIncludedUsageOk
 
-`func (o *FormattedApiOrgPublic) GetFeO11yIncludedUsageOk() (*float32, bool)`
+`func (o *FormattedApiOrgPublic) GetFeO11YIncludedUsageOk() (*float32, bool)`
 
-GetFeO11yIncludedUsageOk returns a tuple with the FeO11yIncludedUsage field if it's non-nil, zero value otherwise
+GetFeO11YIncludedUsageOk returns a tuple with the FeO11YIncludedUsage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFeO11yIncludedUsage
+### SetFeO11YIncludedUsage
 
-`func (o *FormattedApiOrgPublic) SetFeO11yIncludedUsage(v float32)`
+`func (o *FormattedApiOrgPublic) SetFeO11YIncludedUsage(v float32)`
 
-SetFeO11yIncludedUsage sets FeO11yIncludedUsage field to given value.
+SetFeO11YIncludedUsage sets FeO11YIncludedUsage field to given value.
 
 
-### GetFeO11yTier1Rate
+### GetFeO11YTier1Rate
 
-`func (o *FormattedApiOrgPublic) GetFeO11yTier1Rate() float32`
+`func (o *FormattedApiOrgPublic) GetFeO11YTier1Rate() float32`
 
-GetFeO11yTier1Rate returns the FeO11yTier1Rate field if non-nil, zero value otherwise.
+GetFeO11YTier1Rate returns the FeO11YTier1Rate field if non-nil, zero value otherwise.
 
-### GetFeO11yTier1RateOk
+### GetFeO11YTier1RateOk
 
-`func (o *FormattedApiOrgPublic) GetFeO11yTier1RateOk() (*float32, bool)`
+`func (o *FormattedApiOrgPublic) GetFeO11YTier1RateOk() (*float32, bool)`
 
-GetFeO11yTier1RateOk returns a tuple with the FeO11yTier1Rate field if it's non-nil, zero value otherwise
+GetFeO11YTier1RateOk returns a tuple with the FeO11YTier1Rate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFeO11yTier1Rate
+### SetFeO11YTier1Rate
 
-`func (o *FormattedApiOrgPublic) SetFeO11yTier1Rate(v float32)`
+`func (o *FormattedApiOrgPublic) SetFeO11YTier1Rate(v float32)`
 
-SetFeO11yTier1Rate sets FeO11yTier1Rate field to given value.
+SetFeO11YTier1Rate sets FeO11YTier1Rate field to given value.
 
 
-### GetFeO11yTier2Min
+### GetFeO11YTier2Min
 
-`func (o *FormattedApiOrgPublic) GetFeO11yTier2Min() float32`
+`func (o *FormattedApiOrgPublic) GetFeO11YTier2Min() float32`
 
-GetFeO11yTier2Min returns the FeO11yTier2Min field if non-nil, zero value otherwise.
+GetFeO11YTier2Min returns the FeO11YTier2Min field if non-nil, zero value otherwise.
 
-### GetFeO11yTier2MinOk
+### GetFeO11YTier2MinOk
 
-`func (o *FormattedApiOrgPublic) GetFeO11yTier2MinOk() (*float32, bool)`
+`func (o *FormattedApiOrgPublic) GetFeO11YTier2MinOk() (*float32, bool)`
 
-GetFeO11yTier2MinOk returns a tuple with the FeO11yTier2Min field if it's non-nil, zero value otherwise
+GetFeO11YTier2MinOk returns a tuple with the FeO11YTier2Min field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFeO11yTier2Min
+### SetFeO11YTier2Min
 
-`func (o *FormattedApiOrgPublic) SetFeO11yTier2Min(v float32)`
+`func (o *FormattedApiOrgPublic) SetFeO11YTier2Min(v float32)`
 
-SetFeO11yTier2Min sets FeO11yTier2Min field to given value.
+SetFeO11YTier2Min sets FeO11YTier2Min field to given value.
 
 
-### GetFeO11yTier2Rate
+### GetFeO11YTier2Rate
 
-`func (o *FormattedApiOrgPublic) GetFeO11yTier2Rate() float32`
+`func (o *FormattedApiOrgPublic) GetFeO11YTier2Rate() float32`
 
-GetFeO11yTier2Rate returns the FeO11yTier2Rate field if non-nil, zero value otherwise.
+GetFeO11YTier2Rate returns the FeO11YTier2Rate field if non-nil, zero value otherwise.
 
-### GetFeO11yTier2RateOk
+### GetFeO11YTier2RateOk
 
-`func (o *FormattedApiOrgPublic) GetFeO11yTier2RateOk() (*float32, bool)`
+`func (o *FormattedApiOrgPublic) GetFeO11YTier2RateOk() (*float32, bool)`
 
-GetFeO11yTier2RateOk returns a tuple with the FeO11yTier2Rate field if it's non-nil, zero value otherwise
+GetFeO11YTier2RateOk returns a tuple with the FeO11YTier2Rate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFeO11yTier2Rate
+### SetFeO11YTier2Rate
 
-`func (o *FormattedApiOrgPublic) SetFeO11yTier2Rate(v float32)`
+`func (o *FormattedApiOrgPublic) SetFeO11YTier2Rate(v float32)`
 
-SetFeO11yTier2Rate sets FeO11yTier2Rate field to given value.
+SetFeO11YTier2Rate sets FeO11YTier2Rate field to given value.
 
 
-### GetFeO11yTier3Min
+### GetFeO11YTier3Min
 
-`func (o *FormattedApiOrgPublic) GetFeO11yTier3Min() float32`
+`func (o *FormattedApiOrgPublic) GetFeO11YTier3Min() float32`
 
-GetFeO11yTier3Min returns the FeO11yTier3Min field if non-nil, zero value otherwise.
+GetFeO11YTier3Min returns the FeO11YTier3Min field if non-nil, zero value otherwise.
 
-### GetFeO11yTier3MinOk
+### GetFeO11YTier3MinOk
 
-`func (o *FormattedApiOrgPublic) GetFeO11yTier3MinOk() (*float32, bool)`
+`func (o *FormattedApiOrgPublic) GetFeO11YTier3MinOk() (*float32, bool)`
 
-GetFeO11yTier3MinOk returns a tuple with the FeO11yTier3Min field if it's non-nil, zero value otherwise
+GetFeO11YTier3MinOk returns a tuple with the FeO11YTier3Min field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFeO11yTier3Min
+### SetFeO11YTier3Min
 
-`func (o *FormattedApiOrgPublic) SetFeO11yTier3Min(v float32)`
+`func (o *FormattedApiOrgPublic) SetFeO11YTier3Min(v float32)`
 
-SetFeO11yTier3Min sets FeO11yTier3Min field to given value.
+SetFeO11YTier3Min sets FeO11YTier3Min field to given value.
 
 
-### GetFeO11yTier3Rate
+### GetFeO11YTier3Rate
 
-`func (o *FormattedApiOrgPublic) GetFeO11yTier3Rate() float32`
+`func (o *FormattedApiOrgPublic) GetFeO11YTier3Rate() float32`
 
-GetFeO11yTier3Rate returns the FeO11yTier3Rate field if non-nil, zero value otherwise.
+GetFeO11YTier3Rate returns the FeO11YTier3Rate field if non-nil, zero value otherwise.
 
-### GetFeO11yTier3RateOk
+### GetFeO11YTier3RateOk
 
-`func (o *FormattedApiOrgPublic) GetFeO11yTier3RateOk() (*float32, bool)`
+`func (o *FormattedApiOrgPublic) GetFeO11YTier3RateOk() (*float32, bool)`
 
-GetFeO11yTier3RateOk returns a tuple with the FeO11yTier3Rate field if it's non-nil, zero value otherwise
+GetFeO11YTier3RateOk returns a tuple with the FeO11YTier3Rate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFeO11yTier3Rate
+### SetFeO11YTier3Rate
 
-`func (o *FormattedApiOrgPublic) SetFeO11yTier3Rate(v float32)`
+`func (o *FormattedApiOrgPublic) SetFeO11YTier3Rate(v float32)`
 
-SetFeO11yTier3Rate sets FeO11yTier3Rate field to given value.
+SetFeO11YTier3Rate sets FeO11YTier3Rate field to given value.
 
 
-### GetFeO11yUnits
+### GetFeO11YUnits
 
-`func (o *FormattedApiOrgPublic) GetFeO11yUnits() float32`
+`func (o *FormattedApiOrgPublic) GetFeO11YUnits() float32`
 
-GetFeO11yUnits returns the FeO11yUnits field if non-nil, zero value otherwise.
+GetFeO11YUnits returns the FeO11YUnits field if non-nil, zero value otherwise.
 
-### GetFeO11yUnitsOk
+### GetFeO11YUnitsOk
 
-`func (o *FormattedApiOrgPublic) GetFeO11yUnitsOk() (*float32, bool)`
+`func (o *FormattedApiOrgPublic) GetFeO11YUnitsOk() (*float32, bool)`
 
-GetFeO11yUnitsOk returns a tuple with the FeO11yUnits field if it's non-nil, zero value otherwise
+GetFeO11YUnitsOk returns a tuple with the FeO11YUnits field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFeO11yUnits
+### SetFeO11YUnits
 
-`func (o *FormattedApiOrgPublic) SetFeO11yUnits(v float32)`
+`func (o *FormattedApiOrgPublic) SetFeO11YUnits(v float32)`
 
-SetFeO11yUnits sets FeO11yUnits field to given value.
+SetFeO11YUnits sets FeO11YUnits field to given value.
 
 
-### GetFeO11yUsage
+### GetFeO11YUsage
 
-`func (o *FormattedApiOrgPublic) GetFeO11yUsage() float32`
+`func (o *FormattedApiOrgPublic) GetFeO11YUsage() float32`
 
-GetFeO11yUsage returns the FeO11yUsage field if non-nil, zero value otherwise.
+GetFeO11YUsage returns the FeO11YUsage field if non-nil, zero value otherwise.
 
-### GetFeO11yUsageOk
+### GetFeO11YUsageOk
 
-`func (o *FormattedApiOrgPublic) GetFeO11yUsageOk() (*float32, bool)`
+`func (o *FormattedApiOrgPublic) GetFeO11YUsageOk() (*float32, bool)`
 
-GetFeO11yUsageOk returns a tuple with the FeO11yUsage field if it's non-nil, zero value otherwise
+GetFeO11YUsageOk returns a tuple with the FeO11YUsage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFeO11yUsage
+### SetFeO11YUsage
 
-`func (o *FormattedApiOrgPublic) SetFeO11yUsage(v float32)`
+`func (o *FormattedApiOrgPublic) SetFeO11YUsage(v float32)`
 
-SetFeO11yUsage sets FeO11yUsage field to given value.
+SetFeO11YUsage sets FeO11YUsage field to given value.
 
 
 ### GetGeUsersIncludedUsage
