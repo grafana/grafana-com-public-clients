@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## GetAccessPolicies
 
-> []AuthAccessPolicy GetAccessPolicies(ctx).Region(region).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).RealmIdentifier(realmIdentifier).RealmType(realmType).Status(status).Execute()
+> GetAccessPolicies200Response GetAccessPolicies(ctx).Region(region).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).RealmIdentifier(realmIdentifier).RealmType(realmType).Status(status).Execute()
 
 Get a list of access policies
 
@@ -122,7 +122,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccesspoliciesAPI.GetAccessPolicies``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAccessPolicies`: []AuthAccessPolicy
+	// response from `GetAccessPolicies`: GetAccessPolicies200Response
 	fmt.Fprintf(os.Stdout, "Response from `AccesspoliciesAPI.GetAccessPolicies`: %v\n", resp)
 }
 ```
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]AuthAccessPolicy**](AuthAccessPolicy.md)
+[**GetAccessPolicies200Response**](GetAccessPolicies200Response.md)
 
 ### Authorization
 

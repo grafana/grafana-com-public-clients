@@ -259,7 +259,7 @@ func (r ApiGetAccessPoliciesRequest) Status(status string) ApiGetAccessPoliciesR
 	return r
 }
 
-func (r ApiGetAccessPoliciesRequest) Execute() ([]AuthAccessPolicy, *http.Response, error) {
+func (r ApiGetAccessPoliciesRequest) Execute() (*GetAccessPolicies200Response, *http.Response, error) {
 	return r.ApiService.GetAccessPoliciesExecute(r)
 }
 
@@ -277,13 +277,13 @@ func (a *AccesspoliciesAPIService) GetAccessPolicies(ctx context.Context) ApiGet
 }
 
 // Execute executes the request
-//  @return []AuthAccessPolicy
-func (a *AccesspoliciesAPIService) GetAccessPoliciesExecute(r ApiGetAccessPoliciesRequest) ([]AuthAccessPolicy, *http.Response, error) {
+//  @return GetAccessPolicies200Response
+func (a *AccesspoliciesAPIService) GetAccessPoliciesExecute(r ApiGetAccessPoliciesRequest) (*GetAccessPolicies200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue []AuthAccessPolicy
+		localVarReturnValue *GetAccessPolicies200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccesspoliciesAPIService.GetAccessPolicies")

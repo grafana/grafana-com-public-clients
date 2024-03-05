@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
  - [FormattedApiStackRegionAnyOf](docs/FormattedApiStackRegionAnyOf.md)
  - [FormattedApiStackRegionAnyOf1](docs/FormattedApiStackRegionAnyOf1.md)
  - [FormattedOrgMembership](docs/FormattedOrgMembership.md)
+ - [GetAccessPolicies200Response](docs/GetAccessPolicies200Response.md)
  - [GetInstance404Response](docs/GetInstance404Response.md)
  - [GetInstancePlugins200Response](docs/GetInstancePlugins200Response.md)
  - [GetInstances200Response](docs/GetInstances200Response.md)

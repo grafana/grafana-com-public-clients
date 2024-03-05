@@ -2575,9 +2575,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AuthAccessPolicy'
-                type: array
+                $ref: '#/components/schemas/getAccessPolicies_200_response'
           description: OK
         "401":
           content:
@@ -6272,6 +6270,99 @@ components:
       - pageSize
       - pages
       - total
+      type: object
+    getAccessPolicies_200_response:
+      example:
+        items:
+        - realms:
+          - identifier: "123"
+            labelPolicies:
+            - selector: "{env != \"dev\"}"
+            - selector: "{env != \"dev\"}"
+            type: stack
+          - identifier: "123"
+            labelPolicies:
+            - selector: "{env != \"dev\"}"
+            - selector: "{env != \"dev\"}"
+            type: stack
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          displayName: Stack Readers
+          name: stack-readers
+          attributes:
+            pdcConfiguration:
+              limitedHosts:
+              - mysql.example.com:3306
+              - mysql.example.com:3306
+            lokiQueryPolicy:
+              queryTimeout: 10s
+              maxQueryLookback: 30d
+              maxQueryLength: 7d
+              maxEntriesLimitPerQuery: 20
+            allowedScopes:
+            - metrics:read
+            - logs:read
+            - traces:read
+            - alerts:read
+          id: c45485b6-8321-4cf2-bcec-12006df755ff
+          scopes:
+          - metrics:read
+          - logs:read
+          - traces:read
+          - alerts:read
+          conditions:
+            allowedSubnets:
+            - null
+            - null
+          orgId: "1"
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          status: active
+        - realms:
+          - identifier: "123"
+            labelPolicies:
+            - selector: "{env != \"dev\"}"
+            - selector: "{env != \"dev\"}"
+            type: stack
+          - identifier: "123"
+            labelPolicies:
+            - selector: "{env != \"dev\"}"
+            - selector: "{env != \"dev\"}"
+            type: stack
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          displayName: Stack Readers
+          name: stack-readers
+          attributes:
+            pdcConfiguration:
+              limitedHosts:
+              - mysql.example.com:3306
+              - mysql.example.com:3306
+            lokiQueryPolicy:
+              queryTimeout: 10s
+              maxQueryLookback: 30d
+              maxQueryLength: 7d
+              maxEntriesLimitPerQuery: 20
+            allowedScopes:
+            - metrics:read
+            - logs:read
+            - traces:read
+            - alerts:read
+          id: c45485b6-8321-4cf2-bcec-12006df755ff
+          scopes:
+          - metrics:read
+          - logs:read
+          - traces:read
+          - alerts:read
+          conditions:
+            allowedSubnets:
+            - null
+            - null
+          orgId: "1"
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          status: active
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/AuthAccessPolicy'
+          type: array
       type: object
     postAccessPolicies_request_attributes_lokiQueryPolicy:
       properties:

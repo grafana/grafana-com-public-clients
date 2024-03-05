@@ -40,6 +40,7 @@ docs/FormattedApiStackRegion.md
 docs/FormattedApiStackRegionAnyOf.md
 docs/FormattedApiStackRegionAnyOf1.md
 docs/FormattedOrgMembership.md
+docs/GetAccessPolicies200Response.md
 docs/GetInstance404Response.md
 docs/GetInstancePlugins200Response.md
 docs/GetInstances200Response.md
@@ -129,6 +130,7 @@ model_formatted_api_stack_region.go
 model_formatted_api_stack_region_any_of.go
 model_formatted_api_stack_region_any_of_1.go
 model_formatted_org_membership.go
+model_get_access_policies_200_response.go
 model_get_instance_404_response.go
 model_get_instance_plugins_200_response.go
 model_get_instances_200_response.go
