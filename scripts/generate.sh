@@ -12,6 +12,17 @@ modify() {
     SCHEMA="$(echo "${SCHEMA}" | jq "${1}")"
 }
 modify '.components.schemas.FormattedApiOrgPublic.properties.allowGCloudTrial = { "anyOf": [ { "type": "boolean" }, { "type": "number" } ] }'
+modify '.paths["/v1/accesspolicies"].get.responses["200"].content["application/json"].schema = {
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AuthAccessPolicy"
+      }
+    }
+  }
+}'
 
 TEMP_OPENAPI_FILE="openapi-temp.json"
 echo "${SCHEMA}" > $TEMP_OPENAPI_FILE
