@@ -66,6 +66,7 @@ type FormattedApiStackRegionAnyOf1 struct {
 	AgmClusterSlug              string                              `json:"agmClusterSlug"`
 	AgmClusterName              string                              `json:"agmClusterName"`
 	AgmClusterUrl               string                              `json:"agmClusterUrl"`
+	AssertsGraphClusterId       float32                             `json:"assertsGraphClusterId"`
 	ProviderRegion              string                              `json:"providerRegion"`
 	Id                          float32                             `json:"id"`
 	Status                      string                              `json:"status"`
@@ -87,7 +88,7 @@ type _FormattedApiStackRegionAnyOf1 FormattedApiStackRegionAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
+func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
 	this := FormattedApiStackRegionAnyOf1{}
 	this.StackStateServiceUrl = stackStateServiceUrl
 	this.SyntheticMonitoringApiUrl = syntheticMonitoringApiUrl
@@ -136,6 +137,7 @@ func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMoni
 	this.AgmClusterSlug = agmClusterSlug
 	this.AgmClusterName = agmClusterName
 	this.AgmClusterUrl = agmClusterUrl
+	this.AssertsGraphClusterId = assertsGraphClusterId
 	this.ProviderRegion = providerRegion
 	this.Id = id
 	this.Status = status
@@ -1291,6 +1293,30 @@ func (o *FormattedApiStackRegionAnyOf1) SetAgmClusterUrl(v string) {
 	o.AgmClusterUrl = v
 }
 
+// GetAssertsGraphClusterId returns the AssertsGraphClusterId field value
+func (o *FormattedApiStackRegionAnyOf1) GetAssertsGraphClusterId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.AssertsGraphClusterId
+}
+
+// GetAssertsGraphClusterIdOk returns a tuple with the AssertsGraphClusterId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetAssertsGraphClusterIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AssertsGraphClusterId, true
+}
+
+// SetAssertsGraphClusterId sets field value
+func (o *FormattedApiStackRegionAnyOf1) SetAssertsGraphClusterId(v float32) {
+	o.AssertsGraphClusterId = v
+}
+
 // GetProviderRegion returns the ProviderRegion field value
 func (o *FormattedApiStackRegionAnyOf1) GetProviderRegion() string {
 	if o == nil {
@@ -1638,6 +1664,7 @@ func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize["agmClusterSlug"] = o.AgmClusterSlug
 	toSerialize["agmClusterName"] = o.AgmClusterName
 	toSerialize["agmClusterUrl"] = o.AgmClusterUrl
+	toSerialize["assertsGraphClusterId"] = o.AssertsGraphClusterId
 	toSerialize["providerRegion"] = o.ProviderRegion
 	toSerialize["id"] = o.Id
 	toSerialize["status"] = o.Status
@@ -1727,6 +1754,7 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "agmClusterSlug")
 		delete(additionalProperties, "agmClusterName")
 		delete(additionalProperties, "agmClusterUrl")
+		delete(additionalProperties, "assertsGraphClusterId")
 		delete(additionalProperties, "providerRegion")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "status")

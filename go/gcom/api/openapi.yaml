@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: e130965
-  x-generated-at: 2024-03-01T00:08:10.155Z
+  x-commit-sha: bb7b432
+  x-generated-at: 2024-03-05T14:21:57.631Z
 servers:
 - description: Main API server
   url: /api
@@ -7443,6 +7443,9 @@ components:
         agmClusterUrl:
           title: agmClusterUrl
           type: string
+        assertsGraphClusterId:
+          title: assertsGraphClusterId
+          type: number
         providerRegion:
           title: providerRegion
           type: string
@@ -7493,6 +7496,7 @@ components:
       - amClusterName
       - amClusterSlug
       - amClusterUrl
+      - assertsGraphClusterId
       - authApiTokenSet
       - authApiUrl
       - createdAt

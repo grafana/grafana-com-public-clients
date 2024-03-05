@@ -51,6 +51,7 @@ Name | Type | Description | Notes
 **AgmClusterSlug** | **string** |  | 
 **AgmClusterName** | **string** |  | 
 **AgmClusterUrl** | **string** |  | 
+**AssertsGraphClusterId** | **float32** |  | 
 **ProviderRegion** | **string** |  | 
 **Id** | **float32** |  | 
 **Status** | **string** |  | 
@@ -68,7 +69,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiStackRegionAnyOf1
 
-`func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, ) *FormattedApiStackRegionAnyOf1`
+`func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo NullableOtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, ) *FormattedApiStackRegionAnyOf1`
 
 NewFormattedApiStackRegionAnyOf1 instantiates a new FormattedApiStackRegionAnyOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -1041,6 +1042,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiStackRegionAnyOf1) SetAgmClusterUrl(v string)`
 
 SetAgmClusterUrl sets AgmClusterUrl field to given value.
+
+
+### GetAssertsGraphClusterId
+
+`func (o *FormattedApiStackRegionAnyOf1) GetAssertsGraphClusterId() float32`
+
+GetAssertsGraphClusterId returns the AssertsGraphClusterId field if non-nil, zero value otherwise.
+
+### GetAssertsGraphClusterIdOk
+
+`func (o *FormattedApiStackRegionAnyOf1) GetAssertsGraphClusterIdOk() (*float32, bool)`
+
+GetAssertsGraphClusterIdOk returns a tuple with the AssertsGraphClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssertsGraphClusterId
+
+`func (o *FormattedApiStackRegionAnyOf1) SetAssertsGraphClusterId(v float32)`
+
+SetAssertsGraphClusterId sets AssertsGraphClusterId field to given value.
 
 
 ### GetProviderRegion
