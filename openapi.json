@@ -1404,6 +1404,273 @@
         }
       }
     },
+    "/instances/{instanceId}/api/serviceaccounts/{serviceAccountId}": {
+      "get": {
+        "tags": [
+          "instances"
+        ],
+        "operationId": "getInstanceServiceAccount",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instanceId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "serviceAccountId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "summary": "Gets a service account on a Grafana instance",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrafanaServiceAccountDTO"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "instances"
+        ],
+        "operationId": "deleteInstanceServiceAccount",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instanceId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "serviceAccountId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string",
+              "default": "openapi-x-request-id"
+            },
+            "required": true
+          }
+        ],
+        "summary": "Delete a service account on a Grafana instance",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is currently unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "ServiceUnavailable"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens": {
       "post": {
         "tags": [
@@ -1469,6 +1736,284 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is currently unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "ServiceUnavailable"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "instances"
+        ],
+        "operationId": "getInstanceServiceAccountTokens",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instanceId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "serviceAccountId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "summary": "Get a service account's tokens on a Grafana instance",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrafanaTokenDTO"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId}": {
+      "delete": {
+        "tags": [
+          "instances"
+        ],
+        "operationId": "deleteInstanceServiceAccountToken",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instanceId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "serviceAccountId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "tokenId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string",
+              "default": "openapi-x-request-id"
+            },
+            "required": true
+          }
+        ],
+        "summary": "Delete a service account token on a Grafana instance",
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "401": {
             "description": "Login Required or invalid credentials",
@@ -7700,8 +8245,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "bb7b432",
-    "x-generated-at": "2024-03-05T14:21:57.631Z"
+    "x-commit-sha": "26d565c",
+    "x-generated-at": "2024-03-14T12:42:33.282Z"
   },
   "security": [
     {
@@ -8843,6 +9388,48 @@
           "name": {
             "example": "grafana",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "GrafanaTokenDTO": {
+        "properties": {
+          "created": {
+            "example": "2022-03-23T10:31:02Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "expiration": {
+            "example": "2022-03-23T10:31:02Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "hasExpired": {
+            "example": false,
+            "type": "boolean"
+          },
+          "id": {
+            "example": 1,
+            "format": "int64",
+            "type": "integer"
+          },
+          "isRevoked": {
+            "example": false,
+            "type": "boolean"
+          },
+          "lastUsedAt": {
+            "example": "2022-03-23T10:31:02Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "name": {
+            "example": "grafana",
+            "type": "string"
+          },
+          "secondsUntilExpiration": {
+            "example": 0,
+            "format": "double",
+            "type": "number"
           }
         },
         "type": "object"
