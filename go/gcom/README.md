@@ -99,10 +99,14 @@ Class | Method | HTTP request | Description
 *InstancesAPI* | [**DelInstanceOAuthOkta**](docs/InstancesAPI.md#delinstanceoauthokta) | **Delete** /instances/{instanceId}/oauth-okta | Disable Okta OAuth in an instance
 *InstancesAPI* | [**DeleteInstance**](docs/InstancesAPI.md#deleteinstance) | **Delete** /instances/{instanceId} | Deletes an instance
 *InstancesAPI* | [**DeleteInstancePlugin**](docs/InstancesAPI.md#deleteinstanceplugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
+*InstancesAPI* | [**DeleteInstanceServiceAccount**](docs/InstancesAPI.md#deleteinstanceserviceaccount) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Delete a service account on a Grafana instance
+*InstancesAPI* | [**DeleteInstanceServiceAccountToken**](docs/InstancesAPI.md#deleteinstanceserviceaccounttoken) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId} | Delete a service account token on a Grafana instance
 *InstancesAPI* | [**GetConnections**](docs/InstancesAPI.md#getconnections) | **Get** /instances/{instanceId}/connections | Gets an instance&#39;s connectivity information (InfluxDB, OTEL, AWS private link, etc.)
 *InstancesAPI* | [**GetInstance**](docs/InstancesAPI.md#getinstance) | **Get** /instances/{instanceId} | Gets an instance
 *InstancesAPI* | [**GetInstancePlugin**](docs/InstancesAPI.md#getinstanceplugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 *InstancesAPI* | [**GetInstancePlugins**](docs/InstancesAPI.md#getinstanceplugins) | **Get** /instances/{instanceId}/plugins | 
+*InstancesAPI* | [**GetInstanceServiceAccount**](docs/InstancesAPI.md#getinstanceserviceaccount) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Gets a service account on a Grafana instance
+*InstancesAPI* | [**GetInstanceServiceAccountTokens**](docs/InstancesAPI.md#getinstanceserviceaccounttokens) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Get a service account&#39;s tokens on a Grafana instance
 *InstancesAPI* | [**GetInstances**](docs/InstancesAPI.md#getinstances) | **Get** /instances | Get a list of instances
 *InstancesAPI* | [**PostInstance**](docs/InstancesAPI.md#postinstance) | **Post** /instances/{instanceId} | Updates an instance
 *InstancesAPI* | [**PostInstanceOAuthAzureAD**](docs/InstancesAPI.md#postinstanceoauthazuread) | **Post** /instances/{instanceId}/oauth-azuread | Configure Azure OAuth in an instance
@@ -169,6 +173,7 @@ Class | Method | HTTP request | Description
  - [GetStackRegions200Response](docs/GetStackRegions200Response.md)
  - [GrafanaNewApiKeyResult](docs/GrafanaNewApiKeyResult.md)
  - [GrafanaServiceAccountDTO](docs/GrafanaServiceAccountDTO.md)
+ - [GrafanaTokenDTO](docs/GrafanaTokenDTO.md)
  - [Graphite](docs/Graphite.md)
  - [Info](docs/Info.md)
  - [ItemsInner](docs/ItemsInner.md)

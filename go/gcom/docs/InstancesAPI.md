@@ -10,10 +10,14 @@ Method | HTTP request | Description
 [**DelInstanceOAuthOkta**](InstancesAPI.md#DelInstanceOAuthOkta) | **Delete** /instances/{instanceId}/oauth-okta | Disable Okta OAuth in an instance
 [**DeleteInstance**](InstancesAPI.md#DeleteInstance) | **Delete** /instances/{instanceId} | Deletes an instance
 [**DeleteInstancePlugin**](InstancesAPI.md#DeleteInstancePlugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
+[**DeleteInstanceServiceAccount**](InstancesAPI.md#DeleteInstanceServiceAccount) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Delete a service account on a Grafana instance
+[**DeleteInstanceServiceAccountToken**](InstancesAPI.md#DeleteInstanceServiceAccountToken) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId} | Delete a service account token on a Grafana instance
 [**GetConnections**](InstancesAPI.md#GetConnections) | **Get** /instances/{instanceId}/connections | Gets an instance&#39;s connectivity information (InfluxDB, OTEL, AWS private link, etc.)
 [**GetInstance**](InstancesAPI.md#GetInstance) | **Get** /instances/{instanceId} | Gets an instance
 [**GetInstancePlugin**](InstancesAPI.md#GetInstancePlugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 [**GetInstancePlugins**](InstancesAPI.md#GetInstancePlugins) | **Get** /instances/{instanceId}/plugins | 
+[**GetInstanceServiceAccount**](InstancesAPI.md#GetInstanceServiceAccount) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Gets a service account on a Grafana instance
+[**GetInstanceServiceAccountTokens**](InstancesAPI.md#GetInstanceServiceAccountTokens) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Get a service account&#39;s tokens on a Grafana instance
 [**GetInstances**](InstancesAPI.md#GetInstances) | **Get** /instances | Get a list of instances
 [**PostInstance**](InstancesAPI.md#PostInstance) | **Post** /instances/{instanceId} | Updates an instance
 [**PostInstanceOAuthAzureAD**](InstancesAPI.md#PostInstanceOAuthAzureAD) | **Post** /instances/{instanceId}/oauth-azuread | Configure Azure OAuth in an instance
@@ -451,6 +455,151 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeleteInstanceServiceAccount
+
+> DeleteInstanceServiceAccount(ctx, instanceId, serviceAccountId).XRequestId(xRequestId).Execute()
+
+Delete a service account on a Grafana instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	serviceAccountId := "serviceAccountId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.InstancesAPI.DeleteInstanceServiceAccount(context.Background(), instanceId, serviceAccountId).XRequestId(xRequestId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.DeleteInstanceServiceAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+**serviceAccountId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteInstanceServiceAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteInstanceServiceAccountToken
+
+> DeleteInstanceServiceAccountToken(ctx, instanceId, serviceAccountId, tokenId).XRequestId(xRequestId).Execute()
+
+Delete a service account token on a Grafana instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	serviceAccountId := "serviceAccountId_example" // string | 
+	tokenId := "tokenId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.InstancesAPI.DeleteInstanceServiceAccountToken(context.Background(), instanceId, serviceAccountId, tokenId).XRequestId(xRequestId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.DeleteInstanceServiceAccountToken``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+**serviceAccountId** | **string** |  | 
+**tokenId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteInstanceServiceAccountTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetConnections
 
 > FormattedApiInstanceConnections GetConnections(ctx, instanceId).Config(config).Execute()
@@ -719,6 +868,148 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetInstancePlugins200Response**](GetInstancePlugins200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInstanceServiceAccount
+
+> GrafanaServiceAccountDTO GetInstanceServiceAccount(ctx, instanceId, serviceAccountId).Execute()
+
+Gets a service account on a Grafana instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	serviceAccountId := "serviceAccountId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.GetInstanceServiceAccount(context.Background(), instanceId, serviceAccountId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstanceServiceAccount``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetInstanceServiceAccount`: GrafanaServiceAccountDTO
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.GetInstanceServiceAccount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+**serviceAccountId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInstanceServiceAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**GrafanaServiceAccountDTO**](GrafanaServiceAccountDTO.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInstanceServiceAccountTokens
+
+> []GrafanaTokenDTO GetInstanceServiceAccountTokens(ctx, instanceId, serviceAccountId).Execute()
+
+Get a service account's tokens on a Grafana instance
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	serviceAccountId := "serviceAccountId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.GetInstanceServiceAccountTokens(context.Background(), instanceId, serviceAccountId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstanceServiceAccountTokens``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetInstanceServiceAccountTokens`: []GrafanaTokenDTO
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.GetInstanceServiceAccountTokens`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+**serviceAccountId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInstanceServiceAccountTokensRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**[]GrafanaTokenDTO**](GrafanaTokenDTO.md)
 
 ### Authorization
 

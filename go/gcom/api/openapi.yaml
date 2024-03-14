@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: bb7b432
-  x-generated-at: 2024-03-05T14:21:57.631Z
+  x-commit-sha: 26d565c
+  x-generated-at: 2024-03-14T12:42:33.282Z
 servers:
 - description: Main API server
   url: /api
@@ -630,7 +630,173 @@ paths:
       summary: Creates a service account on a Grafana instance
       tags:
       - instances
+  /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}:
+    delete:
+      operationId: deleteInstanceServiceAccount
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: serviceAccountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Delete a service account on a Grafana instance
+      tags:
+      - instances
+    get:
+      operationId: getInstanceServiceAccount
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: serviceAccountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrafanaServiceAccountDTO'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Gets a service account on a Grafana instance
+      tags:
+      - instances
   /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens:
+    get:
+      operationId: getInstanceServiceAccountTokens
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: serviceAccountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/GrafanaTokenDTO'
+                type: array
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get a service account's tokens on a Grafana instance
+      tags:
+      - instances
     post:
       operationId: postInstanceServiceAccountTokens
       parameters:
@@ -700,6 +866,75 @@ paths:
                 $ref: '#/components/schemas/postAllApiKeys_503_response'
           description: Service is currently unavailable
       summary: Creates a service account token on a Grafana instance
+      tags:
+      - instances
+  /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId}:
+    delete:
+      operationId: deleteInstanceServiceAccountToken
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: serviceAccountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tokenId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_503_response'
+          description: Service is currently unavailable
+      summary: Delete a service account token on a Grafana instance
       tags:
       - instances
   /instances/{instanceId}/connections:
@@ -4220,6 +4455,47 @@ components:
         name:
           example: grafana
           type: string
+      type: object
+    GrafanaTokenDTO:
+      example:
+        isRevoked: false
+        hasExpired: false
+        lastUsedAt: 2022-03-23T10:31:02Z
+        created: 2022-03-23T10:31:02Z
+        name: grafana
+        secondsUntilExpiration: 0
+        expiration: 2022-03-23T10:31:02Z
+        id: 1
+      properties:
+        created:
+          example: 2022-03-23T10:31:02Z
+          format: date-time
+          type: string
+        expiration:
+          example: 2022-03-23T10:31:02Z
+          format: date-time
+          type: string
+        hasExpired:
+          example: false
+          type: boolean
+        id:
+          example: 1
+          format: int64
+          type: integer
+        isRevoked:
+          example: false
+          type: boolean
+        lastUsedAt:
+          example: 2022-03-23T10:31:02Z
+          format: date-time
+          type: string
+        name:
+          example: grafana
+          type: string
+        secondsUntilExpiration:
+          example: 0
+          format: double
+          type: number
       type: object
     FormattedApiInstanceConnections:
       example:

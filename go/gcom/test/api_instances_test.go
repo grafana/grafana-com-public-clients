@@ -108,6 +108,35 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InstancesAPIService DeleteInstanceServiceAccount", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+		var serviceAccountId string
+
+		httpRes, err := apiClient.InstancesAPI.DeleteInstanceServiceAccount(context.Background(), instanceId, serviceAccountId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InstancesAPIService DeleteInstanceServiceAccountToken", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+		var serviceAccountId string
+		var tokenId string
+
+		httpRes, err := apiClient.InstancesAPI.DeleteInstanceServiceAccountToken(context.Background(), instanceId, serviceAccountId, tokenId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InstancesAPIService GetConnections", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -158,6 +187,36 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 		var instanceId string
 
 		resp, httpRes, err := apiClient.InstancesAPI.GetInstancePlugins(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InstancesAPIService GetInstanceServiceAccount", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+		var serviceAccountId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.GetInstanceServiceAccount(context.Background(), instanceId, serviceAccountId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test InstancesAPIService GetInstanceServiceAccountTokens", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+		var serviceAccountId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.GetInstanceServiceAccountTokens(context.Background(), instanceId, serviceAccountId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

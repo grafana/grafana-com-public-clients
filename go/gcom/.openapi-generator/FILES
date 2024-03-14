@@ -47,6 +47,7 @@ docs/GetInstances200Response.md
 docs/GetStackRegions200Response.md
 docs/GrafanaNewApiKeyResult.md
 docs/GrafanaServiceAccountDTO.md
+docs/GrafanaTokenDTO.md
 docs/Graphite.md
 docs/Info.md
 docs/InstancesAPI.md
@@ -137,6 +138,7 @@ model_get_instances_200_response.go
 model_get_stack_regions_200_response.go
 model_grafana_new_api_key_result.go
 model_grafana_service_account_dto.go
+model_grafana_token_dto.go
 model_graphite.go
 model_info.go
 model_items_inner.go
