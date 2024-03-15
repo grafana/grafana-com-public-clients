@@ -37,7 +37,7 @@ type FormattedOrgMembership struct {
 	GrafanaCloud             float32                                    `json:"grafanaCloud"`
 	ResellerId               NullableFloat32                            `json:"resellerId"`
 	ContractTypeId           float32                                    `json:"contractTypeId"`
-	AllowGCloudTrial         bool                                       `json:"allowGCloudTrial"`
+	AllowGCloudTrial         FormattedOrgMembershipAllowGCloudTrial     `json:"allowGCloudTrial"`
 	HlUsage                  float32                                    `json:"hlUsage"`
 	HmCurrentGraphiteUsage   float32                                    `json:"hmCurrentGraphiteUsage"`
 	HmCurrentPrometheusUsage float32                                    `json:"hmCurrentPrometheusUsage"`
@@ -59,7 +59,7 @@ type _FormattedOrgMembership FormattedOrgMembership
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial bool, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription) *FormattedOrgMembership {
+func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription) *FormattedOrgMembership {
 	this := FormattedOrgMembership{}
 	this.Id = id
 	this.OrgId = orgId
@@ -540,9 +540,9 @@ func (o *FormattedOrgMembership) SetContractTypeId(v float32) {
 }
 
 // GetAllowGCloudTrial returns the AllowGCloudTrial field value
-func (o *FormattedOrgMembership) GetAllowGCloudTrial() bool {
+func (o *FormattedOrgMembership) GetAllowGCloudTrial() FormattedOrgMembershipAllowGCloudTrial {
 	if o == nil {
-		var ret bool
+		var ret FormattedOrgMembershipAllowGCloudTrial
 		return ret
 	}
 
@@ -551,7 +551,7 @@ func (o *FormattedOrgMembership) GetAllowGCloudTrial() bool {
 
 // GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value
 // and a boolean to check if the value has been set.
-func (o *FormattedOrgMembership) GetAllowGCloudTrialOk() (*bool, bool) {
+func (o *FormattedOrgMembership) GetAllowGCloudTrialOk() (*FormattedOrgMembershipAllowGCloudTrial, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -559,7 +559,7 @@ func (o *FormattedOrgMembership) GetAllowGCloudTrialOk() (*bool, bool) {
 }
 
 // SetAllowGCloudTrial sets field value
-func (o *FormattedOrgMembership) SetAllowGCloudTrial(v bool) {
+func (o *FormattedOrgMembership) SetAllowGCloudTrial(v FormattedOrgMembershipAllowGCloudTrial) {
 	o.AllowGCloudTrial = v
 }
 

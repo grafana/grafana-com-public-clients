@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **GrafanaCloud** | **float32** |  | 
 **ResellerId** | **NullableFloat32** |  | 
 **ContractTypeId** | **float32** |  | 
-**AllowGCloudTrial** | **bool** |  | 
+**AllowGCloudTrial** | [**FormattedOrgMembershipAllowGCloudTrial**](FormattedOrgMembershipAllowGCloudTrial.md) |  | 
 **HlUsage** | **float32** |  | 
 **HmCurrentGraphiteUsage** | **float32** |  | 
 **HmCurrentPrometheusUsage** | **float32** |  | 
@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedOrgMembership
 
-`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial bool, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription, ) *FormattedOrgMembership`
+`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription, ) *FormattedOrgMembership`
 
 NewFormattedOrgMembership instantiates a new FormattedOrgMembership object
 This constructor will assign default values to properties that have it defined,
@@ -437,20 +437,20 @@ SetContractTypeId sets ContractTypeId field to given value.
 
 ### GetAllowGCloudTrial
 
-`func (o *FormattedOrgMembership) GetAllowGCloudTrial() bool`
+`func (o *FormattedOrgMembership) GetAllowGCloudTrial() FormattedOrgMembershipAllowGCloudTrial`
 
 GetAllowGCloudTrial returns the AllowGCloudTrial field if non-nil, zero value otherwise.
 
 ### GetAllowGCloudTrialOk
 
-`func (o *FormattedOrgMembership) GetAllowGCloudTrialOk() (*bool, bool)`
+`func (o *FormattedOrgMembership) GetAllowGCloudTrialOk() (*FormattedOrgMembershipAllowGCloudTrial, bool)`
 
 GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllowGCloudTrial
 
-`func (o *FormattedOrgMembership) SetAllowGCloudTrial(v bool)`
+`func (o *FormattedOrgMembership) SetAllowGCloudTrial(v FormattedOrgMembershipAllowGCloudTrial)`
 
 SetAllowGCloudTrial sets AllowGCloudTrial field to given value.
 

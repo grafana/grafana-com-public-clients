@@ -1,4 +1,4 @@
-# FormattedApiOrgPublicAllowGCloudTrial
+# FormattedOrgMembershipAllowGCloudTrial
 
 ## Properties
 
@@ -7,20 +7,20 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewFormattedApiOrgPublicAllowGCloudTrial
+### NewFormattedOrgMembershipAllowGCloudTrial
 
-`func NewFormattedApiOrgPublicAllowGCloudTrial() *FormattedApiOrgPublicAllowGCloudTrial`
+`func NewFormattedOrgMembershipAllowGCloudTrial() *FormattedOrgMembershipAllowGCloudTrial`
 
-NewFormattedApiOrgPublicAllowGCloudTrial instantiates a new FormattedApiOrgPublicAllowGCloudTrial object
+NewFormattedOrgMembershipAllowGCloudTrial instantiates a new FormattedOrgMembershipAllowGCloudTrial object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewFormattedApiOrgPublicAllowGCloudTrialWithDefaults
+### NewFormattedOrgMembershipAllowGCloudTrialWithDefaults
 
-`func NewFormattedApiOrgPublicAllowGCloudTrialWithDefaults() *FormattedApiOrgPublicAllowGCloudTrial`
+`func NewFormattedOrgMembershipAllowGCloudTrialWithDefaults() *FormattedOrgMembershipAllowGCloudTrial`
 
-NewFormattedApiOrgPublicAllowGCloudTrialWithDefaults instantiates a new FormattedApiOrgPublicAllowGCloudTrial object
+NewFormattedOrgMembershipAllowGCloudTrialWithDefaults instantiates a new FormattedOrgMembershipAllowGCloudTrial object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 

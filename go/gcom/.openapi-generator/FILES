@@ -34,12 +34,12 @@ docs/FormattedApiInstance.md
 docs/FormattedApiInstanceConnections.md
 docs/FormattedApiInstancePlugin.md
 docs/FormattedApiOrgPublic.md
-docs/FormattedApiOrgPublicAllowGCloudTrial.md
 docs/FormattedApiPlugin.md
 docs/FormattedApiStackRegion.md
 docs/FormattedApiStackRegionAnyOf.md
 docs/FormattedApiStackRegionAnyOf1.md
 docs/FormattedOrgMembership.md
+docs/FormattedOrgMembershipAllowGCloudTrial.md
 docs/GetAccessPolicies200Response.md
 docs/GetInstance404Response.md
 docs/GetInstancePlugins200Response.md
@@ -125,12 +125,12 @@ model_formatted_api_instance.go
 model_formatted_api_instance_connections.go
 model_formatted_api_instance_plugin.go
 model_formatted_api_org_public.go
-model_formatted_api_org_public_allow_g_cloud_trial.go
 model_formatted_api_plugin.go
 model_formatted_api_stack_region.go
 model_formatted_api_stack_region_any_of.go
 model_formatted_api_stack_region_any_of_1.go
 model_formatted_org_membership.go
+model_formatted_org_membership_allow_g_cloud_trial.go
 model_get_access_policies_200_response.go
 model_get_instance_404_response.go
 model_get_instance_plugins_200_response.go

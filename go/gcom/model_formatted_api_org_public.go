@@ -19,148 +19,148 @@ var _ MappedNullable = &FormattedApiOrgPublic{}
 
 // FormattedApiOrgPublic struct for FormattedApiOrgPublic
 type FormattedApiOrgPublic struct {
-	Id                         float32                               `json:"id"`
-	Slug                       string                                `json:"slug"`
-	Name                       string                                `json:"name"`
-	Url                        string                                `json:"url"`
-	CreatedAt                  string                                `json:"createdAt"`
-	CreatedBy                  NullableString                        `json:"createdBy"`
-	UpdatedAt                  NullableString                        `json:"updatedAt"`
-	UpdatedBy                  NullableString                        `json:"updatedBy"`
-	Avatar                     NullableString                        `json:"avatar"`
-	ChecksPerMonth             float32                               `json:"checksPerMonth"`
-	WpPlan                     string                                `json:"wpPlan"`
-	HgInstanceLimit            float32                               `json:"hgInstanceLimit"`
-	HmInstanceLimit            float32                               `json:"hmInstanceLimit"`
-	HlInstanceLimit            float32                               `json:"hlInstanceLimit"`
-	UserQuota                  float32                               `json:"userQuota"`
-	SupportPlan                string                                `json:"supportPlan"`
-	CreditApproved             float32                               `json:"creditApproved"`
-	MsaSignedAt                NullableString                        `json:"msaSignedAt"`
-	MsaSignedBy                NullableString                        `json:"msaSignedBy"`
-	EnterprisePlugins          float32                               `json:"enterprisePlugins"`
-	GrafanaCloud               float32                               `json:"grafanaCloud"`
-	Privacy                    string                                `json:"privacy"`
-	Reseller                   string                                `json:"reseller"`
-	ResellerId                 NullableFloat32                       `json:"resellerId"`
-	ResellerName               NullableString                        `json:"resellerName"`
-	EmergencySupport           bool                                  `json:"emergencySupport"`
-	GcloudMonthlyCost          float32                               `json:"gcloudMonthlyCost"`
-	HgIncludedUsers            float32                               `json:"hgIncludedUsers"`
-	HgTier1Rate                float32                               `json:"hgTier1Rate"`
-	HgTier2Min                 float32                               `json:"hgTier2Min"`
-	HgTier2Rate                float32                               `json:"hgTier2Rate"`
-	HgTier3Min                 float32                               `json:"hgTier3Min"`
-	HgTier3Rate                float32                               `json:"hgTier3Rate"`
-	HgUsage                    float32                               `json:"hgUsage"`
-	HgCurrentActiveUsers       float32                               `json:"hgCurrentActiveUsers"`
-	HgGrafanaUsage             float32                               `json:"hgGrafanaUsage"`
-	HgOnCallUsage              float32                               `json:"hgOnCallUsage"`
-	HmIncludedSeries           float32                               `json:"hmIncludedSeries"`
-	HmAverageDpm               float32                               `json:"hmAverageDpm"`
-	HmTier1Rate                float32                               `json:"hmTier1Rate"`
-	HmTier2Min                 float32                               `json:"hmTier2Min"`
-	HmTier2Rate                float32                               `json:"hmTier2Rate"`
-	HmTier3Min                 float32                               `json:"hmTier3Min"`
-	HmTier3Rate                float32                               `json:"hmTier3Rate"`
-	HmUsage                    float32                               `json:"hmUsage"`
-	HmCurrentUsage             float32                               `json:"hmCurrentUsage"`
-	HmGraphiteIncludedUsage    float32                               `json:"hmGraphiteIncludedUsage"`
-	HmGraphiteTier1Rate        float32                               `json:"hmGraphiteTier1Rate"`
-	HmGraphiteTier2Min         float32                               `json:"hmGraphiteTier2Min"`
-	HmGraphiteTier2Rate        float32                               `json:"hmGraphiteTier2Rate"`
-	HmGraphiteTier3Min         float32                               `json:"hmGraphiteTier3Min"`
-	HmGraphiteTier3Rate        float32                               `json:"hmGraphiteTier3Rate"`
-	HmGraphiteUsage            float32                               `json:"hmGraphiteUsage"`
-	HlIncludedUsage            float32                               `json:"hlIncludedUsage"`
-	HlQueryToIngestRatio       float32                               `json:"hlQueryToIngestRatio"`
-	HlTier1Rate                float32                               `json:"hlTier1Rate"`
-	HlTier2Min                 float32                               `json:"hlTier2Min"`
-	HlTier2Rate                float32                               `json:"hlTier2Rate"`
-	HlTier3Min                 float32                               `json:"hlTier3Min"`
-	HlTier3Rate                float32                               `json:"hlTier3Rate"`
-	HlUsage                    float32                               `json:"hlUsage"`
-	HlRetentionIncludedUsage   float32                               `json:"hlRetentionIncludedUsage"`
-	HlRetentionTier1Rate       float32                               `json:"hlRetentionTier1Rate"`
-	HlRetentionTier2Min        float32                               `json:"hlRetentionTier2Min"`
-	HlRetentionTier2Rate       float32                               `json:"hlRetentionTier2Rate"`
-	HlRetentionTier3Min        float32                               `json:"hlRetentionTier3Min"`
-	HlRetentionTier3Rate       float32                               `json:"hlRetentionTier3Rate"`
-	HlRetentionUsage           float32                               `json:"hlRetentionUsage"`
-	HtIncludedUsage            float32                               `json:"htIncludedUsage"`
-	HtTier1Rate                float32                               `json:"htTier1Rate"`
-	HtTier2Min                 float32                               `json:"htTier2Min"`
-	HtTier2Rate                float32                               `json:"htTier2Rate"`
-	HtTier3Min                 float32                               `json:"htTier3Min"`
-	HtTier3Rate                float32                               `json:"htTier3Rate"`
-	HtUsage                    float32                               `json:"htUsage"`
-	HpIncludedUsage            float32                               `json:"hpIncludedUsage"`
-	HpTier1Rate                float32                               `json:"hpTier1Rate"`
-	HpTier2Min                 float32                               `json:"hpTier2Min"`
-	HpTier2Rate                float32                               `json:"hpTier2Rate"`
-	HpTier3Min                 float32                               `json:"hpTier3Min"`
-	HpTier3Rate                float32                               `json:"hpTier3Rate"`
-	HpUsage                    float32                               `json:"hpUsage"`
-	IrmStatus                  float32                               `json:"irmStatus"`
-	IrmIncludedUsage           float32                               `json:"irmIncludedUsage"`
-	IrmTier1Rate               float32                               `json:"irmTier1Rate"`
-	IrmTier2Min                float32                               `json:"irmTier2Min"`
-	IrmTier2Rate               float32                               `json:"irmTier2Rate"`
-	IrmTier3Min                float32                               `json:"irmTier3Min"`
-	IrmTier3Rate               float32                               `json:"irmTier3Rate"`
-	IrmUsage                   float32                               `json:"irmUsage"`
-	K6VuhIncludedUsage         float32                               `json:"k6VuhIncludedUsage"`
-	K6VuhTier1Rate             float32                               `json:"k6VuhTier1Rate"`
-	K6VuhTier2Min              float32                               `json:"k6VuhTier2Min"`
-	K6VuhTier2Rate             float32                               `json:"k6VuhTier2Rate"`
-	K6VuhTier3Min              float32                               `json:"k6VuhTier3Min"`
-	K6VuhTier3Rate             float32                               `json:"k6VuhTier3Rate"`
-	K6VuhUnits                 float32                               `json:"k6VuhUnits"`
-	K6VuhUsage                 float32                               `json:"k6VuhUsage"`
-	K6IPIncludedUsage          float32                               `json:"k6IPIncludedUsage"`
-	K6IPTier1Rate              float32                               `json:"k6IPTier1Rate"`
-	K6IPTier2Min               float32                               `json:"k6IPTier2Min"`
-	K6IPTier2Rate              float32                               `json:"k6IPTier2Rate"`
-	K6IPTier3Min               float32                               `json:"k6IPTier3Min"`
-	K6IPTier3Rate              float32                               `json:"k6IPTier3Rate"`
-	K6IPUsage                  float32                               `json:"k6IPUsage"`
-	FeO11YIncludedUsage        float32                               `json:"feO11YIncludedUsage"`
-	FeO11YTier1Rate            float32                               `json:"feO11YTier1Rate"`
-	FeO11YTier2Min             float32                               `json:"feO11YTier2Min"`
-	FeO11YTier2Rate            float32                               `json:"feO11YTier2Rate"`
-	FeO11YTier3Min             float32                               `json:"feO11YTier3Min"`
-	FeO11YTier3Rate            float32                               `json:"feO11YTier3Rate"`
-	FeO11YUnits                float32                               `json:"feO11YUnits"`
-	FeO11YUsage                float32                               `json:"feO11YUsage"`
-	GeUsersIncludedUsage       float32                               `json:"geUsersIncludedUsage"`
-	GeUsersTier1Rate           float32                               `json:"geUsersTier1Rate"`
-	GeUsersTier2Min            float32                               `json:"geUsersTier2Min"`
-	GeUsersTier2Rate           float32                               `json:"geUsersTier2Rate"`
-	GeUsersTier3Min            float32                               `json:"geUsersTier3Min"`
-	GeUsersTier3Rate           float32                               `json:"geUsersTier3Rate"`
-	GeUsersUsage               float32                               `json:"geUsersUsage"`
-	GeInstancesIncludedUsage   float32                               `json:"geInstancesIncludedUsage"`
-	GeInstancesTier1Rate       float32                               `json:"geInstancesTier1Rate"`
-	GeInstancesTier2Min        float32                               `json:"geInstancesTier2Min"`
-	GeInstancesTier2Rate       float32                               `json:"geInstancesTier2Rate"`
-	GeInstancesTier3Min        float32                               `json:"geInstancesTier3Min"`
-	GeInstancesTier3Rate       float32                               `json:"geInstancesTier3Rate"`
-	GeInstancesUsage           float32                               `json:"geInstancesUsage"`
-	HgPluginUsersOverageRate   NullableFloat32                       `json:"hgPluginUsersOverageRate"`
-	HgPluginUsersIncludedUsage NullableFloat32                       `json:"hgPluginUsersIncludedUsage"`
-	AwsMarketplaceSupport      float32                               `json:"awsMarketplaceSupport"`
-	TrialStartDate             NullableString                        `json:"trialStartDate"`
-	TrialEndDate               NullableString                        `json:"trialEndDate"`
-	TrialLengthDays            NullableFloat32                       `json:"trialLengthDays"`
-	TrialNoticeDate            NullableString                        `json:"trialNoticeDate"`
-	CancellationDate           NullableString                        `json:"cancellationDate"`
-	RetainedStackId            float32                               `json:"retainedStackId"`
-	AllowGCloudTrial           FormattedApiOrgPublicAllowGCloudTrial `json:"allowGCloudTrial"`
-	PluginSignatureType        string                                `json:"pluginSignatureType"`
-	ContractType               string                                `json:"contractType"`
-	ContractTypeId             float32                               `json:"contractTypeId"`
-	Links                      []LinksInner1                         `json:"links"`
-	Subscriptions              Subscriptions                         `json:"subscriptions"`
+	Id                         float32                                `json:"id"`
+	Slug                       string                                 `json:"slug"`
+	Name                       string                                 `json:"name"`
+	Url                        string                                 `json:"url"`
+	CreatedAt                  string                                 `json:"createdAt"`
+	CreatedBy                  NullableString                         `json:"createdBy"`
+	UpdatedAt                  NullableString                         `json:"updatedAt"`
+	UpdatedBy                  NullableString                         `json:"updatedBy"`
+	Avatar                     NullableString                         `json:"avatar"`
+	ChecksPerMonth             float32                                `json:"checksPerMonth"`
+	WpPlan                     string                                 `json:"wpPlan"`
+	HgInstanceLimit            float32                                `json:"hgInstanceLimit"`
+	HmInstanceLimit            float32                                `json:"hmInstanceLimit"`
+	HlInstanceLimit            float32                                `json:"hlInstanceLimit"`
+	UserQuota                  float32                                `json:"userQuota"`
+	SupportPlan                string                                 `json:"supportPlan"`
+	CreditApproved             float32                                `json:"creditApproved"`
+	MsaSignedAt                NullableString                         `json:"msaSignedAt"`
+	MsaSignedBy                NullableString                         `json:"msaSignedBy"`
+	EnterprisePlugins          float32                                `json:"enterprisePlugins"`
+	GrafanaCloud               float32                                `json:"grafanaCloud"`
+	Privacy                    string                                 `json:"privacy"`
+	Reseller                   string                                 `json:"reseller"`
+	ResellerId                 NullableFloat32                        `json:"resellerId"`
+	ResellerName               NullableString                         `json:"resellerName"`
+	EmergencySupport           bool                                   `json:"emergencySupport"`
+	GcloudMonthlyCost          float32                                `json:"gcloudMonthlyCost"`
+	HgIncludedUsers            float32                                `json:"hgIncludedUsers"`
+	HgTier1Rate                float32                                `json:"hgTier1Rate"`
+	HgTier2Min                 float32                                `json:"hgTier2Min"`
+	HgTier2Rate                float32                                `json:"hgTier2Rate"`
+	HgTier3Min                 float32                                `json:"hgTier3Min"`
+	HgTier3Rate                float32                                `json:"hgTier3Rate"`
+	HgUsage                    float32                                `json:"hgUsage"`
+	HgCurrentActiveUsers       float32                                `json:"hgCurrentActiveUsers"`
+	HgGrafanaUsage             float32                                `json:"hgGrafanaUsage"`
+	HgOnCallUsage              float32                                `json:"hgOnCallUsage"`
+	HmIncludedSeries           float32                                `json:"hmIncludedSeries"`
+	HmAverageDpm               float32                                `json:"hmAverageDpm"`
+	HmTier1Rate                float32                                `json:"hmTier1Rate"`
+	HmTier2Min                 float32                                `json:"hmTier2Min"`
+	HmTier2Rate                float32                                `json:"hmTier2Rate"`
+	HmTier3Min                 float32                                `json:"hmTier3Min"`
+	HmTier3Rate                float32                                `json:"hmTier3Rate"`
+	HmUsage                    float32                                `json:"hmUsage"`
+	HmCurrentUsage             float32                                `json:"hmCurrentUsage"`
+	HmGraphiteIncludedUsage    float32                                `json:"hmGraphiteIncludedUsage"`
+	HmGraphiteTier1Rate        float32                                `json:"hmGraphiteTier1Rate"`
+	HmGraphiteTier2Min         float32                                `json:"hmGraphiteTier2Min"`
+	HmGraphiteTier2Rate        float32                                `json:"hmGraphiteTier2Rate"`
+	HmGraphiteTier3Min         float32                                `json:"hmGraphiteTier3Min"`
+	HmGraphiteTier3Rate        float32                                `json:"hmGraphiteTier3Rate"`
+	HmGraphiteUsage            float32                                `json:"hmGraphiteUsage"`
+	HlIncludedUsage            float32                                `json:"hlIncludedUsage"`
+	HlQueryToIngestRatio       float32                                `json:"hlQueryToIngestRatio"`
+	HlTier1Rate                float32                                `json:"hlTier1Rate"`
+	HlTier2Min                 float32                                `json:"hlTier2Min"`
+	HlTier2Rate                float32                                `json:"hlTier2Rate"`
+	HlTier3Min                 float32                                `json:"hlTier3Min"`
+	HlTier3Rate                float32                                `json:"hlTier3Rate"`
+	HlUsage                    float32                                `json:"hlUsage"`
+	HlRetentionIncludedUsage   float32                                `json:"hlRetentionIncludedUsage"`
+	HlRetentionTier1Rate       float32                                `json:"hlRetentionTier1Rate"`
+	HlRetentionTier2Min        float32                                `json:"hlRetentionTier2Min"`
+	HlRetentionTier2Rate       float32                                `json:"hlRetentionTier2Rate"`
+	HlRetentionTier3Min        float32                                `json:"hlRetentionTier3Min"`
+	HlRetentionTier3Rate       float32                                `json:"hlRetentionTier3Rate"`
+	HlRetentionUsage           float32                                `json:"hlRetentionUsage"`
+	HtIncludedUsage            float32                                `json:"htIncludedUsage"`
+	HtTier1Rate                float32                                `json:"htTier1Rate"`
+	HtTier2Min                 float32                                `json:"htTier2Min"`
+	HtTier2Rate                float32                                `json:"htTier2Rate"`
+	HtTier3Min                 float32                                `json:"htTier3Min"`
+	HtTier3Rate                float32                                `json:"htTier3Rate"`
+	HtUsage                    float32                                `json:"htUsage"`
+	HpIncludedUsage            float32                                `json:"hpIncludedUsage"`
+	HpTier1Rate                float32                                `json:"hpTier1Rate"`
+	HpTier2Min                 float32                                `json:"hpTier2Min"`
+	HpTier2Rate                float32                                `json:"hpTier2Rate"`
+	HpTier3Min                 float32                                `json:"hpTier3Min"`
+	HpTier3Rate                float32                                `json:"hpTier3Rate"`
+	HpUsage                    float32                                `json:"hpUsage"`
+	IrmStatus                  float32                                `json:"irmStatus"`
+	IrmIncludedUsage           float32                                `json:"irmIncludedUsage"`
+	IrmTier1Rate               float32                                `json:"irmTier1Rate"`
+	IrmTier2Min                float32                                `json:"irmTier2Min"`
+	IrmTier2Rate               float32                                `json:"irmTier2Rate"`
+	IrmTier3Min                float32                                `json:"irmTier3Min"`
+	IrmTier3Rate               float32                                `json:"irmTier3Rate"`
+	IrmUsage                   float32                                `json:"irmUsage"`
+	K6VuhIncludedUsage         float32                                `json:"k6VuhIncludedUsage"`
+	K6VuhTier1Rate             float32                                `json:"k6VuhTier1Rate"`
+	K6VuhTier2Min              float32                                `json:"k6VuhTier2Min"`
+	K6VuhTier2Rate             float32                                `json:"k6VuhTier2Rate"`
+	K6VuhTier3Min              float32                                `json:"k6VuhTier3Min"`
+	K6VuhTier3Rate             float32                                `json:"k6VuhTier3Rate"`
+	K6VuhUnits                 float32                                `json:"k6VuhUnits"`
+	K6VuhUsage                 float32                                `json:"k6VuhUsage"`
+	K6IPIncludedUsage          float32                                `json:"k6IPIncludedUsage"`
+	K6IPTier1Rate              float32                                `json:"k6IPTier1Rate"`
+	K6IPTier2Min               float32                                `json:"k6IPTier2Min"`
+	K6IPTier2Rate              float32                                `json:"k6IPTier2Rate"`
+	K6IPTier3Min               float32                                `json:"k6IPTier3Min"`
+	K6IPTier3Rate              float32                                `json:"k6IPTier3Rate"`
+	K6IPUsage                  float32                                `json:"k6IPUsage"`
+	FeO11YIncludedUsage        float32                                `json:"feO11YIncludedUsage"`
+	FeO11YTier1Rate            float32                                `json:"feO11YTier1Rate"`
+	FeO11YTier2Min             float32                                `json:"feO11YTier2Min"`
+	FeO11YTier2Rate            float32                                `json:"feO11YTier2Rate"`
+	FeO11YTier3Min             float32                                `json:"feO11YTier3Min"`
+	FeO11YTier3Rate            float32                                `json:"feO11YTier3Rate"`
+	FeO11YUnits                float32                                `json:"feO11YUnits"`
+	FeO11YUsage                float32                                `json:"feO11YUsage"`
+	GeUsersIncludedUsage       float32                                `json:"geUsersIncludedUsage"`
+	GeUsersTier1Rate           float32                                `json:"geUsersTier1Rate"`
+	GeUsersTier2Min            float32                                `json:"geUsersTier2Min"`
+	GeUsersTier2Rate           float32                                `json:"geUsersTier2Rate"`
+	GeUsersTier3Min            float32                                `json:"geUsersTier3Min"`
+	GeUsersTier3Rate           float32                                `json:"geUsersTier3Rate"`
+	GeUsersUsage               float32                                `json:"geUsersUsage"`
+	GeInstancesIncludedUsage   float32                                `json:"geInstancesIncludedUsage"`
+	GeInstancesTier1Rate       float32                                `json:"geInstancesTier1Rate"`
+	GeInstancesTier2Min        float32                                `json:"geInstancesTier2Min"`
+	GeInstancesTier2Rate       float32                                `json:"geInstancesTier2Rate"`
+	GeInstancesTier3Min        float32                                `json:"geInstancesTier3Min"`
+	GeInstancesTier3Rate       float32                                `json:"geInstancesTier3Rate"`
+	GeInstancesUsage           float32                                `json:"geInstancesUsage"`
+	HgPluginUsersOverageRate   NullableFloat32                        `json:"hgPluginUsersOverageRate"`
+	HgPluginUsersIncludedUsage NullableFloat32                        `json:"hgPluginUsersIncludedUsage"`
+	AwsMarketplaceSupport      float32                                `json:"awsMarketplaceSupport"`
+	TrialStartDate             NullableString                         `json:"trialStartDate"`
+	TrialEndDate               NullableString                         `json:"trialEndDate"`
+	TrialLengthDays            NullableFloat32                        `json:"trialLengthDays"`
+	TrialNoticeDate            NullableString                         `json:"trialNoticeDate"`
+	CancellationDate           NullableString                         `json:"cancellationDate"`
+	RetainedStackId            float32                                `json:"retainedStackId"`
+	AllowGCloudTrial           FormattedOrgMembershipAllowGCloudTrial `json:"allowGCloudTrial"`
+	PluginSignatureType        string                                 `json:"pluginSignatureType"`
+	ContractType               string                                 `json:"contractType"`
+	ContractTypeId             float32                                `json:"contractTypeId"`
+	Links                      []LinksInner1                          `json:"links"`
+	Subscriptions              Subscriptions                          `json:"subscriptions"`
 	AdditionalProperties       map[string]interface{}
 }
 
@@ -170,7 +170,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -3620,9 +3620,9 @@ func (o *FormattedApiOrgPublic) SetRetainedStackId(v float32) {
 }
 
 // GetAllowGCloudTrial returns the AllowGCloudTrial field value
-func (o *FormattedApiOrgPublic) GetAllowGCloudTrial() FormattedApiOrgPublicAllowGCloudTrial {
+func (o *FormattedApiOrgPublic) GetAllowGCloudTrial() FormattedOrgMembershipAllowGCloudTrial {
 	if o == nil {
-		var ret FormattedApiOrgPublicAllowGCloudTrial
+		var ret FormattedOrgMembershipAllowGCloudTrial
 		return ret
 	}
 
@@ -3631,7 +3631,7 @@ func (o *FormattedApiOrgPublic) GetAllowGCloudTrial() FormattedApiOrgPublicAllow
 
 // GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetAllowGCloudTrialOk() (*FormattedApiOrgPublicAllowGCloudTrial, bool) {
+func (o *FormattedApiOrgPublic) GetAllowGCloudTrialOk() (*FormattedOrgMembershipAllowGCloudTrial, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -3639,7 +3639,7 @@ func (o *FormattedApiOrgPublic) GetAllowGCloudTrialOk() (*FormattedApiOrgPublicA
 }
 
 // SetAllowGCloudTrial sets field value
-func (o *FormattedApiOrgPublic) SetAllowGCloudTrial(v FormattedApiOrgPublicAllowGCloudTrial) {
+func (o *FormattedApiOrgPublic) SetAllowGCloudTrial(v FormattedOrgMembershipAllowGCloudTrial) {
 	o.AllowGCloudTrial = v
 }
 

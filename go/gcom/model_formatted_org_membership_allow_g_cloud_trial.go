@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// FormattedApiOrgPublicAllowGCloudTrial struct for FormattedApiOrgPublicAllowGCloudTrial
-type FormattedApiOrgPublicAllowGCloudTrial struct {
+// FormattedOrgMembershipAllowGCloudTrial struct for FormattedOrgMembershipAllowGCloudTrial
+type FormattedOrgMembershipAllowGCloudTrial struct {
 	bool    *bool
 	float32 *float32
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
-func (dst *FormattedApiOrgPublicAllowGCloudTrial) UnmarshalJSON(data []byte) error {
+func (dst *FormattedOrgMembershipAllowGCloudTrial) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into bool
 	err = json.Unmarshal(data, &dst.bool)
@@ -50,11 +50,11 @@ func (dst *FormattedApiOrgPublicAllowGCloudTrial) UnmarshalJSON(data []byte) err
 		dst.float32 = nil
 	}
 
-	return fmt.Errorf("data failed to match schemas in anyOf(FormattedApiOrgPublicAllowGCloudTrial)")
+	return fmt.Errorf("data failed to match schemas in anyOf(FormattedOrgMembershipAllowGCloudTrial)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *FormattedApiOrgPublicAllowGCloudTrial) MarshalJSON() ([]byte, error) {
+func (src *FormattedOrgMembershipAllowGCloudTrial) MarshalJSON() ([]byte, error) {
 	if src.bool != nil {
 		return json.Marshal(&src.bool)
 	}
@@ -66,38 +66,38 @@ func (src *FormattedApiOrgPublicAllowGCloudTrial) MarshalJSON() ([]byte, error) 
 	return nil, nil // no data in anyOf schemas
 }
 
-type NullableFormattedApiOrgPublicAllowGCloudTrial struct {
-	value *FormattedApiOrgPublicAllowGCloudTrial
+type NullableFormattedOrgMembershipAllowGCloudTrial struct {
+	value *FormattedOrgMembershipAllowGCloudTrial
 	isSet bool
 }
 
-func (v NullableFormattedApiOrgPublicAllowGCloudTrial) Get() *FormattedApiOrgPublicAllowGCloudTrial {
+func (v NullableFormattedOrgMembershipAllowGCloudTrial) Get() *FormattedOrgMembershipAllowGCloudTrial {
 	return v.value
 }
 
-func (v *NullableFormattedApiOrgPublicAllowGCloudTrial) Set(val *FormattedApiOrgPublicAllowGCloudTrial) {
+func (v *NullableFormattedOrgMembershipAllowGCloudTrial) Set(val *FormattedOrgMembershipAllowGCloudTrial) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableFormattedApiOrgPublicAllowGCloudTrial) IsSet() bool {
+func (v NullableFormattedOrgMembershipAllowGCloudTrial) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableFormattedApiOrgPublicAllowGCloudTrial) Unset() {
+func (v *NullableFormattedOrgMembershipAllowGCloudTrial) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableFormattedApiOrgPublicAllowGCloudTrial(val *FormattedApiOrgPublicAllowGCloudTrial) *NullableFormattedApiOrgPublicAllowGCloudTrial {
-	return &NullableFormattedApiOrgPublicAllowGCloudTrial{value: val, isSet: true}
+func NewNullableFormattedOrgMembershipAllowGCloudTrial(val *FormattedOrgMembershipAllowGCloudTrial) *NullableFormattedOrgMembershipAllowGCloudTrial {
+	return &NullableFormattedOrgMembershipAllowGCloudTrial{value: val, isSet: true}
 }
 
-func (v NullableFormattedApiOrgPublicAllowGCloudTrial) MarshalJSON() ([]byte, error) {
+func (v NullableFormattedOrgMembershipAllowGCloudTrial) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableFormattedApiOrgPublicAllowGCloudTrial) UnmarshalJSON(src []byte) error {
+func (v *NullableFormattedOrgMembershipAllowGCloudTrial) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

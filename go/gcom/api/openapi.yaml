@@ -4690,7 +4690,7 @@ components:
         resellerId: 3.616076749251911
         hmCurrentGraphiteUsage: 7.386281948385884
         createdBy: createdBy
-        allowGCloudTrial: true
+        allowGCloudTrial: null
         marketplaceSubscription:
           isLegacy: true
           provider: aws
@@ -4775,8 +4775,7 @@ components:
           title: contractTypeId
           type: number
         allowGCloudTrial:
-          title: allowGCloudTrial
-          type: boolean
+          $ref: '#/components/schemas/FormattedOrgMembership_allowGCloudTrial'
         hlUsage:
           title: hlUsage
           type: number
@@ -5433,7 +5432,7 @@ components:
           title: retainedStackId
           type: number
         allowGCloudTrial:
-          $ref: '#/components/schemas/FormattedApiOrgPublic_allowGCloudTrial'
+          $ref: '#/components/schemas/FormattedOrgMembership_allowGCloudTrial'
         pluginSignatureType:
           title: pluginSignatureType
           type: string
@@ -7557,7 +7556,7 @@ components:
       - userStatus
       - userUsername
       type: object
-    FormattedApiOrgPublic_allowGCloudTrial:
+    FormattedOrgMembership_allowGCloudTrial:
       anyOf:
       - type: boolean
       - type: number
