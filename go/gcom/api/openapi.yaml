@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 26d565c
-  x-generated-at: 2024-03-14T12:42:33.282Z
+  x-commit-sha: 451ebb2
+  x-generated-at: 2024-03-22T15:31:28.606Z
 servers:
 - description: Main API server
   url: /api
@@ -3234,9 +3234,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/AuthToken'
-                type: array
+                $ref: '#/components/schemas/AccessPolicyListResponse'
           description: OK
         "401":
           content:
@@ -3535,6 +3533,28 @@ paths:
       - tokens
 components:
   schemas:
+    AccessPolicyListResponse:
+      example:
+        metadata:
+          pagination:
+            nextPage: nextPage
+            pageSize: 0.8008281904610115
+            pageCursor: pageCursor
+        items:
+        - "{}"
+        - "{}"
+      properties:
+        items:
+          items:
+            type: object
+          title: items
+          type: array
+        metadata:
+          $ref: '#/components/schemas/metadata'
+      required:
+      - items
+      - metadata
+      type: object
     AuthAccessPolicy:
       example:
         realms:
@@ -5771,6 +5791,55 @@ components:
       anyOf:
       - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf'
       - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf_1'
+    AuthTokenWithSecret:
+      allOf:
+      - properties:
+          id:
+            example: c45485b6-8321-4cf2-bcec-12006df755ff
+            format: string
+            readOnly: true
+            type: string
+          accessPolicyId:
+            example: c45485b6-8321-4cf2-bcec-12006df755ff
+            format: string
+            type: string
+          name:
+            example: mytoken
+            type: string
+          displayName:
+            description: Will be set to `name` if not provided.
+            example: My Token
+            type: string
+          expiresAt:
+            description: Token does not expire if not provided.
+            format: date-time
+            type: string
+          firstUsedAt:
+            format: date-time
+            readOnly: true
+            type: string
+          lastUsedAt:
+            format: date-time
+            readOnly: true
+            type: string
+          createdAt:
+            format: date-time
+            readOnly: true
+            type: string
+          updatedAt:
+            format: date-time
+            readOnly: true
+            type: string
+        required:
+        - accessPolicyId
+        - name
+        type: object
+      - properties:
+          token:
+            description: This token is auto generated and will be shown only once.
+            example: glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9
+            format: password
+            type: string
     AuthToken:
       example:
         accessPolicyId: c45485b6-8321-4cf2-bcec-12006df755ff
@@ -5823,55 +5892,6 @@ components:
       - accessPolicyId
       - name
       type: object
-    AuthTokenWithSecret:
-      allOf:
-      - properties:
-          id:
-            example: c45485b6-8321-4cf2-bcec-12006df755ff
-            format: string
-            readOnly: true
-            type: string
-          accessPolicyId:
-            example: c45485b6-8321-4cf2-bcec-12006df755ff
-            format: string
-            type: string
-          name:
-            example: mytoken
-            type: string
-          displayName:
-            description: Will be set to `name` if not provided.
-            example: My Token
-            type: string
-          expiresAt:
-            description: Token does not expire if not provided.
-            format: date-time
-            type: string
-          firstUsedAt:
-            format: date-time
-            readOnly: true
-            type: string
-          lastUsedAt:
-            format: date-time
-            readOnly: true
-            type: string
-          createdAt:
-            format: date-time
-            readOnly: true
-            type: string
-          updatedAt:
-            format: date-time
-            readOnly: true
-            type: string
-        required:
-        - accessPolicyId
-        - name
-        type: object
-      - properties:
-          token:
-            description: This token is auto generated and will be shown only once.
-            example: glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9
-            format: password
-            type: string
     postAllApiKeys_request:
       properties:
         name:
@@ -6770,6 +6790,40 @@ components:
       properties:
         displayName:
           type: string
+      type: object
+    pagination:
+      example:
+        nextPage: nextPage
+        pageSize: 0.8008281904610115
+        pageCursor: pageCursor
+      properties:
+        pageCursor:
+          nullable: true
+          title: pageCursor
+          type: string
+        nextPage:
+          nullable: true
+          title: nextPage
+          type: string
+        pageSize:
+          title: pageSize
+          type: number
+      required:
+      - pageSize
+      title: pagination
+      type: object
+    metadata:
+      example:
+        pagination:
+          nextPage: nextPage
+          pageSize: 0.8008281904610115
+          pageCursor: pageCursor
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination'
+      required:
+      - pagination
+      title: metadata
       type: object
     AuthAccessPolicy_realms_inner_labelPolicies_inner:
       example:

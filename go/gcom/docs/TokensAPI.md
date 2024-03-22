@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## GetTokens
 
-> []AuthToken GetTokens(ctx).Region(region).AccessPolicyId(accessPolicyId).AccessPolicyIds(accessPolicyIds).AccessPolicyName(accessPolicyName).AccessPolicyRealmIdentifier(accessPolicyRealmIdentifier).AccessPolicyRealmType(accessPolicyRealmType).AccessPolicyStatus(accessPolicyStatus).ExpiresAfter(expiresAfter).ExpiresBefore(expiresBefore).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).Execute()
+> AccessPolicyListResponse GetTokens(ctx).Region(region).AccessPolicyId(accessPolicyId).AccessPolicyIds(accessPolicyIds).AccessPolicyName(accessPolicyName).AccessPolicyRealmIdentifier(accessPolicyRealmIdentifier).AccessPolicyRealmType(accessPolicyRealmType).AccessPolicyStatus(accessPolicyStatus).ExpiresAfter(expiresAfter).ExpiresBefore(expiresBefore).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).Execute()
 
 Get a list of tokens
 
@@ -198,7 +198,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TokensAPI.GetTokens``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTokens`: []AuthToken
+	// response from `GetTokens`: AccessPolicyListResponse
 	fmt.Fprintf(os.Stdout, "Response from `TokensAPI.GetTokens`: %v\n", resp)
 }
 ```
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]AuthToken**](AuthToken.md)
+[**AccessPolicyListResponse**](AccessPolicyListResponse.md)
 
 ### Authorization
 

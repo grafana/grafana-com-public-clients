@@ -12,6 +12,7 @@ api_stack_regions.go
 api_tokens.go
 client.go
 configuration.go
+docs/AccessPolicyListResponse.md
 docs/AccesspoliciesAPI.md
 docs/ApiKeysAPI.md
 docs/AppPlatform.md
@@ -56,6 +57,7 @@ docs/ItemsInner1.md
 docs/ItemsInner1MarketplaceSubscription.md
 docs/LinksInner.md
 docs/LinksInner1.md
+docs/Metadata.md
 docs/Mimir.md
 docs/Next.md
 docs/OrgMemberListResponse.md
@@ -64,6 +66,7 @@ docs/Otlp.md
 docs/OtlpPrivateConnectivityInfo.md
 docs/OtlpPrivateConnectivityInfoAnyOf.md
 docs/OtlpPrivateConnectivityInfoAnyOf1.md
+docs/Pagination.md
 docs/Payload.md
 docs/PluginsAPI.md
 docs/PostAccessPoliciesRequest.md
@@ -105,6 +108,7 @@ docs/TokensAPI.md
 git_push.sh
 go.mod
 go.sum
+model_access_policy_list_response.go
 model_app_platform.go
 model_auth_access_policy.go
 model_auth_access_policy_attributes.go
@@ -146,6 +150,7 @@ model_items_inner_1.go
 model_items_inner_1_marketplace_subscription.go
 model_links_inner.go
 model_links_inner_1.go
+model_metadata.go
 model_mimir.go
 model_next.go
 model_org_member_list_response.go
@@ -153,6 +158,7 @@ model_otlp.go
 model_otlp_private_connectivity_info.go
 model_otlp_private_connectivity_info_any_of.go
 model_otlp_private_connectivity_info_any_of_1.go
+model_pagination.go
 model_payload.go
 model_post_access_policies_request.go
 model_post_access_policies_request_attributes.go

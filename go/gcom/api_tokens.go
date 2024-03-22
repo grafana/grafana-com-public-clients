@@ -452,7 +452,7 @@ func (r ApiGetTokensRequest) PageSize(pageSize int32) ApiGetTokensRequest {
 	return r
 }
 
-func (r ApiGetTokensRequest) Execute() ([]AuthToken, *http.Response, error) {
+func (r ApiGetTokensRequest) Execute() (*AccessPolicyListResponse, *http.Response, error) {
 	return r.ApiService.GetTokensExecute(r)
 }
 
@@ -470,13 +470,13 @@ func (a *TokensAPIService) GetTokens(ctx context.Context) ApiGetTokensRequest {
 }
 
 // Execute executes the request
-//  @return []AuthToken
-func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) ([]AuthToken, *http.Response, error) {
+//  @return AccessPolicyListResponse
+func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) (*AccessPolicyListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue []AuthToken
+		localVarReturnValue *AccessPolicyListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensAPIService.GetTokens")
