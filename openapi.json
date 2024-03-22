@@ -6480,7 +6480,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AuthAccessPolicyListResponse"
+                  "$ref": "#/components/schemas/AccessPolicyListResponse"
                 }
               }
             }
@@ -7543,10 +7543,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AuthToken"
-                  }
+                  "$ref": "#/components/schemas/AccessPolicyListResponse"
                 }
               }
             }
@@ -8242,8 +8239,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "7e7641f",
-    "x-generated-at": "2024-03-22T11:27:14.090Z"
+    "x-commit-sha": "451ebb2",
+    "x-generated-at": "2024-03-22T15:31:28.606Z"
   },
   "security": [
     {
@@ -8264,267 +8261,52 @@
       }
     },
     "schemas": {
-      "AuthAccessPolicyListResponse": {
-        "allOf": [
-          {
+      "AccessPolicyListResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "title": "items"
+          },
+          "metadata": {
             "type": "object",
             "properties": {
-              "status": {
-                "type": "string",
-                "example": "success"
-              },
-              "data": {
-                "type": "array"
-              },
-              "metadata": {
+              "pagination": {
                 "type": "object",
-                "description": "The response metadata object contains important information about the response.",
                 "properties": {
-                  "pagination": {
-                    "type": "object",
-                    "description": "The pagination metadata object contains information about pagination. Should be used to paginate through records.",
-                    "properties": {
-                      "pageSize": {
-                        "type": "integer",
-                        "description": "The number of records returned per page. Note that this is *not* the number of records returned.",
-                        "example": 500
-                      },
-                      "pageCursor": {
-                        "type": "string",
-                        "description": "A cursor used for paging through the results. When not provided, the first page will be requested.",
-                        "example": "ZDMyYzZhODktZjU1ZC00NGViLWJmYWEtMTEyYmE2NTFlNDJifDIwMjItMDQtMTFUMTI6NTQ6MDBa"
-                      },
-                      "nextPage": {
-                        "type": "string",
-                        "description": "The URL to be used to request the next page. If `null`, the last page has been reached.",
-                        "example": "/v1/accesspolicies?pageCursor=ZDMyYzZhODktZjU1ZC00NGViLWJmYWEtMTEyYmE2NTFlNDJifDIwMjItMDQtMTFUMTI6NTQ6MDBa"
-                      }
-                    }
+                  "pageCursor": {
+                    "type": "string",
+                    "title": "pageCursor",
+                    "nullable": true
+                  },
+                  "nextPage": {
+                    "type": "string",
+                    "title": "nextPage",
+                    "nullable": true
+                  },
+                  "pageSize": {
+                    "type": "number",
+                    "title": "pageSize"
                   }
                 },
                 "required": [
-                  "pagination"
-                ]
+                  "pageSize"
+                ],
+                "title": "pagination"
               }
             },
             "required": [
-              "status",
-              "data",
-              "metadata"
-            ]
-          },
-          {
-            "type": "object",
-            "properties": {
-              "data": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "format": "uuid",
-                      "readOnly": true,
-                      "example": "c45485b6-8321-4cf2-bcec-12006df755ff"
-                    },
-                    "orgId": {
-                      "type": "string",
-                      "example": "1",
-                      "readOnly": true
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "stack-readers"
-                    },
-                    "displayName": {
-                      "type": "string",
-                      "example": "Stack Readers",
-                      "description": "Will be set to `name` if not provided."
-                    },
-                    "scopes": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "enum": [
-                          "accesspolicies:read",
-                          "accesspolicies:write",
-                          "accesspolicies:delete",
-                          "billing-metrics:read",
-                          "metrics:read",
-                          "metrics:write",
-                          "metrics:delete",
-                          "metrics:import",
-                          "logs:read",
-                          "logs:write",
-                          "logs:delete",
-                          "traces:read",
-                          "traces:write",
-                          "traces:delete",
-                          "alerts:read",
-                          "alerts:write",
-                          "rules:read",
-                          "rules:write"
-                        ]
-                      },
-                      "example": [
-                        "metrics:read",
-                        "logs:read",
-                        "traces:read",
-                        "alerts:read"
-                      ]
-                    },
-                    "realms": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "description": "Type of the realm",
-                            "enum": [
-                              "org",
-                              "stack",
-                              "system"
-                            ],
-                            "example": "stack"
-                          },
-                          "identifier": {
-                            "type": "string",
-                            "description": "The unique identifier of a realm (org or stack).",
-                            "format": "string",
-                            "example": "123"
-                          },
-                          "labelPolicies": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "selector": {
-                                  "type": "string",
-                                  "format": "string",
-                                  "description": "Label selector",
-                                  "example": "{env != \"dev\"}"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "readOnly": true
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "readOnly": true
-                    },
-                    "conditions": {
-                      "type": "object",
-                      "description": "A set of criteria that is used to restrict access of the Access Policy and Tokens. Providing an empty object (\"{}\") results in the complete removal of the `conditions` object.\n",
-                      "properties": {
-                        "allowedSubnets": {
-                          "type": "array",
-                          "description": "An array of IP addresses with subnet masks in CIDR notation (both IPv4 or IPv6 are supported) that is used to restrict access to only hosts that are part of at least one of the subnets. Providing an empty array is equivalent to providing an empty `conditions` object, and results in the removal of the `conditions` object from the Access Policy.\nNote that an IP address is not valid CIDR notation. For specifying a single IP address use a subnet mask of `/32` for IPv4 and `/128` for IPv6.\nExamples: 192.168.0.10/32 2001:db0:82a3:0:0:8a2e:370:1234/128\n",
-                          "items": {
-                            "oneOf": [
-                              {
-                                "type": "string",
-                                "format": "ipv4-cidr"
-                              },
-                              {
-                                "type": "string",
-                                "format": "ipv6-cidr"
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    "attributes": {
-                      "type": "object",
-                      "description": "A set of criteria that can be to the backend service via headers through the gateway, or used to make authentication decisions.\n",
-                      "properties": {
-                        "lokiQueryPolicy": {
-                          "type": "object",
-                          "properties": {
-                            "queryTimeout": {
-                              "description": "String which represents a duration. For example \"10s\", \"2w\", \"5h\".",
-                              "type": "string",
-                              "format": "string",
-                              "example": "10s"
-                            },
-                            "maxEntriesLimitPerQuery": {
-                              "description": "Ordinary integer.",
-                              "type": "integer",
-                              "format": "integer",
-                              "example": 20
-                            },
-                            "maxQueryLookback": {
-                              "description": "String which represents a duration. For example \"10s\", \"2w\", \"5h\".",
-                              "type": "string",
-                              "format": "string",
-                              "example": "30d"
-                            },
-                            "maxQueryLength": {
-                              "description": "String which represents a duration. For example \"10s\", \"2w\", \"5h\".",
-                              "type": "string",
-                              "format": "string",
-                              "example": "7d"
-                            }
-                          }
-                        },
-                        "allowedScopes": {
-                          "type": "array",
-                          "description": "List of scopes allowed to be signed by an access policy (required if the access policy contains `grafana-id-token:sign`).\n",
-                          "items": {
-                            "type": "string"
-                          },
-                          "example": [
-                            "metrics:read",
-                            "logs:read",
-                            "traces:read",
-                            "alerts:read"
-                          ]
-                        },
-                        "pdcConfiguration": {
-                          "type": "object",
-                          "properties": {
-                            "limitedHosts": {
-                              "description": "List of hosts that Grafana is able to access through a PDC. All hosts are allowed if not provided.",
-                              "type": "array",
-                              "items": {
-                                "type": "string",
-                                "format": "string",
-                                "description": "Hostname and port of host PDC is limited to access.",
-                                "example": "mysql.example.com:3306"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "status": {
-                      "type": "string",
-                      "description": "The status of the access policy.",
-                      "enum": [
-                        "active",
-                        "inactive"
-                      ],
-                      "example": "active"
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "scopes",
-                    "realms"
-                  ]
-                }
-              }
-            }
+              "pagination"
+            ],
+            "title": "metadata"
           }
+        },
+        "required": [
+          "items",
+          "metadata"
         ]
       },
       "AuthAccessPolicy": {
@@ -12624,60 +12406,6 @@
           }
         ]
       },
-      "AuthToken": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "string",
-            "example": "c45485b6-8321-4cf2-bcec-12006df755ff",
-            "readOnly": true
-          },
-          "accessPolicyId": {
-            "type": "string",
-            "format": "string",
-            "example": "c45485b6-8321-4cf2-bcec-12006df755ff"
-          },
-          "name": {
-            "type": "string",
-            "example": "mytoken"
-          },
-          "displayName": {
-            "type": "string",
-            "example": "My Token",
-            "description": "Will be set to `name` if not provided."
-          },
-          "expiresAt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Token does not expire if not provided."
-          },
-          "firstUsedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "lastUsedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "required": [
-          "accessPolicyId",
-          "name"
-        ]
-      },
       "AuthTokenWithSecret": {
         "allOf": [
           {
@@ -12744,6 +12472,60 @@
               }
             }
           }
+        ]
+      },
+      "AuthToken": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "string",
+            "example": "c45485b6-8321-4cf2-bcec-12006df755ff",
+            "readOnly": true
+          },
+          "accessPolicyId": {
+            "type": "string",
+            "format": "string",
+            "example": "c45485b6-8321-4cf2-bcec-12006df755ff"
+          },
+          "name": {
+            "type": "string",
+            "example": "mytoken"
+          },
+          "displayName": {
+            "type": "string",
+            "example": "My Token",
+            "description": "Will be set to `name` if not provided."
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Token does not expire if not provided."
+          },
+          "firstUsedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "lastUsedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "accessPolicyId",
+          "name"
         ]
       }
     }
