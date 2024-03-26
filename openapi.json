@@ -8239,8 +8239,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "451ebb2",
-    "x-generated-at": "2024-03-22T15:31:28.606Z"
+    "x-commit-sha": "4ed4bab",
+    "x-generated-at": "2024-03-26T12:16:01.000Z"
   },
   "security": [
     {
@@ -11174,6 +11174,70 @@
             "type": "number",
             "title": "feO11YUsage"
           },
+          "appO11YIncludedUsage": {
+            "type": "number",
+            "title": "appO11YIncludedUsage"
+          },
+          "appO11YTier1Rate": {
+            "type": "number",
+            "title": "appO11YTier1Rate"
+          },
+          "appO11YTier2Min": {
+            "type": "number",
+            "title": "appO11YTier2Min"
+          },
+          "appO11YTier2Rate": {
+            "type": "number",
+            "title": "appO11YTier2Rate"
+          },
+          "appO11YTier3Min": {
+            "type": "number",
+            "title": "appO11YTier3Min"
+          },
+          "appO11YTier3Rate": {
+            "type": "number",
+            "title": "appO11YTier3Rate"
+          },
+          "appO11YUnits": {
+            "type": "number",
+            "title": "appO11YUnits"
+          },
+          "appO11YUsage": {
+            "type": "number",
+            "title": "appO11YUsage"
+          },
+          "smIncludedUsage": {
+            "type": "number",
+            "title": "smIncludedUsage"
+          },
+          "smTier1Rate": {
+            "type": "number",
+            "title": "smTier1Rate"
+          },
+          "smTier2Min": {
+            "type": "number",
+            "title": "smTier2Min"
+          },
+          "smTier2Rate": {
+            "type": "number",
+            "title": "smTier2Rate"
+          },
+          "smTier3Min": {
+            "type": "number",
+            "title": "smTier3Min"
+          },
+          "smTier3Rate": {
+            "type": "number",
+            "title": "smTier3Rate"
+          },
+          "smUnits": {
+            "type": "number",
+            "title": "smUnits"
+          },
+          "smUsage": {
+            "type": "number",
+            "title": "smUsage"
+          },
           "geUsersIncludedUsage": {
             "type": "number",
             "title": "geUsersIncludedUsage"
@@ -11629,6 +11693,14 @@
         },
         "required": [
           "allowGCloudTrial",
+          "appO11YIncludedUsage",
+          "appO11YTier1Rate",
+          "appO11YTier2Min",
+          "appO11YTier2Rate",
+          "appO11YTier3Min",
+          "appO11YTier3Rate",
+          "appO11YUnits",
+          "appO11YUsage",
           "avatar",
           "awsMarketplaceSupport",
           "cancellationDate",
@@ -11759,6 +11831,14 @@
           "resellerName",
           "retainedStackId",
           "slug",
+          "smIncludedUsage",
+          "smTier1Rate",
+          "smTier2Min",
+          "smTier2Rate",
+          "smTier3Min",
+          "smTier3Rate",
+          "smUnits",
+          "smUsage",
           "subscriptions",
           "supportPlan",
           "trialEndDate",
