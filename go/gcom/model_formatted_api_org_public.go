@@ -155,6 +155,7 @@ type FormattedApiOrgPublic struct {
 	GeUsersTier3Min            float32                                `json:"geUsersTier3Min"`
 	GeUsersTier3Rate           float32                                `json:"geUsersTier3Rate"`
 	GeUsersUsage               float32                                `json:"geUsersUsage"`
+	GeUsersAnonymousUsersRatio float32                                `json:"geUsersAnonymousUsersRatio"`
 	GeInstancesIncludedUsage   float32                                `json:"geInstancesIncludedUsage"`
 	GeInstancesTier1Rate       float32                                `json:"geInstancesTier1Rate"`
 	GeInstancesTier2Min        float32                                `json:"geInstancesTier2Min"`
@@ -186,7 +187,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, appO11YIncludedUsage float32, appO11YTier1Rate float32, appO11YTier2Min float32, appO11YTier2Rate float32, appO11YTier3Min float32, appO11YTier3Rate float32, appO11YUnits float32, appO11YUsage float32, smIncludedUsage float32, smTier1Rate float32, smTier2Min float32, smTier2Rate float32, smTier3Min float32, smTier3Rate float32, smUnits float32, smUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, appO11YIncludedUsage float32, appO11YTier1Rate float32, appO11YTier2Min float32, appO11YTier2Rate float32, appO11YTier3Min float32, appO11YTier3Rate float32, appO11YUnits float32, appO11YUsage float32, smIncludedUsage float32, smTier1Rate float32, smTier2Min float32, smTier2Rate float32, smTier3Min float32, smTier3Rate float32, smUnits float32, smUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geUsersAnonymousUsersRatio float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -324,6 +325,7 @@ func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, 
 	this.GeUsersTier3Min = geUsersTier3Min
 	this.GeUsersTier3Rate = geUsersTier3Rate
 	this.GeUsersUsage = geUsersUsage
+	this.GeUsersAnonymousUsersRatio = geUsersAnonymousUsersRatio
 	this.GeInstancesIncludedUsage = geInstancesIncludedUsage
 	this.GeInstancesTier1Rate = geInstancesTier1Rate
 	this.GeInstancesTier2Min = geInstancesTier2Min
@@ -3637,6 +3639,30 @@ func (o *FormattedApiOrgPublic) SetGeUsersUsage(v float32) {
 	o.GeUsersUsage = v
 }
 
+// GetGeUsersAnonymousUsersRatio returns the GeUsersAnonymousUsersRatio field value
+func (o *FormattedApiOrgPublic) GetGeUsersAnonymousUsersRatio() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.GeUsersAnonymousUsersRatio
+}
+
+// GetGeUsersAnonymousUsersRatioOk returns a tuple with the GeUsersAnonymousUsersRatio field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiOrgPublic) GetGeUsersAnonymousUsersRatioOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GeUsersAnonymousUsersRatio, true
+}
+
+// SetGeUsersAnonymousUsersRatio sets field value
+func (o *FormattedApiOrgPublic) SetGeUsersAnonymousUsersRatio(v float32) {
+	o.GeUsersAnonymousUsersRatio = v
+}
+
 // GetGeInstancesIncludedUsage returns the GeInstancesIncludedUsage field value
 func (o *FormattedApiOrgPublic) GetGeInstancesIncludedUsage() float32 {
 	if o == nil {
@@ -4325,6 +4351,7 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["geUsersTier3Min"] = o.GeUsersTier3Min
 	toSerialize["geUsersTier3Rate"] = o.GeUsersTier3Rate
 	toSerialize["geUsersUsage"] = o.GeUsersUsage
+	toSerialize["geUsersAnonymousUsersRatio"] = o.GeUsersAnonymousUsersRatio
 	toSerialize["geInstancesIncludedUsage"] = o.GeInstancesIncludedUsage
 	toSerialize["geInstancesTier1Rate"] = o.GeInstancesTier1Rate
 	toSerialize["geInstancesTier2Min"] = o.GeInstancesTier2Min
@@ -4513,6 +4540,7 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "geUsersTier3Min")
 		delete(additionalProperties, "geUsersTier3Rate")
 		delete(additionalProperties, "geUsersUsage")
+		delete(additionalProperties, "geUsersAnonymousUsersRatio")
 		delete(additionalProperties, "geInstancesIncludedUsage")
 		delete(additionalProperties, "geInstancesTier1Rate")
 		delete(additionalProperties, "geInstancesTier2Min")

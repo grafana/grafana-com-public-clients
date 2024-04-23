@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: cc683f2
-  x-generated-at: 2024-04-23T11:46:05.330Z
+  x-commit-sha: 4164fc0
+  x-generated-at: 2024-04-23T13:06:30.911Z
 servers:
 - description: Main API server
   url: /api
@@ -4871,7 +4871,7 @@ components:
         hlRetentionIncludedUsage: 3.0576100241049344
         feO11YUnits: 0.4833312865174044
         hpTier2Min: 5.507386964179881
-        geInstancesTier2Rate: 1.7045651386993
+        geInstancesTier2Rate: 4.4935252719377825
         contractType: contractType
         hmGraphiteTier3Rate: 3.0937452626664474
         k6IPUsage: 7.835035282970782
@@ -4881,7 +4881,7 @@ components:
         appO11YTier3Rate: 2.535258963197524
         irmTier3Rate: 4.573936264232251
         hmGraphiteTier1Rate: 6.878052220127876
-        geInstancesTier3Min: 4.4935252719377825
+        geInstancesTier3Min: 3.209082285545927
         userQuota: 2.3021358869347655
         hlTier2Rate: 4.652396432933246
         k6IPTier3Rate: 5.877124706116695
@@ -4921,7 +4921,7 @@ components:
         emergencySupport: true
         cancellationDate: cancellationDate
         feO11YTier3Min: 8.675064425986758
-        awsMarketplaceSupport: 4.010300976654761
+        awsMarketplaceSupport: 8.276461147928103
         trialStartDate: trialStartDate
         hmGraphiteIncludedUsage: 6.778324963048013
         k6IPTier2Rate: 3.111202833403195
@@ -4929,19 +4929,20 @@ components:
         reseller: reseller
         hlRetentionTier2Rate: 3.2588565619047607
         k6IPTier3Min: 9.897492629215506
-        geInstancesIncludedUsage: 7.726998920545485
+        geInstancesIncludedUsage: 7.92839742024475
         hlTier3Rate: 7.740351818741173
         avatar: avatar
         url: url
-        contractTypeId: 4.141296055235948
+        contractTypeId: 8.910869026866926
         k6VuhIncludedUsage: 9.254183946267839
         hlQueryToIngestRatio: 7.058770351582356
-        hgPluginUsersIncludedUsage: 9.146339979307802
+        hgPluginUsersIncludedUsage: 4.010300976654761
         hpTier2Rate: 4.86315908102884
-        geInstancesTier2Min: 9.402167524121316
+        geUsersAnonymousUsersRatio: 7.726998920545485
+        geInstancesTier2Min: 1.7045651386993
         hlTier2Min: 0.10263654006109402
         smUnits: 1.5970080735609526
-        hgPluginUsersOverageRate: 2.9805393113464476
+        hgPluginUsersOverageRate: 9.146339979307802
         feO11YUsage: 0.35262192099236644
         hlTier1Rate: 6.519180951018382
         irmTier2Rate: 8.28965939814297
@@ -4949,7 +4950,7 @@ components:
         feO11YTier3Rate: 4.518309517874243
         hmGraphiteTier2Rate: 6.704019297950036
         trialNoticeDate: trialNoticeDate
-        geInstancesTier1Rate: 7.92839742024475
+        geInstancesTier1Rate: 9.402167524121316
         irmTier2Min: 1.7325933120207193
         hgCurrentActiveUsers: 4.965218492984954
         appO11YUnits: 6.173804034172511
@@ -4973,7 +4974,7 @@ components:
         geUsersUsage: 7.3718573971919445
         hgTier2Min: 1.0246457001441578
         k6VuhTier2Rate: 9.183123594773994
-        trialLengthDays: 8.276461147928103
+        trialLengthDays: 6.458262756685686
         htUsage: 9.702963800023566
         geUsersTier3Rate: 9.785002165136461
         hgTier1Rate: 1.2315135367772556
@@ -4988,7 +4989,7 @@ components:
         appO11YTier2Rate: 9.386524999783381
         appO11YUsage: 4.8789878742268815
         hmTier1Rate: 8.762042012749001
-        geInstancesUsage: 8.262795412896967
+        geInstancesUsage: 2.9805393113464476
         wpPlan: wpPlan
         htIncludedUsage: 4.258773108174356
         hpTier3Rate: 8.251625748923757
@@ -5012,7 +5013,7 @@ components:
         hpTier3Min: 6.073898085781152
         irmStatus: 3.901545264248647
         k6VuhUnits: 5.299143560275359
-        retainedStackId: 6.458262756685686
+        retainedStackId: 4.141296055235948
         k6IPTier1Rate: 7.606863723092579
         irmIncludedUsage: 0.43431398824148815
         hpUsage: 4.459605034958679
@@ -5020,7 +5021,7 @@ components:
         feO11YTier1Rate: 3.1497903714250555
         trialEndDate: trialEndDate
         createdBy: createdBy
-        geInstancesTier3Rate: 3.209082285545927
+        geInstancesTier3Rate: 8.262795412896967
         hmGraphiteUsage: 7.143538047012306
         hpTier1Rate: 7.933506881737151
         hmUsage: 1.284659006116532
@@ -5460,6 +5461,9 @@ components:
         geUsersUsage:
           title: geUsersUsage
           type: number
+        geUsersAnonymousUsersRatio:
+          title: geUsersAnonymousUsersRatio
+          type: number
         geInstancesIncludedUsage:
           title: geInstancesIncludedUsage
           type: number
@@ -5574,6 +5578,7 @@ components:
       - geInstancesTier3Min
       - geInstancesTier3Rate
       - geInstancesUsage
+      - geUsersAnonymousUsersRatio
       - geUsersIncludedUsage
       - geUsersTier1Rate
       - geUsersTier2Min
