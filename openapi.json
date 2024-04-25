@@ -8239,8 +8239,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "46e443b",
-    "x-generated-at": "2024-04-25T11:49:08.118Z"
+    "x-commit-sha": "7505ecd",
+    "x-generated-at": "2024-04-25T13:21:48.048Z"
   },
   "security": [
     {
@@ -8420,7 +8420,7 @@
                 "type": "array",
                 "description": "An array of IP addresses with subnet masks in CIDR notation (both IPv4 or IPv6 are supported) that is used to restrict access to only hosts that are part of at least one of the subnets. Providing an empty array is equivalent to providing an empty `conditions` object, and results in the removal of the `conditions` object from the Access Policy.\nNote that an IP address is not valid CIDR notation. For specifying a single IP address use a subnet mask of `/32` for IPv4 and `/128` for IPv6.\nExamples: 192.168.0.10/32 2001:db0:82a3:0:0:8a2e:370:1234/128\n",
                 "items": {
-                  "oneOf": [
+                  "anyOf": [
                     {
                       "type": "string",
                       "format": "ipv4-cidr"
