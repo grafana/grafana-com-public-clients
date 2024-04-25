@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 46e443b
-  x-generated-at: 2024-04-25T11:49:08.118Z
+  x-commit-sha: 7505ecd
+  x-generated-at: 2024-04-25T13:21:48.048Z
 servers:
 - description: Main API server
   url: /api
@@ -6947,7 +6947,7 @@ components:
           type: array
       type: object
     AuthAccessPolicy_conditions_allowedSubnets_inner:
-      oneOf:
+      anyOf:
       - format: ipv4-cidr
         type: string
       - format: ipv6-cidr
