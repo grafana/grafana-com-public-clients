@@ -98,9 +98,9 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		var slug string
+		var orgSlug string
 
-		resp, httpRes, err := apiClient.OrgsAPI.GetOrgInstances(context.Background(), slug).Execute()
+		resp, httpRes, err := apiClient.OrgsAPI.GetOrgInstances(context.Background(), orgSlug).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

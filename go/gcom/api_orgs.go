@@ -861,7 +861,7 @@ func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrgPubl
 type ApiGetOrgInstancesRequest struct {
 	ctx        context.Context
 	ApiService *OrgsAPIService
-	slug       string
+	orgSlug    string
 	cluster    *string
 	direction  *string
 	id         *string
@@ -872,7 +872,7 @@ type ApiGetOrgInstancesRequest struct {
 	plan       *string
 	planIn     *string
 	planNot    *string
-	slug2      *string
+	slug       *string
 	slugIn     *string
 	url        *string
 	urlIn      *string
@@ -928,8 +928,8 @@ func (r ApiGetOrgInstancesRequest) PlanNot(planNot string) ApiGetOrgInstancesReq
 	return r
 }
 
-func (r ApiGetOrgInstancesRequest) Slug2(slug2 string) ApiGetOrgInstancesRequest {
-	r.slug2 = &slug2
+func (r ApiGetOrgInstancesRequest) Slug(slug string) ApiGetOrgInstancesRequest {
+	r.slug = &slug
 	return r
 }
 
@@ -956,14 +956,14 @@ func (r ApiGetOrgInstancesRequest) Execute() (*GetInstances200Response, *http.Re
 GetOrgInstances Get the list of instances belonging to the org
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param slug
+ @param orgSlug
  @return ApiGetOrgInstancesRequest
 */
-func (a *OrgsAPIService) GetOrgInstances(ctx context.Context, slug string) ApiGetOrgInstancesRequest {
+func (a *OrgsAPIService) GetOrgInstances(ctx context.Context, orgSlug string) ApiGetOrgInstancesRequest {
 	return ApiGetOrgInstancesRequest{
 		ApiService: a,
 		ctx:        ctx,
-		slug:       slug,
+		orgSlug:    orgSlug,
 	}
 }
 
@@ -982,8 +982,8 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/orgs/{slug}/instances"
-	localVarPath = strings.Replace(localVarPath, "{"+"slug"+"}", url.PathEscape(parameterValueToString(r.slug, "slug")), -1)
+	localVarPath := localBasePath + "/orgs/{orgSlug}/instances"
+	localVarPath = strings.Replace(localVarPath, "{"+"orgSlug"+"}", url.PathEscape(parameterValueToString(r.orgSlug, "orgSlug")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1019,8 +1019,8 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 	if r.planNot != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "planNot", r.planNot, "")
 	}
-	if r.slug2 != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug2, "")
+	if r.slug != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "")
 	}
 	if r.slugIn != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", r.slugIn, "")

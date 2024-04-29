@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 6ef6988
-  x-generated-at: 2024-04-29T08:15:45.000Z
+  x-commit-sha: bfc07bc
+  x-generated-at: 2024-04-29T08:51:12.689Z
 servers:
 - description: Main API server
   url: /api
@@ -1796,6 +1796,149 @@ paths:
           description: Service is currently unavailable
       tags:
       - instances
+  /orgs/{orgSlug}/instances:
+    get:
+      operationId: getOrgInstances
+      parameters:
+      - explode: false
+        in: path
+        name: orgSlug
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: cluster
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: direction
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: idIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: nameIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: plan
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: planIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: planNot
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: slug
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: slugIn
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: url
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: urlIn
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstances_200_response'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_401_response'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_403_response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getInstance_404_response'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_409_response'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get the list of instances belonging to the org
+      tags:
+      - orgs
   /orgs/{slugOrId}:
     get:
       operationId: getOrg
@@ -2464,149 +2607,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_503_response'
           description: Service is currently unavailable
-      tags:
-      - orgs
-  /orgs/{slug}/instances:
-    get:
-      operationId: getOrgInstances
-      parameters:
-      - explode: false
-        in: path
-        name: slug
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: cluster
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: direction
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: id
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: idIn
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: name
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: nameIn
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: orderBy
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: plan
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: planIn
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: planNot
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: slug
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: slugIn
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: url
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: urlIn
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/getInstances_200_response'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/getInstance_404_response'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
-          description: "Invalid arguments: wrong or missing parameters"
-      summary: Get the list of instances belonging to the org
       tags:
       - orgs
   /plugins/{slug}:
@@ -6947,7 +6947,7 @@ components:
           type: array
       type: object
     AuthAccessPolicy_conditions_allowedSubnets_inner:
-      anyOf:
+      oneOf:
       - format: ipv4-cidr
         type: string
       - format: ipv6-cidr

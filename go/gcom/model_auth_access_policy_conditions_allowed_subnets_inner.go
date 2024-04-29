@@ -15,37 +15,67 @@ import (
 	"fmt"
 )
 
-// AuthAccessPolicyConditionsAllowedSubnetsInner struct for AuthAccessPolicyConditionsAllowedSubnetsInner
+// AuthAccessPolicyConditionsAllowedSubnetsInner - struct for AuthAccessPolicyConditionsAllowedSubnetsInner
 type AuthAccessPolicyConditionsAllowedSubnetsInner struct {
-	string *string
+	String *string
 }
 
-// Unmarshal JSON data into any of the pointers in the struct
+// stringAsAuthAccessPolicyConditionsAllowedSubnetsInner is a convenience function that returns string wrapped in AuthAccessPolicyConditionsAllowedSubnetsInner
+func StringAsAuthAccessPolicyConditionsAllowedSubnetsInner(v *string) AuthAccessPolicyConditionsAllowedSubnetsInner {
+	return AuthAccessPolicyConditionsAllowedSubnetsInner{
+		String: v,
+	}
+}
+
+// Unmarshal JSON data into one of the pointers in the struct
 func (dst *AuthAccessPolicyConditionsAllowedSubnetsInner) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into string
-	err = json.Unmarshal(data, &dst.string)
+	match := 0
+	// try to unmarshal data into String
+	err = newStrictDecoder(data).Decode(&dst.String)
 	if err == nil {
-		jsonstring, _ := json.Marshal(dst.string)
-		if string(jsonstring) == "{}" { // empty struct
-			dst.string = nil
+		jsonString, _ := json.Marshal(dst.String)
+		if string(jsonString) == "{}" { // empty struct
+			dst.String = nil
 		} else {
-			return nil // data stored in dst.string, return on the first match
+			match++
 		}
 	} else {
-		dst.string = nil
+		dst.String = nil
 	}
 
-	return fmt.Errorf("data failed to match schemas in anyOf(AuthAccessPolicyConditionsAllowedSubnetsInner)")
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.String = nil
+
+		return fmt.Errorf("data matches more than one schema in oneOf(AuthAccessPolicyConditionsAllowedSubnetsInner)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("data failed to match schemas in oneOf(AuthAccessPolicyConditionsAllowedSubnetsInner)")
+	}
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *AuthAccessPolicyConditionsAllowedSubnetsInner) MarshalJSON() ([]byte, error) {
-	if src.string != nil {
-		return json.Marshal(&src.string)
+func (src AuthAccessPolicyConditionsAllowedSubnetsInner) MarshalJSON() ([]byte, error) {
+	if src.String != nil {
+		return json.Marshal(&src.String)
 	}
 
-	return nil, nil // no data in anyOf schemas
+	return nil, nil // no data in oneOf schemas
+}
+
+// Get the actual instance
+func (obj *AuthAccessPolicyConditionsAllowedSubnetsInner) GetActualInstance() interface{} {
+	if obj == nil {
+		return nil
+	}
+	if obj.String != nil {
+		return obj.String
+	}
+
+	// all schemas are nil
+	return nil
 }
 
 type NullableAuthAccessPolicyConditionsAllowedSubnetsInner struct {

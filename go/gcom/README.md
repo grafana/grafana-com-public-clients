@@ -123,7 +123,7 @@ Class | Method | HTTP request | Description
 *OrgsAPI* | [**GetApiKey**](docs/OrgsAPI.md#getapikey) | **Get** /orgs/{slugOrId}/api-keys/{name} | Get an API key by name
 *OrgsAPI* | [**GetApiKeys**](docs/OrgsAPI.md#getapikeys) | **Get** /orgs/{slugOrId}/api-keys | Get an organization&#39;s API keys
 *OrgsAPI* | [**GetOrg**](docs/OrgsAPI.md#getorg) | **Get** /orgs/{slugOrId} | 
-*OrgsAPI* | [**GetOrgInstances**](docs/OrgsAPI.md#getorginstances) | **Get** /orgs/{slug}/instances | Get the list of instances belonging to the org
+*OrgsAPI* | [**GetOrgInstances**](docs/OrgsAPI.md#getorginstances) | **Get** /orgs/{orgSlug}/instances | Get the list of instances belonging to the org
 *OrgsAPI* | [**GetOrgMember**](docs/OrgsAPI.md#getorgmember) | **Get** /orgs/{slugOrId}/members/{usernameOrId} | 
 *OrgsAPI* | [**GetOrgMembers**](docs/OrgsAPI.md#getorgmembers) | **Get** /orgs/{slugOrId}/members | 
 *OrgsAPI* | [**PostApiKeys**](docs/OrgsAPI.md#postapikeys) | **Post** /orgs/{slugOrId}/api-keys | Create an API key.

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**GetApiKey**](OrgsAPI.md#GetApiKey) | **Get** /orgs/{slugOrId}/api-keys/{name} | Get an API key by name
 [**GetApiKeys**](OrgsAPI.md#GetApiKeys) | **Get** /orgs/{slugOrId}/api-keys | Get an organization&#39;s API keys
 [**GetOrg**](OrgsAPI.md#GetOrg) | **Get** /orgs/{slugOrId} | 
-[**GetOrgInstances**](OrgsAPI.md#GetOrgInstances) | **Get** /orgs/{slug}/instances | Get the list of instances belonging to the org
+[**GetOrgInstances**](OrgsAPI.md#GetOrgInstances) | **Get** /orgs/{orgSlug}/instances | Get the list of instances belonging to the org
 [**GetOrgMember**](OrgsAPI.md#GetOrgMember) | **Get** /orgs/{slugOrId}/members/{usernameOrId} | 
 [**GetOrgMembers**](OrgsAPI.md#GetOrgMembers) | **Get** /orgs/{slugOrId}/members | 
 [**PostApiKeys**](OrgsAPI.md#PostApiKeys) | **Post** /orgs/{slugOrId}/api-keys | Create an API key.
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 ## GetOrgInstances
 
-> GetInstances200Response GetOrgInstances(ctx, slug).Cluster(cluster).Direction(direction).Id(id).IdIn(idIn).Name(name).NameIn(nameIn).OrderBy(orderBy).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug2(slug2).SlugIn(slugIn).Url(url).UrlIn(urlIn).Execute()
+> GetInstances200Response GetOrgInstances(ctx, orgSlug).Cluster(cluster).Direction(direction).Id(id).IdIn(idIn).Name(name).NameIn(nameIn).OrderBy(orderBy).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug(slug).SlugIn(slugIn).Url(url).UrlIn(urlIn).Execute()
 
 Get the list of instances belonging to the org
 
@@ -404,7 +404,7 @@ import (
 )
 
 func main() {
-	slug := "slug_example" // string | 
+	orgSlug := "orgSlug_example" // string | 
 	cluster := "cluster_example" // string |  (optional)
 	direction := "direction_example" // string |  (optional)
 	id := "id_example" // string |  (optional)
@@ -415,14 +415,14 @@ func main() {
 	plan := "plan_example" // string |  (optional)
 	planIn := "planIn_example" // string |  (optional)
 	planNot := "planNot_example" // string |  (optional)
-	slug2 := "slug_example" // string |  (optional)
+	slug := "slug_example" // string |  (optional)
 	slugIn := "slugIn_example" // string |  (optional)
 	url := "url_example" // string |  (optional)
 	urlIn := "urlIn_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrgsAPI.GetOrgInstances(context.Background(), slug).Cluster(cluster).Direction(direction).Id(id).IdIn(idIn).Name(name).NameIn(nameIn).OrderBy(orderBy).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug2(slug2).SlugIn(slugIn).Url(url).UrlIn(urlIn).Execute()
+	resp, r, err := apiClient.OrgsAPI.GetOrgInstances(context.Background(), orgSlug).Cluster(cluster).Direction(direction).Id(id).IdIn(idIn).Name(name).NameIn(nameIn).OrderBy(orderBy).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug(slug).SlugIn(slugIn).Url(url).UrlIn(urlIn).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrgsAPI.GetOrgInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -438,7 +438,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**slug** | **string** |  | 
+**orgSlug** | **string** |  | 
 
 ### Other Parameters
 
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
  **plan** | **string** |  | 
  **planIn** | **string** |  | 
  **planNot** | **string** |  | 
- **slug2** | **string** |  | 
+ **slug** | **string** |  | 
  **slugIn** | **string** |  | 
  **url** | **string** |  | 
  **urlIn** | **string** |  | 
