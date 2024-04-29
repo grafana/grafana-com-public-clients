@@ -4340,6 +4340,279 @@
         }
       }
     },
+    "/orgs/{orgSlug}/instances": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "getOrgInstances",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "orgSlug",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "cluster",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "direction",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "idIn",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "nameIn",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "plan",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "planIn",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "planNot",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "slug",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "slugIn",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "url",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "urlIn",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
+        "summary": "Get the list of instances belonging to the org",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "title": "items",
+                      "items": {
+                        "$ref": "#/components/schemas/FormattedApiInstance"
+                      }
+                    },
+                    "orderBy": {
+                      "type": "string",
+                      "title": "orderBy"
+                    },
+                    "direction": {
+                      "enum": [
+                        "asc",
+                        "desc"
+                      ],
+                      "type": "string",
+                      "title": "direction"
+                    },
+                    "total": {
+                      "type": "number",
+                      "title": "total"
+                    },
+                    "pages": {
+                      "type": "number",
+                      "title": "pages"
+                    },
+                    "pageSize": {
+                      "type": "number",
+                      "title": "pageSize"
+                    },
+                    "page": {
+                      "type": "number",
+                      "title": "page"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "orderBy",
+                    "direction",
+                    "total",
+                    "pages",
+                    "pageSize",
+                    "page"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "InvalidCredentials"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Forbidden"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "NotFound"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string",
+                      "enum": [
+                        "Conflict"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orgs/{slugOrId}": {
       "get": {
         "tags": [
@@ -5830,279 +6103,6 @@
                       "type": "string",
                       "enum": [
                         "ServiceUnavailable"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/orgs/{slug}/instances": {
-      "get": {
-        "tags": [
-          "orgs"
-        ],
-        "operationId": "getOrgInstances",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "slug",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "cluster",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "direction",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "id",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "idIn",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "name",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "nameIn",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "orderBy",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "plan",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "planIn",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "planNot",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "slug",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "slugIn",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "url",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "urlIn",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          }
-        ],
-        "summary": "Get the list of instances belonging to the org",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "items": {
-                      "type": "array",
-                      "title": "items",
-                      "items": {
-                        "$ref": "#/components/schemas/FormattedApiInstance"
-                      }
-                    },
-                    "orderBy": {
-                      "type": "string",
-                      "title": "orderBy"
-                    },
-                    "direction": {
-                      "enum": [
-                        "asc",
-                        "desc"
-                      ],
-                      "type": "string",
-                      "title": "direction"
-                    },
-                    "total": {
-                      "type": "number",
-                      "title": "total"
-                    },
-                    "pages": {
-                      "type": "number",
-                      "title": "pages"
-                    },
-                    "pageSize": {
-                      "type": "number",
-                      "title": "pageSize"
-                    },
-                    "page": {
-                      "type": "number",
-                      "title": "page"
-                    }
-                  },
-                  "required": [
-                    "items",
-                    "orderBy",
-                    "direction",
-                    "total",
-                    "pages",
-                    "pageSize",
-                    "page"
-                  ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string"
-                    },
-                    "code": {
-                      "type": "string",
-                      "enum": [
-                        "InvalidCredentials"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string"
-                    },
-                    "code": {
-                      "type": "string",
-                      "enum": [
-                        "Forbidden"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string"
-                    },
-                    "code": {
-                      "type": "string",
-                      "enum": [
-                        "NotFound"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string"
-                    },
-                    "code": {
-                      "type": "string",
-                      "enum": [
-                        "Conflict"
                       ]
                     }
                   }
@@ -8239,8 +8239,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "6ef6988",
-    "x-generated-at": "2024-04-29T08:15:45.000Z"
+    "x-commit-sha": "bfc07bc",
+    "x-generated-at": "2024-04-29T08:51:12.689Z"
   },
   "security": [
     {
@@ -8420,7 +8420,7 @@
                 "type": "array",
                 "description": "An array of IP addresses with subnet masks in CIDR notation (both IPv4 or IPv6 are supported) that is used to restrict access to only hosts that are part of at least one of the subnets. Providing an empty array is equivalent to providing an empty `conditions` object, and results in the removal of the `conditions` object from the Access Policy.\nNote that an IP address is not valid CIDR notation. For specifying a single IP address use a subnet mask of `/32` for IPv4 and `/128` for IPv6.\nExamples: 192.168.0.10/32 2001:db0:82a3:0:0:8a2e:370:1234/128\n",
                 "items": {
-                  "anyOf": [
+                  "oneOf": [
                     {
                       "type": "string",
                       "format": "ipv4-cidr"
