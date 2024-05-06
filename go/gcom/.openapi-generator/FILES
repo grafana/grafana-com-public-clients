@@ -29,6 +29,9 @@ docs/AuthTokenWithSecret.md
 docs/Current.md
 docs/Current1.md
 docs/Current2.md
+docs/Current3.md
+docs/Current4.md
+docs/Current5.md
 docs/FormattedApiApiKey.md
 docs/FormattedApiApiKeyListResponse.md
 docs/FormattedApiInstance.md
@@ -100,6 +103,10 @@ docs/PostTokensRequest.md
 docs/PrivateConnectivityInfo.md
 docs/StackRegionsAPI.md
 docs/Subscriptions.md
+docs/Subscriptions1.md
+docs/Subscriptions1AnyOf.md
+docs/Subscriptions1AnyOf1.md
+docs/Subscriptions1AnyOf2.md
 docs/SubscriptionsAnyOf.md
 docs/SubscriptionsAnyOf1.md
 docs/SubscriptionsAnyOf2.md
@@ -123,6 +130,9 @@ model_auth_token_with_secret.go
 model_current.go
 model_current_1.go
 model_current_2.go
+model_current_3.go
+model_current_4.go
+model_current_5.go
 model_formatted_api_api_key.go
 model_formatted_api_api_key_list_response.go
 model_formatted_api_instance.go
@@ -190,6 +200,10 @@ model_post_token_request.go
 model_post_tokens_request.go
 model_private_connectivity_info.go
 model_subscriptions.go
+model_subscriptions_1.go
+model_subscriptions_1_any_of.go
+model_subscriptions_1_any_of_1.go
+model_subscriptions_1_any_of_2.go
 model_subscriptions_any_of.go
 model_subscriptions_any_of_1.go
 model_subscriptions_any_of_2.go

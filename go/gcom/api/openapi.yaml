@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 49f9510
-  x-generated-at: 2024-05-06T08:04:24.412Z
+  x-commit-sha: 5ed07e7
+  x-generated-at: 2024-05-06T08:48:05.214Z
 servers:
 - description: Main API server
   url: /api
@@ -3695,9 +3695,9 @@ components:
           firstUsed: firstUsed
           name: name
           links:
-          - rel: self
+          - rel: rel
             href: href
-          - rel: self
+          - rel: rel
             href: href
           id: 0.8008281904610115
           orgId: 6.027456183070403
@@ -3711,9 +3711,9 @@ components:
           firstUsed: firstUsed
           name: name
           links:
-          - rel: self
+          - rel: rel
             href: href
-          - rel: self
+          - rel: rel
             href: href
           id: 0.8008281904610115
           orgId: 6.027456183070403
@@ -3755,7 +3755,7 @@ components:
           type: number
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: '#/components/schemas/links_inner'
           title: links
           type: array
       required:
@@ -3771,9 +3771,9 @@ components:
         firstUsed: firstUsed
         name: name
         links:
-        - rel: self
+        - rel: rel
           href: href
-        - rel: self
+        - rel: rel
           href: href
         id: 0.8008281904610115
         orgId: 6.027456183070403
@@ -3898,7 +3898,7 @@ components:
           type: string
         links:
           items:
-            $ref: '#/components/schemas/links_inner'
+            $ref: '#/components/schemas/links_inner_1'
           title: links
           type: array
       required:
@@ -4646,7 +4646,7 @@ components:
           type: array
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: '#/components/schemas/links_inner'
           title: links
           type: array
         total:
@@ -4711,9 +4711,7 @@ components:
         hmCurrentGraphiteUsage: 7.386281948385884
         createdBy: createdBy
         allowGCloudTrial: null
-        marketplaceSubscription:
-          isLegacy: true
-          provider: aws
+        marketplaceSubscription: ""
         status: 5.962133916683182
       properties:
         id:
@@ -4827,9 +4825,9 @@ components:
           title: userName
           type: string
         subscriptions:
-          $ref: '#/components/schemas/subscriptions'
+          $ref: '#/components/schemas/subscriptions_1'
         marketplaceSubscription:
-          $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
+          title: marketplaceSubscription
       required:
       - allowGCloudTrial
       - billing
@@ -5536,7 +5534,7 @@ components:
           type: number
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: '#/components/schemas/links_inner'
           title: links
           type: array
         subscriptions:
@@ -5833,7 +5831,7 @@ components:
           type: object
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: '#/components/schemas/links_inner'
           title: links
           type: array
         angularDetected:
@@ -7053,11 +7051,10 @@ components:
       type: object
     links_inner:
       example:
-        rel: self
+        rel: rel
         href: href
       properties:
         rel:
-          default: self
           title: rel
           type: string
         href:
@@ -7077,9 +7074,9 @@ components:
         firstUsed: firstUsed
         name: name
         links:
-        - rel: self
+        - rel: rel
           href: href
-        - rel: self
+        - rel: rel
           href: href
         id: 0.8008281904610115
         orgId: 6.027456183070403
@@ -7151,10 +7148,11 @@ components:
       type: object
     links_inner_1:
       example:
-        rel: rel
+        rel: self
         href: href
       properties:
         rel:
+          default: self
           title: rel
           type: string
         href:
@@ -7699,6 +7697,187 @@ components:
       anyOf:
       - type: boolean
       - type: number
+    current_3:
+      properties:
+        product:
+          title: product
+        isTrial:
+          title: isTrial
+          type: boolean
+        startDate:
+          title: startDate
+        endDate:
+          title: endDate
+        payload:
+          additionalProperties: true
+          properties: {}
+          title: payload
+          type: object
+        plan:
+          title: plan
+        publicName:
+          title: publicName
+        enterprisePluginsAdded:
+          title: enterprisePluginsAdded
+          type: boolean
+        planBillingCycle:
+          title: planBillingCycle
+      required:
+      - endDate
+      - enterprisePluginsAdded
+      - isTrial
+      - payload
+      - plan
+      - planBillingCycle
+      - product
+      - publicName
+      - startDate
+      title: current
+      type: object
+    subscriptions_1_anyOf:
+      properties:
+        current:
+          $ref: '#/components/schemas/current_3'
+        nextProduct:
+          title: nextProduct
+        next:
+          title: next
+      required:
+      - current
+      - next
+      - nextProduct
+      type: object
+    current_4:
+      properties:
+        product:
+          enum:
+          - grafana-cloud-advanced
+          - grafana-cloud-free
+          - grafana-cloud-pro
+          - grafana-cloud-ss-advanced
+          title: product
+          type: string
+        isTrial:
+          title: isTrial
+          type: boolean
+        startDate:
+          title: startDate
+          type: string
+        endDate:
+          title: endDate
+          type: string
+        payload:
+          $ref: '#/components/schemas/payload'
+        plan:
+          nullable: true
+          title: plan
+          type: string
+        publicName:
+          nullable: true
+          title: publicName
+          type: string
+        enterprisePluginsAdded:
+          title: enterprisePluginsAdded
+          type: boolean
+        planBillingCycle:
+          title: planBillingCycle
+          type: string
+      required:
+      - endDate
+      - enterprisePluginsAdded
+      - isTrial
+      - payload
+      - plan
+      - planBillingCycle
+      - product
+      - publicName
+      - startDate
+      title: current
+      type: object
+    subscriptions_1_anyOf_1:
+      properties:
+        current:
+          $ref: '#/components/schemas/current_4'
+        nextProduct:
+          enum:
+          - grafana-cloud-advanced
+          - grafana-cloud-free
+          - grafana-cloud-pro
+          - grafana-cloud-ss-advanced
+          title: nextProduct
+          type: string
+        next:
+          $ref: '#/components/schemas/next'
+      required:
+      - current
+      - next
+      - nextProduct
+      type: object
+    current_5:
+      properties:
+        product:
+          enum:
+          - grafana-cloud-advanced
+          - grafana-cloud-free
+          - grafana-cloud-pro
+          - grafana-cloud-ss-advanced
+          title: product
+          type: string
+        isTrial:
+          title: isTrial
+          type: boolean
+        startDate:
+          title: startDate
+          type: string
+        endDate:
+          title: endDate
+        payload:
+          $ref: '#/components/schemas/payload'
+        plan:
+          nullable: true
+          title: plan
+          type: string
+        publicName:
+          nullable: true
+          title: publicName
+          type: string
+        enterprisePluginsAdded:
+          title: enterprisePluginsAdded
+          type: boolean
+        planBillingCycle:
+          title: planBillingCycle
+          type: string
+      required:
+      - endDate
+      - enterprisePluginsAdded
+      - isTrial
+      - payload
+      - plan
+      - planBillingCycle
+      - product
+      - publicName
+      - startDate
+      title: current
+      type: object
+    subscriptions_1_anyOf_2:
+      properties:
+        current:
+          $ref: '#/components/schemas/current_5'
+        nextProduct:
+          title: nextProduct
+        next:
+          title: next
+      required:
+      - current
+      - next
+      - nextProduct
+      type: object
+    subscriptions_1:
+      anyOf:
+      - $ref: '#/components/schemas/subscriptions_1_anyOf'
+      - $ref: '#/components/schemas/subscriptions_1_anyOf_1'
+      - $ref: '#/components/schemas/subscriptions_1_anyOf_2'
+      title: subscriptions
     FormattedApiStackRegion_anyOf:
       properties:
         id:

@@ -49,7 +49,7 @@ type FormattedApiPlugin struct {
 	Popularity               float32                `json:"popularity"`
 	SignatureType            string                 `json:"signatureType"`
 	Packages                 map[string]interface{} `json:"packages"`
-	Links                    []LinksInner1          `json:"links"`
+	Links                    []LinksInner           `json:"links"`
 	AngularDetected          bool                   `json:"angularDetected"`
 	AdditionalProperties     map[string]interface{}
 }
@@ -60,7 +60,7 @@ type _FormattedApiPlugin FormattedApiPlugin
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool) *FormattedApiPlugin {
+func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner, angularDetected bool) *FormattedApiPlugin {
 	this := FormattedApiPlugin{}
 	this.Status = status
 	this.Id = id
@@ -833,9 +833,9 @@ func (o *FormattedApiPlugin) SetPackages(v map[string]interface{}) {
 }
 
 // GetLinks returns the Links field value
-func (o *FormattedApiPlugin) GetLinks() []LinksInner1 {
+func (o *FormattedApiPlugin) GetLinks() []LinksInner {
 	if o == nil {
-		var ret []LinksInner1
+		var ret []LinksInner
 		return ret
 	}
 
@@ -844,7 +844,7 @@ func (o *FormattedApiPlugin) GetLinks() []LinksInner1 {
 
 // GetLinksOk returns a tuple with the Links field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiPlugin) GetLinksOk() ([]LinksInner1, bool) {
+func (o *FormattedApiPlugin) GetLinksOk() ([]LinksInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -852,7 +852,7 @@ func (o *FormattedApiPlugin) GetLinksOk() ([]LinksInner1, bool) {
 }
 
 // SetLinks sets field value
-func (o *FormattedApiPlugin) SetLinks(v []LinksInner1) {
+func (o *FormattedApiPlugin) SetLinks(v []LinksInner) {
 	o.Links = v
 }
 

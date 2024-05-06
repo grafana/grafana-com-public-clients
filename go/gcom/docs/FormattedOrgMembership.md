@@ -33,14 +33,14 @@ Name | Type | Description | Notes
 **UserStatus** | **float32** |  | 
 **UserEmail** | **string** |  | 
 **UserName** | **string** |  | 
-**Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
-**MarketplaceSubscription** | [**NullableItemsInner1MarketplaceSubscription**](ItemsInner1MarketplaceSubscription.md) |  | 
+**Subscriptions** | [**Subscriptions1**](Subscriptions1.md) |  | 
+**MarketplaceSubscription** | **interface{}** |  | 
 
 ## Methods
 
 ### NewFormattedOrgMembership
 
-`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription, ) *FormattedOrgMembership`
+`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions1, marketplaceSubscription interface{}, ) *FormattedOrgMembership`
 
 NewFormattedOrgMembership instantiates a new FormattedOrgMembership object
 This constructor will assign default values to properties that have it defined,
@@ -657,40 +657,40 @@ SetUserName sets UserName field to given value.
 
 ### GetSubscriptions
 
-`func (o *FormattedOrgMembership) GetSubscriptions() Subscriptions`
+`func (o *FormattedOrgMembership) GetSubscriptions() Subscriptions1`
 
 GetSubscriptions returns the Subscriptions field if non-nil, zero value otherwise.
 
 ### GetSubscriptionsOk
 
-`func (o *FormattedOrgMembership) GetSubscriptionsOk() (*Subscriptions, bool)`
+`func (o *FormattedOrgMembership) GetSubscriptionsOk() (*Subscriptions1, bool)`
 
 GetSubscriptionsOk returns a tuple with the Subscriptions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSubscriptions
 
-`func (o *FormattedOrgMembership) SetSubscriptions(v Subscriptions)`
+`func (o *FormattedOrgMembership) SetSubscriptions(v Subscriptions1)`
 
 SetSubscriptions sets Subscriptions field to given value.
 
 
 ### GetMarketplaceSubscription
 
-`func (o *FormattedOrgMembership) GetMarketplaceSubscription() ItemsInner1MarketplaceSubscription`
+`func (o *FormattedOrgMembership) GetMarketplaceSubscription() interface{}`
 
 GetMarketplaceSubscription returns the MarketplaceSubscription field if non-nil, zero value otherwise.
 
 ### GetMarketplaceSubscriptionOk
 
-`func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*ItemsInner1MarketplaceSubscription, bool)`
+`func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*interface{}, bool)`
 
 GetMarketplaceSubscriptionOk returns a tuple with the MarketplaceSubscription field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMarketplaceSubscription
 
-`func (o *FormattedOrgMembership) SetMarketplaceSubscription(v ItemsInner1MarketplaceSubscription)`
+`func (o *FormattedOrgMembership) SetMarketplaceSubscription(v interface{})`
 
 SetMarketplaceSubscription sets MarketplaceSubscription field to given value.
 

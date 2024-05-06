@@ -20,7 +20,7 @@ var _ MappedNullable = &OrgMemberListResponse{}
 // OrgMemberListResponse struct for OrgMemberListResponse
 type OrgMemberListResponse struct {
 	Items                []ItemsInner1 `json:"items"`
-	Links                []LinksInner1 `json:"links"`
+	Links                []LinksInner  `json:"links"`
 	Total                *float32      `json:"total,omitempty"`
 	Pages                *float32      `json:"pages,omitempty"`
 	Page                 *float32      `json:"page,omitempty"`
@@ -39,7 +39,7 @@ type _OrgMemberListResponse OrgMemberListResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrgMemberListResponse(items []ItemsInner1, links []LinksInner1) *OrgMemberListResponse {
+func NewOrgMemberListResponse(items []ItemsInner1, links []LinksInner) *OrgMemberListResponse {
 	this := OrgMemberListResponse{}
 	this.Items = items
 	this.Links = links
@@ -79,9 +79,9 @@ func (o *OrgMemberListResponse) SetItems(v []ItemsInner1) {
 }
 
 // GetLinks returns the Links field value
-func (o *OrgMemberListResponse) GetLinks() []LinksInner1 {
+func (o *OrgMemberListResponse) GetLinks() []LinksInner {
 	if o == nil {
-		var ret []LinksInner1
+		var ret []LinksInner
 		return ret
 	}
 
@@ -90,7 +90,7 @@ func (o *OrgMemberListResponse) GetLinks() []LinksInner1 {
 
 // GetLinksOk returns a tuple with the Links field value
 // and a boolean to check if the value has been set.
-func (o *OrgMemberListResponse) GetLinksOk() ([]LinksInner1, bool) {
+func (o *OrgMemberListResponse) GetLinksOk() ([]LinksInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,7 +98,7 @@ func (o *OrgMemberListResponse) GetLinksOk() ([]LinksInner1, bool) {
 }
 
 // SetLinks sets field value
-func (o *OrgMemberListResponse) SetLinks(v []LinksInner1) {
+func (o *OrgMemberListResponse) SetLinks(v []LinksInner) {
 	o.Links = v
 }
 

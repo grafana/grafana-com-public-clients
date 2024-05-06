@@ -34,14 +34,14 @@ Name | Type | Description | Notes
 **Popularity** | **float32** |  | 
 **SignatureType** | **string** |  | 
 **Packages** | **map[string]interface{}** |  | 
-**Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
+**Links** | [**[]LinksInner**](LinksInner.md) |  | 
 **AngularDetected** | **bool** |  | 
 
 ## Methods
 
 ### NewFormattedApiPlugin
 
-`func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool, ) *FormattedApiPlugin`
+`func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner, angularDetected bool, ) *FormattedApiPlugin`
 
 NewFormattedApiPlugin instantiates a new FormattedApiPlugin object
 This constructor will assign default values to properties that have it defined,
@@ -663,20 +663,20 @@ SetPackages sets Packages field to given value.
 
 ### GetLinks
 
-`func (o *FormattedApiPlugin) GetLinks() []LinksInner1`
+`func (o *FormattedApiPlugin) GetLinks() []LinksInner`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *FormattedApiPlugin) GetLinksOk() (*[]LinksInner1, bool)`
+`func (o *FormattedApiPlugin) GetLinksOk() (*[]LinksInner, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *FormattedApiPlugin) SetLinks(v []LinksInner1)`
+`func (o *FormattedApiPlugin) SetLinks(v []LinksInner)`
 
 SetLinks sets Links field to given value.
 
