@@ -8239,8 +8239,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "49f9510",
-    "x-generated-at": "2024-05-06T08:04:24.412Z"
+    "x-commit-sha": "5ed07e7",
+    "x-generated-at": "2024-05-06T08:48:05.214Z"
   },
   "security": [
     {
@@ -8585,8 +8585,7 @@
                     "properties": {
                       "rel": {
                         "type": "string",
-                        "title": "rel",
-                        "default": "self"
+                        "title": "rel"
                       },
                       "href": {
                         "type": "string",
@@ -8746,8 +8745,7 @@
               "properties": {
                 "rel": {
                   "type": "string",
-                  "title": "rel",
-                  "default": "self"
+                  "title": "rel"
                 },
                 "href": {
                   "type": "string",
@@ -10326,8 +10324,7 @@
                     "type": "object",
                     "properties": {
                       "product": {
-                        "title": "product",
-                        "nullable": true
+                        "title": "product"
                       },
                       "isTrial": {
                         "type": "boolean",
@@ -10337,24 +10334,22 @@
                         "title": "isTrial"
                       },
                       "startDate": {
-                        "title": "startDate",
-                        "nullable": true
+                        "title": "startDate"
                       },
                       "endDate": {
-                        "title": "endDate",
-                        "nullable": true
+                        "title": "endDate"
                       },
                       "payload": {
                         "type": "object",
+                        "properties": {},
+                        "additionalProperties": true,
                         "title": "payload"
                       },
                       "plan": {
-                        "title": "plan",
-                        "nullable": true
+                        "title": "plan"
                       },
                       "publicName": {
-                        "title": "publicName",
-                        "nullable": true
+                        "title": "publicName"
                       },
                       "enterprisePluginsAdded": {
                         "type": "boolean",
@@ -10364,8 +10359,7 @@
                         "title": "enterprisePluginsAdded"
                       },
                       "planBillingCycle": {
-                        "title": "planBillingCycle",
-                        "nullable": true
+                        "title": "planBillingCycle"
                       }
                     },
                     "required": [
@@ -10382,12 +10376,10 @@
                     "title": "current"
                   },
                   "nextProduct": {
-                    "title": "nextProduct",
-                    "nullable": true
+                    "title": "nextProduct"
                   },
                   "next": {
-                    "title": "next",
-                    "nullable": true
+                    "title": "next"
                   }
                 },
                 "required": [
@@ -10418,12 +10410,10 @@
                       },
                       "startDate": {
                         "type": "string",
-                        "format": "date-time",
                         "title": "startDate"
                       },
                       "endDate": {
                         "type": "string",
-                        "format": "date-time",
                         "title": "endDate"
                       },
                       "payload": {
@@ -10557,12 +10547,10 @@
                       },
                       "startDate": {
                         "type": "string",
-                        "format": "date-time",
                         "title": "startDate"
                       },
                       "endDate": {
-                        "title": "endDate",
-                        "nullable": true
+                        "title": "endDate"
                       },
                       "payload": {
                         "type": "object",
@@ -10611,12 +10599,10 @@
                     "title": "current"
                   },
                   "nextProduct": {
-                    "title": "nextProduct",
-                    "nullable": true
+                    "title": "nextProduct"
                   },
                   "next": {
-                    "title": "next",
-                    "nullable": true
+                    "title": "next"
                   }
                 },
                 "required": [
@@ -10629,33 +10615,6 @@
             "title": "subscriptions"
           },
           "marketplaceSubscription": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "provider": {
-                    "type": "string",
-                    "enum": [
-                      "aws",
-                      "azure",
-                      "gcp"
-                    ],
-                    "title": "provider"
-                  },
-                  "isLegacy": {
-                    "type": "boolean",
-                    "title": "isLegacy"
-                  }
-                },
-                "required": [
-                  "isLegacy",
-                  "provider"
-                ]
-              },
-              {
-                "nullable": true
-              }
-            ],
             "title": "marketplaceSubscription"
           }
         },
