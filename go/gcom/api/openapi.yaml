@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: a604363
-  x-generated-at: 2024-05-14T08:17:59.079Z
+  x-commit-sha: 5d79b44
+  x-generated-at: 2024-05-14T09:15:43.502Z
 servers:
 - description: Main API server
   url: /api
@@ -7709,8 +7709,7 @@ components:
         endDate:
           title: endDate
         payload:
-          additionalProperties: true
-          properties: {}
+          additionalProperties: {}
           title: payload
           type: object
         plan:
