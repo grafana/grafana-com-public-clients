@@ -31,6 +31,7 @@ type AuthToken struct {
 	LastUsedAt           *time.Time `json:"lastUsedAt,omitempty"`
 	CreatedAt            *time.Time `json:"createdAt,omitempty"`
 	UpdatedAt            *time.Time `json:"updatedAt,omitempty"`
+	OrgId                *string    `json:"orgId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -327,6 +328,38 @@ func (o *AuthToken) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = &v
 }
 
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
+func (o *AuthToken) GetOrgId() string {
+	if o == nil || IsNil(o.OrgId) {
+		var ret string
+		return ret
+	}
+	return *o.OrgId
+}
+
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AuthToken) GetOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgId) {
+		return nil, false
+	}
+	return o.OrgId, true
+}
+
+// HasOrgId returns a boolean if a field has been set.
+func (o *AuthToken) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
+func (o *AuthToken) SetOrgId(v string) {
+	o.OrgId = &v
+}
+
 func (o AuthToken) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -359,6 +392,9 @@ func (o AuthToken) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.UpdatedAt) {
 		toSerialize["updatedAt"] = o.UpdatedAt
+	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -399,6 +435,7 @@ func (o *AuthToken) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "lastUsedAt")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "orgId")
 		o.AdditionalProperties = additionalProperties
 	}
 

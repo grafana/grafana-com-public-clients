@@ -31,6 +31,7 @@ type AuthTokenWithSecret struct {
 	LastUsedAt  *time.Time `json:"lastUsedAt,omitempty"`
 	CreatedAt   *time.Time `json:"createdAt,omitempty"`
 	UpdatedAt   *time.Time `json:"updatedAt,omitempty"`
+	OrgId       *string    `json:"orgId,omitempty"`
 	// This token is auto generated and will be shown only once.
 	Token                *string `json:"token,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -329,6 +330,38 @@ func (o *AuthTokenWithSecret) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = &v
 }
 
+// GetOrgId returns the OrgId field value if set, zero value otherwise.
+func (o *AuthTokenWithSecret) GetOrgId() string {
+	if o == nil || IsNil(o.OrgId) {
+		var ret string
+		return ret
+	}
+	return *o.OrgId
+}
+
+// GetOrgIdOk returns a tuple with the OrgId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AuthTokenWithSecret) GetOrgIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrgId) {
+		return nil, false
+	}
+	return o.OrgId, true
+}
+
+// HasOrgId returns a boolean if a field has been set.
+func (o *AuthTokenWithSecret) HasOrgId() bool {
+	if o != nil && !IsNil(o.OrgId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrgId gets a reference to the given string and assigns it to the OrgId field.
+func (o *AuthTokenWithSecret) SetOrgId(v string) {
+	o.OrgId = &v
+}
+
 // GetToken returns the Token field value if set, zero value otherwise.
 func (o *AuthTokenWithSecret) GetToken() string {
 	if o == nil || IsNil(o.Token) {
@@ -394,6 +427,9 @@ func (o AuthTokenWithSecret) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.UpdatedAt) {
 		toSerialize["updatedAt"] = o.UpdatedAt
 	}
+	if !IsNil(o.OrgId) {
+		toSerialize["orgId"] = o.OrgId
+	}
 	if !IsNil(o.Token) {
 		toSerialize["token"] = o.Token
 	}
@@ -436,6 +472,7 @@ func (o *AuthTokenWithSecret) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "lastUsedAt")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "token")
 		o.AdditionalProperties = additionalProperties
 	}

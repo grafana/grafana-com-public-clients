@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: f7dc0c1
-  x-generated-at: 2024-06-05T19:33:51.204Z
+  x-commit-sha: 74138a0
+  x-generated-at: 2024-06-05T21:15:23.159Z
 servers:
 - description: Main API server
   url: /api
@@ -5924,6 +5924,10 @@ components:
             format: date-time
             readOnly: true
             type: string
+          orgId:
+            example: "1"
+            readOnly: true
+            type: string
         required:
         - accessPolicyId
         - name
@@ -5944,6 +5948,7 @@ components:
         name: mytoken
         id: c45485b6-8321-4cf2-bcec-12006df755ff
         expiresAt: 2000-01-23T04:56:07.000+00:00
+        orgId: "1"
         updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -5980,6 +5985,10 @@ components:
           type: string
         updatedAt:
           format: date-time
+          readOnly: true
+          type: string
+        orgId:
+          example: "1"
           readOnly: true
           type: string
       required:

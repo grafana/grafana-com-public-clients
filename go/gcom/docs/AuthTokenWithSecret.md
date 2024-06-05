@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **LastUsedAt** | Pointer to **time.Time** |  | [optional] [readonly] 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] [readonly] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] [readonly] 
+**OrgId** | Pointer to **string** |  | [optional] [readonly] 
 **Token** | Pointer to **string** | This token is auto generated and will be shown only once. | [optional] 
 
 ## Methods
@@ -248,6 +249,31 @@ SetUpdatedAt sets UpdatedAt field to given value.
 `func (o *AuthTokenWithSecret) HasUpdatedAt() bool`
 
 HasUpdatedAt returns a boolean if a field has been set.
+
+### GetOrgId
+
+`func (o *AuthTokenWithSecret) GetOrgId() string`
+
+GetOrgId returns the OrgId field if non-nil, zero value otherwise.
+
+### GetOrgIdOk
+
+`func (o *AuthTokenWithSecret) GetOrgIdOk() (*string, bool)`
+
+GetOrgIdOk returns a tuple with the OrgId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgId
+
+`func (o *AuthTokenWithSecret) SetOrgId(v string)`
+
+SetOrgId sets OrgId field to given value.
+
+### HasOrgId
+
+`func (o *AuthTokenWithSecret) HasOrgId() bool`
+
+HasOrgId returns a boolean if a field has been set.
 
 ### GetToken
 
