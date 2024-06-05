@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **LokiQueryPolicy** | Pointer to [**AuthAccessPolicyAttributesLokiQueryPolicy**](AuthAccessPolicyAttributesLokiQueryPolicy.md) |  | [optional] 
 **AllowedScopes** | Pointer to **[]string** | List of scopes allowed to be signed by an access policy (required if the access policy contains &#x60;grafana-id-token:sign&#x60;).  | [optional] 
 **PdcConfiguration** | Pointer to [**AuthAccessPolicyAttributesPdcConfiguration**](AuthAccessPolicyAttributesPdcConfiguration.md) |  | [optional] 
+**AllowedAudiences** | Pointer to **[]string** | List of audience claims allowed to be included when signing access tokens.  | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetPdcConfiguration sets PdcConfiguration field to given value.
 `func (o *AuthAccessPolicyAttributes) HasPdcConfiguration() bool`
 
 HasPdcConfiguration returns a boolean if a field has been set.
+
+### GetAllowedAudiences
+
+`func (o *AuthAccessPolicyAttributes) GetAllowedAudiences() []string`
+
+GetAllowedAudiences returns the AllowedAudiences field if non-nil, zero value otherwise.
+
+### GetAllowedAudiencesOk
+
+`func (o *AuthAccessPolicyAttributes) GetAllowedAudiencesOk() (*[]string, bool)`
+
+GetAllowedAudiencesOk returns a tuple with the AllowedAudiences field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedAudiences
+
+`func (o *AuthAccessPolicyAttributes) SetAllowedAudiences(v []string)`
+
+SetAllowedAudiences sets AllowedAudiences field to given value.
+
+### HasAllowedAudiences
+
+`func (o *AuthAccessPolicyAttributes) HasAllowedAudiences() bool`
+
+HasAllowedAudiences returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

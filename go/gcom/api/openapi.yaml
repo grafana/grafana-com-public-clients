@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 3dcf317
-  x-generated-at: 2024-06-05T19:05:26.838Z
+  x-commit-sha: f7dc0c1
+  x-generated-at: 2024-06-05T19:33:51.204Z
 servers:
 - description: Main API server
   url: /api
@@ -3581,12 +3581,16 @@ components:
             maxQueryLookback: 30d
             maxQueryLength: 7d
             maxEntriesLimitPerQuery: 20
+          allowedAudiences:
+          - allowedAudiences
+          - allowedAudiences
           allowedScopes:
           - metrics:read
           - logs:read
           - traces:read
           - alerts:read
         id: c45485b6-8321-4cf2-bcec-12006df755ff
+        source: user
         scopes:
         - metrics:read
         - logs:read
@@ -3615,6 +3619,13 @@ components:
         displayName:
           description: Will be set to `name` if not provided.
           example: Stack Readers
+          type: string
+        source:
+          description: Source of the Access Policy (requires system token).
+          enum:
+          - user
+          - cloud
+          example: user
           type: string
         scopes:
           example:
@@ -6676,12 +6687,16 @@ components:
               maxQueryLookback: 30d
               maxQueryLength: 7d
               maxEntriesLimitPerQuery: 20
+            allowedAudiences:
+            - allowedAudiences
+            - allowedAudiences
             allowedScopes:
             - metrics:read
             - logs:read
             - traces:read
             - alerts:read
           id: c45485b6-8321-4cf2-bcec-12006df755ff
+          source: user
           scopes:
           - metrics:read
           - logs:read
@@ -6718,12 +6733,16 @@ components:
               maxQueryLookback: 30d
               maxQueryLength: 7d
               maxEntriesLimitPerQuery: 20
+            allowedAudiences:
+            - allowedAudiences
+            - allowedAudiences
             allowedScopes:
             - metrics:read
             - logs:read
             - traces:read
             - alerts:read
           id: c45485b6-8321-4cf2-bcec-12006df755ff
+          source: user
           scopes:
           - metrics:read
           - logs:read
@@ -7027,6 +7046,9 @@ components:
           maxQueryLookback: 30d
           maxQueryLength: 7d
           maxEntriesLimitPerQuery: 20
+        allowedAudiences:
+        - allowedAudiences
+        - allowedAudiences
         allowedScopes:
         - metrics:read
         - logs:read
@@ -7048,6 +7070,12 @@ components:
           type: array
         pdcConfiguration:
           $ref: '#/components/schemas/AuthAccessPolicy_attributes_pdcConfiguration'
+        allowedAudiences:
+          description: |
+            List of audience claims allowed to be included when signing access tokens.
+          items:
+            type: string
+          type: array
       type: object
     links_inner:
       example:

@@ -21,8 +21,10 @@ var _ MappedNullable = &AuthAccessPolicyAttributes{}
 type AuthAccessPolicyAttributes struct {
 	LokiQueryPolicy *AuthAccessPolicyAttributesLokiQueryPolicy `json:"lokiQueryPolicy,omitempty"`
 	// List of scopes allowed to be signed by an access policy (required if the access policy contains `grafana-id-token:sign`).
-	AllowedScopes        []string                                    `json:"allowedScopes,omitempty"`
-	PdcConfiguration     *AuthAccessPolicyAttributesPdcConfiguration `json:"pdcConfiguration,omitempty"`
+	AllowedScopes    []string                                    `json:"allowedScopes,omitempty"`
+	PdcConfiguration *AuthAccessPolicyAttributesPdcConfiguration `json:"pdcConfiguration,omitempty"`
+	// List of audience claims allowed to be included when signing access tokens.
+	AllowedAudiences     []string `json:"allowedAudiences,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -141,6 +143,38 @@ func (o *AuthAccessPolicyAttributes) SetPdcConfiguration(v AuthAccessPolicyAttri
 	o.PdcConfiguration = &v
 }
 
+// GetAllowedAudiences returns the AllowedAudiences field value if set, zero value otherwise.
+func (o *AuthAccessPolicyAttributes) GetAllowedAudiences() []string {
+	if o == nil || IsNil(o.AllowedAudiences) {
+		var ret []string
+		return ret
+	}
+	return o.AllowedAudiences
+}
+
+// GetAllowedAudiencesOk returns a tuple with the AllowedAudiences field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AuthAccessPolicyAttributes) GetAllowedAudiencesOk() ([]string, bool) {
+	if o == nil || IsNil(o.AllowedAudiences) {
+		return nil, false
+	}
+	return o.AllowedAudiences, true
+}
+
+// HasAllowedAudiences returns a boolean if a field has been set.
+func (o *AuthAccessPolicyAttributes) HasAllowedAudiences() bool {
+	if o != nil && !IsNil(o.AllowedAudiences) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowedAudiences gets a reference to the given []string and assigns it to the AllowedAudiences field.
+func (o *AuthAccessPolicyAttributes) SetAllowedAudiences(v []string) {
+	o.AllowedAudiences = v
+}
+
 func (o AuthAccessPolicyAttributes) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -159,6 +193,9 @@ func (o AuthAccessPolicyAttributes) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PdcConfiguration) {
 		toSerialize["pdcConfiguration"] = o.PdcConfiguration
+	}
+	if !IsNil(o.AllowedAudiences) {
+		toSerialize["allowedAudiences"] = o.AllowedAudiences
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -185,6 +222,7 @@ func (o *AuthAccessPolicyAttributes) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "lokiQueryPolicy")
 		delete(additionalProperties, "allowedScopes")
 		delete(additionalProperties, "pdcConfiguration")
+		delete(additionalProperties, "allowedAudiences")
 		o.AdditionalProperties = additionalProperties
 	}
 

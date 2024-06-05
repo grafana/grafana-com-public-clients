@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **OrgId** | Pointer to **string** |  | [optional] [readonly] 
 **Name** | **string** |  | 
 **DisplayName** | Pointer to **string** | Will be set to &#x60;name&#x60; if not provided. | [optional] 
+**Source** | Pointer to **string** | Source of the Access Policy (requires system token). | [optional] 
 **Scopes** | **[]string** |  | 
 **Realms** | [**[]AuthAccessPolicyRealmsInner**](AuthAccessPolicyRealmsInner.md) |  | 
 **CreatedAt** | Pointer to **time.Time** |  | [optional] [readonly] 
@@ -129,6 +130,31 @@ SetDisplayName sets DisplayName field to given value.
 `func (o *AuthAccessPolicy) HasDisplayName() bool`
 
 HasDisplayName returns a boolean if a field has been set.
+
+### GetSource
+
+`func (o *AuthAccessPolicy) GetSource() string`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *AuthAccessPolicy) GetSourceOk() (*string, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *AuthAccessPolicy) SetSource(v string)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *AuthAccessPolicy) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
 
 ### GetScopes
 

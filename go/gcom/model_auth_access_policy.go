@@ -24,13 +24,15 @@ type AuthAccessPolicy struct {
 	OrgId *string `json:"orgId,omitempty"`
 	Name  string  `json:"name"`
 	// Will be set to `name` if not provided.
-	DisplayName *string                       `json:"displayName,omitempty"`
-	Scopes      []string                      `json:"scopes"`
-	Realms      []AuthAccessPolicyRealmsInner `json:"realms"`
-	CreatedAt   *time.Time                    `json:"createdAt,omitempty"`
-	UpdatedAt   *time.Time                    `json:"updatedAt,omitempty"`
-	Conditions  *AuthAccessPolicyConditions   `json:"conditions,omitempty"`
-	Attributes  *AuthAccessPolicyAttributes   `json:"attributes,omitempty"`
+	DisplayName *string `json:"displayName,omitempty"`
+	// Source of the Access Policy (requires system token).
+	Source     *string                       `json:"source,omitempty"`
+	Scopes     []string                      `json:"scopes"`
+	Realms     []AuthAccessPolicyRealmsInner `json:"realms"`
+	CreatedAt  *time.Time                    `json:"createdAt,omitempty"`
+	UpdatedAt  *time.Time                    `json:"updatedAt,omitempty"`
+	Conditions *AuthAccessPolicyConditions   `json:"conditions,omitempty"`
+	Attributes *AuthAccessPolicyAttributes   `json:"attributes,omitempty"`
 	// The status of the access policy.
 	Status               *string `json:"status,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -176,6 +178,38 @@ func (o *AuthAccessPolicy) HasDisplayName() bool {
 // SetDisplayName gets a reference to the given string and assigns it to the DisplayName field.
 func (o *AuthAccessPolicy) SetDisplayName(v string) {
 	o.DisplayName = &v
+}
+
+// GetSource returns the Source field value if set, zero value otherwise.
+func (o *AuthAccessPolicy) GetSource() string {
+	if o == nil || IsNil(o.Source) {
+		var ret string
+		return ret
+	}
+	return *o.Source
+}
+
+// GetSourceOk returns a tuple with the Source field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AuthAccessPolicy) GetSourceOk() (*string, bool) {
+	if o == nil || IsNil(o.Source) {
+		return nil, false
+	}
+	return o.Source, true
+}
+
+// HasSource returns a boolean if a field has been set.
+func (o *AuthAccessPolicy) HasSource() bool {
+	if o != nil && !IsNil(o.Source) {
+		return true
+	}
+
+	return false
+}
+
+// SetSource gets a reference to the given string and assigns it to the Source field.
+func (o *AuthAccessPolicy) SetSource(v string) {
+	o.Source = &v
 }
 
 // GetScopes returns the Scopes field value
@@ -406,6 +440,9 @@ func (o AuthAccessPolicy) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DisplayName) {
 		toSerialize["displayName"] = o.DisplayName
 	}
+	if !IsNil(o.Source) {
+		toSerialize["source"] = o.Source
+	}
 	toSerialize["scopes"] = o.Scopes
 	toSerialize["realms"] = o.Realms
 	if !IsNil(o.CreatedAt) {
@@ -457,6 +494,7 @@ func (o *AuthAccessPolicy) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "displayName")
+		delete(additionalProperties, "source")
 		delete(additionalProperties, "scopes")
 		delete(additionalProperties, "realms")
 		delete(additionalProperties, "createdAt")
