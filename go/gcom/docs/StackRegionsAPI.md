@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetStackRegions
 
-> GetStackRegions200Response GetStackRegions(ctx).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).Provider(provider).Slug(slug).SlugIn(slugIn).Execute()
+> GetStackRegions200Response GetStackRegions(ctx).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
 
 
 
@@ -32,12 +32,13 @@ func main() {
 	idIn := []int32{int32(123)} // []int32 |  (optional)
 	orderBy := "orderBy_example" // string |  (optional)
 	provider := "provider_example" // string |  (optional)
+	providerRegion := "providerRegion_example" // string |  (optional)
 	slug := "slug_example" // string |  (optional)
 	slugIn := []string{"Inner_example"} // []string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StackRegionsAPI.GetStackRegions(context.Background()).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).Provider(provider).Slug(slug).SlugIn(slugIn).Execute()
+	resp, r, err := apiClient.StackRegionsAPI.GetStackRegions(context.Background()).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StackRegionsAPI.GetStackRegions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -63,6 +64,7 @@ Name | Type | Description  | Notes
  **idIn** | **[]int32** |  | 
  **orderBy** | **string** |  | 
  **provider** | **string** |  | 
+ **providerRegion** | **string** |  | 
  **slug** | **string** |  | 
  **slugIn** | **[]string** |  | 
 

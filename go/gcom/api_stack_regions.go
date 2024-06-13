@@ -23,15 +23,16 @@ import (
 type StackRegionsAPIService service
 
 type ApiGetStackRegionsRequest struct {
-	ctx        context.Context
-	ApiService *StackRegionsAPIService
-	direction  *string
-	id         *int32
-	idIn       *[]int32
-	orderBy    *string
-	provider   *string
-	slug       *string
-	slugIn     *[]string
+	ctx            context.Context
+	ApiService     *StackRegionsAPIService
+	direction      *string
+	id             *int32
+	idIn           *[]int32
+	orderBy        *string
+	provider       *string
+	providerRegion *string
+	slug           *string
+	slugIn         *[]string
 }
 
 func (r ApiGetStackRegionsRequest) Direction(direction string) ApiGetStackRegionsRequest {
@@ -56,6 +57,11 @@ func (r ApiGetStackRegionsRequest) OrderBy(orderBy string) ApiGetStackRegionsReq
 
 func (r ApiGetStackRegionsRequest) Provider(provider string) ApiGetStackRegionsRequest {
 	r.provider = &provider
+	return r
+}
+
+func (r ApiGetStackRegionsRequest) ProviderRegion(providerRegion string) ApiGetStackRegionsRequest {
+	r.providerRegion = &providerRegion
 	return r
 }
 
@@ -129,6 +135,9 @@ func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequ
 	}
 	if r.provider != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "provider", r.provider, "")
+	}
+	if r.providerRegion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "providerRegion", r.providerRegion, "")
 	}
 	if r.slug != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "")

@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: "8676297"
-  x-generated-at: 2024-06-13T11:55:24.830Z
+  x-commit-sha: 1be9243
+  x-generated-at: 2024-06-13T17:04:56.327Z
 servers:
 - description: Main API server
   url: /api
@@ -2700,6 +2700,13 @@ paths:
           - gcp
           - azure
           - aws
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: providerRegion
+        required: false
+        schema:
           type: string
         style: form
       - explode: true
