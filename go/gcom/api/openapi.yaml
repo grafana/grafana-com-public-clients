@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: "4769690"
-  x-generated-at: 2024-06-24T19:58:53.230Z
+  x-commit-sha: 7df69b6
+  x-generated-at: 2024-06-24T22:44:22.606Z
 servers:
 - description: Main API server
   url: /api
@@ -4544,12 +4544,14 @@ components:
           caData: caData
         privateConnectivityInfo:
           tenants:
-          - id: 0.8008281904610115
+          - ipAllowListCNAME: ipAllowListCNAME
+            id: 0.8008281904610115
             type: type
             info:
               privateDNS: privateDNS
               serviceName: serviceName
-          - id: 0.8008281904610115
+          - ipAllowListCNAME: ipAllowListCNAME
+            id: 0.8008281904610115
             type: type
             info:
               privateDNS: privateDNS
@@ -7224,6 +7226,7 @@ components:
       type: object
     tenants_inner:
       example:
+        ipAllowListCNAME: ipAllowListCNAME
         id: 0.8008281904610115
         type: type
         info:
@@ -7238,9 +7241,11 @@ components:
           type: number
         info:
           $ref: '#/components/schemas/info'
+        ipAllowListCNAME:
+          title: ipAllowListCNAME
+          type: string
       required:
       - id
-      - info
       - type
       type: object
     otlp:
@@ -7262,12 +7267,14 @@ components:
     privateConnectivityInfo:
       example:
         tenants:
-        - id: 0.8008281904610115
+        - ipAllowListCNAME: ipAllowListCNAME
+          id: 0.8008281904610115
           type: type
           info:
             privateDNS: privateDNS
             serviceName: serviceName
-        - id: 0.8008281904610115
+        - ipAllowListCNAME: ipAllowListCNAME
+          id: 0.8008281904610115
           type: type
           info:
             privateDNS: privateDNS

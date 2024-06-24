@@ -21,7 +21,8 @@ var _ MappedNullable = &TenantsInner{}
 type TenantsInner struct {
 	Type                 string  `json:"type"`
 	Id                   float32 `json:"id"`
-	Info                 Info    `json:"info"`
+	Info                 *Info   `json:"info,omitempty"`
+	IpAllowListCNAME     *string `json:"ipAllowListCNAME,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,11 +32,10 @@ type _TenantsInner TenantsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTenantsInner(type_ string, id float32, info Info) *TenantsInner {
+func NewTenantsInner(type_ string, id float32) *TenantsInner {
 	this := TenantsInner{}
 	this.Type = type_
 	this.Id = id
-	this.Info = info
 	return &this
 }
 
@@ -95,28 +95,68 @@ func (o *TenantsInner) SetId(v float32) {
 	o.Id = v
 }
 
-// GetInfo returns the Info field value
+// GetInfo returns the Info field value if set, zero value otherwise.
 func (o *TenantsInner) GetInfo() Info {
-	if o == nil {
+	if o == nil || IsNil(o.Info) {
 		var ret Info
 		return ret
 	}
-
-	return o.Info
+	return *o.Info
 }
 
-// GetInfoOk returns a tuple with the Info field value
+// GetInfoOk returns a tuple with the Info field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *TenantsInner) GetInfoOk() (*Info, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Info) {
 		return nil, false
 	}
-	return &o.Info, true
+	return o.Info, true
 }
 
-// SetInfo sets field value
+// HasInfo returns a boolean if a field has been set.
+func (o *TenantsInner) HasInfo() bool {
+	if o != nil && !IsNil(o.Info) {
+		return true
+	}
+
+	return false
+}
+
+// SetInfo gets a reference to the given Info and assigns it to the Info field.
 func (o *TenantsInner) SetInfo(v Info) {
-	o.Info = v
+	o.Info = &v
+}
+
+// GetIpAllowListCNAME returns the IpAllowListCNAME field value if set, zero value otherwise.
+func (o *TenantsInner) GetIpAllowListCNAME() string {
+	if o == nil || IsNil(o.IpAllowListCNAME) {
+		var ret string
+		return ret
+	}
+	return *o.IpAllowListCNAME
+}
+
+// GetIpAllowListCNAMEOk returns a tuple with the IpAllowListCNAME field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TenantsInner) GetIpAllowListCNAMEOk() (*string, bool) {
+	if o == nil || IsNil(o.IpAllowListCNAME) {
+		return nil, false
+	}
+	return o.IpAllowListCNAME, true
+}
+
+// HasIpAllowListCNAME returns a boolean if a field has been set.
+func (o *TenantsInner) HasIpAllowListCNAME() bool {
+	if o != nil && !IsNil(o.IpAllowListCNAME) {
+		return true
+	}
+
+	return false
+}
+
+// SetIpAllowListCNAME gets a reference to the given string and assigns it to the IpAllowListCNAME field.
+func (o *TenantsInner) SetIpAllowListCNAME(v string) {
+	o.IpAllowListCNAME = &v
 }
 
 func (o TenantsInner) MarshalJSON() ([]byte, error) {
@@ -131,7 +171,12 @@ func (o TenantsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
 	toSerialize["id"] = o.Id
-	toSerialize["info"] = o.Info
+	if !IsNil(o.Info) {
+		toSerialize["info"] = o.Info
+	}
+	if !IsNil(o.IpAllowListCNAME) {
+		toSerialize["ipAllowListCNAME"] = o.IpAllowListCNAME
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -165,6 +210,7 @@ func (o *TenantsInner) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "type")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "info")
+		delete(additionalProperties, "ipAllowListCNAME")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -6,13 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
 **Id** | **float32** |  | 
-**Info** | [**Info**](Info.md) |  | 
+**Info** | Pointer to [**Info**](Info.md) |  | [optional] 
+**IpAllowListCNAME** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewTenantsInner
 
-`func NewTenantsInner(type_ string, id float32, info Info, ) *TenantsInner`
+`func NewTenantsInner(type_ string, id float32, ) *TenantsInner`
 
 NewTenantsInner instantiates a new TenantsInner object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +87,36 @@ and a boolean to check if the value has been set.
 
 SetInfo sets Info field to given value.
 
+### HasInfo
+
+`func (o *TenantsInner) HasInfo() bool`
+
+HasInfo returns a boolean if a field has been set.
+
+### GetIpAllowListCNAME
+
+`func (o *TenantsInner) GetIpAllowListCNAME() string`
+
+GetIpAllowListCNAME returns the IpAllowListCNAME field if non-nil, zero value otherwise.
+
+### GetIpAllowListCNAMEOk
+
+`func (o *TenantsInner) GetIpAllowListCNAMEOk() (*string, bool)`
+
+GetIpAllowListCNAMEOk returns a tuple with the IpAllowListCNAME field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIpAllowListCNAME
+
+`func (o *TenantsInner) SetIpAllowListCNAME(v string)`
+
+SetIpAllowListCNAME sets IpAllowListCNAME field to given value.
+
+### HasIpAllowListCNAME
+
+`func (o *TenantsInner) HasIpAllowListCNAME() bool`
+
+HasIpAllowListCNAME returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
