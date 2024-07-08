@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the PostAllApiKeys401Response type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PostAllApiKeys401Response{}
+// checks if the PostAllApiKeys500Response type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PostAllApiKeys500Response{}
 
-// PostAllApiKeys401Response struct for PostAllApiKeys401Response
-type PostAllApiKeys401Response struct {
+// PostAllApiKeys500Response struct for PostAllApiKeys500Response
+type PostAllApiKeys500Response struct {
 	Message              *string                                 `json:"message,omitempty"`
 	Code                 *string                                 `json:"code,omitempty"`
 	RequestId            *string                                 `json:"requestId,omitempty"`
@@ -26,27 +26,27 @@ type PostAllApiKeys401Response struct {
 	AdditionalProperties map[string]interface{}
 }
 
-type _PostAllApiKeys401Response PostAllApiKeys401Response
+type _PostAllApiKeys500Response PostAllApiKeys500Response
 
-// NewPostAllApiKeys401Response instantiates a new PostAllApiKeys401Response object
+// NewPostAllApiKeys500Response instantiates a new PostAllApiKeys500Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostAllApiKeys401Response() *PostAllApiKeys401Response {
-	this := PostAllApiKeys401Response{}
+func NewPostAllApiKeys500Response() *PostAllApiKeys500Response {
+	this := PostAllApiKeys500Response{}
 	return &this
 }
 
-// NewPostAllApiKeys401ResponseWithDefaults instantiates a new PostAllApiKeys401Response object
+// NewPostAllApiKeys500ResponseWithDefaults instantiates a new PostAllApiKeys500Response object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPostAllApiKeys401ResponseWithDefaults() *PostAllApiKeys401Response {
-	this := PostAllApiKeys401Response{}
+func NewPostAllApiKeys500ResponseWithDefaults() *PostAllApiKeys500Response {
+	this := PostAllApiKeys500Response{}
 	return &this
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise.
-func (o *PostAllApiKeys401Response) GetMessage() string {
+func (o *PostAllApiKeys500Response) GetMessage() string {
 	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
@@ -56,7 +56,7 @@ func (o *PostAllApiKeys401Response) GetMessage() string {
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAllApiKeys401Response) GetMessageOk() (*string, bool) {
+func (o *PostAllApiKeys500Response) GetMessageOk() (*string, bool) {
 	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *PostAllApiKeys401Response) GetMessageOk() (*string, bool) {
 }
 
 // HasMessage returns a boolean if a field has been set.
-func (o *PostAllApiKeys401Response) HasMessage() bool {
+func (o *PostAllApiKeys500Response) HasMessage() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}
@@ -73,12 +73,12 @@ func (o *PostAllApiKeys401Response) HasMessage() bool {
 }
 
 // SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *PostAllApiKeys401Response) SetMessage(v string) {
+func (o *PostAllApiKeys500Response) SetMessage(v string) {
 	o.Message = &v
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *PostAllApiKeys401Response) GetCode() string {
+func (o *PostAllApiKeys500Response) GetCode() string {
 	if o == nil || IsNil(o.Code) {
 		var ret string
 		return ret
@@ -88,7 +88,7 @@ func (o *PostAllApiKeys401Response) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAllApiKeys401Response) GetCodeOk() (*string, bool) {
+func (o *PostAllApiKeys500Response) GetCodeOk() (*string, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -96,7 +96,7 @@ func (o *PostAllApiKeys401Response) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *PostAllApiKeys401Response) HasCode() bool {
+func (o *PostAllApiKeys500Response) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -105,12 +105,12 @@ func (o *PostAllApiKeys401Response) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *PostAllApiKeys401Response) SetCode(v string) {
+func (o *PostAllApiKeys500Response) SetCode(v string) {
 	o.Code = &v
 }
 
 // GetRequestId returns the RequestId field value if set, zero value otherwise.
-func (o *PostAllApiKeys401Response) GetRequestId() string {
+func (o *PostAllApiKeys500Response) GetRequestId() string {
 	if o == nil || IsNil(o.RequestId) {
 		var ret string
 		return ret
@@ -120,7 +120,7 @@ func (o *PostAllApiKeys401Response) GetRequestId() string {
 
 // GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAllApiKeys401Response) GetRequestIdOk() (*string, bool) {
+func (o *PostAllApiKeys500Response) GetRequestIdOk() (*string, bool) {
 	if o == nil || IsNil(o.RequestId) {
 		return nil, false
 	}
@@ -128,7 +128,7 @@ func (o *PostAllApiKeys401Response) GetRequestIdOk() (*string, bool) {
 }
 
 // HasRequestId returns a boolean if a field has been set.
-func (o *PostAllApiKeys401Response) HasRequestId() bool {
+func (o *PostAllApiKeys500Response) HasRequestId() bool {
 	if o != nil && !IsNil(o.RequestId) {
 		return true
 	}
@@ -137,12 +137,12 @@ func (o *PostAllApiKeys401Response) HasRequestId() bool {
 }
 
 // SetRequestId gets a reference to the given string and assigns it to the RequestId field.
-func (o *PostAllApiKeys401Response) SetRequestId(v string) {
+func (o *PostAllApiKeys500Response) SetRequestId(v string) {
 	o.RequestId = &v
 }
 
 // GetDebuggingHelp returns the DebuggingHelp field value if set, zero value otherwise.
-func (o *PostAllApiKeys401Response) GetDebuggingHelp() PostAllApiKeys401ResponseDebuggingHelp {
+func (o *PostAllApiKeys500Response) GetDebuggingHelp() PostAllApiKeys401ResponseDebuggingHelp {
 	if o == nil || IsNil(o.DebuggingHelp) {
 		var ret PostAllApiKeys401ResponseDebuggingHelp
 		return ret
@@ -152,7 +152,7 @@ func (o *PostAllApiKeys401Response) GetDebuggingHelp() PostAllApiKeys401Response
 
 // GetDebuggingHelpOk returns a tuple with the DebuggingHelp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAllApiKeys401Response) GetDebuggingHelpOk() (*PostAllApiKeys401ResponseDebuggingHelp, bool) {
+func (o *PostAllApiKeys500Response) GetDebuggingHelpOk() (*PostAllApiKeys401ResponseDebuggingHelp, bool) {
 	if o == nil || IsNil(o.DebuggingHelp) {
 		return nil, false
 	}
@@ -160,7 +160,7 @@ func (o *PostAllApiKeys401Response) GetDebuggingHelpOk() (*PostAllApiKeys401Resp
 }
 
 // HasDebuggingHelp returns a boolean if a field has been set.
-func (o *PostAllApiKeys401Response) HasDebuggingHelp() bool {
+func (o *PostAllApiKeys500Response) HasDebuggingHelp() bool {
 	if o != nil && !IsNil(o.DebuggingHelp) {
 		return true
 	}
@@ -169,11 +169,11 @@ func (o *PostAllApiKeys401Response) HasDebuggingHelp() bool {
 }
 
 // SetDebuggingHelp gets a reference to the given PostAllApiKeys401ResponseDebuggingHelp and assigns it to the DebuggingHelp field.
-func (o *PostAllApiKeys401Response) SetDebuggingHelp(v PostAllApiKeys401ResponseDebuggingHelp) {
+func (o *PostAllApiKeys500Response) SetDebuggingHelp(v PostAllApiKeys401ResponseDebuggingHelp) {
 	o.DebuggingHelp = &v
 }
 
-func (o PostAllApiKeys401Response) MarshalJSON() ([]byte, error) {
+func (o PostAllApiKeys500Response) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -181,7 +181,7 @@ func (o PostAllApiKeys401Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PostAllApiKeys401Response) ToMap() (map[string]interface{}, error) {
+func (o PostAllApiKeys500Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
@@ -203,16 +203,16 @@ func (o PostAllApiKeys401Response) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *PostAllApiKeys401Response) UnmarshalJSON(data []byte) (err error) {
-	varPostAllApiKeys401Response := _PostAllApiKeys401Response{}
+func (o *PostAllApiKeys500Response) UnmarshalJSON(data []byte) (err error) {
+	varPostAllApiKeys500Response := _PostAllApiKeys500Response{}
 
-	err = json.Unmarshal(data, &varPostAllApiKeys401Response)
+	err = json.Unmarshal(data, &varPostAllApiKeys500Response)
 
 	if err != nil {
 		return err
 	}
 
-	*o = PostAllApiKeys401Response(varPostAllApiKeys401Response)
+	*o = PostAllApiKeys500Response(varPostAllApiKeys500Response)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -227,38 +227,38 @@ func (o *PostAllApiKeys401Response) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullablePostAllApiKeys401Response struct {
-	value *PostAllApiKeys401Response
+type NullablePostAllApiKeys500Response struct {
+	value *PostAllApiKeys500Response
 	isSet bool
 }
 
-func (v NullablePostAllApiKeys401Response) Get() *PostAllApiKeys401Response {
+func (v NullablePostAllApiKeys500Response) Get() *PostAllApiKeys500Response {
 	return v.value
 }
 
-func (v *NullablePostAllApiKeys401Response) Set(val *PostAllApiKeys401Response) {
+func (v *NullablePostAllApiKeys500Response) Set(val *PostAllApiKeys500Response) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePostAllApiKeys401Response) IsSet() bool {
+func (v NullablePostAllApiKeys500Response) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePostAllApiKeys401Response) Unset() {
+func (v *NullablePostAllApiKeys500Response) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePostAllApiKeys401Response(val *PostAllApiKeys401Response) *NullablePostAllApiKeys401Response {
-	return &NullablePostAllApiKeys401Response{value: val, isSet: true}
+func NewNullablePostAllApiKeys500Response(val *PostAllApiKeys500Response) *NullablePostAllApiKeys500Response {
+	return &NullablePostAllApiKeys500Response{value: val, isSet: true}
 }
 
-func (v NullablePostAllApiKeys401Response) MarshalJSON() ([]byte, error) {
+func (v NullablePostAllApiKeys500Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePostAllApiKeys401Response) UnmarshalJSON(src []byte) error {
+func (v *NullablePostAllApiKeys500Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

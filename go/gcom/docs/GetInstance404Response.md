@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Message** | Pointer to **string** |  | [optional] 
 **Code** | Pointer to **string** |  | [optional] 
+**RequestId** | Pointer to **string** |  | [optional] 
+**DebuggingHelp** | Pointer to [**PostAllApiKeys401ResponseDebuggingHelp**](PostAllApiKeys401ResponseDebuggingHelp.md) |  | [optional] 
 
 ## Methods
 
@@ -75,6 +77,56 @@ SetCode sets Code field to given value.
 `func (o *GetInstance404Response) HasCode() bool`
 
 HasCode returns a boolean if a field has been set.
+
+### GetRequestId
+
+`func (o *GetInstance404Response) GetRequestId() string`
+
+GetRequestId returns the RequestId field if non-nil, zero value otherwise.
+
+### GetRequestIdOk
+
+`func (o *GetInstance404Response) GetRequestIdOk() (*string, bool)`
+
+GetRequestIdOk returns a tuple with the RequestId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestId
+
+`func (o *GetInstance404Response) SetRequestId(v string)`
+
+SetRequestId sets RequestId field to given value.
+
+### HasRequestId
+
+`func (o *GetInstance404Response) HasRequestId() bool`
+
+HasRequestId returns a boolean if a field has been set.
+
+### GetDebuggingHelp
+
+`func (o *GetInstance404Response) GetDebuggingHelp() PostAllApiKeys401ResponseDebuggingHelp`
+
+GetDebuggingHelp returns the DebuggingHelp field if non-nil, zero value otherwise.
+
+### GetDebuggingHelpOk
+
+`func (o *GetInstance404Response) GetDebuggingHelpOk() (*PostAllApiKeys401ResponseDebuggingHelp, bool)`
+
+GetDebuggingHelpOk returns a tuple with the DebuggingHelp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDebuggingHelp
+
+`func (o *GetInstance404Response) SetDebuggingHelp(v PostAllApiKeys401ResponseDebuggingHelp)`
+
+SetDebuggingHelp sets DebuggingHelp field to given value.
+
+### HasDebuggingHelp
+
+`func (o *GetInstance404Response) HasDebuggingHelp() bool`
+
+HasDebuggingHelp returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

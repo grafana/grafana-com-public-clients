@@ -19,8 +19,10 @@ var _ MappedNullable = &GetInstance404Response{}
 
 // GetInstance404Response struct for GetInstance404Response
 type GetInstance404Response struct {
-	Message              *string `json:"message,omitempty"`
-	Code                 *string `json:"code,omitempty"`
+	Message              *string                                 `json:"message,omitempty"`
+	Code                 *string                                 `json:"code,omitempty"`
+	RequestId            *string                                 `json:"requestId,omitempty"`
+	DebuggingHelp        *PostAllApiKeys401ResponseDebuggingHelp `json:"debuggingHelp,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -107,6 +109,70 @@ func (o *GetInstance404Response) SetCode(v string) {
 	o.Code = &v
 }
 
+// GetRequestId returns the RequestId field value if set, zero value otherwise.
+func (o *GetInstance404Response) GetRequestId() string {
+	if o == nil || IsNil(o.RequestId) {
+		var ret string
+		return ret
+	}
+	return *o.RequestId
+}
+
+// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetInstance404Response) GetRequestIdOk() (*string, bool) {
+	if o == nil || IsNil(o.RequestId) {
+		return nil, false
+	}
+	return o.RequestId, true
+}
+
+// HasRequestId returns a boolean if a field has been set.
+func (o *GetInstance404Response) HasRequestId() bool {
+	if o != nil && !IsNil(o.RequestId) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
+func (o *GetInstance404Response) SetRequestId(v string) {
+	o.RequestId = &v
+}
+
+// GetDebuggingHelp returns the DebuggingHelp field value if set, zero value otherwise.
+func (o *GetInstance404Response) GetDebuggingHelp() PostAllApiKeys401ResponseDebuggingHelp {
+	if o == nil || IsNil(o.DebuggingHelp) {
+		var ret PostAllApiKeys401ResponseDebuggingHelp
+		return ret
+	}
+	return *o.DebuggingHelp
+}
+
+// GetDebuggingHelpOk returns a tuple with the DebuggingHelp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetInstance404Response) GetDebuggingHelpOk() (*PostAllApiKeys401ResponseDebuggingHelp, bool) {
+	if o == nil || IsNil(o.DebuggingHelp) {
+		return nil, false
+	}
+	return o.DebuggingHelp, true
+}
+
+// HasDebuggingHelp returns a boolean if a field has been set.
+func (o *GetInstance404Response) HasDebuggingHelp() bool {
+	if o != nil && !IsNil(o.DebuggingHelp) {
+		return true
+	}
+
+	return false
+}
+
+// SetDebuggingHelp gets a reference to the given PostAllApiKeys401ResponseDebuggingHelp and assigns it to the DebuggingHelp field.
+func (o *GetInstance404Response) SetDebuggingHelp(v PostAllApiKeys401ResponseDebuggingHelp) {
+	o.DebuggingHelp = &v
+}
+
 func (o GetInstance404Response) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -122,6 +188,12 @@ func (o GetInstance404Response) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
+	}
+	if !IsNil(o.RequestId) {
+		toSerialize["requestId"] = o.RequestId
+	}
+	if !IsNil(o.DebuggingHelp) {
+		toSerialize["debuggingHelp"] = o.DebuggingHelp
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -147,6 +219,8 @@ func (o *GetInstance404Response) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "message")
 		delete(additionalProperties, "code")
+		delete(additionalProperties, "requestId")
+		delete(additionalProperties, "debuggingHelp")
 		o.AdditionalProperties = additionalProperties
 	}
 

@@ -81,8 +81,10 @@ docs/PostAccessPoliciesRequestRealmsInner.md
 docs/PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner.md
 docs/PostAccessPolicyRequest.md
 docs/PostAllApiKeys401Response.md
+docs/PostAllApiKeys401ResponseDebuggingHelp.md
 docs/PostAllApiKeys403Response.md
 docs/PostAllApiKeys409Response.md
+docs/PostAllApiKeys500Response.md
 docs/PostAllApiKeys503Response.md
 docs/PostAllApiKeysRequest.md
 docs/PostApiKeysRequest.md
@@ -179,8 +181,10 @@ model_post_access_policies_request_realms_inner.go
 model_post_access_policies_request_realms_inner_label_policies_inner.go
 model_post_access_policy_request.go
 model_post_all_api_keys_401_response.go
+model_post_all_api_keys_401_response_debugging_help.go
 model_post_all_api_keys_403_response.go
 model_post_all_api_keys_409_response.go
+model_post_all_api_keys_500_response.go
 model_post_all_api_keys_503_response.go
 model_post_all_api_keys_request.go
 model_post_api_keys_request.go

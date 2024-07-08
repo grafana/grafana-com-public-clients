@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 2fdf931
-  x-generated-at: 2024-07-08T13:57:00.439Z
+  x-commit-sha: 7bec42c
+  x-generated-at: 2024-07-08T14:16:02.248Z
 servers:
 - description: Main API server
   url: /api
@@ -66,6 +66,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -337,6 +343,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Get a list of instances
       tags:
       - instances
@@ -382,6 +394,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -441,6 +459,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -498,6 +522,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Gets an instance
       tags:
       - instances
@@ -556,6 +586,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -621,6 +657,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -683,6 +725,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -740,6 +788,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Gets a service account on a Grafana instance
       tags:
       - instances
@@ -794,6 +848,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Get a service account's tokens on a Grafana instance
       tags:
       - instances
@@ -859,6 +919,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -928,6 +994,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -986,6 +1058,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: "Gets an instance's connectivity information (InfluxDB, OTEL, AWS private\
         \ link, etc.)"
       tags:
@@ -1040,6 +1118,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1104,6 +1188,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1163,6 +1253,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1227,6 +1323,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1286,6 +1388,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1350,6 +1458,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1409,6 +1523,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1473,6 +1593,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1546,6 +1672,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       tags:
       - instances
     post:
@@ -1603,6 +1735,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1668,6 +1806,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1724,6 +1868,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       tags:
       - instances
     post:
@@ -1788,6 +1938,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -1936,6 +2092,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Get the list of instances belonging to the org
       tags:
       - orgs
@@ -1969,6 +2131,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       tags:
       - orgs
   /orgs/{slugOrId}/api-keys:
@@ -2106,6 +2274,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Get an organization's API keys
       tags:
       - orgs
@@ -2164,6 +2338,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -2226,6 +2406,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -2283,6 +2469,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Get an API key by name
       tags:
       - orgs
@@ -2363,6 +2555,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       tags:
       - orgs
     post:
@@ -2420,6 +2618,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -2481,6 +2685,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -2537,6 +2747,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       tags:
       - orgs
     post:
@@ -2601,6 +2817,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -2646,6 +2868,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Fetches a plugin by slug or id
       tags:
       - plugins
@@ -2750,6 +2978,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       tags:
       - stack-regions
   /v1/accesspolicies:
@@ -2837,6 +3071,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Get a list of access policies
       tags:
       - accesspolicies
@@ -2896,6 +3136,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -2929,6 +3175,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Get details about the Cloud Access Policy API
       tags:
       - accesspolicies
@@ -2996,6 +3248,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -3060,6 +3318,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Get an access policy
       tags:
       - accesspolicies
@@ -3132,6 +3396,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -3261,6 +3531,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Get a list of tokens
       tags:
       - tokens
@@ -3320,6 +3596,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -3393,6 +3675,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -3457,6 +3745,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
       summary: Get info for a specific token
       tags:
       - tokens
@@ -3529,6 +3823,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/postAllApiKeys_409_response'
           description: "Invalid arguments: wrong or missing parameters"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postAllApiKeys_500_response'
+          description: Internal server error
         "503":
           content:
             application/json:
@@ -6026,6 +6326,13 @@ components:
       - org
       - role
       type: object
+    postAllApiKeys_401_response_debuggingHelp:
+      properties:
+        command:
+          type: string
+        message:
+          type: string
+      type: object
     postAllApiKeys_401_response:
       properties:
         message:
@@ -6034,6 +6341,10 @@ components:
           enum:
           - InvalidCredentials
           type: string
+        requestId:
+          type: string
+        debuggingHelp:
+          $ref: '#/components/schemas/postAllApiKeys_401_response_debuggingHelp'
       type: object
     postAllApiKeys_403_response:
       properties:
@@ -6043,6 +6354,10 @@ components:
           enum:
           - Forbidden
           type: string
+        requestId:
+          type: string
+        debuggingHelp:
+          $ref: '#/components/schemas/postAllApiKeys_401_response_debuggingHelp'
       type: object
     postAllApiKeys_409_response:
       properties:
@@ -6052,6 +6367,23 @@ components:
           enum:
           - Conflict
           type: string
+        requestId:
+          type: string
+        debuggingHelp:
+          $ref: '#/components/schemas/postAllApiKeys_401_response_debuggingHelp'
+      type: object
+    postAllApiKeys_500_response:
+      properties:
+        message:
+          type: string
+        code:
+          enum:
+          - InternalError
+          type: string
+        requestId:
+          type: string
+        debuggingHelp:
+          $ref: '#/components/schemas/postAllApiKeys_401_response_debuggingHelp'
       type: object
     postAllApiKeys_503_response:
       properties:
@@ -6061,6 +6393,10 @@ components:
           enum:
           - ServiceUnavailable
           type: string
+        requestId:
+          type: string
+        debuggingHelp:
+          $ref: '#/components/schemas/postAllApiKeys_401_response_debuggingHelp'
       type: object
     getInstances_200_response:
       example:
@@ -6360,6 +6696,10 @@ components:
           enum:
           - NotFound
           type: string
+        requestId:
+          type: string
+        debuggingHelp:
+          $ref: '#/components/schemas/postAllApiKeys_401_response_debuggingHelp'
       type: object
     postInstance_request:
       properties:
