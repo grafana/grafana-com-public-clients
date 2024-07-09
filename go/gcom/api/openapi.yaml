@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 8bc0d68
-  x-generated-at: 2024-07-09T12:13:22.804Z
+  x-commit-sha: 91a6cc1
+  x-generated-at: 2024-07-09T20:18:22.791Z
 servers:
 - description: Main API server
   url: /api
@@ -4908,6 +4908,9 @@ components:
           userLastName: userLastName
           userEmail: userEmail
           id: 0.8008281904610115
+          extraPermissions:
+          - orgs:read
+          - orgs:read
           updatedAt: updatedAt
           userUsername: userUsername
           updatedBy: updatedBy
@@ -4941,6 +4944,9 @@ components:
           userLastName: userLastName
           userEmail: userEmail
           id: 0.8008281904610115
+          extraPermissions:
+          - orgs:read
+          - orgs:read
           updatedAt: updatedAt
           userUsername: userUsername
           updatedBy: updatedBy
@@ -7919,6 +7925,9 @@ components:
         userLastName: userLastName
         userEmail: userEmail
         id: 0.8008281904610115
+        extraPermissions:
+        - orgs:read
+        - orgs:read
         updatedAt: updatedAt
         userUsername: userUsername
         updatedBy: updatedBy
@@ -8051,6 +8060,16 @@ components:
           $ref: '#/components/schemas/subscriptions'
         marketplaceSubscription:
           $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
+        extraPermissions:
+          items:
+            enum:
+            - orgs:read
+            - support-ticket-comments:write
+            - support-tickets:read
+            - support-tickets:write
+            type: string
+          title: extraPermissions
+          type: array
       required:
       - allowGCloudTrial
       - billing

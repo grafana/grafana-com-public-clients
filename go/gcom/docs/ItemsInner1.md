@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **UserName** | **string** |  | 
 **Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
 **MarketplaceSubscription** | [**NullableItemsInner1MarketplaceSubscription**](ItemsInner1MarketplaceSubscription.md) |  | 
+**ExtraPermissions** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -705,6 +706,31 @@ SetMarketplaceSubscription sets MarketplaceSubscription field to given value.
 `func (o *ItemsInner1) UnsetMarketplaceSubscription()`
 
 UnsetMarketplaceSubscription ensures that no value is present for MarketplaceSubscription, not even an explicit nil
+### GetExtraPermissions
+
+`func (o *ItemsInner1) GetExtraPermissions() []string`
+
+GetExtraPermissions returns the ExtraPermissions field if non-nil, zero value otherwise.
+
+### GetExtraPermissionsOk
+
+`func (o *ItemsInner1) GetExtraPermissionsOk() (*[]string, bool)`
+
+GetExtraPermissionsOk returns a tuple with the ExtraPermissions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExtraPermissions
+
+`func (o *ItemsInner1) SetExtraPermissions(v []string)`
+
+SetExtraPermissions sets ExtraPermissions field to given value.
+
+### HasExtraPermissions
+
+`func (o *ItemsInner1) HasExtraPermissions() bool`
+
+HasExtraPermissions returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

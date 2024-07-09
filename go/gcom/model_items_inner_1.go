@@ -50,6 +50,7 @@ type ItemsInner1 struct {
 	UserName                 string                                     `json:"userName"`
 	Subscriptions            Subscriptions                              `json:"subscriptions"`
 	MarketplaceSubscription  NullableItemsInner1MarketplaceSubscription `json:"marketplaceSubscription"`
+	ExtraPermissions         []string                                   `json:"extraPermissions,omitempty"`
 	AdditionalProperties     map[string]interface{}
 }
 
@@ -853,6 +854,38 @@ func (o *ItemsInner1) SetMarketplaceSubscription(v ItemsInner1MarketplaceSubscri
 	o.MarketplaceSubscription.Set(&v)
 }
 
+// GetExtraPermissions returns the ExtraPermissions field value if set, zero value otherwise.
+func (o *ItemsInner1) GetExtraPermissions() []string {
+	if o == nil || IsNil(o.ExtraPermissions) {
+		var ret []string
+		return ret
+	}
+	return o.ExtraPermissions
+}
+
+// GetExtraPermissionsOk returns a tuple with the ExtraPermissions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetExtraPermissionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ExtraPermissions) {
+		return nil, false
+	}
+	return o.ExtraPermissions, true
+}
+
+// HasExtraPermissions returns a boolean if a field has been set.
+func (o *ItemsInner1) HasExtraPermissions() bool {
+	if o != nil && !IsNil(o.ExtraPermissions) {
+		return true
+	}
+
+	return false
+}
+
+// SetExtraPermissions gets a reference to the given []string and assigns it to the ExtraPermissions field.
+func (o *ItemsInner1) SetExtraPermissions(v []string) {
+	o.ExtraPermissions = v
+}
+
 func (o ItemsInner1) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -894,6 +927,9 @@ func (o ItemsInner1) ToMap() (map[string]interface{}, error) {
 	toSerialize["userName"] = o.UserName
 	toSerialize["subscriptions"] = o.Subscriptions
 	toSerialize["marketplaceSubscription"] = o.MarketplaceSubscription.Get()
+	if !IsNil(o.ExtraPermissions) {
+		toSerialize["extraPermissions"] = o.ExtraPermissions
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -955,6 +991,7 @@ func (o *ItemsInner1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "userName")
 		delete(additionalProperties, "subscriptions")
 		delete(additionalProperties, "marketplaceSubscription")
+		delete(additionalProperties, "extraPermissions")
 		o.AdditionalProperties = additionalProperties
 	}
 
