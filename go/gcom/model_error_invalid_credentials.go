@@ -14,37 +14,37 @@ import (
 	"encoding/json"
 )
 
-// checks if the GetInstance404Response type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GetInstance404Response{}
+// checks if the ErrorInvalidCredentials type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ErrorInvalidCredentials{}
 
-// GetInstance404Response struct for GetInstance404Response
-type GetInstance404Response struct {
+// ErrorInvalidCredentials struct for ErrorInvalidCredentials
+type ErrorInvalidCredentials struct {
 	Message              *string `json:"message,omitempty"`
 	Code                 *string `json:"code,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _GetInstance404Response GetInstance404Response
+type _ErrorInvalidCredentials ErrorInvalidCredentials
 
-// NewGetInstance404Response instantiates a new GetInstance404Response object
+// NewErrorInvalidCredentials instantiates a new ErrorInvalidCredentials object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetInstance404Response() *GetInstance404Response {
-	this := GetInstance404Response{}
+func NewErrorInvalidCredentials() *ErrorInvalidCredentials {
+	this := ErrorInvalidCredentials{}
 	return &this
 }
 
-// NewGetInstance404ResponseWithDefaults instantiates a new GetInstance404Response object
+// NewErrorInvalidCredentialsWithDefaults instantiates a new ErrorInvalidCredentials object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGetInstance404ResponseWithDefaults() *GetInstance404Response {
-	this := GetInstance404Response{}
+func NewErrorInvalidCredentialsWithDefaults() *ErrorInvalidCredentials {
+	this := ErrorInvalidCredentials{}
 	return &this
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise.
-func (o *GetInstance404Response) GetMessage() string {
+func (o *ErrorInvalidCredentials) GetMessage() string {
 	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
@@ -54,7 +54,7 @@ func (o *GetInstance404Response) GetMessage() string {
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetInstance404Response) GetMessageOk() (*string, bool) {
+func (o *ErrorInvalidCredentials) GetMessageOk() (*string, bool) {
 	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
@@ -62,7 +62,7 @@ func (o *GetInstance404Response) GetMessageOk() (*string, bool) {
 }
 
 // HasMessage returns a boolean if a field has been set.
-func (o *GetInstance404Response) HasMessage() bool {
+func (o *ErrorInvalidCredentials) HasMessage() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}
@@ -71,12 +71,12 @@ func (o *GetInstance404Response) HasMessage() bool {
 }
 
 // SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *GetInstance404Response) SetMessage(v string) {
+func (o *ErrorInvalidCredentials) SetMessage(v string) {
 	o.Message = &v
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetInstance404Response) GetCode() string {
+func (o *ErrorInvalidCredentials) GetCode() string {
 	if o == nil || IsNil(o.Code) {
 		var ret string
 		return ret
@@ -86,7 +86,7 @@ func (o *GetInstance404Response) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetInstance404Response) GetCodeOk() (*string, bool) {
+func (o *ErrorInvalidCredentials) GetCodeOk() (*string, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -94,7 +94,7 @@ func (o *GetInstance404Response) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *GetInstance404Response) HasCode() bool {
+func (o *ErrorInvalidCredentials) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -103,11 +103,11 @@ func (o *GetInstance404Response) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *GetInstance404Response) SetCode(v string) {
+func (o *ErrorInvalidCredentials) SetCode(v string) {
 	o.Code = &v
 }
 
-func (o GetInstance404Response) MarshalJSON() ([]byte, error) {
+func (o ErrorInvalidCredentials) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -115,7 +115,7 @@ func (o GetInstance404Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o GetInstance404Response) ToMap() (map[string]interface{}, error) {
+func (o ErrorInvalidCredentials) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
@@ -131,16 +131,16 @@ func (o GetInstance404Response) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *GetInstance404Response) UnmarshalJSON(data []byte) (err error) {
-	varGetInstance404Response := _GetInstance404Response{}
+func (o *ErrorInvalidCredentials) UnmarshalJSON(data []byte) (err error) {
+	varErrorInvalidCredentials := _ErrorInvalidCredentials{}
 
-	err = json.Unmarshal(data, &varGetInstance404Response)
+	err = json.Unmarshal(data, &varErrorInvalidCredentials)
 
 	if err != nil {
 		return err
 	}
 
-	*o = GetInstance404Response(varGetInstance404Response)
+	*o = ErrorInvalidCredentials(varErrorInvalidCredentials)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -153,38 +153,38 @@ func (o *GetInstance404Response) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullableGetInstance404Response struct {
-	value *GetInstance404Response
+type NullableErrorInvalidCredentials struct {
+	value *ErrorInvalidCredentials
 	isSet bool
 }
 
-func (v NullableGetInstance404Response) Get() *GetInstance404Response {
+func (v NullableErrorInvalidCredentials) Get() *ErrorInvalidCredentials {
 	return v.value
 }
 
-func (v *NullableGetInstance404Response) Set(val *GetInstance404Response) {
+func (v *NullableErrorInvalidCredentials) Set(val *ErrorInvalidCredentials) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGetInstance404Response) IsSet() bool {
+func (v NullableErrorInvalidCredentials) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGetInstance404Response) Unset() {
+func (v *NullableErrorInvalidCredentials) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGetInstance404Response(val *GetInstance404Response) *NullableGetInstance404Response {
-	return &NullableGetInstance404Response{value: val, isSet: true}
+func NewNullableErrorInvalidCredentials(val *ErrorInvalidCredentials) *NullableErrorInvalidCredentials {
+	return &NullableErrorInvalidCredentials{value: val, isSet: true}
 }
 
-func (v NullableGetInstance404Response) MarshalJSON() ([]byte, error) {
+func (v NullableErrorInvalidCredentials) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGetInstance404Response) UnmarshalJSON(src []byte) error {
+func (v *NullableErrorInvalidCredentials) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

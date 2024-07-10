@@ -14,37 +14,37 @@ import (
 	"encoding/json"
 )
 
-// checks if the PostAllApiKeys409Response type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PostAllApiKeys409Response{}
+// checks if the ErrorConflict type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ErrorConflict{}
 
-// PostAllApiKeys409Response struct for PostAllApiKeys409Response
-type PostAllApiKeys409Response struct {
+// ErrorConflict struct for ErrorConflict
+type ErrorConflict struct {
 	Message              *string `json:"message,omitempty"`
 	Code                 *string `json:"code,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _PostAllApiKeys409Response PostAllApiKeys409Response
+type _ErrorConflict ErrorConflict
 
-// NewPostAllApiKeys409Response instantiates a new PostAllApiKeys409Response object
+// NewErrorConflict instantiates a new ErrorConflict object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostAllApiKeys409Response() *PostAllApiKeys409Response {
-	this := PostAllApiKeys409Response{}
+func NewErrorConflict() *ErrorConflict {
+	this := ErrorConflict{}
 	return &this
 }
 
-// NewPostAllApiKeys409ResponseWithDefaults instantiates a new PostAllApiKeys409Response object
+// NewErrorConflictWithDefaults instantiates a new ErrorConflict object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPostAllApiKeys409ResponseWithDefaults() *PostAllApiKeys409Response {
-	this := PostAllApiKeys409Response{}
+func NewErrorConflictWithDefaults() *ErrorConflict {
+	this := ErrorConflict{}
 	return &this
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise.
-func (o *PostAllApiKeys409Response) GetMessage() string {
+func (o *ErrorConflict) GetMessage() string {
 	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
@@ -54,7 +54,7 @@ func (o *PostAllApiKeys409Response) GetMessage() string {
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAllApiKeys409Response) GetMessageOk() (*string, bool) {
+func (o *ErrorConflict) GetMessageOk() (*string, bool) {
 	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
@@ -62,7 +62,7 @@ func (o *PostAllApiKeys409Response) GetMessageOk() (*string, bool) {
 }
 
 // HasMessage returns a boolean if a field has been set.
-func (o *PostAllApiKeys409Response) HasMessage() bool {
+func (o *ErrorConflict) HasMessage() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}
@@ -71,12 +71,12 @@ func (o *PostAllApiKeys409Response) HasMessage() bool {
 }
 
 // SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *PostAllApiKeys409Response) SetMessage(v string) {
+func (o *ErrorConflict) SetMessage(v string) {
 	o.Message = &v
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *PostAllApiKeys409Response) GetCode() string {
+func (o *ErrorConflict) GetCode() string {
 	if o == nil || IsNil(o.Code) {
 		var ret string
 		return ret
@@ -86,7 +86,7 @@ func (o *PostAllApiKeys409Response) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAllApiKeys409Response) GetCodeOk() (*string, bool) {
+func (o *ErrorConflict) GetCodeOk() (*string, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -94,7 +94,7 @@ func (o *PostAllApiKeys409Response) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *PostAllApiKeys409Response) HasCode() bool {
+func (o *ErrorConflict) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -103,11 +103,11 @@ func (o *PostAllApiKeys409Response) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *PostAllApiKeys409Response) SetCode(v string) {
+func (o *ErrorConflict) SetCode(v string) {
 	o.Code = &v
 }
 
-func (o PostAllApiKeys409Response) MarshalJSON() ([]byte, error) {
+func (o ErrorConflict) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -115,7 +115,7 @@ func (o PostAllApiKeys409Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PostAllApiKeys409Response) ToMap() (map[string]interface{}, error) {
+func (o ErrorConflict) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
@@ -131,16 +131,16 @@ func (o PostAllApiKeys409Response) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *PostAllApiKeys409Response) UnmarshalJSON(data []byte) (err error) {
-	varPostAllApiKeys409Response := _PostAllApiKeys409Response{}
+func (o *ErrorConflict) UnmarshalJSON(data []byte) (err error) {
+	varErrorConflict := _ErrorConflict{}
 
-	err = json.Unmarshal(data, &varPostAllApiKeys409Response)
+	err = json.Unmarshal(data, &varErrorConflict)
 
 	if err != nil {
 		return err
 	}
 
-	*o = PostAllApiKeys409Response(varPostAllApiKeys409Response)
+	*o = ErrorConflict(varErrorConflict)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -153,38 +153,38 @@ func (o *PostAllApiKeys409Response) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullablePostAllApiKeys409Response struct {
-	value *PostAllApiKeys409Response
+type NullableErrorConflict struct {
+	value *ErrorConflict
 	isSet bool
 }
 
-func (v NullablePostAllApiKeys409Response) Get() *PostAllApiKeys409Response {
+func (v NullableErrorConflict) Get() *ErrorConflict {
 	return v.value
 }
 
-func (v *NullablePostAllApiKeys409Response) Set(val *PostAllApiKeys409Response) {
+func (v *NullableErrorConflict) Set(val *ErrorConflict) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePostAllApiKeys409Response) IsSet() bool {
+func (v NullableErrorConflict) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePostAllApiKeys409Response) Unset() {
+func (v *NullableErrorConflict) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePostAllApiKeys409Response(val *PostAllApiKeys409Response) *NullablePostAllApiKeys409Response {
-	return &NullablePostAllApiKeys409Response{value: val, isSet: true}
+func NewNullableErrorConflict(val *ErrorConflict) *NullableErrorConflict {
+	return &NullableErrorConflict{value: val, isSet: true}
 }
 
-func (v NullablePostAllApiKeys409Response) MarshalJSON() ([]byte, error) {
+func (v NullableErrorConflict) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePostAllApiKeys409Response) UnmarshalJSON(src []byte) error {
+func (v *NullableErrorConflict) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -125,7 +125,7 @@ func (a *ApiKeysAPIService) PostAllApiKeysExecute(r ApiPostAllApiKeysRequest) (*
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -136,7 +136,7 @@ func (a *ApiKeysAPIService) PostAllApiKeysExecute(r ApiPostAllApiKeysRequest) (*
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -147,7 +147,7 @@ func (a *ApiKeysAPIService) PostAllApiKeysExecute(r ApiPostAllApiKeysRequest) (*
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -158,7 +158,7 @@ func (a *ApiKeysAPIService) PostAllApiKeysExecute(r ApiPostAllApiKeysRequest) (*
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

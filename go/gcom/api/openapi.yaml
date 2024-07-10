@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: a628e17
-  x-generated-at: 2024-07-10T08:47:10.151Z
+  x-commit-sha: 8c246b5
+  x-generated-at: 2024-07-10T10:10:52.048Z
 servers:
 - description: Main API server
   url: /api
@@ -52,25 +52,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Creates an API key
       tags:
@@ -323,19 +323,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get a list of instances
       tags:
@@ -368,25 +368,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Create a new instance
       tags:
@@ -421,31 +421,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Deletes an instance
       tags:
@@ -478,25 +478,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Gets an instance
       tags:
@@ -536,31 +536,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Updates an instance
       tags:
@@ -601,31 +601,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Creates a service account on a Grafana instance
       tags:
@@ -663,31 +663,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Delete a service account on a Grafana instance
       tags:
@@ -720,25 +720,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Gets a service account on a Grafana instance
       tags:
@@ -774,25 +774,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get a service account's tokens on a Grafana instance
       tags:
@@ -839,31 +839,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Creates a service account token on a Grafana instance
       tags:
@@ -908,31 +908,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Delete a service account token on a Grafana instance
       tags:
@@ -966,25 +966,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: "Gets an instance's connectivity information (InfluxDB, OTEL, AWS private\
         \ link, etc.)"
@@ -1020,31 +1020,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Disable Azure OAuth in an instance
       tags:
@@ -1084,31 +1084,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Configure Azure OAuth in an instance
       tags:
@@ -1143,31 +1143,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Disable Github OAuth in an instance
       tags:
@@ -1207,31 +1207,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Configure Github OAuth in an instance
       tags:
@@ -1266,31 +1266,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Disable Google OAuth in an instance
       tags:
@@ -1330,31 +1330,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Configure Google OAuth in an instance
       tags:
@@ -1389,31 +1389,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Disable Okta OAuth in an instance
       tags:
@@ -1453,31 +1453,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Configure Okta OAuth in an instance
       tags:
@@ -1526,25 +1526,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - instances
@@ -1583,31 +1583,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       tags:
       - instances
@@ -1648,31 +1648,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       tags:
       - instances
@@ -1704,25 +1704,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - instances
@@ -1768,31 +1768,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       tags:
       - instances
@@ -1916,25 +1916,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get the list of instances belonging to the org
       tags:
@@ -1961,13 +1961,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - orgs
@@ -2086,25 +2086,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get an organization's API keys
       tags:
@@ -2144,31 +2144,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Create an API key.
       tags:
@@ -2206,31 +2206,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Delete an API key by name
       tags:
@@ -2263,25 +2263,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get an API key by name
       tags:
@@ -2343,25 +2343,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - orgs
@@ -2400,31 +2400,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       tags:
       - orgs
@@ -2461,31 +2461,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       tags:
       - orgs
@@ -2517,25 +2517,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - orgs
@@ -2581,31 +2581,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       tags:
       - orgs
@@ -2638,13 +2638,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Fetches a plugin by slug or id
       tags:
@@ -2736,19 +2736,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - stack-regions
@@ -2823,19 +2823,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get a list of access policies
       tags:
@@ -2882,25 +2882,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Create a new access policy
       tags:
@@ -2927,7 +2927,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get details about the Cloud Access Policy API
       tags:
@@ -2976,31 +2976,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Delete an access policy
       tags:
@@ -3040,25 +3040,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get an access policy
       tags:
@@ -3112,31 +3112,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Update an access policy
       tags:
@@ -3247,19 +3247,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get a list of tokens
       tags:
@@ -3306,25 +3306,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Create a new token
       tags:
@@ -3373,31 +3373,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Delete a token
       tags:
@@ -3437,25 +3437,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get info for a specific token
       tags:
@@ -3509,37 +3509,87 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_401_response'
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_403_response'
+                $ref: '#/components/schemas/ErrorForbidden'
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstance_404_response'
+                $ref: '#/components/schemas/ErrorNotFound'
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_409_response'
+                $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postAllApiKeys_503_response'
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Update a token
       tags:
       - tokens
 components:
   schemas:
+    ErrorServiceUnavailable:
+      properties:
+        message:
+          example: Service is currently unavailable
+          type: string
+        code:
+          enum:
+          - ServiceUnavailable
+          type: string
+      type: object
+    ErrorConflict:
+      properties:
+        message:
+          example: "Invalid arguments: wrong or missing parameters"
+          type: string
+        code:
+          enum:
+          - Conflict
+          type: string
+      type: object
+    ErrorNotFound:
+      properties:
+        message:
+          example: Element not found
+          type: string
+        code:
+          enum:
+          - NotFound
+          type: string
+      type: object
+    ErrorForbidden:
+      properties:
+        message:
+          example: Forbidden
+          type: string
+        code:
+          enum:
+          - Forbidden
+          type: string
+      type: object
+    ErrorInvalidCredentials:
+      properties:
+        message:
+          example: Login Required or invalid credentials
+          type: string
+        code:
+          enum:
+          - InvalidCredentials
+          type: string
+      type: object
     AccessPolicyListResponse:
       example:
         metadata:
@@ -6032,42 +6082,6 @@ components:
       - org
       - role
       type: object
-    postAllApiKeys_401_response:
-      properties:
-        message:
-          type: string
-        code:
-          enum:
-          - InvalidCredentials
-          type: string
-      type: object
-    postAllApiKeys_403_response:
-      properties:
-        message:
-          type: string
-        code:
-          enum:
-          - Forbidden
-          type: string
-      type: object
-    postAllApiKeys_409_response:
-      properties:
-        message:
-          type: string
-        code:
-          enum:
-          - Conflict
-          type: string
-      type: object
-    postAllApiKeys_503_response:
-      properties:
-        message:
-          type: string
-        code:
-          enum:
-          - ServiceUnavailable
-          type: string
-      type: object
     getInstances_200_response:
       example:
         total: 6.704019297950036
@@ -6357,15 +6371,6 @@ components:
           type: boolean
       required:
       - name
-      type: object
-    getInstance_404_response:
-      properties:
-        message:
-          type: string
-        code:
-          enum:
-          - NotFound
-          type: string
       type: object
     postInstance_request:
       properties:

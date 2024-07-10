@@ -1,4 +1,4 @@
-# PostAllApiKeys503Response
+# ErrorForbidden
 
 ## Properties
 
@@ -9,70 +9,70 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewPostAllApiKeys503Response
+### NewErrorForbidden
 
-`func NewPostAllApiKeys503Response() *PostAllApiKeys503Response`
+`func NewErrorForbidden() *ErrorForbidden`
 
-NewPostAllApiKeys503Response instantiates a new PostAllApiKeys503Response object
+NewErrorForbidden instantiates a new ErrorForbidden object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewPostAllApiKeys503ResponseWithDefaults
+### NewErrorForbiddenWithDefaults
 
-`func NewPostAllApiKeys503ResponseWithDefaults() *PostAllApiKeys503Response`
+`func NewErrorForbiddenWithDefaults() *ErrorForbidden`
 
-NewPostAllApiKeys503ResponseWithDefaults instantiates a new PostAllApiKeys503Response object
+NewErrorForbiddenWithDefaults instantiates a new ErrorForbidden object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetMessage
 
-`func (o *PostAllApiKeys503Response) GetMessage() string`
+`func (o *ErrorForbidden) GetMessage() string`
 
 GetMessage returns the Message field if non-nil, zero value otherwise.
 
 ### GetMessageOk
 
-`func (o *PostAllApiKeys503Response) GetMessageOk() (*string, bool)`
+`func (o *ErrorForbidden) GetMessageOk() (*string, bool)`
 
 GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessage
 
-`func (o *PostAllApiKeys503Response) SetMessage(v string)`
+`func (o *ErrorForbidden) SetMessage(v string)`
 
 SetMessage sets Message field to given value.
 
 ### HasMessage
 
-`func (o *PostAllApiKeys503Response) HasMessage() bool`
+`func (o *ErrorForbidden) HasMessage() bool`
 
 HasMessage returns a boolean if a field has been set.
 
 ### GetCode
 
-`func (o *PostAllApiKeys503Response) GetCode() string`
+`func (o *ErrorForbidden) GetCode() string`
 
 GetCode returns the Code field if non-nil, zero value otherwise.
 
 ### GetCodeOk
 
-`func (o *PostAllApiKeys503Response) GetCodeOk() (*string, bool)`
+`func (o *ErrorForbidden) GetCodeOk() (*string, bool)`
 
 GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCode
 
-`func (o *PostAllApiKeys503Response) SetCode(v string)`
+`func (o *ErrorForbidden) SetCode(v string)`
 
 SetCode sets Code field to given value.
 
 ### HasCode
 
-`func (o *PostAllApiKeys503Response) HasCode() bool`
+`func (o *ErrorForbidden) HasCode() bool`
 
 HasCode returns a boolean if a field has been set.
 

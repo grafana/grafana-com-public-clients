@@ -118,7 +118,7 @@ func (a *PluginsAPIService) GetPluginExecute(r ApiGetPluginRequest) (*FormattedA
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -129,7 +129,7 @@ func (a *PluginsAPIService) GetPluginExecute(r ApiGetPluginRequest) (*FormattedA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -122,7 +122,7 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -133,7 +133,7 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -144,7 +144,7 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -155,7 +155,7 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -166,7 +166,7 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -280,7 +280,7 @@ func (a *OrgsAPIService) DeleteOrgMemberExecute(r ApiDeleteOrgMemberRequest) (*h
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -291,7 +291,7 @@ func (a *OrgsAPIService) DeleteOrgMemberExecute(r ApiDeleteOrgMemberRequest) (*h
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -302,7 +302,7 @@ func (a *OrgsAPIService) DeleteOrgMemberExecute(r ApiDeleteOrgMemberRequest) (*h
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -313,7 +313,7 @@ func (a *OrgsAPIService) DeleteOrgMemberExecute(r ApiDeleteOrgMemberRequest) (*h
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -324,7 +324,7 @@ func (a *OrgsAPIService) DeleteOrgMemberExecute(r ApiDeleteOrgMemberRequest) (*h
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -430,7 +430,7 @@ func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiA
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -441,7 +441,7 @@ func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -452,7 +452,7 @@ func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -463,7 +463,7 @@ func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -679,7 +679,7 @@ func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedAp
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -690,7 +690,7 @@ func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -701,7 +701,7 @@ func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -712,7 +712,7 @@ func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedAp
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -823,7 +823,7 @@ func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrgPubl
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -834,7 +834,7 @@ func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrgPubl
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1071,7 +1071,7 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1082,7 +1082,7 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1093,7 +1093,7 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1104,7 +1104,7 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1219,7 +1219,7 @@ func (a *OrgsAPIService) GetOrgMemberExecute(r ApiGetOrgMemberRequest) (*Formatt
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1230,7 +1230,7 @@ func (a *OrgsAPIService) GetOrgMemberExecute(r ApiGetOrgMemberRequest) (*Formatt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1241,7 +1241,7 @@ func (a *OrgsAPIService) GetOrgMemberExecute(r ApiGetOrgMemberRequest) (*Formatt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1252,7 +1252,7 @@ func (a *OrgsAPIService) GetOrgMemberExecute(r ApiGetOrgMemberRequest) (*Formatt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1408,7 +1408,7 @@ func (a *OrgsAPIService) GetOrgMembersExecute(r ApiGetOrgMembersRequest) (*OrgMe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1419,7 +1419,7 @@ func (a *OrgsAPIService) GetOrgMembersExecute(r ApiGetOrgMembersRequest) (*OrgMe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1430,7 +1430,7 @@ func (a *OrgsAPIService) GetOrgMembersExecute(r ApiGetOrgMembersRequest) (*OrgMe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1441,7 +1441,7 @@ func (a *OrgsAPIService) GetOrgMembersExecute(r ApiGetOrgMembersRequest) (*OrgMe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1573,7 +1573,7 @@ func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*Formatted
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1584,7 +1584,7 @@ func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*Formatted
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1595,7 +1595,7 @@ func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*Formatted
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1606,7 +1606,7 @@ func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*Formatted
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1617,7 +1617,7 @@ func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*Formatted
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1753,7 +1753,7 @@ func (a *OrgsAPIService) PostOrgMemberExecute(r ApiPostOrgMemberRequest) (*Forma
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1764,7 +1764,7 @@ func (a *OrgsAPIService) PostOrgMemberExecute(r ApiPostOrgMemberRequest) (*Forma
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1775,7 +1775,7 @@ func (a *OrgsAPIService) PostOrgMemberExecute(r ApiPostOrgMemberRequest) (*Forma
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1786,7 +1786,7 @@ func (a *OrgsAPIService) PostOrgMemberExecute(r ApiPostOrgMemberRequest) (*Forma
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1797,7 +1797,7 @@ func (a *OrgsAPIService) PostOrgMemberExecute(r ApiPostOrgMemberRequest) (*Forma
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1929,7 +1929,7 @@ func (a *OrgsAPIService) PostOrgMembersExecute(r ApiPostOrgMembersRequest) (*For
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1940,7 +1940,7 @@ func (a *OrgsAPIService) PostOrgMembersExecute(r ApiPostOrgMembersRequest) (*For
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1951,7 +1951,7 @@ func (a *OrgsAPIService) PostOrgMembersExecute(r ApiPostOrgMembersRequest) (*For
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1962,7 +1962,7 @@ func (a *OrgsAPIService) PostOrgMembersExecute(r ApiPostOrgMembersRequest) (*For
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1973,7 +1973,7 @@ func (a *OrgsAPIService) PostOrgMembersExecute(r ApiPostOrgMembersRequest) (*For
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

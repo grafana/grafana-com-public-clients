@@ -14,37 +14,37 @@ import (
 	"encoding/json"
 )
 
-// checks if the PostAllApiKeys503Response type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PostAllApiKeys503Response{}
+// checks if the ErrorForbidden type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ErrorForbidden{}
 
-// PostAllApiKeys503Response struct for PostAllApiKeys503Response
-type PostAllApiKeys503Response struct {
+// ErrorForbidden struct for ErrorForbidden
+type ErrorForbidden struct {
 	Message              *string `json:"message,omitempty"`
 	Code                 *string `json:"code,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _PostAllApiKeys503Response PostAllApiKeys503Response
+type _ErrorForbidden ErrorForbidden
 
-// NewPostAllApiKeys503Response instantiates a new PostAllApiKeys503Response object
+// NewErrorForbidden instantiates a new ErrorForbidden object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostAllApiKeys503Response() *PostAllApiKeys503Response {
-	this := PostAllApiKeys503Response{}
+func NewErrorForbidden() *ErrorForbidden {
+	this := ErrorForbidden{}
 	return &this
 }
 
-// NewPostAllApiKeys503ResponseWithDefaults instantiates a new PostAllApiKeys503Response object
+// NewErrorForbiddenWithDefaults instantiates a new ErrorForbidden object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPostAllApiKeys503ResponseWithDefaults() *PostAllApiKeys503Response {
-	this := PostAllApiKeys503Response{}
+func NewErrorForbiddenWithDefaults() *ErrorForbidden {
+	this := ErrorForbidden{}
 	return &this
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise.
-func (o *PostAllApiKeys503Response) GetMessage() string {
+func (o *ErrorForbidden) GetMessage() string {
 	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
@@ -54,7 +54,7 @@ func (o *PostAllApiKeys503Response) GetMessage() string {
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAllApiKeys503Response) GetMessageOk() (*string, bool) {
+func (o *ErrorForbidden) GetMessageOk() (*string, bool) {
 	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
@@ -62,7 +62,7 @@ func (o *PostAllApiKeys503Response) GetMessageOk() (*string, bool) {
 }
 
 // HasMessage returns a boolean if a field has been set.
-func (o *PostAllApiKeys503Response) HasMessage() bool {
+func (o *ErrorForbidden) HasMessage() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}
@@ -71,12 +71,12 @@ func (o *PostAllApiKeys503Response) HasMessage() bool {
 }
 
 // SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *PostAllApiKeys503Response) SetMessage(v string) {
+func (o *ErrorForbidden) SetMessage(v string) {
 	o.Message = &v
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *PostAllApiKeys503Response) GetCode() string {
+func (o *ErrorForbidden) GetCode() string {
 	if o == nil || IsNil(o.Code) {
 		var ret string
 		return ret
@@ -86,7 +86,7 @@ func (o *PostAllApiKeys503Response) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAllApiKeys503Response) GetCodeOk() (*string, bool) {
+func (o *ErrorForbidden) GetCodeOk() (*string, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -94,7 +94,7 @@ func (o *PostAllApiKeys503Response) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *PostAllApiKeys503Response) HasCode() bool {
+func (o *ErrorForbidden) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -103,11 +103,11 @@ func (o *PostAllApiKeys503Response) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *PostAllApiKeys503Response) SetCode(v string) {
+func (o *ErrorForbidden) SetCode(v string) {
 	o.Code = &v
 }
 
-func (o PostAllApiKeys503Response) MarshalJSON() ([]byte, error) {
+func (o ErrorForbidden) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -115,7 +115,7 @@ func (o PostAllApiKeys503Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PostAllApiKeys503Response) ToMap() (map[string]interface{}, error) {
+func (o ErrorForbidden) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
@@ -131,16 +131,16 @@ func (o PostAllApiKeys503Response) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *PostAllApiKeys503Response) UnmarshalJSON(data []byte) (err error) {
-	varPostAllApiKeys503Response := _PostAllApiKeys503Response{}
+func (o *ErrorForbidden) UnmarshalJSON(data []byte) (err error) {
+	varErrorForbidden := _ErrorForbidden{}
 
-	err = json.Unmarshal(data, &varPostAllApiKeys503Response)
+	err = json.Unmarshal(data, &varErrorForbidden)
 
 	if err != nil {
 		return err
 	}
 
-	*o = PostAllApiKeys503Response(varPostAllApiKeys503Response)
+	*o = ErrorForbidden(varErrorForbidden)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -153,38 +153,38 @@ func (o *PostAllApiKeys503Response) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullablePostAllApiKeys503Response struct {
-	value *PostAllApiKeys503Response
+type NullableErrorForbidden struct {
+	value *ErrorForbidden
 	isSet bool
 }
 
-func (v NullablePostAllApiKeys503Response) Get() *PostAllApiKeys503Response {
+func (v NullableErrorForbidden) Get() *ErrorForbidden {
 	return v.value
 }
 
-func (v *NullablePostAllApiKeys503Response) Set(val *PostAllApiKeys503Response) {
+func (v *NullableErrorForbidden) Set(val *ErrorForbidden) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePostAllApiKeys503Response) IsSet() bool {
+func (v NullableErrorForbidden) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePostAllApiKeys503Response) Unset() {
+func (v *NullableErrorForbidden) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePostAllApiKeys503Response(val *PostAllApiKeys503Response) *NullablePostAllApiKeys503Response {
-	return &NullablePostAllApiKeys503Response{value: val, isSet: true}
+func NewNullableErrorForbidden(val *ErrorForbidden) *NullableErrorForbidden {
+	return &NullableErrorForbidden{value: val, isSet: true}
 }
 
-func (v NullablePostAllApiKeys503Response) MarshalJSON() ([]byte, error) {
+func (v NullableErrorForbidden) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePostAllApiKeys503Response) UnmarshalJSON(src []byte) error {
+func (v *NullableErrorForbidden) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

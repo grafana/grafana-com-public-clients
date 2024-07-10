@@ -1,4 +1,4 @@
-# PostAllApiKeys403Response
+# ErrorNotFound
 
 ## Properties
 
@@ -9,70 +9,70 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewPostAllApiKeys403Response
+### NewErrorNotFound
 
-`func NewPostAllApiKeys403Response() *PostAllApiKeys403Response`
+`func NewErrorNotFound() *ErrorNotFound`
 
-NewPostAllApiKeys403Response instantiates a new PostAllApiKeys403Response object
+NewErrorNotFound instantiates a new ErrorNotFound object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewPostAllApiKeys403ResponseWithDefaults
+### NewErrorNotFoundWithDefaults
 
-`func NewPostAllApiKeys403ResponseWithDefaults() *PostAllApiKeys403Response`
+`func NewErrorNotFoundWithDefaults() *ErrorNotFound`
 
-NewPostAllApiKeys403ResponseWithDefaults instantiates a new PostAllApiKeys403Response object
+NewErrorNotFoundWithDefaults instantiates a new ErrorNotFound object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetMessage
 
-`func (o *PostAllApiKeys403Response) GetMessage() string`
+`func (o *ErrorNotFound) GetMessage() string`
 
 GetMessage returns the Message field if non-nil, zero value otherwise.
 
 ### GetMessageOk
 
-`func (o *PostAllApiKeys403Response) GetMessageOk() (*string, bool)`
+`func (o *ErrorNotFound) GetMessageOk() (*string, bool)`
 
 GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessage
 
-`func (o *PostAllApiKeys403Response) SetMessage(v string)`
+`func (o *ErrorNotFound) SetMessage(v string)`
 
 SetMessage sets Message field to given value.
 
 ### HasMessage
 
-`func (o *PostAllApiKeys403Response) HasMessage() bool`
+`func (o *ErrorNotFound) HasMessage() bool`
 
 HasMessage returns a boolean if a field has been set.
 
 ### GetCode
 
-`func (o *PostAllApiKeys403Response) GetCode() string`
+`func (o *ErrorNotFound) GetCode() string`
 
 GetCode returns the Code field if non-nil, zero value otherwise.
 
 ### GetCodeOk
 
-`func (o *PostAllApiKeys403Response) GetCodeOk() (*string, bool)`
+`func (o *ErrorNotFound) GetCodeOk() (*string, bool)`
 
 GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCode
 
-`func (o *PostAllApiKeys403Response) SetCode(v string)`
+`func (o *ErrorNotFound) SetCode(v string)`
 
 SetCode sets Code field to given value.
 
 ### HasCode
 
-`func (o *PostAllApiKeys403Response) HasCode() bool`
+`func (o *ErrorNotFound) HasCode() bool`
 
 HasCode returns a boolean if a field has been set.
 

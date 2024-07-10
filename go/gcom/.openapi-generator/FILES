@@ -32,6 +32,11 @@ docs/Current2.md
 docs/Current3.md
 docs/Current4.md
 docs/Current5.md
+docs/ErrorConflict.md
+docs/ErrorForbidden.md
+docs/ErrorInvalidCredentials.md
+docs/ErrorNotFound.md
+docs/ErrorServiceUnavailable.md
 docs/FormattedApiApiKey.md
 docs/FormattedApiApiKeyListResponse.md
 docs/FormattedApiInstance.md
@@ -45,7 +50,6 @@ docs/FormattedApiStackRegionAnyOf1.md
 docs/FormattedOrgMembership.md
 docs/FormattedOrgMembershipAllowGCloudTrial.md
 docs/GetAccessPolicies200Response.md
-docs/GetInstance404Response.md
 docs/GetInstancePlugins200Response.md
 docs/GetInstances200Response.md
 docs/GetStackRegions200Response.md
@@ -80,10 +84,6 @@ docs/PostAccessPoliciesRequestConditions.md
 docs/PostAccessPoliciesRequestRealmsInner.md
 docs/PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner.md
 docs/PostAccessPolicyRequest.md
-docs/PostAllApiKeys401Response.md
-docs/PostAllApiKeys403Response.md
-docs/PostAllApiKeys409Response.md
-docs/PostAllApiKeys503Response.md
 docs/PostAllApiKeysRequest.md
 docs/PostApiKeysRequest.md
 docs/PostInstanceOAuthAzureADRequest.md
@@ -133,6 +133,11 @@ model_current_2.go
 model_current_3.go
 model_current_4.go
 model_current_5.go
+model_error_conflict.go
+model_error_forbidden.go
+model_error_invalid_credentials.go
+model_error_not_found.go
+model_error_service_unavailable.go
 model_formatted_api_api_key.go
 model_formatted_api_api_key_list_response.go
 model_formatted_api_instance.go
@@ -146,7 +151,6 @@ model_formatted_api_stack_region_any_of_1.go
 model_formatted_org_membership.go
 model_formatted_org_membership_allow_g_cloud_trial.go
 model_get_access_policies_200_response.go
-model_get_instance_404_response.go
 model_get_instance_plugins_200_response.go
 model_get_instances_200_response.go
 model_get_stack_regions_200_response.go
@@ -178,10 +182,6 @@ model_post_access_policies_request_conditions.go
 model_post_access_policies_request_realms_inner.go
 model_post_access_policies_request_realms_inner_label_policies_inner.go
 model_post_access_policy_request.go
-model_post_all_api_keys_401_response.go
-model_post_all_api_keys_403_response.go
-model_post_all_api_keys_409_response.go
-model_post_all_api_keys_503_response.go
 model_post_all_api_keys_request.go
 model_post_api_keys_request.go
 model_post_instance_o_auth_azure_ad_request.go

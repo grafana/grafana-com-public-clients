@@ -14,37 +14,37 @@ import (
 	"encoding/json"
 )
 
-// checks if the PostAllApiKeys403Response type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PostAllApiKeys403Response{}
+// checks if the ErrorServiceUnavailable type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ErrorServiceUnavailable{}
 
-// PostAllApiKeys403Response struct for PostAllApiKeys403Response
-type PostAllApiKeys403Response struct {
+// ErrorServiceUnavailable struct for ErrorServiceUnavailable
+type ErrorServiceUnavailable struct {
 	Message              *string `json:"message,omitempty"`
 	Code                 *string `json:"code,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _PostAllApiKeys403Response PostAllApiKeys403Response
+type _ErrorServiceUnavailable ErrorServiceUnavailable
 
-// NewPostAllApiKeys403Response instantiates a new PostAllApiKeys403Response object
+// NewErrorServiceUnavailable instantiates a new ErrorServiceUnavailable object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostAllApiKeys403Response() *PostAllApiKeys403Response {
-	this := PostAllApiKeys403Response{}
+func NewErrorServiceUnavailable() *ErrorServiceUnavailable {
+	this := ErrorServiceUnavailable{}
 	return &this
 }
 
-// NewPostAllApiKeys403ResponseWithDefaults instantiates a new PostAllApiKeys403Response object
+// NewErrorServiceUnavailableWithDefaults instantiates a new ErrorServiceUnavailable object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPostAllApiKeys403ResponseWithDefaults() *PostAllApiKeys403Response {
-	this := PostAllApiKeys403Response{}
+func NewErrorServiceUnavailableWithDefaults() *ErrorServiceUnavailable {
+	this := ErrorServiceUnavailable{}
 	return &this
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise.
-func (o *PostAllApiKeys403Response) GetMessage() string {
+func (o *ErrorServiceUnavailable) GetMessage() string {
 	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
@@ -54,7 +54,7 @@ func (o *PostAllApiKeys403Response) GetMessage() string {
 
 // GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAllApiKeys403Response) GetMessageOk() (*string, bool) {
+func (o *ErrorServiceUnavailable) GetMessageOk() (*string, bool) {
 	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
@@ -62,7 +62,7 @@ func (o *PostAllApiKeys403Response) GetMessageOk() (*string, bool) {
 }
 
 // HasMessage returns a boolean if a field has been set.
-func (o *PostAllApiKeys403Response) HasMessage() bool {
+func (o *ErrorServiceUnavailable) HasMessage() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}
@@ -71,12 +71,12 @@ func (o *PostAllApiKeys403Response) HasMessage() bool {
 }
 
 // SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *PostAllApiKeys403Response) SetMessage(v string) {
+func (o *ErrorServiceUnavailable) SetMessage(v string) {
 	o.Message = &v
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *PostAllApiKeys403Response) GetCode() string {
+func (o *ErrorServiceUnavailable) GetCode() string {
 	if o == nil || IsNil(o.Code) {
 		var ret string
 		return ret
@@ -86,7 +86,7 @@ func (o *PostAllApiKeys403Response) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAllApiKeys403Response) GetCodeOk() (*string, bool) {
+func (o *ErrorServiceUnavailable) GetCodeOk() (*string, bool) {
 	if o == nil || IsNil(o.Code) {
 		return nil, false
 	}
@@ -94,7 +94,7 @@ func (o *PostAllApiKeys403Response) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *PostAllApiKeys403Response) HasCode() bool {
+func (o *ErrorServiceUnavailable) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -103,11 +103,11 @@ func (o *PostAllApiKeys403Response) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *PostAllApiKeys403Response) SetCode(v string) {
+func (o *ErrorServiceUnavailable) SetCode(v string) {
 	o.Code = &v
 }
 
-func (o PostAllApiKeys403Response) MarshalJSON() ([]byte, error) {
+func (o ErrorServiceUnavailable) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -115,7 +115,7 @@ func (o PostAllApiKeys403Response) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PostAllApiKeys403Response) ToMap() (map[string]interface{}, error) {
+func (o ErrorServiceUnavailable) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
@@ -131,16 +131,16 @@ func (o PostAllApiKeys403Response) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *PostAllApiKeys403Response) UnmarshalJSON(data []byte) (err error) {
-	varPostAllApiKeys403Response := _PostAllApiKeys403Response{}
+func (o *ErrorServiceUnavailable) UnmarshalJSON(data []byte) (err error) {
+	varErrorServiceUnavailable := _ErrorServiceUnavailable{}
 
-	err = json.Unmarshal(data, &varPostAllApiKeys403Response)
+	err = json.Unmarshal(data, &varErrorServiceUnavailable)
 
 	if err != nil {
 		return err
 	}
 
-	*o = PostAllApiKeys403Response(varPostAllApiKeys403Response)
+	*o = ErrorServiceUnavailable(varErrorServiceUnavailable)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -153,38 +153,38 @@ func (o *PostAllApiKeys403Response) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullablePostAllApiKeys403Response struct {
-	value *PostAllApiKeys403Response
+type NullableErrorServiceUnavailable struct {
+	value *ErrorServiceUnavailable
 	isSet bool
 }
 
-func (v NullablePostAllApiKeys403Response) Get() *PostAllApiKeys403Response {
+func (v NullableErrorServiceUnavailable) Get() *ErrorServiceUnavailable {
 	return v.value
 }
 
-func (v *NullablePostAllApiKeys403Response) Set(val *PostAllApiKeys403Response) {
+func (v *NullableErrorServiceUnavailable) Set(val *ErrorServiceUnavailable) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePostAllApiKeys403Response) IsSet() bool {
+func (v NullableErrorServiceUnavailable) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePostAllApiKeys403Response) Unset() {
+func (v *NullableErrorServiceUnavailable) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePostAllApiKeys403Response(val *PostAllApiKeys403Response) *NullablePostAllApiKeys403Response {
-	return &NullablePostAllApiKeys403Response{value: val, isSet: true}
+func NewNullableErrorServiceUnavailable(val *ErrorServiceUnavailable) *NullableErrorServiceUnavailable {
+	return &NullableErrorServiceUnavailable{value: val, isSet: true}
 }
 
-func (v NullablePostAllApiKeys403Response) MarshalJSON() ([]byte, error) {
+func (v NullableErrorServiceUnavailable) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePostAllApiKeys403Response) UnmarshalJSON(src []byte) error {
+func (v *NullableErrorServiceUnavailable) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

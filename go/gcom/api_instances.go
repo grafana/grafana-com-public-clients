@@ -121,7 +121,7 @@ func (a *InstancesAPIService) DelInstanceOAuthAzureADExecute(r ApiDelInstanceOAu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -132,7 +132,7 @@ func (a *InstancesAPIService) DelInstanceOAuthAzureADExecute(r ApiDelInstanceOAu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -143,7 +143,7 @@ func (a *InstancesAPIService) DelInstanceOAuthAzureADExecute(r ApiDelInstanceOAu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -154,7 +154,7 @@ func (a *InstancesAPIService) DelInstanceOAuthAzureADExecute(r ApiDelInstanceOAu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -165,7 +165,7 @@ func (a *InstancesAPIService) DelInstanceOAuthAzureADExecute(r ApiDelInstanceOAu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -286,7 +286,7 @@ func (a *InstancesAPIService) DelInstanceOAuthGithubExecute(r ApiDelInstanceOAut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -297,7 +297,7 @@ func (a *InstancesAPIService) DelInstanceOAuthGithubExecute(r ApiDelInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -308,7 +308,7 @@ func (a *InstancesAPIService) DelInstanceOAuthGithubExecute(r ApiDelInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -319,7 +319,7 @@ func (a *InstancesAPIService) DelInstanceOAuthGithubExecute(r ApiDelInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -330,7 +330,7 @@ func (a *InstancesAPIService) DelInstanceOAuthGithubExecute(r ApiDelInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -451,7 +451,7 @@ func (a *InstancesAPIService) DelInstanceOAuthGoogleExecute(r ApiDelInstanceOAut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -462,7 +462,7 @@ func (a *InstancesAPIService) DelInstanceOAuthGoogleExecute(r ApiDelInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -473,7 +473,7 @@ func (a *InstancesAPIService) DelInstanceOAuthGoogleExecute(r ApiDelInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -484,7 +484,7 @@ func (a *InstancesAPIService) DelInstanceOAuthGoogleExecute(r ApiDelInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -495,7 +495,7 @@ func (a *InstancesAPIService) DelInstanceOAuthGoogleExecute(r ApiDelInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -616,7 +616,7 @@ func (a *InstancesAPIService) DelInstanceOAuthOktaExecute(r ApiDelInstanceOAuthO
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -627,7 +627,7 @@ func (a *InstancesAPIService) DelInstanceOAuthOktaExecute(r ApiDelInstanceOAuthO
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -638,7 +638,7 @@ func (a *InstancesAPIService) DelInstanceOAuthOktaExecute(r ApiDelInstanceOAuthO
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -649,7 +649,7 @@ func (a *InstancesAPIService) DelInstanceOAuthOktaExecute(r ApiDelInstanceOAuthO
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -660,7 +660,7 @@ func (a *InstancesAPIService) DelInstanceOAuthOktaExecute(r ApiDelInstanceOAuthO
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -781,7 +781,7 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -792,7 +792,7 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -803,7 +803,7 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -814,7 +814,7 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -825,7 +825,7 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -950,7 +950,7 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -961,7 +961,7 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -972,7 +972,7 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -983,7 +983,7 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -994,7 +994,7 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1117,7 +1117,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountExecute(r ApiDeleteIns
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1128,7 +1128,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountExecute(r ApiDeleteIns
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1139,7 +1139,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountExecute(r ApiDeleteIns
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1150,7 +1150,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountExecute(r ApiDeleteIns
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1161,7 +1161,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountExecute(r ApiDeleteIns
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1279,7 +1279,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountTokenExecute(r ApiDele
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1290,7 +1290,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountTokenExecute(r ApiDele
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1301,7 +1301,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountTokenExecute(r ApiDele
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1312,7 +1312,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountTokenExecute(r ApiDele
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1323,7 +1323,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountTokenExecute(r ApiDele
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1434,7 +1434,7 @@ func (a *InstancesAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest) 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1445,7 +1445,7 @@ func (a *InstancesAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1456,7 +1456,7 @@ func (a *InstancesAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1467,7 +1467,7 @@ func (a *InstancesAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1587,7 +1587,7 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1598,7 +1598,7 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1609,7 +1609,7 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1620,7 +1620,7 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1735,7 +1735,7 @@ func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginReq
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1746,7 +1746,7 @@ func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1757,7 +1757,7 @@ func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1768,7 +1768,7 @@ func (a *InstancesAPIService) GetInstancePluginExecute(r ApiGetInstancePluginReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1897,7 +1897,7 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1908,7 +1908,7 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1919,7 +1919,7 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1930,7 +1930,7 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2045,7 +2045,7 @@ func (a *InstancesAPIService) GetInstanceServiceAccountExecute(r ApiGetInstanceS
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2056,7 +2056,7 @@ func (a *InstancesAPIService) GetInstanceServiceAccountExecute(r ApiGetInstanceS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2067,7 +2067,7 @@ func (a *InstancesAPIService) GetInstanceServiceAccountExecute(r ApiGetInstanceS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2078,7 +2078,7 @@ func (a *InstancesAPIService) GetInstanceServiceAccountExecute(r ApiGetInstanceS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2193,7 +2193,7 @@ func (a *InstancesAPIService) GetInstanceServiceAccountTokensExecute(r ApiGetIns
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2204,7 +2204,7 @@ func (a *InstancesAPIService) GetInstanceServiceAccountTokensExecute(r ApiGetIns
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2215,7 +2215,7 @@ func (a *InstancesAPIService) GetInstanceServiceAccountTokensExecute(r ApiGetIns
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2226,7 +2226,7 @@ func (a *InstancesAPIService) GetInstanceServiceAccountTokensExecute(r ApiGetIns
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2653,7 +2653,7 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2664,7 +2664,7 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2675,7 +2675,7 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2807,7 +2807,7 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2818,7 +2818,7 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2829,7 +2829,7 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2840,7 +2840,7 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2851,7 +2851,7 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2983,7 +2983,7 @@ func (a *InstancesAPIService) PostInstanceOAuthAzureADExecute(r ApiPostInstanceO
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2994,7 +2994,7 @@ func (a *InstancesAPIService) PostInstanceOAuthAzureADExecute(r ApiPostInstanceO
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3005,7 +3005,7 @@ func (a *InstancesAPIService) PostInstanceOAuthAzureADExecute(r ApiPostInstanceO
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3016,7 +3016,7 @@ func (a *InstancesAPIService) PostInstanceOAuthAzureADExecute(r ApiPostInstanceO
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3027,7 +3027,7 @@ func (a *InstancesAPIService) PostInstanceOAuthAzureADExecute(r ApiPostInstanceO
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3159,7 +3159,7 @@ func (a *InstancesAPIService) PostInstanceOAuthGithubExecute(r ApiPostInstanceOA
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3170,7 +3170,7 @@ func (a *InstancesAPIService) PostInstanceOAuthGithubExecute(r ApiPostInstanceOA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3181,7 +3181,7 @@ func (a *InstancesAPIService) PostInstanceOAuthGithubExecute(r ApiPostInstanceOA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3192,7 +3192,7 @@ func (a *InstancesAPIService) PostInstanceOAuthGithubExecute(r ApiPostInstanceOA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3203,7 +3203,7 @@ func (a *InstancesAPIService) PostInstanceOAuthGithubExecute(r ApiPostInstanceOA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3335,7 +3335,7 @@ func (a *InstancesAPIService) PostInstanceOAuthGoogleExecute(r ApiPostInstanceOA
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3346,7 +3346,7 @@ func (a *InstancesAPIService) PostInstanceOAuthGoogleExecute(r ApiPostInstanceOA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3357,7 +3357,7 @@ func (a *InstancesAPIService) PostInstanceOAuthGoogleExecute(r ApiPostInstanceOA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3368,7 +3368,7 @@ func (a *InstancesAPIService) PostInstanceOAuthGoogleExecute(r ApiPostInstanceOA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3379,7 +3379,7 @@ func (a *InstancesAPIService) PostInstanceOAuthGoogleExecute(r ApiPostInstanceOA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3511,7 +3511,7 @@ func (a *InstancesAPIService) PostInstanceOAuthOktaExecute(r ApiPostInstanceOAut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3522,7 +3522,7 @@ func (a *InstancesAPIService) PostInstanceOAuthOktaExecute(r ApiPostInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3533,7 +3533,7 @@ func (a *InstancesAPIService) PostInstanceOAuthOktaExecute(r ApiPostInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3544,7 +3544,7 @@ func (a *InstancesAPIService) PostInstanceOAuthOktaExecute(r ApiPostInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3555,7 +3555,7 @@ func (a *InstancesAPIService) PostInstanceOAuthOktaExecute(r ApiPostInstanceOAut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3691,7 +3691,7 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3702,7 +3702,7 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3713,7 +3713,7 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3724,7 +3724,7 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3735,7 +3735,7 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3867,7 +3867,7 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3878,7 +3878,7 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3889,7 +3889,7 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3900,7 +3900,7 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3911,7 +3911,7 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4047,7 +4047,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4058,7 +4058,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4069,7 +4069,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4080,7 +4080,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4091,7 +4091,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4223,7 +4223,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4234,7 +4234,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4245,7 +4245,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v GetInstance404Response
+			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4256,7 +4256,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4267,7 +4267,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4395,7 +4395,7 @@ func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v PostAllApiKeys401Response
+			var v ErrorInvalidCredentials
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4406,7 +4406,7 @@ func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v PostAllApiKeys403Response
+			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4417,7 +4417,7 @@ func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v PostAllApiKeys409Response
+			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4428,7 +4428,7 @@ func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
-			var v PostAllApiKeys503Response
+			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

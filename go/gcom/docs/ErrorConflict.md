@@ -1,4 +1,4 @@
-# GetInstance404Response
+# ErrorConflict
 
 ## Properties
 
@@ -9,70 +9,70 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewGetInstance404Response
+### NewErrorConflict
 
-`func NewGetInstance404Response() *GetInstance404Response`
+`func NewErrorConflict() *ErrorConflict`
 
-NewGetInstance404Response instantiates a new GetInstance404Response object
+NewErrorConflict instantiates a new ErrorConflict object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewGetInstance404ResponseWithDefaults
+### NewErrorConflictWithDefaults
 
-`func NewGetInstance404ResponseWithDefaults() *GetInstance404Response`
+`func NewErrorConflictWithDefaults() *ErrorConflict`
 
-NewGetInstance404ResponseWithDefaults instantiates a new GetInstance404Response object
+NewErrorConflictWithDefaults instantiates a new ErrorConflict object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetMessage
 
-`func (o *GetInstance404Response) GetMessage() string`
+`func (o *ErrorConflict) GetMessage() string`
 
 GetMessage returns the Message field if non-nil, zero value otherwise.
 
 ### GetMessageOk
 
-`func (o *GetInstance404Response) GetMessageOk() (*string, bool)`
+`func (o *ErrorConflict) GetMessageOk() (*string, bool)`
 
 GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessage
 
-`func (o *GetInstance404Response) SetMessage(v string)`
+`func (o *ErrorConflict) SetMessage(v string)`
 
 SetMessage sets Message field to given value.
 
 ### HasMessage
 
-`func (o *GetInstance404Response) HasMessage() bool`
+`func (o *ErrorConflict) HasMessage() bool`
 
 HasMessage returns a boolean if a field has been set.
 
 ### GetCode
 
-`func (o *GetInstance404Response) GetCode() string`
+`func (o *ErrorConflict) GetCode() string`
 
 GetCode returns the Code field if non-nil, zero value otherwise.
 
 ### GetCodeOk
 
-`func (o *GetInstance404Response) GetCodeOk() (*string, bool)`
+`func (o *ErrorConflict) GetCodeOk() (*string, bool)`
 
 GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCode
 
-`func (o *GetInstance404Response) SetCode(v string)`
+`func (o *ErrorConflict) SetCode(v string)`
 
 SetCode sets Code field to given value.
 
 ### HasCode
 
-`func (o *GetInstance404Response) HasCode() bool`
+`func (o *ErrorConflict) HasCode() bool`
 
 HasCode returns a boolean if a field has been set.
 

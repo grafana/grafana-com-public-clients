@@ -1,4 +1,4 @@
-# PostAllApiKeys409Response
+# ErrorInvalidCredentials
 
 ## Properties
 
@@ -9,70 +9,70 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewPostAllApiKeys409Response
+### NewErrorInvalidCredentials
 
-`func NewPostAllApiKeys409Response() *PostAllApiKeys409Response`
+`func NewErrorInvalidCredentials() *ErrorInvalidCredentials`
 
-NewPostAllApiKeys409Response instantiates a new PostAllApiKeys409Response object
+NewErrorInvalidCredentials instantiates a new ErrorInvalidCredentials object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewPostAllApiKeys409ResponseWithDefaults
+### NewErrorInvalidCredentialsWithDefaults
 
-`func NewPostAllApiKeys409ResponseWithDefaults() *PostAllApiKeys409Response`
+`func NewErrorInvalidCredentialsWithDefaults() *ErrorInvalidCredentials`
 
-NewPostAllApiKeys409ResponseWithDefaults instantiates a new PostAllApiKeys409Response object
+NewErrorInvalidCredentialsWithDefaults instantiates a new ErrorInvalidCredentials object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetMessage
 
-`func (o *PostAllApiKeys409Response) GetMessage() string`
+`func (o *ErrorInvalidCredentials) GetMessage() string`
 
 GetMessage returns the Message field if non-nil, zero value otherwise.
 
 ### GetMessageOk
 
-`func (o *PostAllApiKeys409Response) GetMessageOk() (*string, bool)`
+`func (o *ErrorInvalidCredentials) GetMessageOk() (*string, bool)`
 
 GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMessage
 
-`func (o *PostAllApiKeys409Response) SetMessage(v string)`
+`func (o *ErrorInvalidCredentials) SetMessage(v string)`
 
 SetMessage sets Message field to given value.
 
 ### HasMessage
 
-`func (o *PostAllApiKeys409Response) HasMessage() bool`
+`func (o *ErrorInvalidCredentials) HasMessage() bool`
 
 HasMessage returns a boolean if a field has been set.
 
 ### GetCode
 
-`func (o *PostAllApiKeys409Response) GetCode() string`
+`func (o *ErrorInvalidCredentials) GetCode() string`
 
 GetCode returns the Code field if non-nil, zero value otherwise.
 
 ### GetCodeOk
 
-`func (o *PostAllApiKeys409Response) GetCodeOk() (*string, bool)`
+`func (o *ErrorInvalidCredentials) GetCodeOk() (*string, bool)`
 
 GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCode
 
-`func (o *PostAllApiKeys409Response) SetCode(v string)`
+`func (o *ErrorInvalidCredentials) SetCode(v string)`
 
 SetCode sets Code field to given value.
 
 ### HasCode
 
-`func (o *PostAllApiKeys409Response) HasCode() bool`
+`func (o *ErrorInvalidCredentials) HasCode() bool`
 
 HasCode returns a boolean if a field has been set.
 
