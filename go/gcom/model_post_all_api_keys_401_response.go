@@ -19,10 +19,8 @@ var _ MappedNullable = &PostAllApiKeys401Response{}
 
 // PostAllApiKeys401Response struct for PostAllApiKeys401Response
 type PostAllApiKeys401Response struct {
-	Message              *string                                 `json:"message,omitempty"`
-	Code                 *string                                 `json:"code,omitempty"`
-	RequestId            *string                                 `json:"requestId,omitempty"`
-	DebuggingHelp        *PostAllApiKeys401ResponseDebuggingHelp `json:"debuggingHelp,omitempty"`
+	Message              *string `json:"message,omitempty"`
+	Code                 *string `json:"code,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,70 +107,6 @@ func (o *PostAllApiKeys401Response) SetCode(v string) {
 	o.Code = &v
 }
 
-// GetRequestId returns the RequestId field value if set, zero value otherwise.
-func (o *PostAllApiKeys401Response) GetRequestId() string {
-	if o == nil || IsNil(o.RequestId) {
-		var ret string
-		return ret
-	}
-	return *o.RequestId
-}
-
-// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAllApiKeys401Response) GetRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RequestId) {
-		return nil, false
-	}
-	return o.RequestId, true
-}
-
-// HasRequestId returns a boolean if a field has been set.
-func (o *PostAllApiKeys401Response) HasRequestId() bool {
-	if o != nil && !IsNil(o.RequestId) {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
-func (o *PostAllApiKeys401Response) SetRequestId(v string) {
-	o.RequestId = &v
-}
-
-// GetDebuggingHelp returns the DebuggingHelp field value if set, zero value otherwise.
-func (o *PostAllApiKeys401Response) GetDebuggingHelp() PostAllApiKeys401ResponseDebuggingHelp {
-	if o == nil || IsNil(o.DebuggingHelp) {
-		var ret PostAllApiKeys401ResponseDebuggingHelp
-		return ret
-	}
-	return *o.DebuggingHelp
-}
-
-// GetDebuggingHelpOk returns a tuple with the DebuggingHelp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAllApiKeys401Response) GetDebuggingHelpOk() (*PostAllApiKeys401ResponseDebuggingHelp, bool) {
-	if o == nil || IsNil(o.DebuggingHelp) {
-		return nil, false
-	}
-	return o.DebuggingHelp, true
-}
-
-// HasDebuggingHelp returns a boolean if a field has been set.
-func (o *PostAllApiKeys401Response) HasDebuggingHelp() bool {
-	if o != nil && !IsNil(o.DebuggingHelp) {
-		return true
-	}
-
-	return false
-}
-
-// SetDebuggingHelp gets a reference to the given PostAllApiKeys401ResponseDebuggingHelp and assigns it to the DebuggingHelp field.
-func (o *PostAllApiKeys401Response) SetDebuggingHelp(v PostAllApiKeys401ResponseDebuggingHelp) {
-	o.DebuggingHelp = &v
-}
-
 func (o PostAllApiKeys401Response) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -188,12 +122,6 @@ func (o PostAllApiKeys401Response) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
-	}
-	if !IsNil(o.RequestId) {
-		toSerialize["requestId"] = o.RequestId
-	}
-	if !IsNil(o.DebuggingHelp) {
-		toSerialize["debuggingHelp"] = o.DebuggingHelp
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -219,8 +147,6 @@ func (o *PostAllApiKeys401Response) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "message")
 		delete(additionalProperties, "code")
-		delete(additionalProperties, "requestId")
-		delete(additionalProperties, "debuggingHelp")
 		o.AdditionalProperties = additionalProperties
 	}
 
