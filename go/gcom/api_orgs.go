@@ -16,7 +16,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"reflect"
 	"strings"
 )
 
@@ -491,59 +490,11 @@ type ApiGetApiKeysRequest struct {
 	ctx                context.Context
 	ApiService         *OrgsAPIService
 	slugOrId           string
-	direction          *string
 	excludeProvisioned *bool
-	id                 *int32
-	idIn               *[]int32
-	name               *string
-	nameIn             *[]string
-	orderBy            *string
-	role               *string
-	roleIn             *[]string
-}
-
-func (r ApiGetApiKeysRequest) Direction(direction string) ApiGetApiKeysRequest {
-	r.direction = &direction
-	return r
 }
 
 func (r ApiGetApiKeysRequest) ExcludeProvisioned(excludeProvisioned bool) ApiGetApiKeysRequest {
 	r.excludeProvisioned = &excludeProvisioned
-	return r
-}
-
-func (r ApiGetApiKeysRequest) Id(id int32) ApiGetApiKeysRequest {
-	r.id = &id
-	return r
-}
-
-func (r ApiGetApiKeysRequest) IdIn(idIn []int32) ApiGetApiKeysRequest {
-	r.idIn = &idIn
-	return r
-}
-
-func (r ApiGetApiKeysRequest) Name(name string) ApiGetApiKeysRequest {
-	r.name = &name
-	return r
-}
-
-func (r ApiGetApiKeysRequest) NameIn(nameIn []string) ApiGetApiKeysRequest {
-	r.nameIn = &nameIn
-	return r
-}
-
-func (r ApiGetApiKeysRequest) OrderBy(orderBy string) ApiGetApiKeysRequest {
-	r.orderBy = &orderBy
-	return r
-}
-
-func (r ApiGetApiKeysRequest) Role(role string) ApiGetApiKeysRequest {
-	r.role = &role
-	return r
-}
-
-func (r ApiGetApiKeysRequest) RoleIn(roleIn []string) ApiGetApiKeysRequest {
-	r.roleIn = &roleIn
 	return r
 }
 
@@ -588,56 +539,8 @@ func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedAp
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.direction != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "")
-	}
 	if r.excludeProvisioned != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "excludeProvisioned", r.excludeProvisioned, "")
-	}
-	if r.id != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "")
-	}
-	if r.idIn != nil {
-		t := *r.idIn
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", s.Index(i).Interface(), "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", t, "multi")
-		}
-	}
-	if r.name != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
-	}
-	if r.nameIn != nil {
-		t := *r.nameIn
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", s.Index(i).Interface(), "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", t, "multi")
-		}
-	}
-	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "")
-	}
-	if r.role != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "role", r.role, "")
-	}
-	if r.roleIn != nil {
-		t := *r.roleIn
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "roleIn", s.Index(i).Interface(), "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "roleIn", t, "multi")
-		}
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

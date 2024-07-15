@@ -92,7 +92,6 @@ Class | Method | HTTP request | Description
 *AccesspoliciesAPI* | [**GetConfig**](docs/AccesspoliciesAPI.md#getconfig) | **Get** /v1/accesspolicies/config | Get details about the Cloud Access Policy API
 *AccesspoliciesAPI* | [**PostAccessPolicies**](docs/AccesspoliciesAPI.md#postaccesspolicies) | **Post** /v1/accesspolicies | Create a new access policy
 *AccesspoliciesAPI* | [**PostAccessPolicy**](docs/AccesspoliciesAPI.md#postaccesspolicy) | **Post** /v1/accesspolicies/{id} | Update an access policy
-*ApiKeysAPI* | [**PostAllApiKeys**](docs/ApiKeysAPI.md#postallapikeys) | **Post** /api-keys | Creates an API key
 *InstancesAPI* | [**DelInstanceOAuthAzureAD**](docs/InstancesAPI.md#delinstanceoauthazuread) | **Delete** /instances/{instanceId}/oauth-azuread | Disable Azure OAuth in an instance
 *InstancesAPI* | [**DelInstanceOAuthGithub**](docs/InstancesAPI.md#delinstanceoauthgithub) | **Delete** /instances/{instanceId}/oauth-github | Disable Github OAuth in an instance
 *InstancesAPI* | [**DelInstanceOAuthGoogle**](docs/InstancesAPI.md#delinstanceoauthgoogle) | **Delete** /instances/{instanceId}/oauth-google | Disable Google OAuth in an instance
@@ -207,7 +206,6 @@ Class | Method | HTTP request | Description
  - [PostAccessPoliciesRequestRealmsInner](docs/PostAccessPoliciesRequestRealmsInner.md)
  - [PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner](docs/PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner.md)
  - [PostAccessPolicyRequest](docs/PostAccessPolicyRequest.md)
- - [PostAllApiKeysRequest](docs/PostAllApiKeysRequest.md)
  - [PostApiKeysRequest](docs/PostApiKeysRequest.md)
  - [PostInstanceOAuthAzureADRequest](docs/PostInstanceOAuthAzureADRequest.md)
  - [PostInstanceOAuthGithubRequest](docs/PostInstanceOAuthGithubRequest.md)

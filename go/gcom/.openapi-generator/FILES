@@ -4,7 +4,6 @@
 README.md
 api/openapi.yaml
 api_accesspolicies.go
-api_api_keys.go
 api_instances.go
 api_orgs.go
 api_plugins.go
@@ -14,7 +13,6 @@ client.go
 configuration.go
 docs/AccessPolicyListResponse.md
 docs/AccesspoliciesAPI.md
-docs/ApiKeysAPI.md
 docs/AppPlatform.md
 docs/AuthAccessPolicy.md
 docs/AuthAccessPolicyAttributes.md
@@ -84,7 +82,6 @@ docs/PostAccessPoliciesRequestConditions.md
 docs/PostAccessPoliciesRequestRealmsInner.md
 docs/PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner.md
 docs/PostAccessPolicyRequest.md
-docs/PostAllApiKeysRequest.md
 docs/PostApiKeysRequest.md
 docs/PostInstanceOAuthAzureADRequest.md
 docs/PostInstanceOAuthGithubRequest.md
@@ -182,7 +179,6 @@ model_post_access_policies_request_conditions.go
 model_post_access_policies_request_realms_inner.go
 model_post_access_policies_request_realms_inner_label_policies_inner.go
 model_post_access_policy_request.go
-model_post_all_api_keys_request.go
 model_post_api_keys_request.go
 model_post_instance_o_auth_azure_ad_request.go
 model_post_instance_o_auth_github_request.go
@@ -210,7 +206,6 @@ model_subscriptions_any_of_2.go
 model_tenants_inner.go
 response.go
 test/api_accesspolicies_test.go
-test/api_api_keys_test.go
 test/api_instances_test.go
 test/api_orgs_test.go
 test/api_plugins_test.go

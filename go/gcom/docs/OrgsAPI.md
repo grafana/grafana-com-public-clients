@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ## GetApiKeys
 
-> FormattedApiApiKeyListResponse GetApiKeys(ctx, slugOrId).Direction(direction).ExcludeProvisioned(excludeProvisioned).Id(id).IdIn(idIn).Name(name).NameIn(nameIn).OrderBy(orderBy).Role(role).RoleIn(roleIn).Execute()
+> FormattedApiApiKeyListResponse GetApiKeys(ctx, slugOrId).ExcludeProvisioned(excludeProvisioned).Execute()
 
 Get an organization's API keys
 
@@ -251,19 +251,11 @@ import (
 
 func main() {
 	slugOrId := "slugOrId_example" // string | 
-	direction := "direction_example" // string |  (optional)
 	excludeProvisioned := true // bool |  (optional)
-	id := int32(56) // int32 |  (optional)
-	idIn := []int32{int32(123)} // []int32 |  (optional)
-	name := "name_example" // string |  (optional)
-	nameIn := []string{"Inner_example"} // []string |  (optional)
-	orderBy := "orderBy_example" // string |  (optional)
-	role := "role_example" // string |  (optional)
-	roleIn := []string{"RoleIn_example"} // []string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OrgsAPI.GetApiKeys(context.Background(), slugOrId).Direction(direction).ExcludeProvisioned(excludeProvisioned).Id(id).IdIn(idIn).Name(name).NameIn(nameIn).OrderBy(orderBy).Role(role).RoleIn(roleIn).Execute()
+	resp, r, err := apiClient.OrgsAPI.GetApiKeys(context.Background(), slugOrId).ExcludeProvisioned(excludeProvisioned).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrgsAPI.GetApiKeys``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -289,15 +281,7 @@ Other parameters are passed through a pointer to a apiGetApiKeysRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **direction** | **string** |  | 
  **excludeProvisioned** | **bool** |  | 
- **id** | **int32** |  | 
- **idIn** | **[]int32** |  | 
- **name** | **string** |  | 
- **nameIn** | **[]string** |  | 
- **orderBy** | **string** |  | 
- **role** | **string** |  | 
- **roleIn** | **[]string** |  | 
 
 ### Return type
 

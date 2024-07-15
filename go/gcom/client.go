@@ -50,8 +50,6 @@ type APIClient struct {
 
 	AccesspoliciesAPI *AccesspoliciesAPIService
 
-	ApiKeysAPI *ApiKeysAPIService
-
 	InstancesAPI *InstancesAPIService
 
 	OrgsAPI *OrgsAPIService
@@ -80,7 +78,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.AccesspoliciesAPI = (*AccesspoliciesAPIService)(&c.common)
-	c.ApiKeysAPI = (*ApiKeysAPIService)(&c.common)
 	c.InstancesAPI = (*InstancesAPIService)(&c.common)
 	c.OrgsAPI = (*OrgsAPIService)(&c.common)
 	c.PluginsAPI = (*PluginsAPIService)(&c.common)

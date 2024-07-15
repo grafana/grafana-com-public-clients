@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: cb1dae9
-  x-generated-at: 2024-07-15T13:47:22.150Z
+  x-commit-sha: bbacacf
+  x-generated-at: 2024-07-15T14:15:46.525Z
 servers:
 - description: Main API server
   url: /api
@@ -23,58 +23,6 @@ tags:
 - description: Everything related to our Hosted Grafana Instances
   name: instances
 paths:
-  /api-keys:
-    post:
-      operationId: postAllApiKeys
-      parameters:
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/postAllApiKeys_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiApiKey'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Creates an API key
-      tags:
-      - api-keys
   /instances:
     get:
       operationId: getInstances
@@ -1984,96 +1932,10 @@ paths:
         style: simple
       - explode: true
         in: query
-        name: direction
-        required: false
-        schema:
-          enum:
-          - asc
-          - desc
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: excludeProvisioned
         required: false
         schema:
           type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: id
-        required: false
-        schema:
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: idIn
-        required: false
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: true
-        in: query
-        name: name
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: nameIn
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - explode: true
-        in: query
-        name: orderBy
-        required: false
-        schema:
-          enum:
-          - id
-          - name
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: role
-        required: false
-        schema:
-          enum:
-          - Viewer
-          - PluginPublisher
-          - MetricsPublisher
-          - EasyStart
-          - Editor
-          - Admin
-          - SSO Access
-          - None
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: roleIn
-        required: false
-        schema:
-          items:
-            enum:
-            - Viewer
-            - PluginPublisher
-            - MetricsPublisher
-            - EasyStart
-            - Editor
-            - Admin
-            - SSO Access
-            - None
-            type: string
-          type: array
         style: form
       responses:
         "200":
@@ -6060,28 +5922,6 @@ components:
       - accessPolicyId
       - name
       type: object
-    postAllApiKeys_request:
-      properties:
-        name:
-          type: string
-        org:
-          type: string
-        role:
-          enum:
-          - Viewer
-          - PluginPublisher
-          - MetricsPublisher
-          - EasyStart
-          - Editor
-          - Admin
-          - SSO Access
-          - None
-          type: string
-      required:
-      - name
-      - org
-      - role
-      type: object
     getInstances_200_response:
       example:
         total: 6.704019297950036
@@ -6606,13 +6446,10 @@ components:
         role:
           enum:
           - Viewer
-          - PluginPublisher
-          - MetricsPublisher
-          - EasyStart
           - Editor
           - Admin
-          - SSO Access
-          - None
+          - MetricsPublisher
+          - PluginPublisher
           type: string
       required:
       - name
