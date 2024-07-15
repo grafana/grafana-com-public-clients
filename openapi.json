@@ -1,113 +1,5 @@
 {
   "paths": {
-    "/api-keys": {
-      "post": {
-        "tags": [
-          "api-keys"
-        ],
-        "operationId": "postAllApiKeys",
-        "parameters": [
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "org": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "enum": [
-                      "Viewer",
-                      "PluginPublisher",
-                      "MetricsPublisher",
-                      "EasyStart",
-                      "Editor",
-                      "Admin",
-                      "SSO Access",
-                      "None"
-                    ],
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "org",
-                  "name",
-                  "role"
-                ]
-              }
-            }
-          }
-        },
-        "summary": "Creates an API key",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiApiKey"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/instances": {
       "get": {
         "tags": [
@@ -3316,110 +3208,9 @@
           },
           {
             "in": "query",
-            "name": "direction",
-            "schema": {
-              "enum": [
-                "asc",
-                "desc"
-              ],
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
             "name": "excludeProvisioned",
             "schema": {
               "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "id",
-            "schema": {
-              "type": "integer"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "idIn",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "name",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "nameIn",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "orderBy",
-            "schema": {
-              "enum": [
-                "id",
-                "name"
-              ],
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "role",
-            "schema": {
-              "enum": [
-                "Viewer",
-                "PluginPublisher",
-                "MetricsPublisher",
-                "EasyStart",
-                "Editor",
-                "Admin",
-                "SSO Access",
-                "None"
-              ],
-              "type": "string"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "roleIn",
-            "schema": {
-              "type": "array",
-              "items": {
-                "enum": [
-                  "Viewer",
-                  "PluginPublisher",
-                  "MetricsPublisher",
-                  "EasyStart",
-                  "Editor",
-                  "Admin",
-                  "SSO Access",
-                  "None"
-                ],
-                "type": "string"
-              }
             },
             "required": false
           }
@@ -3515,13 +3306,10 @@
                   "role": {
                     "enum": [
                       "Viewer",
-                      "PluginPublisher",
-                      "MetricsPublisher",
-                      "EasyStart",
                       "Editor",
                       "Admin",
-                      "SSO Access",
-                      "None"
+                      "MetricsPublisher",
+                      "PluginPublisher"
                     ],
                     "type": "string"
                   }
@@ -5882,8 +5670,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "cb1dae9",
-    "x-generated-at": "2024-07-15T13:47:22.150Z"
+    "x-commit-sha": "bbacacf",
+    "x-generated-at": "2024-07-15T14:15:46.525Z"
   },
   "security": [
     {
