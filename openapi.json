@@ -5670,8 +5670,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "2743305",
-    "x-generated-at": "2024-07-15T19:00:02.863Z"
+    "x-commit-sha": "c9c4291",
+    "x-generated-at": "2024-07-16T10:09:29.982Z"
   },
   "security": [
     {
@@ -6422,13 +6422,18 @@
             "type": "string",
             "title": "amInstanceUrl"
           },
+          "amInstanceClusterId": {
+            "type": "number",
+            "title": "amInstanceClusterId"
+          },
           "billingActiveUsers": {
             "type": "number",
             "title": "billingActiveUsers"
           },
           "billingEndDate": {
             "type": "string",
-            "title": "billingEndDate"
+            "title": "billingEndDate",
+            "nullable": true
           },
           "billingGrafanaActiveUsers": {
             "type": "number",
@@ -6548,6 +6553,10 @@
             "type": "string",
             "title": "hlInstanceUrl"
           },
+          "hlInstanceClusterId": {
+            "type": "number",
+            "title": "hlInstanceClusterId"
+          },
           "hmInstanceGraphiteCurrentUsage": {
             "type": "number",
             "title": "hmInstanceGraphiteCurrentUsage"
@@ -6578,7 +6587,12 @@
             "type": "string",
             "title": "hmInstanceGraphiteUrl"
           },
+          "hmInstancePromClusterId": {
+            "type": "number",
+            "title": "hmInstancePromClusterId"
+          },
           "hmInstancePromCurrentActiveSeries": {
+            "type": "number",
             "title": "hmInstancePromCurrentActiveSeries",
             "nullable": true
           },
@@ -6608,6 +6622,10 @@
             "type": "string",
             "title": "hmInstancePromUrl"
           },
+          "hmInstanceGraphiteClusterId": {
+            "type": "number",
+            "title": "hmInstanceGraphiteClusterId"
+          },
           "htInstanceId": {
             "type": "number",
             "title": "htInstanceId"
@@ -6630,6 +6648,10 @@
             "type": "string",
             "title": "htInstanceUrl"
           },
+          "htInstanceClusterId": {
+            "type": "number",
+            "title": "htInstanceClusterId"
+          },
           "hpInstanceId": {
             "type": "number",
             "title": "hpInstanceId"
@@ -6651,6 +6673,10 @@
           "hpInstanceUrl": {
             "type": "string",
             "title": "hpInstanceUrl"
+          },
+          "hpInstanceClusterId": {
+            "type": "number",
+            "title": "hpInstanceClusterId"
           },
           "id": {
             "type": "number",
@@ -6788,15 +6814,111 @@
             "type": "number",
             "title": "agentManagementInstanceId"
           },
+          "agentManagementInstanceUrl": {
+            "type": "string",
+            "title": "agentManagementInstanceUrl"
+          },
+          "agentManagementInstanceName": {
+            "type": "string",
+            "title": "agentManagementInstanceName"
+          },
+          "agentManagementInstanceStatus": {
+            "enum": [
+              "active",
+              "deleted",
+              "suspended",
+              "unknown"
+            ],
+            "type": "string",
+            "title": "agentManagementInstanceStatus"
+          },
+          "agentManagementInstanceClusterId": {
+            "type": "number",
+            "title": "agentManagementInstanceClusterId"
+          },
           "config": {
             "type": "object",
             "title": "config"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "grafana"
+            ],
+            "title": "type"
+          },
+          "k6OrgId": {
+            "type": "number",
+            "title": "k6OrgId",
+            "nullable": true
+          },
+          "machineLearningLogsToken": {
+            "type": "string",
+            "title": "machineLearningLogsToken"
+          },
+          "usageStatsId": {
+            "type": "string",
+            "title": "usageStatsId"
+          },
+          "regionStackStateServiceUrl": {
+            "type": "string",
+            "title": "regionStackStateServiceUrl"
+          },
+          "regionSyntheticMonitoringApiUrl": {
+            "type": "string",
+            "title": "regionSyntheticMonitoringApiUrl"
+          },
+          "regionInsightsApiUrl": {
+            "type": "string",
+            "title": "regionInsightsApiUrl"
+          },
+          "regionIntegrationsApiUrl": {
+            "type": "string",
+            "title": "regionIntegrationsApiUrl"
+          },
+          "regionHostedExportersApiUrl": {
+            "type": "string",
+            "title": "regionHostedExportersApiUrl"
+          },
+          "regionMachineLearningApiUrl": {
+            "type": "string",
+            "title": "regionMachineLearningApiUrl"
+          },
+          "regionLLMGatewayUrl": {
+            "type": "string",
+            "title": "regionLLMGatewayUrl"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "title": "rel"
+                },
+                "href": {
+                  "type": "string",
+                  "title": "href"
+                }
+              },
+              "required": [
+                "href",
+                "rel"
+              ]
+            },
+            "title": "links"
           }
         },
         "required": [
+          "agentManagementInstanceClusterId",
           "agentManagementInstanceId",
+          "agentManagementInstanceName",
+          "agentManagementInstanceStatus",
+          "agentManagementInstanceUrl",
           "alertCnt",
           "alertQuota",
+          "amInstanceClusterId",
           "amInstanceGeneratorUrl",
           "amInstanceGeneratorUrlDatasource",
           "amInstanceId",
@@ -6828,34 +6950,42 @@
           "datasourceCnts",
           "description",
           "gateway",
+          "hlInstanceClusterId",
           "hlInstanceCurrentUsage",
           "hlInstanceId",
           "hlInstanceName",
           "hlInstanceStatus",
           "hlInstanceUrl",
+          "hmInstanceGraphiteClusterId",
           "hmInstanceGraphiteCurrentUsage",
           "hmInstanceGraphiteId",
           "hmInstanceGraphiteName",
           "hmInstanceGraphiteStatus",
           "hmInstanceGraphiteType",
           "hmInstanceGraphiteUrl",
+          "hmInstancePromClusterId",
           "hmInstancePromCurrentActiveSeries",
           "hmInstancePromCurrentUsage",
           "hmInstancePromId",
           "hmInstancePromName",
           "hmInstancePromStatus",
           "hmInstancePromUrl",
+          "hpInstanceClusterId",
           "hpInstanceId",
           "hpInstanceName",
           "hpInstanceStatus",
           "hpInstanceUrl",
+          "htInstanceClusterId",
           "htInstanceId",
           "htInstanceName",
           "htInstanceStatus",
           "htInstanceUrl",
           "id",
           "incident",
+          "k6OrgId",
+          "links",
           "machineLearning",
+          "machineLearningLogsToken",
           "name",
           "orgId",
           "orgName",
@@ -6864,9 +6994,16 @@
           "planName",
           "provider",
           "providerRegion",
+          "regionHostedExportersApiUrl",
           "regionId",
+          "regionInsightsApiUrl",
+          "regionIntegrationsApiUrl",
+          "regionLLMGatewayUrl",
+          "regionMachineLearningApiUrl",
           "regionPublicName",
           "regionSlug",
+          "regionStackStateServiceUrl",
+          "regionSyntheticMonitoringApiUrl",
           "runningVersion",
           "slug",
           "ssl",
@@ -6874,9 +7011,11 @@
           "support",
           "trial",
           "trialExpiresAt",
+          "type",
           "updatedAt",
           "updatedBy",
           "url",
+          "usageStatsId",
           "userQuota",
           "version"
         ]
