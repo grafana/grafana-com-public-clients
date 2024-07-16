@@ -27,8 +27,9 @@ type FormattedApiInstance struct {
 	AmInstanceName                    string                 `json:"amInstanceName"`
 	AmInstanceStatus                  string                 `json:"amInstanceStatus"`
 	AmInstanceUrl                     string                 `json:"amInstanceUrl"`
+	AmInstanceClusterId               float32                `json:"amInstanceClusterId"`
 	BillingActiveUsers                float32                `json:"billingActiveUsers"`
-	BillingEndDate                    string                 `json:"billingEndDate"`
+	BillingEndDate                    NullableString         `json:"billingEndDate"`
 	BillingGrafanaActiveUsers         float32                `json:"billingGrafanaActiveUsers"`
 	BillingOnCallActiveUsers          float32                `json:"billingOnCallActiveUsers"`
 	BillingStartDate                  string                 `json:"billingStartDate"`
@@ -57,26 +58,31 @@ type FormattedApiInstance struct {
 	HlInstanceName                    string                 `json:"hlInstanceName"`
 	HlInstanceStatus                  string                 `json:"hlInstanceStatus"`
 	HlInstanceUrl                     string                 `json:"hlInstanceUrl"`
+	HlInstanceClusterId               float32                `json:"hlInstanceClusterId"`
 	HmInstanceGraphiteCurrentUsage    float32                `json:"hmInstanceGraphiteCurrentUsage"`
 	HmInstanceGraphiteId              float32                `json:"hmInstanceGraphiteId"`
 	HmInstanceGraphiteName            string                 `json:"hmInstanceGraphiteName"`
 	HmInstanceGraphiteStatus          string                 `json:"hmInstanceGraphiteStatus"`
 	HmInstanceGraphiteType            string                 `json:"hmInstanceGraphiteType"`
 	HmInstanceGraphiteUrl             string                 `json:"hmInstanceGraphiteUrl"`
-	HmInstancePromCurrentActiveSeries interface{}            `json:"hmInstancePromCurrentActiveSeries"`
+	HmInstancePromClusterId           float32                `json:"hmInstancePromClusterId"`
+	HmInstancePromCurrentActiveSeries NullableFloat32        `json:"hmInstancePromCurrentActiveSeries"`
 	HmInstancePromCurrentUsage        float32                `json:"hmInstancePromCurrentUsage"`
 	HmInstancePromId                  float32                `json:"hmInstancePromId"`
 	HmInstancePromName                string                 `json:"hmInstancePromName"`
 	HmInstancePromStatus              string                 `json:"hmInstancePromStatus"`
 	HmInstancePromUrl                 string                 `json:"hmInstancePromUrl"`
+	HmInstanceGraphiteClusterId       float32                `json:"hmInstanceGraphiteClusterId"`
 	HtInstanceId                      float32                `json:"htInstanceId"`
 	HtInstanceName                    string                 `json:"htInstanceName"`
 	HtInstanceStatus                  string                 `json:"htInstanceStatus"`
 	HtInstanceUrl                     string                 `json:"htInstanceUrl"`
+	HtInstanceClusterId               float32                `json:"htInstanceClusterId"`
 	HpInstanceId                      float32                `json:"hpInstanceId"`
 	HpInstanceName                    string                 `json:"hpInstanceName"`
 	HpInstanceStatus                  string                 `json:"hpInstanceStatus"`
 	HpInstanceUrl                     string                 `json:"hpInstanceUrl"`
+	HpInstanceClusterId               float32                `json:"hpInstanceClusterId"`
 	Id                                float32                `json:"id"`
 	Incident                          float32                `json:"incident"`
 	Labels                            map[string]interface{} `json:"labels,omitempty"`
@@ -105,7 +111,23 @@ type FormattedApiInstance struct {
 	UserQuota                         float32                `json:"userQuota"`
 	Version                           string                 `json:"version"`
 	AgentManagementInstanceId         float32                `json:"agentManagementInstanceId"`
+	AgentManagementInstanceUrl        string                 `json:"agentManagementInstanceUrl"`
+	AgentManagementInstanceName       string                 `json:"agentManagementInstanceName"`
+	AgentManagementInstanceStatus     string                 `json:"agentManagementInstanceStatus"`
+	AgentManagementInstanceClusterId  float32                `json:"agentManagementInstanceClusterId"`
 	Config                            map[string]interface{} `json:"config,omitempty"`
+	Type                              string                 `json:"type"`
+	K6OrgId                           NullableFloat32        `json:"k6OrgId"`
+	MachineLearningLogsToken          string                 `json:"machineLearningLogsToken"`
+	UsageStatsId                      string                 `json:"usageStatsId"`
+	RegionStackStateServiceUrl        string                 `json:"regionStackStateServiceUrl"`
+	RegionSyntheticMonitoringApiUrl   string                 `json:"regionSyntheticMonitoringApiUrl"`
+	RegionInsightsApiUrl              string                 `json:"regionInsightsApiUrl"`
+	RegionIntegrationsApiUrl          string                 `json:"regionIntegrationsApiUrl"`
+	RegionHostedExportersApiUrl       string                 `json:"regionHostedExportersApiUrl"`
+	RegionMachineLearningApiUrl       string                 `json:"regionMachineLearningApiUrl"`
+	RegionLLMGatewayUrl               string                 `json:"regionLLMGatewayUrl"`
+	Links                             []LinksInner           `json:"links"`
 	AdditionalProperties              map[string]interface{}
 }
 
@@ -115,7 +137,7 @@ type _FormattedApiInstance FormattedApiInstance
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, billingActiveUsers float32, billingEndDate string, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromCurrentActiveSeries interface{}, hmInstancePromCurrentUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32) *FormattedApiInstance {
+func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, amInstanceClusterId float32, billingActiveUsers float32, billingEndDate NullableString, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hlInstanceClusterId float32, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromClusterId float32, hmInstancePromCurrentActiveSeries NullableFloat32, hmInstancePromCurrentUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, hmInstanceGraphiteClusterId float32, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, htInstanceClusterId float32, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, hpInstanceClusterId float32, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, agentManagementInstanceUrl string, agentManagementInstanceName string, agentManagementInstanceStatus string, agentManagementInstanceClusterId float32, type_ string, k6OrgId NullableFloat32, machineLearningLogsToken string, usageStatsId string, regionStackStateServiceUrl string, regionSyntheticMonitoringApiUrl string, regionInsightsApiUrl string, regionIntegrationsApiUrl string, regionHostedExportersApiUrl string, regionMachineLearningApiUrl string, regionLLMGatewayUrl string, links []LinksInner) *FormattedApiInstance {
 	this := FormattedApiInstance{}
 	this.AlertCnt = alertCnt
 	this.AlertQuota = alertQuota
@@ -125,6 +147,7 @@ func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGen
 	this.AmInstanceName = amInstanceName
 	this.AmInstanceStatus = amInstanceStatus
 	this.AmInstanceUrl = amInstanceUrl
+	this.AmInstanceClusterId = amInstanceClusterId
 	this.BillingActiveUsers = billingActiveUsers
 	this.BillingEndDate = billingEndDate
 	this.BillingGrafanaActiveUsers = billingGrafanaActiveUsers
@@ -155,26 +178,31 @@ func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGen
 	this.HlInstanceName = hlInstanceName
 	this.HlInstanceStatus = hlInstanceStatus
 	this.HlInstanceUrl = hlInstanceUrl
+	this.HlInstanceClusterId = hlInstanceClusterId
 	this.HmInstanceGraphiteCurrentUsage = hmInstanceGraphiteCurrentUsage
 	this.HmInstanceGraphiteId = hmInstanceGraphiteId
 	this.HmInstanceGraphiteName = hmInstanceGraphiteName
 	this.HmInstanceGraphiteStatus = hmInstanceGraphiteStatus
 	this.HmInstanceGraphiteType = hmInstanceGraphiteType
 	this.HmInstanceGraphiteUrl = hmInstanceGraphiteUrl
+	this.HmInstancePromClusterId = hmInstancePromClusterId
 	this.HmInstancePromCurrentActiveSeries = hmInstancePromCurrentActiveSeries
 	this.HmInstancePromCurrentUsage = hmInstancePromCurrentUsage
 	this.HmInstancePromId = hmInstancePromId
 	this.HmInstancePromName = hmInstancePromName
 	this.HmInstancePromStatus = hmInstancePromStatus
 	this.HmInstancePromUrl = hmInstancePromUrl
+	this.HmInstanceGraphiteClusterId = hmInstanceGraphiteClusterId
 	this.HtInstanceId = htInstanceId
 	this.HtInstanceName = htInstanceName
 	this.HtInstanceStatus = htInstanceStatus
 	this.HtInstanceUrl = htInstanceUrl
+	this.HtInstanceClusterId = htInstanceClusterId
 	this.HpInstanceId = hpInstanceId
 	this.HpInstanceName = hpInstanceName
 	this.HpInstanceStatus = hpInstanceStatus
 	this.HpInstanceUrl = hpInstanceUrl
+	this.HpInstanceClusterId = hpInstanceClusterId
 	this.Id = id
 	this.Incident = incident
 	this.MachineLearning = machineLearning
@@ -202,6 +230,22 @@ func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGen
 	this.UserQuota = userQuota
 	this.Version = version
 	this.AgentManagementInstanceId = agentManagementInstanceId
+	this.AgentManagementInstanceUrl = agentManagementInstanceUrl
+	this.AgentManagementInstanceName = agentManagementInstanceName
+	this.AgentManagementInstanceStatus = agentManagementInstanceStatus
+	this.AgentManagementInstanceClusterId = agentManagementInstanceClusterId
+	this.Type = type_
+	this.K6OrgId = k6OrgId
+	this.MachineLearningLogsToken = machineLearningLogsToken
+	this.UsageStatsId = usageStatsId
+	this.RegionStackStateServiceUrl = regionStackStateServiceUrl
+	this.RegionSyntheticMonitoringApiUrl = regionSyntheticMonitoringApiUrl
+	this.RegionInsightsApiUrl = regionInsightsApiUrl
+	this.RegionIntegrationsApiUrl = regionIntegrationsApiUrl
+	this.RegionHostedExportersApiUrl = regionHostedExportersApiUrl
+	this.RegionMachineLearningApiUrl = regionMachineLearningApiUrl
+	this.RegionLLMGatewayUrl = regionLLMGatewayUrl
+	this.Links = links
 	return &this
 }
 
@@ -405,6 +449,30 @@ func (o *FormattedApiInstance) SetAmInstanceUrl(v string) {
 	o.AmInstanceUrl = v
 }
 
+// GetAmInstanceClusterId returns the AmInstanceClusterId field value
+func (o *FormattedApiInstance) GetAmInstanceClusterId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.AmInstanceClusterId
+}
+
+// GetAmInstanceClusterIdOk returns a tuple with the AmInstanceClusterId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetAmInstanceClusterIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AmInstanceClusterId, true
+}
+
+// SetAmInstanceClusterId sets field value
+func (o *FormattedApiInstance) SetAmInstanceClusterId(v float32) {
+	o.AmInstanceClusterId = v
+}
+
 // GetBillingActiveUsers returns the BillingActiveUsers field value
 func (o *FormattedApiInstance) GetBillingActiveUsers() float32 {
 	if o == nil {
@@ -430,27 +498,29 @@ func (o *FormattedApiInstance) SetBillingActiveUsers(v float32) {
 }
 
 // GetBillingEndDate returns the BillingEndDate field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *FormattedApiInstance) GetBillingEndDate() string {
-	if o == nil {
+	if o == nil || o.BillingEndDate.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.BillingEndDate
+	return *o.BillingEndDate.Get()
 }
 
 // GetBillingEndDateOk returns a tuple with the BillingEndDate field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiInstance) GetBillingEndDateOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.BillingEndDate, true
+	return o.BillingEndDate.Get(), o.BillingEndDate.IsSet()
 }
 
 // SetBillingEndDate sets field value
 func (o *FormattedApiInstance) SetBillingEndDate(v string) {
-	o.BillingEndDate = v
+	o.BillingEndDate.Set(&v)
 }
 
 // GetBillingGrafanaActiveUsers returns the BillingGrafanaActiveUsers field value
@@ -1125,6 +1195,30 @@ func (o *FormattedApiInstance) SetHlInstanceUrl(v string) {
 	o.HlInstanceUrl = v
 }
 
+// GetHlInstanceClusterId returns the HlInstanceClusterId field value
+func (o *FormattedApiInstance) GetHlInstanceClusterId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HlInstanceClusterId
+}
+
+// GetHlInstanceClusterIdOk returns a tuple with the HlInstanceClusterId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHlInstanceClusterIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HlInstanceClusterId, true
+}
+
+// SetHlInstanceClusterId sets field value
+func (o *FormattedApiInstance) SetHlInstanceClusterId(v float32) {
+	o.HlInstanceClusterId = v
+}
+
 // GetHmInstanceGraphiteCurrentUsage returns the HmInstanceGraphiteCurrentUsage field value
 func (o *FormattedApiInstance) GetHmInstanceGraphiteCurrentUsage() float32 {
 	if o == nil {
@@ -1269,30 +1363,54 @@ func (o *FormattedApiInstance) SetHmInstanceGraphiteUrl(v string) {
 	o.HmInstanceGraphiteUrl = v
 }
 
-// GetHmInstancePromCurrentActiveSeries returns the HmInstancePromCurrentActiveSeries field value
-// If the value is explicit nil, the zero value for interface{} will be returned
-func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeries() interface{} {
+// GetHmInstancePromClusterId returns the HmInstancePromClusterId field value
+func (o *FormattedApiInstance) GetHmInstancePromClusterId() float32 {
 	if o == nil {
-		var ret interface{}
+		var ret float32
 		return ret
 	}
 
-	return o.HmInstancePromCurrentActiveSeries
+	return o.HmInstancePromClusterId
+}
+
+// GetHmInstancePromClusterIdOk returns a tuple with the HmInstancePromClusterId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHmInstancePromClusterIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HmInstancePromClusterId, true
+}
+
+// SetHmInstancePromClusterId sets field value
+func (o *FormattedApiInstance) SetHmInstancePromClusterId(v float32) {
+	o.HmInstancePromClusterId = v
+}
+
+// GetHmInstancePromCurrentActiveSeries returns the HmInstancePromCurrentActiveSeries field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeries() float32 {
+	if o == nil || o.HmInstancePromCurrentActiveSeries.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.HmInstancePromCurrentActiveSeries.Get()
 }
 
 // GetHmInstancePromCurrentActiveSeriesOk returns a tuple with the HmInstancePromCurrentActiveSeries field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeriesOk() (*interface{}, bool) {
-	if o == nil || IsNil(o.HmInstancePromCurrentActiveSeries) {
+func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeriesOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.HmInstancePromCurrentActiveSeries, true
+	return o.HmInstancePromCurrentActiveSeries.Get(), o.HmInstancePromCurrentActiveSeries.IsSet()
 }
 
 // SetHmInstancePromCurrentActiveSeries sets field value
-func (o *FormattedApiInstance) SetHmInstancePromCurrentActiveSeries(v interface{}) {
-	o.HmInstancePromCurrentActiveSeries = v
+func (o *FormattedApiInstance) SetHmInstancePromCurrentActiveSeries(v float32) {
+	o.HmInstancePromCurrentActiveSeries.Set(&v)
 }
 
 // GetHmInstancePromCurrentUsage returns the HmInstancePromCurrentUsage field value
@@ -1415,6 +1533,30 @@ func (o *FormattedApiInstance) SetHmInstancePromUrl(v string) {
 	o.HmInstancePromUrl = v
 }
 
+// GetHmInstanceGraphiteClusterId returns the HmInstanceGraphiteClusterId field value
+func (o *FormattedApiInstance) GetHmInstanceGraphiteClusterId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HmInstanceGraphiteClusterId
+}
+
+// GetHmInstanceGraphiteClusterIdOk returns a tuple with the HmInstanceGraphiteClusterId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHmInstanceGraphiteClusterIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HmInstanceGraphiteClusterId, true
+}
+
+// SetHmInstanceGraphiteClusterId sets field value
+func (o *FormattedApiInstance) SetHmInstanceGraphiteClusterId(v float32) {
+	o.HmInstanceGraphiteClusterId = v
+}
+
 // GetHtInstanceId returns the HtInstanceId field value
 func (o *FormattedApiInstance) GetHtInstanceId() float32 {
 	if o == nil {
@@ -1511,6 +1653,30 @@ func (o *FormattedApiInstance) SetHtInstanceUrl(v string) {
 	o.HtInstanceUrl = v
 }
 
+// GetHtInstanceClusterId returns the HtInstanceClusterId field value
+func (o *FormattedApiInstance) GetHtInstanceClusterId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HtInstanceClusterId
+}
+
+// GetHtInstanceClusterIdOk returns a tuple with the HtInstanceClusterId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHtInstanceClusterIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HtInstanceClusterId, true
+}
+
+// SetHtInstanceClusterId sets field value
+func (o *FormattedApiInstance) SetHtInstanceClusterId(v float32) {
+	o.HtInstanceClusterId = v
+}
+
 // GetHpInstanceId returns the HpInstanceId field value
 func (o *FormattedApiInstance) GetHpInstanceId() float32 {
 	if o == nil {
@@ -1605,6 +1771,30 @@ func (o *FormattedApiInstance) GetHpInstanceUrlOk() (*string, bool) {
 // SetHpInstanceUrl sets field value
 func (o *FormattedApiInstance) SetHpInstanceUrl(v string) {
 	o.HpInstanceUrl = v
+}
+
+// GetHpInstanceClusterId returns the HpInstanceClusterId field value
+func (o *FormattedApiInstance) GetHpInstanceClusterId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HpInstanceClusterId
+}
+
+// GetHpInstanceClusterIdOk returns a tuple with the HpInstanceClusterId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHpInstanceClusterIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HpInstanceClusterId, true
+}
+
+// SetHpInstanceClusterId sets field value
+func (o *FormattedApiInstance) SetHpInstanceClusterId(v float32) {
+	o.HpInstanceClusterId = v
 }
 
 // GetId returns the Id field value
@@ -2293,6 +2483,102 @@ func (o *FormattedApiInstance) SetAgentManagementInstanceId(v float32) {
 	o.AgentManagementInstanceId = v
 }
 
+// GetAgentManagementInstanceUrl returns the AgentManagementInstanceUrl field value
+func (o *FormattedApiInstance) GetAgentManagementInstanceUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AgentManagementInstanceUrl
+}
+
+// GetAgentManagementInstanceUrlOk returns a tuple with the AgentManagementInstanceUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetAgentManagementInstanceUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AgentManagementInstanceUrl, true
+}
+
+// SetAgentManagementInstanceUrl sets field value
+func (o *FormattedApiInstance) SetAgentManagementInstanceUrl(v string) {
+	o.AgentManagementInstanceUrl = v
+}
+
+// GetAgentManagementInstanceName returns the AgentManagementInstanceName field value
+func (o *FormattedApiInstance) GetAgentManagementInstanceName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AgentManagementInstanceName
+}
+
+// GetAgentManagementInstanceNameOk returns a tuple with the AgentManagementInstanceName field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetAgentManagementInstanceNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AgentManagementInstanceName, true
+}
+
+// SetAgentManagementInstanceName sets field value
+func (o *FormattedApiInstance) SetAgentManagementInstanceName(v string) {
+	o.AgentManagementInstanceName = v
+}
+
+// GetAgentManagementInstanceStatus returns the AgentManagementInstanceStatus field value
+func (o *FormattedApiInstance) GetAgentManagementInstanceStatus() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AgentManagementInstanceStatus
+}
+
+// GetAgentManagementInstanceStatusOk returns a tuple with the AgentManagementInstanceStatus field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetAgentManagementInstanceStatusOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AgentManagementInstanceStatus, true
+}
+
+// SetAgentManagementInstanceStatus sets field value
+func (o *FormattedApiInstance) SetAgentManagementInstanceStatus(v string) {
+	o.AgentManagementInstanceStatus = v
+}
+
+// GetAgentManagementInstanceClusterId returns the AgentManagementInstanceClusterId field value
+func (o *FormattedApiInstance) GetAgentManagementInstanceClusterId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.AgentManagementInstanceClusterId
+}
+
+// GetAgentManagementInstanceClusterIdOk returns a tuple with the AgentManagementInstanceClusterId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetAgentManagementInstanceClusterIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AgentManagementInstanceClusterId, true
+}
+
+// SetAgentManagementInstanceClusterId sets field value
+func (o *FormattedApiInstance) SetAgentManagementInstanceClusterId(v float32) {
+	o.AgentManagementInstanceClusterId = v
+}
+
 // GetConfig returns the Config field value if set, zero value otherwise.
 func (o *FormattedApiInstance) GetConfig() map[string]interface{} {
 	if o == nil || IsNil(o.Config) {
@@ -2325,6 +2611,296 @@ func (o *FormattedApiInstance) SetConfig(v map[string]interface{}) {
 	o.Config = v
 }
 
+// GetType returns the Type field value
+func (o *FormattedApiInstance) GetType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *FormattedApiInstance) SetType(v string) {
+	o.Type = v
+}
+
+// GetK6OrgId returns the K6OrgId field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *FormattedApiInstance) GetK6OrgId() float32 {
+	if o == nil || o.K6OrgId.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.K6OrgId.Get()
+}
+
+// GetK6OrgIdOk returns a tuple with the K6OrgId field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiInstance) GetK6OrgIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.K6OrgId.Get(), o.K6OrgId.IsSet()
+}
+
+// SetK6OrgId sets field value
+func (o *FormattedApiInstance) SetK6OrgId(v float32) {
+	o.K6OrgId.Set(&v)
+}
+
+// GetMachineLearningLogsToken returns the MachineLearningLogsToken field value
+func (o *FormattedApiInstance) GetMachineLearningLogsToken() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.MachineLearningLogsToken
+}
+
+// GetMachineLearningLogsTokenOk returns a tuple with the MachineLearningLogsToken field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetMachineLearningLogsTokenOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MachineLearningLogsToken, true
+}
+
+// SetMachineLearningLogsToken sets field value
+func (o *FormattedApiInstance) SetMachineLearningLogsToken(v string) {
+	o.MachineLearningLogsToken = v
+}
+
+// GetUsageStatsId returns the UsageStatsId field value
+func (o *FormattedApiInstance) GetUsageStatsId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UsageStatsId
+}
+
+// GetUsageStatsIdOk returns a tuple with the UsageStatsId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetUsageStatsIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UsageStatsId, true
+}
+
+// SetUsageStatsId sets field value
+func (o *FormattedApiInstance) SetUsageStatsId(v string) {
+	o.UsageStatsId = v
+}
+
+// GetRegionStackStateServiceUrl returns the RegionStackStateServiceUrl field value
+func (o *FormattedApiInstance) GetRegionStackStateServiceUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RegionStackStateServiceUrl
+}
+
+// GetRegionStackStateServiceUrlOk returns a tuple with the RegionStackStateServiceUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetRegionStackStateServiceUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegionStackStateServiceUrl, true
+}
+
+// SetRegionStackStateServiceUrl sets field value
+func (o *FormattedApiInstance) SetRegionStackStateServiceUrl(v string) {
+	o.RegionStackStateServiceUrl = v
+}
+
+// GetRegionSyntheticMonitoringApiUrl returns the RegionSyntheticMonitoringApiUrl field value
+func (o *FormattedApiInstance) GetRegionSyntheticMonitoringApiUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RegionSyntheticMonitoringApiUrl
+}
+
+// GetRegionSyntheticMonitoringApiUrlOk returns a tuple with the RegionSyntheticMonitoringApiUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetRegionSyntheticMonitoringApiUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegionSyntheticMonitoringApiUrl, true
+}
+
+// SetRegionSyntheticMonitoringApiUrl sets field value
+func (o *FormattedApiInstance) SetRegionSyntheticMonitoringApiUrl(v string) {
+	o.RegionSyntheticMonitoringApiUrl = v
+}
+
+// GetRegionInsightsApiUrl returns the RegionInsightsApiUrl field value
+func (o *FormattedApiInstance) GetRegionInsightsApiUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RegionInsightsApiUrl
+}
+
+// GetRegionInsightsApiUrlOk returns a tuple with the RegionInsightsApiUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetRegionInsightsApiUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegionInsightsApiUrl, true
+}
+
+// SetRegionInsightsApiUrl sets field value
+func (o *FormattedApiInstance) SetRegionInsightsApiUrl(v string) {
+	o.RegionInsightsApiUrl = v
+}
+
+// GetRegionIntegrationsApiUrl returns the RegionIntegrationsApiUrl field value
+func (o *FormattedApiInstance) GetRegionIntegrationsApiUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RegionIntegrationsApiUrl
+}
+
+// GetRegionIntegrationsApiUrlOk returns a tuple with the RegionIntegrationsApiUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetRegionIntegrationsApiUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegionIntegrationsApiUrl, true
+}
+
+// SetRegionIntegrationsApiUrl sets field value
+func (o *FormattedApiInstance) SetRegionIntegrationsApiUrl(v string) {
+	o.RegionIntegrationsApiUrl = v
+}
+
+// GetRegionHostedExportersApiUrl returns the RegionHostedExportersApiUrl field value
+func (o *FormattedApiInstance) GetRegionHostedExportersApiUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RegionHostedExportersApiUrl
+}
+
+// GetRegionHostedExportersApiUrlOk returns a tuple with the RegionHostedExportersApiUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetRegionHostedExportersApiUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegionHostedExportersApiUrl, true
+}
+
+// SetRegionHostedExportersApiUrl sets field value
+func (o *FormattedApiInstance) SetRegionHostedExportersApiUrl(v string) {
+	o.RegionHostedExportersApiUrl = v
+}
+
+// GetRegionMachineLearningApiUrl returns the RegionMachineLearningApiUrl field value
+func (o *FormattedApiInstance) GetRegionMachineLearningApiUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RegionMachineLearningApiUrl
+}
+
+// GetRegionMachineLearningApiUrlOk returns a tuple with the RegionMachineLearningApiUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetRegionMachineLearningApiUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegionMachineLearningApiUrl, true
+}
+
+// SetRegionMachineLearningApiUrl sets field value
+func (o *FormattedApiInstance) SetRegionMachineLearningApiUrl(v string) {
+	o.RegionMachineLearningApiUrl = v
+}
+
+// GetRegionLLMGatewayUrl returns the RegionLLMGatewayUrl field value
+func (o *FormattedApiInstance) GetRegionLLMGatewayUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RegionLLMGatewayUrl
+}
+
+// GetRegionLLMGatewayUrlOk returns a tuple with the RegionLLMGatewayUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetRegionLLMGatewayUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegionLLMGatewayUrl, true
+}
+
+// SetRegionLLMGatewayUrl sets field value
+func (o *FormattedApiInstance) SetRegionLLMGatewayUrl(v string) {
+	o.RegionLLMGatewayUrl = v
+}
+
+// GetLinks returns the Links field value
+func (o *FormattedApiInstance) GetLinks() []LinksInner {
+	if o == nil {
+		var ret []LinksInner
+		return ret
+	}
+
+	return o.Links
+}
+
+// GetLinksOk returns a tuple with the Links field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetLinksOk() ([]LinksInner, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Links, true
+}
+
+// SetLinks sets field value
+func (o *FormattedApiInstance) SetLinks(v []LinksInner) {
+	o.Links = v
+}
+
 func (o FormattedApiInstance) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -2343,8 +2919,9 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["amInstanceName"] = o.AmInstanceName
 	toSerialize["amInstanceStatus"] = o.AmInstanceStatus
 	toSerialize["amInstanceUrl"] = o.AmInstanceUrl
+	toSerialize["amInstanceClusterId"] = o.AmInstanceClusterId
 	toSerialize["billingActiveUsers"] = o.BillingActiveUsers
-	toSerialize["billingEndDate"] = o.BillingEndDate
+	toSerialize["billingEndDate"] = o.BillingEndDate.Get()
 	toSerialize["billingGrafanaActiveUsers"] = o.BillingGrafanaActiveUsers
 	toSerialize["billingOnCallActiveUsers"] = o.BillingOnCallActiveUsers
 	toSerialize["billingStartDate"] = o.BillingStartDate
@@ -2373,28 +2950,31 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["hlInstanceName"] = o.HlInstanceName
 	toSerialize["hlInstanceStatus"] = o.HlInstanceStatus
 	toSerialize["hlInstanceUrl"] = o.HlInstanceUrl
+	toSerialize["hlInstanceClusterId"] = o.HlInstanceClusterId
 	toSerialize["hmInstanceGraphiteCurrentUsage"] = o.HmInstanceGraphiteCurrentUsage
 	toSerialize["hmInstanceGraphiteId"] = o.HmInstanceGraphiteId
 	toSerialize["hmInstanceGraphiteName"] = o.HmInstanceGraphiteName
 	toSerialize["hmInstanceGraphiteStatus"] = o.HmInstanceGraphiteStatus
 	toSerialize["hmInstanceGraphiteType"] = o.HmInstanceGraphiteType
 	toSerialize["hmInstanceGraphiteUrl"] = o.HmInstanceGraphiteUrl
-	if o.HmInstancePromCurrentActiveSeries != nil {
-		toSerialize["hmInstancePromCurrentActiveSeries"] = o.HmInstancePromCurrentActiveSeries
-	}
+	toSerialize["hmInstancePromClusterId"] = o.HmInstancePromClusterId
+	toSerialize["hmInstancePromCurrentActiveSeries"] = o.HmInstancePromCurrentActiveSeries.Get()
 	toSerialize["hmInstancePromCurrentUsage"] = o.HmInstancePromCurrentUsage
 	toSerialize["hmInstancePromId"] = o.HmInstancePromId
 	toSerialize["hmInstancePromName"] = o.HmInstancePromName
 	toSerialize["hmInstancePromStatus"] = o.HmInstancePromStatus
 	toSerialize["hmInstancePromUrl"] = o.HmInstancePromUrl
+	toSerialize["hmInstanceGraphiteClusterId"] = o.HmInstanceGraphiteClusterId
 	toSerialize["htInstanceId"] = o.HtInstanceId
 	toSerialize["htInstanceName"] = o.HtInstanceName
 	toSerialize["htInstanceStatus"] = o.HtInstanceStatus
 	toSerialize["htInstanceUrl"] = o.HtInstanceUrl
+	toSerialize["htInstanceClusterId"] = o.HtInstanceClusterId
 	toSerialize["hpInstanceId"] = o.HpInstanceId
 	toSerialize["hpInstanceName"] = o.HpInstanceName
 	toSerialize["hpInstanceStatus"] = o.HpInstanceStatus
 	toSerialize["hpInstanceUrl"] = o.HpInstanceUrl
+	toSerialize["hpInstanceClusterId"] = o.HpInstanceClusterId
 	toSerialize["id"] = o.Id
 	toSerialize["incident"] = o.Incident
 	if !IsNil(o.Labels) {
@@ -2425,9 +3005,25 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["userQuota"] = o.UserQuota
 	toSerialize["version"] = o.Version
 	toSerialize["agentManagementInstanceId"] = o.AgentManagementInstanceId
+	toSerialize["agentManagementInstanceUrl"] = o.AgentManagementInstanceUrl
+	toSerialize["agentManagementInstanceName"] = o.AgentManagementInstanceName
+	toSerialize["agentManagementInstanceStatus"] = o.AgentManagementInstanceStatus
+	toSerialize["agentManagementInstanceClusterId"] = o.AgentManagementInstanceClusterId
 	if !IsNil(o.Config) {
 		toSerialize["config"] = o.Config
 	}
+	toSerialize["type"] = o.Type
+	toSerialize["k6OrgId"] = o.K6OrgId.Get()
+	toSerialize["machineLearningLogsToken"] = o.MachineLearningLogsToken
+	toSerialize["usageStatsId"] = o.UsageStatsId
+	toSerialize["regionStackStateServiceUrl"] = o.RegionStackStateServiceUrl
+	toSerialize["regionSyntheticMonitoringApiUrl"] = o.RegionSyntheticMonitoringApiUrl
+	toSerialize["regionInsightsApiUrl"] = o.RegionInsightsApiUrl
+	toSerialize["regionIntegrationsApiUrl"] = o.RegionIntegrationsApiUrl
+	toSerialize["regionHostedExportersApiUrl"] = o.RegionHostedExportersApiUrl
+	toSerialize["regionMachineLearningApiUrl"] = o.RegionMachineLearningApiUrl
+	toSerialize["regionLLMGatewayUrl"] = o.RegionLLMGatewayUrl
+	toSerialize["links"] = o.Links
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -2466,6 +3062,7 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "amInstanceName")
 		delete(additionalProperties, "amInstanceStatus")
 		delete(additionalProperties, "amInstanceUrl")
+		delete(additionalProperties, "amInstanceClusterId")
 		delete(additionalProperties, "billingActiveUsers")
 		delete(additionalProperties, "billingEndDate")
 		delete(additionalProperties, "billingGrafanaActiveUsers")
@@ -2496,26 +3093,31 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "hlInstanceName")
 		delete(additionalProperties, "hlInstanceStatus")
 		delete(additionalProperties, "hlInstanceUrl")
+		delete(additionalProperties, "hlInstanceClusterId")
 		delete(additionalProperties, "hmInstanceGraphiteCurrentUsage")
 		delete(additionalProperties, "hmInstanceGraphiteId")
 		delete(additionalProperties, "hmInstanceGraphiteName")
 		delete(additionalProperties, "hmInstanceGraphiteStatus")
 		delete(additionalProperties, "hmInstanceGraphiteType")
 		delete(additionalProperties, "hmInstanceGraphiteUrl")
+		delete(additionalProperties, "hmInstancePromClusterId")
 		delete(additionalProperties, "hmInstancePromCurrentActiveSeries")
 		delete(additionalProperties, "hmInstancePromCurrentUsage")
 		delete(additionalProperties, "hmInstancePromId")
 		delete(additionalProperties, "hmInstancePromName")
 		delete(additionalProperties, "hmInstancePromStatus")
 		delete(additionalProperties, "hmInstancePromUrl")
+		delete(additionalProperties, "hmInstanceGraphiteClusterId")
 		delete(additionalProperties, "htInstanceId")
 		delete(additionalProperties, "htInstanceName")
 		delete(additionalProperties, "htInstanceStatus")
 		delete(additionalProperties, "htInstanceUrl")
+		delete(additionalProperties, "htInstanceClusterId")
 		delete(additionalProperties, "hpInstanceId")
 		delete(additionalProperties, "hpInstanceName")
 		delete(additionalProperties, "hpInstanceStatus")
 		delete(additionalProperties, "hpInstanceUrl")
+		delete(additionalProperties, "hpInstanceClusterId")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "incident")
 		delete(additionalProperties, "labels")
@@ -2544,7 +3146,23 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "userQuota")
 		delete(additionalProperties, "version")
 		delete(additionalProperties, "agentManagementInstanceId")
+		delete(additionalProperties, "agentManagementInstanceUrl")
+		delete(additionalProperties, "agentManagementInstanceName")
+		delete(additionalProperties, "agentManagementInstanceStatus")
+		delete(additionalProperties, "agentManagementInstanceClusterId")
 		delete(additionalProperties, "config")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "k6OrgId")
+		delete(additionalProperties, "machineLearningLogsToken")
+		delete(additionalProperties, "usageStatsId")
+		delete(additionalProperties, "regionStackStateServiceUrl")
+		delete(additionalProperties, "regionSyntheticMonitoringApiUrl")
+		delete(additionalProperties, "regionInsightsApiUrl")
+		delete(additionalProperties, "regionIntegrationsApiUrl")
+		delete(additionalProperties, "regionHostedExportersApiUrl")
+		delete(additionalProperties, "regionMachineLearningApiUrl")
+		delete(additionalProperties, "regionLLMGatewayUrl")
+		delete(additionalProperties, "links")
 		o.AdditionalProperties = additionalProperties
 	}
 

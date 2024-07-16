@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 **AmInstanceName** | **string** |  | 
 **AmInstanceStatus** | **string** |  | 
 **AmInstanceUrl** | **string** |  | 
+**AmInstanceClusterId** | **float32** |  | 
 **BillingActiveUsers** | **float32** |  | 
-**BillingEndDate** | **string** |  | 
+**BillingEndDate** | **NullableString** |  | 
 **BillingGrafanaActiveUsers** | **float32** |  | 
 **BillingOnCallActiveUsers** | **float32** |  | 
 **BillingStartDate** | **string** |  | 
@@ -42,26 +43,31 @@ Name | Type | Description | Notes
 **HlInstanceName** | **string** |  | 
 **HlInstanceStatus** | **string** |  | 
 **HlInstanceUrl** | **string** |  | 
+**HlInstanceClusterId** | **float32** |  | 
 **HmInstanceGraphiteCurrentUsage** | **float32** |  | 
 **HmInstanceGraphiteId** | **float32** |  | 
 **HmInstanceGraphiteName** | **string** |  | 
 **HmInstanceGraphiteStatus** | **string** |  | 
 **HmInstanceGraphiteType** | **string** |  | 
 **HmInstanceGraphiteUrl** | **string** |  | 
-**HmInstancePromCurrentActiveSeries** | **interface{}** |  | 
+**HmInstancePromClusterId** | **float32** |  | 
+**HmInstancePromCurrentActiveSeries** | **NullableFloat32** |  | 
 **HmInstancePromCurrentUsage** | **float32** |  | 
 **HmInstancePromId** | **float32** |  | 
 **HmInstancePromName** | **string** |  | 
 **HmInstancePromStatus** | **string** |  | 
 **HmInstancePromUrl** | **string** |  | 
+**HmInstanceGraphiteClusterId** | **float32** |  | 
 **HtInstanceId** | **float32** |  | 
 **HtInstanceName** | **string** |  | 
 **HtInstanceStatus** | **string** |  | 
 **HtInstanceUrl** | **string** |  | 
+**HtInstanceClusterId** | **float32** |  | 
 **HpInstanceId** | **float32** |  | 
 **HpInstanceName** | **string** |  | 
 **HpInstanceStatus** | **string** |  | 
 **HpInstanceUrl** | **string** |  | 
+**HpInstanceClusterId** | **float32** |  | 
 **Id** | **float32** |  | 
 **Incident** | **float32** |  | 
 **Labels** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -90,13 +96,29 @@ Name | Type | Description | Notes
 **UserQuota** | **float32** |  | 
 **Version** | **string** |  | 
 **AgentManagementInstanceId** | **float32** |  | 
+**AgentManagementInstanceUrl** | **string** |  | 
+**AgentManagementInstanceName** | **string** |  | 
+**AgentManagementInstanceStatus** | **string** |  | 
+**AgentManagementInstanceClusterId** | **float32** |  | 
 **Config** | Pointer to **map[string]interface{}** |  | [optional] 
+**Type** | **string** |  | 
+**K6OrgId** | **NullableFloat32** |  | 
+**MachineLearningLogsToken** | **string** |  | 
+**UsageStatsId** | **string** |  | 
+**RegionStackStateServiceUrl** | **string** |  | 
+**RegionSyntheticMonitoringApiUrl** | **string** |  | 
+**RegionInsightsApiUrl** | **string** |  | 
+**RegionIntegrationsApiUrl** | **string** |  | 
+**RegionHostedExportersApiUrl** | **string** |  | 
+**RegionMachineLearningApiUrl** | **string** |  | 
+**RegionLLMGatewayUrl** | **string** |  | 
+**Links** | [**[]LinksInner**](LinksInner.md) |  | 
 
 ## Methods
 
 ### NewFormattedApiInstance
 
-`func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, billingActiveUsers float32, billingEndDate string, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromCurrentActiveSeries interface{}, hmInstancePromCurrentUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, ) *FormattedApiInstance`
+`func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, amInstanceClusterId float32, billingActiveUsers float32, billingEndDate NullableString, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hlInstanceClusterId float32, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromClusterId float32, hmInstancePromCurrentActiveSeries NullableFloat32, hmInstancePromCurrentUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, hmInstanceGraphiteClusterId float32, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, htInstanceClusterId float32, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, hpInstanceClusterId float32, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, agentManagementInstanceUrl string, agentManagementInstanceName string, agentManagementInstanceStatus string, agentManagementInstanceClusterId float32, type_ string, k6OrgId NullableFloat32, machineLearningLogsToken string, usageStatsId string, regionStackStateServiceUrl string, regionSyntheticMonitoringApiUrl string, regionInsightsApiUrl string, regionIntegrationsApiUrl string, regionHostedExportersApiUrl string, regionMachineLearningApiUrl string, regionLLMGatewayUrl string, links []LinksInner, ) *FormattedApiInstance`
 
 NewFormattedApiInstance instantiates a new FormattedApiInstance object
 This constructor will assign default values to properties that have it defined,
@@ -271,6 +293,26 @@ and a boolean to check if the value has been set.
 SetAmInstanceUrl sets AmInstanceUrl field to given value.
 
 
+### GetAmInstanceClusterId
+
+`func (o *FormattedApiInstance) GetAmInstanceClusterId() float32`
+
+GetAmInstanceClusterId returns the AmInstanceClusterId field if non-nil, zero value otherwise.
+
+### GetAmInstanceClusterIdOk
+
+`func (o *FormattedApiInstance) GetAmInstanceClusterIdOk() (*float32, bool)`
+
+GetAmInstanceClusterIdOk returns a tuple with the AmInstanceClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmInstanceClusterId
+
+`func (o *FormattedApiInstance) SetAmInstanceClusterId(v float32)`
+
+SetAmInstanceClusterId sets AmInstanceClusterId field to given value.
+
+
 ### GetBillingActiveUsers
 
 `func (o *FormattedApiInstance) GetBillingActiveUsers() float32`
@@ -311,6 +353,16 @@ and a boolean to check if the value has been set.
 SetBillingEndDate sets BillingEndDate field to given value.
 
 
+### SetBillingEndDateNil
+
+`func (o *FormattedApiInstance) SetBillingEndDateNil(b bool)`
+
+ SetBillingEndDateNil sets the value for BillingEndDate to be an explicit nil
+
+### UnsetBillingEndDate
+`func (o *FormattedApiInstance) UnsetBillingEndDate()`
+
+UnsetBillingEndDate ensures that no value is present for BillingEndDate, not even an explicit nil
 ### GetBillingGrafanaActiveUsers
 
 `func (o *FormattedApiInstance) GetBillingGrafanaActiveUsers() float32`
@@ -871,6 +923,26 @@ and a boolean to check if the value has been set.
 SetHlInstanceUrl sets HlInstanceUrl field to given value.
 
 
+### GetHlInstanceClusterId
+
+`func (o *FormattedApiInstance) GetHlInstanceClusterId() float32`
+
+GetHlInstanceClusterId returns the HlInstanceClusterId field if non-nil, zero value otherwise.
+
+### GetHlInstanceClusterIdOk
+
+`func (o *FormattedApiInstance) GetHlInstanceClusterIdOk() (*float32, bool)`
+
+GetHlInstanceClusterIdOk returns a tuple with the HlInstanceClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHlInstanceClusterId
+
+`func (o *FormattedApiInstance) SetHlInstanceClusterId(v float32)`
+
+SetHlInstanceClusterId sets HlInstanceClusterId field to given value.
+
+
 ### GetHmInstanceGraphiteCurrentUsage
 
 `func (o *FormattedApiInstance) GetHmInstanceGraphiteCurrentUsage() float32`
@@ -991,22 +1063,42 @@ and a boolean to check if the value has been set.
 SetHmInstanceGraphiteUrl sets HmInstanceGraphiteUrl field to given value.
 
 
+### GetHmInstancePromClusterId
+
+`func (o *FormattedApiInstance) GetHmInstancePromClusterId() float32`
+
+GetHmInstancePromClusterId returns the HmInstancePromClusterId field if non-nil, zero value otherwise.
+
+### GetHmInstancePromClusterIdOk
+
+`func (o *FormattedApiInstance) GetHmInstancePromClusterIdOk() (*float32, bool)`
+
+GetHmInstancePromClusterIdOk returns a tuple with the HmInstancePromClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHmInstancePromClusterId
+
+`func (o *FormattedApiInstance) SetHmInstancePromClusterId(v float32)`
+
+SetHmInstancePromClusterId sets HmInstancePromClusterId field to given value.
+
+
 ### GetHmInstancePromCurrentActiveSeries
 
-`func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeries() interface{}`
+`func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeries() float32`
 
 GetHmInstancePromCurrentActiveSeries returns the HmInstancePromCurrentActiveSeries field if non-nil, zero value otherwise.
 
 ### GetHmInstancePromCurrentActiveSeriesOk
 
-`func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeriesOk() (*interface{}, bool)`
+`func (o *FormattedApiInstance) GetHmInstancePromCurrentActiveSeriesOk() (*float32, bool)`
 
 GetHmInstancePromCurrentActiveSeriesOk returns a tuple with the HmInstancePromCurrentActiveSeries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHmInstancePromCurrentActiveSeries
 
-`func (o *FormattedApiInstance) SetHmInstancePromCurrentActiveSeries(v interface{})`
+`func (o *FormattedApiInstance) SetHmInstancePromCurrentActiveSeries(v float32)`
 
 SetHmInstancePromCurrentActiveSeries sets HmInstancePromCurrentActiveSeries field to given value.
 
@@ -1121,6 +1213,26 @@ and a boolean to check if the value has been set.
 SetHmInstancePromUrl sets HmInstancePromUrl field to given value.
 
 
+### GetHmInstanceGraphiteClusterId
+
+`func (o *FormattedApiInstance) GetHmInstanceGraphiteClusterId() float32`
+
+GetHmInstanceGraphiteClusterId returns the HmInstanceGraphiteClusterId field if non-nil, zero value otherwise.
+
+### GetHmInstanceGraphiteClusterIdOk
+
+`func (o *FormattedApiInstance) GetHmInstanceGraphiteClusterIdOk() (*float32, bool)`
+
+GetHmInstanceGraphiteClusterIdOk returns a tuple with the HmInstanceGraphiteClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHmInstanceGraphiteClusterId
+
+`func (o *FormattedApiInstance) SetHmInstanceGraphiteClusterId(v float32)`
+
+SetHmInstanceGraphiteClusterId sets HmInstanceGraphiteClusterId field to given value.
+
+
 ### GetHtInstanceId
 
 `func (o *FormattedApiInstance) GetHtInstanceId() float32`
@@ -1201,6 +1313,26 @@ and a boolean to check if the value has been set.
 SetHtInstanceUrl sets HtInstanceUrl field to given value.
 
 
+### GetHtInstanceClusterId
+
+`func (o *FormattedApiInstance) GetHtInstanceClusterId() float32`
+
+GetHtInstanceClusterId returns the HtInstanceClusterId field if non-nil, zero value otherwise.
+
+### GetHtInstanceClusterIdOk
+
+`func (o *FormattedApiInstance) GetHtInstanceClusterIdOk() (*float32, bool)`
+
+GetHtInstanceClusterIdOk returns a tuple with the HtInstanceClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHtInstanceClusterId
+
+`func (o *FormattedApiInstance) SetHtInstanceClusterId(v float32)`
+
+SetHtInstanceClusterId sets HtInstanceClusterId field to given value.
+
+
 ### GetHpInstanceId
 
 `func (o *FormattedApiInstance) GetHpInstanceId() float32`
@@ -1279,6 +1411,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiInstance) SetHpInstanceUrl(v string)`
 
 SetHpInstanceUrl sets HpInstanceUrl field to given value.
+
+
+### GetHpInstanceClusterId
+
+`func (o *FormattedApiInstance) GetHpInstanceClusterId() float32`
+
+GetHpInstanceClusterId returns the HpInstanceClusterId field if non-nil, zero value otherwise.
+
+### GetHpInstanceClusterIdOk
+
+`func (o *FormattedApiInstance) GetHpInstanceClusterIdOk() (*float32, bool)`
+
+GetHpInstanceClusterIdOk returns a tuple with the HpInstanceClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHpInstanceClusterId
+
+`func (o *FormattedApiInstance) SetHpInstanceClusterId(v float32)`
+
+SetHpInstanceClusterId sets HpInstanceClusterId field to given value.
 
 
 ### GetId
@@ -1876,6 +2028,86 @@ and a boolean to check if the value has been set.
 SetAgentManagementInstanceId sets AgentManagementInstanceId field to given value.
 
 
+### GetAgentManagementInstanceUrl
+
+`func (o *FormattedApiInstance) GetAgentManagementInstanceUrl() string`
+
+GetAgentManagementInstanceUrl returns the AgentManagementInstanceUrl field if non-nil, zero value otherwise.
+
+### GetAgentManagementInstanceUrlOk
+
+`func (o *FormattedApiInstance) GetAgentManagementInstanceUrlOk() (*string, bool)`
+
+GetAgentManagementInstanceUrlOk returns a tuple with the AgentManagementInstanceUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentManagementInstanceUrl
+
+`func (o *FormattedApiInstance) SetAgentManagementInstanceUrl(v string)`
+
+SetAgentManagementInstanceUrl sets AgentManagementInstanceUrl field to given value.
+
+
+### GetAgentManagementInstanceName
+
+`func (o *FormattedApiInstance) GetAgentManagementInstanceName() string`
+
+GetAgentManagementInstanceName returns the AgentManagementInstanceName field if non-nil, zero value otherwise.
+
+### GetAgentManagementInstanceNameOk
+
+`func (o *FormattedApiInstance) GetAgentManagementInstanceNameOk() (*string, bool)`
+
+GetAgentManagementInstanceNameOk returns a tuple with the AgentManagementInstanceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentManagementInstanceName
+
+`func (o *FormattedApiInstance) SetAgentManagementInstanceName(v string)`
+
+SetAgentManagementInstanceName sets AgentManagementInstanceName field to given value.
+
+
+### GetAgentManagementInstanceStatus
+
+`func (o *FormattedApiInstance) GetAgentManagementInstanceStatus() string`
+
+GetAgentManagementInstanceStatus returns the AgentManagementInstanceStatus field if non-nil, zero value otherwise.
+
+### GetAgentManagementInstanceStatusOk
+
+`func (o *FormattedApiInstance) GetAgentManagementInstanceStatusOk() (*string, bool)`
+
+GetAgentManagementInstanceStatusOk returns a tuple with the AgentManagementInstanceStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentManagementInstanceStatus
+
+`func (o *FormattedApiInstance) SetAgentManagementInstanceStatus(v string)`
+
+SetAgentManagementInstanceStatus sets AgentManagementInstanceStatus field to given value.
+
+
+### GetAgentManagementInstanceClusterId
+
+`func (o *FormattedApiInstance) GetAgentManagementInstanceClusterId() float32`
+
+GetAgentManagementInstanceClusterId returns the AgentManagementInstanceClusterId field if non-nil, zero value otherwise.
+
+### GetAgentManagementInstanceClusterIdOk
+
+`func (o *FormattedApiInstance) GetAgentManagementInstanceClusterIdOk() (*float32, bool)`
+
+GetAgentManagementInstanceClusterIdOk returns a tuple with the AgentManagementInstanceClusterId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgentManagementInstanceClusterId
+
+`func (o *FormattedApiInstance) SetAgentManagementInstanceClusterId(v float32)`
+
+SetAgentManagementInstanceClusterId sets AgentManagementInstanceClusterId field to given value.
+
+
 ### GetConfig
 
 `func (o *FormattedApiInstance) GetConfig() map[string]interface{}`
@@ -1900,6 +2132,256 @@ SetConfig sets Config field to given value.
 `func (o *FormattedApiInstance) HasConfig() bool`
 
 HasConfig returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *FormattedApiInstance) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *FormattedApiInstance) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *FormattedApiInstance) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
+### GetK6OrgId
+
+`func (o *FormattedApiInstance) GetK6OrgId() float32`
+
+GetK6OrgId returns the K6OrgId field if non-nil, zero value otherwise.
+
+### GetK6OrgIdOk
+
+`func (o *FormattedApiInstance) GetK6OrgIdOk() (*float32, bool)`
+
+GetK6OrgIdOk returns a tuple with the K6OrgId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetK6OrgId
+
+`func (o *FormattedApiInstance) SetK6OrgId(v float32)`
+
+SetK6OrgId sets K6OrgId field to given value.
+
+
+### SetK6OrgIdNil
+
+`func (o *FormattedApiInstance) SetK6OrgIdNil(b bool)`
+
+ SetK6OrgIdNil sets the value for K6OrgId to be an explicit nil
+
+### UnsetK6OrgId
+`func (o *FormattedApiInstance) UnsetK6OrgId()`
+
+UnsetK6OrgId ensures that no value is present for K6OrgId, not even an explicit nil
+### GetMachineLearningLogsToken
+
+`func (o *FormattedApiInstance) GetMachineLearningLogsToken() string`
+
+GetMachineLearningLogsToken returns the MachineLearningLogsToken field if non-nil, zero value otherwise.
+
+### GetMachineLearningLogsTokenOk
+
+`func (o *FormattedApiInstance) GetMachineLearningLogsTokenOk() (*string, bool)`
+
+GetMachineLearningLogsTokenOk returns a tuple with the MachineLearningLogsToken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMachineLearningLogsToken
+
+`func (o *FormattedApiInstance) SetMachineLearningLogsToken(v string)`
+
+SetMachineLearningLogsToken sets MachineLearningLogsToken field to given value.
+
+
+### GetUsageStatsId
+
+`func (o *FormattedApiInstance) GetUsageStatsId() string`
+
+GetUsageStatsId returns the UsageStatsId field if non-nil, zero value otherwise.
+
+### GetUsageStatsIdOk
+
+`func (o *FormattedApiInstance) GetUsageStatsIdOk() (*string, bool)`
+
+GetUsageStatsIdOk returns a tuple with the UsageStatsId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsageStatsId
+
+`func (o *FormattedApiInstance) SetUsageStatsId(v string)`
+
+SetUsageStatsId sets UsageStatsId field to given value.
+
+
+### GetRegionStackStateServiceUrl
+
+`func (o *FormattedApiInstance) GetRegionStackStateServiceUrl() string`
+
+GetRegionStackStateServiceUrl returns the RegionStackStateServiceUrl field if non-nil, zero value otherwise.
+
+### GetRegionStackStateServiceUrlOk
+
+`func (o *FormattedApiInstance) GetRegionStackStateServiceUrlOk() (*string, bool)`
+
+GetRegionStackStateServiceUrlOk returns a tuple with the RegionStackStateServiceUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegionStackStateServiceUrl
+
+`func (o *FormattedApiInstance) SetRegionStackStateServiceUrl(v string)`
+
+SetRegionStackStateServiceUrl sets RegionStackStateServiceUrl field to given value.
+
+
+### GetRegionSyntheticMonitoringApiUrl
+
+`func (o *FormattedApiInstance) GetRegionSyntheticMonitoringApiUrl() string`
+
+GetRegionSyntheticMonitoringApiUrl returns the RegionSyntheticMonitoringApiUrl field if non-nil, zero value otherwise.
+
+### GetRegionSyntheticMonitoringApiUrlOk
+
+`func (o *FormattedApiInstance) GetRegionSyntheticMonitoringApiUrlOk() (*string, bool)`
+
+GetRegionSyntheticMonitoringApiUrlOk returns a tuple with the RegionSyntheticMonitoringApiUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegionSyntheticMonitoringApiUrl
+
+`func (o *FormattedApiInstance) SetRegionSyntheticMonitoringApiUrl(v string)`
+
+SetRegionSyntheticMonitoringApiUrl sets RegionSyntheticMonitoringApiUrl field to given value.
+
+
+### GetRegionInsightsApiUrl
+
+`func (o *FormattedApiInstance) GetRegionInsightsApiUrl() string`
+
+GetRegionInsightsApiUrl returns the RegionInsightsApiUrl field if non-nil, zero value otherwise.
+
+### GetRegionInsightsApiUrlOk
+
+`func (o *FormattedApiInstance) GetRegionInsightsApiUrlOk() (*string, bool)`
+
+GetRegionInsightsApiUrlOk returns a tuple with the RegionInsightsApiUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegionInsightsApiUrl
+
+`func (o *FormattedApiInstance) SetRegionInsightsApiUrl(v string)`
+
+SetRegionInsightsApiUrl sets RegionInsightsApiUrl field to given value.
+
+
+### GetRegionIntegrationsApiUrl
+
+`func (o *FormattedApiInstance) GetRegionIntegrationsApiUrl() string`
+
+GetRegionIntegrationsApiUrl returns the RegionIntegrationsApiUrl field if non-nil, zero value otherwise.
+
+### GetRegionIntegrationsApiUrlOk
+
+`func (o *FormattedApiInstance) GetRegionIntegrationsApiUrlOk() (*string, bool)`
+
+GetRegionIntegrationsApiUrlOk returns a tuple with the RegionIntegrationsApiUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegionIntegrationsApiUrl
+
+`func (o *FormattedApiInstance) SetRegionIntegrationsApiUrl(v string)`
+
+SetRegionIntegrationsApiUrl sets RegionIntegrationsApiUrl field to given value.
+
+
+### GetRegionHostedExportersApiUrl
+
+`func (o *FormattedApiInstance) GetRegionHostedExportersApiUrl() string`
+
+GetRegionHostedExportersApiUrl returns the RegionHostedExportersApiUrl field if non-nil, zero value otherwise.
+
+### GetRegionHostedExportersApiUrlOk
+
+`func (o *FormattedApiInstance) GetRegionHostedExportersApiUrlOk() (*string, bool)`
+
+GetRegionHostedExportersApiUrlOk returns a tuple with the RegionHostedExportersApiUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegionHostedExportersApiUrl
+
+`func (o *FormattedApiInstance) SetRegionHostedExportersApiUrl(v string)`
+
+SetRegionHostedExportersApiUrl sets RegionHostedExportersApiUrl field to given value.
+
+
+### GetRegionMachineLearningApiUrl
+
+`func (o *FormattedApiInstance) GetRegionMachineLearningApiUrl() string`
+
+GetRegionMachineLearningApiUrl returns the RegionMachineLearningApiUrl field if non-nil, zero value otherwise.
+
+### GetRegionMachineLearningApiUrlOk
+
+`func (o *FormattedApiInstance) GetRegionMachineLearningApiUrlOk() (*string, bool)`
+
+GetRegionMachineLearningApiUrlOk returns a tuple with the RegionMachineLearningApiUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegionMachineLearningApiUrl
+
+`func (o *FormattedApiInstance) SetRegionMachineLearningApiUrl(v string)`
+
+SetRegionMachineLearningApiUrl sets RegionMachineLearningApiUrl field to given value.
+
+
+### GetRegionLLMGatewayUrl
+
+`func (o *FormattedApiInstance) GetRegionLLMGatewayUrl() string`
+
+GetRegionLLMGatewayUrl returns the RegionLLMGatewayUrl field if non-nil, zero value otherwise.
+
+### GetRegionLLMGatewayUrlOk
+
+`func (o *FormattedApiInstance) GetRegionLLMGatewayUrlOk() (*string, bool)`
+
+GetRegionLLMGatewayUrlOk returns a tuple with the RegionLLMGatewayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegionLLMGatewayUrl
+
+`func (o *FormattedApiInstance) SetRegionLLMGatewayUrl(v string)`
+
+SetRegionLLMGatewayUrl sets RegionLLMGatewayUrl field to given value.
+
+
+### GetLinks
+
+`func (o *FormattedApiInstance) GetLinks() []LinksInner`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *FormattedApiInstance) GetLinksOk() (*[]LinksInner, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *FormattedApiInstance) SetLinks(v []LinksInner)`
+
+SetLinks sets Links field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

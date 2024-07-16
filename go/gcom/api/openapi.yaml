@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: "2743305"
-  x-generated-at: 2024-07-15T19:00:02.863Z
+  x-commit-sha: c9c4291
+  x-generated-at: 2024-07-16T10:09:29.982Z
 servers:
 - description: Main API server
   url: /api
@@ -3846,92 +3846,118 @@ components:
       type: object
     FormattedApiInstance:
       example:
-        orgSlug: orgSlug
-        amInstanceGeneratorUrlDatasource: amInstanceGeneratorUrlDatasource
         hmInstancePromName: hmInstancePromName
-        hmInstanceGraphiteCurrentUsage: 5.025004791520295
-        hlInstanceCurrentUsage: 1.1730742509559433
-        dailyViewerCnt: 1.4894159098541704
         hmInstanceGraphiteType: hmInstanceGraphiteType
-        hlInstanceId: 4.965218492984954
+        regionMachineLearningApiUrl: regionMachineLearningApiUrl
         customAuth: true
         planName: planName
         hmInstanceGraphiteStatus: active
-        currentActiveEditorUsers: 3.616076749251911
+        type: grafana
+        currentActiveEditorUsers: 2.027123023002322
         ssl: true
-        trial: 6.778324963048013
-        createdAt: createdAt
-        hmInstancePromCurrentActiveSeries: ""
-        runningVersion: runningVersion
-        userQuota: 6.878052220127876
-        amInstanceId: 1.4658129805029452
-        id: 6.438423552598547
-        amInstanceGeneratorUrl: amInstanceGeneratorUrl
-        hpInstanceStatus: active
+        userQuota: 7.058770351582356
+        id: 5.944895607614016
         plan: free
-        slug: slug
-        updatedAt: updatedAt
-        agentManagementInstanceId: 5.944895607614016
-        orgName: orgName
-        updatedBy: updatedBy
+        agentManagementInstanceStatus: active
+        htInstanceClusterId: 2.8841621266687802
         alertCnt: 0.8008281904610115
-        htInstanceName: htInstanceName
-        trialExpiresAt: trialExpiresAt
-        amInstanceUrl: amInstanceUrl
-        billingActiveUsers: 5.962133916683182
         datasourceCnts: "{}"
-        billingGrafanaActiveUsers: 5.637376656633329
-        hmInstancePromStatus: active
         version: version
         billingStartDate: billingStartDate
-        customDomain: true
-        dailyUserCnt: 1.0246457001441578
-        amInstanceName: amInstanceName
+        hmInstancePromClusterId: 8.762042012749001
         hlInstanceStatus: active
         labels: "{}"
         amInstanceStatus: active
         clusterSlug: clusterSlug
-        dashboardQuota: 7.457744773683766
-        regionPublicName: regionPublicName
         htInstanceUrl: htInstanceUrl
+        regionIntegrationsApiUrl: regionIntegrationsApiUrl
+        hmInstancePromId: 3.5571952270680973
+        status: active
+        orgId: 3.0937452626664474
+        hmInstanceGraphiteId: 6.683562403749608
+        clusterName: clusterName
+        k6OrgId: 4.652396432933246
+        currentActiveUsers: 4.145608029883936
+        hpInstanceUrl: hpInstanceUrl
+        dailyAdminCnt: 1.2315135367772556
+        url: url
+        billingOnCallActiveUsers: 7.061401241503109
+        hmInstancePromUrl: hmInstancePromUrl
+        machineLearningLogsToken: machineLearningLogsToken
+        regionSyntheticMonitoringApiUrl: regionSyntheticMonitoringApiUrl
+        regionStackStateServiceUrl: regionStackStateServiceUrl
+        hmInstanceGraphiteClusterId: 6.965117697638846
+        hpInstanceId: 6.778324963048013
+        config: "{}"
+        usageStatsId: usageStatsId
+        orgSlug: orgSlug
+        amInstanceGeneratorUrlDatasource: amInstanceGeneratorUrlDatasource
+        regionLLMGatewayUrl: regionLLMGatewayUrl
+        hmInstanceGraphiteCurrentUsage: 9.369310271410669
+        hlInstanceCurrentUsage: 4.965218492984954
+        dailyViewerCnt: 6.84685269835264
+        hlInstanceId: 5.025004791520295
+        agentManagementInstanceUrl: agentManagementInstanceUrl
+        agentManagementInstanceName: agentManagementInstanceName
+        trial: 0.8851374739011653
+        createdAt: createdAt
+        hmInstancePromCurrentActiveSeries: 9.018348186070783
+        runningVersion: runningVersion
+        amInstanceId: 1.4658129805029452
+        links:
+        - rel: rel
+          href: href
+        - rel: rel
+          href: href
+        amInstanceGeneratorUrl: amInstanceGeneratorUrl
+        hpInstanceStatus: active
+        slug: slug
+        updatedAt: updatedAt
+        agentManagementInstanceId: 6.519180951018382
+        orgName: orgName
+        updatedBy: updatedBy
+        htInstanceName: htInstanceName
+        trialExpiresAt: trialExpiresAt
+        amInstanceUrl: amInstanceUrl
+        billingActiveUsers: 5.637376656633329
+        billingGrafanaActiveUsers: 2.3021358869347655
+        hmInstancePromStatus: active
+        regionInsightsApiUrl: regionInsightsApiUrl
+        regionHostedExportersApiUrl: regionHostedExportersApiUrl
+        customDomain: true
+        dailyUserCnt: 1.4894159098541704
+        amInstanceName: amInstanceName
+        dashboardQuota: 1.1730742509559433
+        regionPublicName: regionPublicName
         billingEndDate: billingEndDate
         name: name
         hlInstanceUrl: hlInstanceUrl
+        hlInstanceClusterId: 9.965781217890562
         support: true
-        hmInstancePromId: 6.683562403749608
-        status: active
         description: description
-        clusterId: 7.061401241503109
-        dailyEditorCnt: 1.2315135367772556
-        orgId: 1.284659006116532
-        hmInstanceGraphiteId: 9.965781217890562
+        clusterId: 9.301444243932576
+        dailyEditorCnt: 1.0246457001441578
         alertQuota: 6.027456183070403
-        machineLearning: 6.965117697638846
-        currentActiveViewerUsers: 4.145608029883936
+        machineLearning: 3.353193347011243
+        currentActiveViewerUsers: 7.386281948385884
         hlInstanceName: hlInstanceName
         hmInstanceGraphiteName: hmInstanceGraphiteName
         hpInstanceName: hpInstanceName
         provider: provider
-        clusterName: clusterName
-        currentActiveAdminUsers: 9.301444243932576
-        currentActiveUsers: 2.027123023002322
-        htInstanceId: 8.762042012749001
-        hpInstanceUrl: hpInstanceUrl
-        dailyAdminCnt: 7.386281948385884
+        currentActiveAdminUsers: 3.616076749251911
+        htInstanceId: 1.284659006116532
         regionSlug: regionSlug
-        dashboardCnt: 6.84685269835264
+        dashboardCnt: 7.457744773683766
         htInstanceStatus: active
+        agentManagementInstanceClusterId: 0.10263654006109402
         hmInstanceGraphiteUrl: hmInstanceGraphiteUrl
-        url: url
-        billingOnCallActiveUsers: 2.3021358869347655
-        hmInstancePromUrl: hmInstancePromUrl
         providerRegion: providerRegion
         createdBy: createdBy
-        regionId: 2.8841621266687802
-        hpInstanceId: 9.018348186070783
-        hmInstancePromCurrentUsage: 9.369310271410669
-        incident: 3.5571952270680973
-        config: "{}"
+        regionId: 7.143538047012306
+        hpInstanceClusterId: 6.878052220127876
+        amInstanceClusterId: 5.962133916683182
+        hmInstancePromCurrentUsage: 6.438423552598547
+        incident: 6.704019297950036
         gateway: gateway
       properties:
         alertCnt:
@@ -3963,10 +3989,14 @@ components:
         amInstanceUrl:
           title: amInstanceUrl
           type: string
+        amInstanceClusterId:
+          title: amInstanceClusterId
+          type: number
         billingActiveUsers:
           title: billingActiveUsers
           type: number
         billingEndDate:
+          nullable: true
           title: billingEndDate
           type: string
         billingGrafanaActiveUsers:
@@ -4058,6 +4088,9 @@ components:
         hlInstanceUrl:
           title: hlInstanceUrl
           type: string
+        hlInstanceClusterId:
+          title: hlInstanceClusterId
+          type: number
         hmInstanceGraphiteCurrentUsage:
           title: hmInstanceGraphiteCurrentUsage
           type: number
@@ -4081,9 +4114,13 @@ components:
         hmInstanceGraphiteUrl:
           title: hmInstanceGraphiteUrl
           type: string
+        hmInstancePromClusterId:
+          title: hmInstancePromClusterId
+          type: number
         hmInstancePromCurrentActiveSeries:
           nullable: true
           title: hmInstancePromCurrentActiveSeries
+          type: number
         hmInstancePromCurrentUsage:
           title: hmInstancePromCurrentUsage
           type: number
@@ -4104,6 +4141,9 @@ components:
         hmInstancePromUrl:
           title: hmInstancePromUrl
           type: string
+        hmInstanceGraphiteClusterId:
+          title: hmInstanceGraphiteClusterId
+          type: number
         htInstanceId:
           title: htInstanceId
           type: number
@@ -4121,6 +4161,9 @@ components:
         htInstanceUrl:
           title: htInstanceUrl
           type: string
+        htInstanceClusterId:
+          title: htInstanceClusterId
+          type: number
         hpInstanceId:
           title: hpInstanceId
           type: number
@@ -4138,6 +4181,9 @@ components:
         hpInstanceUrl:
           title: hpInstanceUrl
           type: string
+        hpInstanceClusterId:
+          title: hpInstanceClusterId
+          type: number
         id:
           title: id
           type: number
@@ -4244,13 +4290,76 @@ components:
         agentManagementInstanceId:
           title: agentManagementInstanceId
           type: number
+        agentManagementInstanceUrl:
+          title: agentManagementInstanceUrl
+          type: string
+        agentManagementInstanceName:
+          title: agentManagementInstanceName
+          type: string
+        agentManagementInstanceStatus:
+          enum:
+          - active
+          - deleted
+          - suspended
+          - unknown
+          title: agentManagementInstanceStatus
+          type: string
+        agentManagementInstanceClusterId:
+          title: agentManagementInstanceClusterId
+          type: number
         config:
           title: config
           type: object
+        type:
+          enum:
+          - grafana
+          title: type
+          type: string
+        k6OrgId:
+          nullable: true
+          title: k6OrgId
+          type: number
+        machineLearningLogsToken:
+          title: machineLearningLogsToken
+          type: string
+        usageStatsId:
+          title: usageStatsId
+          type: string
+        regionStackStateServiceUrl:
+          title: regionStackStateServiceUrl
+          type: string
+        regionSyntheticMonitoringApiUrl:
+          title: regionSyntheticMonitoringApiUrl
+          type: string
+        regionInsightsApiUrl:
+          title: regionInsightsApiUrl
+          type: string
+        regionIntegrationsApiUrl:
+          title: regionIntegrationsApiUrl
+          type: string
+        regionHostedExportersApiUrl:
+          title: regionHostedExportersApiUrl
+          type: string
+        regionMachineLearningApiUrl:
+          title: regionMachineLearningApiUrl
+          type: string
+        regionLLMGatewayUrl:
+          title: regionLLMGatewayUrl
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner'
+          title: links
+          type: array
       required:
+      - agentManagementInstanceClusterId
       - agentManagementInstanceId
+      - agentManagementInstanceName
+      - agentManagementInstanceStatus
+      - agentManagementInstanceUrl
       - alertCnt
       - alertQuota
+      - amInstanceClusterId
       - amInstanceGeneratorUrl
       - amInstanceGeneratorUrlDatasource
       - amInstanceId
@@ -4282,34 +4391,42 @@ components:
       - datasourceCnts
       - description
       - gateway
+      - hlInstanceClusterId
       - hlInstanceCurrentUsage
       - hlInstanceId
       - hlInstanceName
       - hlInstanceStatus
       - hlInstanceUrl
+      - hmInstanceGraphiteClusterId
       - hmInstanceGraphiteCurrentUsage
       - hmInstanceGraphiteId
       - hmInstanceGraphiteName
       - hmInstanceGraphiteStatus
       - hmInstanceGraphiteType
       - hmInstanceGraphiteUrl
+      - hmInstancePromClusterId
       - hmInstancePromCurrentActiveSeries
       - hmInstancePromCurrentUsage
       - hmInstancePromId
       - hmInstancePromName
       - hmInstancePromStatus
       - hmInstancePromUrl
+      - hpInstanceClusterId
       - hpInstanceId
       - hpInstanceName
       - hpInstanceStatus
       - hpInstanceUrl
+      - htInstanceClusterId
       - htInstanceId
       - htInstanceName
       - htInstanceStatus
       - htInstanceUrl
       - id
       - incident
+      - k6OrgId
+      - links
       - machineLearning
+      - machineLearningLogsToken
       - name
       - orgId
       - orgName
@@ -4318,9 +4435,16 @@ components:
       - planName
       - provider
       - providerRegion
+      - regionHostedExportersApiUrl
       - regionId
+      - regionInsightsApiUrl
+      - regionIntegrationsApiUrl
+      - regionLLMGatewayUrl
+      - regionMachineLearningApiUrl
       - regionPublicName
       - regionSlug
+      - regionStackStateServiceUrl
+      - regionSyntheticMonitoringApiUrl
       - runningVersion
       - slug
       - ssl
@@ -4328,9 +4452,11 @@ components:
       - support
       - trial
       - trialExpiresAt
+      - type
       - updatedAt
       - updatedBy
       - url
+      - usageStatsId
       - userQuota
       - version
       type: object
@@ -5924,185 +6050,237 @@ components:
       type: object
     getInstances_200_response:
       example:
-        total: 6.704019297950036
-        pages: 3.353193347011243
+        total: 8.969578798196912
+        pages: 7.740351818741173
         orderBy: orderBy
-        pageSize: 3.0937452626664474
-        page: 7.143538047012306
+        pageSize: 3.0205796992916243
+        page: 3.0576100241049344
         items:
-        - orgSlug: orgSlug
-          amInstanceGeneratorUrlDatasource: amInstanceGeneratorUrlDatasource
-          hmInstancePromName: hmInstancePromName
-          hmInstanceGraphiteCurrentUsage: 5.025004791520295
-          hlInstanceCurrentUsage: 1.1730742509559433
-          dailyViewerCnt: 1.4894159098541704
+        - hmInstancePromName: hmInstancePromName
           hmInstanceGraphiteType: hmInstanceGraphiteType
-          hlInstanceId: 4.965218492984954
+          regionMachineLearningApiUrl: regionMachineLearningApiUrl
           customAuth: true
           planName: planName
           hmInstanceGraphiteStatus: active
-          currentActiveEditorUsers: 3.616076749251911
+          type: grafana
+          currentActiveEditorUsers: 2.027123023002322
           ssl: true
-          trial: 6.778324963048013
-          createdAt: createdAt
-          hmInstancePromCurrentActiveSeries: ""
-          runningVersion: runningVersion
-          userQuota: 6.878052220127876
-          amInstanceId: 1.4658129805029452
-          id: 6.438423552598547
-          amInstanceGeneratorUrl: amInstanceGeneratorUrl
-          hpInstanceStatus: active
+          userQuota: 7.058770351582356
+          id: 5.944895607614016
           plan: free
-          slug: slug
-          updatedAt: updatedAt
-          agentManagementInstanceId: 5.944895607614016
-          orgName: orgName
-          updatedBy: updatedBy
+          agentManagementInstanceStatus: active
+          htInstanceClusterId: 2.8841621266687802
           alertCnt: 0.8008281904610115
-          htInstanceName: htInstanceName
-          trialExpiresAt: trialExpiresAt
-          amInstanceUrl: amInstanceUrl
-          billingActiveUsers: 5.962133916683182
           datasourceCnts: "{}"
-          billingGrafanaActiveUsers: 5.637376656633329
-          hmInstancePromStatus: active
           version: version
           billingStartDate: billingStartDate
-          customDomain: true
-          dailyUserCnt: 1.0246457001441578
-          amInstanceName: amInstanceName
+          hmInstancePromClusterId: 8.762042012749001
           hlInstanceStatus: active
           labels: "{}"
           amInstanceStatus: active
           clusterSlug: clusterSlug
-          dashboardQuota: 7.457744773683766
-          regionPublicName: regionPublicName
           htInstanceUrl: htInstanceUrl
+          regionIntegrationsApiUrl: regionIntegrationsApiUrl
+          hmInstancePromId: 3.5571952270680973
+          status: active
+          orgId: 3.0937452626664474
+          hmInstanceGraphiteId: 6.683562403749608
+          clusterName: clusterName
+          k6OrgId: 4.652396432933246
+          currentActiveUsers: 4.145608029883936
+          hpInstanceUrl: hpInstanceUrl
+          dailyAdminCnt: 1.2315135367772556
+          url: url
+          billingOnCallActiveUsers: 7.061401241503109
+          hmInstancePromUrl: hmInstancePromUrl
+          machineLearningLogsToken: machineLearningLogsToken
+          regionSyntheticMonitoringApiUrl: regionSyntheticMonitoringApiUrl
+          regionStackStateServiceUrl: regionStackStateServiceUrl
+          hmInstanceGraphiteClusterId: 6.965117697638846
+          hpInstanceId: 6.778324963048013
+          config: "{}"
+          usageStatsId: usageStatsId
+          orgSlug: orgSlug
+          amInstanceGeneratorUrlDatasource: amInstanceGeneratorUrlDatasource
+          regionLLMGatewayUrl: regionLLMGatewayUrl
+          hmInstanceGraphiteCurrentUsage: 9.369310271410669
+          hlInstanceCurrentUsage: 4.965218492984954
+          dailyViewerCnt: 6.84685269835264
+          hlInstanceId: 5.025004791520295
+          agentManagementInstanceUrl: agentManagementInstanceUrl
+          agentManagementInstanceName: agentManagementInstanceName
+          trial: 0.8851374739011653
+          createdAt: createdAt
+          hmInstancePromCurrentActiveSeries: 9.018348186070783
+          runningVersion: runningVersion
+          amInstanceId: 1.4658129805029452
+          links:
+          - rel: rel
+            href: href
+          - rel: rel
+            href: href
+          amInstanceGeneratorUrl: amInstanceGeneratorUrl
+          hpInstanceStatus: active
+          slug: slug
+          updatedAt: updatedAt
+          agentManagementInstanceId: 6.519180951018382
+          orgName: orgName
+          updatedBy: updatedBy
+          htInstanceName: htInstanceName
+          trialExpiresAt: trialExpiresAt
+          amInstanceUrl: amInstanceUrl
+          billingActiveUsers: 5.637376656633329
+          billingGrafanaActiveUsers: 2.3021358869347655
+          hmInstancePromStatus: active
+          regionInsightsApiUrl: regionInsightsApiUrl
+          regionHostedExportersApiUrl: regionHostedExportersApiUrl
+          customDomain: true
+          dailyUserCnt: 1.4894159098541704
+          amInstanceName: amInstanceName
+          dashboardQuota: 1.1730742509559433
+          regionPublicName: regionPublicName
           billingEndDate: billingEndDate
           name: name
           hlInstanceUrl: hlInstanceUrl
+          hlInstanceClusterId: 9.965781217890562
           support: true
-          hmInstancePromId: 6.683562403749608
-          status: active
           description: description
-          clusterId: 7.061401241503109
-          dailyEditorCnt: 1.2315135367772556
-          orgId: 1.284659006116532
-          hmInstanceGraphiteId: 9.965781217890562
+          clusterId: 9.301444243932576
+          dailyEditorCnt: 1.0246457001441578
           alertQuota: 6.027456183070403
-          machineLearning: 6.965117697638846
-          currentActiveViewerUsers: 4.145608029883936
+          machineLearning: 3.353193347011243
+          currentActiveViewerUsers: 7.386281948385884
           hlInstanceName: hlInstanceName
           hmInstanceGraphiteName: hmInstanceGraphiteName
           hpInstanceName: hpInstanceName
           provider: provider
-          clusterName: clusterName
-          currentActiveAdminUsers: 9.301444243932576
-          currentActiveUsers: 2.027123023002322
-          htInstanceId: 8.762042012749001
-          hpInstanceUrl: hpInstanceUrl
-          dailyAdminCnt: 7.386281948385884
+          currentActiveAdminUsers: 3.616076749251911
+          htInstanceId: 1.284659006116532
           regionSlug: regionSlug
-          dashboardCnt: 6.84685269835264
+          dashboardCnt: 7.457744773683766
           htInstanceStatus: active
+          agentManagementInstanceClusterId: 0.10263654006109402
           hmInstanceGraphiteUrl: hmInstanceGraphiteUrl
-          url: url
-          billingOnCallActiveUsers: 2.3021358869347655
-          hmInstancePromUrl: hmInstancePromUrl
           providerRegion: providerRegion
           createdBy: createdBy
-          regionId: 2.8841621266687802
-          hpInstanceId: 9.018348186070783
-          hmInstancePromCurrentUsage: 9.369310271410669
-          incident: 3.5571952270680973
-          config: "{}"
+          regionId: 7.143538047012306
+          hpInstanceClusterId: 6.878052220127876
+          amInstanceClusterId: 5.962133916683182
+          hmInstancePromCurrentUsage: 6.438423552598547
+          incident: 6.704019297950036
           gateway: gateway
-        - orgSlug: orgSlug
-          amInstanceGeneratorUrlDatasource: amInstanceGeneratorUrlDatasource
-          hmInstancePromName: hmInstancePromName
-          hmInstanceGraphiteCurrentUsage: 5.025004791520295
-          hlInstanceCurrentUsage: 1.1730742509559433
-          dailyViewerCnt: 1.4894159098541704
+        - hmInstancePromName: hmInstancePromName
           hmInstanceGraphiteType: hmInstanceGraphiteType
-          hlInstanceId: 4.965218492984954
+          regionMachineLearningApiUrl: regionMachineLearningApiUrl
           customAuth: true
           planName: planName
           hmInstanceGraphiteStatus: active
-          currentActiveEditorUsers: 3.616076749251911
+          type: grafana
+          currentActiveEditorUsers: 2.027123023002322
           ssl: true
-          trial: 6.778324963048013
-          createdAt: createdAt
-          hmInstancePromCurrentActiveSeries: ""
-          runningVersion: runningVersion
-          userQuota: 6.878052220127876
-          amInstanceId: 1.4658129805029452
-          id: 6.438423552598547
-          amInstanceGeneratorUrl: amInstanceGeneratorUrl
-          hpInstanceStatus: active
+          userQuota: 7.058770351582356
+          id: 5.944895607614016
           plan: free
-          slug: slug
-          updatedAt: updatedAt
-          agentManagementInstanceId: 5.944895607614016
-          orgName: orgName
-          updatedBy: updatedBy
+          agentManagementInstanceStatus: active
+          htInstanceClusterId: 2.8841621266687802
           alertCnt: 0.8008281904610115
-          htInstanceName: htInstanceName
-          trialExpiresAt: trialExpiresAt
-          amInstanceUrl: amInstanceUrl
-          billingActiveUsers: 5.962133916683182
           datasourceCnts: "{}"
-          billingGrafanaActiveUsers: 5.637376656633329
-          hmInstancePromStatus: active
           version: version
           billingStartDate: billingStartDate
-          customDomain: true
-          dailyUserCnt: 1.0246457001441578
-          amInstanceName: amInstanceName
+          hmInstancePromClusterId: 8.762042012749001
           hlInstanceStatus: active
           labels: "{}"
           amInstanceStatus: active
           clusterSlug: clusterSlug
-          dashboardQuota: 7.457744773683766
-          regionPublicName: regionPublicName
           htInstanceUrl: htInstanceUrl
+          regionIntegrationsApiUrl: regionIntegrationsApiUrl
+          hmInstancePromId: 3.5571952270680973
+          status: active
+          orgId: 3.0937452626664474
+          hmInstanceGraphiteId: 6.683562403749608
+          clusterName: clusterName
+          k6OrgId: 4.652396432933246
+          currentActiveUsers: 4.145608029883936
+          hpInstanceUrl: hpInstanceUrl
+          dailyAdminCnt: 1.2315135367772556
+          url: url
+          billingOnCallActiveUsers: 7.061401241503109
+          hmInstancePromUrl: hmInstancePromUrl
+          machineLearningLogsToken: machineLearningLogsToken
+          regionSyntheticMonitoringApiUrl: regionSyntheticMonitoringApiUrl
+          regionStackStateServiceUrl: regionStackStateServiceUrl
+          hmInstanceGraphiteClusterId: 6.965117697638846
+          hpInstanceId: 6.778324963048013
+          config: "{}"
+          usageStatsId: usageStatsId
+          orgSlug: orgSlug
+          amInstanceGeneratorUrlDatasource: amInstanceGeneratorUrlDatasource
+          regionLLMGatewayUrl: regionLLMGatewayUrl
+          hmInstanceGraphiteCurrentUsage: 9.369310271410669
+          hlInstanceCurrentUsage: 4.965218492984954
+          dailyViewerCnt: 6.84685269835264
+          hlInstanceId: 5.025004791520295
+          agentManagementInstanceUrl: agentManagementInstanceUrl
+          agentManagementInstanceName: agentManagementInstanceName
+          trial: 0.8851374739011653
+          createdAt: createdAt
+          hmInstancePromCurrentActiveSeries: 9.018348186070783
+          runningVersion: runningVersion
+          amInstanceId: 1.4658129805029452
+          links:
+          - rel: rel
+            href: href
+          - rel: rel
+            href: href
+          amInstanceGeneratorUrl: amInstanceGeneratorUrl
+          hpInstanceStatus: active
+          slug: slug
+          updatedAt: updatedAt
+          agentManagementInstanceId: 6.519180951018382
+          orgName: orgName
+          updatedBy: updatedBy
+          htInstanceName: htInstanceName
+          trialExpiresAt: trialExpiresAt
+          amInstanceUrl: amInstanceUrl
+          billingActiveUsers: 5.637376656633329
+          billingGrafanaActiveUsers: 2.3021358869347655
+          hmInstancePromStatus: active
+          regionInsightsApiUrl: regionInsightsApiUrl
+          regionHostedExportersApiUrl: regionHostedExportersApiUrl
+          customDomain: true
+          dailyUserCnt: 1.4894159098541704
+          amInstanceName: amInstanceName
+          dashboardQuota: 1.1730742509559433
+          regionPublicName: regionPublicName
           billingEndDate: billingEndDate
           name: name
           hlInstanceUrl: hlInstanceUrl
+          hlInstanceClusterId: 9.965781217890562
           support: true
-          hmInstancePromId: 6.683562403749608
-          status: active
           description: description
-          clusterId: 7.061401241503109
-          dailyEditorCnt: 1.2315135367772556
-          orgId: 1.284659006116532
-          hmInstanceGraphiteId: 9.965781217890562
+          clusterId: 9.301444243932576
+          dailyEditorCnt: 1.0246457001441578
           alertQuota: 6.027456183070403
-          machineLearning: 6.965117697638846
-          currentActiveViewerUsers: 4.145608029883936
+          machineLearning: 3.353193347011243
+          currentActiveViewerUsers: 7.386281948385884
           hlInstanceName: hlInstanceName
           hmInstanceGraphiteName: hmInstanceGraphiteName
           hpInstanceName: hpInstanceName
           provider: provider
-          clusterName: clusterName
-          currentActiveAdminUsers: 9.301444243932576
-          currentActiveUsers: 2.027123023002322
-          htInstanceId: 8.762042012749001
-          hpInstanceUrl: hpInstanceUrl
-          dailyAdminCnt: 7.386281948385884
+          currentActiveAdminUsers: 3.616076749251911
+          htInstanceId: 1.284659006116532
           regionSlug: regionSlug
-          dashboardCnt: 6.84685269835264
+          dashboardCnt: 7.457744773683766
           htInstanceStatus: active
+          agentManagementInstanceClusterId: 0.10263654006109402
           hmInstanceGraphiteUrl: hmInstanceGraphiteUrl
-          url: url
-          billingOnCallActiveUsers: 2.3021358869347655
-          hmInstancePromUrl: hmInstancePromUrl
           providerRegion: providerRegion
           createdBy: createdBy
-          regionId: 2.8841621266687802
-          hpInstanceId: 9.018348186070783
-          hmInstancePromCurrentUsage: 9.369310271410669
-          incident: 3.5571952270680973
-          config: "{}"
+          regionId: 7.143538047012306
+          hpInstanceClusterId: 6.878052220127876
+          amInstanceClusterId: 5.962133916683182
+          hmInstancePromCurrentUsage: 6.438423552598547
+          incident: 6.704019297950036
           gateway: gateway
         direction: asc
       properties:
