@@ -13,7 +13,7 @@ info:
   title: GCOM API
   version: public
   x-commit-sha: bfcefa5
-  x-generated-at: 2024-07-25T09:22:24.907Z
+  x-generated-at: 2024-07-25T09:33:26.320Z
 servers:
 - description: Main API server
   url: /api
