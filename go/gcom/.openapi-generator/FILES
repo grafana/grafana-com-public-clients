@@ -60,6 +60,7 @@ docs/InstancesAPI.md
 docs/ItemsInner.md
 docs/ItemsInner1.md
 docs/ItemsInner1MarketplaceSubscription.md
+docs/ItemsInnerId.md
 docs/LinksInner.md
 docs/LinksInner1.md
 docs/Metadata.md
@@ -159,6 +160,7 @@ model_info.go
 model_items_inner.go
 model_items_inner_1.go
 model_items_inner_1_marketplace_subscription.go
+model_items_inner_id.go
 model_links_inner.go
 model_links_inner_1.go
 model_metadata.go

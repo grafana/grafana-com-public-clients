@@ -19,7 +19,7 @@ var _ MappedNullable = &ItemsInner{}
 
 // ItemsInner struct for ItemsInner
 type ItemsInner struct {
-	Id                   float32         `json:"id"`
+	Id                   ItemsInnerId    `json:"id"`
 	OrgId                float32         `json:"orgId"`
 	OrgSlug              string          `json:"orgSlug"`
 	OrgName              string          `json:"orgName"`
@@ -40,7 +40,7 @@ type _ItemsInner ItemsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsInner(id float32, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner) *ItemsInner {
+func NewItemsInner(id ItemsInnerId, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner) *ItemsInner {
 	this := ItemsInner{}
 	this.Id = id
 	this.OrgId = orgId
@@ -65,9 +65,9 @@ func NewItemsInnerWithDefaults() *ItemsInner {
 }
 
 // GetId returns the Id field value
-func (o *ItemsInner) GetId() float32 {
+func (o *ItemsInner) GetId() ItemsInnerId {
 	if o == nil {
-		var ret float32
+		var ret ItemsInnerId
 		return ret
 	}
 
@@ -76,7 +76,7 @@ func (o *ItemsInner) GetId() float32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner) GetIdOk() (*float32, bool) {
+func (o *ItemsInner) GetIdOk() (*ItemsInnerId, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -84,7 +84,7 @@ func (o *ItemsInner) GetIdOk() (*float32, bool) {
 }
 
 // SetId sets field value
-func (o *ItemsInner) SetId(v float32) {
+func (o *ItemsInner) SetId(v ItemsInnerId) {
 	o.Id = v
 }
 

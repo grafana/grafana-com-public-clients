@@ -19,7 +19,7 @@ var _ MappedNullable = &FormattedApiApiKey{}
 
 // FormattedApiApiKey struct for FormattedApiApiKey
 type FormattedApiApiKey struct {
-	Id                   float32         `json:"id"`
+	Id                   ItemsInnerId    `json:"id"`
 	OrgId                float32         `json:"orgId"`
 	OrgSlug              string          `json:"orgSlug"`
 	OrgName              string          `json:"orgName"`
@@ -40,7 +40,7 @@ type _FormattedApiApiKey FormattedApiApiKey
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiApiKey(id float32, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner) *FormattedApiApiKey {
+func NewFormattedApiApiKey(id ItemsInnerId, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner) *FormattedApiApiKey {
 	this := FormattedApiApiKey{}
 	this.Id = id
 	this.OrgId = orgId
@@ -65,9 +65,9 @@ func NewFormattedApiApiKeyWithDefaults() *FormattedApiApiKey {
 }
 
 // GetId returns the Id field value
-func (o *FormattedApiApiKey) GetId() float32 {
+func (o *FormattedApiApiKey) GetId() ItemsInnerId {
 	if o == nil {
-		var ret float32
+		var ret ItemsInnerId
 		return ret
 	}
 
@@ -76,7 +76,7 @@ func (o *FormattedApiApiKey) GetId() float32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiApiKey) GetIdOk() (*float32, bool) {
+func (o *FormattedApiApiKey) GetIdOk() (*ItemsInnerId, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -84,7 +84,7 @@ func (o *FormattedApiApiKey) GetIdOk() (*float32, bool) {
 }
 
 // SetId sets field value
-func (o *FormattedApiApiKey) SetId(v float32) {
+func (o *FormattedApiApiKey) SetId(v ItemsInnerId) {
 	o.Id = v
 }
 

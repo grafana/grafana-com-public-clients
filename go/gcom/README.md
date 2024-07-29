@@ -186,6 +186,7 @@ Class | Method | HTTP request | Description
  - [ItemsInner](docs/ItemsInner.md)
  - [ItemsInner1](docs/ItemsInner1.md)
  - [ItemsInner1MarketplaceSubscription](docs/ItemsInner1MarketplaceSubscription.md)
+ - [ItemsInnerId](docs/ItemsInnerId.md)
  - [LinksInner](docs/LinksInner.md)
  - [LinksInner1](docs/LinksInner1.md)
  - [Metadata](docs/Metadata.md)

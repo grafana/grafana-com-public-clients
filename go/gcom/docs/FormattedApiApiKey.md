@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
+**Id** | [**ItemsInnerId**](ItemsInnerId.md) |  | 
 **OrgId** | **float32** |  | 
 **OrgSlug** | **string** |  | 
 **OrgName** | **string** |  | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiApiKey
 
-`func NewFormattedApiApiKey(id float32, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner, ) *FormattedApiApiKey`
+`func NewFormattedApiApiKey(id ItemsInnerId, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner, ) *FormattedApiApiKey`
 
 NewFormattedApiApiKey instantiates a new FormattedApiApiKey object
 This constructor will assign default values to properties that have it defined,
@@ -38,20 +38,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *FormattedApiApiKey) GetId() float32`
+`func (o *FormattedApiApiKey) GetId() ItemsInnerId`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *FormattedApiApiKey) GetIdOk() (*float32, bool)`
+`func (o *FormattedApiApiKey) GetIdOk() (*ItemsInnerId, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *FormattedApiApiKey) SetId(v float32)`
+`func (o *FormattedApiApiKey) SetId(v ItemsInnerId)`
 
 SetId sets Id field to given value.
 

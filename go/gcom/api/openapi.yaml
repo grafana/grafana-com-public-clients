@@ -3604,23 +3604,23 @@ components:
       type: object
     FormattedApiApiKeyListResponse:
       example:
-        cursor: 9.301444243932576
-        nextCursor: 3.616076749251911
-        total: 5.962133916683182
-        pages: 5.637376656633329
+        cursor: 7.061401241503109
+        nextCursor: 9.301444243932576
+        total: 1.4658129805029452
+        pages: 5.962133916683182
         orderBy: orderBy
-        pageSize: 2.3021358869347655
+        pageSize: 5.637376656633329
         links:
         - rel: rel
           href: href
         - rel: rel
           href: href
-        page: 7.061401241503109
+        page: 2.3021358869347655
         items:
         - orgSlug: orgSlug
           createdAt: createdAt
           orgName: orgName
-          instanceId: 1.4658129805029452
+          instanceId: 6.027456183070403
           role: Admin
           firstUsed: firstUsed
           name: name
@@ -3629,14 +3629,14 @@ components:
             href: href
           - rel: rel
             href: href
-          id: 0.8008281904610115
-          orgId: 6.027456183070403
+          id: null
+          orgId: 0.8008281904610115
           updatedAt: updatedAt
           token: token
         - orgSlug: orgSlug
           createdAt: createdAt
           orgName: orgName
-          instanceId: 1.4658129805029452
+          instanceId: 6.027456183070403
           role: Admin
           firstUsed: firstUsed
           name: name
@@ -3645,8 +3645,8 @@ components:
             href: href
           - rel: rel
             href: href
-          id: 0.8008281904610115
-          orgId: 6.027456183070403
+          id: null
+          orgId: 0.8008281904610115
           updatedAt: updatedAt
           token: token
         direction: asc
@@ -3696,7 +3696,7 @@ components:
         orgSlug: orgSlug
         createdAt: createdAt
         orgName: orgName
-        instanceId: 1.4658129805029452
+        instanceId: 6.027456183070403
         role: Admin
         firstUsed: firstUsed
         name: name
@@ -3705,14 +3705,13 @@ components:
           href: href
         - rel: rel
           href: href
-        id: 0.8008281904610115
-        orgId: 6.027456183070403
+        id: null
+        orgId: 0.8008281904610115
         updatedAt: updatedAt
         token: token
       properties:
         id:
-          title: id
-          type: number
+          $ref: '#/components/schemas/items_inner_id'
         orgId:
           title: orgId
           type: number
@@ -7121,6 +7120,10 @@ components:
             type: string
           type: array
       type: object
+    items_inner_id:
+      anyOf:
+      - type: string
+      - type: number
     links_inner:
       example:
         rel: rel
@@ -7141,7 +7144,7 @@ components:
         orgSlug: orgSlug
         createdAt: createdAt
         orgName: orgName
-        instanceId: 1.4658129805029452
+        instanceId: 6.027456183070403
         role: Admin
         firstUsed: firstUsed
         name: name
@@ -7150,14 +7153,13 @@ components:
           href: href
         - rel: rel
           href: href
-        id: 0.8008281904610115
-        orgId: 6.027456183070403
+        id: null
+        orgId: 0.8008281904610115
         updatedAt: updatedAt
         token: token
       properties:
         id:
-          title: id
-          type: number
+          $ref: '#/components/schemas/items_inner_id'
         orgId:
           title: orgId
           type: number
