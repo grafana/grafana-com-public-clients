@@ -1,31 +1,28 @@
-name: Publish clients
+name: Generate Clients
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
-  id-token: write
 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-go@v2
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
         with:
           go-version: 1.18
-      - run: ./scripts/generate.sh
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Generate Client
+        uses: grafana/shared-workflows/actions/generate-openapi-clients@julienduchesne/modify-spec-script
         with:
-          commit_message: Update clients and publish
-      - name: Report Status
-        if: always()
-        uses: ravsamhq/notify-slack-action@v2
-        with:
-          status: ${{ job.status }}
-          notify_when: 'failure'
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.GRAFANA_COM_CI_SLACK_WEBHOOK_URL }}
+          package-name: gcom
+          spec-path: openapi.json
+          modify-spec-script: .github/workflows/modify-spec.sh
+
