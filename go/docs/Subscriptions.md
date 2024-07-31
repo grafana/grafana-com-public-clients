@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Current** | [**Current2**](Current2.md) |  | 
-**NextProduct** | **map[string]interface{}** |  | 
-**Next** | **map[string]interface{}** |  | 
+**NextProduct** | **interface{}** |  | 
+**Next** | **interface{}** |  | 
 
 ## Methods
 
 ### NewSubscriptions
 
-`func NewSubscriptions(current Current2, nextProduct map[string]interface{}, next map[string]interface{}, ) *Subscriptions`
+`func NewSubscriptions(current Current2, nextProduct interface{}, next interface{}, ) *Subscriptions`
 
 NewSubscriptions instantiates a new Subscriptions object
 This constructor will assign default values to properties that have it defined,
@@ -49,20 +49,20 @@ SetCurrent sets Current field to given value.
 
 ### GetNextProduct
 
-`func (o *Subscriptions) GetNextProduct() map[string]interface{}`
+`func (o *Subscriptions) GetNextProduct() interface{}`
 
 GetNextProduct returns the NextProduct field if non-nil, zero value otherwise.
 
 ### GetNextProductOk
 
-`func (o *Subscriptions) GetNextProductOk() (*map[string]interface{}, bool)`
+`func (o *Subscriptions) GetNextProductOk() (*interface{}, bool)`
 
 GetNextProductOk returns a tuple with the NextProduct field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNextProduct
 
-`func (o *Subscriptions) SetNextProduct(v map[string]interface{})`
+`func (o *Subscriptions) SetNextProduct(v interface{})`
 
 SetNextProduct sets NextProduct field to given value.
 
@@ -79,20 +79,20 @@ SetNextProduct sets NextProduct field to given value.
 UnsetNextProduct ensures that no value is present for NextProduct, not even an explicit nil
 ### GetNext
 
-`func (o *Subscriptions) GetNext() map[string]interface{}`
+`func (o *Subscriptions) GetNext() interface{}`
 
 GetNext returns the Next field if non-nil, zero value otherwise.
 
 ### GetNextOk
 
-`func (o *Subscriptions) GetNextOk() (*map[string]interface{}, bool)`
+`func (o *Subscriptions) GetNextOk() (*interface{}, bool)`
 
 GetNextOk returns a tuple with the Next field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNext
 
-`func (o *Subscriptions) SetNext(v map[string]interface{})`
+`func (o *Subscriptions) SetNext(v interface{})`
 
 SetNext sets Next field to given value.
 

@@ -13,6 +13,8 @@ package gcom
 import (
 	"encoding/json"
 	"fmt"
+
+	"gopkg.in/validator.v2"
 )
 
 // AuthAccessPolicyConditionsAllowedSubnetsInner - struct for AuthAccessPolicyConditionsAllowedSubnetsInner
@@ -38,7 +40,11 @@ func (dst *AuthAccessPolicyConditionsAllowedSubnetsInner) UnmarshalJSON(data []b
 		if string(jsonString) == "{}" { // empty struct
 			dst.String = nil
 		} else {
-			match++
+			if err = validator.Validate(dst.String); err != nil {
+				dst.String = nil
+			} else {
+				match++
+			}
 		}
 	} else {
 		dst.String = nil

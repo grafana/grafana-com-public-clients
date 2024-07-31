@@ -13,7 +13,7 @@ import (
 	"context"
 	"testing"
 
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
