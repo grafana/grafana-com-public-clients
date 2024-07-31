@@ -3403,6 +3403,9 @@ paths:
 components:
   schemas:
     ErrorServiceUnavailable:
+      example:
+        code: ServiceUnavailable
+        message: Service is currently unavailable
       properties:
         message:
           example: Service is currently unavailable
@@ -3413,6 +3416,9 @@ components:
           type: string
       type: object
     ErrorConflict:
+      example:
+        code: Conflict
+        message: "Invalid arguments: wrong or missing parameters"
       properties:
         message:
           example: "Invalid arguments: wrong or missing parameters"
@@ -3423,6 +3429,9 @@ components:
           type: string
       type: object
     ErrorNotFound:
+      example:
+        code: NotFound
+        message: Element not found
       properties:
         message:
           example: Element not found
@@ -3433,6 +3442,9 @@ components:
           type: string
       type: object
     ErrorForbidden:
+      example:
+        code: Forbidden
+        message: Forbidden
       properties:
         message:
           example: Forbidden
@@ -3443,6 +3455,9 @@ components:
           type: string
       type: object
     ErrorInvalidCredentials:
+      example:
+        code: InvalidCredentials
+        message: Login Required or invalid credentials
       properties:
         message:
           example: Login Required or invalid credentials
@@ -3517,8 +3532,8 @@ components:
         - alerts:read
         conditions:
           allowedSubnets:
-          - null
-          - null
+          - AuthAccessPolicy_conditions_allowedSubnets_inner
+          - AuthAccessPolicy_conditions_allowedSubnets_inner
         orgId: "1"
         updatedAt: 2000-01-23T04:56:07.000+00:00
         status: active
@@ -3629,7 +3644,7 @@ components:
             href: href
           - rel: rel
             href: href
-          id: null
+          id: items_inner_id
           orgId: 0.8008281904610115
           updatedAt: updatedAt
           token: token
@@ -3645,7 +3660,7 @@ components:
             href: href
           - rel: rel
             href: href
-          id: null
+          id: items_inner_id
           orgId: 0.8008281904610115
           updatedAt: updatedAt
           token: token
@@ -3705,7 +3720,7 @@ components:
           href: href
         - rel: rel
           href: href
-        id: null
+        id: items_inner_id
         orgId: 0.8008281904610115
         updatedAt: updatedAt
         token: token
@@ -4630,7 +4645,19 @@ components:
         items:
         - grafanaCloud: 9.301444243932576
           orgSlug: orgSlug
-          subscriptions: null
+          subscriptions:
+            next: ""
+            current:
+              product: ""
+              endDate: ""
+              payload: "{}"
+              publicName: ""
+              planBillingCycle: ""
+              enterprisePluginsAdded: true
+              isTrial: true
+              plan: ""
+              startDate: ""
+            nextProduct: ""
           role: Admin
           userStatus: 1.0246457001441578
           hmCurrentPrometheusUsage: 1.2315135367772556
@@ -4666,7 +4693,19 @@ components:
           status: 5.962133916683182
         - grafanaCloud: 9.301444243932576
           orgSlug: orgSlug
-          subscriptions: null
+          subscriptions:
+            next: ""
+            current:
+              product: ""
+              endDate: ""
+              payload: "{}"
+              publicName: ""
+              planBillingCycle: ""
+              enterprisePluginsAdded: true
+              isTrial: true
+              plan: ""
+              startDate: ""
+            nextProduct: ""
           role: Admin
           userStatus: 1.0246457001441578
           hmCurrentPrometheusUsage: 1.2315135367772556
@@ -4747,7 +4786,20 @@ components:
       example:
         grafanaCloud: 9.301444243932576
         orgSlug: orgSlug
-        subscriptions: null
+        subscriptions:
+          next: ""
+          current:
+            product: ""
+            endDate: ""
+            payload:
+              key: ""
+            publicName: ""
+            planBillingCycle: ""
+            enterprisePluginsAdded: true
+            isTrial: true
+            plan: ""
+            startDate: ""
+          nextProduct: ""
         role: Admin
         userStatus: 1.0246457001441578
         hmCurrentPrometheusUsage: 1.2315135367772556
@@ -4773,7 +4825,7 @@ components:
         resellerId: 3.616076749251911
         hmCurrentGraphiteUsage: 7.386281948385884
         createdBy: createdBy
-        allowGCloudTrial: null
+        allowGCloudTrial: true
         marketplaceSubscription: ""
         status: 5.962133916683182
       properties:
@@ -4965,7 +5017,7 @@ components:
         htTier3Rate: 0.8774076871421566
         k6VuhTier1Rate: 1.8268702177058116
         smUsage: 4.372688051310086
-        allowGCloudTrial: null
+        allowGCloudTrial: true
         supportPlan: supportPlan
         smTier2Rate: 1.2555055362323109
         geUsersTier2Min: 3.8008573585058016
@@ -5007,7 +5059,19 @@ components:
         feO11YUsage: 0.35262192099236644
         hlTier1Rate: 6.519180951018382
         irmTier2Rate: 8.28965939814297
-        subscriptions: null
+        subscriptions:
+          next: ""
+          current:
+            product: ""
+            endDate: ""
+            payload: "{}"
+            publicName: ""
+            planBillingCycle: ""
+            enterprisePluginsAdded: true
+            isTrial: true
+            plan: ""
+            startDate: ""
+          nextProduct: ""
         feO11YTier3Rate: 4.518309517874243
         hmGraphiteTier2Rate: 6.704019297950036
         trialNoticeDate: trialNoticeDate
@@ -5990,6 +6054,18 @@ components:
             example: glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9
             format: password
             type: string
+      example:
+        accessPolicyId: c45485b6-8321-4cf2-bcec-12006df755ff
+        firstUsedAt: 2000-01-23T04:56:07.000+00:00
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        lastUsedAt: 2000-01-23T04:56:07.000+00:00
+        displayName: My Token
+        name: mytoken
+        id: c45485b6-8321-4cf2-bcec-12006df755ff
+        expiresAt: 2000-01-23T04:56:07.000+00:00
+        orgId: "1"
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+        token: glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9
     AuthToken:
       example:
         accessPolicyId: c45485b6-8321-4cf2-bcec-12006df755ff
@@ -6658,14 +6734,34 @@ components:
       type: object
     getStackRegions_200_response:
       example:
-        total: 0.8008281904610115
-        pages: 6.027456183070403
+        total: 1.4658129805029452
+        pages: 5.962133916683182
         orderBy: orderBy
-        pageSize: 1.4658129805029452
-        page: 5.962133916683182
+        pageSize: 5.637376656633329
+        page: 2.3021358869347655
         items:
-        - null
-        - null
+        - createdAt: createdAt
+          visibility: visibility
+          publicName: publicName
+          provider: aws
+          sortOrder: 6.027456183070403
+          name: name
+          description: description
+          id: 0.8008281904610115
+          slug: slug
+          status: status
+          updatedAt: updatedAt
+        - createdAt: createdAt
+          visibility: visibility
+          publicName: publicName
+          provider: aws
+          sortOrder: 6.027456183070403
+          name: name
+          description: description
+          id: 0.8008281904610115
+          slug: slug
+          status: status
+          updatedAt: updatedAt
         direction: asc
       properties:
         items:
@@ -6747,8 +6843,8 @@ components:
           - alerts:read
           conditions:
             allowedSubnets:
-            - null
-            - null
+            - AuthAccessPolicy_conditions_allowedSubnets_inner
+            - AuthAccessPolicy_conditions_allowedSubnets_inner
           orgId: "1"
           updatedAt: 2000-01-23T04:56:07.000+00:00
           status: active
@@ -6793,8 +6889,8 @@ components:
           - alerts:read
           conditions:
             allowedSubnets:
-            - null
-            - null
+            - AuthAccessPolicy_conditions_allowedSubnets_inner
+            - AuthAccessPolicy_conditions_allowedSubnets_inner
           orgId: "1"
           updatedAt: 2000-01-23T04:56:07.000+00:00
           status: active
@@ -7017,8 +7113,8 @@ components:
         A set of criteria that is used to restrict access of the Access Policy and Tokens. Providing an empty object ("{}") results in the complete removal of the `conditions` object.
       example:
         allowedSubnets:
-        - null
-        - null
+        - AuthAccessPolicy_conditions_allowedSubnets_inner
+        - AuthAccessPolicy_conditions_allowedSubnets_inner
       properties:
         allowedSubnets:
           description: |
@@ -7153,7 +7249,7 @@ components:
           href: href
         - rel: rel
           href: href
-        id: null
+        id: items_inner_id
         orgId: 0.8008281904610115
         updatedAt: updatedAt
         token: token
@@ -7339,6 +7435,16 @@ components:
       title: appPlatform
       type: object
     current:
+      example:
+        product: ""
+        endDate: ""
+        payload: "{}"
+        publicName: ""
+        planBillingCycle: ""
+        enterprisePluginsAdded: true
+        isTrial: true
+        plan: ""
+        startDate: ""
       properties:
         product:
           nullable: true
@@ -7380,6 +7486,19 @@ components:
       title: current
       type: object
     subscriptions_anyOf:
+      example:
+        next: ""
+        current:
+          product: ""
+          endDate: ""
+          payload: "{}"
+          publicName: ""
+          planBillingCycle: ""
+          enterprisePluginsAdded: true
+          isTrial: true
+          plan: ""
+          startDate: ""
+        nextProduct: ""
       properties:
         current:
           $ref: '#/components/schemas/current'
@@ -7592,7 +7711,19 @@ components:
       example:
         grafanaCloud: 9.301444243932576
         orgSlug: orgSlug
-        subscriptions: null
+        subscriptions:
+          next: ""
+          current:
+            product: ""
+            endDate: ""
+            payload: "{}"
+            publicName: ""
+            planBillingCycle: ""
+            enterprisePluginsAdded: true
+            isTrial: true
+            plan: ""
+            startDate: ""
+          nextProduct: ""
         role: Admin
         userStatus: 1.0246457001441578
         hmCurrentPrometheusUsage: 1.2315135367772556
@@ -7790,6 +7921,17 @@ components:
       - type: boolean
       - type: number
     current_3:
+      example:
+        product: ""
+        endDate: ""
+        payload:
+          key: ""
+        publicName: ""
+        planBillingCycle: ""
+        enterprisePluginsAdded: true
+        isTrial: true
+        plan: ""
+        startDate: ""
       properties:
         product:
           title: product
@@ -7826,6 +7968,20 @@ components:
       title: current
       type: object
     subscriptions_1_anyOf:
+      example:
+        next: ""
+        current:
+          product: ""
+          endDate: ""
+          payload:
+            key: ""
+          publicName: ""
+          planBillingCycle: ""
+          enterprisePluginsAdded: true
+          isTrial: true
+          plan: ""
+          startDate: ""
+        nextProduct: ""
       properties:
         current:
           $ref: '#/components/schemas/current_3'
@@ -7970,6 +8126,18 @@ components:
       - $ref: '#/components/schemas/subscriptions_1_anyOf_2'
       title: subscriptions
     FormattedApiStackRegion_anyOf:
+      example:
+        createdAt: createdAt
+        visibility: visibility
+        publicName: publicName
+        provider: aws
+        sortOrder: 6.027456183070403
+        name: name
+        description: description
+        id: 0.8008281904610115
+        slug: slug
+        status: status
+        updatedAt: updatedAt
       properties:
         id:
           title: id

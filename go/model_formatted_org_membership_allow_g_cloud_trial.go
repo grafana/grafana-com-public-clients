@@ -17,37 +17,37 @@ import (
 
 // FormattedOrgMembershipAllowGCloudTrial struct for FormattedOrgMembershipAllowGCloudTrial
 type FormattedOrgMembershipAllowGCloudTrial struct {
-	bool    *bool
-	float32 *float32
+	Bool    *bool
+	Float32 *float32
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *FormattedOrgMembershipAllowGCloudTrial) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into bool
-	err = json.Unmarshal(data, &dst.bool)
+	// try to unmarshal JSON data into Bool
+	err = json.Unmarshal(data, &dst.Bool)
 	if err == nil {
-		jsonbool, _ := json.Marshal(dst.bool)
-		if string(jsonbool) == "{}" { // empty struct
-			dst.bool = nil
+		jsonBool, _ := json.Marshal(dst.Bool)
+		if string(jsonBool) == "{}" { // empty struct
+			dst.Bool = nil
 		} else {
-			return nil // data stored in dst.bool, return on the first match
+			return nil // data stored in dst.Bool, return on the first match
 		}
 	} else {
-		dst.bool = nil
+		dst.Bool = nil
 	}
 
-	// try to unmarshal JSON data into float32
-	err = json.Unmarshal(data, &dst.float32)
+	// try to unmarshal JSON data into Float32
+	err = json.Unmarshal(data, &dst.Float32)
 	if err == nil {
-		jsonfloat32, _ := json.Marshal(dst.float32)
-		if string(jsonfloat32) == "{}" { // empty struct
-			dst.float32 = nil
+		jsonFloat32, _ := json.Marshal(dst.Float32)
+		if string(jsonFloat32) == "{}" { // empty struct
+			dst.Float32 = nil
 		} else {
-			return nil // data stored in dst.float32, return on the first match
+			return nil // data stored in dst.Float32, return on the first match
 		}
 	} else {
-		dst.float32 = nil
+		dst.Float32 = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(FormattedOrgMembershipAllowGCloudTrial)")
@@ -55,12 +55,12 @@ func (dst *FormattedOrgMembershipAllowGCloudTrial) UnmarshalJSON(data []byte) er
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src *FormattedOrgMembershipAllowGCloudTrial) MarshalJSON() ([]byte, error) {
-	if src.bool != nil {
-		return json.Marshal(&src.bool)
+	if src.Bool != nil {
+		return json.Marshal(&src.Bool)
 	}
 
-	if src.float32 != nil {
-		return json.Marshal(&src.float32)
+	if src.Float32 != nil {
+		return json.Marshal(&src.Float32)
 	}
 
 	return nil, nil // no data in anyOf schemas

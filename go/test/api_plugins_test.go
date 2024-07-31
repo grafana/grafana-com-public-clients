@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Testing StackRegionsAPIService
+Testing PluginsAPIService
 
 */
 
@@ -13,21 +13,23 @@ import (
 	"context"
 	"testing"
 
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
-func Test_gcom_StackRegionsAPIService(t *testing.T) {
+func Test_gcom_PluginsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test StackRegionsAPIService GetStackRegions", func(t *testing.T) {
+	t.Run("Test PluginsAPIService GetPlugin", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.StackRegionsAPI.GetStackRegions(context.Background()).Execute()
+		var slug string
+
+		resp, httpRes, err := apiClient.PluginsAPI.GetPlugin(context.Background(), slug).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
