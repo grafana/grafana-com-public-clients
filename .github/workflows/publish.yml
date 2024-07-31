@@ -25,5 +25,4 @@ jobs:
           package-name: gcom
           spec-path: openapi.json
           modify-spec-script: .github/workflows/modify-spec.sh
-          additional-generator-args: -p isGoSubmodule=true
 
