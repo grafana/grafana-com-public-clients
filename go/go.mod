@@ -1,4 +1,4 @@
-module github.com/grafana/grafana-com-public-clients/go/gcom
+module github.com/grafana/grafana-com-public-clients/go
 
 go 1.18
 

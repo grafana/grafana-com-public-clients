@@ -27,7 +27,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go"
 )
 
 func main() {
@@ -101,7 +101,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go"
 )
 
 func main() {
@@ -173,7 +173,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go"
 )
 
 func main() {
@@ -261,7 +261,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go"
 )
 
 func main() {
@@ -337,7 +337,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go"
 )
 
 func main() {
