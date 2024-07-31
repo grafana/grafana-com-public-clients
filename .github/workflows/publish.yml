@@ -20,7 +20,7 @@ jobs:
         with:
           go-version: 1.18
       - name: Generate Client
-        uses: grafana/shared-workflows/actions/generate-openapi-clients@julienduchesne/modify-spec-script
+        uses: grafana/shared-workflows/actions/generate-openapi-clients@main
         with:
           package-name: gcom
           spec-path: openapi.json
