@@ -2912,6 +2912,102 @@
         }
       }
     },
+    "/instances/{instanceId}/users": {
+      "get": {
+        "tags": [
+          "instances"
+        ],
+        "operationId": "getInstanceUsers",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instanceId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "active",
+            "schema": {
+              "type": "boolean"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "activeSince",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "includeInternal",
+            "schema": {
+              "type": "boolean"
+            },
+            "required": false
+          }
+        ],
+        "summary": "Gets instance active users",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceUsersResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorForbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorNotFound"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orgs/{orgSlug}/instances": {
       "get": {
         "tags": [
@@ -5670,8 +5766,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "5665f99",
-    "x-generated-at": "2024-08-07T09:44:54.703Z"
+    "x-commit-sha": "f582286",
+    "x-generated-at": "2024-08-07T11:50:42.499Z"
   },
   "security": [
     {
@@ -7134,6 +7230,69 @@
           }
         },
         "type": "object"
+      },
+      "InstanceUsersResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "lastSeenAt": {
+                  "type": "string",
+                  "title": "lastSeenAt"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "title": "createdAt"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "title": "updatedAt"
+                },
+                "email": {
+                  "type": "string",
+                  "title": "email"
+                },
+                "login": {
+                  "type": "string",
+                  "title": "login"
+                },
+                "name": {
+                  "type": "string",
+                  "title": "name"
+                },
+                "role": {
+                  "type": "string",
+                  "title": "role"
+                },
+                "id": {
+                  "type": "number",
+                  "title": "id"
+                },
+                "isServiceAccount": {
+                  "type": "boolean",
+                  "title": "isServiceAccount"
+                }
+              },
+              "required": [
+                "createdAt",
+                "email",
+                "id",
+                "isServiceAccount",
+                "login",
+                "name",
+                "role",
+                "updatedAt"
+              ]
+            },
+            "title": "items"
+          }
+        },
+        "required": [
+          "items"
+        ]
       },
       "FormattedApiInstanceConnections": {
         "type": "object",
