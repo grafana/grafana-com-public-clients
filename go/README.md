@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 *InstancesAPI* | [**GetInstancePlugins**](docs/InstancesAPI.md#getinstanceplugins) | **Get** /instances/{instanceId}/plugins | 
 *InstancesAPI* | [**GetInstanceServiceAccount**](docs/InstancesAPI.md#getinstanceserviceaccount) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Gets a service account on a Grafana instance
 *InstancesAPI* | [**GetInstanceServiceAccountTokens**](docs/InstancesAPI.md#getinstanceserviceaccounttokens) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Get a service account&#39;s tokens on a Grafana instance
+*InstancesAPI* | [**GetInstanceUsers**](docs/InstancesAPI.md#getinstanceusers) | **Get** /instances/{instanceId}/users | Gets instance active users
 *InstancesAPI* | [**GetInstances**](docs/InstancesAPI.md#getinstances) | **Get** /instances | Get a list of instances
 *InstancesAPI* | [**PostInstance**](docs/InstancesAPI.md#postinstance) | **Post** /instances/{instanceId} | Updates an instance
 *InstancesAPI* | [**PostInstanceOAuthAzureAD**](docs/InstancesAPI.md#postinstanceoauthazuread) | **Post** /instances/{instanceId}/oauth-azuread | Configure Azure OAuth in an instance
@@ -184,9 +185,11 @@ Class | Method | HTTP request | Description
  - [GrafanaTokenDTO](docs/GrafanaTokenDTO.md)
  - [Graphite](docs/Graphite.md)
  - [Info](docs/Info.md)
+ - [InstanceUsersResponse](docs/InstanceUsersResponse.md)
  - [ItemsInner](docs/ItemsInner.md)
  - [ItemsInner1](docs/ItemsInner1.md)
- - [ItemsInner1MarketplaceSubscription](docs/ItemsInner1MarketplaceSubscription.md)
+ - [ItemsInner2](docs/ItemsInner2.md)
+ - [ItemsInner2MarketplaceSubscription](docs/ItemsInner2MarketplaceSubscription.md)
  - [ItemsInnerId](docs/ItemsInnerId.md)
  - [LinksInner](docs/LinksInner.md)
  - [LinksInner1](docs/LinksInner1.md)

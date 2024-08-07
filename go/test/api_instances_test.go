@@ -224,6 +224,20 @@ func Test_gcom_InstancesAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InstancesAPIService GetInstanceUsers", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var instanceId string
+
+		resp, httpRes, err := apiClient.InstancesAPI.GetInstanceUsers(context.Background(), instanceId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InstancesAPIService GetInstances", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test

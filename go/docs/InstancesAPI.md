@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**GetInstancePlugins**](InstancesAPI.md#GetInstancePlugins) | **Get** /instances/{instanceId}/plugins | 
 [**GetInstanceServiceAccount**](InstancesAPI.md#GetInstanceServiceAccount) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Gets a service account on a Grafana instance
 [**GetInstanceServiceAccountTokens**](InstancesAPI.md#GetInstanceServiceAccountTokens) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Get a service account&#39;s tokens on a Grafana instance
+[**GetInstanceUsers**](InstancesAPI.md#GetInstanceUsers) | **Get** /instances/{instanceId}/users | Gets instance active users
 [**GetInstances**](InstancesAPI.md#GetInstances) | **Get** /instances | Get a list of instances
 [**PostInstance**](InstancesAPI.md#PostInstance) | **Post** /instances/{instanceId} | Updates an instance
 [**PostInstanceOAuthAzureAD**](InstancesAPI.md#PostInstanceOAuthAzureAD) | **Post** /instances/{instanceId}/oauth-azuread | Configure Azure OAuth in an instance
@@ -1010,6 +1011,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]GrafanaTokenDTO**](GrafanaTokenDTO.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInstanceUsers
+
+> InstanceUsersResponse GetInstanceUsers(ctx, instanceId).Active(active).ActiveSince(activeSince).IncludeInternal(includeInternal).Execute()
+
+Gets instance active users
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	active := true // bool |  (optional)
+	activeSince := time.Now() // time.Time |  (optional)
+	includeInternal := true // bool |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.GetInstanceUsers(context.Background(), instanceId).Active(active).ActiveSince(activeSince).IncludeInternal(includeInternal).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstanceUsers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetInstanceUsers`: InstanceUsersResponse
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.GetInstanceUsers`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInstanceUsersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **active** | **bool** |  | 
+ **activeSince** | **time.Time** |  | 
+ **includeInternal** | **bool** |  | 
+
+### Return type
+
+[**InstanceUsersResponse**](InstanceUsersResponse.md)
 
 ### Authorization
 

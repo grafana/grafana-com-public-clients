@@ -56,10 +56,12 @@ docs/GrafanaServiceAccountDTO.md
 docs/GrafanaTokenDTO.md
 docs/Graphite.md
 docs/Info.md
+docs/InstanceUsersResponse.md
 docs/InstancesAPI.md
 docs/ItemsInner.md
 docs/ItemsInner1.md
-docs/ItemsInner1MarketplaceSubscription.md
+docs/ItemsInner2.md
+docs/ItemsInner2MarketplaceSubscription.md
 docs/ItemsInnerId.md
 docs/LinksInner.md
 docs/LinksInner1.md
@@ -157,9 +159,11 @@ model_grafana_service_account_dto.go
 model_grafana_token_dto.go
 model_graphite.go
 model_info.go
+model_instance_users_response.go
 model_items_inner.go
 model_items_inner_1.go
-model_items_inner_1_marketplace_subscription.go
+model_items_inner_2.go
+model_items_inner_2_marketplace_subscription.go
 model_items_inner_id.go
 model_links_inner.go
 model_links_inner_1.go
