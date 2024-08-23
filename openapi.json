@@ -5766,8 +5766,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "af3b6d7",
-    "x-generated-at": "2024-08-23T08:08:15.987Z"
+    "x-commit-sha": "1205810",
+    "x-generated-at": "2024-08-23T10:02:46.504Z"
   },
   "security": [
     {
@@ -9032,6 +9032,70 @@
             "type": "number",
             "title": "smUsage"
           },
+          "infraO11YHostsIncludedUsage": {
+            "type": "number",
+            "title": "infraO11YHostsIncludedUsage"
+          },
+          "infraO11YHostsTier1Rate": {
+            "type": "number",
+            "title": "infraO11YHostsTier1Rate"
+          },
+          "infraO11YHostsTier2Min": {
+            "type": "number",
+            "title": "infraO11YHostsTier2Min"
+          },
+          "infraO11YHostsTier2Rate": {
+            "type": "number",
+            "title": "infraO11YHostsTier2Rate"
+          },
+          "infraO11YHostsTier3Min": {
+            "type": "number",
+            "title": "infraO11YHostsTier3Min"
+          },
+          "infraO11YHostsTier3Rate": {
+            "type": "number",
+            "title": "infraO11YHostsTier3Rate"
+          },
+          "infraO11YHostsUnits": {
+            "type": "number",
+            "title": "infraO11YHostsUnits"
+          },
+          "infraO11YHostsUsage": {
+            "type": "number",
+            "title": "infraO11YHostsUsage"
+          },
+          "infraO11YContainersIncludedUsage": {
+            "type": "number",
+            "title": "infraO11YContainersIncludedUsage"
+          },
+          "infraO11YContainersTier1Rate": {
+            "type": "number",
+            "title": "infraO11YContainersTier1Rate"
+          },
+          "infraO11YContainersTier2Min": {
+            "type": "number",
+            "title": "infraO11YContainersTier2Min"
+          },
+          "infraO11YContainersTier2Rate": {
+            "type": "number",
+            "title": "infraO11YContainersTier2Rate"
+          },
+          "infraO11YContainersTier3Min": {
+            "type": "number",
+            "title": "infraO11YContainersTier3Min"
+          },
+          "infraO11YContainersTier3Rate": {
+            "type": "number",
+            "title": "infraO11YContainersTier3Rate"
+          },
+          "infraO11YContainersUnits": {
+            "type": "number",
+            "title": "infraO11YContainersUnits"
+          },
+          "infraO11YContainersUsage": {
+            "type": "number",
+            "title": "infraO11YContainersUsage"
+          },
           "geUsersIncludedUsage": {
             "type": "number",
             "title": "geUsersIncludedUsage"
@@ -9596,6 +9660,22 @@
           "htTier3Rate",
           "htUsage",
           "id",
+          "infraO11YContainersIncludedUsage",
+          "infraO11YContainersTier1Rate",
+          "infraO11YContainersTier2Min",
+          "infraO11YContainersTier2Rate",
+          "infraO11YContainersTier3Min",
+          "infraO11YContainersTier3Rate",
+          "infraO11YContainersUnits",
+          "infraO11YContainersUsage",
+          "infraO11YHostsIncludedUsage",
+          "infraO11YHostsTier1Rate",
+          "infraO11YHostsTier2Min",
+          "infraO11YHostsTier2Rate",
+          "infraO11YHostsTier3Min",
+          "infraO11YHostsTier3Rate",
+          "infraO11YHostsUnits",
+          "infraO11YHostsUsage",
           "irmIncludedUsage",
           "irmStatus",
           "irmTier1Rate",
