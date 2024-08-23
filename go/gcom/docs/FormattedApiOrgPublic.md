@@ -133,6 +133,22 @@ Name | Type | Description | Notes
 **SmTier3Rate** | **float32** |  | 
 **SmUnits** | **float32** |  | 
 **SmUsage** | **float32** |  | 
+**InfraO11YHostsIncludedUsage** | **float32** |  | 
+**InfraO11YHostsTier1Rate** | **float32** |  | 
+**InfraO11YHostsTier2Min** | **float32** |  | 
+**InfraO11YHostsTier2Rate** | **float32** |  | 
+**InfraO11YHostsTier3Min** | **float32** |  | 
+**InfraO11YHostsTier3Rate** | **float32** |  | 
+**InfraO11YHostsUnits** | **float32** |  | 
+**InfraO11YHostsUsage** | **float32** |  | 
+**InfraO11YContainersIncludedUsage** | **float32** |  | 
+**InfraO11YContainersTier1Rate** | **float32** |  | 
+**InfraO11YContainersTier2Min** | **float32** |  | 
+**InfraO11YContainersTier2Rate** | **float32** |  | 
+**InfraO11YContainersTier3Min** | **float32** |  | 
+**InfraO11YContainersTier3Rate** | **float32** |  | 
+**InfraO11YContainersUnits** | **float32** |  | 
+**InfraO11YContainersUsage** | **float32** |  | 
 **GeUsersIncludedUsage** | **float32** |  | 
 **GeUsersTier1Rate** | **float32** |  | 
 **GeUsersTier2Min** | **float32** |  | 
@@ -168,7 +184,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiOrgPublic
 
-`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, appO11YIncludedUsage float32, appO11YTier1Rate float32, appO11YTier2Min float32, appO11YTier2Rate float32, appO11YTier3Min float32, appO11YTier3Rate float32, appO11YUnits float32, appO11YUsage float32, smIncludedUsage float32, smTier1Rate float32, smTier2Min float32, smTier2Rate float32, smTier3Min float32, smTier3Rate float32, smUnits float32, smUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geUsersAnonymousUsersRatio float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
+`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, appO11YIncludedUsage float32, appO11YTier1Rate float32, appO11YTier2Min float32, appO11YTier2Rate float32, appO11YTier3Min float32, appO11YTier3Rate float32, appO11YUnits float32, appO11YUsage float32, smIncludedUsage float32, smTier1Rate float32, smTier2Min float32, smTier2Rate float32, smTier3Min float32, smTier3Rate float32, smUnits float32, smUsage float32, infraO11YHostsIncludedUsage float32, infraO11YHostsTier1Rate float32, infraO11YHostsTier2Min float32, infraO11YHostsTier2Rate float32, infraO11YHostsTier3Min float32, infraO11YHostsTier3Rate float32, infraO11YHostsUnits float32, infraO11YHostsUsage float32, infraO11YContainersIncludedUsage float32, infraO11YContainersTier1Rate float32, infraO11YContainersTier2Min float32, infraO11YContainersTier2Rate float32, infraO11YContainersTier3Min float32, infraO11YContainersTier3Rate float32, infraO11YContainersUnits float32, infraO11YContainersUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geUsersAnonymousUsersRatio float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
 
 NewFormattedApiOrgPublic instantiates a new FormattedApiOrgPublic object
 This constructor will assign default values to properties that have it defined,
@@ -2841,6 +2857,326 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiOrgPublic) SetSmUsage(v float32)`
 
 SetSmUsage sets SmUsage field to given value.
+
+
+### GetInfraO11YHostsIncludedUsage
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsIncludedUsage() float32`
+
+GetInfraO11YHostsIncludedUsage returns the InfraO11YHostsIncludedUsage field if non-nil, zero value otherwise.
+
+### GetInfraO11YHostsIncludedUsageOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsIncludedUsageOk() (*float32, bool)`
+
+GetInfraO11YHostsIncludedUsageOk returns a tuple with the InfraO11YHostsIncludedUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YHostsIncludedUsage
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YHostsIncludedUsage(v float32)`
+
+SetInfraO11YHostsIncludedUsage sets InfraO11YHostsIncludedUsage field to given value.
+
+
+### GetInfraO11YHostsTier1Rate
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier1Rate() float32`
+
+GetInfraO11YHostsTier1Rate returns the InfraO11YHostsTier1Rate field if non-nil, zero value otherwise.
+
+### GetInfraO11YHostsTier1RateOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier1RateOk() (*float32, bool)`
+
+GetInfraO11YHostsTier1RateOk returns a tuple with the InfraO11YHostsTier1Rate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YHostsTier1Rate
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YHostsTier1Rate(v float32)`
+
+SetInfraO11YHostsTier1Rate sets InfraO11YHostsTier1Rate field to given value.
+
+
+### GetInfraO11YHostsTier2Min
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier2Min() float32`
+
+GetInfraO11YHostsTier2Min returns the InfraO11YHostsTier2Min field if non-nil, zero value otherwise.
+
+### GetInfraO11YHostsTier2MinOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier2MinOk() (*float32, bool)`
+
+GetInfraO11YHostsTier2MinOk returns a tuple with the InfraO11YHostsTier2Min field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YHostsTier2Min
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YHostsTier2Min(v float32)`
+
+SetInfraO11YHostsTier2Min sets InfraO11YHostsTier2Min field to given value.
+
+
+### GetInfraO11YHostsTier2Rate
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier2Rate() float32`
+
+GetInfraO11YHostsTier2Rate returns the InfraO11YHostsTier2Rate field if non-nil, zero value otherwise.
+
+### GetInfraO11YHostsTier2RateOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier2RateOk() (*float32, bool)`
+
+GetInfraO11YHostsTier2RateOk returns a tuple with the InfraO11YHostsTier2Rate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YHostsTier2Rate
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YHostsTier2Rate(v float32)`
+
+SetInfraO11YHostsTier2Rate sets InfraO11YHostsTier2Rate field to given value.
+
+
+### GetInfraO11YHostsTier3Min
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier3Min() float32`
+
+GetInfraO11YHostsTier3Min returns the InfraO11YHostsTier3Min field if non-nil, zero value otherwise.
+
+### GetInfraO11YHostsTier3MinOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier3MinOk() (*float32, bool)`
+
+GetInfraO11YHostsTier3MinOk returns a tuple with the InfraO11YHostsTier3Min field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YHostsTier3Min
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YHostsTier3Min(v float32)`
+
+SetInfraO11YHostsTier3Min sets InfraO11YHostsTier3Min field to given value.
+
+
+### GetInfraO11YHostsTier3Rate
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier3Rate() float32`
+
+GetInfraO11YHostsTier3Rate returns the InfraO11YHostsTier3Rate field if non-nil, zero value otherwise.
+
+### GetInfraO11YHostsTier3RateOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier3RateOk() (*float32, bool)`
+
+GetInfraO11YHostsTier3RateOk returns a tuple with the InfraO11YHostsTier3Rate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YHostsTier3Rate
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YHostsTier3Rate(v float32)`
+
+SetInfraO11YHostsTier3Rate sets InfraO11YHostsTier3Rate field to given value.
+
+
+### GetInfraO11YHostsUnits
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsUnits() float32`
+
+GetInfraO11YHostsUnits returns the InfraO11YHostsUnits field if non-nil, zero value otherwise.
+
+### GetInfraO11YHostsUnitsOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsUnitsOk() (*float32, bool)`
+
+GetInfraO11YHostsUnitsOk returns a tuple with the InfraO11YHostsUnits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YHostsUnits
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YHostsUnits(v float32)`
+
+SetInfraO11YHostsUnits sets InfraO11YHostsUnits field to given value.
+
+
+### GetInfraO11YHostsUsage
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsUsage() float32`
+
+GetInfraO11YHostsUsage returns the InfraO11YHostsUsage field if non-nil, zero value otherwise.
+
+### GetInfraO11YHostsUsageOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YHostsUsageOk() (*float32, bool)`
+
+GetInfraO11YHostsUsageOk returns a tuple with the InfraO11YHostsUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YHostsUsage
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YHostsUsage(v float32)`
+
+SetInfraO11YHostsUsage sets InfraO11YHostsUsage field to given value.
+
+
+### GetInfraO11YContainersIncludedUsage
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersIncludedUsage() float32`
+
+GetInfraO11YContainersIncludedUsage returns the InfraO11YContainersIncludedUsage field if non-nil, zero value otherwise.
+
+### GetInfraO11YContainersIncludedUsageOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersIncludedUsageOk() (*float32, bool)`
+
+GetInfraO11YContainersIncludedUsageOk returns a tuple with the InfraO11YContainersIncludedUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YContainersIncludedUsage
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YContainersIncludedUsage(v float32)`
+
+SetInfraO11YContainersIncludedUsage sets InfraO11YContainersIncludedUsage field to given value.
+
+
+### GetInfraO11YContainersTier1Rate
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier1Rate() float32`
+
+GetInfraO11YContainersTier1Rate returns the InfraO11YContainersTier1Rate field if non-nil, zero value otherwise.
+
+### GetInfraO11YContainersTier1RateOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier1RateOk() (*float32, bool)`
+
+GetInfraO11YContainersTier1RateOk returns a tuple with the InfraO11YContainersTier1Rate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YContainersTier1Rate
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YContainersTier1Rate(v float32)`
+
+SetInfraO11YContainersTier1Rate sets InfraO11YContainersTier1Rate field to given value.
+
+
+### GetInfraO11YContainersTier2Min
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier2Min() float32`
+
+GetInfraO11YContainersTier2Min returns the InfraO11YContainersTier2Min field if non-nil, zero value otherwise.
+
+### GetInfraO11YContainersTier2MinOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier2MinOk() (*float32, bool)`
+
+GetInfraO11YContainersTier2MinOk returns a tuple with the InfraO11YContainersTier2Min field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YContainersTier2Min
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YContainersTier2Min(v float32)`
+
+SetInfraO11YContainersTier2Min sets InfraO11YContainersTier2Min field to given value.
+
+
+### GetInfraO11YContainersTier2Rate
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier2Rate() float32`
+
+GetInfraO11YContainersTier2Rate returns the InfraO11YContainersTier2Rate field if non-nil, zero value otherwise.
+
+### GetInfraO11YContainersTier2RateOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier2RateOk() (*float32, bool)`
+
+GetInfraO11YContainersTier2RateOk returns a tuple with the InfraO11YContainersTier2Rate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YContainersTier2Rate
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YContainersTier2Rate(v float32)`
+
+SetInfraO11YContainersTier2Rate sets InfraO11YContainersTier2Rate field to given value.
+
+
+### GetInfraO11YContainersTier3Min
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier3Min() float32`
+
+GetInfraO11YContainersTier3Min returns the InfraO11YContainersTier3Min field if non-nil, zero value otherwise.
+
+### GetInfraO11YContainersTier3MinOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier3MinOk() (*float32, bool)`
+
+GetInfraO11YContainersTier3MinOk returns a tuple with the InfraO11YContainersTier3Min field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YContainersTier3Min
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YContainersTier3Min(v float32)`
+
+SetInfraO11YContainersTier3Min sets InfraO11YContainersTier3Min field to given value.
+
+
+### GetInfraO11YContainersTier3Rate
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier3Rate() float32`
+
+GetInfraO11YContainersTier3Rate returns the InfraO11YContainersTier3Rate field if non-nil, zero value otherwise.
+
+### GetInfraO11YContainersTier3RateOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier3RateOk() (*float32, bool)`
+
+GetInfraO11YContainersTier3RateOk returns a tuple with the InfraO11YContainersTier3Rate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YContainersTier3Rate
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YContainersTier3Rate(v float32)`
+
+SetInfraO11YContainersTier3Rate sets InfraO11YContainersTier3Rate field to given value.
+
+
+### GetInfraO11YContainersUnits
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersUnits() float32`
+
+GetInfraO11YContainersUnits returns the InfraO11YContainersUnits field if non-nil, zero value otherwise.
+
+### GetInfraO11YContainersUnitsOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersUnitsOk() (*float32, bool)`
+
+GetInfraO11YContainersUnitsOk returns a tuple with the InfraO11YContainersUnits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YContainersUnits
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YContainersUnits(v float32)`
+
+SetInfraO11YContainersUnits sets InfraO11YContainersUnits field to given value.
+
+
+### GetInfraO11YContainersUsage
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersUsage() float32`
+
+GetInfraO11YContainersUsage returns the InfraO11YContainersUsage field if non-nil, zero value otherwise.
+
+### GetInfraO11YContainersUsageOk
+
+`func (o *FormattedApiOrgPublic) GetInfraO11YContainersUsageOk() (*float32, bool)`
+
+GetInfraO11YContainersUsageOk returns a tuple with the InfraO11YContainersUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInfraO11YContainersUsage
+
+`func (o *FormattedApiOrgPublic) SetInfraO11YContainersUsage(v float32)`
+
+SetInfraO11YContainersUsage sets InfraO11YContainersUsage field to given value.
 
 
 ### GetGeUsersIncludedUsage
