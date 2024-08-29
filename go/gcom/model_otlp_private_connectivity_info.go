@@ -24,11 +24,6 @@ type OtlpPrivateConnectivityInfo struct {
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *OtlpPrivateConnectivityInfo) UnmarshalJSON(data []byte) error {
 	var err error
-	// this object is nullable so check if the payload is null or empty string
-	if string(data) == "" || string(data) == "{}" {
-		return nil
-	}
-
 	// try to unmarshal JSON data into OtlpPrivateConnectivityInfoAnyOf
 	err = json.Unmarshal(data, &dst.OtlpPrivateConnectivityInfoAnyOf)
 	if err == nil {

@@ -19,39 +19,38 @@ var _ MappedNullable = &FormattedApiPlugin{}
 
 // FormattedApiPlugin struct for FormattedApiPlugin
 type FormattedApiPlugin struct {
-	Status                   string                 `json:"status"`
-	Id                       float32                `json:"id"`
-	TypeId                   float32                `json:"typeId"`
-	TypeName                 string                 `json:"typeName"`
-	TypeCode                 string                 `json:"typeCode"`
-	Slug                     string                 `json:"slug"`
-	Name                     string                 `json:"name"`
-	Description              string                 `json:"description"`
-	RequestedPluginVersionId *float32               `json:"requestedPluginVersionId,omitempty"`
-	Version                  string                 `json:"version"`
-	VersionStatus            string                 `json:"versionStatus"`
-	VersionSignatureType     string                 `json:"versionSignatureType"`
-	VersionSignedByOrg       string                 `json:"versionSignedByOrg"`
-	VersionSignedByOrgName   string                 `json:"versionSignedByOrgName"`
-	UserId                   float32                `json:"userId"`
-	OrgId                    float32                `json:"orgId"`
-	OrgName                  string                 `json:"orgName"`
-	OrgSlug                  string                 `json:"orgSlug"`
-	OrgUrl                   string                 `json:"orgUrl"`
-	Url                      string                 `json:"url"`
-	CreatedAt                string                 `json:"createdAt"`
-	UpdatedAt                string                 `json:"updatedAt"`
-	Downloads                float32                `json:"downloads"`
-	Verified                 bool                   `json:"verified"`
-	Featured                 float32                `json:"featured"`
-	Internal                 bool                   `json:"internal"`
-	DownloadSlug             string                 `json:"downloadSlug"`
-	Popularity               float32                `json:"popularity"`
-	SignatureType            string                 `json:"signatureType"`
-	Packages                 map[string]interface{} `json:"packages"`
-	Links                    []LinksInner           `json:"links"`
-	AngularDetected          bool                   `json:"angularDetected"`
-	AdditionalProperties     map[string]interface{}
+	Status                 string                 `json:"status"`
+	Id                     float32                `json:"id"`
+	TypeId                 float32                `json:"typeId"`
+	TypeName               string                 `json:"typeName"`
+	TypeCode               string                 `json:"typeCode"`
+	Slug                   string                 `json:"slug"`
+	Name                   string                 `json:"name"`
+	Description            string                 `json:"description"`
+	Version                string                 `json:"version"`
+	VersionStatus          string                 `json:"versionStatus"`
+	VersionSignatureType   string                 `json:"versionSignatureType"`
+	VersionSignedByOrg     string                 `json:"versionSignedByOrg"`
+	VersionSignedByOrgName string                 `json:"versionSignedByOrgName"`
+	UserId                 float32                `json:"userId"`
+	OrgId                  float32                `json:"orgId"`
+	OrgName                string                 `json:"orgName"`
+	OrgSlug                string                 `json:"orgSlug"`
+	OrgUrl                 string                 `json:"orgUrl"`
+	Url                    string                 `json:"url"`
+	CreatedAt              string                 `json:"createdAt"`
+	UpdatedAt              string                 `json:"updatedAt"`
+	Downloads              float32                `json:"downloads"`
+	Verified               bool                   `json:"verified"`
+	Featured               float32                `json:"featured"`
+	Internal               bool                   `json:"internal"`
+	DownloadSlug           string                 `json:"downloadSlug"`
+	Popularity             float32                `json:"popularity"`
+	SignatureType          string                 `json:"signatureType"`
+	Packages               map[string]interface{} `json:"packages"`
+	Links                  []LinksInner1          `json:"links"`
+	AngularDetected        bool                   `json:"angularDetected"`
+	AdditionalProperties   map[string]interface{}
 }
 
 type _FormattedApiPlugin FormattedApiPlugin
@@ -60,7 +59,7 @@ type _FormattedApiPlugin FormattedApiPlugin
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner, angularDetected bool) *FormattedApiPlugin {
+func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool) *FormattedApiPlugin {
 	this := FormattedApiPlugin{}
 	this.Status = status
 	this.Id = id
@@ -294,38 +293,6 @@ func (o *FormattedApiPlugin) GetDescriptionOk() (*string, bool) {
 // SetDescription sets field value
 func (o *FormattedApiPlugin) SetDescription(v string) {
 	o.Description = v
-}
-
-// GetRequestedPluginVersionId returns the RequestedPluginVersionId field value if set, zero value otherwise.
-func (o *FormattedApiPlugin) GetRequestedPluginVersionId() float32 {
-	if o == nil || IsNil(o.RequestedPluginVersionId) {
-		var ret float32
-		return ret
-	}
-	return *o.RequestedPluginVersionId
-}
-
-// GetRequestedPluginVersionIdOk returns a tuple with the RequestedPluginVersionId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FormattedApiPlugin) GetRequestedPluginVersionIdOk() (*float32, bool) {
-	if o == nil || IsNil(o.RequestedPluginVersionId) {
-		return nil, false
-	}
-	return o.RequestedPluginVersionId, true
-}
-
-// HasRequestedPluginVersionId returns a boolean if a field has been set.
-func (o *FormattedApiPlugin) HasRequestedPluginVersionId() bool {
-	if o != nil && !IsNil(o.RequestedPluginVersionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestedPluginVersionId gets a reference to the given float32 and assigns it to the RequestedPluginVersionId field.
-func (o *FormattedApiPlugin) SetRequestedPluginVersionId(v float32) {
-	o.RequestedPluginVersionId = &v
 }
 
 // GetVersion returns the Version field value
@@ -833,9 +800,9 @@ func (o *FormattedApiPlugin) SetPackages(v map[string]interface{}) {
 }
 
 // GetLinks returns the Links field value
-func (o *FormattedApiPlugin) GetLinks() []LinksInner {
+func (o *FormattedApiPlugin) GetLinks() []LinksInner1 {
 	if o == nil {
-		var ret []LinksInner
+		var ret []LinksInner1
 		return ret
 	}
 
@@ -844,7 +811,7 @@ func (o *FormattedApiPlugin) GetLinks() []LinksInner {
 
 // GetLinksOk returns a tuple with the Links field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiPlugin) GetLinksOk() ([]LinksInner, bool) {
+func (o *FormattedApiPlugin) GetLinksOk() ([]LinksInner1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -852,7 +819,7 @@ func (o *FormattedApiPlugin) GetLinksOk() ([]LinksInner, bool) {
 }
 
 // SetLinks sets field value
-func (o *FormattedApiPlugin) SetLinks(v []LinksInner) {
+func (o *FormattedApiPlugin) SetLinks(v []LinksInner1) {
 	o.Links = v
 }
 
@@ -898,9 +865,6 @@ func (o FormattedApiPlugin) ToMap() (map[string]interface{}, error) {
 	toSerialize["slug"] = o.Slug
 	toSerialize["name"] = o.Name
 	toSerialize["description"] = o.Description
-	if !IsNil(o.RequestedPluginVersionId) {
-		toSerialize["requestedPluginVersionId"] = o.RequestedPluginVersionId
-	}
 	toSerialize["version"] = o.Version
 	toSerialize["versionStatus"] = o.VersionStatus
 	toSerialize["versionSignatureType"] = o.VersionSignatureType
@@ -962,7 +926,6 @@ func (o *FormattedApiPlugin) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "slug")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "description")
-		delete(additionalProperties, "requestedPluginVersionId")
 		delete(additionalProperties, "version")
 		delete(additionalProperties, "versionStatus")
 		delete(additionalProperties, "versionSignatureType")

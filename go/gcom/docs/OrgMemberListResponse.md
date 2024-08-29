@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | [**[]ItemsInner2**](ItemsInner2.md) |  | 
-**Links** | [**[]LinksInner**](LinksInner.md) |  | 
+**Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
 **Total** | Pointer to **float32** |  | [optional] 
 **Pages** | Pointer to **float32** |  | [optional] 
 **Page** | Pointer to **float32** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewOrgMemberListResponse
 
-`func NewOrgMemberListResponse(items []ItemsInner2, links []LinksInner, ) *OrgMemberListResponse`
+`func NewOrgMemberListResponse(items []ItemsInner2, links []LinksInner1, ) *OrgMemberListResponse`
 
 NewOrgMemberListResponse instantiates a new OrgMemberListResponse object
 This constructor will assign default values to properties that have it defined,
@@ -57,20 +57,20 @@ SetItems sets Items field to given value.
 
 ### GetLinks
 
-`func (o *OrgMemberListResponse) GetLinks() []LinksInner`
+`func (o *OrgMemberListResponse) GetLinks() []LinksInner1`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *OrgMemberListResponse) GetLinksOk() (*[]LinksInner, bool)`
+`func (o *OrgMemberListResponse) GetLinksOk() (*[]LinksInner1, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *OrgMemberListResponse) SetLinks(v []LinksInner)`
+`func (o *OrgMemberListResponse) SetLinks(v []LinksInner1)`
 
 SetLinks sets Links field to given value.
 

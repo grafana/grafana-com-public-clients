@@ -33,14 +33,15 @@ Name | Type | Description | Notes
 **UserStatus** | **float32** |  | 
 **UserEmail** | **string** |  | 
 **UserName** | **string** |  | 
-**Subscriptions** | [**Subscriptions1**](Subscriptions1.md) |  | 
-**MarketplaceSubscription** | **interface{}** |  | 
+**Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
+**MarketplaceSubscription** | [**NullableItemsInner2MarketplaceSubscription**](ItemsInner2MarketplaceSubscription.md) |  | 
+**ExtraPermissions** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
 ### NewFormattedOrgMembership
 
-`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions1, marketplaceSubscription interface{}, ) *FormattedOrgMembership`
+`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner2MarketplaceSubscription, ) *FormattedOrgMembership`
 
 NewFormattedOrgMembership instantiates a new FormattedOrgMembership object
 This constructor will assign default values to properties that have it defined,
@@ -657,40 +658,40 @@ SetUserName sets UserName field to given value.
 
 ### GetSubscriptions
 
-`func (o *FormattedOrgMembership) GetSubscriptions() Subscriptions1`
+`func (o *FormattedOrgMembership) GetSubscriptions() Subscriptions`
 
 GetSubscriptions returns the Subscriptions field if non-nil, zero value otherwise.
 
 ### GetSubscriptionsOk
 
-`func (o *FormattedOrgMembership) GetSubscriptionsOk() (*Subscriptions1, bool)`
+`func (o *FormattedOrgMembership) GetSubscriptionsOk() (*Subscriptions, bool)`
 
 GetSubscriptionsOk returns a tuple with the Subscriptions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSubscriptions
 
-`func (o *FormattedOrgMembership) SetSubscriptions(v Subscriptions1)`
+`func (o *FormattedOrgMembership) SetSubscriptions(v Subscriptions)`
 
 SetSubscriptions sets Subscriptions field to given value.
 
 
 ### GetMarketplaceSubscription
 
-`func (o *FormattedOrgMembership) GetMarketplaceSubscription() interface{}`
+`func (o *FormattedOrgMembership) GetMarketplaceSubscription() ItemsInner2MarketplaceSubscription`
 
 GetMarketplaceSubscription returns the MarketplaceSubscription field if non-nil, zero value otherwise.
 
 ### GetMarketplaceSubscriptionOk
 
-`func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*interface{}, bool)`
+`func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*ItemsInner2MarketplaceSubscription, bool)`
 
 GetMarketplaceSubscriptionOk returns a tuple with the MarketplaceSubscription field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMarketplaceSubscription
 
-`func (o *FormattedOrgMembership) SetMarketplaceSubscription(v interface{})`
+`func (o *FormattedOrgMembership) SetMarketplaceSubscription(v ItemsInner2MarketplaceSubscription)`
 
 SetMarketplaceSubscription sets MarketplaceSubscription field to given value.
 
@@ -705,6 +706,31 @@ SetMarketplaceSubscription sets MarketplaceSubscription field to given value.
 `func (o *FormattedOrgMembership) UnsetMarketplaceSubscription()`
 
 UnsetMarketplaceSubscription ensures that no value is present for MarketplaceSubscription, not even an explicit nil
+### GetExtraPermissions
+
+`func (o *FormattedOrgMembership) GetExtraPermissions() []string`
+
+GetExtraPermissions returns the ExtraPermissions field if non-nil, zero value otherwise.
+
+### GetExtraPermissionsOk
+
+`func (o *FormattedOrgMembership) GetExtraPermissionsOk() (*[]string, bool)`
+
+GetExtraPermissionsOk returns a tuple with the ExtraPermissions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExtraPermissions
+
+`func (o *FormattedOrgMembership) SetExtraPermissions(v []string)`
+
+SetExtraPermissions sets ExtraPermissions field to given value.
+
+### HasExtraPermissions
+
+`func (o *FormattedOrgMembership) HasExtraPermissions() bool`
+
+HasExtraPermissions returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

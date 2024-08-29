@@ -15,13 +15,13 @@ Name | Type | Description | Notes
 **LatestVersion** | **string** |  | 
 **CreatedAt** | **string** |  | 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
-**Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
+**Links** | [**[]LinksInner**](LinksInner.md) |  | 
 
 ## Methods
 
 ### NewFormattedApiInstancePlugin
 
-`func NewFormattedApiInstancePlugin(id float32, instanceId float32, instanceUrl string, instanceSlug string, pluginId float32, pluginSlug string, pluginName string, version string, latestVersion string, createdAt string, links []LinksInner1, ) *FormattedApiInstancePlugin`
+`func NewFormattedApiInstancePlugin(id float32, instanceId float32, instanceUrl string, instanceSlug string, pluginId float32, pluginSlug string, pluginName string, version string, latestVersion string, createdAt string, links []LinksInner, ) *FormattedApiInstancePlugin`
 
 NewFormattedApiInstancePlugin instantiates a new FormattedApiInstancePlugin object
 This constructor will assign default values to properties that have it defined,
@@ -263,20 +263,20 @@ HasUpdatedAt returns a boolean if a field has been set.
 
 ### GetLinks
 
-`func (o *FormattedApiInstancePlugin) GetLinks() []LinksInner1`
+`func (o *FormattedApiInstancePlugin) GetLinks() []LinksInner`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *FormattedApiInstancePlugin) GetLinksOk() (*[]LinksInner1, bool)`
+`func (o *FormattedApiInstancePlugin) GetLinksOk() (*[]LinksInner, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *FormattedApiInstancePlugin) SetLinks(v []LinksInner1)`
+`func (o *FormattedApiInstancePlugin) SetLinks(v []LinksInner)`
 
 SetLinks sets Links field to given value.
 

@@ -112,13 +112,13 @@ Name | Type | Description | Notes
 **RegionHostedExportersApiUrl** | **string** |  | 
 **RegionMachineLearningApiUrl** | **string** |  | 
 **RegionLLMGatewayUrl** | **string** |  | 
-**Links** | [**[]LinksInner**](LinksInner.md) |  | 
+**Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
 
 ## Methods
 
 ### NewFormattedApiInstance
 
-`func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, amInstanceClusterId float32, billingActiveUsers float32, billingEndDate NullableString, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hlInstanceClusterId float32, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromClusterId float32, hmInstancePromCurrentActiveSeries NullableFloat32, hmInstancePromCurrentUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, hmInstanceGraphiteClusterId float32, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, htInstanceClusterId float32, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, hpInstanceClusterId float32, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, agentManagementInstanceUrl string, agentManagementInstanceName string, agentManagementInstanceStatus string, agentManagementInstanceClusterId float32, type_ string, k6OrgId NullableFloat32, machineLearningLogsToken string, usageStatsId string, regionStackStateServiceUrl string, regionSyntheticMonitoringApiUrl string, regionInsightsApiUrl string, regionIntegrationsApiUrl string, regionHostedExportersApiUrl string, regionMachineLearningApiUrl string, regionLLMGatewayUrl string, links []LinksInner, ) *FormattedApiInstance`
+`func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, amInstanceClusterId float32, billingActiveUsers float32, billingEndDate NullableString, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hlInstanceClusterId float32, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromClusterId float32, hmInstancePromCurrentActiveSeries NullableFloat32, hmInstancePromCurrentUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, hmInstanceGraphiteClusterId float32, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, htInstanceClusterId float32, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, hpInstanceClusterId float32, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, agentManagementInstanceUrl string, agentManagementInstanceName string, agentManagementInstanceStatus string, agentManagementInstanceClusterId float32, type_ string, k6OrgId NullableFloat32, machineLearningLogsToken string, usageStatsId string, regionStackStateServiceUrl string, regionSyntheticMonitoringApiUrl string, regionInsightsApiUrl string, regionIntegrationsApiUrl string, regionHostedExportersApiUrl string, regionMachineLearningApiUrl string, regionLLMGatewayUrl string, links []LinksInner1, ) *FormattedApiInstance`
 
 NewFormattedApiInstance instantiates a new FormattedApiInstance object
 This constructor will assign default values to properties that have it defined,
@@ -2365,20 +2365,20 @@ SetRegionLLMGatewayUrl sets RegionLLMGatewayUrl field to given value.
 
 ### GetLinks
 
-`func (o *FormattedApiInstance) GetLinks() []LinksInner`
+`func (o *FormattedApiInstance) GetLinks() []LinksInner1`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *FormattedApiInstance) GetLinksOk() (*[]LinksInner, bool)`
+`func (o *FormattedApiInstance) GetLinksOk() (*[]LinksInner1, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *FormattedApiInstance) SetLinks(v []LinksInner)`
+`func (o *FormattedApiInstance) SetLinks(v []LinksInner1)`
 
 SetLinks sets Links field to given value.
 

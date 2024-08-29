@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: eb53fae
-  x-generated-at: 2024-08-29T09:18:11.314Z
+  x-commit-sha: e08c6ae
+  x-generated-at: 2024-08-29T11:07:35.496Z
 servers:
 - description: Main API server
   url: /api
@@ -3699,38 +3699,40 @@ components:
           href: href
         page: 2.3021358869347655
         items:
-        - orgSlug: orgSlug
-          createdAt: createdAt
+        - accessPolicyId: accessPolicyId
+          orgSlug: orgSlug
           orgName: orgName
-          instanceId: 6.027456183070403
           role: Admin
           firstUsed: firstUsed
+          orgId: 0.8008281904610115
+          token: token
+          createdAt: createdAt
+          instanceId: 6.027456183070403
           name: name
           links:
-          - rel: rel
+          - rel: self
             href: href
-          - rel: rel
+          - rel: self
             href: href
           id: items_inner_id
-          orgId: 0.8008281904610115
           updatedAt: updatedAt
-          token: token
-        - orgSlug: orgSlug
-          createdAt: createdAt
+        - accessPolicyId: accessPolicyId
+          orgSlug: orgSlug
           orgName: orgName
-          instanceId: 6.027456183070403
           role: Admin
           firstUsed: firstUsed
+          orgId: 0.8008281904610115
+          token: token
+          createdAt: createdAt
+          instanceId: 6.027456183070403
           name: name
           links:
-          - rel: rel
+          - rel: self
             href: href
-          - rel: rel
+          - rel: self
             href: href
           id: items_inner_id
-          orgId: 0.8008281904610115
           updatedAt: updatedAt
-          token: token
         direction: asc
       properties:
         items:
@@ -3767,7 +3769,7 @@ components:
           type: number
         links:
           items:
-            $ref: '#/components/schemas/links_inner'
+            $ref: '#/components/schemas/links_inner_1'
           title: links
           type: array
       required:
@@ -3775,25 +3777,29 @@ components:
       type: object
     FormattedApiApiKey:
       example:
+        accessPolicyId: accessPolicyId
         orgSlug: orgSlug
-        createdAt: createdAt
         orgName: orgName
-        instanceId: 6.027456183070403
         role: Admin
         firstUsed: firstUsed
+        orgId: 0.8008281904610115
+        token: token
+        createdAt: createdAt
+        instanceId: 6.027456183070403
         name: name
         links:
-        - rel: rel
+        - rel: self
           href: href
-        - rel: rel
+        - rel: self
           href: href
         id: items_inner_id
-        orgId: 0.8008281904610115
         updatedAt: updatedAt
-        token: token
       properties:
         id:
           $ref: '#/components/schemas/items_inner_id'
+        accessPolicyId:
+          title: accessPolicyId
+          type: string
         orgId:
           title: orgId
           type: number
@@ -3842,6 +3848,7 @@ components:
           title: links
           type: array
       required:
+      - accessPolicyId
       - createdAt
       - firstUsed
       - id
@@ -3909,7 +3916,7 @@ components:
           type: string
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: '#/components/schemas/links_inner'
           title: links
           type: array
       required:
@@ -4429,7 +4436,7 @@ components:
           type: string
         links:
           items:
-            $ref: '#/components/schemas/links_inner'
+            $ref: '#/components/schemas/links_inner_1'
           title: links
           type: array
       required:
@@ -4845,7 +4852,7 @@ components:
           type: array
         links:
           items:
-            $ref: '#/components/schemas/links_inner'
+            $ref: '#/components/schemas/links_inner_1'
           title: links
           type: array
         total:
@@ -4888,8 +4895,7 @@ components:
           current:
             product: ""
             endDate: ""
-            payload:
-              key: ""
+            payload: "{}"
             publicName: ""
             planBillingCycle: ""
             enterprisePluginsAdded: true
@@ -4911,6 +4917,9 @@ components:
         userLastName: userLastName
         userEmail: userEmail
         id: 0.8008281904610115
+        extraPermissions:
+        - orgs:read
+        - orgs:read
         updatedAt: updatedAt
         userUsername: userUsername
         updatedBy: updatedBy
@@ -4923,7 +4932,9 @@ components:
         hmCurrentGraphiteUsage: 7.386281948385884
         createdBy: createdBy
         allowGCloudTrial: true
-        marketplaceSubscription: ""
+        marketplaceSubscription:
+          isLegacy: true
+          provider: aws
         status: 5.962133916683182
       properties:
         id:
@@ -5037,9 +5048,19 @@ components:
           title: userName
           type: string
         subscriptions:
-          $ref: '#/components/schemas/subscriptions_1'
+          $ref: '#/components/schemas/subscriptions'
         marketplaceSubscription:
-          title: marketplaceSubscription
+          $ref: '#/components/schemas/items_inner_2_marketplaceSubscription'
+        extraPermissions:
+          items:
+            enum:
+            - orgs:read
+            - support-ticket-comments:write
+            - support-tickets:read
+            - support-tickets:write
+            type: string
+          title: extraPermissions
+          type: array
       required:
       - allowGCloudTrial
       - billing
@@ -5822,7 +5843,7 @@ components:
           type: number
         links:
           items:
-            $ref: '#/components/schemas/links_inner'
+            $ref: '#/components/schemas/links_inner_1'
           title: links
           type: array
         subscriptions:
@@ -6007,7 +6028,7 @@ components:
     FormattedApiPlugin:
       example:
         orgSlug: orgSlug
-        featured: 7.061401241503109
+        featured: 2.3021358869347655
         internal: true
         typeName: typeName
         description: description
@@ -6015,12 +6036,11 @@ components:
         downloadSlug: downloadSlug
         orgUrl: orgUrl
         versionStatus: versionStatus
-        orgId: 5.637376656633329
-        requestedPluginVersionId: 1.4658129805029452
+        orgId: 5.962133916683182
         versionSignedByOrg: versionSignedByOrg
         createdAt: createdAt
-        downloads: 2.3021358869347655
-        popularity: 9.301444243932576
+        downloads: 5.637376656633329
+        popularity: 7.061401241503109
         links:
         - rel: rel
           href: href
@@ -6034,7 +6054,7 @@ components:
         signatureType: signatureType
         packages: "{}"
         version: version
-        userId: 5.962133916683182
+        userId: 1.4658129805029452
         versionSignatureType: versionSignatureType
         url: url
         typeCode: typeCode
@@ -6067,9 +6087,6 @@ components:
         description:
           title: description
           type: string
-        requestedPluginVersionId:
-          title: requestedPluginVersionId
-          type: number
         version:
           title: version
           type: string
@@ -6135,7 +6152,7 @@ components:
           type: object
         links:
           items:
-            $ref: '#/components/schemas/links_inner'
+            $ref: '#/components/schemas/links_inner_1'
           title: links
           type: array
         angularDetected:
@@ -7399,10 +7416,11 @@ components:
       - type: number
     links_inner:
       example:
-        rel: rel
+        rel: self
         href: href
       properties:
         rel:
+          default: self
           title: rel
           type: string
         href:
@@ -7414,25 +7432,29 @@ components:
       type: object
     items_inner:
       example:
+        accessPolicyId: accessPolicyId
         orgSlug: orgSlug
-        createdAt: createdAt
         orgName: orgName
-        instanceId: 6.027456183070403
         role: Admin
         firstUsed: firstUsed
+        orgId: 0.8008281904610115
+        token: token
+        createdAt: createdAt
+        instanceId: 6.027456183070403
         name: name
         links:
-        - rel: rel
+        - rel: self
           href: href
-        - rel: rel
+        - rel: self
           href: href
         id: items_inner_id
-        orgId: 0.8008281904610115
         updatedAt: updatedAt
-        token: token
       properties:
         id:
           $ref: '#/components/schemas/items_inner_id'
+        accessPolicyId:
+          title: accessPolicyId
+          type: string
         orgId:
           title: orgId
           type: number
@@ -7481,6 +7503,7 @@ components:
           title: links
           type: array
       required:
+      - accessPolicyId
       - createdAt
       - firstUsed
       - id
@@ -7495,11 +7518,10 @@ components:
       type: object
     links_inner_1:
       example:
-        rel: self
+        rel: rel
         href: href
       properties:
         rel:
-          default: self
           title: rel
           type: string
         href:
@@ -8146,211 +8168,6 @@ components:
       anyOf:
       - type: boolean
       - type: number
-    current_3:
-      example:
-        product: ""
-        endDate: ""
-        payload:
-          key: ""
-        publicName: ""
-        planBillingCycle: ""
-        enterprisePluginsAdded: true
-        isTrial: true
-        plan: ""
-        startDate: ""
-      properties:
-        product:
-          title: product
-        isTrial:
-          title: isTrial
-          type: boolean
-        startDate:
-          title: startDate
-        endDate:
-          title: endDate
-        payload:
-          additionalProperties: {}
-          title: payload
-          type: object
-        plan:
-          title: plan
-        publicName:
-          title: publicName
-        enterprisePluginsAdded:
-          title: enterprisePluginsAdded
-          type: boolean
-        planBillingCycle:
-          title: planBillingCycle
-      required:
-      - endDate
-      - enterprisePluginsAdded
-      - isTrial
-      - payload
-      - plan
-      - planBillingCycle
-      - product
-      - publicName
-      - startDate
-      title: current
-      type: object
-    subscriptions_1_anyOf:
-      example:
-        next: ""
-        current:
-          product: ""
-          endDate: ""
-          payload:
-            key: ""
-          publicName: ""
-          planBillingCycle: ""
-          enterprisePluginsAdded: true
-          isTrial: true
-          plan: ""
-          startDate: ""
-        nextProduct: ""
-      properties:
-        current:
-          $ref: '#/components/schemas/current_3'
-        nextProduct:
-          title: nextProduct
-        next:
-          title: next
-      required:
-      - current
-      - next
-      - nextProduct
-      type: object
-    current_4:
-      properties:
-        product:
-          enum:
-          - grafana-cloud-advanced
-          - grafana-cloud-free
-          - grafana-cloud-pro
-          - grafana-cloud-ss-advanced
-          title: product
-          type: string
-        isTrial:
-          title: isTrial
-          type: boolean
-        startDate:
-          title: startDate
-          type: string
-        endDate:
-          title: endDate
-          type: string
-        payload:
-          $ref: '#/components/schemas/payload'
-        plan:
-          nullable: true
-          title: plan
-          type: string
-        publicName:
-          nullable: true
-          title: publicName
-          type: string
-        enterprisePluginsAdded:
-          title: enterprisePluginsAdded
-          type: boolean
-        planBillingCycle:
-          title: planBillingCycle
-          type: string
-      required:
-      - endDate
-      - enterprisePluginsAdded
-      - isTrial
-      - payload
-      - plan
-      - planBillingCycle
-      - product
-      - publicName
-      - startDate
-      title: current
-      type: object
-    subscriptions_1_anyOf_1:
-      properties:
-        current:
-          $ref: '#/components/schemas/current_4'
-        nextProduct:
-          enum:
-          - grafana-cloud-advanced
-          - grafana-cloud-free
-          - grafana-cloud-pro
-          - grafana-cloud-ss-advanced
-          title: nextProduct
-          type: string
-        next:
-          $ref: '#/components/schemas/next'
-      required:
-      - current
-      - next
-      - nextProduct
-      type: object
-    current_5:
-      properties:
-        product:
-          enum:
-          - grafana-cloud-advanced
-          - grafana-cloud-free
-          - grafana-cloud-pro
-          - grafana-cloud-ss-advanced
-          title: product
-          type: string
-        isTrial:
-          title: isTrial
-          type: boolean
-        startDate:
-          title: startDate
-          type: string
-        endDate:
-          title: endDate
-        payload:
-          $ref: '#/components/schemas/payload'
-        plan:
-          nullable: true
-          title: plan
-          type: string
-        publicName:
-          nullable: true
-          title: publicName
-          type: string
-        enterprisePluginsAdded:
-          title: enterprisePluginsAdded
-          type: boolean
-        planBillingCycle:
-          title: planBillingCycle
-          type: string
-      required:
-      - endDate
-      - enterprisePluginsAdded
-      - isTrial
-      - payload
-      - plan
-      - planBillingCycle
-      - product
-      - publicName
-      - startDate
-      title: current
-      type: object
-    subscriptions_1_anyOf_2:
-      properties:
-        current:
-          $ref: '#/components/schemas/current_5'
-        nextProduct:
-          title: nextProduct
-        next:
-          title: next
-      required:
-      - current
-      - next
-      - nextProduct
-      type: object
-    subscriptions_1:
-      anyOf:
-      - $ref: '#/components/schemas/subscriptions_1_anyOf'
-      - $ref: '#/components/schemas/subscriptions_1_anyOf_1'
-      - $ref: '#/components/schemas/subscriptions_1_anyOf_2'
-      title: subscriptions
     FormattedApiStackRegion_anyOf:
       example:
         createdAt: createdAt
@@ -8417,6 +8234,7 @@ components:
       - visibility
       type: object
     otlpPrivateConnectivityInfo_anyOf:
+      nullable: true
       properties:
         privateDNS:
           title: privateDNS
@@ -8455,6 +8273,7 @@ components:
       title: graphite
       type: object
     otlpPrivateConnectivityInfo_anyOf_1:
+      nullable: true
       properties:
         mimir:
           $ref: '#/components/schemas/mimir'
@@ -8467,7 +8286,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/otlpPrivateConnectivityInfo_anyOf'
       - $ref: '#/components/schemas/otlpPrivateConnectivityInfo_anyOf_1'
-      nullable: true
       title: otlpPrivateConnectivityInfo
     FormattedApiStackRegion_anyOf_1:
       properties:

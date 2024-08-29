@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ItemsInnerId**](ItemsInnerId.md) |  | 
+**AccessPolicyId** | **string** |  | 
 **OrgId** | **float32** |  | 
 **OrgSlug** | **string** |  | 
 **OrgName** | **string** |  | 
@@ -21,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewItemsInner
 
-`func NewItemsInner(id ItemsInnerId, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner, ) *ItemsInner`
+`func NewItemsInner(id ItemsInnerId, accessPolicyId string, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner, ) *ItemsInner`
 
 NewItemsInner instantiates a new ItemsInner object
 This constructor will assign default values to properties that have it defined,
@@ -54,6 +55,26 @@ and a boolean to check if the value has been set.
 `func (o *ItemsInner) SetId(v ItemsInnerId)`
 
 SetId sets Id field to given value.
+
+
+### GetAccessPolicyId
+
+`func (o *ItemsInner) GetAccessPolicyId() string`
+
+GetAccessPolicyId returns the AccessPolicyId field if non-nil, zero value otherwise.
+
+### GetAccessPolicyIdOk
+
+`func (o *ItemsInner) GetAccessPolicyIdOk() (*string, bool)`
+
+GetAccessPolicyIdOk returns a tuple with the AccessPolicyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessPolicyId
+
+`func (o *ItemsInner) SetAccessPolicyId(v string)`
+
+SetAccessPolicyId sets AccessPolicyId field to given value.
 
 
 ### GetOrgId

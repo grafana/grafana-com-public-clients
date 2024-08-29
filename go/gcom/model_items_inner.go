@@ -20,6 +20,7 @@ var _ MappedNullable = &ItemsInner{}
 // ItemsInner struct for ItemsInner
 type ItemsInner struct {
 	Id                   ItemsInnerId    `json:"id"`
+	AccessPolicyId       string          `json:"accessPolicyId"`
 	OrgId                float32         `json:"orgId"`
 	OrgSlug              string          `json:"orgSlug"`
 	OrgName              string          `json:"orgName"`
@@ -40,9 +41,10 @@ type _ItemsInner ItemsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsInner(id ItemsInnerId, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner) *ItemsInner {
+func NewItemsInner(id ItemsInnerId, accessPolicyId string, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner) *ItemsInner {
 	this := ItemsInner{}
 	this.Id = id
+	this.AccessPolicyId = accessPolicyId
 	this.OrgId = orgId
 	this.OrgSlug = orgSlug
 	this.OrgName = orgName
@@ -86,6 +88,30 @@ func (o *ItemsInner) GetIdOk() (*ItemsInnerId, bool) {
 // SetId sets field value
 func (o *ItemsInner) SetId(v ItemsInnerId) {
 	o.Id = v
+}
+
+// GetAccessPolicyId returns the AccessPolicyId field value
+func (o *ItemsInner) GetAccessPolicyId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AccessPolicyId
+}
+
+// GetAccessPolicyIdOk returns a tuple with the AccessPolicyId field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner) GetAccessPolicyIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AccessPolicyId, true
+}
+
+// SetAccessPolicyId sets field value
+func (o *ItemsInner) SetAccessPolicyId(v string) {
+	o.AccessPolicyId = v
 }
 
 // GetOrgId returns the OrgId field value
@@ -377,6 +403,7 @@ func (o ItemsInner) MarshalJSON() ([]byte, error) {
 func (o ItemsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	toSerialize["accessPolicyId"] = o.AccessPolicyId
 	toSerialize["orgId"] = o.OrgId
 	toSerialize["orgSlug"] = o.OrgSlug
 	toSerialize["orgName"] = o.OrgName
@@ -421,6 +448,7 @@ func (o *ItemsInner) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "accessPolicyId")
 		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "orgSlug")
 		delete(additionalProperties, "orgName")

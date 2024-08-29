@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Page** | Pointer to **float32** |  | [optional] 
 **Cursor** | Pointer to **float32** |  | [optional] 
 **NextCursor** | Pointer to **float32** |  | [optional] 
-**Links** | Pointer to [**[]LinksInner**](LinksInner.md) |  | [optional] 
+**Links** | Pointer to [**[]LinksInner1**](LinksInner1.md) |  | [optional] 
 
 ## Methods
 
@@ -256,20 +256,20 @@ HasNextCursor returns a boolean if a field has been set.
 
 ### GetLinks
 
-`func (o *FormattedApiApiKeyListResponse) GetLinks() []LinksInner`
+`func (o *FormattedApiApiKeyListResponse) GetLinks() []LinksInner1`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *FormattedApiApiKeyListResponse) GetLinksOk() (*[]LinksInner, bool)`
+`func (o *FormattedApiApiKeyListResponse) GetLinksOk() (*[]LinksInner1, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *FormattedApiApiKeyListResponse) SetLinks(v []LinksInner)`
+`func (o *FormattedApiApiKeyListResponse) SetLinks(v []LinksInner1)`
 
 SetLinks sets Links field to given value.
 

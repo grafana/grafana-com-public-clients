@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **Slug** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | **string** |  | 
-**RequestedPluginVersionId** | Pointer to **float32** |  | [optional] 
 **Version** | **string** |  | 
 **VersionStatus** | **string** |  | 
 **VersionSignatureType** | **string** |  | 
@@ -34,14 +33,14 @@ Name | Type | Description | Notes
 **Popularity** | **float32** |  | 
 **SignatureType** | **string** |  | 
 **Packages** | **map[string]interface{}** |  | 
-**Links** | [**[]LinksInner**](LinksInner.md) |  | 
+**Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
 **AngularDetected** | **bool** |  | 
 
 ## Methods
 
 ### NewFormattedApiPlugin
 
-`func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner, angularDetected bool, ) *FormattedApiPlugin`
+`func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool, ) *FormattedApiPlugin`
 
 NewFormattedApiPlugin instantiates a new FormattedApiPlugin object
 This constructor will assign default values to properties that have it defined,
@@ -215,31 +214,6 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
-
-### GetRequestedPluginVersionId
-
-`func (o *FormattedApiPlugin) GetRequestedPluginVersionId() float32`
-
-GetRequestedPluginVersionId returns the RequestedPluginVersionId field if non-nil, zero value otherwise.
-
-### GetRequestedPluginVersionIdOk
-
-`func (o *FormattedApiPlugin) GetRequestedPluginVersionIdOk() (*float32, bool)`
-
-GetRequestedPluginVersionIdOk returns a tuple with the RequestedPluginVersionId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRequestedPluginVersionId
-
-`func (o *FormattedApiPlugin) SetRequestedPluginVersionId(v float32)`
-
-SetRequestedPluginVersionId sets RequestedPluginVersionId field to given value.
-
-### HasRequestedPluginVersionId
-
-`func (o *FormattedApiPlugin) HasRequestedPluginVersionId() bool`
-
-HasRequestedPluginVersionId returns a boolean if a field has been set.
 
 ### GetVersion
 
@@ -663,20 +637,20 @@ SetPackages sets Packages field to given value.
 
 ### GetLinks
 
-`func (o *FormattedApiPlugin) GetLinks() []LinksInner`
+`func (o *FormattedApiPlugin) GetLinks() []LinksInner1`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *FormattedApiPlugin) GetLinksOk() (*[]LinksInner, bool)`
+`func (o *FormattedApiPlugin) GetLinksOk() (*[]LinksInner1, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *FormattedApiPlugin) SetLinks(v []LinksInner)`
+`func (o *FormattedApiPlugin) SetLinks(v []LinksInner1)`
 
 SetLinks sets Links field to given value.
 

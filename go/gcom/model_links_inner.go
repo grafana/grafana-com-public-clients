@@ -42,6 +42,8 @@ func NewLinksInner(rel string, href string) *LinksInner {
 // but it doesn't guarantee that properties required by API are set
 func NewLinksInnerWithDefaults() *LinksInner {
 	this := LinksInner{}
+	var rel string = "self"
+	this.Rel = rel
 	return &this
 }
 

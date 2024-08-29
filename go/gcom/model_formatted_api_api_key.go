@@ -20,6 +20,7 @@ var _ MappedNullable = &FormattedApiApiKey{}
 // FormattedApiApiKey struct for FormattedApiApiKey
 type FormattedApiApiKey struct {
 	Id                   ItemsInnerId    `json:"id"`
+	AccessPolicyId       string          `json:"accessPolicyId"`
 	OrgId                float32         `json:"orgId"`
 	OrgSlug              string          `json:"orgSlug"`
 	OrgName              string          `json:"orgName"`
@@ -40,9 +41,10 @@ type _FormattedApiApiKey FormattedApiApiKey
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiApiKey(id ItemsInnerId, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner) *FormattedApiApiKey {
+func NewFormattedApiApiKey(id ItemsInnerId, accessPolicyId string, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner) *FormattedApiApiKey {
 	this := FormattedApiApiKey{}
 	this.Id = id
+	this.AccessPolicyId = accessPolicyId
 	this.OrgId = orgId
 	this.OrgSlug = orgSlug
 	this.OrgName = orgName
@@ -86,6 +88,30 @@ func (o *FormattedApiApiKey) GetIdOk() (*ItemsInnerId, bool) {
 // SetId sets field value
 func (o *FormattedApiApiKey) SetId(v ItemsInnerId) {
 	o.Id = v
+}
+
+// GetAccessPolicyId returns the AccessPolicyId field value
+func (o *FormattedApiApiKey) GetAccessPolicyId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AccessPolicyId
+}
+
+// GetAccessPolicyIdOk returns a tuple with the AccessPolicyId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiApiKey) GetAccessPolicyIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AccessPolicyId, true
+}
+
+// SetAccessPolicyId sets field value
+func (o *FormattedApiApiKey) SetAccessPolicyId(v string) {
+	o.AccessPolicyId = v
 }
 
 // GetOrgId returns the OrgId field value
@@ -377,6 +403,7 @@ func (o FormattedApiApiKey) MarshalJSON() ([]byte, error) {
 func (o FormattedApiApiKey) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	toSerialize["accessPolicyId"] = o.AccessPolicyId
 	toSerialize["orgId"] = o.OrgId
 	toSerialize["orgSlug"] = o.OrgSlug
 	toSerialize["orgName"] = o.OrgName
@@ -421,6 +448,7 @@ func (o *FormattedApiApiKey) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
+		delete(additionalProperties, "accessPolicyId")
 		delete(additionalProperties, "orgId")
 		delete(additionalProperties, "orgSlug")
 		delete(additionalProperties, "orgName")

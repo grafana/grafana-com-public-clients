@@ -19,16 +19,16 @@ var _ MappedNullable = &FormattedApiApiKeyListResponse{}
 
 // FormattedApiApiKeyListResponse struct for FormattedApiApiKeyListResponse
 type FormattedApiApiKeyListResponse struct {
-	Items                []ItemsInner `json:"items"`
-	OrderBy              *string      `json:"orderBy,omitempty"`
-	Direction            *string      `json:"direction,omitempty"`
-	Total                *float32     `json:"total,omitempty"`
-	Pages                *float32     `json:"pages,omitempty"`
-	PageSize             *float32     `json:"pageSize,omitempty"`
-	Page                 *float32     `json:"page,omitempty"`
-	Cursor               *float32     `json:"cursor,omitempty"`
-	NextCursor           *float32     `json:"nextCursor,omitempty"`
-	Links                []LinksInner `json:"links,omitempty"`
+	Items                []ItemsInner  `json:"items"`
+	OrderBy              *string       `json:"orderBy,omitempty"`
+	Direction            *string       `json:"direction,omitempty"`
+	Total                *float32      `json:"total,omitempty"`
+	Pages                *float32      `json:"pages,omitempty"`
+	PageSize             *float32      `json:"pageSize,omitempty"`
+	Page                 *float32      `json:"page,omitempty"`
+	Cursor               *float32      `json:"cursor,omitempty"`
+	NextCursor           *float32      `json:"nextCursor,omitempty"`
+	Links                []LinksInner1 `json:"links,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -333,9 +333,9 @@ func (o *FormattedApiApiKeyListResponse) SetNextCursor(v float32) {
 }
 
 // GetLinks returns the Links field value if set, zero value otherwise.
-func (o *FormattedApiApiKeyListResponse) GetLinks() []LinksInner {
+func (o *FormattedApiApiKeyListResponse) GetLinks() []LinksInner1 {
 	if o == nil || IsNil(o.Links) {
-		var ret []LinksInner
+		var ret []LinksInner1
 		return ret
 	}
 	return o.Links
@@ -343,7 +343,7 @@ func (o *FormattedApiApiKeyListResponse) GetLinks() []LinksInner {
 
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FormattedApiApiKeyListResponse) GetLinksOk() ([]LinksInner, bool) {
+func (o *FormattedApiApiKeyListResponse) GetLinksOk() ([]LinksInner1, bool) {
 	if o == nil || IsNil(o.Links) {
 		return nil, false
 	}
@@ -359,8 +359,8 @@ func (o *FormattedApiApiKeyListResponse) HasLinks() bool {
 	return false
 }
 
-// SetLinks gets a reference to the given []LinksInner and assigns it to the Links field.
-func (o *FormattedApiApiKeyListResponse) SetLinks(v []LinksInner) {
+// SetLinks gets a reference to the given []LinksInner1 and assigns it to the Links field.
+func (o *FormattedApiApiKeyListResponse) SetLinks(v []LinksInner1) {
 	o.Links = v
 }
 

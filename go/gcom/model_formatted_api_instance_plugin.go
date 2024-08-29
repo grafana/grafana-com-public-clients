@@ -20,18 +20,18 @@ var _ MappedNullable = &FormattedApiInstancePlugin{}
 
 // FormattedApiInstancePlugin struct for FormattedApiInstancePlugin
 type FormattedApiInstancePlugin struct {
-	Id                   float32       `json:"id"`
-	InstanceId           float32       `json:"instanceId"`
-	InstanceUrl          string        `json:"instanceUrl"`
-	InstanceSlug         string        `json:"instanceSlug"`
-	PluginId             float32       `json:"pluginId"`
-	PluginSlug           string        `json:"pluginSlug"`
-	PluginName           string        `json:"pluginName"`
-	Version              string        `json:"version"`
-	LatestVersion        string        `json:"latestVersion"`
-	CreatedAt            string        `json:"createdAt"`
-	UpdatedAt            *time.Time    `json:"updatedAt,omitempty"`
-	Links                []LinksInner1 `json:"links"`
+	Id                   float32      `json:"id"`
+	InstanceId           float32      `json:"instanceId"`
+	InstanceUrl          string       `json:"instanceUrl"`
+	InstanceSlug         string       `json:"instanceSlug"`
+	PluginId             float32      `json:"pluginId"`
+	PluginSlug           string       `json:"pluginSlug"`
+	PluginName           string       `json:"pluginName"`
+	Version              string       `json:"version"`
+	LatestVersion        string       `json:"latestVersion"`
+	CreatedAt            string       `json:"createdAt"`
+	UpdatedAt            *time.Time   `json:"updatedAt,omitempty"`
+	Links                []LinksInner `json:"links"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -41,7 +41,7 @@ type _FormattedApiInstancePlugin FormattedApiInstancePlugin
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiInstancePlugin(id float32, instanceId float32, instanceUrl string, instanceSlug string, pluginId float32, pluginSlug string, pluginName string, version string, latestVersion string, createdAt string, links []LinksInner1) *FormattedApiInstancePlugin {
+func NewFormattedApiInstancePlugin(id float32, instanceId float32, instanceUrl string, instanceSlug string, pluginId float32, pluginSlug string, pluginName string, version string, latestVersion string, createdAt string, links []LinksInner) *FormattedApiInstancePlugin {
 	this := FormattedApiInstancePlugin{}
 	this.Id = id
 	this.InstanceId = instanceId
@@ -338,9 +338,9 @@ func (o *FormattedApiInstancePlugin) SetUpdatedAt(v time.Time) {
 }
 
 // GetLinks returns the Links field value
-func (o *FormattedApiInstancePlugin) GetLinks() []LinksInner1 {
+func (o *FormattedApiInstancePlugin) GetLinks() []LinksInner {
 	if o == nil {
-		var ret []LinksInner1
+		var ret []LinksInner
 		return ret
 	}
 
@@ -349,7 +349,7 @@ func (o *FormattedApiInstancePlugin) GetLinks() []LinksInner1 {
 
 // GetLinksOk returns a tuple with the Links field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiInstancePlugin) GetLinksOk() ([]LinksInner1, bool) {
+func (o *FormattedApiInstancePlugin) GetLinksOk() ([]LinksInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -357,7 +357,7 @@ func (o *FormattedApiInstancePlugin) GetLinksOk() ([]LinksInner1, bool) {
 }
 
 // SetLinks sets field value
-func (o *FormattedApiInstancePlugin) SetLinks(v []LinksInner1) {
+func (o *FormattedApiInstancePlugin) SetLinks(v []LinksInner) {
 	o.Links = v
 }
 

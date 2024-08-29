@@ -19,37 +19,38 @@ var _ MappedNullable = &FormattedOrgMembership{}
 
 // FormattedOrgMembership struct for FormattedOrgMembership
 type FormattedOrgMembership struct {
-	Id                       float32                                `json:"id"`
-	OrgId                    float32                                `json:"orgId"`
-	UserId                   float32                                `json:"userId"`
-	Status                   float32                                `json:"status"`
-	CreatedAt                string                                 `json:"createdAt"`
-	UpdatedAt                NullableString                         `json:"updatedAt"`
-	DefaultOrg               float32                                `json:"defaultOrg"`
-	Role                     string                                 `json:"role"`
-	Privacy                  float32                                `json:"privacy"`
-	Billing                  float32                                `json:"billing"`
-	CreatedBy                string                                 `json:"createdBy"`
-	UpdatedBy                string                                 `json:"updatedBy"`
-	OrgName                  string                                 `json:"orgName"`
-	OrgSlug                  string                                 `json:"orgSlug"`
-	OrgUrl                   string                                 `json:"orgUrl"`
-	GrafanaCloud             float32                                `json:"grafanaCloud"`
-	ResellerId               NullableFloat32                        `json:"resellerId"`
-	ContractTypeId           float32                                `json:"contractTypeId"`
-	AllowGCloudTrial         FormattedOrgMembershipAllowGCloudTrial `json:"allowGCloudTrial"`
-	HlUsage                  float32                                `json:"hlUsage"`
-	HmCurrentGraphiteUsage   float32                                `json:"hmCurrentGraphiteUsage"`
-	HmCurrentPrometheusUsage float32                                `json:"hmCurrentPrometheusUsage"`
-	HgDatasourceCnts         string                                 `json:"hgDatasourceCnts"`
-	UserFirstName            string                                 `json:"userFirstName"`
-	UserLastName             string                                 `json:"userLastName"`
-	UserUsername             string                                 `json:"userUsername"`
-	UserStatus               float32                                `json:"userStatus"`
-	UserEmail                string                                 `json:"userEmail"`
-	UserName                 string                                 `json:"userName"`
-	Subscriptions            Subscriptions1                         `json:"subscriptions"`
-	MarketplaceSubscription  interface{}                            `json:"marketplaceSubscription"`
+	Id                       float32                                    `json:"id"`
+	OrgId                    float32                                    `json:"orgId"`
+	UserId                   float32                                    `json:"userId"`
+	Status                   float32                                    `json:"status"`
+	CreatedAt                string                                     `json:"createdAt"`
+	UpdatedAt                NullableString                             `json:"updatedAt"`
+	DefaultOrg               float32                                    `json:"defaultOrg"`
+	Role                     string                                     `json:"role"`
+	Privacy                  float32                                    `json:"privacy"`
+	Billing                  float32                                    `json:"billing"`
+	CreatedBy                string                                     `json:"createdBy"`
+	UpdatedBy                string                                     `json:"updatedBy"`
+	OrgName                  string                                     `json:"orgName"`
+	OrgSlug                  string                                     `json:"orgSlug"`
+	OrgUrl                   string                                     `json:"orgUrl"`
+	GrafanaCloud             float32                                    `json:"grafanaCloud"`
+	ResellerId               NullableFloat32                            `json:"resellerId"`
+	ContractTypeId           float32                                    `json:"contractTypeId"`
+	AllowGCloudTrial         FormattedOrgMembershipAllowGCloudTrial     `json:"allowGCloudTrial"`
+	HlUsage                  float32                                    `json:"hlUsage"`
+	HmCurrentGraphiteUsage   float32                                    `json:"hmCurrentGraphiteUsage"`
+	HmCurrentPrometheusUsage float32                                    `json:"hmCurrentPrometheusUsage"`
+	HgDatasourceCnts         string                                     `json:"hgDatasourceCnts"`
+	UserFirstName            string                                     `json:"userFirstName"`
+	UserLastName             string                                     `json:"userLastName"`
+	UserUsername             string                                     `json:"userUsername"`
+	UserStatus               float32                                    `json:"userStatus"`
+	UserEmail                string                                     `json:"userEmail"`
+	UserName                 string                                     `json:"userName"`
+	Subscriptions            Subscriptions                              `json:"subscriptions"`
+	MarketplaceSubscription  NullableItemsInner2MarketplaceSubscription `json:"marketplaceSubscription"`
+	ExtraPermissions         []string                                   `json:"extraPermissions,omitempty"`
 	AdditionalProperties     map[string]interface{}
 }
 
@@ -59,7 +60,7 @@ type _FormattedOrgMembership FormattedOrgMembership
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions1, marketplaceSubscription interface{}) *FormattedOrgMembership {
+func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner2MarketplaceSubscription) *FormattedOrgMembership {
 	this := FormattedOrgMembership{}
 	this.Id = id
 	this.OrgId = orgId
@@ -804,9 +805,9 @@ func (o *FormattedOrgMembership) SetUserName(v string) {
 }
 
 // GetSubscriptions returns the Subscriptions field value
-func (o *FormattedOrgMembership) GetSubscriptions() Subscriptions1 {
+func (o *FormattedOrgMembership) GetSubscriptions() Subscriptions {
 	if o == nil {
-		var ret Subscriptions1
+		var ret Subscriptions
 		return ret
 	}
 
@@ -815,7 +816,7 @@ func (o *FormattedOrgMembership) GetSubscriptions() Subscriptions1 {
 
 // GetSubscriptionsOk returns a tuple with the Subscriptions field value
 // and a boolean to check if the value has been set.
-func (o *FormattedOrgMembership) GetSubscriptionsOk() (*Subscriptions1, bool) {
+func (o *FormattedOrgMembership) GetSubscriptionsOk() (*Subscriptions, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -823,34 +824,66 @@ func (o *FormattedOrgMembership) GetSubscriptionsOk() (*Subscriptions1, bool) {
 }
 
 // SetSubscriptions sets field value
-func (o *FormattedOrgMembership) SetSubscriptions(v Subscriptions1) {
+func (o *FormattedOrgMembership) SetSubscriptions(v Subscriptions) {
 	o.Subscriptions = v
 }
 
 // GetMarketplaceSubscription returns the MarketplaceSubscription field value
-// If the value is explicit nil, the zero value for interface{} will be returned
-func (o *FormattedOrgMembership) GetMarketplaceSubscription() interface{} {
-	if o == nil {
-		var ret interface{}
+// If the value is explicit nil, the zero value for ItemsInner2MarketplaceSubscription will be returned
+func (o *FormattedOrgMembership) GetMarketplaceSubscription() ItemsInner2MarketplaceSubscription {
+	if o == nil || o.MarketplaceSubscription.Get() == nil {
+		var ret ItemsInner2MarketplaceSubscription
 		return ret
 	}
 
-	return o.MarketplaceSubscription
+	return *o.MarketplaceSubscription.Get()
 }
 
 // GetMarketplaceSubscriptionOk returns a tuple with the MarketplaceSubscription field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*interface{}, bool) {
-	if o == nil || IsNil(o.MarketplaceSubscription) {
+func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*ItemsInner2MarketplaceSubscription, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.MarketplaceSubscription, true
+	return o.MarketplaceSubscription.Get(), o.MarketplaceSubscription.IsSet()
 }
 
 // SetMarketplaceSubscription sets field value
-func (o *FormattedOrgMembership) SetMarketplaceSubscription(v interface{}) {
-	o.MarketplaceSubscription = v
+func (o *FormattedOrgMembership) SetMarketplaceSubscription(v ItemsInner2MarketplaceSubscription) {
+	o.MarketplaceSubscription.Set(&v)
+}
+
+// GetExtraPermissions returns the ExtraPermissions field value if set, zero value otherwise.
+func (o *FormattedOrgMembership) GetExtraPermissions() []string {
+	if o == nil || IsNil(o.ExtraPermissions) {
+		var ret []string
+		return ret
+	}
+	return o.ExtraPermissions
+}
+
+// GetExtraPermissionsOk returns a tuple with the ExtraPermissions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedOrgMembership) GetExtraPermissionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ExtraPermissions) {
+		return nil, false
+	}
+	return o.ExtraPermissions, true
+}
+
+// HasExtraPermissions returns a boolean if a field has been set.
+func (o *FormattedOrgMembership) HasExtraPermissions() bool {
+	if o != nil && !IsNil(o.ExtraPermissions) {
+		return true
+	}
+
+	return false
+}
+
+// SetExtraPermissions gets a reference to the given []string and assigns it to the ExtraPermissions field.
+func (o *FormattedOrgMembership) SetExtraPermissions(v []string) {
+	o.ExtraPermissions = v
 }
 
 func (o FormattedOrgMembership) MarshalJSON() ([]byte, error) {
@@ -893,8 +926,9 @@ func (o FormattedOrgMembership) ToMap() (map[string]interface{}, error) {
 	toSerialize["userEmail"] = o.UserEmail
 	toSerialize["userName"] = o.UserName
 	toSerialize["subscriptions"] = o.Subscriptions
-	if o.MarketplaceSubscription != nil {
-		toSerialize["marketplaceSubscription"] = o.MarketplaceSubscription
+	toSerialize["marketplaceSubscription"] = o.MarketplaceSubscription.Get()
+	if !IsNil(o.ExtraPermissions) {
+		toSerialize["extraPermissions"] = o.ExtraPermissions
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -957,6 +991,7 @@ func (o *FormattedOrgMembership) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "userName")
 		delete(additionalProperties, "subscriptions")
 		delete(additionalProperties, "marketplaceSubscription")
+		delete(additionalProperties, "extraPermissions")
 		o.AdditionalProperties = additionalProperties
 	}
 

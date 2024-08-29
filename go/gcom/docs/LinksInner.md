@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Rel** | **string** |  | 
+**Rel** | **string** |  | [default to "self"]
 **Href** | **string** |  | 
 
 ## Methods
