@@ -5766,8 +5766,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "eb53fae",
-    "x-generated-at": "2024-08-29T09:18:11.314Z"
+    "x-commit-sha": "e08c6ae",
+    "x-generated-at": "2024-08-29T11:07:35.496Z"
   },
   "security": [
     {
@@ -6140,8 +6140,19 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "number",
-                  "title": "id"
+                  "title": "id",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "accessPolicyId": {
+                  "type": "string",
+                  "title": "accessPolicyId"
                 },
                 "orgId": {
                   "type": "number",
@@ -6203,7 +6214,8 @@
                     "properties": {
                       "rel": {
                         "type": "string",
-                        "title": "rel"
+                        "title": "rel",
+                        "default": "self"
                       },
                       "href": {
                         "type": "string",
@@ -6219,6 +6231,7 @@
                 }
               },
               "required": [
+                "accessPolicyId",
                 "createdAt",
                 "firstUsed",
                 "id",
@@ -6300,8 +6313,19 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
-            "title": "id"
+            "title": "id",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "accessPolicyId": {
+            "type": "string",
+            "title": "accessPolicyId"
           },
           "orgId": {
             "type": "number",
@@ -6363,7 +6387,8 @@
               "properties": {
                 "rel": {
                   "type": "string",
-                  "title": "rel"
+                  "title": "rel",
+                  "default": "self"
                 },
                 "href": {
                   "type": "string",
@@ -6379,6 +6404,7 @@
           }
         },
         "required": [
+          "accessPolicyId",
           "createdAt",
           "firstUsed",
           "id",
@@ -7884,9 +7910,7 @@
                       "required": [
                         "isLegacy",
                         "provider"
-                      ]
-                    },
-                    {
+                      ],
                       "nullable": true
                     }
                   ],
@@ -8160,7 +8184,8 @@
                     "type": "object",
                     "properties": {
                       "product": {
-                        "title": "product"
+                        "title": "product",
+                        "nullable": true
                       },
                       "isTrial": {
                         "type": "boolean",
@@ -8170,21 +8195,24 @@
                         "title": "isTrial"
                       },
                       "startDate": {
-                        "title": "startDate"
+                        "title": "startDate",
+                        "nullable": true
                       },
                       "endDate": {
-                        "title": "endDate"
+                        "title": "endDate",
+                        "nullable": true
                       },
                       "payload": {
                         "type": "object",
-                        "additionalProperties": {},
                         "title": "payload"
                       },
                       "plan": {
-                        "title": "plan"
+                        "title": "plan",
+                        "nullable": true
                       },
                       "publicName": {
-                        "title": "publicName"
+                        "title": "publicName",
+                        "nullable": true
                       },
                       "enterprisePluginsAdded": {
                         "type": "boolean",
@@ -8194,7 +8222,8 @@
                         "title": "enterprisePluginsAdded"
                       },
                       "planBillingCycle": {
-                        "title": "planBillingCycle"
+                        "title": "planBillingCycle",
+                        "nullable": true
                       }
                     },
                     "required": [
@@ -8211,10 +8240,12 @@
                     "title": "current"
                   },
                   "nextProduct": {
-                    "title": "nextProduct"
+                    "title": "nextProduct",
+                    "nullable": true
                   },
                   "next": {
-                    "title": "next"
+                    "title": "next",
+                    "nullable": true
                   }
                 },
                 "required": [
@@ -8245,10 +8276,12 @@
                       },
                       "startDate": {
                         "type": "string",
+                        "format": "date-time",
                         "title": "startDate"
                       },
                       "endDate": {
                         "type": "string",
+                        "format": "date-time",
                         "title": "endDate"
                       },
                       "payload": {
@@ -8382,10 +8415,12 @@
                       },
                       "startDate": {
                         "type": "string",
+                        "format": "date-time",
                         "title": "startDate"
                       },
                       "endDate": {
-                        "title": "endDate"
+                        "title": "endDate",
+                        "nullable": true
                       },
                       "payload": {
                         "type": "object",
@@ -8434,10 +8469,12 @@
                     "title": "current"
                   },
                   "nextProduct": {
-                    "title": "nextProduct"
+                    "title": "nextProduct",
+                    "nullable": true
                   },
                   "next": {
-                    "title": "next"
+                    "title": "next",
+                    "nullable": true
                   }
                 },
                 "required": [
@@ -8450,7 +8487,45 @@
             "title": "subscriptions"
           },
           "marketplaceSubscription": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "enum": [
+                      "aws",
+                      "azure",
+                      "gcp"
+                    ],
+                    "title": "provider"
+                  },
+                  "isLegacy": {
+                    "type": "boolean",
+                    "title": "isLegacy"
+                  }
+                },
+                "required": [
+                  "isLegacy",
+                  "provider"
+                ],
+                "nullable": true
+              }
+            ],
             "title": "marketplaceSubscription"
+          },
+          "extraPermissions": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "orgs:read",
+                "support-ticket-comments:write",
+                "support-tickets:read",
+                "support-tickets:write"
+              ],
+              "type": "string"
+            },
+            "title": "extraPermissions"
           }
         },
         "required": [
@@ -9766,10 +9841,6 @@
             "type": "string",
             "title": "description"
           },
-          "requestedPluginVersionId": {
-            "type": "number",
-            "title": "requestedPluginVersionId"
-          },
           "version": {
             "type": "string",
             "title": "version"
@@ -10053,7 +10124,8 @@
                     "required": [
                       "privateDNS",
                       "serviceName"
-                    ]
+                    ],
+                    "nullable": true
                   },
                   {
                     "type": "object",
@@ -10097,9 +10169,7 @@
                     },
                     "required": [
                       "mimir"
-                    ]
-                  },
-                  {
+                    ],
                     "nullable": true
                   }
                 ],
