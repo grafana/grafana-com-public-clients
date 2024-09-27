@@ -3008,6 +3008,93 @@
         }
       }
     },
+    "/orgs/{orgSlugOrId}/billed-usage": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "getOrgBilledUsage",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "orgSlugOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "month",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "year",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "summary": "Retrieve an org's billed usage for a specific month",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModifiedGetOrgBilledUsageResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorForbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorNotFound"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orgs/{orgSlug}/instances": {
       "get": {
         "tags": [
@@ -5831,8 +5918,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "46b3ee1",
-    "x-generated-at": "2024-09-27T15:15:14.616Z"
+    "x-commit-sha": "745f9a2",
+    "x-generated-at": "2024-09-27T16:07:24.594Z"
   },
   "security": [
     {
@@ -10653,6 +10740,62 @@
         "required": [
           "accessPolicyId",
           "name"
+        ]
+      },
+      "ModifiedGetOrgBilledUsageResponse": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "number",
+            "title": "total"
+          },
+          "page": {
+            "type": "number",
+            "title": "page"
+          },
+          "page_size": {
+            "type": "number",
+            "title": "page_size"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "usages": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "stackName": {
+                        "type": "string",
+                        "title": "stackName"
+                      },
+                      "stackLabels": {
+                        "type": "object",
+                        "title": "stackLabels"
+                      }
+                    },
+                    "required": [
+                      "stackLabels",
+                      "stackName"
+                    ]
+                  },
+                  "title": "usages"
+                }
+              },
+              "required": [
+                "usages"
+              ]
+            },
+            "title": "items"
+          }
+        },
+        "required": [
+          "items",
+          "page",
+          "page_size",
+          "total"
         ]
       }
     }
