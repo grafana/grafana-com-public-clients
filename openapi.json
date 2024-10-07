@@ -5918,8 +5918,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "07684ed",
-    "x-generated-at": "2024-10-07T18:36:42.614Z"
+    "x-commit-sha": "9c1efc9",
+    "x-generated-at": "2024-10-07T22:16:13.138Z"
   },
   "security": [
     {
@@ -8853,30 +8853,6 @@
             "type": "number",
             "title": "gcloudMonthlyCost"
           },
-          "hgIncludedUsers": {
-            "type": "number",
-            "title": "hgIncludedUsers"
-          },
-          "hgTier1Rate": {
-            "type": "number",
-            "title": "hgTier1Rate"
-          },
-          "hgTier2Min": {
-            "type": "number",
-            "title": "hgTier2Min"
-          },
-          "hgTier2Rate": {
-            "type": "number",
-            "title": "hgTier2Rate"
-          },
-          "hgTier3Min": {
-            "type": "number",
-            "title": "hgTier3Min"
-          },
-          "hgTier3Rate": {
-            "type": "number",
-            "title": "hgTier3Rate"
-          },
           "hgUsage": {
             "type": "number",
             "title": "hgUsage"
@@ -8893,34 +8869,6 @@
             "type": "number",
             "title": "hgOnCallUsage"
           },
-          "hmIncludedSeries": {
-            "type": "number",
-            "title": "hmIncludedSeries"
-          },
-          "hmAverageDpm": {
-            "type": "number",
-            "title": "hmAverageDpm"
-          },
-          "hmTier1Rate": {
-            "type": "number",
-            "title": "hmTier1Rate"
-          },
-          "hmTier2Min": {
-            "type": "number",
-            "title": "hmTier2Min"
-          },
-          "hmTier2Rate": {
-            "type": "number",
-            "title": "hmTier2Rate"
-          },
-          "hmTier3Min": {
-            "type": "number",
-            "title": "hmTier3Min"
-          },
-          "hmTier3Rate": {
-            "type": "number",
-            "title": "hmTier3Rate"
-          },
           "hmUsage": {
             "type": "number",
             "title": "hmUsage"
@@ -8929,476 +8877,65 @@
             "type": "number",
             "title": "hmCurrentUsage"
           },
-          "hmGraphiteIncludedUsage": {
-            "type": "number",
-            "title": "hmGraphiteIncludedUsage"
-          },
-          "hmGraphiteTier1Rate": {
-            "type": "number",
-            "title": "hmGraphiteTier1Rate"
-          },
-          "hmGraphiteTier2Min": {
-            "type": "number",
-            "title": "hmGraphiteTier2Min"
-          },
-          "hmGraphiteTier2Rate": {
-            "type": "number",
-            "title": "hmGraphiteTier2Rate"
-          },
-          "hmGraphiteTier3Min": {
-            "type": "number",
-            "title": "hmGraphiteTier3Min"
-          },
-          "hmGraphiteTier3Rate": {
-            "type": "number",
-            "title": "hmGraphiteTier3Rate"
-          },
           "hmGraphiteUsage": {
             "type": "number",
             "title": "hmGraphiteUsage"
-          },
-          "hlIncludedUsage": {
-            "type": "number",
-            "title": "hlIncludedUsage"
-          },
-          "hlQueryToIngestRatio": {
-            "type": "number",
-            "title": "hlQueryToIngestRatio"
-          },
-          "hlTier1Rate": {
-            "type": "number",
-            "title": "hlTier1Rate"
-          },
-          "hlTier2Min": {
-            "type": "number",
-            "title": "hlTier2Min"
-          },
-          "hlTier2Rate": {
-            "type": "number",
-            "title": "hlTier2Rate"
-          },
-          "hlTier3Min": {
-            "type": "number",
-            "title": "hlTier3Min"
-          },
-          "hlTier3Rate": {
-            "type": "number",
-            "title": "hlTier3Rate"
           },
           "hlUsage": {
             "type": "number",
             "title": "hlUsage"
           },
-          "hlRetentionIncludedUsage": {
-            "type": "number",
-            "title": "hlRetentionIncludedUsage"
-          },
-          "hlRetentionTier1Rate": {
-            "type": "number",
-            "title": "hlRetentionTier1Rate"
-          },
-          "hlRetentionTier2Min": {
-            "type": "number",
-            "title": "hlRetentionTier2Min"
-          },
-          "hlRetentionTier2Rate": {
-            "type": "number",
-            "title": "hlRetentionTier2Rate"
-          },
-          "hlRetentionTier3Min": {
-            "type": "number",
-            "title": "hlRetentionTier3Min"
-          },
-          "hlRetentionTier3Rate": {
-            "type": "number",
-            "title": "hlRetentionTier3Rate"
-          },
           "hlRetentionUsage": {
             "type": "number",
             "title": "hlRetentionUsage"
-          },
-          "htIncludedUsage": {
-            "type": "number",
-            "title": "htIncludedUsage"
-          },
-          "htTier1Rate": {
-            "type": "number",
-            "title": "htTier1Rate"
-          },
-          "htTier2Min": {
-            "type": "number",
-            "title": "htTier2Min"
-          },
-          "htTier2Rate": {
-            "type": "number",
-            "title": "htTier2Rate"
-          },
-          "htTier3Min": {
-            "type": "number",
-            "title": "htTier3Min"
-          },
-          "htTier3Rate": {
-            "type": "number",
-            "title": "htTier3Rate"
           },
           "htUsage": {
             "type": "number",
             "title": "htUsage"
           },
-          "hpIncludedUsage": {
-            "type": "number",
-            "title": "hpIncludedUsage"
-          },
-          "hpTier1Rate": {
-            "type": "number",
-            "title": "hpTier1Rate"
-          },
-          "hpTier2Min": {
-            "type": "number",
-            "title": "hpTier2Min"
-          },
-          "hpTier2Rate": {
-            "type": "number",
-            "title": "hpTier2Rate"
-          },
-          "hpTier3Min": {
-            "type": "number",
-            "title": "hpTier3Min"
-          },
-          "hpTier3Rate": {
-            "type": "number",
-            "title": "hpTier3Rate"
-          },
           "hpUsage": {
             "type": "number",
             "title": "hpUsage"
-          },
-          "irmStatus": {
-            "enum": [
-              0,
-              1,
-              2
-            ],
-            "type": "number",
-            "title": "irmStatus"
-          },
-          "irmIncludedUsage": {
-            "type": "number",
-            "title": "irmIncludedUsage"
-          },
-          "irmTier1Rate": {
-            "type": "number",
-            "title": "irmTier1Rate"
-          },
-          "irmTier2Min": {
-            "type": "number",
-            "title": "irmTier2Min"
-          },
-          "irmTier2Rate": {
-            "type": "number",
-            "title": "irmTier2Rate"
-          },
-          "irmTier3Min": {
-            "type": "number",
-            "title": "irmTier3Min"
-          },
-          "irmTier3Rate": {
-            "type": "number",
-            "title": "irmTier3Rate"
           },
           "irmUsage": {
             "type": "number",
             "title": "irmUsage"
           },
-          "k6VuhIncludedUsage": {
-            "type": "number",
-            "title": "k6VuhIncludedUsage"
-          },
-          "k6VuhTier1Rate": {
-            "type": "number",
-            "title": "k6VuhTier1Rate"
-          },
-          "k6VuhTier2Min": {
-            "type": "number",
-            "title": "k6VuhTier2Min"
-          },
-          "k6VuhTier2Rate": {
-            "type": "number",
-            "title": "k6VuhTier2Rate"
-          },
-          "k6VuhTier3Min": {
-            "type": "number",
-            "title": "k6VuhTier3Min"
-          },
-          "k6VuhTier3Rate": {
-            "type": "number",
-            "title": "k6VuhTier3Rate"
-          },
-          "k6VuhUnits": {
-            "type": "number",
-            "title": "k6VuhUnits"
-          },
           "k6VuhUsage": {
             "type": "number",
             "title": "k6VuhUsage"
-          },
-          "k6IPIncludedUsage": {
-            "type": "number",
-            "title": "k6IPIncludedUsage"
-          },
-          "k6IPTier1Rate": {
-            "type": "number",
-            "title": "k6IPTier1Rate"
-          },
-          "k6IPTier2Min": {
-            "type": "number",
-            "title": "k6IPTier2Min"
-          },
-          "k6IPTier2Rate": {
-            "type": "number",
-            "title": "k6IPTier2Rate"
-          },
-          "k6IPTier3Min": {
-            "type": "number",
-            "title": "k6IPTier3Min"
-          },
-          "k6IPTier3Rate": {
-            "type": "number",
-            "title": "k6IPTier3Rate"
           },
           "k6IPUsage": {
             "type": "number",
             "title": "k6IPUsage"
           },
-          "feO11YIncludedUsage": {
-            "type": "number",
-            "title": "feO11YIncludedUsage"
-          },
-          "feO11YTier1Rate": {
-            "type": "number",
-            "title": "feO11YTier1Rate"
-          },
-          "feO11YTier2Min": {
-            "type": "number",
-            "title": "feO11YTier2Min"
-          },
-          "feO11YTier2Rate": {
-            "type": "number",
-            "title": "feO11YTier2Rate"
-          },
-          "feO11YTier3Min": {
-            "type": "number",
-            "title": "feO11YTier3Min"
-          },
-          "feO11YTier3Rate": {
-            "type": "number",
-            "title": "feO11YTier3Rate"
-          },
-          "feO11YUnits": {
-            "type": "number",
-            "title": "feO11YUnits"
-          },
           "feO11YUsage": {
             "type": "number",
             "title": "feO11YUsage"
-          },
-          "appO11YIncludedUsage": {
-            "type": "number",
-            "title": "appO11YIncludedUsage"
-          },
-          "appO11YTier1Rate": {
-            "type": "number",
-            "title": "appO11YTier1Rate"
-          },
-          "appO11YTier2Min": {
-            "type": "number",
-            "title": "appO11YTier2Min"
-          },
-          "appO11YTier2Rate": {
-            "type": "number",
-            "title": "appO11YTier2Rate"
-          },
-          "appO11YTier3Min": {
-            "type": "number",
-            "title": "appO11YTier3Min"
-          },
-          "appO11YTier3Rate": {
-            "type": "number",
-            "title": "appO11YTier3Rate"
-          },
-          "appO11YUnits": {
-            "type": "number",
-            "title": "appO11YUnits"
           },
           "appO11YUsage": {
             "type": "number",
             "title": "appO11YUsage"
           },
-          "smIncludedUsage": {
-            "type": "number",
-            "title": "smIncludedUsage"
-          },
-          "smTier1Rate": {
-            "type": "number",
-            "title": "smTier1Rate"
-          },
-          "smTier2Min": {
-            "type": "number",
-            "title": "smTier2Min"
-          },
-          "smTier2Rate": {
-            "type": "number",
-            "title": "smTier2Rate"
-          },
-          "smTier3Min": {
-            "type": "number",
-            "title": "smTier3Min"
-          },
-          "smTier3Rate": {
-            "type": "number",
-            "title": "smTier3Rate"
-          },
-          "smUnits": {
-            "type": "number",
-            "title": "smUnits"
-          },
           "smUsage": {
             "type": "number",
             "title": "smUsage"
-          },
-          "infraO11YHostsIncludedUsage": {
-            "type": "number",
-            "title": "infraO11YHostsIncludedUsage"
-          },
-          "infraO11YHostsTier1Rate": {
-            "type": "number",
-            "title": "infraO11YHostsTier1Rate"
-          },
-          "infraO11YHostsTier2Min": {
-            "type": "number",
-            "title": "infraO11YHostsTier2Min"
-          },
-          "infraO11YHostsTier2Rate": {
-            "type": "number",
-            "title": "infraO11YHostsTier2Rate"
-          },
-          "infraO11YHostsTier3Min": {
-            "type": "number",
-            "title": "infraO11YHostsTier3Min"
-          },
-          "infraO11YHostsTier3Rate": {
-            "type": "number",
-            "title": "infraO11YHostsTier3Rate"
-          },
-          "infraO11YHostsUnits": {
-            "type": "number",
-            "title": "infraO11YHostsUnits"
           },
           "infraO11YHostsUsage": {
             "type": "number",
             "title": "infraO11YHostsUsage"
           },
-          "infraO11YContainersIncludedUsage": {
-            "type": "number",
-            "title": "infraO11YContainersIncludedUsage"
-          },
-          "infraO11YContainersTier1Rate": {
-            "type": "number",
-            "title": "infraO11YContainersTier1Rate"
-          },
-          "infraO11YContainersTier2Min": {
-            "type": "number",
-            "title": "infraO11YContainersTier2Min"
-          },
-          "infraO11YContainersTier2Rate": {
-            "type": "number",
-            "title": "infraO11YContainersTier2Rate"
-          },
-          "infraO11YContainersTier3Min": {
-            "type": "number",
-            "title": "infraO11YContainersTier3Min"
-          },
-          "infraO11YContainersTier3Rate": {
-            "type": "number",
-            "title": "infraO11YContainersTier3Rate"
-          },
-          "infraO11YContainersUnits": {
-            "type": "number",
-            "title": "infraO11YContainersUnits"
-          },
           "infraO11YContainersUsage": {
             "type": "number",
             "title": "infraO11YContainersUsage"
-          },
-          "geUsersIncludedUsage": {
-            "type": "number",
-            "title": "geUsersIncludedUsage"
-          },
-          "geUsersTier1Rate": {
-            "type": "number",
-            "title": "geUsersTier1Rate"
-          },
-          "geUsersTier2Min": {
-            "type": "number",
-            "title": "geUsersTier2Min"
-          },
-          "geUsersTier2Rate": {
-            "type": "number",
-            "title": "geUsersTier2Rate"
-          },
-          "geUsersTier3Min": {
-            "type": "number",
-            "title": "geUsersTier3Min"
-          },
-          "geUsersTier3Rate": {
-            "type": "number",
-            "title": "geUsersTier3Rate"
           },
           "geUsersUsage": {
             "type": "number",
             "title": "geUsersUsage"
           },
-          "geUsersAnonymousUsersRatio": {
-            "type": "number",
-            "title": "geUsersAnonymousUsersRatio"
-          },
-          "geInstancesIncludedUsage": {
-            "type": "number",
-            "title": "geInstancesIncludedUsage"
-          },
-          "geInstancesTier1Rate": {
-            "type": "number",
-            "title": "geInstancesTier1Rate"
-          },
-          "geInstancesTier2Min": {
-            "type": "number",
-            "title": "geInstancesTier2Min"
-          },
-          "geInstancesTier2Rate": {
-            "type": "number",
-            "title": "geInstancesTier2Rate"
-          },
-          "geInstancesTier3Min": {
-            "type": "number",
-            "title": "geInstancesTier3Min"
-          },
-          "geInstancesTier3Rate": {
-            "type": "number",
-            "title": "geInstancesTier3Rate"
-          },
           "geInstancesUsage": {
             "type": "number",
             "title": "geInstancesUsage"
-          },
-          "hgPluginUsersOverageRate": {
-            "type": "number",
-            "title": "hgPluginUsersOverageRate",
-            "nullable": true
-          },
-          "hgPluginUsersIncludedUsage": {
-            "type": "number",
-            "title": "hgPluginUsersIncludedUsage",
-            "nullable": true
           },
           "awsMarketplaceSupport": {
             "type": "number",
@@ -9789,13 +9326,6 @@
         },
         "required": [
           "allowGCloudTrial",
-          "appO11YIncludedUsage",
-          "appO11YTier1Rate",
-          "appO11YTier2Min",
-          "appO11YTier2Rate",
-          "appO11YTier3Min",
-          "appO11YTier3Rate",
-          "appO11YUnits",
           "appO11YUsage",
           "avatar",
           "awsMarketplaceSupport",
@@ -9808,130 +9338,30 @@
           "creditApproved",
           "emergencySupport",
           "enterprisePlugins",
-          "feO11YIncludedUsage",
-          "feO11YTier1Rate",
-          "feO11YTier2Min",
-          "feO11YTier2Rate",
-          "feO11YTier3Min",
-          "feO11YTier3Rate",
-          "feO11YUnits",
           "feO11YUsage",
           "gcloudMonthlyCost",
-          "geInstancesIncludedUsage",
-          "geInstancesTier1Rate",
-          "geInstancesTier2Min",
-          "geInstancesTier2Rate",
-          "geInstancesTier3Min",
-          "geInstancesTier3Rate",
           "geInstancesUsage",
-          "geUsersAnonymousUsersRatio",
-          "geUsersIncludedUsage",
-          "geUsersTier1Rate",
-          "geUsersTier2Min",
-          "geUsersTier2Rate",
-          "geUsersTier3Min",
-          "geUsersTier3Rate",
           "geUsersUsage",
           "grafanaCloud",
           "hgCurrentActiveUsers",
           "hgGrafanaUsage",
-          "hgIncludedUsers",
           "hgInstanceLimit",
           "hgOnCallUsage",
-          "hgPluginUsersIncludedUsage",
-          "hgPluginUsersOverageRate",
-          "hgTier1Rate",
-          "hgTier2Min",
-          "hgTier2Rate",
-          "hgTier3Min",
-          "hgTier3Rate",
           "hgUsage",
-          "hlIncludedUsage",
           "hlInstanceLimit",
-          "hlQueryToIngestRatio",
-          "hlRetentionIncludedUsage",
-          "hlRetentionTier1Rate",
-          "hlRetentionTier2Min",
-          "hlRetentionTier2Rate",
-          "hlRetentionTier3Min",
-          "hlRetentionTier3Rate",
           "hlRetentionUsage",
-          "hlTier1Rate",
-          "hlTier2Min",
-          "hlTier2Rate",
-          "hlTier3Min",
-          "hlTier3Rate",
           "hlUsage",
-          "hmAverageDpm",
           "hmCurrentUsage",
-          "hmGraphiteIncludedUsage",
-          "hmGraphiteTier1Rate",
-          "hmGraphiteTier2Min",
-          "hmGraphiteTier2Rate",
-          "hmGraphiteTier3Min",
-          "hmGraphiteTier3Rate",
           "hmGraphiteUsage",
-          "hmIncludedSeries",
           "hmInstanceLimit",
-          "hmTier1Rate",
-          "hmTier2Min",
-          "hmTier2Rate",
-          "hmTier3Min",
-          "hmTier3Rate",
           "hmUsage",
-          "hpIncludedUsage",
-          "hpTier1Rate",
-          "hpTier2Min",
-          "hpTier2Rate",
-          "hpTier3Min",
-          "hpTier3Rate",
           "hpUsage",
-          "htIncludedUsage",
-          "htTier1Rate",
-          "htTier2Min",
-          "htTier2Rate",
-          "htTier3Min",
-          "htTier3Rate",
           "htUsage",
           "id",
-          "infraO11YContainersIncludedUsage",
-          "infraO11YContainersTier1Rate",
-          "infraO11YContainersTier2Min",
-          "infraO11YContainersTier2Rate",
-          "infraO11YContainersTier3Min",
-          "infraO11YContainersTier3Rate",
-          "infraO11YContainersUnits",
           "infraO11YContainersUsage",
-          "infraO11YHostsIncludedUsage",
-          "infraO11YHostsTier1Rate",
-          "infraO11YHostsTier2Min",
-          "infraO11YHostsTier2Rate",
-          "infraO11YHostsTier3Min",
-          "infraO11YHostsTier3Rate",
-          "infraO11YHostsUnits",
           "infraO11YHostsUsage",
-          "irmIncludedUsage",
-          "irmStatus",
-          "irmTier1Rate",
-          "irmTier2Min",
-          "irmTier2Rate",
-          "irmTier3Min",
-          "irmTier3Rate",
           "irmUsage",
-          "k6IPIncludedUsage",
-          "k6IPTier1Rate",
-          "k6IPTier2Min",
-          "k6IPTier2Rate",
-          "k6IPTier3Min",
-          "k6IPTier3Rate",
           "k6IPUsage",
-          "k6VuhIncludedUsage",
-          "k6VuhTier1Rate",
-          "k6VuhTier2Min",
-          "k6VuhTier2Rate",
-          "k6VuhTier3Min",
-          "k6VuhTier3Rate",
-          "k6VuhUnits",
           "k6VuhUsage",
           "licenseProducts",
           "links",
@@ -9945,13 +9375,6 @@
           "resellerName",
           "retainedStackId",
           "slug",
-          "smIncludedUsage",
-          "smTier1Rate",
-          "smTier2Min",
-          "smTier2Rate",
-          "smTier3Min",
-          "smTier3Rate",
-          "smUnits",
           "smUsage",
           "subscriptions",
           "supportPlan",
