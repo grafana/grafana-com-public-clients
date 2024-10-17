@@ -3038,6 +3038,17 @@
               "type": "integer"
             },
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "schema": {
+              "enum": [
+                "csv"
+              ],
+              "type": "string"
+            },
+            "required": false
           }
         ],
         "summary": "Retrieve an org's billed usage for a specific month",
@@ -3048,6 +3059,77 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ModifiedGetOrgBilledUsageResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorForbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorNotFound"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{orgSlugOrId}/billed-usage-history": {
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "getOrgBilledUsageHistory",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "orgSlugOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "summary": "Retrieve an org's billed usage items for the last 12 months",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgBilledUsageHistory"
                 }
               }
             }
@@ -5928,8 +6010,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "f511e91",
-    "x-generated-at": "2024-10-17T17:05:02.888Z"
+    "x-commit-sha": "ce53b91",
+    "x-generated-at": "2024-10-17T17:53:28.276Z"
   },
   "security": [
     {
@@ -10294,6 +10376,35 @@
           "page",
           "page_size",
           "total"
+        ]
+      },
+      "OrgBilledUsageHistory": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "month": {
+                  "type": "number",
+                  "title": "month"
+                },
+                "year": {
+                  "type": "number",
+                  "title": "year"
+                }
+              },
+              "required": [
+                "month",
+                "year"
+              ]
+            },
+            "title": "items"
+          }
+        },
+        "required": [
+          "items"
         ]
       }
     }
