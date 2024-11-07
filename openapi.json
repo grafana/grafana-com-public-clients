@@ -5999,8 +5999,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "8d94850",
-    "x-generated-at": "2024-11-07T20:42:43.131Z"
+    "x-commit-sha": "0400658",
+    "x-generated-at": "2024-11-07T22:29:09.966Z"
   },
   "security": [
     {
@@ -7929,6 +7929,14 @@
                                     "type": "string"
                                   },
                                   "title": "withAddons"
+                                },
+                                "licenseAllPlugins": {
+                                  "type": "boolean",
+                                  "title": "licenseAllPlugins"
+                                },
+                                "caseId": {
+                                  "type": "string",
+                                  "title": "caseId"
                                 }
                               },
                               "title": "payload"
@@ -7998,6 +8006,14 @@
                                     "type": "string"
                                   },
                                   "title": "withAddons"
+                                },
+                                "licenseAllPlugins": {
+                                  "type": "boolean",
+                                  "title": "licenseAllPlugins"
+                                },
+                                "caseId": {
+                                  "type": "string",
+                                  "title": "caseId"
                                 }
                               },
                               "title": "payload"
@@ -8067,6 +8083,14 @@
                                     "type": "string"
                                   },
                                   "title": "withAddons"
+                                },
+                                "licenseAllPlugins": {
+                                  "type": "boolean",
+                                  "title": "licenseAllPlugins"
+                                },
+                                "caseId": {
+                                  "type": "string",
+                                  "title": "caseId"
                                 }
                               },
                               "title": "payload"
@@ -8556,6 +8580,14 @@
                               "type": "string"
                             },
                             "title": "withAddons"
+                          },
+                          "licenseAllPlugins": {
+                            "type": "boolean",
+                            "title": "licenseAllPlugins"
+                          },
+                          "caseId": {
+                            "type": "string",
+                            "title": "caseId"
                           }
                         },
                         "title": "payload"
@@ -8625,6 +8657,14 @@
                               "type": "string"
                             },
                             "title": "withAddons"
+                          },
+                          "licenseAllPlugins": {
+                            "type": "boolean",
+                            "title": "licenseAllPlugins"
+                          },
+                          "caseId": {
+                            "type": "string",
+                            "title": "caseId"
                           }
                         },
                         "title": "payload"
@@ -8694,6 +8734,14 @@
                               "type": "string"
                             },
                             "title": "withAddons"
+                          },
+                          "licenseAllPlugins": {
+                            "type": "boolean",
+                            "title": "licenseAllPlugins"
+                          },
+                          "caseId": {
+                            "type": "string",
+                            "title": "caseId"
                           }
                         },
                         "title": "payload"
@@ -9274,6 +9322,14 @@
                               "type": "string"
                             },
                             "title": "withAddons"
+                          },
+                          "licenseAllPlugins": {
+                            "type": "boolean",
+                            "title": "licenseAllPlugins"
+                          },
+                          "caseId": {
+                            "type": "string",
+                            "title": "caseId"
                           }
                         },
                         "title": "payload"
@@ -9343,6 +9399,14 @@
                               "type": "string"
                             },
                             "title": "withAddons"
+                          },
+                          "licenseAllPlugins": {
+                            "type": "boolean",
+                            "title": "licenseAllPlugins"
+                          },
+                          "caseId": {
+                            "type": "string",
+                            "title": "caseId"
                           }
                         },
                         "title": "payload"
@@ -9412,6 +9476,14 @@
                               "type": "string"
                             },
                             "title": "withAddons"
+                          },
+                          "licenseAllPlugins": {
+                            "type": "boolean",
+                            "title": "licenseAllPlugins"
+                          },
+                          "caseId": {
+                            "type": "string",
+                            "title": "caseId"
                           }
                         },
                         "title": "payload"
