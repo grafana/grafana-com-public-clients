@@ -6043,8 +6043,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "274f6a8",
-    "x-generated-at": "2024-12-03T09:41:13.783Z"
+    "x-commit-sha": "32d4566",
+    "x-generated-at": "2024-12-03T09:53:33.535Z"
   },
   "security": [
     {
@@ -6930,6 +6930,10 @@
             "type": "number",
             "title": "hlInstanceCurrentUsage"
           },
+          "hlInstanceBillingUsage": {
+            "type": "number",
+            "title": "hlInstanceBillingUsage"
+          },
           "hlInstanceId": {
             "type": "number",
             "title": "hlInstanceId"
@@ -6959,6 +6963,10 @@
           "hmInstanceGraphiteCurrentUsage": {
             "type": "number",
             "title": "hmInstanceGraphiteCurrentUsage"
+          },
+          "hmInstanceGraphiteBillingUsage": {
+            "type": "number",
+            "title": "hmInstanceGraphiteBillingUsage"
           },
           "hmInstanceGraphiteId": {
             "type": "number",
@@ -6998,6 +7006,10 @@
           "hmInstancePromCurrentUsage": {
             "type": "number",
             "title": "hmInstancePromCurrentUsage"
+          },
+          "hmInstancePromBillingUsage": {
+            "type": "number",
+            "title": "hmInstancePromBillingUsage"
           },
           "hmInstancePromId": {
             "type": "number",
@@ -7051,6 +7063,14 @@
             "type": "number",
             "title": "htInstanceClusterId"
           },
+          "htInstanceCurrentUsage": {
+            "type": "number",
+            "title": "htInstanceCurrentUsage"
+          },
+          "htInstanceBillingUsage": {
+            "type": "number",
+            "title": "htInstanceBillingUsage"
+          },
           "hpInstanceId": {
             "type": "number",
             "title": "hpInstanceId"
@@ -7076,6 +7096,14 @@
           "hpInstanceClusterId": {
             "type": "number",
             "title": "hpInstanceClusterId"
+          },
+          "hpInstanceCurrentUsage": {
+            "type": "number",
+            "title": "hpInstanceCurrentUsage"
+          },
+          "hpInstanceBillingUsage": {
+            "type": "number",
+            "title": "hpInstanceBillingUsage"
           },
           "id": {
             "type": "number",
@@ -7349,12 +7377,14 @@
           "datasourceCnts",
           "description",
           "gateway",
+          "hlInstanceBillingUsage",
           "hlInstanceClusterId",
           "hlInstanceCurrentUsage",
           "hlInstanceId",
           "hlInstanceName",
           "hlInstanceStatus",
           "hlInstanceUrl",
+          "hmInstanceGraphiteBillingUsage",
           "hmInstanceGraphiteClusterId",
           "hmInstanceGraphiteCurrentUsage",
           "hmInstanceGraphiteId",
@@ -7362,6 +7392,7 @@
           "hmInstanceGraphiteStatus",
           "hmInstanceGraphiteType",
           "hmInstanceGraphiteUrl",
+          "hmInstancePromBillingUsage",
           "hmInstancePromClusterId",
           "hmInstancePromCurrentActiveSeries",
           "hmInstancePromCurrentUsage",
@@ -7369,12 +7400,16 @@
           "hmInstancePromName",
           "hmInstancePromStatus",
           "hmInstancePromUrl",
+          "hpInstanceBillingUsage",
           "hpInstanceClusterId",
+          "hpInstanceCurrentUsage",
           "hpInstanceId",
           "hpInstanceName",
           "hpInstanceStatus",
           "hpInstanceUrl",
+          "htInstanceBillingUsage",
           "htInstanceClusterId",
+          "htInstanceCurrentUsage",
           "htInstanceId",
           "htInstanceName",
           "htInstanceStatus",
