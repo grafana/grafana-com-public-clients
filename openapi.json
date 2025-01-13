@@ -6051,8 +6051,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "f478a19",
-    "x-generated-at": "2025-01-13T07:48:34.602Z"
+    "x-commit-sha": "334871c",
+    "x-generated-at": "2025-01-13T10:05:38.819Z"
   },
   "security": [
     {
@@ -7710,6 +7710,52 @@
                   "serviceName"
                 ],
                 "title": "otlp"
+              },
+              "pdc": {
+                "type": "object",
+                "properties": {
+                  "api": {
+                    "type": "object",
+                    "properties": {
+                      "privateDNS": {
+                        "type": "string",
+                        "title": "privateDNS"
+                      },
+                      "serviceName": {
+                        "type": "string",
+                        "title": "serviceName"
+                      }
+                    },
+                    "required": [
+                      "privateDNS",
+                      "serviceName"
+                    ],
+                    "title": "api"
+                  },
+                  "gateway": {
+                    "type": "object",
+                    "properties": {
+                      "privateDNS": {
+                        "type": "string",
+                        "title": "privateDNS"
+                      },
+                      "serviceName": {
+                        "type": "string",
+                        "title": "serviceName"
+                      }
+                    },
+                    "required": [
+                      "privateDNS",
+                      "serviceName"
+                    ],
+                    "title": "gateway"
+                  }
+                },
+                "required": [
+                  "api",
+                  "gateway"
+                ],
+                "title": "pdc"
               }
             },
             "required": [
@@ -9998,6 +10044,143 @@
                 "type": "string",
                 "title": "pdcClusterSlug"
               },
+              "pdcPrivateConnectivityInfo": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "privateDNS": {
+                        "type": "string",
+                        "title": "privateDNS"
+                      },
+                      "serviceName": {
+                        "type": "string",
+                        "title": "serviceName"
+                      }
+                    },
+                    "required": [
+                      "privateDNS",
+                      "serviceName"
+                    ],
+                    "nullable": true
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "api": {
+                        "type": "object",
+                        "properties": {
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          }
+                        },
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ],
+                        "title": "api"
+                      },
+                      "gateway": {
+                        "type": "object",
+                        "properties": {
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          }
+                        },
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ],
+                        "title": "gateway"
+                      }
+                    },
+                    "required": [
+                      "api",
+                      "gateway"
+                    ],
+                    "nullable": true
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "mimir": {
+                        "type": "object",
+                        "properties": {
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          }
+                        },
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ],
+                        "title": "mimir"
+                      },
+                      "graphite": {
+                        "type": "object",
+                        "properties": {
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          }
+                        },
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ],
+                        "title": "graphite"
+                      },
+                      "otlp": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "privateDNS": {
+                                "type": "string",
+                                "title": "privateDNS"
+                              },
+                              "serviceName": {
+                                "type": "string",
+                                "title": "serviceName"
+                              }
+                            },
+                            "required": [
+                              "privateDNS",
+                              "serviceName"
+                            ],
+                            "nullable": true
+                          }
+                        ],
+                        "title": "otlp"
+                      }
+                    },
+                    "required": [
+                      "mimir"
+                    ],
+                    "nullable": true
+                  }
+                ],
+                "title": "pdcPrivateConnectivityInfo"
+              },
               "otlpHttpUrl": {
                 "type": "string",
                 "title": "otlpHttpUrl",
@@ -10020,6 +10203,52 @@
                     "required": [
                       "privateDNS",
                       "serviceName"
+                    ],
+                    "nullable": true
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "api": {
+                        "type": "object",
+                        "properties": {
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          }
+                        },
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ],
+                        "title": "api"
+                      },
+                      "gateway": {
+                        "type": "object",
+                        "properties": {
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          }
+                        },
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ],
+                        "title": "gateway"
+                      }
+                    },
+                    "required": [
+                      "api",
+                      "gateway"
                     ],
                     "nullable": true
                   },
@@ -10361,6 +10590,7 @@
               "otlpHttpUrl",
               "otlpPrivateConnectivityInfo",
               "pdcClusterSlug",
+              "pdcPrivateConnectivityInfo",
               "provider",
               "providerRegion",
               "publicName",
