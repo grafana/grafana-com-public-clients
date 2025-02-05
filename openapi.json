@@ -6051,8 +6051,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "9a2ecb0",
-    "x-generated-at": "2025-02-05T13:21:30.294Z"
+    "x-commit-sha": "309158c",
+    "x-generated-at": "2025-02-05T14:53:01.989Z"
   },
   "security": [
     {
