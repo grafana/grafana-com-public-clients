@@ -20,6 +20,8 @@ var _ MappedNullable = &Payload{}
 // Payload struct for Payload
 type Payload struct {
 	WithAddons           []string `json:"withAddons,omitempty"`
+	LicenseAllPlugins    *bool    `json:"licenseAllPlugins,omitempty"`
+	CaseId               *string  `json:"caseId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -74,6 +76,70 @@ func (o *Payload) SetWithAddons(v []string) {
 	o.WithAddons = v
 }
 
+// GetLicenseAllPlugins returns the LicenseAllPlugins field value if set, zero value otherwise.
+func (o *Payload) GetLicenseAllPlugins() bool {
+	if o == nil || IsNil(o.LicenseAllPlugins) {
+		var ret bool
+		return ret
+	}
+	return *o.LicenseAllPlugins
+}
+
+// GetLicenseAllPluginsOk returns a tuple with the LicenseAllPlugins field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Payload) GetLicenseAllPluginsOk() (*bool, bool) {
+	if o == nil || IsNil(o.LicenseAllPlugins) {
+		return nil, false
+	}
+	return o.LicenseAllPlugins, true
+}
+
+// HasLicenseAllPlugins returns a boolean if a field has been set.
+func (o *Payload) HasLicenseAllPlugins() bool {
+	if o != nil && !IsNil(o.LicenseAllPlugins) {
+		return true
+	}
+
+	return false
+}
+
+// SetLicenseAllPlugins gets a reference to the given bool and assigns it to the LicenseAllPlugins field.
+func (o *Payload) SetLicenseAllPlugins(v bool) {
+	o.LicenseAllPlugins = &v
+}
+
+// GetCaseId returns the CaseId field value if set, zero value otherwise.
+func (o *Payload) GetCaseId() string {
+	if o == nil || IsNil(o.CaseId) {
+		var ret string
+		return ret
+	}
+	return *o.CaseId
+}
+
+// GetCaseIdOk returns a tuple with the CaseId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Payload) GetCaseIdOk() (*string, bool) {
+	if o == nil || IsNil(o.CaseId) {
+		return nil, false
+	}
+	return o.CaseId, true
+}
+
+// HasCaseId returns a boolean if a field has been set.
+func (o *Payload) HasCaseId() bool {
+	if o != nil && !IsNil(o.CaseId) {
+		return true
+	}
+
+	return false
+}
+
+// SetCaseId gets a reference to the given string and assigns it to the CaseId field.
+func (o *Payload) SetCaseId(v string) {
+	o.CaseId = &v
+}
+
 func (o Payload) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -86,6 +152,12 @@ func (o Payload) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.WithAddons) {
 		toSerialize["withAddons"] = o.WithAddons
+	}
+	if !IsNil(o.LicenseAllPlugins) {
+		toSerialize["licenseAllPlugins"] = o.LicenseAllPlugins
+	}
+	if !IsNil(o.CaseId) {
+		toSerialize["caseId"] = o.CaseId
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -110,6 +182,8 @@ func (o *Payload) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "withAddons")
+		delete(additionalProperties, "licenseAllPlugins")
+		delete(additionalProperties, "caseId")
 		o.AdditionalProperties = additionalProperties
 	}
 

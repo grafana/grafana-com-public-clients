@@ -50,6 +50,9 @@ type FormattedApiPlugin struct {
 	Packages               map[string]interface{} `json:"packages"`
 	Links                  []LinksInner1          `json:"links"`
 	AngularDetected        bool                   `json:"angularDetected"`
+	LastCommitDate         string                 `json:"lastCommitDate"`
+	LicenseUrl             *string                `json:"licenseUrl,omitempty"`
+	DocumentationUrl       *string                `json:"documentationUrl,omitempty"`
 	AdditionalProperties   map[string]interface{}
 }
 
@@ -59,7 +62,7 @@ type _FormattedApiPlugin FormattedApiPlugin
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool) *FormattedApiPlugin {
+func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool, lastCommitDate string) *FormattedApiPlugin {
 	this := FormattedApiPlugin{}
 	this.Status = status
 	this.Id = id
@@ -92,6 +95,7 @@ func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName s
 	this.Packages = packages
 	this.Links = links
 	this.AngularDetected = angularDetected
+	this.LastCommitDate = lastCommitDate
 	return &this
 }
 
@@ -847,6 +851,94 @@ func (o *FormattedApiPlugin) SetAngularDetected(v bool) {
 	o.AngularDetected = v
 }
 
+// GetLastCommitDate returns the LastCommitDate field value
+func (o *FormattedApiPlugin) GetLastCommitDate() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.LastCommitDate
+}
+
+// GetLastCommitDateOk returns a tuple with the LastCommitDate field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiPlugin) GetLastCommitDateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.LastCommitDate, true
+}
+
+// SetLastCommitDate sets field value
+func (o *FormattedApiPlugin) SetLastCommitDate(v string) {
+	o.LastCommitDate = v
+}
+
+// GetLicenseUrl returns the LicenseUrl field value if set, zero value otherwise.
+func (o *FormattedApiPlugin) GetLicenseUrl() string {
+	if o == nil || IsNil(o.LicenseUrl) {
+		var ret string
+		return ret
+	}
+	return *o.LicenseUrl
+}
+
+// GetLicenseUrlOk returns a tuple with the LicenseUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiPlugin) GetLicenseUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.LicenseUrl) {
+		return nil, false
+	}
+	return o.LicenseUrl, true
+}
+
+// HasLicenseUrl returns a boolean if a field has been set.
+func (o *FormattedApiPlugin) HasLicenseUrl() bool {
+	if o != nil && !IsNil(o.LicenseUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetLicenseUrl gets a reference to the given string and assigns it to the LicenseUrl field.
+func (o *FormattedApiPlugin) SetLicenseUrl(v string) {
+	o.LicenseUrl = &v
+}
+
+// GetDocumentationUrl returns the DocumentationUrl field value if set, zero value otherwise.
+func (o *FormattedApiPlugin) GetDocumentationUrl() string {
+	if o == nil || IsNil(o.DocumentationUrl) {
+		var ret string
+		return ret
+	}
+	return *o.DocumentationUrl
+}
+
+// GetDocumentationUrlOk returns a tuple with the DocumentationUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiPlugin) GetDocumentationUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.DocumentationUrl) {
+		return nil, false
+	}
+	return o.DocumentationUrl, true
+}
+
+// HasDocumentationUrl returns a boolean if a field has been set.
+func (o *FormattedApiPlugin) HasDocumentationUrl() bool {
+	if o != nil && !IsNil(o.DocumentationUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocumentationUrl gets a reference to the given string and assigns it to the DocumentationUrl field.
+func (o *FormattedApiPlugin) SetDocumentationUrl(v string) {
+	o.DocumentationUrl = &v
+}
+
 func (o FormattedApiPlugin) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -888,6 +980,13 @@ func (o FormattedApiPlugin) ToMap() (map[string]interface{}, error) {
 	toSerialize["packages"] = o.Packages
 	toSerialize["links"] = o.Links
 	toSerialize["angularDetected"] = o.AngularDetected
+	toSerialize["lastCommitDate"] = o.LastCommitDate
+	if !IsNil(o.LicenseUrl) {
+		toSerialize["licenseUrl"] = o.LicenseUrl
+	}
+	if !IsNil(o.DocumentationUrl) {
+		toSerialize["documentationUrl"] = o.DocumentationUrl
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -949,6 +1048,9 @@ func (o *FormattedApiPlugin) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "packages")
 		delete(additionalProperties, "links")
 		delete(additionalProperties, "angularDetected")
+		delete(additionalProperties, "lastCommitDate")
+		delete(additionalProperties, "licenseUrl")
+		delete(additionalProperties, "documentationUrl")
 		o.AdditionalProperties = additionalProperties
 	}
 

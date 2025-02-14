@@ -19,182 +19,70 @@ var _ MappedNullable = &FormattedApiOrgPublic{}
 
 // FormattedApiOrgPublic struct for FormattedApiOrgPublic
 type FormattedApiOrgPublic struct {
-	Id                               float32                                `json:"id"`
-	Slug                             string                                 `json:"slug"`
-	Name                             string                                 `json:"name"`
-	Url                              string                                 `json:"url"`
-	CreatedAt                        string                                 `json:"createdAt"`
-	CreatedBy                        NullableString                         `json:"createdBy"`
-	UpdatedAt                        NullableString                         `json:"updatedAt"`
-	UpdatedBy                        NullableString                         `json:"updatedBy"`
-	Avatar                           NullableString                         `json:"avatar"`
-	ChecksPerMonth                   float32                                `json:"checksPerMonth"`
-	WpPlan                           string                                 `json:"wpPlan"`
-	HgInstanceLimit                  float32                                `json:"hgInstanceLimit"`
-	HmInstanceLimit                  float32                                `json:"hmInstanceLimit"`
-	HlInstanceLimit                  float32                                `json:"hlInstanceLimit"`
-	UserQuota                        float32                                `json:"userQuota"`
-	SupportPlan                      string                                 `json:"supportPlan"`
-	CreditApproved                   float32                                `json:"creditApproved"`
-	MsaSignedAt                      NullableString                         `json:"msaSignedAt"`
-	MsaSignedBy                      NullableString                         `json:"msaSignedBy"`
-	EnterprisePlugins                float32                                `json:"enterprisePlugins"`
-	GrafanaCloud                     float32                                `json:"grafanaCloud"`
-	Privacy                          string                                 `json:"privacy"`
-	Reseller                         string                                 `json:"reseller"`
-	ResellerId                       NullableFloat32                        `json:"resellerId"`
-	ResellerName                     NullableString                         `json:"resellerName"`
-	EmergencySupport                 bool                                   `json:"emergencySupport"`
-	GcloudMonthlyCost                float32                                `json:"gcloudMonthlyCost"`
-	HgIncludedUsers                  float32                                `json:"hgIncludedUsers"`
-	HgTier1Rate                      float32                                `json:"hgTier1Rate"`
-	HgTier2Min                       float32                                `json:"hgTier2Min"`
-	HgTier2Rate                      float32                                `json:"hgTier2Rate"`
-	HgTier3Min                       float32                                `json:"hgTier3Min"`
-	HgTier3Rate                      float32                                `json:"hgTier3Rate"`
-	HgUsage                          float32                                `json:"hgUsage"`
-	HgCurrentActiveUsers             float32                                `json:"hgCurrentActiveUsers"`
-	HgGrafanaUsage                   float32                                `json:"hgGrafanaUsage"`
-	HgOnCallUsage                    float32                                `json:"hgOnCallUsage"`
-	HmIncludedSeries                 float32                                `json:"hmIncludedSeries"`
-	HmAverageDpm                     float32                                `json:"hmAverageDpm"`
-	HmTier1Rate                      float32                                `json:"hmTier1Rate"`
-	HmTier2Min                       float32                                `json:"hmTier2Min"`
-	HmTier2Rate                      float32                                `json:"hmTier2Rate"`
-	HmTier3Min                       float32                                `json:"hmTier3Min"`
-	HmTier3Rate                      float32                                `json:"hmTier3Rate"`
-	HmUsage                          float32                                `json:"hmUsage"`
-	HmCurrentUsage                   float32                                `json:"hmCurrentUsage"`
-	HmGraphiteIncludedUsage          float32                                `json:"hmGraphiteIncludedUsage"`
-	HmGraphiteTier1Rate              float32                                `json:"hmGraphiteTier1Rate"`
-	HmGraphiteTier2Min               float32                                `json:"hmGraphiteTier2Min"`
-	HmGraphiteTier2Rate              float32                                `json:"hmGraphiteTier2Rate"`
-	HmGraphiteTier3Min               float32                                `json:"hmGraphiteTier3Min"`
-	HmGraphiteTier3Rate              float32                                `json:"hmGraphiteTier3Rate"`
-	HmGraphiteUsage                  float32                                `json:"hmGraphiteUsage"`
-	HlIncludedUsage                  float32                                `json:"hlIncludedUsage"`
-	HlQueryToIngestRatio             float32                                `json:"hlQueryToIngestRatio"`
-	HlTier1Rate                      float32                                `json:"hlTier1Rate"`
-	HlTier2Min                       float32                                `json:"hlTier2Min"`
-	HlTier2Rate                      float32                                `json:"hlTier2Rate"`
-	HlTier3Min                       float32                                `json:"hlTier3Min"`
-	HlTier3Rate                      float32                                `json:"hlTier3Rate"`
-	HlUsage                          float32                                `json:"hlUsage"`
-	HlRetentionIncludedUsage         float32                                `json:"hlRetentionIncludedUsage"`
-	HlRetentionTier1Rate             float32                                `json:"hlRetentionTier1Rate"`
-	HlRetentionTier2Min              float32                                `json:"hlRetentionTier2Min"`
-	HlRetentionTier2Rate             float32                                `json:"hlRetentionTier2Rate"`
-	HlRetentionTier3Min              float32                                `json:"hlRetentionTier3Min"`
-	HlRetentionTier3Rate             float32                                `json:"hlRetentionTier3Rate"`
-	HlRetentionUsage                 float32                                `json:"hlRetentionUsage"`
-	HtIncludedUsage                  float32                                `json:"htIncludedUsage"`
-	HtTier1Rate                      float32                                `json:"htTier1Rate"`
-	HtTier2Min                       float32                                `json:"htTier2Min"`
-	HtTier2Rate                      float32                                `json:"htTier2Rate"`
-	HtTier3Min                       float32                                `json:"htTier3Min"`
-	HtTier3Rate                      float32                                `json:"htTier3Rate"`
-	HtUsage                          float32                                `json:"htUsage"`
-	HpIncludedUsage                  float32                                `json:"hpIncludedUsage"`
-	HpTier1Rate                      float32                                `json:"hpTier1Rate"`
-	HpTier2Min                       float32                                `json:"hpTier2Min"`
-	HpTier2Rate                      float32                                `json:"hpTier2Rate"`
-	HpTier3Min                       float32                                `json:"hpTier3Min"`
-	HpTier3Rate                      float32                                `json:"hpTier3Rate"`
-	HpUsage                          float32                                `json:"hpUsage"`
-	IrmStatus                        float32                                `json:"irmStatus"`
-	IrmIncludedUsage                 float32                                `json:"irmIncludedUsage"`
-	IrmTier1Rate                     float32                                `json:"irmTier1Rate"`
-	IrmTier2Min                      float32                                `json:"irmTier2Min"`
-	IrmTier2Rate                     float32                                `json:"irmTier2Rate"`
-	IrmTier3Min                      float32                                `json:"irmTier3Min"`
-	IrmTier3Rate                     float32                                `json:"irmTier3Rate"`
-	IrmUsage                         float32                                `json:"irmUsage"`
-	K6VuhIncludedUsage               float32                                `json:"k6VuhIncludedUsage"`
-	K6VuhTier1Rate                   float32                                `json:"k6VuhTier1Rate"`
-	K6VuhTier2Min                    float32                                `json:"k6VuhTier2Min"`
-	K6VuhTier2Rate                   float32                                `json:"k6VuhTier2Rate"`
-	K6VuhTier3Min                    float32                                `json:"k6VuhTier3Min"`
-	K6VuhTier3Rate                   float32                                `json:"k6VuhTier3Rate"`
-	K6VuhUnits                       float32                                `json:"k6VuhUnits"`
-	K6VuhUsage                       float32                                `json:"k6VuhUsage"`
-	K6IPIncludedUsage                float32                                `json:"k6IPIncludedUsage"`
-	K6IPTier1Rate                    float32                                `json:"k6IPTier1Rate"`
-	K6IPTier2Min                     float32                                `json:"k6IPTier2Min"`
-	K6IPTier2Rate                    float32                                `json:"k6IPTier2Rate"`
-	K6IPTier3Min                     float32                                `json:"k6IPTier3Min"`
-	K6IPTier3Rate                    float32                                `json:"k6IPTier3Rate"`
-	K6IPUsage                        float32                                `json:"k6IPUsage"`
-	FeO11YIncludedUsage              float32                                `json:"feO11YIncludedUsage"`
-	FeO11YTier1Rate                  float32                                `json:"feO11YTier1Rate"`
-	FeO11YTier2Min                   float32                                `json:"feO11YTier2Min"`
-	FeO11YTier2Rate                  float32                                `json:"feO11YTier2Rate"`
-	FeO11YTier3Min                   float32                                `json:"feO11YTier3Min"`
-	FeO11YTier3Rate                  float32                                `json:"feO11YTier3Rate"`
-	FeO11YUnits                      float32                                `json:"feO11YUnits"`
-	FeO11YUsage                      float32                                `json:"feO11YUsage"`
-	AppO11YIncludedUsage             float32                                `json:"appO11YIncludedUsage"`
-	AppO11YTier1Rate                 float32                                `json:"appO11YTier1Rate"`
-	AppO11YTier2Min                  float32                                `json:"appO11YTier2Min"`
-	AppO11YTier2Rate                 float32                                `json:"appO11YTier2Rate"`
-	AppO11YTier3Min                  float32                                `json:"appO11YTier3Min"`
-	AppO11YTier3Rate                 float32                                `json:"appO11YTier3Rate"`
-	AppO11YUnits                     float32                                `json:"appO11YUnits"`
-	AppO11YUsage                     float32                                `json:"appO11YUsage"`
-	SmIncludedUsage                  float32                                `json:"smIncludedUsage"`
-	SmTier1Rate                      float32                                `json:"smTier1Rate"`
-	SmTier2Min                       float32                                `json:"smTier2Min"`
-	SmTier2Rate                      float32                                `json:"smTier2Rate"`
-	SmTier3Min                       float32                                `json:"smTier3Min"`
-	SmTier3Rate                      float32                                `json:"smTier3Rate"`
-	SmUnits                          float32                                `json:"smUnits"`
-	SmUsage                          float32                                `json:"smUsage"`
-	InfraO11YHostsIncludedUsage      float32                                `json:"infraO11YHostsIncludedUsage"`
-	InfraO11YHostsTier1Rate          float32                                `json:"infraO11YHostsTier1Rate"`
-	InfraO11YHostsTier2Min           float32                                `json:"infraO11YHostsTier2Min"`
-	InfraO11YHostsTier2Rate          float32                                `json:"infraO11YHostsTier2Rate"`
-	InfraO11YHostsTier3Min           float32                                `json:"infraO11YHostsTier3Min"`
-	InfraO11YHostsTier3Rate          float32                                `json:"infraO11YHostsTier3Rate"`
-	InfraO11YHostsUnits              float32                                `json:"infraO11YHostsUnits"`
-	InfraO11YHostsUsage              float32                                `json:"infraO11YHostsUsage"`
-	InfraO11YContainersIncludedUsage float32                                `json:"infraO11YContainersIncludedUsage"`
-	InfraO11YContainersTier1Rate     float32                                `json:"infraO11YContainersTier1Rate"`
-	InfraO11YContainersTier2Min      float32                                `json:"infraO11YContainersTier2Min"`
-	InfraO11YContainersTier2Rate     float32                                `json:"infraO11YContainersTier2Rate"`
-	InfraO11YContainersTier3Min      float32                                `json:"infraO11YContainersTier3Min"`
-	InfraO11YContainersTier3Rate     float32                                `json:"infraO11YContainersTier3Rate"`
-	InfraO11YContainersUnits         float32                                `json:"infraO11YContainersUnits"`
-	InfraO11YContainersUsage         float32                                `json:"infraO11YContainersUsage"`
-	GeUsersIncludedUsage             float32                                `json:"geUsersIncludedUsage"`
-	GeUsersTier1Rate                 float32                                `json:"geUsersTier1Rate"`
-	GeUsersTier2Min                  float32                                `json:"geUsersTier2Min"`
-	GeUsersTier2Rate                 float32                                `json:"geUsersTier2Rate"`
-	GeUsersTier3Min                  float32                                `json:"geUsersTier3Min"`
-	GeUsersTier3Rate                 float32                                `json:"geUsersTier3Rate"`
-	GeUsersUsage                     float32                                `json:"geUsersUsage"`
-	GeUsersAnonymousUsersRatio       float32                                `json:"geUsersAnonymousUsersRatio"`
-	GeInstancesIncludedUsage         float32                                `json:"geInstancesIncludedUsage"`
-	GeInstancesTier1Rate             float32                                `json:"geInstancesTier1Rate"`
-	GeInstancesTier2Min              float32                                `json:"geInstancesTier2Min"`
-	GeInstancesTier2Rate             float32                                `json:"geInstancesTier2Rate"`
-	GeInstancesTier3Min              float32                                `json:"geInstancesTier3Min"`
-	GeInstancesTier3Rate             float32                                `json:"geInstancesTier3Rate"`
-	GeInstancesUsage                 float32                                `json:"geInstancesUsage"`
-	HgPluginUsersOverageRate         NullableFloat32                        `json:"hgPluginUsersOverageRate"`
-	HgPluginUsersIncludedUsage       NullableFloat32                        `json:"hgPluginUsersIncludedUsage"`
-	AwsMarketplaceSupport            float32                                `json:"awsMarketplaceSupport"`
-	TrialStartDate                   NullableString                         `json:"trialStartDate"`
-	TrialEndDate                     NullableString                         `json:"trialEndDate"`
-	TrialLengthDays                  NullableFloat32                        `json:"trialLengthDays"`
-	TrialNoticeDate                  NullableString                         `json:"trialNoticeDate"`
-	CancellationDate                 NullableString                         `json:"cancellationDate"`
-	RetainedStackId                  float32                                `json:"retainedStackId"`
-	AllowGCloudTrial                 FormattedOrgMembershipAllowGCloudTrial `json:"allowGCloudTrial"`
-	PluginSignatureType              string                                 `json:"pluginSignatureType"`
-	ContractType                     string                                 `json:"contractType"`
-	ContractTypeId                   float32                                `json:"contractTypeId"`
-	Links                            []LinksInner1                          `json:"links"`
-	Subscriptions                    Subscriptions                          `json:"subscriptions"`
-	AdditionalProperties             map[string]interface{}
+	Id                       float32                                `json:"id"`
+	Slug                     string                                 `json:"slug"`
+	Name                     string                                 `json:"name"`
+	Url                      string                                 `json:"url"`
+	CreatedAt                string                                 `json:"createdAt"`
+	CreatedBy                NullableString                         `json:"createdBy"`
+	UpdatedAt                NullableString                         `json:"updatedAt"`
+	UpdatedBy                NullableString                         `json:"updatedBy"`
+	Avatar                   NullableString                         `json:"avatar"`
+	ChecksPerMonth           float32                                `json:"checksPerMonth"`
+	WpPlan                   string                                 `json:"wpPlan"`
+	HgInstanceLimit          float32                                `json:"hgInstanceLimit"`
+	HmInstanceLimit          float32                                `json:"hmInstanceLimit"`
+	HlInstanceLimit          float32                                `json:"hlInstanceLimit"`
+	UserQuota                float32                                `json:"userQuota"`
+	SupportPlan              string                                 `json:"supportPlan"`
+	CreditApproved           float32                                `json:"creditApproved"`
+	MsaSignedAt              NullableString                         `json:"msaSignedAt"`
+	MsaSignedBy              NullableString                         `json:"msaSignedBy"`
+	EnterprisePlugins        float32                                `json:"enterprisePlugins"`
+	LicenseProducts          []string                               `json:"licenseProducts"`
+	GrafanaCloud             float32                                `json:"grafanaCloud"`
+	Privacy                  string                                 `json:"privacy"`
+	Reseller                 string                                 `json:"reseller"`
+	ResellerId               NullableFloat32                        `json:"resellerId"`
+	ResellerName             NullableString                         `json:"resellerName"`
+	EmergencySupport         bool                                   `json:"emergencySupport"`
+	GcloudMonthlyCost        float32                                `json:"gcloudMonthlyCost"`
+	HgUsage                  float32                                `json:"hgUsage"`
+	HgCurrentActiveUsers     float32                                `json:"hgCurrentActiveUsers"`
+	HgGrafanaUsage           float32                                `json:"hgGrafanaUsage"`
+	HgOnCallUsage            float32                                `json:"hgOnCallUsage"`
+	HmUsage                  float32                                `json:"hmUsage"`
+	HmCurrentUsage           float32                                `json:"hmCurrentUsage"`
+	HmGraphiteUsage          float32                                `json:"hmGraphiteUsage"`
+	HlUsage                  float32                                `json:"hlUsage"`
+	HlRetentionUsage         float32                                `json:"hlRetentionUsage"`
+	HtUsage                  float32                                `json:"htUsage"`
+	HpUsage                  float32                                `json:"hpUsage"`
+	IrmUsage                 float32                                `json:"irmUsage"`
+	K6VuhUsage               float32                                `json:"k6VuhUsage"`
+	K6IPUsage                float32                                `json:"k6IPUsage"`
+	FeO11YUsage              float32                                `json:"feO11YUsage"`
+	AppO11YUsage             float32                                `json:"appO11YUsage"`
+	SmUsage                  float32                                `json:"smUsage"`
+	InfraO11YHostsUsage      float32                                `json:"infraO11YHostsUsage"`
+	InfraO11YContainersUsage float32                                `json:"infraO11YContainersUsage"`
+	GeUsersUsage             float32                                `json:"geUsersUsage"`
+	GeInstancesUsage         float32                                `json:"geInstancesUsage"`
+	AwsMarketplaceSupport    float32                                `json:"awsMarketplaceSupport"`
+	TrialStartDate           NullableString                         `json:"trialStartDate"`
+	TrialEndDate             NullableString                         `json:"trialEndDate"`
+	TrialLengthDays          NullableFloat32                        `json:"trialLengthDays"`
+	TrialNoticeDate          NullableString                         `json:"trialNoticeDate"`
+	CancellationDate         NullableString                         `json:"cancellationDate"`
+	RetainedStackId          float32                                `json:"retainedStackId"`
+	AllowGCloudTrial         FormattedOrgMembershipAllowGCloudTrial `json:"allowGCloudTrial"`
+	PluginSignatureType      string                                 `json:"pluginSignatureType"`
+	ContractType             string                                 `json:"contractType"`
+	ContractTypeId           float32                                `json:"contractTypeId"`
+	LiveChatEnabled          bool                                   `json:"liveChatEnabled"`
+	Links                    []LinksInner1                          `json:"links"`
+	Subscriptions            Subscriptions                          `json:"subscriptions"`
+	AdditionalProperties     map[string]interface{}
 }
 
 type _FormattedApiOrgPublic FormattedApiOrgPublic
@@ -203,7 +91,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgIncludedUsers float32, hgTier1Rate float32, hgTier2Min float32, hgTier2Rate float32, hgTier3Min float32, hgTier3Rate float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmIncludedSeries float32, hmAverageDpm float32, hmTier1Rate float32, hmTier2Min float32, hmTier2Rate float32, hmTier3Min float32, hmTier3Rate float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteIncludedUsage float32, hmGraphiteTier1Rate float32, hmGraphiteTier2Min float32, hmGraphiteTier2Rate float32, hmGraphiteTier3Min float32, hmGraphiteTier3Rate float32, hmGraphiteUsage float32, hlIncludedUsage float32, hlQueryToIngestRatio float32, hlTier1Rate float32, hlTier2Min float32, hlTier2Rate float32, hlTier3Min float32, hlTier3Rate float32, hlUsage float32, hlRetentionIncludedUsage float32, hlRetentionTier1Rate float32, hlRetentionTier2Min float32, hlRetentionTier2Rate float32, hlRetentionTier3Min float32, hlRetentionTier3Rate float32, hlRetentionUsage float32, htIncludedUsage float32, htTier1Rate float32, htTier2Min float32, htTier2Rate float32, htTier3Min float32, htTier3Rate float32, htUsage float32, hpIncludedUsage float32, hpTier1Rate float32, hpTier2Min float32, hpTier2Rate float32, hpTier3Min float32, hpTier3Rate float32, hpUsage float32, irmStatus float32, irmIncludedUsage float32, irmTier1Rate float32, irmTier2Min float32, irmTier2Rate float32, irmTier3Min float32, irmTier3Rate float32, irmUsage float32, k6VuhIncludedUsage float32, k6VuhTier1Rate float32, k6VuhTier2Min float32, k6VuhTier2Rate float32, k6VuhTier3Min float32, k6VuhTier3Rate float32, k6VuhUnits float32, k6VuhUsage float32, k6IPIncludedUsage float32, k6IPTier1Rate float32, k6IPTier2Min float32, k6IPTier2Rate float32, k6IPTier3Min float32, k6IPTier3Rate float32, k6IPUsage float32, feO11YIncludedUsage float32, feO11YTier1Rate float32, feO11YTier2Min float32, feO11YTier2Rate float32, feO11YTier3Min float32, feO11YTier3Rate float32, feO11YUnits float32, feO11YUsage float32, appO11YIncludedUsage float32, appO11YTier1Rate float32, appO11YTier2Min float32, appO11YTier2Rate float32, appO11YTier3Min float32, appO11YTier3Rate float32, appO11YUnits float32, appO11YUsage float32, smIncludedUsage float32, smTier1Rate float32, smTier2Min float32, smTier2Rate float32, smTier3Min float32, smTier3Rate float32, smUnits float32, smUsage float32, infraO11YHostsIncludedUsage float32, infraO11YHostsTier1Rate float32, infraO11YHostsTier2Min float32, infraO11YHostsTier2Rate float32, infraO11YHostsTier3Min float32, infraO11YHostsTier3Rate float32, infraO11YHostsUnits float32, infraO11YHostsUsage float32, infraO11YContainersIncludedUsage float32, infraO11YContainersTier1Rate float32, infraO11YContainersTier2Min float32, infraO11YContainersTier2Rate float32, infraO11YContainersTier3Min float32, infraO11YContainersTier3Rate float32, infraO11YContainersUnits float32, infraO11YContainersUsage float32, geUsersIncludedUsage float32, geUsersTier1Rate float32, geUsersTier2Min float32, geUsersTier2Rate float32, geUsersTier3Min float32, geUsersTier3Rate float32, geUsersUsage float32, geUsersAnonymousUsersRatio float32, geInstancesIncludedUsage float32, geInstancesTier1Rate float32, geInstancesTier2Min float32, geInstancesTier2Rate float32, geInstancesTier3Min float32, geInstancesTier3Rate float32, geInstancesUsage float32, hgPluginUsersOverageRate NullableFloat32, hgPluginUsersIncludedUsage NullableFloat32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -225,6 +113,7 @@ func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, 
 	this.MsaSignedAt = msaSignedAt
 	this.MsaSignedBy = msaSignedBy
 	this.EnterprisePlugins = enterprisePlugins
+	this.LicenseProducts = licenseProducts
 	this.GrafanaCloud = grafanaCloud
 	this.Privacy = privacy
 	this.Reseller = reseller
@@ -232,141 +121,27 @@ func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, 
 	this.ResellerName = resellerName
 	this.EmergencySupport = emergencySupport
 	this.GcloudMonthlyCost = gcloudMonthlyCost
-	this.HgIncludedUsers = hgIncludedUsers
-	this.HgTier1Rate = hgTier1Rate
-	this.HgTier2Min = hgTier2Min
-	this.HgTier2Rate = hgTier2Rate
-	this.HgTier3Min = hgTier3Min
-	this.HgTier3Rate = hgTier3Rate
 	this.HgUsage = hgUsage
 	this.HgCurrentActiveUsers = hgCurrentActiveUsers
 	this.HgGrafanaUsage = hgGrafanaUsage
 	this.HgOnCallUsage = hgOnCallUsage
-	this.HmIncludedSeries = hmIncludedSeries
-	this.HmAverageDpm = hmAverageDpm
-	this.HmTier1Rate = hmTier1Rate
-	this.HmTier2Min = hmTier2Min
-	this.HmTier2Rate = hmTier2Rate
-	this.HmTier3Min = hmTier3Min
-	this.HmTier3Rate = hmTier3Rate
 	this.HmUsage = hmUsage
 	this.HmCurrentUsage = hmCurrentUsage
-	this.HmGraphiteIncludedUsage = hmGraphiteIncludedUsage
-	this.HmGraphiteTier1Rate = hmGraphiteTier1Rate
-	this.HmGraphiteTier2Min = hmGraphiteTier2Min
-	this.HmGraphiteTier2Rate = hmGraphiteTier2Rate
-	this.HmGraphiteTier3Min = hmGraphiteTier3Min
-	this.HmGraphiteTier3Rate = hmGraphiteTier3Rate
 	this.HmGraphiteUsage = hmGraphiteUsage
-	this.HlIncludedUsage = hlIncludedUsage
-	this.HlQueryToIngestRatio = hlQueryToIngestRatio
-	this.HlTier1Rate = hlTier1Rate
-	this.HlTier2Min = hlTier2Min
-	this.HlTier2Rate = hlTier2Rate
-	this.HlTier3Min = hlTier3Min
-	this.HlTier3Rate = hlTier3Rate
 	this.HlUsage = hlUsage
-	this.HlRetentionIncludedUsage = hlRetentionIncludedUsage
-	this.HlRetentionTier1Rate = hlRetentionTier1Rate
-	this.HlRetentionTier2Min = hlRetentionTier2Min
-	this.HlRetentionTier2Rate = hlRetentionTier2Rate
-	this.HlRetentionTier3Min = hlRetentionTier3Min
-	this.HlRetentionTier3Rate = hlRetentionTier3Rate
 	this.HlRetentionUsage = hlRetentionUsage
-	this.HtIncludedUsage = htIncludedUsage
-	this.HtTier1Rate = htTier1Rate
-	this.HtTier2Min = htTier2Min
-	this.HtTier2Rate = htTier2Rate
-	this.HtTier3Min = htTier3Min
-	this.HtTier3Rate = htTier3Rate
 	this.HtUsage = htUsage
-	this.HpIncludedUsage = hpIncludedUsage
-	this.HpTier1Rate = hpTier1Rate
-	this.HpTier2Min = hpTier2Min
-	this.HpTier2Rate = hpTier2Rate
-	this.HpTier3Min = hpTier3Min
-	this.HpTier3Rate = hpTier3Rate
 	this.HpUsage = hpUsage
-	this.IrmStatus = irmStatus
-	this.IrmIncludedUsage = irmIncludedUsage
-	this.IrmTier1Rate = irmTier1Rate
-	this.IrmTier2Min = irmTier2Min
-	this.IrmTier2Rate = irmTier2Rate
-	this.IrmTier3Min = irmTier3Min
-	this.IrmTier3Rate = irmTier3Rate
 	this.IrmUsage = irmUsage
-	this.K6VuhIncludedUsage = k6VuhIncludedUsage
-	this.K6VuhTier1Rate = k6VuhTier1Rate
-	this.K6VuhTier2Min = k6VuhTier2Min
-	this.K6VuhTier2Rate = k6VuhTier2Rate
-	this.K6VuhTier3Min = k6VuhTier3Min
-	this.K6VuhTier3Rate = k6VuhTier3Rate
-	this.K6VuhUnits = k6VuhUnits
 	this.K6VuhUsage = k6VuhUsage
-	this.K6IPIncludedUsage = k6IPIncludedUsage
-	this.K6IPTier1Rate = k6IPTier1Rate
-	this.K6IPTier2Min = k6IPTier2Min
-	this.K6IPTier2Rate = k6IPTier2Rate
-	this.K6IPTier3Min = k6IPTier3Min
-	this.K6IPTier3Rate = k6IPTier3Rate
 	this.K6IPUsage = k6IPUsage
-	this.FeO11YIncludedUsage = feO11YIncludedUsage
-	this.FeO11YTier1Rate = feO11YTier1Rate
-	this.FeO11YTier2Min = feO11YTier2Min
-	this.FeO11YTier2Rate = feO11YTier2Rate
-	this.FeO11YTier3Min = feO11YTier3Min
-	this.FeO11YTier3Rate = feO11YTier3Rate
-	this.FeO11YUnits = feO11YUnits
 	this.FeO11YUsage = feO11YUsage
-	this.AppO11YIncludedUsage = appO11YIncludedUsage
-	this.AppO11YTier1Rate = appO11YTier1Rate
-	this.AppO11YTier2Min = appO11YTier2Min
-	this.AppO11YTier2Rate = appO11YTier2Rate
-	this.AppO11YTier3Min = appO11YTier3Min
-	this.AppO11YTier3Rate = appO11YTier3Rate
-	this.AppO11YUnits = appO11YUnits
 	this.AppO11YUsage = appO11YUsage
-	this.SmIncludedUsage = smIncludedUsage
-	this.SmTier1Rate = smTier1Rate
-	this.SmTier2Min = smTier2Min
-	this.SmTier2Rate = smTier2Rate
-	this.SmTier3Min = smTier3Min
-	this.SmTier3Rate = smTier3Rate
-	this.SmUnits = smUnits
 	this.SmUsage = smUsage
-	this.InfraO11YHostsIncludedUsage = infraO11YHostsIncludedUsage
-	this.InfraO11YHostsTier1Rate = infraO11YHostsTier1Rate
-	this.InfraO11YHostsTier2Min = infraO11YHostsTier2Min
-	this.InfraO11YHostsTier2Rate = infraO11YHostsTier2Rate
-	this.InfraO11YHostsTier3Min = infraO11YHostsTier3Min
-	this.InfraO11YHostsTier3Rate = infraO11YHostsTier3Rate
-	this.InfraO11YHostsUnits = infraO11YHostsUnits
 	this.InfraO11YHostsUsage = infraO11YHostsUsage
-	this.InfraO11YContainersIncludedUsage = infraO11YContainersIncludedUsage
-	this.InfraO11YContainersTier1Rate = infraO11YContainersTier1Rate
-	this.InfraO11YContainersTier2Min = infraO11YContainersTier2Min
-	this.InfraO11YContainersTier2Rate = infraO11YContainersTier2Rate
-	this.InfraO11YContainersTier3Min = infraO11YContainersTier3Min
-	this.InfraO11YContainersTier3Rate = infraO11YContainersTier3Rate
-	this.InfraO11YContainersUnits = infraO11YContainersUnits
 	this.InfraO11YContainersUsage = infraO11YContainersUsage
-	this.GeUsersIncludedUsage = geUsersIncludedUsage
-	this.GeUsersTier1Rate = geUsersTier1Rate
-	this.GeUsersTier2Min = geUsersTier2Min
-	this.GeUsersTier2Rate = geUsersTier2Rate
-	this.GeUsersTier3Min = geUsersTier3Min
-	this.GeUsersTier3Rate = geUsersTier3Rate
 	this.GeUsersUsage = geUsersUsage
-	this.GeUsersAnonymousUsersRatio = geUsersAnonymousUsersRatio
-	this.GeInstancesIncludedUsage = geInstancesIncludedUsage
-	this.GeInstancesTier1Rate = geInstancesTier1Rate
-	this.GeInstancesTier2Min = geInstancesTier2Min
-	this.GeInstancesTier2Rate = geInstancesTier2Rate
-	this.GeInstancesTier3Min = geInstancesTier3Min
-	this.GeInstancesTier3Rate = geInstancesTier3Rate
 	this.GeInstancesUsage = geInstancesUsage
-	this.HgPluginUsersOverageRate = hgPluginUsersOverageRate
-	this.HgPluginUsersIncludedUsage = hgPluginUsersIncludedUsage
 	this.AwsMarketplaceSupport = awsMarketplaceSupport
 	this.TrialStartDate = trialStartDate
 	this.TrialEndDate = trialEndDate
@@ -378,6 +153,7 @@ func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, 
 	this.PluginSignatureType = pluginSignatureType
 	this.ContractType = contractType
 	this.ContractTypeId = contractTypeId
+	this.LiveChatEnabled = liveChatEnabled
 	this.Links = links
 	this.Subscriptions = subscriptions
 	return &this
@@ -883,6 +659,30 @@ func (o *FormattedApiOrgPublic) SetEnterprisePlugins(v float32) {
 	o.EnterprisePlugins = v
 }
 
+// GetLicenseProducts returns the LicenseProducts field value
+func (o *FormattedApiOrgPublic) GetLicenseProducts() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.LicenseProducts
+}
+
+// GetLicenseProductsOk returns a tuple with the LicenseProducts field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiOrgPublic) GetLicenseProductsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LicenseProducts, true
+}
+
+// SetLicenseProducts sets field value
+func (o *FormattedApiOrgPublic) SetLicenseProducts(v []string) {
+	o.LicenseProducts = v
+}
+
 // GetGrafanaCloud returns the GrafanaCloud field value
 func (o *FormattedApiOrgPublic) GetGrafanaCloud() float32 {
 	if o == nil {
@@ -1055,150 +855,6 @@ func (o *FormattedApiOrgPublic) SetGcloudMonthlyCost(v float32) {
 	o.GcloudMonthlyCost = v
 }
 
-// GetHgIncludedUsers returns the HgIncludedUsers field value
-func (o *FormattedApiOrgPublic) GetHgIncludedUsers() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HgIncludedUsers
-}
-
-// GetHgIncludedUsersOk returns a tuple with the HgIncludedUsers field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHgIncludedUsersOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HgIncludedUsers, true
-}
-
-// SetHgIncludedUsers sets field value
-func (o *FormattedApiOrgPublic) SetHgIncludedUsers(v float32) {
-	o.HgIncludedUsers = v
-}
-
-// GetHgTier1Rate returns the HgTier1Rate field value
-func (o *FormattedApiOrgPublic) GetHgTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HgTier1Rate
-}
-
-// GetHgTier1RateOk returns a tuple with the HgTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHgTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HgTier1Rate, true
-}
-
-// SetHgTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetHgTier1Rate(v float32) {
-	o.HgTier1Rate = v
-}
-
-// GetHgTier2Min returns the HgTier2Min field value
-func (o *FormattedApiOrgPublic) GetHgTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HgTier2Min
-}
-
-// GetHgTier2MinOk returns a tuple with the HgTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHgTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HgTier2Min, true
-}
-
-// SetHgTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetHgTier2Min(v float32) {
-	o.HgTier2Min = v
-}
-
-// GetHgTier2Rate returns the HgTier2Rate field value
-func (o *FormattedApiOrgPublic) GetHgTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HgTier2Rate
-}
-
-// GetHgTier2RateOk returns a tuple with the HgTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHgTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HgTier2Rate, true
-}
-
-// SetHgTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetHgTier2Rate(v float32) {
-	o.HgTier2Rate = v
-}
-
-// GetHgTier3Min returns the HgTier3Min field value
-func (o *FormattedApiOrgPublic) GetHgTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HgTier3Min
-}
-
-// GetHgTier3MinOk returns a tuple with the HgTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHgTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HgTier3Min, true
-}
-
-// SetHgTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetHgTier3Min(v float32) {
-	o.HgTier3Min = v
-}
-
-// GetHgTier3Rate returns the HgTier3Rate field value
-func (o *FormattedApiOrgPublic) GetHgTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HgTier3Rate
-}
-
-// GetHgTier3RateOk returns a tuple with the HgTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHgTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HgTier3Rate, true
-}
-
-// SetHgTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetHgTier3Rate(v float32) {
-	o.HgTier3Rate = v
-}
-
 // GetHgUsage returns the HgUsage field value
 func (o *FormattedApiOrgPublic) GetHgUsage() float32 {
 	if o == nil {
@@ -1295,174 +951,6 @@ func (o *FormattedApiOrgPublic) SetHgOnCallUsage(v float32) {
 	o.HgOnCallUsage = v
 }
 
-// GetHmIncludedSeries returns the HmIncludedSeries field value
-func (o *FormattedApiOrgPublic) GetHmIncludedSeries() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmIncludedSeries
-}
-
-// GetHmIncludedSeriesOk returns a tuple with the HmIncludedSeries field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmIncludedSeriesOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmIncludedSeries, true
-}
-
-// SetHmIncludedSeries sets field value
-func (o *FormattedApiOrgPublic) SetHmIncludedSeries(v float32) {
-	o.HmIncludedSeries = v
-}
-
-// GetHmAverageDpm returns the HmAverageDpm field value
-func (o *FormattedApiOrgPublic) GetHmAverageDpm() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmAverageDpm
-}
-
-// GetHmAverageDpmOk returns a tuple with the HmAverageDpm field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmAverageDpmOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmAverageDpm, true
-}
-
-// SetHmAverageDpm sets field value
-func (o *FormattedApiOrgPublic) SetHmAverageDpm(v float32) {
-	o.HmAverageDpm = v
-}
-
-// GetHmTier1Rate returns the HmTier1Rate field value
-func (o *FormattedApiOrgPublic) GetHmTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmTier1Rate
-}
-
-// GetHmTier1RateOk returns a tuple with the HmTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmTier1Rate, true
-}
-
-// SetHmTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetHmTier1Rate(v float32) {
-	o.HmTier1Rate = v
-}
-
-// GetHmTier2Min returns the HmTier2Min field value
-func (o *FormattedApiOrgPublic) GetHmTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmTier2Min
-}
-
-// GetHmTier2MinOk returns a tuple with the HmTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmTier2Min, true
-}
-
-// SetHmTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetHmTier2Min(v float32) {
-	o.HmTier2Min = v
-}
-
-// GetHmTier2Rate returns the HmTier2Rate field value
-func (o *FormattedApiOrgPublic) GetHmTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmTier2Rate
-}
-
-// GetHmTier2RateOk returns a tuple with the HmTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmTier2Rate, true
-}
-
-// SetHmTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetHmTier2Rate(v float32) {
-	o.HmTier2Rate = v
-}
-
-// GetHmTier3Min returns the HmTier3Min field value
-func (o *FormattedApiOrgPublic) GetHmTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmTier3Min
-}
-
-// GetHmTier3MinOk returns a tuple with the HmTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmTier3Min, true
-}
-
-// SetHmTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetHmTier3Min(v float32) {
-	o.HmTier3Min = v
-}
-
-// GetHmTier3Rate returns the HmTier3Rate field value
-func (o *FormattedApiOrgPublic) GetHmTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmTier3Rate
-}
-
-// GetHmTier3RateOk returns a tuple with the HmTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmTier3Rate, true
-}
-
-// SetHmTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetHmTier3Rate(v float32) {
-	o.HmTier3Rate = v
-}
-
 // GetHmUsage returns the HmUsage field value
 func (o *FormattedApiOrgPublic) GetHmUsage() float32 {
 	if o == nil {
@@ -1511,150 +999,6 @@ func (o *FormattedApiOrgPublic) SetHmCurrentUsage(v float32) {
 	o.HmCurrentUsage = v
 }
 
-// GetHmGraphiteIncludedUsage returns the HmGraphiteIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetHmGraphiteIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmGraphiteIncludedUsage
-}
-
-// GetHmGraphiteIncludedUsageOk returns a tuple with the HmGraphiteIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmGraphiteIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmGraphiteIncludedUsage, true
-}
-
-// SetHmGraphiteIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetHmGraphiteIncludedUsage(v float32) {
-	o.HmGraphiteIncludedUsage = v
-}
-
-// GetHmGraphiteTier1Rate returns the HmGraphiteTier1Rate field value
-func (o *FormattedApiOrgPublic) GetHmGraphiteTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmGraphiteTier1Rate
-}
-
-// GetHmGraphiteTier1RateOk returns a tuple with the HmGraphiteTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmGraphiteTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmGraphiteTier1Rate, true
-}
-
-// SetHmGraphiteTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetHmGraphiteTier1Rate(v float32) {
-	o.HmGraphiteTier1Rate = v
-}
-
-// GetHmGraphiteTier2Min returns the HmGraphiteTier2Min field value
-func (o *FormattedApiOrgPublic) GetHmGraphiteTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmGraphiteTier2Min
-}
-
-// GetHmGraphiteTier2MinOk returns a tuple with the HmGraphiteTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmGraphiteTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmGraphiteTier2Min, true
-}
-
-// SetHmGraphiteTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetHmGraphiteTier2Min(v float32) {
-	o.HmGraphiteTier2Min = v
-}
-
-// GetHmGraphiteTier2Rate returns the HmGraphiteTier2Rate field value
-func (o *FormattedApiOrgPublic) GetHmGraphiteTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmGraphiteTier2Rate
-}
-
-// GetHmGraphiteTier2RateOk returns a tuple with the HmGraphiteTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmGraphiteTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmGraphiteTier2Rate, true
-}
-
-// SetHmGraphiteTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetHmGraphiteTier2Rate(v float32) {
-	o.HmGraphiteTier2Rate = v
-}
-
-// GetHmGraphiteTier3Min returns the HmGraphiteTier3Min field value
-func (o *FormattedApiOrgPublic) GetHmGraphiteTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmGraphiteTier3Min
-}
-
-// GetHmGraphiteTier3MinOk returns a tuple with the HmGraphiteTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmGraphiteTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmGraphiteTier3Min, true
-}
-
-// SetHmGraphiteTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetHmGraphiteTier3Min(v float32) {
-	o.HmGraphiteTier3Min = v
-}
-
-// GetHmGraphiteTier3Rate returns the HmGraphiteTier3Rate field value
-func (o *FormattedApiOrgPublic) GetHmGraphiteTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HmGraphiteTier3Rate
-}
-
-// GetHmGraphiteTier3RateOk returns a tuple with the HmGraphiteTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHmGraphiteTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HmGraphiteTier3Rate, true
-}
-
-// SetHmGraphiteTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetHmGraphiteTier3Rate(v float32) {
-	o.HmGraphiteTier3Rate = v
-}
-
 // GetHmGraphiteUsage returns the HmGraphiteUsage field value
 func (o *FormattedApiOrgPublic) GetHmGraphiteUsage() float32 {
 	if o == nil {
@@ -1677,174 +1021,6 @@ func (o *FormattedApiOrgPublic) GetHmGraphiteUsageOk() (*float32, bool) {
 // SetHmGraphiteUsage sets field value
 func (o *FormattedApiOrgPublic) SetHmGraphiteUsage(v float32) {
 	o.HmGraphiteUsage = v
-}
-
-// GetHlIncludedUsage returns the HlIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetHlIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlIncludedUsage
-}
-
-// GetHlIncludedUsageOk returns a tuple with the HlIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlIncludedUsage, true
-}
-
-// SetHlIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetHlIncludedUsage(v float32) {
-	o.HlIncludedUsage = v
-}
-
-// GetHlQueryToIngestRatio returns the HlQueryToIngestRatio field value
-func (o *FormattedApiOrgPublic) GetHlQueryToIngestRatio() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlQueryToIngestRatio
-}
-
-// GetHlQueryToIngestRatioOk returns a tuple with the HlQueryToIngestRatio field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlQueryToIngestRatioOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlQueryToIngestRatio, true
-}
-
-// SetHlQueryToIngestRatio sets field value
-func (o *FormattedApiOrgPublic) SetHlQueryToIngestRatio(v float32) {
-	o.HlQueryToIngestRatio = v
-}
-
-// GetHlTier1Rate returns the HlTier1Rate field value
-func (o *FormattedApiOrgPublic) GetHlTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlTier1Rate
-}
-
-// GetHlTier1RateOk returns a tuple with the HlTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlTier1Rate, true
-}
-
-// SetHlTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetHlTier1Rate(v float32) {
-	o.HlTier1Rate = v
-}
-
-// GetHlTier2Min returns the HlTier2Min field value
-func (o *FormattedApiOrgPublic) GetHlTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlTier2Min
-}
-
-// GetHlTier2MinOk returns a tuple with the HlTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlTier2Min, true
-}
-
-// SetHlTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetHlTier2Min(v float32) {
-	o.HlTier2Min = v
-}
-
-// GetHlTier2Rate returns the HlTier2Rate field value
-func (o *FormattedApiOrgPublic) GetHlTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlTier2Rate
-}
-
-// GetHlTier2RateOk returns a tuple with the HlTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlTier2Rate, true
-}
-
-// SetHlTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetHlTier2Rate(v float32) {
-	o.HlTier2Rate = v
-}
-
-// GetHlTier3Min returns the HlTier3Min field value
-func (o *FormattedApiOrgPublic) GetHlTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlTier3Min
-}
-
-// GetHlTier3MinOk returns a tuple with the HlTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlTier3Min, true
-}
-
-// SetHlTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetHlTier3Min(v float32) {
-	o.HlTier3Min = v
-}
-
-// GetHlTier3Rate returns the HlTier3Rate field value
-func (o *FormattedApiOrgPublic) GetHlTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlTier3Rate
-}
-
-// GetHlTier3RateOk returns a tuple with the HlTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlTier3Rate, true
-}
-
-// SetHlTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetHlTier3Rate(v float32) {
-	o.HlTier3Rate = v
 }
 
 // GetHlUsage returns the HlUsage field value
@@ -1871,150 +1047,6 @@ func (o *FormattedApiOrgPublic) SetHlUsage(v float32) {
 	o.HlUsage = v
 }
 
-// GetHlRetentionIncludedUsage returns the HlRetentionIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetHlRetentionIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlRetentionIncludedUsage
-}
-
-// GetHlRetentionIncludedUsageOk returns a tuple with the HlRetentionIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlRetentionIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlRetentionIncludedUsage, true
-}
-
-// SetHlRetentionIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetHlRetentionIncludedUsage(v float32) {
-	o.HlRetentionIncludedUsage = v
-}
-
-// GetHlRetentionTier1Rate returns the HlRetentionTier1Rate field value
-func (o *FormattedApiOrgPublic) GetHlRetentionTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlRetentionTier1Rate
-}
-
-// GetHlRetentionTier1RateOk returns a tuple with the HlRetentionTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlRetentionTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlRetentionTier1Rate, true
-}
-
-// SetHlRetentionTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetHlRetentionTier1Rate(v float32) {
-	o.HlRetentionTier1Rate = v
-}
-
-// GetHlRetentionTier2Min returns the HlRetentionTier2Min field value
-func (o *FormattedApiOrgPublic) GetHlRetentionTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlRetentionTier2Min
-}
-
-// GetHlRetentionTier2MinOk returns a tuple with the HlRetentionTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlRetentionTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlRetentionTier2Min, true
-}
-
-// SetHlRetentionTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetHlRetentionTier2Min(v float32) {
-	o.HlRetentionTier2Min = v
-}
-
-// GetHlRetentionTier2Rate returns the HlRetentionTier2Rate field value
-func (o *FormattedApiOrgPublic) GetHlRetentionTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlRetentionTier2Rate
-}
-
-// GetHlRetentionTier2RateOk returns a tuple with the HlRetentionTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlRetentionTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlRetentionTier2Rate, true
-}
-
-// SetHlRetentionTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetHlRetentionTier2Rate(v float32) {
-	o.HlRetentionTier2Rate = v
-}
-
-// GetHlRetentionTier3Min returns the HlRetentionTier3Min field value
-func (o *FormattedApiOrgPublic) GetHlRetentionTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlRetentionTier3Min
-}
-
-// GetHlRetentionTier3MinOk returns a tuple with the HlRetentionTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlRetentionTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlRetentionTier3Min, true
-}
-
-// SetHlRetentionTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetHlRetentionTier3Min(v float32) {
-	o.HlRetentionTier3Min = v
-}
-
-// GetHlRetentionTier3Rate returns the HlRetentionTier3Rate field value
-func (o *FormattedApiOrgPublic) GetHlRetentionTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HlRetentionTier3Rate
-}
-
-// GetHlRetentionTier3RateOk returns a tuple with the HlRetentionTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHlRetentionTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HlRetentionTier3Rate, true
-}
-
-// SetHlRetentionTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetHlRetentionTier3Rate(v float32) {
-	o.HlRetentionTier3Rate = v
-}
-
 // GetHlRetentionUsage returns the HlRetentionUsage field value
 func (o *FormattedApiOrgPublic) GetHlRetentionUsage() float32 {
 	if o == nil {
@@ -2037,150 +1069,6 @@ func (o *FormattedApiOrgPublic) GetHlRetentionUsageOk() (*float32, bool) {
 // SetHlRetentionUsage sets field value
 func (o *FormattedApiOrgPublic) SetHlRetentionUsage(v float32) {
 	o.HlRetentionUsage = v
-}
-
-// GetHtIncludedUsage returns the HtIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetHtIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HtIncludedUsage
-}
-
-// GetHtIncludedUsageOk returns a tuple with the HtIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHtIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HtIncludedUsage, true
-}
-
-// SetHtIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetHtIncludedUsage(v float32) {
-	o.HtIncludedUsage = v
-}
-
-// GetHtTier1Rate returns the HtTier1Rate field value
-func (o *FormattedApiOrgPublic) GetHtTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HtTier1Rate
-}
-
-// GetHtTier1RateOk returns a tuple with the HtTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHtTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HtTier1Rate, true
-}
-
-// SetHtTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetHtTier1Rate(v float32) {
-	o.HtTier1Rate = v
-}
-
-// GetHtTier2Min returns the HtTier2Min field value
-func (o *FormattedApiOrgPublic) GetHtTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HtTier2Min
-}
-
-// GetHtTier2MinOk returns a tuple with the HtTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHtTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HtTier2Min, true
-}
-
-// SetHtTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetHtTier2Min(v float32) {
-	o.HtTier2Min = v
-}
-
-// GetHtTier2Rate returns the HtTier2Rate field value
-func (o *FormattedApiOrgPublic) GetHtTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HtTier2Rate
-}
-
-// GetHtTier2RateOk returns a tuple with the HtTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHtTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HtTier2Rate, true
-}
-
-// SetHtTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetHtTier2Rate(v float32) {
-	o.HtTier2Rate = v
-}
-
-// GetHtTier3Min returns the HtTier3Min field value
-func (o *FormattedApiOrgPublic) GetHtTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HtTier3Min
-}
-
-// GetHtTier3MinOk returns a tuple with the HtTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHtTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HtTier3Min, true
-}
-
-// SetHtTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetHtTier3Min(v float32) {
-	o.HtTier3Min = v
-}
-
-// GetHtTier3Rate returns the HtTier3Rate field value
-func (o *FormattedApiOrgPublic) GetHtTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HtTier3Rate
-}
-
-// GetHtTier3RateOk returns a tuple with the HtTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHtTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HtTier3Rate, true
-}
-
-// SetHtTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetHtTier3Rate(v float32) {
-	o.HtTier3Rate = v
 }
 
 // GetHtUsage returns the HtUsage field value
@@ -2207,150 +1095,6 @@ func (o *FormattedApiOrgPublic) SetHtUsage(v float32) {
 	o.HtUsage = v
 }
 
-// GetHpIncludedUsage returns the HpIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetHpIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HpIncludedUsage
-}
-
-// GetHpIncludedUsageOk returns a tuple with the HpIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHpIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HpIncludedUsage, true
-}
-
-// SetHpIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetHpIncludedUsage(v float32) {
-	o.HpIncludedUsage = v
-}
-
-// GetHpTier1Rate returns the HpTier1Rate field value
-func (o *FormattedApiOrgPublic) GetHpTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HpTier1Rate
-}
-
-// GetHpTier1RateOk returns a tuple with the HpTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHpTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HpTier1Rate, true
-}
-
-// SetHpTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetHpTier1Rate(v float32) {
-	o.HpTier1Rate = v
-}
-
-// GetHpTier2Min returns the HpTier2Min field value
-func (o *FormattedApiOrgPublic) GetHpTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HpTier2Min
-}
-
-// GetHpTier2MinOk returns a tuple with the HpTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHpTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HpTier2Min, true
-}
-
-// SetHpTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetHpTier2Min(v float32) {
-	o.HpTier2Min = v
-}
-
-// GetHpTier2Rate returns the HpTier2Rate field value
-func (o *FormattedApiOrgPublic) GetHpTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HpTier2Rate
-}
-
-// GetHpTier2RateOk returns a tuple with the HpTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHpTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HpTier2Rate, true
-}
-
-// SetHpTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetHpTier2Rate(v float32) {
-	o.HpTier2Rate = v
-}
-
-// GetHpTier3Min returns the HpTier3Min field value
-func (o *FormattedApiOrgPublic) GetHpTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HpTier3Min
-}
-
-// GetHpTier3MinOk returns a tuple with the HpTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHpTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HpTier3Min, true
-}
-
-// SetHpTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetHpTier3Min(v float32) {
-	o.HpTier3Min = v
-}
-
-// GetHpTier3Rate returns the HpTier3Rate field value
-func (o *FormattedApiOrgPublic) GetHpTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.HpTier3Rate
-}
-
-// GetHpTier3RateOk returns a tuple with the HpTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetHpTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.HpTier3Rate, true
-}
-
-// SetHpTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetHpTier3Rate(v float32) {
-	o.HpTier3Rate = v
-}
-
 // GetHpUsage returns the HpUsage field value
 func (o *FormattedApiOrgPublic) GetHpUsage() float32 {
 	if o == nil {
@@ -2373,174 +1117,6 @@ func (o *FormattedApiOrgPublic) GetHpUsageOk() (*float32, bool) {
 // SetHpUsage sets field value
 func (o *FormattedApiOrgPublic) SetHpUsage(v float32) {
 	o.HpUsage = v
-}
-
-// GetIrmStatus returns the IrmStatus field value
-func (o *FormattedApiOrgPublic) GetIrmStatus() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.IrmStatus
-}
-
-// GetIrmStatusOk returns a tuple with the IrmStatus field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetIrmStatusOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IrmStatus, true
-}
-
-// SetIrmStatus sets field value
-func (o *FormattedApiOrgPublic) SetIrmStatus(v float32) {
-	o.IrmStatus = v
-}
-
-// GetIrmIncludedUsage returns the IrmIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetIrmIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.IrmIncludedUsage
-}
-
-// GetIrmIncludedUsageOk returns a tuple with the IrmIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetIrmIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IrmIncludedUsage, true
-}
-
-// SetIrmIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetIrmIncludedUsage(v float32) {
-	o.IrmIncludedUsage = v
-}
-
-// GetIrmTier1Rate returns the IrmTier1Rate field value
-func (o *FormattedApiOrgPublic) GetIrmTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.IrmTier1Rate
-}
-
-// GetIrmTier1RateOk returns a tuple with the IrmTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetIrmTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IrmTier1Rate, true
-}
-
-// SetIrmTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetIrmTier1Rate(v float32) {
-	o.IrmTier1Rate = v
-}
-
-// GetIrmTier2Min returns the IrmTier2Min field value
-func (o *FormattedApiOrgPublic) GetIrmTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.IrmTier2Min
-}
-
-// GetIrmTier2MinOk returns a tuple with the IrmTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetIrmTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IrmTier2Min, true
-}
-
-// SetIrmTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetIrmTier2Min(v float32) {
-	o.IrmTier2Min = v
-}
-
-// GetIrmTier2Rate returns the IrmTier2Rate field value
-func (o *FormattedApiOrgPublic) GetIrmTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.IrmTier2Rate
-}
-
-// GetIrmTier2RateOk returns a tuple with the IrmTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetIrmTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IrmTier2Rate, true
-}
-
-// SetIrmTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetIrmTier2Rate(v float32) {
-	o.IrmTier2Rate = v
-}
-
-// GetIrmTier3Min returns the IrmTier3Min field value
-func (o *FormattedApiOrgPublic) GetIrmTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.IrmTier3Min
-}
-
-// GetIrmTier3MinOk returns a tuple with the IrmTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetIrmTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IrmTier3Min, true
-}
-
-// SetIrmTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetIrmTier3Min(v float32) {
-	o.IrmTier3Min = v
-}
-
-// GetIrmTier3Rate returns the IrmTier3Rate field value
-func (o *FormattedApiOrgPublic) GetIrmTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.IrmTier3Rate
-}
-
-// GetIrmTier3RateOk returns a tuple with the IrmTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetIrmTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IrmTier3Rate, true
-}
-
-// SetIrmTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetIrmTier3Rate(v float32) {
-	o.IrmTier3Rate = v
 }
 
 // GetIrmUsage returns the IrmUsage field value
@@ -2567,174 +1143,6 @@ func (o *FormattedApiOrgPublic) SetIrmUsage(v float32) {
 	o.IrmUsage = v
 }
 
-// GetK6VuhIncludedUsage returns the K6VuhIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetK6VuhIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6VuhIncludedUsage
-}
-
-// GetK6VuhIncludedUsageOk returns a tuple with the K6VuhIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6VuhIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6VuhIncludedUsage, true
-}
-
-// SetK6VuhIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetK6VuhIncludedUsage(v float32) {
-	o.K6VuhIncludedUsage = v
-}
-
-// GetK6VuhTier1Rate returns the K6VuhTier1Rate field value
-func (o *FormattedApiOrgPublic) GetK6VuhTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6VuhTier1Rate
-}
-
-// GetK6VuhTier1RateOk returns a tuple with the K6VuhTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6VuhTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6VuhTier1Rate, true
-}
-
-// SetK6VuhTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetK6VuhTier1Rate(v float32) {
-	o.K6VuhTier1Rate = v
-}
-
-// GetK6VuhTier2Min returns the K6VuhTier2Min field value
-func (o *FormattedApiOrgPublic) GetK6VuhTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6VuhTier2Min
-}
-
-// GetK6VuhTier2MinOk returns a tuple with the K6VuhTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6VuhTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6VuhTier2Min, true
-}
-
-// SetK6VuhTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetK6VuhTier2Min(v float32) {
-	o.K6VuhTier2Min = v
-}
-
-// GetK6VuhTier2Rate returns the K6VuhTier2Rate field value
-func (o *FormattedApiOrgPublic) GetK6VuhTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6VuhTier2Rate
-}
-
-// GetK6VuhTier2RateOk returns a tuple with the K6VuhTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6VuhTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6VuhTier2Rate, true
-}
-
-// SetK6VuhTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetK6VuhTier2Rate(v float32) {
-	o.K6VuhTier2Rate = v
-}
-
-// GetK6VuhTier3Min returns the K6VuhTier3Min field value
-func (o *FormattedApiOrgPublic) GetK6VuhTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6VuhTier3Min
-}
-
-// GetK6VuhTier3MinOk returns a tuple with the K6VuhTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6VuhTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6VuhTier3Min, true
-}
-
-// SetK6VuhTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetK6VuhTier3Min(v float32) {
-	o.K6VuhTier3Min = v
-}
-
-// GetK6VuhTier3Rate returns the K6VuhTier3Rate field value
-func (o *FormattedApiOrgPublic) GetK6VuhTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6VuhTier3Rate
-}
-
-// GetK6VuhTier3RateOk returns a tuple with the K6VuhTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6VuhTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6VuhTier3Rate, true
-}
-
-// SetK6VuhTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetK6VuhTier3Rate(v float32) {
-	o.K6VuhTier3Rate = v
-}
-
-// GetK6VuhUnits returns the K6VuhUnits field value
-func (o *FormattedApiOrgPublic) GetK6VuhUnits() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6VuhUnits
-}
-
-// GetK6VuhUnitsOk returns a tuple with the K6VuhUnits field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6VuhUnitsOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6VuhUnits, true
-}
-
-// SetK6VuhUnits sets field value
-func (o *FormattedApiOrgPublic) SetK6VuhUnits(v float32) {
-	o.K6VuhUnits = v
-}
-
 // GetK6VuhUsage returns the K6VuhUsage field value
 func (o *FormattedApiOrgPublic) GetK6VuhUsage() float32 {
 	if o == nil {
@@ -2757,150 +1165,6 @@ func (o *FormattedApiOrgPublic) GetK6VuhUsageOk() (*float32, bool) {
 // SetK6VuhUsage sets field value
 func (o *FormattedApiOrgPublic) SetK6VuhUsage(v float32) {
 	o.K6VuhUsage = v
-}
-
-// GetK6IPIncludedUsage returns the K6IPIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetK6IPIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6IPIncludedUsage
-}
-
-// GetK6IPIncludedUsageOk returns a tuple with the K6IPIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6IPIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6IPIncludedUsage, true
-}
-
-// SetK6IPIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetK6IPIncludedUsage(v float32) {
-	o.K6IPIncludedUsage = v
-}
-
-// GetK6IPTier1Rate returns the K6IPTier1Rate field value
-func (o *FormattedApiOrgPublic) GetK6IPTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6IPTier1Rate
-}
-
-// GetK6IPTier1RateOk returns a tuple with the K6IPTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6IPTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6IPTier1Rate, true
-}
-
-// SetK6IPTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetK6IPTier1Rate(v float32) {
-	o.K6IPTier1Rate = v
-}
-
-// GetK6IPTier2Min returns the K6IPTier2Min field value
-func (o *FormattedApiOrgPublic) GetK6IPTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6IPTier2Min
-}
-
-// GetK6IPTier2MinOk returns a tuple with the K6IPTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6IPTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6IPTier2Min, true
-}
-
-// SetK6IPTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetK6IPTier2Min(v float32) {
-	o.K6IPTier2Min = v
-}
-
-// GetK6IPTier2Rate returns the K6IPTier2Rate field value
-func (o *FormattedApiOrgPublic) GetK6IPTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6IPTier2Rate
-}
-
-// GetK6IPTier2RateOk returns a tuple with the K6IPTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6IPTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6IPTier2Rate, true
-}
-
-// SetK6IPTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetK6IPTier2Rate(v float32) {
-	o.K6IPTier2Rate = v
-}
-
-// GetK6IPTier3Min returns the K6IPTier3Min field value
-func (o *FormattedApiOrgPublic) GetK6IPTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6IPTier3Min
-}
-
-// GetK6IPTier3MinOk returns a tuple with the K6IPTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6IPTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6IPTier3Min, true
-}
-
-// SetK6IPTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetK6IPTier3Min(v float32) {
-	o.K6IPTier3Min = v
-}
-
-// GetK6IPTier3Rate returns the K6IPTier3Rate field value
-func (o *FormattedApiOrgPublic) GetK6IPTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.K6IPTier3Rate
-}
-
-// GetK6IPTier3RateOk returns a tuple with the K6IPTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetK6IPTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.K6IPTier3Rate, true
-}
-
-// SetK6IPTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetK6IPTier3Rate(v float32) {
-	o.K6IPTier3Rate = v
 }
 
 // GetK6IPUsage returns the K6IPUsage field value
@@ -2927,174 +1191,6 @@ func (o *FormattedApiOrgPublic) SetK6IPUsage(v float32) {
 	o.K6IPUsage = v
 }
 
-// GetFeO11YIncludedUsage returns the FeO11YIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetFeO11YIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.FeO11YIncludedUsage
-}
-
-// GetFeO11YIncludedUsageOk returns a tuple with the FeO11YIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11YIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FeO11YIncludedUsage, true
-}
-
-// SetFeO11YIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetFeO11YIncludedUsage(v float32) {
-	o.FeO11YIncludedUsage = v
-}
-
-// GetFeO11YTier1Rate returns the FeO11YTier1Rate field value
-func (o *FormattedApiOrgPublic) GetFeO11YTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.FeO11YTier1Rate
-}
-
-// GetFeO11YTier1RateOk returns a tuple with the FeO11YTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11YTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FeO11YTier1Rate, true
-}
-
-// SetFeO11YTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetFeO11YTier1Rate(v float32) {
-	o.FeO11YTier1Rate = v
-}
-
-// GetFeO11YTier2Min returns the FeO11YTier2Min field value
-func (o *FormattedApiOrgPublic) GetFeO11YTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.FeO11YTier2Min
-}
-
-// GetFeO11YTier2MinOk returns a tuple with the FeO11YTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11YTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FeO11YTier2Min, true
-}
-
-// SetFeO11YTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetFeO11YTier2Min(v float32) {
-	o.FeO11YTier2Min = v
-}
-
-// GetFeO11YTier2Rate returns the FeO11YTier2Rate field value
-func (o *FormattedApiOrgPublic) GetFeO11YTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.FeO11YTier2Rate
-}
-
-// GetFeO11YTier2RateOk returns a tuple with the FeO11YTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11YTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FeO11YTier2Rate, true
-}
-
-// SetFeO11YTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetFeO11YTier2Rate(v float32) {
-	o.FeO11YTier2Rate = v
-}
-
-// GetFeO11YTier3Min returns the FeO11YTier3Min field value
-func (o *FormattedApiOrgPublic) GetFeO11YTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.FeO11YTier3Min
-}
-
-// GetFeO11YTier3MinOk returns a tuple with the FeO11YTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11YTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FeO11YTier3Min, true
-}
-
-// SetFeO11YTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetFeO11YTier3Min(v float32) {
-	o.FeO11YTier3Min = v
-}
-
-// GetFeO11YTier3Rate returns the FeO11YTier3Rate field value
-func (o *FormattedApiOrgPublic) GetFeO11YTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.FeO11YTier3Rate
-}
-
-// GetFeO11YTier3RateOk returns a tuple with the FeO11YTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11YTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FeO11YTier3Rate, true
-}
-
-// SetFeO11YTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetFeO11YTier3Rate(v float32) {
-	o.FeO11YTier3Rate = v
-}
-
-// GetFeO11YUnits returns the FeO11YUnits field value
-func (o *FormattedApiOrgPublic) GetFeO11YUnits() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.FeO11YUnits
-}
-
-// GetFeO11YUnitsOk returns a tuple with the FeO11YUnits field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetFeO11YUnitsOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FeO11YUnits, true
-}
-
-// SetFeO11YUnits sets field value
-func (o *FormattedApiOrgPublic) SetFeO11YUnits(v float32) {
-	o.FeO11YUnits = v
-}
-
 // GetFeO11YUsage returns the FeO11YUsage field value
 func (o *FormattedApiOrgPublic) GetFeO11YUsage() float32 {
 	if o == nil {
@@ -3117,174 +1213,6 @@ func (o *FormattedApiOrgPublic) GetFeO11YUsageOk() (*float32, bool) {
 // SetFeO11YUsage sets field value
 func (o *FormattedApiOrgPublic) SetFeO11YUsage(v float32) {
 	o.FeO11YUsage = v
-}
-
-// GetAppO11YIncludedUsage returns the AppO11YIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetAppO11YIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.AppO11YIncludedUsage
-}
-
-// GetAppO11YIncludedUsageOk returns a tuple with the AppO11YIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetAppO11YIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AppO11YIncludedUsage, true
-}
-
-// SetAppO11YIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetAppO11YIncludedUsage(v float32) {
-	o.AppO11YIncludedUsage = v
-}
-
-// GetAppO11YTier1Rate returns the AppO11YTier1Rate field value
-func (o *FormattedApiOrgPublic) GetAppO11YTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.AppO11YTier1Rate
-}
-
-// GetAppO11YTier1RateOk returns a tuple with the AppO11YTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetAppO11YTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AppO11YTier1Rate, true
-}
-
-// SetAppO11YTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetAppO11YTier1Rate(v float32) {
-	o.AppO11YTier1Rate = v
-}
-
-// GetAppO11YTier2Min returns the AppO11YTier2Min field value
-func (o *FormattedApiOrgPublic) GetAppO11YTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.AppO11YTier2Min
-}
-
-// GetAppO11YTier2MinOk returns a tuple with the AppO11YTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetAppO11YTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AppO11YTier2Min, true
-}
-
-// SetAppO11YTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetAppO11YTier2Min(v float32) {
-	o.AppO11YTier2Min = v
-}
-
-// GetAppO11YTier2Rate returns the AppO11YTier2Rate field value
-func (o *FormattedApiOrgPublic) GetAppO11YTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.AppO11YTier2Rate
-}
-
-// GetAppO11YTier2RateOk returns a tuple with the AppO11YTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetAppO11YTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AppO11YTier2Rate, true
-}
-
-// SetAppO11YTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetAppO11YTier2Rate(v float32) {
-	o.AppO11YTier2Rate = v
-}
-
-// GetAppO11YTier3Min returns the AppO11YTier3Min field value
-func (o *FormattedApiOrgPublic) GetAppO11YTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.AppO11YTier3Min
-}
-
-// GetAppO11YTier3MinOk returns a tuple with the AppO11YTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetAppO11YTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AppO11YTier3Min, true
-}
-
-// SetAppO11YTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetAppO11YTier3Min(v float32) {
-	o.AppO11YTier3Min = v
-}
-
-// GetAppO11YTier3Rate returns the AppO11YTier3Rate field value
-func (o *FormattedApiOrgPublic) GetAppO11YTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.AppO11YTier3Rate
-}
-
-// GetAppO11YTier3RateOk returns a tuple with the AppO11YTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetAppO11YTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AppO11YTier3Rate, true
-}
-
-// SetAppO11YTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetAppO11YTier3Rate(v float32) {
-	o.AppO11YTier3Rate = v
-}
-
-// GetAppO11YUnits returns the AppO11YUnits field value
-func (o *FormattedApiOrgPublic) GetAppO11YUnits() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.AppO11YUnits
-}
-
-// GetAppO11YUnitsOk returns a tuple with the AppO11YUnits field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetAppO11YUnitsOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AppO11YUnits, true
-}
-
-// SetAppO11YUnits sets field value
-func (o *FormattedApiOrgPublic) SetAppO11YUnits(v float32) {
-	o.AppO11YUnits = v
 }
 
 // GetAppO11YUsage returns the AppO11YUsage field value
@@ -3311,174 +1239,6 @@ func (o *FormattedApiOrgPublic) SetAppO11YUsage(v float32) {
 	o.AppO11YUsage = v
 }
 
-// GetSmIncludedUsage returns the SmIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetSmIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.SmIncludedUsage
-}
-
-// GetSmIncludedUsageOk returns a tuple with the SmIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetSmIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SmIncludedUsage, true
-}
-
-// SetSmIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetSmIncludedUsage(v float32) {
-	o.SmIncludedUsage = v
-}
-
-// GetSmTier1Rate returns the SmTier1Rate field value
-func (o *FormattedApiOrgPublic) GetSmTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.SmTier1Rate
-}
-
-// GetSmTier1RateOk returns a tuple with the SmTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetSmTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SmTier1Rate, true
-}
-
-// SetSmTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetSmTier1Rate(v float32) {
-	o.SmTier1Rate = v
-}
-
-// GetSmTier2Min returns the SmTier2Min field value
-func (o *FormattedApiOrgPublic) GetSmTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.SmTier2Min
-}
-
-// GetSmTier2MinOk returns a tuple with the SmTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetSmTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SmTier2Min, true
-}
-
-// SetSmTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetSmTier2Min(v float32) {
-	o.SmTier2Min = v
-}
-
-// GetSmTier2Rate returns the SmTier2Rate field value
-func (o *FormattedApiOrgPublic) GetSmTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.SmTier2Rate
-}
-
-// GetSmTier2RateOk returns a tuple with the SmTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetSmTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SmTier2Rate, true
-}
-
-// SetSmTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetSmTier2Rate(v float32) {
-	o.SmTier2Rate = v
-}
-
-// GetSmTier3Min returns the SmTier3Min field value
-func (o *FormattedApiOrgPublic) GetSmTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.SmTier3Min
-}
-
-// GetSmTier3MinOk returns a tuple with the SmTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetSmTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SmTier3Min, true
-}
-
-// SetSmTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetSmTier3Min(v float32) {
-	o.SmTier3Min = v
-}
-
-// GetSmTier3Rate returns the SmTier3Rate field value
-func (o *FormattedApiOrgPublic) GetSmTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.SmTier3Rate
-}
-
-// GetSmTier3RateOk returns a tuple with the SmTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetSmTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SmTier3Rate, true
-}
-
-// SetSmTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetSmTier3Rate(v float32) {
-	o.SmTier3Rate = v
-}
-
-// GetSmUnits returns the SmUnits field value
-func (o *FormattedApiOrgPublic) GetSmUnits() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.SmUnits
-}
-
-// GetSmUnitsOk returns a tuple with the SmUnits field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetSmUnitsOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SmUnits, true
-}
-
-// SetSmUnits sets field value
-func (o *FormattedApiOrgPublic) SetSmUnits(v float32) {
-	o.SmUnits = v
-}
-
 // GetSmUsage returns the SmUsage field value
 func (o *FormattedApiOrgPublic) GetSmUsage() float32 {
 	if o == nil {
@@ -3501,174 +1261,6 @@ func (o *FormattedApiOrgPublic) GetSmUsageOk() (*float32, bool) {
 // SetSmUsage sets field value
 func (o *FormattedApiOrgPublic) SetSmUsage(v float32) {
 	o.SmUsage = v
-}
-
-// GetInfraO11YHostsIncludedUsage returns the InfraO11YHostsIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YHostsIncludedUsage
-}
-
-// GetInfraO11YHostsIncludedUsageOk returns a tuple with the InfraO11YHostsIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YHostsIncludedUsage, true
-}
-
-// SetInfraO11YHostsIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YHostsIncludedUsage(v float32) {
-	o.InfraO11YHostsIncludedUsage = v
-}
-
-// GetInfraO11YHostsTier1Rate returns the InfraO11YHostsTier1Rate field value
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YHostsTier1Rate
-}
-
-// GetInfraO11YHostsTier1RateOk returns a tuple with the InfraO11YHostsTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YHostsTier1Rate, true
-}
-
-// SetInfraO11YHostsTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YHostsTier1Rate(v float32) {
-	o.InfraO11YHostsTier1Rate = v
-}
-
-// GetInfraO11YHostsTier2Min returns the InfraO11YHostsTier2Min field value
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YHostsTier2Min
-}
-
-// GetInfraO11YHostsTier2MinOk returns a tuple with the InfraO11YHostsTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YHostsTier2Min, true
-}
-
-// SetInfraO11YHostsTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YHostsTier2Min(v float32) {
-	o.InfraO11YHostsTier2Min = v
-}
-
-// GetInfraO11YHostsTier2Rate returns the InfraO11YHostsTier2Rate field value
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YHostsTier2Rate
-}
-
-// GetInfraO11YHostsTier2RateOk returns a tuple with the InfraO11YHostsTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YHostsTier2Rate, true
-}
-
-// SetInfraO11YHostsTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YHostsTier2Rate(v float32) {
-	o.InfraO11YHostsTier2Rate = v
-}
-
-// GetInfraO11YHostsTier3Min returns the InfraO11YHostsTier3Min field value
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YHostsTier3Min
-}
-
-// GetInfraO11YHostsTier3MinOk returns a tuple with the InfraO11YHostsTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YHostsTier3Min, true
-}
-
-// SetInfraO11YHostsTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YHostsTier3Min(v float32) {
-	o.InfraO11YHostsTier3Min = v
-}
-
-// GetInfraO11YHostsTier3Rate returns the InfraO11YHostsTier3Rate field value
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YHostsTier3Rate
-}
-
-// GetInfraO11YHostsTier3RateOk returns a tuple with the InfraO11YHostsTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YHostsTier3Rate, true
-}
-
-// SetInfraO11YHostsTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YHostsTier3Rate(v float32) {
-	o.InfraO11YHostsTier3Rate = v
-}
-
-// GetInfraO11YHostsUnits returns the InfraO11YHostsUnits field value
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsUnits() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YHostsUnits
-}
-
-// GetInfraO11YHostsUnitsOk returns a tuple with the InfraO11YHostsUnits field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YHostsUnitsOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YHostsUnits, true
-}
-
-// SetInfraO11YHostsUnits sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YHostsUnits(v float32) {
-	o.InfraO11YHostsUnits = v
 }
 
 // GetInfraO11YHostsUsage returns the InfraO11YHostsUsage field value
@@ -3695,174 +1287,6 @@ func (o *FormattedApiOrgPublic) SetInfraO11YHostsUsage(v float32) {
 	o.InfraO11YHostsUsage = v
 }
 
-// GetInfraO11YContainersIncludedUsage returns the InfraO11YContainersIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YContainersIncludedUsage
-}
-
-// GetInfraO11YContainersIncludedUsageOk returns a tuple with the InfraO11YContainersIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YContainersIncludedUsage, true
-}
-
-// SetInfraO11YContainersIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YContainersIncludedUsage(v float32) {
-	o.InfraO11YContainersIncludedUsage = v
-}
-
-// GetInfraO11YContainersTier1Rate returns the InfraO11YContainersTier1Rate field value
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YContainersTier1Rate
-}
-
-// GetInfraO11YContainersTier1RateOk returns a tuple with the InfraO11YContainersTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YContainersTier1Rate, true
-}
-
-// SetInfraO11YContainersTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YContainersTier1Rate(v float32) {
-	o.InfraO11YContainersTier1Rate = v
-}
-
-// GetInfraO11YContainersTier2Min returns the InfraO11YContainersTier2Min field value
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YContainersTier2Min
-}
-
-// GetInfraO11YContainersTier2MinOk returns a tuple with the InfraO11YContainersTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YContainersTier2Min, true
-}
-
-// SetInfraO11YContainersTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YContainersTier2Min(v float32) {
-	o.InfraO11YContainersTier2Min = v
-}
-
-// GetInfraO11YContainersTier2Rate returns the InfraO11YContainersTier2Rate field value
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YContainersTier2Rate
-}
-
-// GetInfraO11YContainersTier2RateOk returns a tuple with the InfraO11YContainersTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YContainersTier2Rate, true
-}
-
-// SetInfraO11YContainersTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YContainersTier2Rate(v float32) {
-	o.InfraO11YContainersTier2Rate = v
-}
-
-// GetInfraO11YContainersTier3Min returns the InfraO11YContainersTier3Min field value
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YContainersTier3Min
-}
-
-// GetInfraO11YContainersTier3MinOk returns a tuple with the InfraO11YContainersTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YContainersTier3Min, true
-}
-
-// SetInfraO11YContainersTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YContainersTier3Min(v float32) {
-	o.InfraO11YContainersTier3Min = v
-}
-
-// GetInfraO11YContainersTier3Rate returns the InfraO11YContainersTier3Rate field value
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YContainersTier3Rate
-}
-
-// GetInfraO11YContainersTier3RateOk returns a tuple with the InfraO11YContainersTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YContainersTier3Rate, true
-}
-
-// SetInfraO11YContainersTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YContainersTier3Rate(v float32) {
-	o.InfraO11YContainersTier3Rate = v
-}
-
-// GetInfraO11YContainersUnits returns the InfraO11YContainersUnits field value
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersUnits() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.InfraO11YContainersUnits
-}
-
-// GetInfraO11YContainersUnitsOk returns a tuple with the InfraO11YContainersUnits field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetInfraO11YContainersUnitsOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.InfraO11YContainersUnits, true
-}
-
-// SetInfraO11YContainersUnits sets field value
-func (o *FormattedApiOrgPublic) SetInfraO11YContainersUnits(v float32) {
-	o.InfraO11YContainersUnits = v
-}
-
 // GetInfraO11YContainersUsage returns the InfraO11YContainersUsage field value
 func (o *FormattedApiOrgPublic) GetInfraO11YContainersUsage() float32 {
 	if o == nil {
@@ -3885,150 +1309,6 @@ func (o *FormattedApiOrgPublic) GetInfraO11YContainersUsageOk() (*float32, bool)
 // SetInfraO11YContainersUsage sets field value
 func (o *FormattedApiOrgPublic) SetInfraO11YContainersUsage(v float32) {
 	o.InfraO11YContainersUsage = v
-}
-
-// GetGeUsersIncludedUsage returns the GeUsersIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetGeUsersIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeUsersIncludedUsage
-}
-
-// GetGeUsersIncludedUsageOk returns a tuple with the GeUsersIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeUsersIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeUsersIncludedUsage, true
-}
-
-// SetGeUsersIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetGeUsersIncludedUsage(v float32) {
-	o.GeUsersIncludedUsage = v
-}
-
-// GetGeUsersTier1Rate returns the GeUsersTier1Rate field value
-func (o *FormattedApiOrgPublic) GetGeUsersTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeUsersTier1Rate
-}
-
-// GetGeUsersTier1RateOk returns a tuple with the GeUsersTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeUsersTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeUsersTier1Rate, true
-}
-
-// SetGeUsersTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetGeUsersTier1Rate(v float32) {
-	o.GeUsersTier1Rate = v
-}
-
-// GetGeUsersTier2Min returns the GeUsersTier2Min field value
-func (o *FormattedApiOrgPublic) GetGeUsersTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeUsersTier2Min
-}
-
-// GetGeUsersTier2MinOk returns a tuple with the GeUsersTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeUsersTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeUsersTier2Min, true
-}
-
-// SetGeUsersTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetGeUsersTier2Min(v float32) {
-	o.GeUsersTier2Min = v
-}
-
-// GetGeUsersTier2Rate returns the GeUsersTier2Rate field value
-func (o *FormattedApiOrgPublic) GetGeUsersTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeUsersTier2Rate
-}
-
-// GetGeUsersTier2RateOk returns a tuple with the GeUsersTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeUsersTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeUsersTier2Rate, true
-}
-
-// SetGeUsersTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetGeUsersTier2Rate(v float32) {
-	o.GeUsersTier2Rate = v
-}
-
-// GetGeUsersTier3Min returns the GeUsersTier3Min field value
-func (o *FormattedApiOrgPublic) GetGeUsersTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeUsersTier3Min
-}
-
-// GetGeUsersTier3MinOk returns a tuple with the GeUsersTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeUsersTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeUsersTier3Min, true
-}
-
-// SetGeUsersTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetGeUsersTier3Min(v float32) {
-	o.GeUsersTier3Min = v
-}
-
-// GetGeUsersTier3Rate returns the GeUsersTier3Rate field value
-func (o *FormattedApiOrgPublic) GetGeUsersTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeUsersTier3Rate
-}
-
-// GetGeUsersTier3RateOk returns a tuple with the GeUsersTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeUsersTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeUsersTier3Rate, true
-}
-
-// SetGeUsersTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetGeUsersTier3Rate(v float32) {
-	o.GeUsersTier3Rate = v
 }
 
 // GetGeUsersUsage returns the GeUsersUsage field value
@@ -4055,174 +1335,6 @@ func (o *FormattedApiOrgPublic) SetGeUsersUsage(v float32) {
 	o.GeUsersUsage = v
 }
 
-// GetGeUsersAnonymousUsersRatio returns the GeUsersAnonymousUsersRatio field value
-func (o *FormattedApiOrgPublic) GetGeUsersAnonymousUsersRatio() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeUsersAnonymousUsersRatio
-}
-
-// GetGeUsersAnonymousUsersRatioOk returns a tuple with the GeUsersAnonymousUsersRatio field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeUsersAnonymousUsersRatioOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeUsersAnonymousUsersRatio, true
-}
-
-// SetGeUsersAnonymousUsersRatio sets field value
-func (o *FormattedApiOrgPublic) SetGeUsersAnonymousUsersRatio(v float32) {
-	o.GeUsersAnonymousUsersRatio = v
-}
-
-// GetGeInstancesIncludedUsage returns the GeInstancesIncludedUsage field value
-func (o *FormattedApiOrgPublic) GetGeInstancesIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeInstancesIncludedUsage
-}
-
-// GetGeInstancesIncludedUsageOk returns a tuple with the GeInstancesIncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeInstancesIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeInstancesIncludedUsage, true
-}
-
-// SetGeInstancesIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetGeInstancesIncludedUsage(v float32) {
-	o.GeInstancesIncludedUsage = v
-}
-
-// GetGeInstancesTier1Rate returns the GeInstancesTier1Rate field value
-func (o *FormattedApiOrgPublic) GetGeInstancesTier1Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeInstancesTier1Rate
-}
-
-// GetGeInstancesTier1RateOk returns a tuple with the GeInstancesTier1Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeInstancesTier1RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeInstancesTier1Rate, true
-}
-
-// SetGeInstancesTier1Rate sets field value
-func (o *FormattedApiOrgPublic) SetGeInstancesTier1Rate(v float32) {
-	o.GeInstancesTier1Rate = v
-}
-
-// GetGeInstancesTier2Min returns the GeInstancesTier2Min field value
-func (o *FormattedApiOrgPublic) GetGeInstancesTier2Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeInstancesTier2Min
-}
-
-// GetGeInstancesTier2MinOk returns a tuple with the GeInstancesTier2Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeInstancesTier2MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeInstancesTier2Min, true
-}
-
-// SetGeInstancesTier2Min sets field value
-func (o *FormattedApiOrgPublic) SetGeInstancesTier2Min(v float32) {
-	o.GeInstancesTier2Min = v
-}
-
-// GetGeInstancesTier2Rate returns the GeInstancesTier2Rate field value
-func (o *FormattedApiOrgPublic) GetGeInstancesTier2Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeInstancesTier2Rate
-}
-
-// GetGeInstancesTier2RateOk returns a tuple with the GeInstancesTier2Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeInstancesTier2RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeInstancesTier2Rate, true
-}
-
-// SetGeInstancesTier2Rate sets field value
-func (o *FormattedApiOrgPublic) SetGeInstancesTier2Rate(v float32) {
-	o.GeInstancesTier2Rate = v
-}
-
-// GetGeInstancesTier3Min returns the GeInstancesTier3Min field value
-func (o *FormattedApiOrgPublic) GetGeInstancesTier3Min() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeInstancesTier3Min
-}
-
-// GetGeInstancesTier3MinOk returns a tuple with the GeInstancesTier3Min field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeInstancesTier3MinOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeInstancesTier3Min, true
-}
-
-// SetGeInstancesTier3Min sets field value
-func (o *FormattedApiOrgPublic) SetGeInstancesTier3Min(v float32) {
-	o.GeInstancesTier3Min = v
-}
-
-// GetGeInstancesTier3Rate returns the GeInstancesTier3Rate field value
-func (o *FormattedApiOrgPublic) GetGeInstancesTier3Rate() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.GeInstancesTier3Rate
-}
-
-// GetGeInstancesTier3RateOk returns a tuple with the GeInstancesTier3Rate field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetGeInstancesTier3RateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.GeInstancesTier3Rate, true
-}
-
-// SetGeInstancesTier3Rate sets field value
-func (o *FormattedApiOrgPublic) SetGeInstancesTier3Rate(v float32) {
-	o.GeInstancesTier3Rate = v
-}
-
 // GetGeInstancesUsage returns the GeInstancesUsage field value
 func (o *FormattedApiOrgPublic) GetGeInstancesUsage() float32 {
 	if o == nil {
@@ -4245,58 +1357,6 @@ func (o *FormattedApiOrgPublic) GetGeInstancesUsageOk() (*float32, bool) {
 // SetGeInstancesUsage sets field value
 func (o *FormattedApiOrgPublic) SetGeInstancesUsage(v float32) {
 	o.GeInstancesUsage = v
-}
-
-// GetHgPluginUsersOverageRate returns the HgPluginUsersOverageRate field value
-// If the value is explicit nil, the zero value for float32 will be returned
-func (o *FormattedApiOrgPublic) GetHgPluginUsersOverageRate() float32 {
-	if o == nil || o.HgPluginUsersOverageRate.Get() == nil {
-		var ret float32
-		return ret
-	}
-
-	return *o.HgPluginUsersOverageRate.Get()
-}
-
-// GetHgPluginUsersOverageRateOk returns a tuple with the HgPluginUsersOverageRate field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FormattedApiOrgPublic) GetHgPluginUsersOverageRateOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.HgPluginUsersOverageRate.Get(), o.HgPluginUsersOverageRate.IsSet()
-}
-
-// SetHgPluginUsersOverageRate sets field value
-func (o *FormattedApiOrgPublic) SetHgPluginUsersOverageRate(v float32) {
-	o.HgPluginUsersOverageRate.Set(&v)
-}
-
-// GetHgPluginUsersIncludedUsage returns the HgPluginUsersIncludedUsage field value
-// If the value is explicit nil, the zero value for float32 will be returned
-func (o *FormattedApiOrgPublic) GetHgPluginUsersIncludedUsage() float32 {
-	if o == nil || o.HgPluginUsersIncludedUsage.Get() == nil {
-		var ret float32
-		return ret
-	}
-
-	return *o.HgPluginUsersIncludedUsage.Get()
-}
-
-// GetHgPluginUsersIncludedUsageOk returns a tuple with the HgPluginUsersIncludedUsage field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FormattedApiOrgPublic) GetHgPluginUsersIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.HgPluginUsersIncludedUsage.Get(), o.HgPluginUsersIncludedUsage.IsSet()
-}
-
-// SetHgPluginUsersIncludedUsage sets field value
-func (o *FormattedApiOrgPublic) SetHgPluginUsersIncludedUsage(v float32) {
-	o.HgPluginUsersIncludedUsage.Set(&v)
 }
 
 // GetAwsMarketplaceSupport returns the AwsMarketplaceSupport field value
@@ -4573,6 +1633,30 @@ func (o *FormattedApiOrgPublic) SetContractTypeId(v float32) {
 	o.ContractTypeId = v
 }
 
+// GetLiveChatEnabled returns the LiveChatEnabled field value
+func (o *FormattedApiOrgPublic) GetLiveChatEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.LiveChatEnabled
+}
+
+// GetLiveChatEnabledOk returns a tuple with the LiveChatEnabled field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiOrgPublic) GetLiveChatEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.LiveChatEnabled, true
+}
+
+// SetLiveChatEnabled sets field value
+func (o *FormattedApiOrgPublic) SetLiveChatEnabled(v bool) {
+	o.LiveChatEnabled = v
+}
+
 // GetLinks returns the Links field value
 func (o *FormattedApiOrgPublic) GetLinks() []LinksInner1 {
 	if o == nil {
@@ -4651,6 +1735,7 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["msaSignedAt"] = o.MsaSignedAt.Get()
 	toSerialize["msaSignedBy"] = o.MsaSignedBy.Get()
 	toSerialize["enterprisePlugins"] = o.EnterprisePlugins
+	toSerialize["licenseProducts"] = o.LicenseProducts
 	toSerialize["grafanaCloud"] = o.GrafanaCloud
 	toSerialize["privacy"] = o.Privacy
 	toSerialize["reseller"] = o.Reseller
@@ -4658,141 +1743,27 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["resellerName"] = o.ResellerName.Get()
 	toSerialize["emergencySupport"] = o.EmergencySupport
 	toSerialize["gcloudMonthlyCost"] = o.GcloudMonthlyCost
-	toSerialize["hgIncludedUsers"] = o.HgIncludedUsers
-	toSerialize["hgTier1Rate"] = o.HgTier1Rate
-	toSerialize["hgTier2Min"] = o.HgTier2Min
-	toSerialize["hgTier2Rate"] = o.HgTier2Rate
-	toSerialize["hgTier3Min"] = o.HgTier3Min
-	toSerialize["hgTier3Rate"] = o.HgTier3Rate
 	toSerialize["hgUsage"] = o.HgUsage
 	toSerialize["hgCurrentActiveUsers"] = o.HgCurrentActiveUsers
 	toSerialize["hgGrafanaUsage"] = o.HgGrafanaUsage
 	toSerialize["hgOnCallUsage"] = o.HgOnCallUsage
-	toSerialize["hmIncludedSeries"] = o.HmIncludedSeries
-	toSerialize["hmAverageDpm"] = o.HmAverageDpm
-	toSerialize["hmTier1Rate"] = o.HmTier1Rate
-	toSerialize["hmTier2Min"] = o.HmTier2Min
-	toSerialize["hmTier2Rate"] = o.HmTier2Rate
-	toSerialize["hmTier3Min"] = o.HmTier3Min
-	toSerialize["hmTier3Rate"] = o.HmTier3Rate
 	toSerialize["hmUsage"] = o.HmUsage
 	toSerialize["hmCurrentUsage"] = o.HmCurrentUsage
-	toSerialize["hmGraphiteIncludedUsage"] = o.HmGraphiteIncludedUsage
-	toSerialize["hmGraphiteTier1Rate"] = o.HmGraphiteTier1Rate
-	toSerialize["hmGraphiteTier2Min"] = o.HmGraphiteTier2Min
-	toSerialize["hmGraphiteTier2Rate"] = o.HmGraphiteTier2Rate
-	toSerialize["hmGraphiteTier3Min"] = o.HmGraphiteTier3Min
-	toSerialize["hmGraphiteTier3Rate"] = o.HmGraphiteTier3Rate
 	toSerialize["hmGraphiteUsage"] = o.HmGraphiteUsage
-	toSerialize["hlIncludedUsage"] = o.HlIncludedUsage
-	toSerialize["hlQueryToIngestRatio"] = o.HlQueryToIngestRatio
-	toSerialize["hlTier1Rate"] = o.HlTier1Rate
-	toSerialize["hlTier2Min"] = o.HlTier2Min
-	toSerialize["hlTier2Rate"] = o.HlTier2Rate
-	toSerialize["hlTier3Min"] = o.HlTier3Min
-	toSerialize["hlTier3Rate"] = o.HlTier3Rate
 	toSerialize["hlUsage"] = o.HlUsage
-	toSerialize["hlRetentionIncludedUsage"] = o.HlRetentionIncludedUsage
-	toSerialize["hlRetentionTier1Rate"] = o.HlRetentionTier1Rate
-	toSerialize["hlRetentionTier2Min"] = o.HlRetentionTier2Min
-	toSerialize["hlRetentionTier2Rate"] = o.HlRetentionTier2Rate
-	toSerialize["hlRetentionTier3Min"] = o.HlRetentionTier3Min
-	toSerialize["hlRetentionTier3Rate"] = o.HlRetentionTier3Rate
 	toSerialize["hlRetentionUsage"] = o.HlRetentionUsage
-	toSerialize["htIncludedUsage"] = o.HtIncludedUsage
-	toSerialize["htTier1Rate"] = o.HtTier1Rate
-	toSerialize["htTier2Min"] = o.HtTier2Min
-	toSerialize["htTier2Rate"] = o.HtTier2Rate
-	toSerialize["htTier3Min"] = o.HtTier3Min
-	toSerialize["htTier3Rate"] = o.HtTier3Rate
 	toSerialize["htUsage"] = o.HtUsage
-	toSerialize["hpIncludedUsage"] = o.HpIncludedUsage
-	toSerialize["hpTier1Rate"] = o.HpTier1Rate
-	toSerialize["hpTier2Min"] = o.HpTier2Min
-	toSerialize["hpTier2Rate"] = o.HpTier2Rate
-	toSerialize["hpTier3Min"] = o.HpTier3Min
-	toSerialize["hpTier3Rate"] = o.HpTier3Rate
 	toSerialize["hpUsage"] = o.HpUsage
-	toSerialize["irmStatus"] = o.IrmStatus
-	toSerialize["irmIncludedUsage"] = o.IrmIncludedUsage
-	toSerialize["irmTier1Rate"] = o.IrmTier1Rate
-	toSerialize["irmTier2Min"] = o.IrmTier2Min
-	toSerialize["irmTier2Rate"] = o.IrmTier2Rate
-	toSerialize["irmTier3Min"] = o.IrmTier3Min
-	toSerialize["irmTier3Rate"] = o.IrmTier3Rate
 	toSerialize["irmUsage"] = o.IrmUsage
-	toSerialize["k6VuhIncludedUsage"] = o.K6VuhIncludedUsage
-	toSerialize["k6VuhTier1Rate"] = o.K6VuhTier1Rate
-	toSerialize["k6VuhTier2Min"] = o.K6VuhTier2Min
-	toSerialize["k6VuhTier2Rate"] = o.K6VuhTier2Rate
-	toSerialize["k6VuhTier3Min"] = o.K6VuhTier3Min
-	toSerialize["k6VuhTier3Rate"] = o.K6VuhTier3Rate
-	toSerialize["k6VuhUnits"] = o.K6VuhUnits
 	toSerialize["k6VuhUsage"] = o.K6VuhUsage
-	toSerialize["k6IPIncludedUsage"] = o.K6IPIncludedUsage
-	toSerialize["k6IPTier1Rate"] = o.K6IPTier1Rate
-	toSerialize["k6IPTier2Min"] = o.K6IPTier2Min
-	toSerialize["k6IPTier2Rate"] = o.K6IPTier2Rate
-	toSerialize["k6IPTier3Min"] = o.K6IPTier3Min
-	toSerialize["k6IPTier3Rate"] = o.K6IPTier3Rate
 	toSerialize["k6IPUsage"] = o.K6IPUsage
-	toSerialize["feO11YIncludedUsage"] = o.FeO11YIncludedUsage
-	toSerialize["feO11YTier1Rate"] = o.FeO11YTier1Rate
-	toSerialize["feO11YTier2Min"] = o.FeO11YTier2Min
-	toSerialize["feO11YTier2Rate"] = o.FeO11YTier2Rate
-	toSerialize["feO11YTier3Min"] = o.FeO11YTier3Min
-	toSerialize["feO11YTier3Rate"] = o.FeO11YTier3Rate
-	toSerialize["feO11YUnits"] = o.FeO11YUnits
 	toSerialize["feO11YUsage"] = o.FeO11YUsage
-	toSerialize["appO11YIncludedUsage"] = o.AppO11YIncludedUsage
-	toSerialize["appO11YTier1Rate"] = o.AppO11YTier1Rate
-	toSerialize["appO11YTier2Min"] = o.AppO11YTier2Min
-	toSerialize["appO11YTier2Rate"] = o.AppO11YTier2Rate
-	toSerialize["appO11YTier3Min"] = o.AppO11YTier3Min
-	toSerialize["appO11YTier3Rate"] = o.AppO11YTier3Rate
-	toSerialize["appO11YUnits"] = o.AppO11YUnits
 	toSerialize["appO11YUsage"] = o.AppO11YUsage
-	toSerialize["smIncludedUsage"] = o.SmIncludedUsage
-	toSerialize["smTier1Rate"] = o.SmTier1Rate
-	toSerialize["smTier2Min"] = o.SmTier2Min
-	toSerialize["smTier2Rate"] = o.SmTier2Rate
-	toSerialize["smTier3Min"] = o.SmTier3Min
-	toSerialize["smTier3Rate"] = o.SmTier3Rate
-	toSerialize["smUnits"] = o.SmUnits
 	toSerialize["smUsage"] = o.SmUsage
-	toSerialize["infraO11YHostsIncludedUsage"] = o.InfraO11YHostsIncludedUsage
-	toSerialize["infraO11YHostsTier1Rate"] = o.InfraO11YHostsTier1Rate
-	toSerialize["infraO11YHostsTier2Min"] = o.InfraO11YHostsTier2Min
-	toSerialize["infraO11YHostsTier2Rate"] = o.InfraO11YHostsTier2Rate
-	toSerialize["infraO11YHostsTier3Min"] = o.InfraO11YHostsTier3Min
-	toSerialize["infraO11YHostsTier3Rate"] = o.InfraO11YHostsTier3Rate
-	toSerialize["infraO11YHostsUnits"] = o.InfraO11YHostsUnits
 	toSerialize["infraO11YHostsUsage"] = o.InfraO11YHostsUsage
-	toSerialize["infraO11YContainersIncludedUsage"] = o.InfraO11YContainersIncludedUsage
-	toSerialize["infraO11YContainersTier1Rate"] = o.InfraO11YContainersTier1Rate
-	toSerialize["infraO11YContainersTier2Min"] = o.InfraO11YContainersTier2Min
-	toSerialize["infraO11YContainersTier2Rate"] = o.InfraO11YContainersTier2Rate
-	toSerialize["infraO11YContainersTier3Min"] = o.InfraO11YContainersTier3Min
-	toSerialize["infraO11YContainersTier3Rate"] = o.InfraO11YContainersTier3Rate
-	toSerialize["infraO11YContainersUnits"] = o.InfraO11YContainersUnits
 	toSerialize["infraO11YContainersUsage"] = o.InfraO11YContainersUsage
-	toSerialize["geUsersIncludedUsage"] = o.GeUsersIncludedUsage
-	toSerialize["geUsersTier1Rate"] = o.GeUsersTier1Rate
-	toSerialize["geUsersTier2Min"] = o.GeUsersTier2Min
-	toSerialize["geUsersTier2Rate"] = o.GeUsersTier2Rate
-	toSerialize["geUsersTier3Min"] = o.GeUsersTier3Min
-	toSerialize["geUsersTier3Rate"] = o.GeUsersTier3Rate
 	toSerialize["geUsersUsage"] = o.GeUsersUsage
-	toSerialize["geUsersAnonymousUsersRatio"] = o.GeUsersAnonymousUsersRatio
-	toSerialize["geInstancesIncludedUsage"] = o.GeInstancesIncludedUsage
-	toSerialize["geInstancesTier1Rate"] = o.GeInstancesTier1Rate
-	toSerialize["geInstancesTier2Min"] = o.GeInstancesTier2Min
-	toSerialize["geInstancesTier2Rate"] = o.GeInstancesTier2Rate
-	toSerialize["geInstancesTier3Min"] = o.GeInstancesTier3Min
-	toSerialize["geInstancesTier3Rate"] = o.GeInstancesTier3Rate
 	toSerialize["geInstancesUsage"] = o.GeInstancesUsage
-	toSerialize["hgPluginUsersOverageRate"] = o.HgPluginUsersOverageRate.Get()
-	toSerialize["hgPluginUsersIncludedUsage"] = o.HgPluginUsersIncludedUsage.Get()
 	toSerialize["awsMarketplaceSupport"] = o.AwsMarketplaceSupport
 	toSerialize["trialStartDate"] = o.TrialStartDate.Get()
 	toSerialize["trialEndDate"] = o.TrialEndDate.Get()
@@ -4804,6 +1775,7 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["pluginSignatureType"] = o.PluginSignatureType
 	toSerialize["contractType"] = o.ContractType
 	toSerialize["contractTypeId"] = o.ContractTypeId
+	toSerialize["liveChatEnabled"] = o.LiveChatEnabled
 	toSerialize["links"] = o.Links
 	toSerialize["subscriptions"] = o.Subscriptions
 
@@ -4856,6 +1828,7 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "msaSignedAt")
 		delete(additionalProperties, "msaSignedBy")
 		delete(additionalProperties, "enterprisePlugins")
+		delete(additionalProperties, "licenseProducts")
 		delete(additionalProperties, "grafanaCloud")
 		delete(additionalProperties, "privacy")
 		delete(additionalProperties, "reseller")
@@ -4863,141 +1836,27 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "resellerName")
 		delete(additionalProperties, "emergencySupport")
 		delete(additionalProperties, "gcloudMonthlyCost")
-		delete(additionalProperties, "hgIncludedUsers")
-		delete(additionalProperties, "hgTier1Rate")
-		delete(additionalProperties, "hgTier2Min")
-		delete(additionalProperties, "hgTier2Rate")
-		delete(additionalProperties, "hgTier3Min")
-		delete(additionalProperties, "hgTier3Rate")
 		delete(additionalProperties, "hgUsage")
 		delete(additionalProperties, "hgCurrentActiveUsers")
 		delete(additionalProperties, "hgGrafanaUsage")
 		delete(additionalProperties, "hgOnCallUsage")
-		delete(additionalProperties, "hmIncludedSeries")
-		delete(additionalProperties, "hmAverageDpm")
-		delete(additionalProperties, "hmTier1Rate")
-		delete(additionalProperties, "hmTier2Min")
-		delete(additionalProperties, "hmTier2Rate")
-		delete(additionalProperties, "hmTier3Min")
-		delete(additionalProperties, "hmTier3Rate")
 		delete(additionalProperties, "hmUsage")
 		delete(additionalProperties, "hmCurrentUsage")
-		delete(additionalProperties, "hmGraphiteIncludedUsage")
-		delete(additionalProperties, "hmGraphiteTier1Rate")
-		delete(additionalProperties, "hmGraphiteTier2Min")
-		delete(additionalProperties, "hmGraphiteTier2Rate")
-		delete(additionalProperties, "hmGraphiteTier3Min")
-		delete(additionalProperties, "hmGraphiteTier3Rate")
 		delete(additionalProperties, "hmGraphiteUsage")
-		delete(additionalProperties, "hlIncludedUsage")
-		delete(additionalProperties, "hlQueryToIngestRatio")
-		delete(additionalProperties, "hlTier1Rate")
-		delete(additionalProperties, "hlTier2Min")
-		delete(additionalProperties, "hlTier2Rate")
-		delete(additionalProperties, "hlTier3Min")
-		delete(additionalProperties, "hlTier3Rate")
 		delete(additionalProperties, "hlUsage")
-		delete(additionalProperties, "hlRetentionIncludedUsage")
-		delete(additionalProperties, "hlRetentionTier1Rate")
-		delete(additionalProperties, "hlRetentionTier2Min")
-		delete(additionalProperties, "hlRetentionTier2Rate")
-		delete(additionalProperties, "hlRetentionTier3Min")
-		delete(additionalProperties, "hlRetentionTier3Rate")
 		delete(additionalProperties, "hlRetentionUsage")
-		delete(additionalProperties, "htIncludedUsage")
-		delete(additionalProperties, "htTier1Rate")
-		delete(additionalProperties, "htTier2Min")
-		delete(additionalProperties, "htTier2Rate")
-		delete(additionalProperties, "htTier3Min")
-		delete(additionalProperties, "htTier3Rate")
 		delete(additionalProperties, "htUsage")
-		delete(additionalProperties, "hpIncludedUsage")
-		delete(additionalProperties, "hpTier1Rate")
-		delete(additionalProperties, "hpTier2Min")
-		delete(additionalProperties, "hpTier2Rate")
-		delete(additionalProperties, "hpTier3Min")
-		delete(additionalProperties, "hpTier3Rate")
 		delete(additionalProperties, "hpUsage")
-		delete(additionalProperties, "irmStatus")
-		delete(additionalProperties, "irmIncludedUsage")
-		delete(additionalProperties, "irmTier1Rate")
-		delete(additionalProperties, "irmTier2Min")
-		delete(additionalProperties, "irmTier2Rate")
-		delete(additionalProperties, "irmTier3Min")
-		delete(additionalProperties, "irmTier3Rate")
 		delete(additionalProperties, "irmUsage")
-		delete(additionalProperties, "k6VuhIncludedUsage")
-		delete(additionalProperties, "k6VuhTier1Rate")
-		delete(additionalProperties, "k6VuhTier2Min")
-		delete(additionalProperties, "k6VuhTier2Rate")
-		delete(additionalProperties, "k6VuhTier3Min")
-		delete(additionalProperties, "k6VuhTier3Rate")
-		delete(additionalProperties, "k6VuhUnits")
 		delete(additionalProperties, "k6VuhUsage")
-		delete(additionalProperties, "k6IPIncludedUsage")
-		delete(additionalProperties, "k6IPTier1Rate")
-		delete(additionalProperties, "k6IPTier2Min")
-		delete(additionalProperties, "k6IPTier2Rate")
-		delete(additionalProperties, "k6IPTier3Min")
-		delete(additionalProperties, "k6IPTier3Rate")
 		delete(additionalProperties, "k6IPUsage")
-		delete(additionalProperties, "feO11YIncludedUsage")
-		delete(additionalProperties, "feO11YTier1Rate")
-		delete(additionalProperties, "feO11YTier2Min")
-		delete(additionalProperties, "feO11YTier2Rate")
-		delete(additionalProperties, "feO11YTier3Min")
-		delete(additionalProperties, "feO11YTier3Rate")
-		delete(additionalProperties, "feO11YUnits")
 		delete(additionalProperties, "feO11YUsage")
-		delete(additionalProperties, "appO11YIncludedUsage")
-		delete(additionalProperties, "appO11YTier1Rate")
-		delete(additionalProperties, "appO11YTier2Min")
-		delete(additionalProperties, "appO11YTier2Rate")
-		delete(additionalProperties, "appO11YTier3Min")
-		delete(additionalProperties, "appO11YTier3Rate")
-		delete(additionalProperties, "appO11YUnits")
 		delete(additionalProperties, "appO11YUsage")
-		delete(additionalProperties, "smIncludedUsage")
-		delete(additionalProperties, "smTier1Rate")
-		delete(additionalProperties, "smTier2Min")
-		delete(additionalProperties, "smTier2Rate")
-		delete(additionalProperties, "smTier3Min")
-		delete(additionalProperties, "smTier3Rate")
-		delete(additionalProperties, "smUnits")
 		delete(additionalProperties, "smUsage")
-		delete(additionalProperties, "infraO11YHostsIncludedUsage")
-		delete(additionalProperties, "infraO11YHostsTier1Rate")
-		delete(additionalProperties, "infraO11YHostsTier2Min")
-		delete(additionalProperties, "infraO11YHostsTier2Rate")
-		delete(additionalProperties, "infraO11YHostsTier3Min")
-		delete(additionalProperties, "infraO11YHostsTier3Rate")
-		delete(additionalProperties, "infraO11YHostsUnits")
 		delete(additionalProperties, "infraO11YHostsUsage")
-		delete(additionalProperties, "infraO11YContainersIncludedUsage")
-		delete(additionalProperties, "infraO11YContainersTier1Rate")
-		delete(additionalProperties, "infraO11YContainersTier2Min")
-		delete(additionalProperties, "infraO11YContainersTier2Rate")
-		delete(additionalProperties, "infraO11YContainersTier3Min")
-		delete(additionalProperties, "infraO11YContainersTier3Rate")
-		delete(additionalProperties, "infraO11YContainersUnits")
 		delete(additionalProperties, "infraO11YContainersUsage")
-		delete(additionalProperties, "geUsersIncludedUsage")
-		delete(additionalProperties, "geUsersTier1Rate")
-		delete(additionalProperties, "geUsersTier2Min")
-		delete(additionalProperties, "geUsersTier2Rate")
-		delete(additionalProperties, "geUsersTier3Min")
-		delete(additionalProperties, "geUsersTier3Rate")
 		delete(additionalProperties, "geUsersUsage")
-		delete(additionalProperties, "geUsersAnonymousUsersRatio")
-		delete(additionalProperties, "geInstancesIncludedUsage")
-		delete(additionalProperties, "geInstancesTier1Rate")
-		delete(additionalProperties, "geInstancesTier2Min")
-		delete(additionalProperties, "geInstancesTier2Rate")
-		delete(additionalProperties, "geInstancesTier3Min")
-		delete(additionalProperties, "geInstancesTier3Rate")
 		delete(additionalProperties, "geInstancesUsage")
-		delete(additionalProperties, "hgPluginUsersOverageRate")
-		delete(additionalProperties, "hgPluginUsersIncludedUsage")
 		delete(additionalProperties, "awsMarketplaceSupport")
 		delete(additionalProperties, "trialStartDate")
 		delete(additionalProperties, "trialEndDate")
@@ -5009,6 +1868,7 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "pluginSignatureType")
 		delete(additionalProperties, "contractType")
 		delete(additionalProperties, "contractTypeId")
+		delete(additionalProperties, "liveChatEnabled")
 		delete(additionalProperties, "links")
 		delete(additionalProperties, "subscriptions")
 		o.AdditionalProperties = additionalProperties

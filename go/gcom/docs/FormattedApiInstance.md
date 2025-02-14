@@ -39,12 +39,14 @@ Name | Type | Description | Notes
 **Description** | **string** |  | 
 **Gateway** | **string** |  | 
 **HlInstanceCurrentUsage** | **float32** |  | 
+**HlInstanceBillingUsage** | **float32** |  | 
 **HlInstanceId** | **float32** |  | 
 **HlInstanceName** | **string** |  | 
 **HlInstanceStatus** | **string** |  | 
 **HlInstanceUrl** | **string** |  | 
 **HlInstanceClusterId** | **float32** |  | 
 **HmInstanceGraphiteCurrentUsage** | **float32** |  | 
+**HmInstanceGraphiteBillingUsage** | **float32** |  | 
 **HmInstanceGraphiteId** | **float32** |  | 
 **HmInstanceGraphiteName** | **string** |  | 
 **HmInstanceGraphiteStatus** | **string** |  | 
@@ -53,6 +55,7 @@ Name | Type | Description | Notes
 **HmInstancePromClusterId** | **float32** |  | 
 **HmInstancePromCurrentActiveSeries** | **NullableFloat32** |  | 
 **HmInstancePromCurrentUsage** | **float32** |  | 
+**HmInstancePromBillingUsage** | **float32** |  | 
 **HmInstancePromId** | **float32** |  | 
 **HmInstancePromName** | **string** |  | 
 **HmInstancePromStatus** | **string** |  | 
@@ -63,11 +66,15 @@ Name | Type | Description | Notes
 **HtInstanceStatus** | **string** |  | 
 **HtInstanceUrl** | **string** |  | 
 **HtInstanceClusterId** | **float32** |  | 
+**HtInstanceCurrentUsage** | **float32** |  | 
+**HtInstanceBillingUsage** | **float32** |  | 
 **HpInstanceId** | **float32** |  | 
 **HpInstanceName** | **string** |  | 
 **HpInstanceStatus** | **string** |  | 
 **HpInstanceUrl** | **string** |  | 
 **HpInstanceClusterId** | **float32** |  | 
+**HpInstanceCurrentUsage** | **float32** |  | 
+**HpInstanceBillingUsage** | **float32** |  | 
 **Id** | **float32** |  | 
 **Incident** | **float32** |  | 
 **Labels** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -95,6 +102,7 @@ Name | Type | Description | Notes
 **Url** | **string** |  | 
 **UserQuota** | **float32** |  | 
 **Version** | **string** |  | 
+**VersionIssueLink** | Pointer to **string** |  | [optional] 
 **AgentManagementInstanceId** | **float32** |  | 
 **AgentManagementInstanceUrl** | **string** |  | 
 **AgentManagementInstanceName** | **string** |  | 
@@ -118,7 +126,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiInstance
 
-`func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, amInstanceClusterId float32, billingActiveUsers float32, billingEndDate NullableString, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hlInstanceClusterId float32, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromClusterId float32, hmInstancePromCurrentActiveSeries NullableFloat32, hmInstancePromCurrentUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, hmInstanceGraphiteClusterId float32, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, htInstanceClusterId float32, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, hpInstanceClusterId float32, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, agentManagementInstanceUrl string, agentManagementInstanceName string, agentManagementInstanceStatus string, agentManagementInstanceClusterId float32, type_ string, k6OrgId NullableFloat32, machineLearningLogsToken string, usageStatsId string, regionStackStateServiceUrl string, regionSyntheticMonitoringApiUrl string, regionInsightsApiUrl string, regionIntegrationsApiUrl string, regionHostedExportersApiUrl string, regionMachineLearningApiUrl string, regionLLMGatewayUrl string, links []LinksInner1, ) *FormattedApiInstance`
+`func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, amInstanceClusterId float32, billingActiveUsers float32, billingEndDate NullableString, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceBillingUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hlInstanceClusterId float32, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteBillingUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromClusterId float32, hmInstancePromCurrentActiveSeries NullableFloat32, hmInstancePromCurrentUsage float32, hmInstancePromBillingUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, hmInstanceGraphiteClusterId float32, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, htInstanceClusterId float32, htInstanceCurrentUsage float32, htInstanceBillingUsage float32, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, hpInstanceClusterId float32, hpInstanceCurrentUsage float32, hpInstanceBillingUsage float32, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, agentManagementInstanceUrl string, agentManagementInstanceName string, agentManagementInstanceStatus string, agentManagementInstanceClusterId float32, type_ string, k6OrgId NullableFloat32, machineLearningLogsToken string, usageStatsId string, regionStackStateServiceUrl string, regionSyntheticMonitoringApiUrl string, regionInsightsApiUrl string, regionIntegrationsApiUrl string, regionHostedExportersApiUrl string, regionMachineLearningApiUrl string, regionLLMGatewayUrl string, links []LinksInner1, ) *FormattedApiInstance`
 
 NewFormattedApiInstance instantiates a new FormattedApiInstance object
 This constructor will assign default values to properties that have it defined,
@@ -843,6 +851,26 @@ and a boolean to check if the value has been set.
 SetHlInstanceCurrentUsage sets HlInstanceCurrentUsage field to given value.
 
 
+### GetHlInstanceBillingUsage
+
+`func (o *FormattedApiInstance) GetHlInstanceBillingUsage() float32`
+
+GetHlInstanceBillingUsage returns the HlInstanceBillingUsage field if non-nil, zero value otherwise.
+
+### GetHlInstanceBillingUsageOk
+
+`func (o *FormattedApiInstance) GetHlInstanceBillingUsageOk() (*float32, bool)`
+
+GetHlInstanceBillingUsageOk returns a tuple with the HlInstanceBillingUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHlInstanceBillingUsage
+
+`func (o *FormattedApiInstance) SetHlInstanceBillingUsage(v float32)`
+
+SetHlInstanceBillingUsage sets HlInstanceBillingUsage field to given value.
+
+
 ### GetHlInstanceId
 
 `func (o *FormattedApiInstance) GetHlInstanceId() float32`
@@ -961,6 +989,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiInstance) SetHmInstanceGraphiteCurrentUsage(v float32)`
 
 SetHmInstanceGraphiteCurrentUsage sets HmInstanceGraphiteCurrentUsage field to given value.
+
+
+### GetHmInstanceGraphiteBillingUsage
+
+`func (o *FormattedApiInstance) GetHmInstanceGraphiteBillingUsage() float32`
+
+GetHmInstanceGraphiteBillingUsage returns the HmInstanceGraphiteBillingUsage field if non-nil, zero value otherwise.
+
+### GetHmInstanceGraphiteBillingUsageOk
+
+`func (o *FormattedApiInstance) GetHmInstanceGraphiteBillingUsageOk() (*float32, bool)`
+
+GetHmInstanceGraphiteBillingUsageOk returns a tuple with the HmInstanceGraphiteBillingUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHmInstanceGraphiteBillingUsage
+
+`func (o *FormattedApiInstance) SetHmInstanceGraphiteBillingUsage(v float32)`
+
+SetHmInstanceGraphiteBillingUsage sets HmInstanceGraphiteBillingUsage field to given value.
 
 
 ### GetHmInstanceGraphiteId
@@ -1131,6 +1179,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiInstance) SetHmInstancePromCurrentUsage(v float32)`
 
 SetHmInstancePromCurrentUsage sets HmInstancePromCurrentUsage field to given value.
+
+
+### GetHmInstancePromBillingUsage
+
+`func (o *FormattedApiInstance) GetHmInstancePromBillingUsage() float32`
+
+GetHmInstancePromBillingUsage returns the HmInstancePromBillingUsage field if non-nil, zero value otherwise.
+
+### GetHmInstancePromBillingUsageOk
+
+`func (o *FormattedApiInstance) GetHmInstancePromBillingUsageOk() (*float32, bool)`
+
+GetHmInstancePromBillingUsageOk returns a tuple with the HmInstancePromBillingUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHmInstancePromBillingUsage
+
+`func (o *FormattedApiInstance) SetHmInstancePromBillingUsage(v float32)`
+
+SetHmInstancePromBillingUsage sets HmInstancePromBillingUsage field to given value.
 
 
 ### GetHmInstancePromId
@@ -1333,6 +1401,46 @@ and a boolean to check if the value has been set.
 SetHtInstanceClusterId sets HtInstanceClusterId field to given value.
 
 
+### GetHtInstanceCurrentUsage
+
+`func (o *FormattedApiInstance) GetHtInstanceCurrentUsage() float32`
+
+GetHtInstanceCurrentUsage returns the HtInstanceCurrentUsage field if non-nil, zero value otherwise.
+
+### GetHtInstanceCurrentUsageOk
+
+`func (o *FormattedApiInstance) GetHtInstanceCurrentUsageOk() (*float32, bool)`
+
+GetHtInstanceCurrentUsageOk returns a tuple with the HtInstanceCurrentUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHtInstanceCurrentUsage
+
+`func (o *FormattedApiInstance) SetHtInstanceCurrentUsage(v float32)`
+
+SetHtInstanceCurrentUsage sets HtInstanceCurrentUsage field to given value.
+
+
+### GetHtInstanceBillingUsage
+
+`func (o *FormattedApiInstance) GetHtInstanceBillingUsage() float32`
+
+GetHtInstanceBillingUsage returns the HtInstanceBillingUsage field if non-nil, zero value otherwise.
+
+### GetHtInstanceBillingUsageOk
+
+`func (o *FormattedApiInstance) GetHtInstanceBillingUsageOk() (*float32, bool)`
+
+GetHtInstanceBillingUsageOk returns a tuple with the HtInstanceBillingUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHtInstanceBillingUsage
+
+`func (o *FormattedApiInstance) SetHtInstanceBillingUsage(v float32)`
+
+SetHtInstanceBillingUsage sets HtInstanceBillingUsage field to given value.
+
+
 ### GetHpInstanceId
 
 `func (o *FormattedApiInstance) GetHpInstanceId() float32`
@@ -1431,6 +1539,46 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiInstance) SetHpInstanceClusterId(v float32)`
 
 SetHpInstanceClusterId sets HpInstanceClusterId field to given value.
+
+
+### GetHpInstanceCurrentUsage
+
+`func (o *FormattedApiInstance) GetHpInstanceCurrentUsage() float32`
+
+GetHpInstanceCurrentUsage returns the HpInstanceCurrentUsage field if non-nil, zero value otherwise.
+
+### GetHpInstanceCurrentUsageOk
+
+`func (o *FormattedApiInstance) GetHpInstanceCurrentUsageOk() (*float32, bool)`
+
+GetHpInstanceCurrentUsageOk returns a tuple with the HpInstanceCurrentUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHpInstanceCurrentUsage
+
+`func (o *FormattedApiInstance) SetHpInstanceCurrentUsage(v float32)`
+
+SetHpInstanceCurrentUsage sets HpInstanceCurrentUsage field to given value.
+
+
+### GetHpInstanceBillingUsage
+
+`func (o *FormattedApiInstance) GetHpInstanceBillingUsage() float32`
+
+GetHpInstanceBillingUsage returns the HpInstanceBillingUsage field if non-nil, zero value otherwise.
+
+### GetHpInstanceBillingUsageOk
+
+`func (o *FormattedApiInstance) GetHpInstanceBillingUsageOk() (*float32, bool)`
+
+GetHpInstanceBillingUsageOk returns a tuple with the HpInstanceBillingUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHpInstanceBillingUsage
+
+`func (o *FormattedApiInstance) SetHpInstanceBillingUsage(v float32)`
+
+SetHpInstanceBillingUsage sets HpInstanceBillingUsage field to given value.
 
 
 ### GetId
@@ -2007,6 +2155,31 @@ and a boolean to check if the value has been set.
 
 SetVersion sets Version field to given value.
 
+
+### GetVersionIssueLink
+
+`func (o *FormattedApiInstance) GetVersionIssueLink() string`
+
+GetVersionIssueLink returns the VersionIssueLink field if non-nil, zero value otherwise.
+
+### GetVersionIssueLinkOk
+
+`func (o *FormattedApiInstance) GetVersionIssueLinkOk() (*string, bool)`
+
+GetVersionIssueLinkOk returns a tuple with the VersionIssueLink field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersionIssueLink
+
+`func (o *FormattedApiInstance) SetVersionIssueLink(v string)`
+
+SetVersionIssueLink sets VersionIssueLink field to given value.
+
+### HasVersionIssueLink
+
+`func (o *FormattedApiInstance) HasVersionIssueLink() bool`
+
+HasVersionIssueLink returns a boolean if a field has been set.
 
 ### GetAgentManagementInstanceId
 

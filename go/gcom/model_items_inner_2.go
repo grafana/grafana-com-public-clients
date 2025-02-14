@@ -51,6 +51,7 @@ type ItemsInner2 struct {
 	Subscriptions            Subscriptions                              `json:"subscriptions"`
 	MarketplaceSubscription  NullableItemsInner2MarketplaceSubscription `json:"marketplaceSubscription"`
 	ExtraPermissions         []string                                   `json:"extraPermissions,omitempty"`
+	GrafanaStaffAccess       NullableItemsInner2GrafanaStaffAccess      `json:"grafanaStaffAccess,omitempty"`
 	AdditionalProperties     map[string]interface{}
 }
 
@@ -886,6 +887,49 @@ func (o *ItemsInner2) SetExtraPermissions(v []string) {
 	o.ExtraPermissions = v
 }
 
+// GetGrafanaStaffAccess returns the GrafanaStaffAccess field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ItemsInner2) GetGrafanaStaffAccess() ItemsInner2GrafanaStaffAccess {
+	if o == nil || IsNil(o.GrafanaStaffAccess.Get()) {
+		var ret ItemsInner2GrafanaStaffAccess
+		return ret
+	}
+	return *o.GrafanaStaffAccess.Get()
+}
+
+// GetGrafanaStaffAccessOk returns a tuple with the GrafanaStaffAccess field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemsInner2) GetGrafanaStaffAccessOk() (*ItemsInner2GrafanaStaffAccess, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GrafanaStaffAccess.Get(), o.GrafanaStaffAccess.IsSet()
+}
+
+// HasGrafanaStaffAccess returns a boolean if a field has been set.
+func (o *ItemsInner2) HasGrafanaStaffAccess() bool {
+	if o != nil && o.GrafanaStaffAccess.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGrafanaStaffAccess gets a reference to the given NullableItemsInner2GrafanaStaffAccess and assigns it to the GrafanaStaffAccess field.
+func (o *ItemsInner2) SetGrafanaStaffAccess(v ItemsInner2GrafanaStaffAccess) {
+	o.GrafanaStaffAccess.Set(&v)
+}
+
+// SetGrafanaStaffAccessNil sets the value for GrafanaStaffAccess to be an explicit nil
+func (o *ItemsInner2) SetGrafanaStaffAccessNil() {
+	o.GrafanaStaffAccess.Set(nil)
+}
+
+// UnsetGrafanaStaffAccess ensures that no value is present for GrafanaStaffAccess, not even an explicit nil
+func (o *ItemsInner2) UnsetGrafanaStaffAccess() {
+	o.GrafanaStaffAccess.Unset()
+}
+
 func (o ItemsInner2) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -929,6 +973,9 @@ func (o ItemsInner2) ToMap() (map[string]interface{}, error) {
 	toSerialize["marketplaceSubscription"] = o.MarketplaceSubscription.Get()
 	if !IsNil(o.ExtraPermissions) {
 		toSerialize["extraPermissions"] = o.ExtraPermissions
+	}
+	if o.GrafanaStaffAccess.IsSet() {
+		toSerialize["grafanaStaffAccess"] = o.GrafanaStaffAccess.Get()
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -992,6 +1039,7 @@ func (o *ItemsInner2) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "subscriptions")
 		delete(additionalProperties, "marketplaceSubscription")
 		delete(additionalProperties, "extraPermissions")
+		delete(additionalProperties, "grafanaStaffAccess")
 		o.AdditionalProperties = additionalProperties
 	}
 

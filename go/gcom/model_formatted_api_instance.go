@@ -54,12 +54,14 @@ type FormattedApiInstance struct {
 	Description                       string                 `json:"description"`
 	Gateway                           string                 `json:"gateway"`
 	HlInstanceCurrentUsage            float32                `json:"hlInstanceCurrentUsage"`
+	HlInstanceBillingUsage            float32                `json:"hlInstanceBillingUsage"`
 	HlInstanceId                      float32                `json:"hlInstanceId"`
 	HlInstanceName                    string                 `json:"hlInstanceName"`
 	HlInstanceStatus                  string                 `json:"hlInstanceStatus"`
 	HlInstanceUrl                     string                 `json:"hlInstanceUrl"`
 	HlInstanceClusterId               float32                `json:"hlInstanceClusterId"`
 	HmInstanceGraphiteCurrentUsage    float32                `json:"hmInstanceGraphiteCurrentUsage"`
+	HmInstanceGraphiteBillingUsage    float32                `json:"hmInstanceGraphiteBillingUsage"`
 	HmInstanceGraphiteId              float32                `json:"hmInstanceGraphiteId"`
 	HmInstanceGraphiteName            string                 `json:"hmInstanceGraphiteName"`
 	HmInstanceGraphiteStatus          string                 `json:"hmInstanceGraphiteStatus"`
@@ -68,6 +70,7 @@ type FormattedApiInstance struct {
 	HmInstancePromClusterId           float32                `json:"hmInstancePromClusterId"`
 	HmInstancePromCurrentActiveSeries NullableFloat32        `json:"hmInstancePromCurrentActiveSeries"`
 	HmInstancePromCurrentUsage        float32                `json:"hmInstancePromCurrentUsage"`
+	HmInstancePromBillingUsage        float32                `json:"hmInstancePromBillingUsage"`
 	HmInstancePromId                  float32                `json:"hmInstancePromId"`
 	HmInstancePromName                string                 `json:"hmInstancePromName"`
 	HmInstancePromStatus              string                 `json:"hmInstancePromStatus"`
@@ -78,11 +81,15 @@ type FormattedApiInstance struct {
 	HtInstanceStatus                  string                 `json:"htInstanceStatus"`
 	HtInstanceUrl                     string                 `json:"htInstanceUrl"`
 	HtInstanceClusterId               float32                `json:"htInstanceClusterId"`
+	HtInstanceCurrentUsage            float32                `json:"htInstanceCurrentUsage"`
+	HtInstanceBillingUsage            float32                `json:"htInstanceBillingUsage"`
 	HpInstanceId                      float32                `json:"hpInstanceId"`
 	HpInstanceName                    string                 `json:"hpInstanceName"`
 	HpInstanceStatus                  string                 `json:"hpInstanceStatus"`
 	HpInstanceUrl                     string                 `json:"hpInstanceUrl"`
 	HpInstanceClusterId               float32                `json:"hpInstanceClusterId"`
+	HpInstanceCurrentUsage            float32                `json:"hpInstanceCurrentUsage"`
+	HpInstanceBillingUsage            float32                `json:"hpInstanceBillingUsage"`
 	Id                                float32                `json:"id"`
 	Incident                          float32                `json:"incident"`
 	Labels                            map[string]interface{} `json:"labels,omitempty"`
@@ -110,6 +117,7 @@ type FormattedApiInstance struct {
 	Url                               string                 `json:"url"`
 	UserQuota                         float32                `json:"userQuota"`
 	Version                           string                 `json:"version"`
+	VersionIssueLink                  *string                `json:"versionIssueLink,omitempty"`
 	AgentManagementInstanceId         float32                `json:"agentManagementInstanceId"`
 	AgentManagementInstanceUrl        string                 `json:"agentManagementInstanceUrl"`
 	AgentManagementInstanceName       string                 `json:"agentManagementInstanceName"`
@@ -137,7 +145,7 @@ type _FormattedApiInstance FormattedApiInstance
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, amInstanceClusterId float32, billingActiveUsers float32, billingEndDate NullableString, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hlInstanceClusterId float32, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromClusterId float32, hmInstancePromCurrentActiveSeries NullableFloat32, hmInstancePromCurrentUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, hmInstanceGraphiteClusterId float32, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, htInstanceClusterId float32, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, hpInstanceClusterId float32, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, agentManagementInstanceUrl string, agentManagementInstanceName string, agentManagementInstanceStatus string, agentManagementInstanceClusterId float32, type_ string, k6OrgId NullableFloat32, machineLearningLogsToken string, usageStatsId string, regionStackStateServiceUrl string, regionSyntheticMonitoringApiUrl string, regionInsightsApiUrl string, regionIntegrationsApiUrl string, regionHostedExportersApiUrl string, regionMachineLearningApiUrl string, regionLLMGatewayUrl string, links []LinksInner1) *FormattedApiInstance {
+func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, amInstanceClusterId float32, billingActiveUsers float32, billingEndDate NullableString, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceBillingUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hlInstanceClusterId float32, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteBillingUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromClusterId float32, hmInstancePromCurrentActiveSeries NullableFloat32, hmInstancePromCurrentUsage float32, hmInstancePromBillingUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, hmInstanceGraphiteClusterId float32, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, htInstanceClusterId float32, htInstanceCurrentUsage float32, htInstanceBillingUsage float32, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, hpInstanceClusterId float32, hpInstanceCurrentUsage float32, hpInstanceBillingUsage float32, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, agentManagementInstanceUrl string, agentManagementInstanceName string, agentManagementInstanceStatus string, agentManagementInstanceClusterId float32, type_ string, k6OrgId NullableFloat32, machineLearningLogsToken string, usageStatsId string, regionStackStateServiceUrl string, regionSyntheticMonitoringApiUrl string, regionInsightsApiUrl string, regionIntegrationsApiUrl string, regionHostedExportersApiUrl string, regionMachineLearningApiUrl string, regionLLMGatewayUrl string, links []LinksInner1) *FormattedApiInstance {
 	this := FormattedApiInstance{}
 	this.AlertCnt = alertCnt
 	this.AlertQuota = alertQuota
@@ -174,12 +182,14 @@ func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGen
 	this.Description = description
 	this.Gateway = gateway
 	this.HlInstanceCurrentUsage = hlInstanceCurrentUsage
+	this.HlInstanceBillingUsage = hlInstanceBillingUsage
 	this.HlInstanceId = hlInstanceId
 	this.HlInstanceName = hlInstanceName
 	this.HlInstanceStatus = hlInstanceStatus
 	this.HlInstanceUrl = hlInstanceUrl
 	this.HlInstanceClusterId = hlInstanceClusterId
 	this.HmInstanceGraphiteCurrentUsage = hmInstanceGraphiteCurrentUsage
+	this.HmInstanceGraphiteBillingUsage = hmInstanceGraphiteBillingUsage
 	this.HmInstanceGraphiteId = hmInstanceGraphiteId
 	this.HmInstanceGraphiteName = hmInstanceGraphiteName
 	this.HmInstanceGraphiteStatus = hmInstanceGraphiteStatus
@@ -188,6 +198,7 @@ func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGen
 	this.HmInstancePromClusterId = hmInstancePromClusterId
 	this.HmInstancePromCurrentActiveSeries = hmInstancePromCurrentActiveSeries
 	this.HmInstancePromCurrentUsage = hmInstancePromCurrentUsage
+	this.HmInstancePromBillingUsage = hmInstancePromBillingUsage
 	this.HmInstancePromId = hmInstancePromId
 	this.HmInstancePromName = hmInstancePromName
 	this.HmInstancePromStatus = hmInstancePromStatus
@@ -198,11 +209,15 @@ func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGen
 	this.HtInstanceStatus = htInstanceStatus
 	this.HtInstanceUrl = htInstanceUrl
 	this.HtInstanceClusterId = htInstanceClusterId
+	this.HtInstanceCurrentUsage = htInstanceCurrentUsage
+	this.HtInstanceBillingUsage = htInstanceBillingUsage
 	this.HpInstanceId = hpInstanceId
 	this.HpInstanceName = hpInstanceName
 	this.HpInstanceStatus = hpInstanceStatus
 	this.HpInstanceUrl = hpInstanceUrl
 	this.HpInstanceClusterId = hpInstanceClusterId
+	this.HpInstanceCurrentUsage = hpInstanceCurrentUsage
+	this.HpInstanceBillingUsage = hpInstanceBillingUsage
 	this.Id = id
 	this.Incident = incident
 	this.MachineLearning = machineLearning
@@ -1099,6 +1114,30 @@ func (o *FormattedApiInstance) SetHlInstanceCurrentUsage(v float32) {
 	o.HlInstanceCurrentUsage = v
 }
 
+// GetHlInstanceBillingUsage returns the HlInstanceBillingUsage field value
+func (o *FormattedApiInstance) GetHlInstanceBillingUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HlInstanceBillingUsage
+}
+
+// GetHlInstanceBillingUsageOk returns a tuple with the HlInstanceBillingUsage field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHlInstanceBillingUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HlInstanceBillingUsage, true
+}
+
+// SetHlInstanceBillingUsage sets field value
+func (o *FormattedApiInstance) SetHlInstanceBillingUsage(v float32) {
+	o.HlInstanceBillingUsage = v
+}
+
 // GetHlInstanceId returns the HlInstanceId field value
 func (o *FormattedApiInstance) GetHlInstanceId() float32 {
 	if o == nil {
@@ -1241,6 +1280,30 @@ func (o *FormattedApiInstance) GetHmInstanceGraphiteCurrentUsageOk() (*float32, 
 // SetHmInstanceGraphiteCurrentUsage sets field value
 func (o *FormattedApiInstance) SetHmInstanceGraphiteCurrentUsage(v float32) {
 	o.HmInstanceGraphiteCurrentUsage = v
+}
+
+// GetHmInstanceGraphiteBillingUsage returns the HmInstanceGraphiteBillingUsage field value
+func (o *FormattedApiInstance) GetHmInstanceGraphiteBillingUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HmInstanceGraphiteBillingUsage
+}
+
+// GetHmInstanceGraphiteBillingUsageOk returns a tuple with the HmInstanceGraphiteBillingUsage field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHmInstanceGraphiteBillingUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HmInstanceGraphiteBillingUsage, true
+}
+
+// SetHmInstanceGraphiteBillingUsage sets field value
+func (o *FormattedApiInstance) SetHmInstanceGraphiteBillingUsage(v float32) {
+	o.HmInstanceGraphiteBillingUsage = v
 }
 
 // GetHmInstanceGraphiteId returns the HmInstanceGraphiteId field value
@@ -1435,6 +1498,30 @@ func (o *FormattedApiInstance) GetHmInstancePromCurrentUsageOk() (*float32, bool
 // SetHmInstancePromCurrentUsage sets field value
 func (o *FormattedApiInstance) SetHmInstancePromCurrentUsage(v float32) {
 	o.HmInstancePromCurrentUsage = v
+}
+
+// GetHmInstancePromBillingUsage returns the HmInstancePromBillingUsage field value
+func (o *FormattedApiInstance) GetHmInstancePromBillingUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HmInstancePromBillingUsage
+}
+
+// GetHmInstancePromBillingUsageOk returns a tuple with the HmInstancePromBillingUsage field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHmInstancePromBillingUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HmInstancePromBillingUsage, true
+}
+
+// SetHmInstancePromBillingUsage sets field value
+func (o *FormattedApiInstance) SetHmInstancePromBillingUsage(v float32) {
+	o.HmInstancePromBillingUsage = v
 }
 
 // GetHmInstancePromId returns the HmInstancePromId field value
@@ -1677,6 +1764,54 @@ func (o *FormattedApiInstance) SetHtInstanceClusterId(v float32) {
 	o.HtInstanceClusterId = v
 }
 
+// GetHtInstanceCurrentUsage returns the HtInstanceCurrentUsage field value
+func (o *FormattedApiInstance) GetHtInstanceCurrentUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HtInstanceCurrentUsage
+}
+
+// GetHtInstanceCurrentUsageOk returns a tuple with the HtInstanceCurrentUsage field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHtInstanceCurrentUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HtInstanceCurrentUsage, true
+}
+
+// SetHtInstanceCurrentUsage sets field value
+func (o *FormattedApiInstance) SetHtInstanceCurrentUsage(v float32) {
+	o.HtInstanceCurrentUsage = v
+}
+
+// GetHtInstanceBillingUsage returns the HtInstanceBillingUsage field value
+func (o *FormattedApiInstance) GetHtInstanceBillingUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HtInstanceBillingUsage
+}
+
+// GetHtInstanceBillingUsageOk returns a tuple with the HtInstanceBillingUsage field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHtInstanceBillingUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HtInstanceBillingUsage, true
+}
+
+// SetHtInstanceBillingUsage sets field value
+func (o *FormattedApiInstance) SetHtInstanceBillingUsage(v float32) {
+	o.HtInstanceBillingUsage = v
+}
+
 // GetHpInstanceId returns the HpInstanceId field value
 func (o *FormattedApiInstance) GetHpInstanceId() float32 {
 	if o == nil {
@@ -1795,6 +1930,54 @@ func (o *FormattedApiInstance) GetHpInstanceClusterIdOk() (*float32, bool) {
 // SetHpInstanceClusterId sets field value
 func (o *FormattedApiInstance) SetHpInstanceClusterId(v float32) {
 	o.HpInstanceClusterId = v
+}
+
+// GetHpInstanceCurrentUsage returns the HpInstanceCurrentUsage field value
+func (o *FormattedApiInstance) GetHpInstanceCurrentUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HpInstanceCurrentUsage
+}
+
+// GetHpInstanceCurrentUsageOk returns a tuple with the HpInstanceCurrentUsage field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHpInstanceCurrentUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HpInstanceCurrentUsage, true
+}
+
+// SetHpInstanceCurrentUsage sets field value
+func (o *FormattedApiInstance) SetHpInstanceCurrentUsage(v float32) {
+	o.HpInstanceCurrentUsage = v
+}
+
+// GetHpInstanceBillingUsage returns the HpInstanceBillingUsage field value
+func (o *FormattedApiInstance) GetHpInstanceBillingUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HpInstanceBillingUsage
+}
+
+// GetHpInstanceBillingUsageOk returns a tuple with the HpInstanceBillingUsage field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetHpInstanceBillingUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HpInstanceBillingUsage, true
+}
+
+// SetHpInstanceBillingUsage sets field value
+func (o *FormattedApiInstance) SetHpInstanceBillingUsage(v float32) {
+	o.HpInstanceBillingUsage = v
 }
 
 // GetId returns the Id field value
@@ -2459,6 +2642,38 @@ func (o *FormattedApiInstance) SetVersion(v string) {
 	o.Version = v
 }
 
+// GetVersionIssueLink returns the VersionIssueLink field value if set, zero value otherwise.
+func (o *FormattedApiInstance) GetVersionIssueLink() string {
+	if o == nil || IsNil(o.VersionIssueLink) {
+		var ret string
+		return ret
+	}
+	return *o.VersionIssueLink
+}
+
+// GetVersionIssueLinkOk returns a tuple with the VersionIssueLink field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetVersionIssueLinkOk() (*string, bool) {
+	if o == nil || IsNil(o.VersionIssueLink) {
+		return nil, false
+	}
+	return o.VersionIssueLink, true
+}
+
+// HasVersionIssueLink returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasVersionIssueLink() bool {
+	if o != nil && !IsNil(o.VersionIssueLink) {
+		return true
+	}
+
+	return false
+}
+
+// SetVersionIssueLink gets a reference to the given string and assigns it to the VersionIssueLink field.
+func (o *FormattedApiInstance) SetVersionIssueLink(v string) {
+	o.VersionIssueLink = &v
+}
+
 // GetAgentManagementInstanceId returns the AgentManagementInstanceId field value
 func (o *FormattedApiInstance) GetAgentManagementInstanceId() float32 {
 	if o == nil {
@@ -2946,12 +3161,14 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["description"] = o.Description
 	toSerialize["gateway"] = o.Gateway
 	toSerialize["hlInstanceCurrentUsage"] = o.HlInstanceCurrentUsage
+	toSerialize["hlInstanceBillingUsage"] = o.HlInstanceBillingUsage
 	toSerialize["hlInstanceId"] = o.HlInstanceId
 	toSerialize["hlInstanceName"] = o.HlInstanceName
 	toSerialize["hlInstanceStatus"] = o.HlInstanceStatus
 	toSerialize["hlInstanceUrl"] = o.HlInstanceUrl
 	toSerialize["hlInstanceClusterId"] = o.HlInstanceClusterId
 	toSerialize["hmInstanceGraphiteCurrentUsage"] = o.HmInstanceGraphiteCurrentUsage
+	toSerialize["hmInstanceGraphiteBillingUsage"] = o.HmInstanceGraphiteBillingUsage
 	toSerialize["hmInstanceGraphiteId"] = o.HmInstanceGraphiteId
 	toSerialize["hmInstanceGraphiteName"] = o.HmInstanceGraphiteName
 	toSerialize["hmInstanceGraphiteStatus"] = o.HmInstanceGraphiteStatus
@@ -2960,6 +3177,7 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["hmInstancePromClusterId"] = o.HmInstancePromClusterId
 	toSerialize["hmInstancePromCurrentActiveSeries"] = o.HmInstancePromCurrentActiveSeries.Get()
 	toSerialize["hmInstancePromCurrentUsage"] = o.HmInstancePromCurrentUsage
+	toSerialize["hmInstancePromBillingUsage"] = o.HmInstancePromBillingUsage
 	toSerialize["hmInstancePromId"] = o.HmInstancePromId
 	toSerialize["hmInstancePromName"] = o.HmInstancePromName
 	toSerialize["hmInstancePromStatus"] = o.HmInstancePromStatus
@@ -2970,11 +3188,15 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["htInstanceStatus"] = o.HtInstanceStatus
 	toSerialize["htInstanceUrl"] = o.HtInstanceUrl
 	toSerialize["htInstanceClusterId"] = o.HtInstanceClusterId
+	toSerialize["htInstanceCurrentUsage"] = o.HtInstanceCurrentUsage
+	toSerialize["htInstanceBillingUsage"] = o.HtInstanceBillingUsage
 	toSerialize["hpInstanceId"] = o.HpInstanceId
 	toSerialize["hpInstanceName"] = o.HpInstanceName
 	toSerialize["hpInstanceStatus"] = o.HpInstanceStatus
 	toSerialize["hpInstanceUrl"] = o.HpInstanceUrl
 	toSerialize["hpInstanceClusterId"] = o.HpInstanceClusterId
+	toSerialize["hpInstanceCurrentUsage"] = o.HpInstanceCurrentUsage
+	toSerialize["hpInstanceBillingUsage"] = o.HpInstanceBillingUsage
 	toSerialize["id"] = o.Id
 	toSerialize["incident"] = o.Incident
 	if !IsNil(o.Labels) {
@@ -3004,6 +3226,9 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["url"] = o.Url
 	toSerialize["userQuota"] = o.UserQuota
 	toSerialize["version"] = o.Version
+	if !IsNil(o.VersionIssueLink) {
+		toSerialize["versionIssueLink"] = o.VersionIssueLink
+	}
 	toSerialize["agentManagementInstanceId"] = o.AgentManagementInstanceId
 	toSerialize["agentManagementInstanceUrl"] = o.AgentManagementInstanceUrl
 	toSerialize["agentManagementInstanceName"] = o.AgentManagementInstanceName
@@ -3089,12 +3314,14 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "gateway")
 		delete(additionalProperties, "hlInstanceCurrentUsage")
+		delete(additionalProperties, "hlInstanceBillingUsage")
 		delete(additionalProperties, "hlInstanceId")
 		delete(additionalProperties, "hlInstanceName")
 		delete(additionalProperties, "hlInstanceStatus")
 		delete(additionalProperties, "hlInstanceUrl")
 		delete(additionalProperties, "hlInstanceClusterId")
 		delete(additionalProperties, "hmInstanceGraphiteCurrentUsage")
+		delete(additionalProperties, "hmInstanceGraphiteBillingUsage")
 		delete(additionalProperties, "hmInstanceGraphiteId")
 		delete(additionalProperties, "hmInstanceGraphiteName")
 		delete(additionalProperties, "hmInstanceGraphiteStatus")
@@ -3103,6 +3330,7 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "hmInstancePromClusterId")
 		delete(additionalProperties, "hmInstancePromCurrentActiveSeries")
 		delete(additionalProperties, "hmInstancePromCurrentUsage")
+		delete(additionalProperties, "hmInstancePromBillingUsage")
 		delete(additionalProperties, "hmInstancePromId")
 		delete(additionalProperties, "hmInstancePromName")
 		delete(additionalProperties, "hmInstancePromStatus")
@@ -3113,11 +3341,15 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "htInstanceStatus")
 		delete(additionalProperties, "htInstanceUrl")
 		delete(additionalProperties, "htInstanceClusterId")
+		delete(additionalProperties, "htInstanceCurrentUsage")
+		delete(additionalProperties, "htInstanceBillingUsage")
 		delete(additionalProperties, "hpInstanceId")
 		delete(additionalProperties, "hpInstanceName")
 		delete(additionalProperties, "hpInstanceStatus")
 		delete(additionalProperties, "hpInstanceUrl")
 		delete(additionalProperties, "hpInstanceClusterId")
+		delete(additionalProperties, "hpInstanceCurrentUsage")
+		delete(additionalProperties, "hpInstanceBillingUsage")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "incident")
 		delete(additionalProperties, "labels")
@@ -3145,6 +3377,7 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "url")
 		delete(additionalProperties, "userQuota")
 		delete(additionalProperties, "version")
+		delete(additionalProperties, "versionIssueLink")
 		delete(additionalProperties, "agentManagementInstanceId")
 		delete(additionalProperties, "agentManagementInstanceUrl")
 		delete(additionalProperties, "agentManagementInstanceName")

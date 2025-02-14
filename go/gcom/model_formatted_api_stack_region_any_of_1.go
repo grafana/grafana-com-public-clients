@@ -30,6 +30,7 @@ type FormattedApiStackRegionAnyOf1 struct {
 	OncallApiUrl                string                      `json:"oncallApiUrl"`
 	FaroEndpointUrl             string                      `json:"faroEndpointUrl"`
 	PdcClusterSlug              string                      `json:"pdcClusterSlug"`
+	PdcPrivateConnectivityInfo  PdcPrivateConnectivityInfo  `json:"pdcPrivateConnectivityInfo"`
 	OtlpHttpUrl                 NullableString              `json:"otlpHttpUrl"`
 	OtlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo `json:"otlpPrivateConnectivityInfo"`
 	AuthApiUrl                  string                      `json:"authApiUrl"`
@@ -67,7 +68,11 @@ type FormattedApiStackRegionAnyOf1 struct {
 	AgmClusterName              string                      `json:"agmClusterName"`
 	AgmClusterUrl               string                      `json:"agmClusterUrl"`
 	AssertsGraphClusterId       float32                     `json:"assertsGraphClusterId"`
+	AssertsGraphClusterSlug     string                      `json:"assertsGraphClusterSlug"`
+	AssertsGraphClusterName     string                      `json:"assertsGraphClusterName"`
+	AssertsGraphClusterApiUrl   NullableString              `json:"assertsGraphClusterApiUrl,omitempty"`
 	ProviderRegion              string                      `json:"providerRegion"`
+	IsStub                      bool                        `json:"isStub"`
 	Id                          float32                     `json:"id"`
 	Status                      string                      `json:"status"`
 	Visibility                  string                      `json:"visibility"`
@@ -88,7 +93,7 @@ type _FormattedApiStackRegionAnyOf1 FormattedApiStackRegionAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, providerRegion string, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
+func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
 	this := FormattedApiStackRegionAnyOf1{}
 	this.StackStateServiceUrl = stackStateServiceUrl
 	this.SyntheticMonitoringApiUrl = syntheticMonitoringApiUrl
@@ -101,6 +106,7 @@ func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMoni
 	this.OncallApiUrl = oncallApiUrl
 	this.FaroEndpointUrl = faroEndpointUrl
 	this.PdcClusterSlug = pdcClusterSlug
+	this.PdcPrivateConnectivityInfo = pdcPrivateConnectivityInfo
 	this.OtlpHttpUrl = otlpHttpUrl
 	this.OtlpPrivateConnectivityInfo = otlpPrivateConnectivityInfo
 	this.AuthApiUrl = authApiUrl
@@ -138,7 +144,10 @@ func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMoni
 	this.AgmClusterName = agmClusterName
 	this.AgmClusterUrl = agmClusterUrl
 	this.AssertsGraphClusterId = assertsGraphClusterId
+	this.AssertsGraphClusterSlug = assertsGraphClusterSlug
+	this.AssertsGraphClusterName = assertsGraphClusterName
 	this.ProviderRegion = providerRegion
+	this.IsStub = isStub
 	this.Id = id
 	this.Status = status
 	this.Visibility = visibility
@@ -423,6 +432,30 @@ func (o *FormattedApiStackRegionAnyOf1) GetPdcClusterSlugOk() (*string, bool) {
 // SetPdcClusterSlug sets field value
 func (o *FormattedApiStackRegionAnyOf1) SetPdcClusterSlug(v string) {
 	o.PdcClusterSlug = v
+}
+
+// GetPdcPrivateConnectivityInfo returns the PdcPrivateConnectivityInfo field value
+func (o *FormattedApiStackRegionAnyOf1) GetPdcPrivateConnectivityInfo() PdcPrivateConnectivityInfo {
+	if o == nil {
+		var ret PdcPrivateConnectivityInfo
+		return ret
+	}
+
+	return o.PdcPrivateConnectivityInfo
+}
+
+// GetPdcPrivateConnectivityInfoOk returns a tuple with the PdcPrivateConnectivityInfo field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetPdcPrivateConnectivityInfoOk() (*PdcPrivateConnectivityInfo, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PdcPrivateConnectivityInfo, true
+}
+
+// SetPdcPrivateConnectivityInfo sets field value
+func (o *FormattedApiStackRegionAnyOf1) SetPdcPrivateConnectivityInfo(v PdcPrivateConnectivityInfo) {
+	o.PdcPrivateConnectivityInfo = v
 }
 
 // GetOtlpHttpUrl returns the OtlpHttpUrl field value
@@ -1315,6 +1348,97 @@ func (o *FormattedApiStackRegionAnyOf1) SetAssertsGraphClusterId(v float32) {
 	o.AssertsGraphClusterId = v
 }
 
+// GetAssertsGraphClusterSlug returns the AssertsGraphClusterSlug field value
+func (o *FormattedApiStackRegionAnyOf1) GetAssertsGraphClusterSlug() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AssertsGraphClusterSlug
+}
+
+// GetAssertsGraphClusterSlugOk returns a tuple with the AssertsGraphClusterSlug field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetAssertsGraphClusterSlugOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AssertsGraphClusterSlug, true
+}
+
+// SetAssertsGraphClusterSlug sets field value
+func (o *FormattedApiStackRegionAnyOf1) SetAssertsGraphClusterSlug(v string) {
+	o.AssertsGraphClusterSlug = v
+}
+
+// GetAssertsGraphClusterName returns the AssertsGraphClusterName field value
+func (o *FormattedApiStackRegionAnyOf1) GetAssertsGraphClusterName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AssertsGraphClusterName
+}
+
+// GetAssertsGraphClusterNameOk returns a tuple with the AssertsGraphClusterName field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetAssertsGraphClusterNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AssertsGraphClusterName, true
+}
+
+// SetAssertsGraphClusterName sets field value
+func (o *FormattedApiStackRegionAnyOf1) SetAssertsGraphClusterName(v string) {
+	o.AssertsGraphClusterName = v
+}
+
+// GetAssertsGraphClusterApiUrl returns the AssertsGraphClusterApiUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FormattedApiStackRegionAnyOf1) GetAssertsGraphClusterApiUrl() string {
+	if o == nil || IsNil(o.AssertsGraphClusterApiUrl.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.AssertsGraphClusterApiUrl.Get()
+}
+
+// GetAssertsGraphClusterApiUrlOk returns a tuple with the AssertsGraphClusterApiUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiStackRegionAnyOf1) GetAssertsGraphClusterApiUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AssertsGraphClusterApiUrl.Get(), o.AssertsGraphClusterApiUrl.IsSet()
+}
+
+// HasAssertsGraphClusterApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasAssertsGraphClusterApiUrl() bool {
+	if o != nil && o.AssertsGraphClusterApiUrl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAssertsGraphClusterApiUrl gets a reference to the given NullableString and assigns it to the AssertsGraphClusterApiUrl field.
+func (o *FormattedApiStackRegionAnyOf1) SetAssertsGraphClusterApiUrl(v string) {
+	o.AssertsGraphClusterApiUrl.Set(&v)
+}
+
+// SetAssertsGraphClusterApiUrlNil sets the value for AssertsGraphClusterApiUrl to be an explicit nil
+func (o *FormattedApiStackRegionAnyOf1) SetAssertsGraphClusterApiUrlNil() {
+	o.AssertsGraphClusterApiUrl.Set(nil)
+}
+
+// UnsetAssertsGraphClusterApiUrl ensures that no value is present for AssertsGraphClusterApiUrl, not even an explicit nil
+func (o *FormattedApiStackRegionAnyOf1) UnsetAssertsGraphClusterApiUrl() {
+	o.AssertsGraphClusterApiUrl.Unset()
+}
+
 // GetProviderRegion returns the ProviderRegion field value
 func (o *FormattedApiStackRegionAnyOf1) GetProviderRegion() string {
 	if o == nil {
@@ -1337,6 +1461,30 @@ func (o *FormattedApiStackRegionAnyOf1) GetProviderRegionOk() (*string, bool) {
 // SetProviderRegion sets field value
 func (o *FormattedApiStackRegionAnyOf1) SetProviderRegion(v string) {
 	o.ProviderRegion = v
+}
+
+// GetIsStub returns the IsStub field value
+func (o *FormattedApiStackRegionAnyOf1) GetIsStub() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsStub
+}
+
+// GetIsStubOk returns a tuple with the IsStub field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetIsStubOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsStub, true
+}
+
+// SetIsStub sets field value
+func (o *FormattedApiStackRegionAnyOf1) SetIsStub(v bool) {
+	o.IsStub = v
 }
 
 // GetId returns the Id field value
@@ -1626,6 +1774,7 @@ func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize["oncallApiUrl"] = o.OncallApiUrl
 	toSerialize["faroEndpointUrl"] = o.FaroEndpointUrl
 	toSerialize["pdcClusterSlug"] = o.PdcClusterSlug
+	toSerialize["pdcPrivateConnectivityInfo"] = o.PdcPrivateConnectivityInfo
 	toSerialize["otlpHttpUrl"] = o.OtlpHttpUrl.Get()
 	toSerialize["otlpPrivateConnectivityInfo"] = o.OtlpPrivateConnectivityInfo
 	toSerialize["authApiUrl"] = o.AuthApiUrl
@@ -1663,7 +1812,13 @@ func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize["agmClusterName"] = o.AgmClusterName
 	toSerialize["agmClusterUrl"] = o.AgmClusterUrl
 	toSerialize["assertsGraphClusterId"] = o.AssertsGraphClusterId
+	toSerialize["assertsGraphClusterSlug"] = o.AssertsGraphClusterSlug
+	toSerialize["assertsGraphClusterName"] = o.AssertsGraphClusterName
+	if o.AssertsGraphClusterApiUrl.IsSet() {
+		toSerialize["assertsGraphClusterApiUrl"] = o.AssertsGraphClusterApiUrl.Get()
+	}
 	toSerialize["providerRegion"] = o.ProviderRegion
+	toSerialize["isStub"] = o.IsStub
 	toSerialize["id"] = o.Id
 	toSerialize["status"] = o.Status
 	toSerialize["visibility"] = o.Visibility
@@ -1716,6 +1871,7 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "oncallApiUrl")
 		delete(additionalProperties, "faroEndpointUrl")
 		delete(additionalProperties, "pdcClusterSlug")
+		delete(additionalProperties, "pdcPrivateConnectivityInfo")
 		delete(additionalProperties, "otlpHttpUrl")
 		delete(additionalProperties, "otlpPrivateConnectivityInfo")
 		delete(additionalProperties, "authApiUrl")
@@ -1753,7 +1909,11 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "agmClusterName")
 		delete(additionalProperties, "agmClusterUrl")
 		delete(additionalProperties, "assertsGraphClusterId")
+		delete(additionalProperties, "assertsGraphClusterSlug")
+		delete(additionalProperties, "assertsGraphClusterName")
+		delete(additionalProperties, "assertsGraphClusterApiUrl")
 		delete(additionalProperties, "providerRegion")
+		delete(additionalProperties, "isStub")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "visibility")

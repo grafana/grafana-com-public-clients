@@ -14,39 +14,39 @@ import (
 	"encoding/json"
 )
 
-// checks if the OtlpPrivateConnectivityInfoAnyOf type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &OtlpPrivateConnectivityInfoAnyOf{}
+// checks if the Gateway type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Gateway{}
 
-// OtlpPrivateConnectivityInfoAnyOf struct for OtlpPrivateConnectivityInfoAnyOf
-type OtlpPrivateConnectivityInfoAnyOf struct {
+// Gateway struct for Gateway
+type Gateway struct {
 	PrivateDNS           string `json:"privateDNS"`
 	ServiceName          string `json:"serviceName"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _OtlpPrivateConnectivityInfoAnyOf OtlpPrivateConnectivityInfoAnyOf
+type _Gateway Gateway
 
-// NewOtlpPrivateConnectivityInfoAnyOf instantiates a new OtlpPrivateConnectivityInfoAnyOf object
+// NewGateway instantiates a new Gateway object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOtlpPrivateConnectivityInfoAnyOf(privateDNS string, serviceName string) *OtlpPrivateConnectivityInfoAnyOf {
-	this := OtlpPrivateConnectivityInfoAnyOf{}
+func NewGateway(privateDNS string, serviceName string) *Gateway {
+	this := Gateway{}
 	this.PrivateDNS = privateDNS
 	this.ServiceName = serviceName
 	return &this
 }
 
-// NewOtlpPrivateConnectivityInfoAnyOfWithDefaults instantiates a new OtlpPrivateConnectivityInfoAnyOf object
+// NewGatewayWithDefaults instantiates a new Gateway object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewOtlpPrivateConnectivityInfoAnyOfWithDefaults() *OtlpPrivateConnectivityInfoAnyOf {
-	this := OtlpPrivateConnectivityInfoAnyOf{}
+func NewGatewayWithDefaults() *Gateway {
+	this := Gateway{}
 	return &this
 }
 
 // GetPrivateDNS returns the PrivateDNS field value
-func (o *OtlpPrivateConnectivityInfoAnyOf) GetPrivateDNS() string {
+func (o *Gateway) GetPrivateDNS() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -57,7 +57,7 @@ func (o *OtlpPrivateConnectivityInfoAnyOf) GetPrivateDNS() string {
 
 // GetPrivateDNSOk returns a tuple with the PrivateDNS field value
 // and a boolean to check if the value has been set.
-func (o *OtlpPrivateConnectivityInfoAnyOf) GetPrivateDNSOk() (*string, bool) {
+func (o *Gateway) GetPrivateDNSOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,12 +65,12 @@ func (o *OtlpPrivateConnectivityInfoAnyOf) GetPrivateDNSOk() (*string, bool) {
 }
 
 // SetPrivateDNS sets field value
-func (o *OtlpPrivateConnectivityInfoAnyOf) SetPrivateDNS(v string) {
+func (o *Gateway) SetPrivateDNS(v string) {
 	o.PrivateDNS = v
 }
 
 // GetServiceName returns the ServiceName field value
-func (o *OtlpPrivateConnectivityInfoAnyOf) GetServiceName() string {
+func (o *Gateway) GetServiceName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -81,7 +81,7 @@ func (o *OtlpPrivateConnectivityInfoAnyOf) GetServiceName() string {
 
 // GetServiceNameOk returns a tuple with the ServiceName field value
 // and a boolean to check if the value has been set.
-func (o *OtlpPrivateConnectivityInfoAnyOf) GetServiceNameOk() (*string, bool) {
+func (o *Gateway) GetServiceNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,11 +89,11 @@ func (o *OtlpPrivateConnectivityInfoAnyOf) GetServiceNameOk() (*string, bool) {
 }
 
 // SetServiceName sets field value
-func (o *OtlpPrivateConnectivityInfoAnyOf) SetServiceName(v string) {
+func (o *Gateway) SetServiceName(v string) {
 	o.ServiceName = v
 }
 
-func (o OtlpPrivateConnectivityInfoAnyOf) MarshalJSON() ([]byte, error) {
+func (o Gateway) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -101,7 +101,7 @@ func (o OtlpPrivateConnectivityInfoAnyOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o OtlpPrivateConnectivityInfoAnyOf) ToMap() (map[string]interface{}, error) {
+func (o Gateway) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["privateDNS"] = o.PrivateDNS
 	toSerialize["serviceName"] = o.ServiceName
@@ -113,7 +113,7 @@ func (o OtlpPrivateConnectivityInfoAnyOf) ToMap() (map[string]interface{}, error
 	return toSerialize, nil
 }
 
-func (o *OtlpPrivateConnectivityInfoAnyOf) UnmarshalJSON(data []byte) (err error) {
+func (o *Gateway) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -122,15 +122,15 @@ func (o *OtlpPrivateConnectivityInfoAnyOf) UnmarshalJSON(data []byte) (err error
 		return err
 	}
 
-	varOtlpPrivateConnectivityInfoAnyOf := _OtlpPrivateConnectivityInfoAnyOf{}
+	varGateway := _Gateway{}
 
-	err = json.Unmarshal(data, &varOtlpPrivateConnectivityInfoAnyOf)
+	err = json.Unmarshal(data, &varGateway)
 
 	if err != nil {
 		return err
 	}
 
-	*o = OtlpPrivateConnectivityInfoAnyOf(varOtlpPrivateConnectivityInfoAnyOf)
+	*o = Gateway(varGateway)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -143,38 +143,38 @@ func (o *OtlpPrivateConnectivityInfoAnyOf) UnmarshalJSON(data []byte) (err error
 	return err
 }
 
-type NullableOtlpPrivateConnectivityInfoAnyOf struct {
-	value *OtlpPrivateConnectivityInfoAnyOf
+type NullableGateway struct {
+	value *Gateway
 	isSet bool
 }
 
-func (v NullableOtlpPrivateConnectivityInfoAnyOf) Get() *OtlpPrivateConnectivityInfoAnyOf {
+func (v NullableGateway) Get() *Gateway {
 	return v.value
 }
 
-func (v *NullableOtlpPrivateConnectivityInfoAnyOf) Set(val *OtlpPrivateConnectivityInfoAnyOf) {
+func (v *NullableGateway) Set(val *Gateway) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableOtlpPrivateConnectivityInfoAnyOf) IsSet() bool {
+func (v NullableGateway) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableOtlpPrivateConnectivityInfoAnyOf) Unset() {
+func (v *NullableGateway) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableOtlpPrivateConnectivityInfoAnyOf(val *OtlpPrivateConnectivityInfoAnyOf) *NullableOtlpPrivateConnectivityInfoAnyOf {
-	return &NullableOtlpPrivateConnectivityInfoAnyOf{value: val, isSet: true}
+func NewNullableGateway(val *Gateway) *NullableGateway {
+	return &NullableGateway{value: val, isSet: true}
 }
 
-func (v NullableOtlpPrivateConnectivityInfoAnyOf) MarshalJSON() ([]byte, error) {
+func (v NullableGateway) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableOtlpPrivateConnectivityInfoAnyOf) UnmarshalJSON(src []byte) error {
+func (v *NullableGateway) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

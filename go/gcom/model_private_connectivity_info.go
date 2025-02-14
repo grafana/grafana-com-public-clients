@@ -21,6 +21,7 @@ var _ MappedNullable = &PrivateConnectivityInfo{}
 type PrivateConnectivityInfo struct {
 	Tenants              []TenantsInner `json:"tenants"`
 	Otlp                 *Otlp          `json:"otlp,omitempty"`
+	Pdc                  *Pdc           `json:"pdc,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -100,6 +101,38 @@ func (o *PrivateConnectivityInfo) SetOtlp(v Otlp) {
 	o.Otlp = &v
 }
 
+// GetPdc returns the Pdc field value if set, zero value otherwise.
+func (o *PrivateConnectivityInfo) GetPdc() Pdc {
+	if o == nil || IsNil(o.Pdc) {
+		var ret Pdc
+		return ret
+	}
+	return *o.Pdc
+}
+
+// GetPdcOk returns a tuple with the Pdc field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PrivateConnectivityInfo) GetPdcOk() (*Pdc, bool) {
+	if o == nil || IsNil(o.Pdc) {
+		return nil, false
+	}
+	return o.Pdc, true
+}
+
+// HasPdc returns a boolean if a field has been set.
+func (o *PrivateConnectivityInfo) HasPdc() bool {
+	if o != nil && !IsNil(o.Pdc) {
+		return true
+	}
+
+	return false
+}
+
+// SetPdc gets a reference to the given Pdc and assigns it to the Pdc field.
+func (o *PrivateConnectivityInfo) SetPdc(v Pdc) {
+	o.Pdc = &v
+}
+
 func (o PrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -113,6 +146,9 @@ func (o PrivateConnectivityInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize["tenants"] = o.Tenants
 	if !IsNil(o.Otlp) {
 		toSerialize["otlp"] = o.Otlp
+	}
+	if !IsNil(o.Pdc) {
+		toSerialize["pdc"] = o.Pdc
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -146,6 +182,7 @@ func (o *PrivateConnectivityInfo) UnmarshalJSON(data []byte) (err error) {
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "tenants")
 		delete(additionalProperties, "otlp")
+		delete(additionalProperties, "pdc")
 		o.AdditionalProperties = additionalProperties
 	}
 

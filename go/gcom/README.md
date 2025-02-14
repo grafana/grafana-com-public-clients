@@ -119,11 +119,14 @@ Class | Method | HTTP request | Description
 *InstancesAPI* | [**PostInstanceServiceAccountTokens**](docs/InstancesAPI.md#postinstanceserviceaccounttokens) | **Post** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Creates a service account token on a Grafana instance
 *InstancesAPI* | [**PostInstanceServiceAccounts**](docs/InstancesAPI.md#postinstanceserviceaccounts) | **Post** /instances/{instanceId}/api/serviceaccounts | Creates a service account on a Grafana instance
 *InstancesAPI* | [**PostInstances**](docs/InstancesAPI.md#postinstances) | **Post** /instances | Create a new instance
+*OrgsAPI* | [**CheckOrgVisibility**](docs/OrgsAPI.md#checkorgvisibility) | **Get** /orgs/{slugOrId}/check-visibility | 
 *OrgsAPI* | [**DelApiKey**](docs/OrgsAPI.md#delapikey) | **Delete** /orgs/{slugOrId}/api-keys/{name} | Delete an API key by name
 *OrgsAPI* | [**DeleteOrgMember**](docs/OrgsAPI.md#deleteorgmember) | **Delete** /orgs/{slugOrId}/members/{usernameOrId} | 
 *OrgsAPI* | [**GetApiKey**](docs/OrgsAPI.md#getapikey) | **Get** /orgs/{slugOrId}/api-keys/{name} | Get an API key by name
 *OrgsAPI* | [**GetApiKeys**](docs/OrgsAPI.md#getapikeys) | **Get** /orgs/{slugOrId}/api-keys | Get an organization&#39;s API keys
 *OrgsAPI* | [**GetOrg**](docs/OrgsAPI.md#getorg) | **Get** /orgs/{slugOrId} | 
+*OrgsAPI* | [**GetOrgBilledUsage**](docs/OrgsAPI.md#getorgbilledusage) | **Get** /orgs/{orgSlugOrId}/billed-usage | Retrieve an org&#39;s billed usage for a specific month
+*OrgsAPI* | [**GetOrgBilledUsageHistory**](docs/OrgsAPI.md#getorgbilledusagehistory) | **Get** /orgs/{orgSlugOrId}/billed-usage-history | Retrieve an org&#39;s billed usage items for the last 12 months
 *OrgsAPI* | [**GetOrgInstances**](docs/OrgsAPI.md#getorginstances) | **Get** /orgs/{orgSlug}/instances | Get the list of instances belonging to the org
 *OrgsAPI* | [**GetOrgMember**](docs/OrgsAPI.md#getorgmember) | **Get** /orgs/{slugOrId}/members/{usernameOrId} | 
 *OrgsAPI* | [**GetOrgMembers**](docs/OrgsAPI.md#getorgmembers) | **Get** /orgs/{slugOrId}/members | 
@@ -131,6 +134,7 @@ Class | Method | HTTP request | Description
 *OrgsAPI* | [**PostOrgMember**](docs/OrgsAPI.md#postorgmember) | **Post** /orgs/{slugOrId}/members/{usernameOrId} | 
 *OrgsAPI* | [**PostOrgMembers**](docs/OrgsAPI.md#postorgmembers) | **Post** /orgs/{slugOrId}/members | 
 *PluginsAPI* | [**GetPlugin**](docs/PluginsAPI.md#getplugin) | **Get** /plugins/{slug} | Fetches a plugin by slug or id
+*StackRegionsAPI* | [**GetClosestStackRegion**](docs/StackRegionsAPI.md#getcloseststackregion) | **Get** /stack-regions/closest | 
 *StackRegionsAPI* | [**GetStackRegions**](docs/StackRegionsAPI.md#getstackregions) | **Get** /stack-regions | 
 *TokensAPI* | [**DeleteToken**](docs/TokensAPI.md#deletetoken) | **Delete** /v1/tokens/{id} | Delete a token
 *TokensAPI* | [**GetToken**](docs/TokensAPI.md#gettoken) | **Get** /v1/tokens/{id} | Get info for a specific token
@@ -142,6 +146,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccessPolicyListResponse](docs/AccessPolicyListResponse.md)
+ - [Api](docs/Api.md)
  - [AppPlatform](docs/AppPlatform.md)
  - [AuthAccessPolicy](docs/AuthAccessPolicy.md)
  - [AuthAccessPolicyAttributes](docs/AuthAccessPolicyAttributes.md)
@@ -173,6 +178,7 @@ Class | Method | HTTP request | Description
  - [FormattedApiStackRegionAnyOf1](docs/FormattedApiStackRegionAnyOf1.md)
  - [FormattedOrgMembership](docs/FormattedOrgMembership.md)
  - [FormattedOrgMembershipAllowGCloudTrial](docs/FormattedOrgMembershipAllowGCloudTrial.md)
+ - [Gateway](docs/Gateway.md)
  - [GetAccessPolicies200Response](docs/GetAccessPolicies200Response.md)
  - [GetInstancePlugins200Response](docs/GetInstancePlugins200Response.md)
  - [GetInstances200Response](docs/GetInstances200Response.md)
@@ -186,20 +192,28 @@ Class | Method | HTTP request | Description
  - [ItemsInner](docs/ItemsInner.md)
  - [ItemsInner1](docs/ItemsInner1.md)
  - [ItemsInner2](docs/ItemsInner2.md)
+ - [ItemsInner2GrafanaStaffAccess](docs/ItemsInner2GrafanaStaffAccess.md)
  - [ItemsInner2MarketplaceSubscription](docs/ItemsInner2MarketplaceSubscription.md)
+ - [ItemsInner3](docs/ItemsInner3.md)
+ - [ItemsInner4](docs/ItemsInner4.md)
  - [ItemsInnerId](docs/ItemsInnerId.md)
  - [LinksInner](docs/LinksInner.md)
  - [LinksInner1](docs/LinksInner1.md)
  - [Metadata](docs/Metadata.md)
  - [Mimir](docs/Mimir.md)
+ - [ModifiedGetOrgBilledUsageResponse](docs/ModifiedGetOrgBilledUsageResponse.md)
  - [Next](docs/Next.md)
+ - [OrgBilledUsageHistory](docs/OrgBilledUsageHistory.md)
  - [OrgMemberListResponse](docs/OrgMemberListResponse.md)
  - [Otlp](docs/Otlp.md)
  - [OtlpPrivateConnectivityInfo](docs/OtlpPrivateConnectivityInfo.md)
- - [OtlpPrivateConnectivityInfoAnyOf](docs/OtlpPrivateConnectivityInfoAnyOf.md)
- - [OtlpPrivateConnectivityInfoAnyOf1](docs/OtlpPrivateConnectivityInfoAnyOf1.md)
  - [Pagination](docs/Pagination.md)
  - [Payload](docs/Payload.md)
+ - [Pdc](docs/Pdc.md)
+ - [PdcPrivateConnectivityInfo](docs/PdcPrivateConnectivityInfo.md)
+ - [PdcPrivateConnectivityInfoAnyOf](docs/PdcPrivateConnectivityInfoAnyOf.md)
+ - [PdcPrivateConnectivityInfoAnyOf1](docs/PdcPrivateConnectivityInfoAnyOf1.md)
+ - [PdcPrivateConnectivityInfoAnyOf2](docs/PdcPrivateConnectivityInfoAnyOf2.md)
  - [PostAccessPoliciesRequest](docs/PostAccessPoliciesRequest.md)
  - [PostAccessPoliciesRequestAttributes](docs/PostAccessPoliciesRequestAttributes.md)
  - [PostAccessPoliciesRequestAttributesLokiQueryPolicy](docs/PostAccessPoliciesRequestAttributesLokiQueryPolicy.md)
@@ -229,6 +243,7 @@ Class | Method | HTTP request | Description
  - [SubscriptionsAnyOf1](docs/SubscriptionsAnyOf1.md)
  - [SubscriptionsAnyOf2](docs/SubscriptionsAnyOf2.md)
  - [TenantsInner](docs/TenantsInner.md)
+ - [UsagesInner](docs/UsagesInner.md)
 
 
 ## Documentation For Authorization
