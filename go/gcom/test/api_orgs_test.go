@@ -23,6 +23,19 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test OrgsAPIService CheckOrgVisibility", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var slugOrId string
+
+		httpRes, err := apiClient.OrgsAPI.CheckOrgVisibility(context.Background(), slugOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test OrgsAPIService DelApiKey", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -87,6 +100,34 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 		var slugOrId string
 
 		resp, httpRes, err := apiClient.OrgsAPI.GetOrg(context.Background(), slugOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrgsAPIService GetOrgBilledUsage", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var orgSlugOrId string
+
+		resp, httpRes, err := apiClient.OrgsAPI.GetOrgBilledUsage(context.Background(), orgSlugOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrgsAPIService GetOrgBilledUsageHistory", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var orgSlugOrId string
+
+		resp, httpRes, err := apiClient.OrgsAPI.GetOrgBilledUsageHistory(context.Background(), orgSlugOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

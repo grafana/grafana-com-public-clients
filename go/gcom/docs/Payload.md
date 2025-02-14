@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **WithAddons** | Pointer to **[]string** |  | [optional] 
+**LicenseAllPlugins** | Pointer to **bool** |  | [optional] 
+**CaseId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -49,6 +51,56 @@ SetWithAddons sets WithAddons field to given value.
 `func (o *Payload) HasWithAddons() bool`
 
 HasWithAddons returns a boolean if a field has been set.
+
+### GetLicenseAllPlugins
+
+`func (o *Payload) GetLicenseAllPlugins() bool`
+
+GetLicenseAllPlugins returns the LicenseAllPlugins field if non-nil, zero value otherwise.
+
+### GetLicenseAllPluginsOk
+
+`func (o *Payload) GetLicenseAllPluginsOk() (*bool, bool)`
+
+GetLicenseAllPluginsOk returns a tuple with the LicenseAllPlugins field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicenseAllPlugins
+
+`func (o *Payload) SetLicenseAllPlugins(v bool)`
+
+SetLicenseAllPlugins sets LicenseAllPlugins field to given value.
+
+### HasLicenseAllPlugins
+
+`func (o *Payload) HasLicenseAllPlugins() bool`
+
+HasLicenseAllPlugins returns a boolean if a field has been set.
+
+### GetCaseId
+
+`func (o *Payload) GetCaseId() string`
+
+GetCaseId returns the CaseId field if non-nil, zero value otherwise.
+
+### GetCaseIdOk
+
+`func (o *Payload) GetCaseIdOk() (*string, bool)`
+
+GetCaseIdOk returns a tuple with the CaseId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCaseId
+
+`func (o *Payload) SetCaseId(v string)`
+
+SetCaseId sets CaseId field to given value.
+
+### HasCaseId
+
+`func (o *Payload) HasCaseId() bool`
+
+HasCaseId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

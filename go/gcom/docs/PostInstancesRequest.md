@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **AdminUserInstance** | Pointer to **bool** |  | [optional] 
 **Alerts** | Pointer to **bool** |  | [optional] 
 **Cluster** | Pointer to **string** |  | [optional] 
-**CreateTemporaryLicenseIfMissing** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Graphite** | Pointer to **bool** |  | [optional] 
 **HlInstanceId** | Pointer to **int32** |  | [optional] 
@@ -121,31 +120,6 @@ SetCluster sets Cluster field to given value.
 `func (o *PostInstancesRequest) HasCluster() bool`
 
 HasCluster returns a boolean if a field has been set.
-
-### GetCreateTemporaryLicenseIfMissing
-
-`func (o *PostInstancesRequest) GetCreateTemporaryLicenseIfMissing() bool`
-
-GetCreateTemporaryLicenseIfMissing returns the CreateTemporaryLicenseIfMissing field if non-nil, zero value otherwise.
-
-### GetCreateTemporaryLicenseIfMissingOk
-
-`func (o *PostInstancesRequest) GetCreateTemporaryLicenseIfMissingOk() (*bool, bool)`
-
-GetCreateTemporaryLicenseIfMissingOk returns a tuple with the CreateTemporaryLicenseIfMissing field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCreateTemporaryLicenseIfMissing
-
-`func (o *PostInstancesRequest) SetCreateTemporaryLicenseIfMissing(v bool)`
-
-SetCreateTemporaryLicenseIfMissing sets CreateTemporaryLicenseIfMissing field to given value.
-
-### HasCreateTemporaryLicenseIfMissing
-
-`func (o *PostInstancesRequest) HasCreateTemporaryLicenseIfMissing() bool`
-
-HasCreateTemporaryLicenseIfMissing returns a boolean if a field has been set.
 
 ### GetDescription
 

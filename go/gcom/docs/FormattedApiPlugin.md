@@ -35,12 +35,15 @@ Name | Type | Description | Notes
 **Packages** | **map[string]interface{}** |  | 
 **Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
 **AngularDetected** | **bool** |  | 
+**LastCommitDate** | **string** |  | 
+**LicenseUrl** | Pointer to **string** |  | [optional] 
+**DocumentationUrl** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiPlugin
 
-`func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool, ) *FormattedApiPlugin`
+`func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool, lastCommitDate string, ) *FormattedApiPlugin`
 
 NewFormattedApiPlugin instantiates a new FormattedApiPlugin object
 This constructor will assign default values to properties that have it defined,
@@ -674,6 +677,76 @@ and a boolean to check if the value has been set.
 
 SetAngularDetected sets AngularDetected field to given value.
 
+
+### GetLastCommitDate
+
+`func (o *FormattedApiPlugin) GetLastCommitDate() string`
+
+GetLastCommitDate returns the LastCommitDate field if non-nil, zero value otherwise.
+
+### GetLastCommitDateOk
+
+`func (o *FormattedApiPlugin) GetLastCommitDateOk() (*string, bool)`
+
+GetLastCommitDateOk returns a tuple with the LastCommitDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastCommitDate
+
+`func (o *FormattedApiPlugin) SetLastCommitDate(v string)`
+
+SetLastCommitDate sets LastCommitDate field to given value.
+
+
+### GetLicenseUrl
+
+`func (o *FormattedApiPlugin) GetLicenseUrl() string`
+
+GetLicenseUrl returns the LicenseUrl field if non-nil, zero value otherwise.
+
+### GetLicenseUrlOk
+
+`func (o *FormattedApiPlugin) GetLicenseUrlOk() (*string, bool)`
+
+GetLicenseUrlOk returns a tuple with the LicenseUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicenseUrl
+
+`func (o *FormattedApiPlugin) SetLicenseUrl(v string)`
+
+SetLicenseUrl sets LicenseUrl field to given value.
+
+### HasLicenseUrl
+
+`func (o *FormattedApiPlugin) HasLicenseUrl() bool`
+
+HasLicenseUrl returns a boolean if a field has been set.
+
+### GetDocumentationUrl
+
+`func (o *FormattedApiPlugin) GetDocumentationUrl() string`
+
+GetDocumentationUrl returns the DocumentationUrl field if non-nil, zero value otherwise.
+
+### GetDocumentationUrlOk
+
+`func (o *FormattedApiPlugin) GetDocumentationUrlOk() (*string, bool)`
+
+GetDocumentationUrlOk returns a tuple with the DocumentationUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDocumentationUrl
+
+`func (o *FormattedApiPlugin) SetDocumentationUrl(v string)`
+
+SetDocumentationUrl sets DocumentationUrl field to given value.
+
+### HasDocumentationUrl
+
+`func (o *FormattedApiPlugin) HasDocumentationUrl() bool`
+
+HasDocumentationUrl returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

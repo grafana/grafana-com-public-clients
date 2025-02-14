@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// OtlpPrivateConnectivityInfo struct for OtlpPrivateConnectivityInfo
-type OtlpPrivateConnectivityInfo struct {
+// PdcPrivateConnectivityInfo struct for PdcPrivateConnectivityInfo
+type PdcPrivateConnectivityInfo struct {
 	PdcPrivateConnectivityInfoAnyOf  *PdcPrivateConnectivityInfoAnyOf
 	PdcPrivateConnectivityInfoAnyOf1 *PdcPrivateConnectivityInfoAnyOf1
 	PdcPrivateConnectivityInfoAnyOf2 *PdcPrivateConnectivityInfoAnyOf2
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
-func (dst *OtlpPrivateConnectivityInfo) UnmarshalJSON(data []byte) error {
+func (dst *PdcPrivateConnectivityInfo) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into PdcPrivateConnectivityInfoAnyOf
 	err = json.Unmarshal(data, &dst.PdcPrivateConnectivityInfoAnyOf)
@@ -64,11 +64,11 @@ func (dst *OtlpPrivateConnectivityInfo) UnmarshalJSON(data []byte) error {
 		dst.PdcPrivateConnectivityInfoAnyOf2 = nil
 	}
 
-	return fmt.Errorf("data failed to match schemas in anyOf(OtlpPrivateConnectivityInfo)")
+	return fmt.Errorf("data failed to match schemas in anyOf(PdcPrivateConnectivityInfo)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *OtlpPrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
+func (src *PdcPrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
 	if src.PdcPrivateConnectivityInfoAnyOf != nil {
 		return json.Marshal(&src.PdcPrivateConnectivityInfoAnyOf)
 	}
@@ -84,38 +84,38 @@ func (src *OtlpPrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
 	return nil, nil // no data in anyOf schemas
 }
 
-type NullableOtlpPrivateConnectivityInfo struct {
-	value *OtlpPrivateConnectivityInfo
+type NullablePdcPrivateConnectivityInfo struct {
+	value *PdcPrivateConnectivityInfo
 	isSet bool
 }
 
-func (v NullableOtlpPrivateConnectivityInfo) Get() *OtlpPrivateConnectivityInfo {
+func (v NullablePdcPrivateConnectivityInfo) Get() *PdcPrivateConnectivityInfo {
 	return v.value
 }
 
-func (v *NullableOtlpPrivateConnectivityInfo) Set(val *OtlpPrivateConnectivityInfo) {
+func (v *NullablePdcPrivateConnectivityInfo) Set(val *PdcPrivateConnectivityInfo) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableOtlpPrivateConnectivityInfo) IsSet() bool {
+func (v NullablePdcPrivateConnectivityInfo) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableOtlpPrivateConnectivityInfo) Unset() {
+func (v *NullablePdcPrivateConnectivityInfo) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableOtlpPrivateConnectivityInfo(val *OtlpPrivateConnectivityInfo) *NullableOtlpPrivateConnectivityInfo {
-	return &NullableOtlpPrivateConnectivityInfo{value: val, isSet: true}
+func NewNullablePdcPrivateConnectivityInfo(val *PdcPrivateConnectivityInfo) *NullablePdcPrivateConnectivityInfo {
+	return &NullablePdcPrivateConnectivityInfo{value: val, isSet: true}
 }
 
-func (v NullableOtlpPrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
+func (v NullablePdcPrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableOtlpPrivateConnectivityInfo) UnmarshalJSON(src []byte) error {
+func (v *NullablePdcPrivateConnectivityInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

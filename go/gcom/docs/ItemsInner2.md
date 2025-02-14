@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
 **MarketplaceSubscription** | [**NullableItemsInner2MarketplaceSubscription**](ItemsInner2MarketplaceSubscription.md) |  | 
 **ExtraPermissions** | Pointer to **[]string** |  | [optional] 
+**GrafanaStaffAccess** | Pointer to [**NullableItemsInner2GrafanaStaffAccess**](ItemsInner2GrafanaStaffAccess.md) |  | [optional] 
 
 ## Methods
 
@@ -731,6 +732,41 @@ SetExtraPermissions sets ExtraPermissions field to given value.
 
 HasExtraPermissions returns a boolean if a field has been set.
 
+### GetGrafanaStaffAccess
+
+`func (o *ItemsInner2) GetGrafanaStaffAccess() ItemsInner2GrafanaStaffAccess`
+
+GetGrafanaStaffAccess returns the GrafanaStaffAccess field if non-nil, zero value otherwise.
+
+### GetGrafanaStaffAccessOk
+
+`func (o *ItemsInner2) GetGrafanaStaffAccessOk() (*ItemsInner2GrafanaStaffAccess, bool)`
+
+GetGrafanaStaffAccessOk returns a tuple with the GrafanaStaffAccess field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGrafanaStaffAccess
+
+`func (o *ItemsInner2) SetGrafanaStaffAccess(v ItemsInner2GrafanaStaffAccess)`
+
+SetGrafanaStaffAccess sets GrafanaStaffAccess field to given value.
+
+### HasGrafanaStaffAccess
+
+`func (o *ItemsInner2) HasGrafanaStaffAccess() bool`
+
+HasGrafanaStaffAccess returns a boolean if a field has been set.
+
+### SetGrafanaStaffAccessNil
+
+`func (o *ItemsInner2) SetGrafanaStaffAccessNil(b bool)`
+
+ SetGrafanaStaffAccessNil sets the value for GrafanaStaffAccess to be an explicit nil
+
+### UnsetGrafanaStaffAccess
+`func (o *ItemsInner2) UnsetGrafanaStaffAccess()`
+
+UnsetGrafanaStaffAccess ensures that no value is present for GrafanaStaffAccess, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

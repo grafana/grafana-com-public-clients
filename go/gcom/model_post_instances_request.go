@@ -19,30 +19,29 @@ var _ MappedNullable = &PostInstancesRequest{}
 
 // PostInstancesRequest struct for PostInstancesRequest
 type PostInstancesRequest struct {
-	AdminUserInstance               *bool              `json:"adminUserInstance,omitempty"`
-	Alerts                          *bool              `json:"alerts,omitempty"`
-	Cluster                         *string            `json:"cluster,omitempty"`
-	CreateTemporaryLicenseIfMissing *bool              `json:"createTemporaryLicenseIfMissing,omitempty"`
-	Description                     *string            `json:"description,omitempty"`
-	Graphite                        *bool              `json:"graphite,omitempty"`
-	HlInstanceId                    *int32             `json:"hlInstanceId,omitempty"`
-	Hosted                          *bool              `json:"hosted,omitempty"`
-	K6OrgId                         *int32             `json:"k6OrgId,omitempty"`
-	Labels                          *map[string]string `json:"labels,omitempty"`
-	Logs                            *bool              `json:"logs,omitempty"`
-	Name                            string             `json:"name"`
-	Org                             *string            `json:"org,omitempty"`
-	Plan                            *string            `json:"plan,omitempty"`
-	Plugins                         []string           `json:"plugins,omitempty"`
-	Prometheus                      *bool              `json:"prometheus,omitempty"`
-	PublicInstance                  *bool              `json:"publicInstance,omitempty"`
-	Region                          *string            `json:"region,omitempty"`
-	Slug                            *string            `json:"slug,omitempty"`
-	Url                             *string            `json:"url,omitempty"`
-	UsernameOrEmail                 *string            `json:"usernameOrEmail,omitempty"`
-	Version                         *string            `json:"version,omitempty"`
-	WaitForReadiness                *bool              `json:"waitForReadiness,omitempty"`
-	AdditionalProperties            map[string]interface{}
+	AdminUserInstance    *bool              `json:"adminUserInstance,omitempty"`
+	Alerts               *bool              `json:"alerts,omitempty"`
+	Cluster              *string            `json:"cluster,omitempty"`
+	Description          *string            `json:"description,omitempty"`
+	Graphite             *bool              `json:"graphite,omitempty"`
+	HlInstanceId         *int32             `json:"hlInstanceId,omitempty"`
+	Hosted               *bool              `json:"hosted,omitempty"`
+	K6OrgId              *int32             `json:"k6OrgId,omitempty"`
+	Labels               *map[string]string `json:"labels,omitempty"`
+	Logs                 *bool              `json:"logs,omitempty"`
+	Name                 string             `json:"name"`
+	Org                  *string            `json:"org,omitempty"`
+	Plan                 *string            `json:"plan,omitempty"`
+	Plugins              []string           `json:"plugins,omitempty"`
+	Prometheus           *bool              `json:"prometheus,omitempty"`
+	PublicInstance       *bool              `json:"publicInstance,omitempty"`
+	Region               *string            `json:"region,omitempty"`
+	Slug                 *string            `json:"slug,omitempty"`
+	Url                  *string            `json:"url,omitempty"`
+	UsernameOrEmail      *string            `json:"usernameOrEmail,omitempty"`
+	Version              *string            `json:"version,omitempty"`
+	WaitForReadiness     *bool              `json:"waitForReadiness,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _PostInstancesRequest PostInstancesRequest
@@ -163,38 +162,6 @@ func (o *PostInstancesRequest) HasCluster() bool {
 // SetCluster gets a reference to the given string and assigns it to the Cluster field.
 func (o *PostInstancesRequest) SetCluster(v string) {
 	o.Cluster = &v
-}
-
-// GetCreateTemporaryLicenseIfMissing returns the CreateTemporaryLicenseIfMissing field value if set, zero value otherwise.
-func (o *PostInstancesRequest) GetCreateTemporaryLicenseIfMissing() bool {
-	if o == nil || IsNil(o.CreateTemporaryLicenseIfMissing) {
-		var ret bool
-		return ret
-	}
-	return *o.CreateTemporaryLicenseIfMissing
-}
-
-// GetCreateTemporaryLicenseIfMissingOk returns a tuple with the CreateTemporaryLicenseIfMissing field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstancesRequest) GetCreateTemporaryLicenseIfMissingOk() (*bool, bool) {
-	if o == nil || IsNil(o.CreateTemporaryLicenseIfMissing) {
-		return nil, false
-	}
-	return o.CreateTemporaryLicenseIfMissing, true
-}
-
-// HasCreateTemporaryLicenseIfMissing returns a boolean if a field has been set.
-func (o *PostInstancesRequest) HasCreateTemporaryLicenseIfMissing() bool {
-	if o != nil && !IsNil(o.CreateTemporaryLicenseIfMissing) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreateTemporaryLicenseIfMissing gets a reference to the given bool and assigns it to the CreateTemporaryLicenseIfMissing field.
-func (o *PostInstancesRequest) SetCreateTemporaryLicenseIfMissing(v bool) {
-	o.CreateTemporaryLicenseIfMissing = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -816,9 +783,6 @@ func (o PostInstancesRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Cluster) {
 		toSerialize["cluster"] = o.Cluster
 	}
-	if !IsNil(o.CreateTemporaryLicenseIfMissing) {
-		toSerialize["createTemporaryLicenseIfMissing"] = o.CreateTemporaryLicenseIfMissing
-	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -907,7 +871,6 @@ func (o *PostInstancesRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "adminUserInstance")
 		delete(additionalProperties, "alerts")
 		delete(additionalProperties, "cluster")
-		delete(additionalProperties, "createTemporaryLicenseIfMissing")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "graphite")
 		delete(additionalProperties, "hlInstanceId")

@@ -4,8 +4,73 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**GetClosestStackRegion**](StackRegionsAPI.md#GetClosestStackRegion) | **Get** /stack-regions/closest | 
 [**GetStackRegions**](StackRegionsAPI.md#GetStackRegions) | **Get** /stack-regions | 
 
+
+
+## GetClosestStackRegion
+
+> FormattedApiStackRegion GetClosestStackRegion(ctx).Provider(provider).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	provider := "provider_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StackRegionsAPI.GetClosestStackRegion(context.Background()).Provider(provider).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StackRegionsAPI.GetClosestStackRegion``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetClosestStackRegion`: FormattedApiStackRegion
+	fmt.Fprintf(os.Stdout, "Response from `StackRegionsAPI.GetClosestStackRegion`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetClosestStackRegionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **provider** | **string** |  | 
+
+### Return type
+
+[**FormattedApiStackRegion**](FormattedApiStackRegion.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## GetStackRegions

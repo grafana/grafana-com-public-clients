@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## GetTokens
 
-> AccessPolicyListResponse GetTokens(ctx).Region(region).AccessPolicyId(accessPolicyId).AccessPolicyIds(accessPolicyIds).AccessPolicyName(accessPolicyName).AccessPolicyRealmIdentifier(accessPolicyRealmIdentifier).AccessPolicyRealmType(accessPolicyRealmType).AccessPolicyStatus(accessPolicyStatus).ExpiresAfter(expiresAfter).ExpiresBefore(expiresBefore).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).Execute()
+> AccessPolicyListResponse GetTokens(ctx).Region(region).AccessPolicyId(accessPolicyId).AccessPolicyIds(accessPolicyIds).AccessPolicyName(accessPolicyName).AccessPolicyRealmIdentifier(accessPolicyRealmIdentifier).AccessPolicyRealmType(accessPolicyRealmType).AccessPolicyStatus(accessPolicyStatus).ExpiresAfter(expiresAfter).ExpiresBefore(expiresBefore).IncludeExpired(includeExpired).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).Execute()
 
 Get a list of tokens
 
@@ -186,6 +186,7 @@ func main() {
 	accessPolicyStatus := "accessPolicyStatus_example" // string |  (optional)
 	expiresAfter := "expiresAfter_example" // string |  (optional)
 	expiresBefore := "expiresBefore_example" // string |  (optional)
+	includeExpired := true // bool |  (optional)
 	name := "name_example" // string |  (optional)
 	orgId := int32(56) // int32 |  (optional)
 	pageCursor := "pageCursor_example" // string |  (optional)
@@ -193,7 +194,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TokensAPI.GetTokens(context.Background()).Region(region).AccessPolicyId(accessPolicyId).AccessPolicyIds(accessPolicyIds).AccessPolicyName(accessPolicyName).AccessPolicyRealmIdentifier(accessPolicyRealmIdentifier).AccessPolicyRealmType(accessPolicyRealmType).AccessPolicyStatus(accessPolicyStatus).ExpiresAfter(expiresAfter).ExpiresBefore(expiresBefore).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).Execute()
+	resp, r, err := apiClient.TokensAPI.GetTokens(context.Background()).Region(region).AccessPolicyId(accessPolicyId).AccessPolicyIds(accessPolicyIds).AccessPolicyName(accessPolicyName).AccessPolicyRealmIdentifier(accessPolicyRealmIdentifier).AccessPolicyRealmType(accessPolicyRealmType).AccessPolicyStatus(accessPolicyStatus).ExpiresAfter(expiresAfter).ExpiresBefore(expiresBefore).IncludeExpired(includeExpired).Name(name).OrgId(orgId).PageCursor(pageCursor).PageSize(pageSize).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TokensAPI.GetTokens``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -223,6 +224,7 @@ Name | Type | Description  | Notes
  **accessPolicyStatus** | **string** |  | 
  **expiresAfter** | **string** |  | 
  **expiresBefore** | **string** |  | 
+ **includeExpired** | **bool** |  | 
  **name** | **string** |  | 
  **orgId** | **int32** |  | 
  **pageCursor** | **string** |  | 

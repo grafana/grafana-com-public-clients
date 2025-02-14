@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **OncallApiUrl** | **string** |  | 
 **FaroEndpointUrl** | **string** |  | 
 **PdcClusterSlug** | **string** |  | 
+**PdcPrivateConnectivityInfo** | [**PdcPrivateConnectivityInfo**](PdcPrivateConnectivityInfo.md) |  | 
 **OtlpHttpUrl** | **NullableString** |  | 
 **OtlpPrivateConnectivityInfo** | [**OtlpPrivateConnectivityInfo**](OtlpPrivateConnectivityInfo.md) |  | 
 **AuthApiUrl** | **string** |  | 
@@ -63,13 +64,17 @@ Name | Type | Description | Notes
 **AgmClusterName** | **string** |  | 
 **AgmClusterUrl** | **string** |  | 
 **AssertsGraphClusterId** | **float32** |  | 
+**AssertsGraphClusterSlug** | **string** |  | 
+**AssertsGraphClusterName** | **string** |  | 
+**AssertsGraphClusterApiUrl** | Pointer to **NullableString** |  | [optional] 
 **ProviderRegion** | **string** |  | 
+**IsStub** | **bool** |  | 
 
 ## Methods
 
 ### NewFormattedApiStackRegion
 
-`func NewFormattedApiStackRegion(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, providerRegion string, ) *FormattedApiStackRegion`
+`func NewFormattedApiStackRegion(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, ) *FormattedApiStackRegion`
 
 NewFormattedApiStackRegion instantiates a new FormattedApiStackRegion object
 This constructor will assign default values to properties that have it defined,
@@ -532,6 +537,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiStackRegion) SetPdcClusterSlug(v string)`
 
 SetPdcClusterSlug sets PdcClusterSlug field to given value.
+
+
+### GetPdcPrivateConnectivityInfo
+
+`func (o *FormattedApiStackRegion) GetPdcPrivateConnectivityInfo() PdcPrivateConnectivityInfo`
+
+GetPdcPrivateConnectivityInfo returns the PdcPrivateConnectivityInfo field if non-nil, zero value otherwise.
+
+### GetPdcPrivateConnectivityInfoOk
+
+`func (o *FormattedApiStackRegion) GetPdcPrivateConnectivityInfoOk() (*PdcPrivateConnectivityInfo, bool)`
+
+GetPdcPrivateConnectivityInfoOk returns a tuple with the PdcPrivateConnectivityInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPdcPrivateConnectivityInfo
+
+`func (o *FormattedApiStackRegion) SetPdcPrivateConnectivityInfo(v PdcPrivateConnectivityInfo)`
+
+SetPdcPrivateConnectivityInfo sets PdcPrivateConnectivityInfo field to given value.
 
 
 ### GetOtlpHttpUrl
@@ -1284,6 +1309,81 @@ and a boolean to check if the value has been set.
 SetAssertsGraphClusterId sets AssertsGraphClusterId field to given value.
 
 
+### GetAssertsGraphClusterSlug
+
+`func (o *FormattedApiStackRegion) GetAssertsGraphClusterSlug() string`
+
+GetAssertsGraphClusterSlug returns the AssertsGraphClusterSlug field if non-nil, zero value otherwise.
+
+### GetAssertsGraphClusterSlugOk
+
+`func (o *FormattedApiStackRegion) GetAssertsGraphClusterSlugOk() (*string, bool)`
+
+GetAssertsGraphClusterSlugOk returns a tuple with the AssertsGraphClusterSlug field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssertsGraphClusterSlug
+
+`func (o *FormattedApiStackRegion) SetAssertsGraphClusterSlug(v string)`
+
+SetAssertsGraphClusterSlug sets AssertsGraphClusterSlug field to given value.
+
+
+### GetAssertsGraphClusterName
+
+`func (o *FormattedApiStackRegion) GetAssertsGraphClusterName() string`
+
+GetAssertsGraphClusterName returns the AssertsGraphClusterName field if non-nil, zero value otherwise.
+
+### GetAssertsGraphClusterNameOk
+
+`func (o *FormattedApiStackRegion) GetAssertsGraphClusterNameOk() (*string, bool)`
+
+GetAssertsGraphClusterNameOk returns a tuple with the AssertsGraphClusterName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssertsGraphClusterName
+
+`func (o *FormattedApiStackRegion) SetAssertsGraphClusterName(v string)`
+
+SetAssertsGraphClusterName sets AssertsGraphClusterName field to given value.
+
+
+### GetAssertsGraphClusterApiUrl
+
+`func (o *FormattedApiStackRegion) GetAssertsGraphClusterApiUrl() string`
+
+GetAssertsGraphClusterApiUrl returns the AssertsGraphClusterApiUrl field if non-nil, zero value otherwise.
+
+### GetAssertsGraphClusterApiUrlOk
+
+`func (o *FormattedApiStackRegion) GetAssertsGraphClusterApiUrlOk() (*string, bool)`
+
+GetAssertsGraphClusterApiUrlOk returns a tuple with the AssertsGraphClusterApiUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssertsGraphClusterApiUrl
+
+`func (o *FormattedApiStackRegion) SetAssertsGraphClusterApiUrl(v string)`
+
+SetAssertsGraphClusterApiUrl sets AssertsGraphClusterApiUrl field to given value.
+
+### HasAssertsGraphClusterApiUrl
+
+`func (o *FormattedApiStackRegion) HasAssertsGraphClusterApiUrl() bool`
+
+HasAssertsGraphClusterApiUrl returns a boolean if a field has been set.
+
+### SetAssertsGraphClusterApiUrlNil
+
+`func (o *FormattedApiStackRegion) SetAssertsGraphClusterApiUrlNil(b bool)`
+
+ SetAssertsGraphClusterApiUrlNil sets the value for AssertsGraphClusterApiUrl to be an explicit nil
+
+### UnsetAssertsGraphClusterApiUrl
+`func (o *FormattedApiStackRegion) UnsetAssertsGraphClusterApiUrl()`
+
+UnsetAssertsGraphClusterApiUrl ensures that no value is present for AssertsGraphClusterApiUrl, not even an explicit nil
 ### GetProviderRegion
 
 `func (o *FormattedApiStackRegion) GetProviderRegion() string`
@@ -1302,6 +1402,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiStackRegion) SetProviderRegion(v string)`
 
 SetProviderRegion sets ProviderRegion field to given value.
+
+
+### GetIsStub
+
+`func (o *FormattedApiStackRegion) GetIsStub() bool`
+
+GetIsStub returns the IsStub field if non-nil, zero value otherwise.
+
+### GetIsStubOk
+
+`func (o *FormattedApiStackRegion) GetIsStubOk() (*bool, bool)`
+
+GetIsStubOk returns a tuple with the IsStub field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsStub
+
+`func (o *FormattedApiStackRegion) SetIsStub(v bool)`
+
+SetIsStub sets IsStub field to given value.
 
 
 

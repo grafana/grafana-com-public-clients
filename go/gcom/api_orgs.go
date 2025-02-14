@@ -22,6 +22,119 @@ import (
 // OrgsAPIService OrgsAPI service
 type OrgsAPIService service
 
+type ApiCheckOrgVisibilityRequest struct {
+	ctx        context.Context
+	ApiService *OrgsAPIService
+	slugOrId   string
+}
+
+func (r ApiCheckOrgVisibilityRequest) Execute() (*http.Response, error) {
+	return r.ApiService.CheckOrgVisibilityExecute(r)
+}
+
+/*
+CheckOrgVisibility Method for CheckOrgVisibility
+
+Check visibility of the org
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param slugOrId
+	@return ApiCheckOrgVisibilityRequest
+*/
+func (a *OrgsAPIService) CheckOrgVisibility(ctx context.Context, slugOrId string) ApiCheckOrgVisibilityRequest {
+	return ApiCheckOrgVisibilityRequest{
+		ApiService: a,
+		ctx:        ctx,
+		slugOrId:   slugOrId,
+	}
+}
+
+// Execute executes the request
+func (a *OrgsAPIService) CheckOrgVisibilityExecute(r ApiCheckOrgVisibilityRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.CheckOrgVisibility")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/orgs/{slugOrId}/check-visibility"
+	localVarPath = strings.Replace(localVarPath, "{"+"slugOrId"+"}", url.PathEscape(parameterValueToString(r.slugOrId, "slugOrId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorNotFound
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorConflict
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiDelApiKeyRequest struct {
 	ctx        context.Context
 	ApiService *OrgsAPIService
@@ -42,10 +155,10 @@ func (r ApiDelApiKeyRequest) Execute() (*http.Response, error) {
 /*
 DelApiKey Delete an API key by name
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name
- @param slugOrId
- @return ApiDelApiKeyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name
+	@param slugOrId
+	@return ApiDelApiKeyRequest
 */
 func (a *OrgsAPIService) DelApiKey(ctx context.Context, name string, slugOrId string) ApiDelApiKeyRequest {
 	return ApiDelApiKeyRequest{
@@ -200,10 +313,10 @@ func (r ApiDeleteOrgMemberRequest) Execute() (*http.Response, error) {
 /*
 DeleteOrgMember Method for DeleteOrgMember
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param slugOrId
- @param usernameOrId
- @return ApiDeleteOrgMemberRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param slugOrId
+	@param usernameOrId
+	@return ApiDeleteOrgMemberRequest
 */
 func (a *OrgsAPIService) DeleteOrgMember(ctx context.Context, slugOrId string, usernameOrId string) ApiDeleteOrgMemberRequest {
 	return ApiDeleteOrgMemberRequest{
@@ -352,10 +465,10 @@ func (r ApiGetApiKeyRequest) Execute() (*FormattedApiApiKey, *http.Response, err
 /*
 GetApiKey Get an API key by name
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name
- @param slugOrId
- @return ApiGetApiKeyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name
+	@param slugOrId
+	@return ApiGetApiKeyRequest
 */
 func (a *OrgsAPIService) GetApiKey(ctx context.Context, name string, slugOrId string) ApiGetApiKeyRequest {
 	return ApiGetApiKeyRequest{
@@ -367,7 +480,8 @@ func (a *OrgsAPIService) GetApiKey(ctx context.Context, name string, slugOrId st
 }
 
 // Execute executes the request
-//  @return FormattedApiApiKey
+//
+//	@return FormattedApiApiKey
 func (a *OrgsAPIService) GetApiKeyExecute(r ApiGetApiKeyRequest) (*FormattedApiApiKey, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -505,9 +619,9 @@ func (r ApiGetApiKeysRequest) Execute() (*FormattedApiApiKeyListResponse, *http.
 /*
 GetApiKeys Get an organization's API keys
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param slugOrId
- @return ApiGetApiKeysRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param slugOrId
+	@return ApiGetApiKeysRequest
 */
 func (a *OrgsAPIService) GetApiKeys(ctx context.Context, slugOrId string) ApiGetApiKeysRequest {
 	return ApiGetApiKeysRequest{
@@ -518,7 +632,8 @@ func (a *OrgsAPIService) GetApiKeys(ctx context.Context, slugOrId string) ApiGet
 }
 
 // Execute executes the request
-//  @return FormattedApiApiKeyListResponse
+//
+//	@return FormattedApiApiKeyListResponse
 func (a *OrgsAPIService) GetApiKeysExecute(r ApiGetApiKeysRequest) (*FormattedApiApiKeyListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -652,9 +767,9 @@ func (r ApiGetOrgRequest) Execute() (*FormattedApiOrgPublic, *http.Response, err
 /*
 GetOrg Method for GetOrg
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param slugOrId
- @return ApiGetOrgRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param slugOrId
+	@return ApiGetOrgRequest
 */
 func (a *OrgsAPIService) GetOrg(ctx context.Context, slugOrId string) ApiGetOrgRequest {
 	return ApiGetOrgRequest{
@@ -665,7 +780,8 @@ func (a *OrgsAPIService) GetOrg(ctx context.Context, slugOrId string) ApiGetOrgR
 }
 
 // Execute executes the request
-//  @return FormattedApiOrgPublic
+//
+//	@return FormattedApiOrgPublic
 func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrgPublic, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -724,6 +840,325 @@ func (a *OrgsAPIService) GetOrgExecute(r ApiGetOrgRequest) (*FormattedApiOrgPubl
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorNotFound
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorConflict
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetOrgBilledUsageRequest struct {
+	ctx         context.Context
+	ApiService  *OrgsAPIService
+	orgSlugOrId string
+	month       *int32
+	year        *int32
+	format      *string
+}
+
+func (r ApiGetOrgBilledUsageRequest) Month(month int32) ApiGetOrgBilledUsageRequest {
+	r.month = &month
+	return r
+}
+
+func (r ApiGetOrgBilledUsageRequest) Year(year int32) ApiGetOrgBilledUsageRequest {
+	r.year = &year
+	return r
+}
+
+func (r ApiGetOrgBilledUsageRequest) Format(format string) ApiGetOrgBilledUsageRequest {
+	r.format = &format
+	return r
+}
+
+func (r ApiGetOrgBilledUsageRequest) Execute() (*ModifiedGetOrgBilledUsageResponse, *http.Response, error) {
+	return r.ApiService.GetOrgBilledUsageExecute(r)
+}
+
+/*
+GetOrgBilledUsage Retrieve an org's billed usage for a specific month
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orgSlugOrId
+	@return ApiGetOrgBilledUsageRequest
+*/
+func (a *OrgsAPIService) GetOrgBilledUsage(ctx context.Context, orgSlugOrId string) ApiGetOrgBilledUsageRequest {
+	return ApiGetOrgBilledUsageRequest{
+		ApiService:  a,
+		ctx:         ctx,
+		orgSlugOrId: orgSlugOrId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return ModifiedGetOrgBilledUsageResponse
+func (a *OrgsAPIService) GetOrgBilledUsageExecute(r ApiGetOrgBilledUsageRequest) (*ModifiedGetOrgBilledUsageResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ModifiedGetOrgBilledUsageResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.GetOrgBilledUsage")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/orgs/{orgSlugOrId}/billed-usage"
+	localVarPath = strings.Replace(localVarPath, "{"+"orgSlugOrId"+"}", url.PathEscape(parameterValueToString(r.orgSlugOrId, "orgSlugOrId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.month == nil {
+		return localVarReturnValue, nil, reportError("month is required and must be specified")
+	}
+	if r.year == nil {
+		return localVarReturnValue, nil, reportError("year is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "month", r.month, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "year", r.year, "")
+	if r.format != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorInvalidCredentials
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorForbidden
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorNotFound
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorConflict
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetOrgBilledUsageHistoryRequest struct {
+	ctx         context.Context
+	ApiService  *OrgsAPIService
+	orgSlugOrId string
+}
+
+func (r ApiGetOrgBilledUsageHistoryRequest) Execute() (*OrgBilledUsageHistory, *http.Response, error) {
+	return r.ApiService.GetOrgBilledUsageHistoryExecute(r)
+}
+
+/*
+GetOrgBilledUsageHistory Retrieve an org's billed usage items for the last 12 months
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orgSlugOrId
+	@return ApiGetOrgBilledUsageHistoryRequest
+*/
+func (a *OrgsAPIService) GetOrgBilledUsageHistory(ctx context.Context, orgSlugOrId string) ApiGetOrgBilledUsageHistoryRequest {
+	return ApiGetOrgBilledUsageHistoryRequest{
+		ApiService:  a,
+		ctx:         ctx,
+		orgSlugOrId: orgSlugOrId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return OrgBilledUsageHistory
+func (a *OrgsAPIService) GetOrgBilledUsageHistoryExecute(r ApiGetOrgBilledUsageHistoryRequest) (*OrgBilledUsageHistory, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OrgBilledUsageHistory
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.GetOrgBilledUsageHistory")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/orgs/{orgSlugOrId}/billed-usage-history"
+	localVarPath = strings.Replace(localVarPath, "{"+"orgSlugOrId"+"}", url.PathEscape(parameterValueToString(r.orgSlugOrId, "orgSlugOrId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorInvalidCredentials
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorForbidden
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ErrorNotFound
@@ -858,9 +1293,9 @@ func (r ApiGetOrgInstancesRequest) Execute() (*GetInstances200Response, *http.Re
 /*
 GetOrgInstances Get the list of instances belonging to the org
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param orgSlug
- @return ApiGetOrgInstancesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param orgSlug
+	@return ApiGetOrgInstancesRequest
 */
 func (a *OrgsAPIService) GetOrgInstances(ctx context.Context, orgSlug string) ApiGetOrgInstancesRequest {
 	return ApiGetOrgInstancesRequest{
@@ -871,7 +1306,8 @@ func (a *OrgsAPIService) GetOrgInstances(ctx context.Context, orgSlug string) Ap
 }
 
 // Execute executes the request
-//  @return GetInstances200Response
+//
+//	@return GetInstances200Response
 func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*GetInstances200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -1045,10 +1481,10 @@ func (r ApiGetOrgMemberRequest) Execute() (*FormattedOrgMembership, *http.Respon
 /*
 GetOrgMember Method for GetOrgMember
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param slugOrId
- @param usernameOrId
- @return ApiGetOrgMemberRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param slugOrId
+	@param usernameOrId
+	@return ApiGetOrgMemberRequest
 */
 func (a *OrgsAPIService) GetOrgMember(ctx context.Context, slugOrId string, usernameOrId string) ApiGetOrgMemberRequest {
 	return ApiGetOrgMemberRequest{
@@ -1060,7 +1496,8 @@ func (a *OrgsAPIService) GetOrgMember(ctx context.Context, slugOrId string, user
 }
 
 // Execute executes the request
-//  @return FormattedOrgMembership
+//
+//	@return FormattedOrgMembership
 func (a *OrgsAPIService) GetOrgMemberExecute(r ApiGetOrgMemberRequest) (*FormattedOrgMembership, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -1222,9 +1659,9 @@ func (r ApiGetOrgMembersRequest) Execute() (*OrgMemberListResponse, *http.Respon
 /*
 GetOrgMembers Method for GetOrgMembers
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param slugOrId
- @return ApiGetOrgMembersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param slugOrId
+	@return ApiGetOrgMembersRequest
 */
 func (a *OrgsAPIService) GetOrgMembers(ctx context.Context, slugOrId string) ApiGetOrgMembersRequest {
 	return ApiGetOrgMembersRequest{
@@ -1235,7 +1672,8 @@ func (a *OrgsAPIService) GetOrgMembers(ctx context.Context, slugOrId string) Api
 }
 
 // Execute executes the request
-//  @return OrgMemberListResponse
+//
+//	@return OrgMemberListResponse
 func (a *OrgsAPIService) GetOrgMembersExecute(r ApiGetOrgMembersRequest) (*OrgMemberListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
@@ -1393,9 +1831,9 @@ func (r ApiPostApiKeysRequest) Execute() (*FormattedApiApiKey, *http.Response, e
 /*
 PostApiKeys Create an API key.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param slugOrId
- @return ApiPostApiKeysRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param slugOrId
+	@return ApiPostApiKeysRequest
 */
 func (a *OrgsAPIService) PostApiKeys(ctx context.Context, slugOrId string) ApiPostApiKeysRequest {
 	return ApiPostApiKeysRequest{
@@ -1406,7 +1844,8 @@ func (a *OrgsAPIService) PostApiKeys(ctx context.Context, slugOrId string) ApiPo
 }
 
 // Execute executes the request
-//  @return FormattedApiApiKey
+//
+//	@return FormattedApiApiKey
 func (a *OrgsAPIService) PostApiKeysExecute(r ApiPostApiKeysRequest) (*FormattedApiApiKey, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -1570,10 +2009,10 @@ func (r ApiPostOrgMemberRequest) Execute() (*FormattedOrgMembership, *http.Respo
 /*
 PostOrgMember Method for PostOrgMember
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param slugOrId
- @param usernameOrId
- @return ApiPostOrgMemberRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param slugOrId
+	@param usernameOrId
+	@return ApiPostOrgMemberRequest
 */
 func (a *OrgsAPIService) PostOrgMember(ctx context.Context, slugOrId string, usernameOrId string) ApiPostOrgMemberRequest {
 	return ApiPostOrgMemberRequest{
@@ -1585,7 +2024,8 @@ func (a *OrgsAPIService) PostOrgMember(ctx context.Context, slugOrId string, use
 }
 
 // Execute executes the request
-//  @return FormattedOrgMembership
+//
+//	@return FormattedOrgMembership
 func (a *OrgsAPIService) PostOrgMemberExecute(r ApiPostOrgMemberRequest) (*FormattedOrgMembership, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
@@ -1749,9 +2189,9 @@ func (r ApiPostOrgMembersRequest) Execute() (*FormattedOrgMembership, *http.Resp
 /*
 PostOrgMembers Method for PostOrgMembers
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param slugOrId
- @return ApiPostOrgMembersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param slugOrId
+	@return ApiPostOrgMembersRequest
 */
 func (a *OrgsAPIService) PostOrgMembers(ctx context.Context, slugOrId string) ApiPostOrgMembersRequest {
 	return ApiPostOrgMembersRequest{
@@ -1762,7 +2202,8 @@ func (a *OrgsAPIService) PostOrgMembers(ctx context.Context, slugOrId string) Ap
 }
 
 // Execute executes the request
-//  @return FormattedOrgMembership
+//
+//	@return FormattedOrgMembership
 func (a *OrgsAPIService) PostOrgMembersExecute(r ApiPostOrgMembersRequest) (*FormattedOrgMembership, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
