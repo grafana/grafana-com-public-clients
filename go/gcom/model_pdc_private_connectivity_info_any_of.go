@@ -19,8 +19,11 @@ var _ MappedNullable = &PdcPrivateConnectivityInfoAnyOf{}
 
 // PdcPrivateConnectivityInfoAnyOf struct for PdcPrivateConnectivityInfoAnyOf
 type PdcPrivateConnectivityInfoAnyOf struct {
-	PrivateDNS           string `json:"privateDNS"`
-	ServiceName          string `json:"serviceName"`
+	PrivateDNS           string   `json:"privateDNS"`
+	ServiceName          string   `json:"serviceName"`
+	Regions              []string `json:"regions,omitempty"`
+	EndpointName         *string  `json:"endpointName,omitempty"`
+	ServiceId            *string  `json:"serviceId,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -93,6 +96,102 @@ func (o *PdcPrivateConnectivityInfoAnyOf) SetServiceName(v string) {
 	o.ServiceName = v
 }
 
+// GetRegions returns the Regions field value if set, zero value otherwise.
+func (o *PdcPrivateConnectivityInfoAnyOf) GetRegions() []string {
+	if o == nil || IsNil(o.Regions) {
+		var ret []string
+		return ret
+	}
+	return o.Regions
+}
+
+// GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PdcPrivateConnectivityInfoAnyOf) GetRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Regions) {
+		return nil, false
+	}
+	return o.Regions, true
+}
+
+// HasRegions returns a boolean if a field has been set.
+func (o *PdcPrivateConnectivityInfoAnyOf) HasRegions() bool {
+	if o != nil && !IsNil(o.Regions) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegions gets a reference to the given []string and assigns it to the Regions field.
+func (o *PdcPrivateConnectivityInfoAnyOf) SetRegions(v []string) {
+	o.Regions = v
+}
+
+// GetEndpointName returns the EndpointName field value if set, zero value otherwise.
+func (o *PdcPrivateConnectivityInfoAnyOf) GetEndpointName() string {
+	if o == nil || IsNil(o.EndpointName) {
+		var ret string
+		return ret
+	}
+	return *o.EndpointName
+}
+
+// GetEndpointNameOk returns a tuple with the EndpointName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PdcPrivateConnectivityInfoAnyOf) GetEndpointNameOk() (*string, bool) {
+	if o == nil || IsNil(o.EndpointName) {
+		return nil, false
+	}
+	return o.EndpointName, true
+}
+
+// HasEndpointName returns a boolean if a field has been set.
+func (o *PdcPrivateConnectivityInfoAnyOf) HasEndpointName() bool {
+	if o != nil && !IsNil(o.EndpointName) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndpointName gets a reference to the given string and assigns it to the EndpointName field.
+func (o *PdcPrivateConnectivityInfoAnyOf) SetEndpointName(v string) {
+	o.EndpointName = &v
+}
+
+// GetServiceId returns the ServiceId field value if set, zero value otherwise.
+func (o *PdcPrivateConnectivityInfoAnyOf) GetServiceId() string {
+	if o == nil || IsNil(o.ServiceId) {
+		var ret string
+		return ret
+	}
+	return *o.ServiceId
+}
+
+// GetServiceIdOk returns a tuple with the ServiceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PdcPrivateConnectivityInfoAnyOf) GetServiceIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ServiceId) {
+		return nil, false
+	}
+	return o.ServiceId, true
+}
+
+// HasServiceId returns a boolean if a field has been set.
+func (o *PdcPrivateConnectivityInfoAnyOf) HasServiceId() bool {
+	if o != nil && !IsNil(o.ServiceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceId gets a reference to the given string and assigns it to the ServiceId field.
+func (o *PdcPrivateConnectivityInfoAnyOf) SetServiceId(v string) {
+	o.ServiceId = &v
+}
+
 func (o PdcPrivateConnectivityInfoAnyOf) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -105,6 +204,15 @@ func (o PdcPrivateConnectivityInfoAnyOf) ToMap() (map[string]interface{}, error)
 	toSerialize := map[string]interface{}{}
 	toSerialize["privateDNS"] = o.PrivateDNS
 	toSerialize["serviceName"] = o.ServiceName
+	if !IsNil(o.Regions) {
+		toSerialize["regions"] = o.Regions
+	}
+	if !IsNil(o.EndpointName) {
+		toSerialize["endpointName"] = o.EndpointName
+	}
+	if !IsNil(o.ServiceId) {
+		toSerialize["serviceId"] = o.ServiceId
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -137,6 +245,9 @@ func (o *PdcPrivateConnectivityInfoAnyOf) UnmarshalJSON(data []byte) (err error)
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "privateDNS")
 		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "regions")
+		delete(additionalProperties, "endpointName")
+		delete(additionalProperties, "serviceId")
 		o.AdditionalProperties = additionalProperties
 	}
 

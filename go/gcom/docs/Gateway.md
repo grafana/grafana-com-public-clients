@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PrivateDNS** | **string** |  | 
 **ServiceName** | **string** |  | 
+**PrivateDNS** | **string** |  | 
+**Regions** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
 ### NewGateway
 
-`func NewGateway(privateDNS string, serviceName string, ) *Gateway`
+`func NewGateway(serviceName string, privateDNS string, ) *Gateway`
 
 NewGateway instantiates a new Gateway object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewGatewayWithDefaults instantiates a new Gateway object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetServiceName
+
+`func (o *Gateway) GetServiceName() string`
+
+GetServiceName returns the ServiceName field if non-nil, zero value otherwise.
+
+### GetServiceNameOk
+
+`func (o *Gateway) GetServiceNameOk() (*string, bool)`
+
+GetServiceNameOk returns a tuple with the ServiceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceName
+
+`func (o *Gateway) SetServiceName(v string)`
+
+SetServiceName sets ServiceName field to given value.
+
 
 ### GetPrivateDNS
 
@@ -46,25 +67,30 @@ and a boolean to check if the value has been set.
 SetPrivateDNS sets PrivateDNS field to given value.
 
 
-### GetServiceName
+### GetRegions
 
-`func (o *Gateway) GetServiceName() string`
+`func (o *Gateway) GetRegions() []string`
 
-GetServiceName returns the ServiceName field if non-nil, zero value otherwise.
+GetRegions returns the Regions field if non-nil, zero value otherwise.
 
-### GetServiceNameOk
+### GetRegionsOk
 
-`func (o *Gateway) GetServiceNameOk() (*string, bool)`
+`func (o *Gateway) GetRegionsOk() (*[]string, bool)`
 
-GetServiceNameOk returns a tuple with the ServiceName field if it's non-nil, zero value otherwise
+GetRegionsOk returns a tuple with the Regions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetServiceName
+### SetRegions
 
-`func (o *Gateway) SetServiceName(v string)`
+`func (o *Gateway) SetRegions(v []string)`
 
-SetServiceName sets ServiceName field to given value.
+SetRegions sets Regions field to given value.
 
+### HasRegions
+
+`func (o *Gateway) HasRegions() bool`
+
+HasRegions returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

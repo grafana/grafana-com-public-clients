@@ -19,8 +19,9 @@ var _ MappedNullable = &Api{}
 
 // Api struct for Api
 type Api struct {
-	PrivateDNS           string `json:"privateDNS"`
-	ServiceName          string `json:"serviceName"`
+	ServiceName          string   `json:"serviceName"`
+	PrivateDNS           string   `json:"privateDNS"`
+	Regions              []string `json:"regions,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -30,10 +31,10 @@ type _Api Api
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApi(privateDNS string, serviceName string) *Api {
+func NewApi(serviceName string, privateDNS string) *Api {
 	this := Api{}
-	this.PrivateDNS = privateDNS
 	this.ServiceName = serviceName
+	this.PrivateDNS = privateDNS
 	return &this
 }
 
@@ -43,30 +44,6 @@ func NewApi(privateDNS string, serviceName string) *Api {
 func NewApiWithDefaults() *Api {
 	this := Api{}
 	return &this
-}
-
-// GetPrivateDNS returns the PrivateDNS field value
-func (o *Api) GetPrivateDNS() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.PrivateDNS
-}
-
-// GetPrivateDNSOk returns a tuple with the PrivateDNS field value
-// and a boolean to check if the value has been set.
-func (o *Api) GetPrivateDNSOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PrivateDNS, true
-}
-
-// SetPrivateDNS sets field value
-func (o *Api) SetPrivateDNS(v string) {
-	o.PrivateDNS = v
 }
 
 // GetServiceName returns the ServiceName field value
@@ -93,6 +70,62 @@ func (o *Api) SetServiceName(v string) {
 	o.ServiceName = v
 }
 
+// GetPrivateDNS returns the PrivateDNS field value
+func (o *Api) GetPrivateDNS() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PrivateDNS
+}
+
+// GetPrivateDNSOk returns a tuple with the PrivateDNS field value
+// and a boolean to check if the value has been set.
+func (o *Api) GetPrivateDNSOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PrivateDNS, true
+}
+
+// SetPrivateDNS sets field value
+func (o *Api) SetPrivateDNS(v string) {
+	o.PrivateDNS = v
+}
+
+// GetRegions returns the Regions field value if set, zero value otherwise.
+func (o *Api) GetRegions() []string {
+	if o == nil || IsNil(o.Regions) {
+		var ret []string
+		return ret
+	}
+	return o.Regions
+}
+
+// GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Api) GetRegionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Regions) {
+		return nil, false
+	}
+	return o.Regions, true
+}
+
+// HasRegions returns a boolean if a field has been set.
+func (o *Api) HasRegions() bool {
+	if o != nil && !IsNil(o.Regions) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegions gets a reference to the given []string and assigns it to the Regions field.
+func (o *Api) SetRegions(v []string) {
+	o.Regions = v
+}
+
 func (o Api) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -103,8 +136,11 @@ func (o Api) MarshalJSON() ([]byte, error) {
 
 func (o Api) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["privateDNS"] = o.PrivateDNS
 	toSerialize["serviceName"] = o.ServiceName
+	toSerialize["privateDNS"] = o.PrivateDNS
+	if !IsNil(o.Regions) {
+		toSerialize["regions"] = o.Regions
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -135,8 +171,9 @@ func (o *Api) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "privateDNS")
 		delete(additionalProperties, "serviceName")
+		delete(additionalProperties, "privateDNS")
+		delete(additionalProperties, "regions")
 		o.AdditionalProperties = additionalProperties
 	}
 

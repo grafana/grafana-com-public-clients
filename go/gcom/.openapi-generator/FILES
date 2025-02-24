@@ -14,6 +14,7 @@ configuration.go
 docs/AccessPolicyListResponse.md
 docs/AccesspoliciesAPI.md
 docs/Api.md
+docs/Api1.md
 docs/AppPlatform.md
 docs/AuthAccessPolicy.md
 docs/AuthAccessPolicyAttributes.md
@@ -46,6 +47,7 @@ docs/FormattedApiStackRegionAnyOf1.md
 docs/FormattedOrgMembership.md
 docs/FormattedOrgMembershipAllowGCloudTrial.md
 docs/Gateway.md
+docs/Gateway1.md
 docs/GetAccessPolicies200Response.md
 docs/GetInstancePlugins200Response.md
 docs/GetInstances200Response.md
@@ -121,6 +123,7 @@ go.mod
 go.sum
 model_access_policy_list_response.go
 model_api.go
+model_api_1.go
 model_app_platform.go
 model_auth_access_policy.go
 model_auth_access_policy_attributes.go
@@ -153,6 +156,7 @@ model_formatted_api_stack_region_any_of_1.go
 model_formatted_org_membership.go
 model_formatted_org_membership_allow_g_cloud_trial.go
 model_gateway.go
+model_gateway_1.go
 model_get_access_policies_200_response.go
 model_get_instance_plugins_200_response.go
 model_get_instances_200_response.go

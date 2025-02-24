@@ -147,6 +147,7 @@ Class | Method | HTTP request | Description
 
  - [AccessPolicyListResponse](docs/AccessPolicyListResponse.md)
  - [Api](docs/Api.md)
+ - [Api1](docs/Api1.md)
  - [AppPlatform](docs/AppPlatform.md)
  - [AuthAccessPolicy](docs/AuthAccessPolicy.md)
  - [AuthAccessPolicyAttributes](docs/AuthAccessPolicyAttributes.md)
@@ -179,6 +180,7 @@ Class | Method | HTTP request | Description
  - [FormattedOrgMembership](docs/FormattedOrgMembership.md)
  - [FormattedOrgMembershipAllowGCloudTrial](docs/FormattedOrgMembershipAllowGCloudTrial.md)
  - [Gateway](docs/Gateway.md)
+ - [Gateway1](docs/Gateway1.md)
  - [GetAccessPolicies200Response](docs/GetAccessPolicies200Response.md)
  - [GetInstancePlugins200Response](docs/GetInstancePlugins200Response.md)
  - [GetInstances200Response](docs/GetInstances200Response.md)

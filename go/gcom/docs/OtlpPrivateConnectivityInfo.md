@@ -6,8 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PrivateDNS** | **string** |  | 
 **ServiceName** | **string** |  | 
-**Api** | [**Api**](Api.md) |  | 
-**Gateway** | [**Gateway**](Gateway.md) |  | 
+**Regions** | Pointer to **[]string** |  | [optional] 
+**EndpointName** | Pointer to **string** |  | [optional] 
+**ServiceId** | Pointer to **string** |  | [optional] 
+**Api** | [**Api1**](Api1.md) |  | 
+**Gateway** | [**Gateway1**](Gateway1.md) |  | 
 **Mimir** | [**Mimir**](Mimir.md) |  | 
 **Graphite** | Pointer to [**Graphite**](Graphite.md) |  | [optional] 
 **Otlp** | Pointer to [**NullablePdcPrivateConnectivityInfoAnyOf**](PdcPrivateConnectivityInfoAnyOf.md) |  | [optional] 
@@ -16,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewOtlpPrivateConnectivityInfo
 
-`func NewOtlpPrivateConnectivityInfo(privateDNS string, serviceName string, api Api, gateway Gateway, mimir Mimir, ) *OtlpPrivateConnectivityInfo`
+`func NewOtlpPrivateConnectivityInfo(privateDNS string, serviceName string, api Api1, gateway Gateway1, mimir Mimir, ) *OtlpPrivateConnectivityInfo`
 
 NewOtlpPrivateConnectivityInfo instantiates a new OtlpPrivateConnectivityInfo object
 This constructor will assign default values to properties that have it defined,
@@ -71,42 +74,117 @@ and a boolean to check if the value has been set.
 SetServiceName sets ServiceName field to given value.
 
 
+### GetRegions
+
+`func (o *OtlpPrivateConnectivityInfo) GetRegions() []string`
+
+GetRegions returns the Regions field if non-nil, zero value otherwise.
+
+### GetRegionsOk
+
+`func (o *OtlpPrivateConnectivityInfo) GetRegionsOk() (*[]string, bool)`
+
+GetRegionsOk returns a tuple with the Regions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegions
+
+`func (o *OtlpPrivateConnectivityInfo) SetRegions(v []string)`
+
+SetRegions sets Regions field to given value.
+
+### HasRegions
+
+`func (o *OtlpPrivateConnectivityInfo) HasRegions() bool`
+
+HasRegions returns a boolean if a field has been set.
+
+### GetEndpointName
+
+`func (o *OtlpPrivateConnectivityInfo) GetEndpointName() string`
+
+GetEndpointName returns the EndpointName field if non-nil, zero value otherwise.
+
+### GetEndpointNameOk
+
+`func (o *OtlpPrivateConnectivityInfo) GetEndpointNameOk() (*string, bool)`
+
+GetEndpointNameOk returns a tuple with the EndpointName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndpointName
+
+`func (o *OtlpPrivateConnectivityInfo) SetEndpointName(v string)`
+
+SetEndpointName sets EndpointName field to given value.
+
+### HasEndpointName
+
+`func (o *OtlpPrivateConnectivityInfo) HasEndpointName() bool`
+
+HasEndpointName returns a boolean if a field has been set.
+
+### GetServiceId
+
+`func (o *OtlpPrivateConnectivityInfo) GetServiceId() string`
+
+GetServiceId returns the ServiceId field if non-nil, zero value otherwise.
+
+### GetServiceIdOk
+
+`func (o *OtlpPrivateConnectivityInfo) GetServiceIdOk() (*string, bool)`
+
+GetServiceIdOk returns a tuple with the ServiceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceId
+
+`func (o *OtlpPrivateConnectivityInfo) SetServiceId(v string)`
+
+SetServiceId sets ServiceId field to given value.
+
+### HasServiceId
+
+`func (o *OtlpPrivateConnectivityInfo) HasServiceId() bool`
+
+HasServiceId returns a boolean if a field has been set.
+
 ### GetApi
 
-`func (o *OtlpPrivateConnectivityInfo) GetApi() Api`
+`func (o *OtlpPrivateConnectivityInfo) GetApi() Api1`
 
 GetApi returns the Api field if non-nil, zero value otherwise.
 
 ### GetApiOk
 
-`func (o *OtlpPrivateConnectivityInfo) GetApiOk() (*Api, bool)`
+`func (o *OtlpPrivateConnectivityInfo) GetApiOk() (*Api1, bool)`
 
 GetApiOk returns a tuple with the Api field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApi
 
-`func (o *OtlpPrivateConnectivityInfo) SetApi(v Api)`
+`func (o *OtlpPrivateConnectivityInfo) SetApi(v Api1)`
 
 SetApi sets Api field to given value.
 
 
 ### GetGateway
 
-`func (o *OtlpPrivateConnectivityInfo) GetGateway() Gateway`
+`func (o *OtlpPrivateConnectivityInfo) GetGateway() Gateway1`
 
 GetGateway returns the Gateway field if non-nil, zero value otherwise.
 
 ### GetGatewayOk
 
-`func (o *OtlpPrivateConnectivityInfo) GetGatewayOk() (*Gateway, bool)`
+`func (o *OtlpPrivateConnectivityInfo) GetGatewayOk() (*Gateway1, bool)`
 
 GetGatewayOk returns a tuple with the Gateway field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGateway
 
-`func (o *OtlpPrivateConnectivityInfo) SetGateway(v Gateway)`
+`func (o *OtlpPrivateConnectivityInfo) SetGateway(v Gateway1)`
 
 SetGateway sets Gateway field to given value.
 

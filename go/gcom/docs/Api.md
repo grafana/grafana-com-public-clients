@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PrivateDNS** | **string** |  | 
 **ServiceName** | **string** |  | 
+**PrivateDNS** | **string** |  | 
+**Regions** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
 ### NewApi
 
-`func NewApi(privateDNS string, serviceName string, ) *Api`
+`func NewApi(serviceName string, privateDNS string, ) *Api`
 
 NewApi instantiates a new Api object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewApiWithDefaults instantiates a new Api object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetServiceName
+
+`func (o *Api) GetServiceName() string`
+
+GetServiceName returns the ServiceName field if non-nil, zero value otherwise.
+
+### GetServiceNameOk
+
+`func (o *Api) GetServiceNameOk() (*string, bool)`
+
+GetServiceNameOk returns a tuple with the ServiceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceName
+
+`func (o *Api) SetServiceName(v string)`
+
+SetServiceName sets ServiceName field to given value.
+
 
 ### GetPrivateDNS
 
@@ -46,25 +67,30 @@ and a boolean to check if the value has been set.
 SetPrivateDNS sets PrivateDNS field to given value.
 
 
-### GetServiceName
+### GetRegions
 
-`func (o *Api) GetServiceName() string`
+`func (o *Api) GetRegions() []string`
 
-GetServiceName returns the ServiceName field if non-nil, zero value otherwise.
+GetRegions returns the Regions field if non-nil, zero value otherwise.
 
-### GetServiceNameOk
+### GetRegionsOk
 
-`func (o *Api) GetServiceNameOk() (*string, bool)`
+`func (o *Api) GetRegionsOk() (*[]string, bool)`
 
-GetServiceNameOk returns a tuple with the ServiceName field if it's non-nil, zero value otherwise
+GetRegionsOk returns a tuple with the Regions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetServiceName
+### SetRegions
 
-`func (o *Api) SetServiceName(v string)`
+`func (o *Api) SetRegions(v []string)`
 
-SetServiceName sets ServiceName field to given value.
+SetRegions sets Regions field to given value.
 
+### HasRegions
+
+`func (o *Api) HasRegions() bool`
+
+HasRegions returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

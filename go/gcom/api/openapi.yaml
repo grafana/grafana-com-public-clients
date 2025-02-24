@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: cc87bcf
-  x-generated-at: 2025-02-21T19:09:40.905Z
+  x-commit-sha: 5599c80
+  x-generated-at: 2025-02-24T11:33:03.245Z
 servers:
 - description: Main API server
   url: /api
@@ -4936,22 +4936,37 @@ components:
             id: 0.8008281904610115
             type: type
             info:
+              regions:
+              - regions
+              - regions
               privateDNS: privateDNS
               serviceName: serviceName
           - ipAllowListCNAME: ipAllowListCNAME
             id: 0.8008281904610115
             type: type
             info:
+              regions:
+              - regions
+              - regions
               privateDNS: privateDNS
               serviceName: serviceName
           otlp:
+            regions:
+            - regions
+            - regions
             privateDNS: privateDNS
             serviceName: serviceName
           pdc:
             api:
+              regions:
+              - regions
+              - regions
               privateDNS: privateDNS
               serviceName: serviceName
             gateway:
+              regions:
+              - regions
+              - regions
               privateDNS: privateDNS
               serviceName: serviceName
       properties:
@@ -7353,6 +7368,9 @@ components:
       type: object
     info:
       example:
+        regions:
+        - regions
+        - regions
         privateDNS: privateDNS
         serviceName: serviceName
       properties:
@@ -7362,6 +7380,11 @@ components:
         privateDNS:
           title: privateDNS
           type: string
+        regions:
+          items:
+            type: string
+          title: regions
+          type: array
       required:
       - privateDNS
       - serviceName
@@ -7373,6 +7396,9 @@ components:
         id: 0.8008281904610115
         type: type
         info:
+          regions:
+          - regions
+          - regions
           privateDNS: privateDNS
           serviceName: serviceName
       properties:
@@ -7393,6 +7419,9 @@ components:
       type: object
     otlp:
       example:
+        regions:
+        - regions
+        - regions
         privateDNS: privateDNS
         serviceName: serviceName
       properties:
@@ -7402,6 +7431,11 @@ components:
         privateDNS:
           title: privateDNS
           type: string
+        regions:
+          items:
+            type: string
+          title: regions
+          type: array
       required:
       - privateDNS
       - serviceName
@@ -7409,15 +7443,23 @@ components:
       type: object
     api:
       example:
+        regions:
+        - regions
+        - regions
         privateDNS: privateDNS
         serviceName: serviceName
       properties:
-        privateDNS:
-          title: privateDNS
-          type: string
         serviceName:
           title: serviceName
           type: string
+        privateDNS:
+          title: privateDNS
+          type: string
+        regions:
+          items:
+            type: string
+          title: regions
+          type: array
       required:
       - privateDNS
       - serviceName
@@ -7425,15 +7467,23 @@ components:
       type: object
     gateway:
       example:
+        regions:
+        - regions
+        - regions
         privateDNS: privateDNS
         serviceName: serviceName
       properties:
-        privateDNS:
-          title: privateDNS
-          type: string
         serviceName:
           title: serviceName
           type: string
+        privateDNS:
+          title: privateDNS
+          type: string
+        regions:
+          items:
+            type: string
+          title: regions
+          type: array
       required:
       - privateDNS
       - serviceName
@@ -7442,9 +7492,15 @@ components:
     pdc:
       example:
         api:
+          regions:
+          - regions
+          - regions
           privateDNS: privateDNS
           serviceName: serviceName
         gateway:
+          regions:
+          - regions
+          - regions
           privateDNS: privateDNS
           serviceName: serviceName
       properties:
@@ -7464,22 +7520,37 @@ components:
           id: 0.8008281904610115
           type: type
           info:
+            regions:
+            - regions
+            - regions
             privateDNS: privateDNS
             serviceName: serviceName
         - ipAllowListCNAME: ipAllowListCNAME
           id: 0.8008281904610115
           type: type
           info:
+            regions:
+            - regions
+            - regions
             privateDNS: privateDNS
             serviceName: serviceName
         otlp:
+          regions:
+          - regions
+          - regions
           privateDNS: privateDNS
           serviceName: serviceName
         pdc:
           api:
+            regions:
+            - regions
+            - regions
             privateDNS: privateDNS
             serviceName: serviceName
           gateway:
+            regions:
+            - regions
+            - regions
             privateDNS: privateDNS
             serviceName: serviceName
       properties:
@@ -8107,17 +8178,76 @@ components:
         serviceName:
           title: serviceName
           type: string
+        regions:
+          items:
+            type: string
+          title: regions
+          type: array
+        endpointName:
+          title: endpointName
+          type: string
+        serviceId:
+          title: serviceId
+          type: string
       required:
       - privateDNS
       - serviceName
+      type: object
+    api_1:
+      properties:
+        privateDNS:
+          title: privateDNS
+          type: string
+        serviceName:
+          title: serviceName
+          type: string
+        regions:
+          items:
+            type: string
+          title: regions
+          type: array
+        endpointName:
+          title: endpointName
+          type: string
+        serviceId:
+          title: serviceId
+          type: string
+      required:
+      - privateDNS
+      - serviceName
+      title: api
+      type: object
+    gateway_1:
+      properties:
+        privateDNS:
+          title: privateDNS
+          type: string
+        serviceName:
+          title: serviceName
+          type: string
+        regions:
+          items:
+            type: string
+          title: regions
+          type: array
+        endpointName:
+          title: endpointName
+          type: string
+        serviceId:
+          title: serviceId
+          type: string
+      required:
+      - privateDNS
+      - serviceName
+      title: gateway
       type: object
     pdcPrivateConnectivityInfo_anyOf_1:
       nullable: true
       properties:
         api:
-          $ref: '#/components/schemas/api'
+          $ref: '#/components/schemas/api_1'
         gateway:
-          $ref: '#/components/schemas/gateway'
+          $ref: '#/components/schemas/gateway_1'
       required:
       - api
       - gateway
@@ -8129,6 +8259,17 @@ components:
           type: string
         serviceName:
           title: serviceName
+          type: string
+        regions:
+          items:
+            type: string
+          title: regions
+          type: array
+        endpointName:
+          title: endpointName
+          type: string
+        serviceId:
+          title: serviceId
           type: string
       required:
       - privateDNS
@@ -8142,6 +8283,17 @@ components:
           type: string
         serviceName:
           title: serviceName
+          type: string
+        regions:
+          items:
+            type: string
+          title: regions
+          type: array
+        endpointName:
+          title: endpointName
+          type: string
+        serviceId:
+          title: serviceId
           type: string
       required:
       - privateDNS

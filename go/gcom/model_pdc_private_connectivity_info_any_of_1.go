@@ -19,8 +19,8 @@ var _ MappedNullable = &PdcPrivateConnectivityInfoAnyOf1{}
 
 // PdcPrivateConnectivityInfoAnyOf1 struct for PdcPrivateConnectivityInfoAnyOf1
 type PdcPrivateConnectivityInfoAnyOf1 struct {
-	Api                  Api     `json:"api"`
-	Gateway              Gateway `json:"gateway"`
+	Api                  Api1     `json:"api"`
+	Gateway              Gateway1 `json:"gateway"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -30,7 +30,7 @@ type _PdcPrivateConnectivityInfoAnyOf1 PdcPrivateConnectivityInfoAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPdcPrivateConnectivityInfoAnyOf1(api Api, gateway Gateway) *PdcPrivateConnectivityInfoAnyOf1 {
+func NewPdcPrivateConnectivityInfoAnyOf1(api Api1, gateway Gateway1) *PdcPrivateConnectivityInfoAnyOf1 {
 	this := PdcPrivateConnectivityInfoAnyOf1{}
 	this.Api = api
 	this.Gateway = gateway
@@ -46,9 +46,9 @@ func NewPdcPrivateConnectivityInfoAnyOf1WithDefaults() *PdcPrivateConnectivityIn
 }
 
 // GetApi returns the Api field value
-func (o *PdcPrivateConnectivityInfoAnyOf1) GetApi() Api {
+func (o *PdcPrivateConnectivityInfoAnyOf1) GetApi() Api1 {
 	if o == nil {
-		var ret Api
+		var ret Api1
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *PdcPrivateConnectivityInfoAnyOf1) GetApi() Api {
 
 // GetApiOk returns a tuple with the Api field value
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf1) GetApiOk() (*Api, bool) {
+func (o *PdcPrivateConnectivityInfoAnyOf1) GetApiOk() (*Api1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,14 +65,14 @@ func (o *PdcPrivateConnectivityInfoAnyOf1) GetApiOk() (*Api, bool) {
 }
 
 // SetApi sets field value
-func (o *PdcPrivateConnectivityInfoAnyOf1) SetApi(v Api) {
+func (o *PdcPrivateConnectivityInfoAnyOf1) SetApi(v Api1) {
 	o.Api = v
 }
 
 // GetGateway returns the Gateway field value
-func (o *PdcPrivateConnectivityInfoAnyOf1) GetGateway() Gateway {
+func (o *PdcPrivateConnectivityInfoAnyOf1) GetGateway() Gateway1 {
 	if o == nil {
-		var ret Gateway
+		var ret Gateway1
 		return ret
 	}
 
@@ -81,7 +81,7 @@ func (o *PdcPrivateConnectivityInfoAnyOf1) GetGateway() Gateway {
 
 // GetGatewayOk returns a tuple with the Gateway field value
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf1) GetGatewayOk() (*Gateway, bool) {
+func (o *PdcPrivateConnectivityInfoAnyOf1) GetGatewayOk() (*Gateway1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,7 +89,7 @@ func (o *PdcPrivateConnectivityInfoAnyOf1) GetGatewayOk() (*Gateway, bool) {
 }
 
 // SetGateway sets field value
-func (o *PdcPrivateConnectivityInfoAnyOf1) SetGateway(v Gateway) {
+func (o *PdcPrivateConnectivityInfoAnyOf1) SetGateway(v Gateway1) {
 	o.Gateway = v
 }
 

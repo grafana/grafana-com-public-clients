@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the Graphite type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &Graphite{}
+// checks if the Gateway1 type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Gateway1{}
 
-// Graphite struct for Graphite
-type Graphite struct {
+// Gateway1 struct for Gateway1
+type Gateway1 struct {
 	PrivateDNS           string   `json:"privateDNS"`
 	ServiceName          string   `json:"serviceName"`
 	Regions              []string `json:"regions,omitempty"`
@@ -27,29 +27,29 @@ type Graphite struct {
 	AdditionalProperties map[string]interface{}
 }
 
-type _Graphite Graphite
+type _Gateway1 Gateway1
 
-// NewGraphite instantiates a new Graphite object
+// NewGateway1 instantiates a new Gateway1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGraphite(privateDNS string, serviceName string) *Graphite {
-	this := Graphite{}
+func NewGateway1(privateDNS string, serviceName string) *Gateway1 {
+	this := Gateway1{}
 	this.PrivateDNS = privateDNS
 	this.ServiceName = serviceName
 	return &this
 }
 
-// NewGraphiteWithDefaults instantiates a new Graphite object
+// NewGateway1WithDefaults instantiates a new Gateway1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGraphiteWithDefaults() *Graphite {
-	this := Graphite{}
+func NewGateway1WithDefaults() *Gateway1 {
+	this := Gateway1{}
 	return &this
 }
 
 // GetPrivateDNS returns the PrivateDNS field value
-func (o *Graphite) GetPrivateDNS() string {
+func (o *Gateway1) GetPrivateDNS() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -60,7 +60,7 @@ func (o *Graphite) GetPrivateDNS() string {
 
 // GetPrivateDNSOk returns a tuple with the PrivateDNS field value
 // and a boolean to check if the value has been set.
-func (o *Graphite) GetPrivateDNSOk() (*string, bool) {
+func (o *Gateway1) GetPrivateDNSOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,12 +68,12 @@ func (o *Graphite) GetPrivateDNSOk() (*string, bool) {
 }
 
 // SetPrivateDNS sets field value
-func (o *Graphite) SetPrivateDNS(v string) {
+func (o *Gateway1) SetPrivateDNS(v string) {
 	o.PrivateDNS = v
 }
 
 // GetServiceName returns the ServiceName field value
-func (o *Graphite) GetServiceName() string {
+func (o *Gateway1) GetServiceName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -84,7 +84,7 @@ func (o *Graphite) GetServiceName() string {
 
 // GetServiceNameOk returns a tuple with the ServiceName field value
 // and a boolean to check if the value has been set.
-func (o *Graphite) GetServiceNameOk() (*string, bool) {
+func (o *Gateway1) GetServiceNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,12 +92,12 @@ func (o *Graphite) GetServiceNameOk() (*string, bool) {
 }
 
 // SetServiceName sets field value
-func (o *Graphite) SetServiceName(v string) {
+func (o *Gateway1) SetServiceName(v string) {
 	o.ServiceName = v
 }
 
 // GetRegions returns the Regions field value if set, zero value otherwise.
-func (o *Graphite) GetRegions() []string {
+func (o *Gateway1) GetRegions() []string {
 	if o == nil || IsNil(o.Regions) {
 		var ret []string
 		return ret
@@ -107,7 +107,7 @@ func (o *Graphite) GetRegions() []string {
 
 // GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Graphite) GetRegionsOk() ([]string, bool) {
+func (o *Gateway1) GetRegionsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Regions) {
 		return nil, false
 	}
@@ -115,7 +115,7 @@ func (o *Graphite) GetRegionsOk() ([]string, bool) {
 }
 
 // HasRegions returns a boolean if a field has been set.
-func (o *Graphite) HasRegions() bool {
+func (o *Gateway1) HasRegions() bool {
 	if o != nil && !IsNil(o.Regions) {
 		return true
 	}
@@ -124,12 +124,12 @@ func (o *Graphite) HasRegions() bool {
 }
 
 // SetRegions gets a reference to the given []string and assigns it to the Regions field.
-func (o *Graphite) SetRegions(v []string) {
+func (o *Gateway1) SetRegions(v []string) {
 	o.Regions = v
 }
 
 // GetEndpointName returns the EndpointName field value if set, zero value otherwise.
-func (o *Graphite) GetEndpointName() string {
+func (o *Gateway1) GetEndpointName() string {
 	if o == nil || IsNil(o.EndpointName) {
 		var ret string
 		return ret
@@ -139,7 +139,7 @@ func (o *Graphite) GetEndpointName() string {
 
 // GetEndpointNameOk returns a tuple with the EndpointName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Graphite) GetEndpointNameOk() (*string, bool) {
+func (o *Gateway1) GetEndpointNameOk() (*string, bool) {
 	if o == nil || IsNil(o.EndpointName) {
 		return nil, false
 	}
@@ -147,7 +147,7 @@ func (o *Graphite) GetEndpointNameOk() (*string, bool) {
 }
 
 // HasEndpointName returns a boolean if a field has been set.
-func (o *Graphite) HasEndpointName() bool {
+func (o *Gateway1) HasEndpointName() bool {
 	if o != nil && !IsNil(o.EndpointName) {
 		return true
 	}
@@ -156,12 +156,12 @@ func (o *Graphite) HasEndpointName() bool {
 }
 
 // SetEndpointName gets a reference to the given string and assigns it to the EndpointName field.
-func (o *Graphite) SetEndpointName(v string) {
+func (o *Gateway1) SetEndpointName(v string) {
 	o.EndpointName = &v
 }
 
 // GetServiceId returns the ServiceId field value if set, zero value otherwise.
-func (o *Graphite) GetServiceId() string {
+func (o *Gateway1) GetServiceId() string {
 	if o == nil || IsNil(o.ServiceId) {
 		var ret string
 		return ret
@@ -171,7 +171,7 @@ func (o *Graphite) GetServiceId() string {
 
 // GetServiceIdOk returns a tuple with the ServiceId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Graphite) GetServiceIdOk() (*string, bool) {
+func (o *Gateway1) GetServiceIdOk() (*string, bool) {
 	if o == nil || IsNil(o.ServiceId) {
 		return nil, false
 	}
@@ -179,7 +179,7 @@ func (o *Graphite) GetServiceIdOk() (*string, bool) {
 }
 
 // HasServiceId returns a boolean if a field has been set.
-func (o *Graphite) HasServiceId() bool {
+func (o *Gateway1) HasServiceId() bool {
 	if o != nil && !IsNil(o.ServiceId) {
 		return true
 	}
@@ -188,11 +188,11 @@ func (o *Graphite) HasServiceId() bool {
 }
 
 // SetServiceId gets a reference to the given string and assigns it to the ServiceId field.
-func (o *Graphite) SetServiceId(v string) {
+func (o *Gateway1) SetServiceId(v string) {
 	o.ServiceId = &v
 }
 
-func (o Graphite) MarshalJSON() ([]byte, error) {
+func (o Gateway1) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -200,7 +200,7 @@ func (o Graphite) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o Graphite) ToMap() (map[string]interface{}, error) {
+func (o Gateway1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["privateDNS"] = o.PrivateDNS
 	toSerialize["serviceName"] = o.ServiceName
@@ -221,7 +221,7 @@ func (o Graphite) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *Graphite) UnmarshalJSON(data []byte) (err error) {
+func (o *Gateway1) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -230,15 +230,15 @@ func (o *Graphite) UnmarshalJSON(data []byte) (err error) {
 		return err
 	}
 
-	varGraphite := _Graphite{}
+	varGateway1 := _Gateway1{}
 
-	err = json.Unmarshal(data, &varGraphite)
+	err = json.Unmarshal(data, &varGateway1)
 
 	if err != nil {
 		return err
 	}
 
-	*o = Graphite(varGraphite)
+	*o = Gateway1(varGateway1)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -254,38 +254,38 @@ func (o *Graphite) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullableGraphite struct {
-	value *Graphite
+type NullableGateway1 struct {
+	value *Gateway1
 	isSet bool
 }
 
-func (v NullableGraphite) Get() *Graphite {
+func (v NullableGateway1) Get() *Gateway1 {
 	return v.value
 }
 
-func (v *NullableGraphite) Set(val *Graphite) {
+func (v *NullableGateway1) Set(val *Gateway1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGraphite) IsSet() bool {
+func (v NullableGateway1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGraphite) Unset() {
+func (v *NullableGateway1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGraphite(val *Graphite) *NullableGraphite {
-	return &NullableGraphite{value: val, isSet: true}
+func NewNullableGateway1(val *Gateway1) *NullableGateway1 {
+	return &NullableGateway1{value: val, isSet: true}
 }
 
-func (v NullableGraphite) MarshalJSON() ([]byte, error) {
+func (v NullableGateway1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGraphite) UnmarshalJSON(src []byte) error {
+func (v *NullableGateway1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
