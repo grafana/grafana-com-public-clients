@@ -23,6 +23,7 @@ type FormattedApiInstanceConnections struct {
 	AppPlatform             *AppPlatform            `json:"appPlatform,omitempty"`
 	InfluxUrl               NullableString          `json:"influxUrl,omitempty"`
 	OtlpHttpUrl             NullableString          `json:"otlpHttpUrl,omitempty"`
+	OncallApiUrl            NullableString          `json:"oncallApiUrl,omitempty"`
 	AdditionalProperties    map[string]interface{}
 }
 
@@ -188,6 +189,49 @@ func (o *FormattedApiInstanceConnections) UnsetOtlpHttpUrl() {
 	o.OtlpHttpUrl.Unset()
 }
 
+// GetOncallApiUrl returns the OncallApiUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FormattedApiInstanceConnections) GetOncallApiUrl() string {
+	if o == nil || IsNil(o.OncallApiUrl.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.OncallApiUrl.Get()
+}
+
+// GetOncallApiUrlOk returns a tuple with the OncallApiUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiInstanceConnections) GetOncallApiUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.OncallApiUrl.Get(), o.OncallApiUrl.IsSet()
+}
+
+// HasOncallApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstanceConnections) HasOncallApiUrl() bool {
+	if o != nil && o.OncallApiUrl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOncallApiUrl gets a reference to the given NullableString and assigns it to the OncallApiUrl field.
+func (o *FormattedApiInstanceConnections) SetOncallApiUrl(v string) {
+	o.OncallApiUrl.Set(&v)
+}
+
+// SetOncallApiUrlNil sets the value for OncallApiUrl to be an explicit nil
+func (o *FormattedApiInstanceConnections) SetOncallApiUrlNil() {
+	o.OncallApiUrl.Set(nil)
+}
+
+// UnsetOncallApiUrl ensures that no value is present for OncallApiUrl, not even an explicit nil
+func (o *FormattedApiInstanceConnections) UnsetOncallApiUrl() {
+	o.OncallApiUrl.Unset()
+}
+
 func (o FormattedApiInstanceConnections) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -207,6 +251,9 @@ func (o FormattedApiInstanceConnections) ToMap() (map[string]interface{}, error)
 	}
 	if o.OtlpHttpUrl.IsSet() {
 		toSerialize["otlpHttpUrl"] = o.OtlpHttpUrl.Get()
+	}
+	if o.OncallApiUrl.IsSet() {
+		toSerialize["oncallApiUrl"] = o.OncallApiUrl.Get()
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -242,6 +289,7 @@ func (o *FormattedApiInstanceConnections) UnmarshalJSON(data []byte) (err error)
 		delete(additionalProperties, "appPlatform")
 		delete(additionalProperties, "influxUrl")
 		delete(additionalProperties, "otlpHttpUrl")
+		delete(additionalProperties, "oncallApiUrl")
 		o.AdditionalProperties = additionalProperties
 	}
 

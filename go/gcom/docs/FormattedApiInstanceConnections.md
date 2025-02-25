@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **AppPlatform** | Pointer to [**AppPlatform**](AppPlatform.md) |  | [optional] 
 **InfluxUrl** | Pointer to **NullableString** |  | [optional] 
 **OtlpHttpUrl** | Pointer to **NullableString** |  | [optional] 
+**OncallApiUrl** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -143,6 +144,41 @@ HasOtlpHttpUrl returns a boolean if a field has been set.
 `func (o *FormattedApiInstanceConnections) UnsetOtlpHttpUrl()`
 
 UnsetOtlpHttpUrl ensures that no value is present for OtlpHttpUrl, not even an explicit nil
+### GetOncallApiUrl
+
+`func (o *FormattedApiInstanceConnections) GetOncallApiUrl() string`
+
+GetOncallApiUrl returns the OncallApiUrl field if non-nil, zero value otherwise.
+
+### GetOncallApiUrlOk
+
+`func (o *FormattedApiInstanceConnections) GetOncallApiUrlOk() (*string, bool)`
+
+GetOncallApiUrlOk returns a tuple with the OncallApiUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOncallApiUrl
+
+`func (o *FormattedApiInstanceConnections) SetOncallApiUrl(v string)`
+
+SetOncallApiUrl sets OncallApiUrl field to given value.
+
+### HasOncallApiUrl
+
+`func (o *FormattedApiInstanceConnections) HasOncallApiUrl() bool`
+
+HasOncallApiUrl returns a boolean if a field has been set.
+
+### SetOncallApiUrlNil
+
+`func (o *FormattedApiInstanceConnections) SetOncallApiUrlNil(b bool)`
+
+ SetOncallApiUrlNil sets the value for OncallApiUrl to be an explicit nil
+
+### UnsetOncallApiUrl
+`func (o *FormattedApiInstanceConnections) UnsetOncallApiUrl()`
+
+UnsetOncallApiUrl ensures that no value is present for OncallApiUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

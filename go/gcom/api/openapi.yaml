@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 4679eb0
-  x-generated-at: 2025-02-25T12:38:15.701Z
+  x-commit-sha: 29f69a7
+  x-generated-at: 2025-02-25T15:21:24.301Z
 servers:
 - description: Main API server
   url: /api
@@ -4927,6 +4927,7 @@ components:
       example:
         otlpHttpUrl: otlpHttpUrl
         influxUrl: influxUrl
+        oncallApiUrl: oncallApiUrl
         appPlatform:
           url: url
           caData: caData
@@ -4981,6 +4982,10 @@ components:
         otlpHttpUrl:
           nullable: true
           title: otlpHttpUrl
+          type: string
+        oncallApiUrl:
+          nullable: true
+          title: oncallApiUrl
           type: string
       required:
       - privateConnectivityInfo
