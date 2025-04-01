@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ## GetStackRegions
 
-> GetStackRegions200Response GetStackRegions(ctx).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
+> GetStackRegions200Response GetStackRegions(ctx).CountryCode(countryCode).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
 
 
 
@@ -92,6 +92,7 @@ import (
 )
 
 func main() {
+	countryCode := "countryCode_example" // string |  (optional)
 	direction := "direction_example" // string |  (optional)
 	id := int32(56) // int32 |  (optional)
 	idIn := []int32{int32(123)} // []int32 |  (optional)
@@ -103,7 +104,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StackRegionsAPI.GetStackRegions(context.Background()).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
+	resp, r, err := apiClient.StackRegionsAPI.GetStackRegions(context.Background()).CountryCode(countryCode).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StackRegionsAPI.GetStackRegions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,6 +125,7 @@ Other parameters are passed through a pointer to a apiGetStackRegionsRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **countryCode** | **string** |  | 
  **direction** | **string** |  | 
  **id** | **int32** |  | 
  **idIn** | **[]int32** |  | 

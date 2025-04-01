@@ -58,6 +58,8 @@ Name | Type | Description | Notes
 **AssertsGraphClusterApiUrl** | Pointer to **NullableString** |  | [optional] 
 **ProviderRegion** | **string** |  | 
 **IsStub** | **bool** |  | 
+**GeoLocation** | Pointer to **[]float32** |  | [optional] 
+**CountryCode** | Pointer to **string** |  | [optional] 
 **Id** | **float32** |  | 
 **Status** | **string** |  | 
 **Visibility** | **string** |  | 
@@ -1193,6 +1195,56 @@ and a boolean to check if the value has been set.
 
 SetIsStub sets IsStub field to given value.
 
+
+### GetGeoLocation
+
+`func (o *FormattedApiStackRegionAnyOf1) GetGeoLocation() []float32`
+
+GetGeoLocation returns the GeoLocation field if non-nil, zero value otherwise.
+
+### GetGeoLocationOk
+
+`func (o *FormattedApiStackRegionAnyOf1) GetGeoLocationOk() (*[]float32, bool)`
+
+GetGeoLocationOk returns a tuple with the GeoLocation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGeoLocation
+
+`func (o *FormattedApiStackRegionAnyOf1) SetGeoLocation(v []float32)`
+
+SetGeoLocation sets GeoLocation field to given value.
+
+### HasGeoLocation
+
+`func (o *FormattedApiStackRegionAnyOf1) HasGeoLocation() bool`
+
+HasGeoLocation returns a boolean if a field has been set.
+
+### GetCountryCode
+
+`func (o *FormattedApiStackRegionAnyOf1) GetCountryCode() string`
+
+GetCountryCode returns the CountryCode field if non-nil, zero value otherwise.
+
+### GetCountryCodeOk
+
+`func (o *FormattedApiStackRegionAnyOf1) GetCountryCodeOk() (*string, bool)`
+
+GetCountryCodeOk returns a tuple with the CountryCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountryCode
+
+`func (o *FormattedApiStackRegionAnyOf1) SetCountryCode(v string)`
+
+SetCountryCode sets CountryCode field to given value.
+
+### HasCountryCode
+
+`func (o *FormattedApiStackRegionAnyOf1) HasCountryCode() bool`
+
+HasCountryCode returns a boolean if a field has been set.
 
 ### GetId
 

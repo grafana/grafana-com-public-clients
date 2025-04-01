@@ -164,6 +164,7 @@ func (a *StackRegionsAPIService) GetClosestStackRegionExecute(r ApiGetClosestSta
 type ApiGetStackRegionsRequest struct {
 	ctx            context.Context
 	ApiService     *StackRegionsAPIService
+	countryCode    *string
 	direction      *string
 	id             *int32
 	idIn           *[]int32
@@ -172,6 +173,11 @@ type ApiGetStackRegionsRequest struct {
 	providerRegion *string
 	slug           *string
 	slugIn         *[]string
+}
+
+func (r ApiGetStackRegionsRequest) CountryCode(countryCode string) ApiGetStackRegionsRequest {
+	r.countryCode = &countryCode
+	return r
 }
 
 func (r ApiGetStackRegionsRequest) Direction(direction string) ApiGetStackRegionsRequest {
@@ -253,6 +259,9 @@ func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequ
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.countryCode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "countryCode", r.countryCode, "")
+	}
 	if r.direction != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "")
 	}

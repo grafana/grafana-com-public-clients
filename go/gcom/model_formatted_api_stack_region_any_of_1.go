@@ -73,6 +73,8 @@ type FormattedApiStackRegionAnyOf1 struct {
 	AssertsGraphClusterApiUrl   NullableString              `json:"assertsGraphClusterApiUrl,omitempty"`
 	ProviderRegion              string                      `json:"providerRegion"`
 	IsStub                      bool                        `json:"isStub"`
+	GeoLocation                 []float32                   `json:"geoLocation,omitempty"`
+	CountryCode                 *string                     `json:"countryCode,omitempty"`
 	Id                          float32                     `json:"id"`
 	Status                      string                      `json:"status"`
 	Visibility                  string                      `json:"visibility"`
@@ -1487,6 +1489,70 @@ func (o *FormattedApiStackRegionAnyOf1) SetIsStub(v bool) {
 	o.IsStub = v
 }
 
+// GetGeoLocation returns the GeoLocation field value if set, zero value otherwise.
+func (o *FormattedApiStackRegionAnyOf1) GetGeoLocation() []float32 {
+	if o == nil || IsNil(o.GeoLocation) {
+		var ret []float32
+		return ret
+	}
+	return o.GeoLocation
+}
+
+// GetGeoLocationOk returns a tuple with the GeoLocation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetGeoLocationOk() ([]float32, bool) {
+	if o == nil || IsNil(o.GeoLocation) {
+		return nil, false
+	}
+	return o.GeoLocation, true
+}
+
+// HasGeoLocation returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasGeoLocation() bool {
+	if o != nil && !IsNil(o.GeoLocation) {
+		return true
+	}
+
+	return false
+}
+
+// SetGeoLocation gets a reference to the given []float32 and assigns it to the GeoLocation field.
+func (o *FormattedApiStackRegionAnyOf1) SetGeoLocation(v []float32) {
+	o.GeoLocation = v
+}
+
+// GetCountryCode returns the CountryCode field value if set, zero value otherwise.
+func (o *FormattedApiStackRegionAnyOf1) GetCountryCode() string {
+	if o == nil || IsNil(o.CountryCode) {
+		var ret string
+		return ret
+	}
+	return *o.CountryCode
+}
+
+// GetCountryCodeOk returns a tuple with the CountryCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetCountryCodeOk() (*string, bool) {
+	if o == nil || IsNil(o.CountryCode) {
+		return nil, false
+	}
+	return o.CountryCode, true
+}
+
+// HasCountryCode returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasCountryCode() bool {
+	if o != nil && !IsNil(o.CountryCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetCountryCode gets a reference to the given string and assigns it to the CountryCode field.
+func (o *FormattedApiStackRegionAnyOf1) SetCountryCode(v string) {
+	o.CountryCode = &v
+}
+
 // GetId returns the Id field value
 func (o *FormattedApiStackRegionAnyOf1) GetId() float32 {
 	if o == nil {
@@ -1819,6 +1885,12 @@ func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["providerRegion"] = o.ProviderRegion
 	toSerialize["isStub"] = o.IsStub
+	if !IsNil(o.GeoLocation) {
+		toSerialize["geoLocation"] = o.GeoLocation
+	}
+	if !IsNil(o.CountryCode) {
+		toSerialize["countryCode"] = o.CountryCode
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["status"] = o.Status
 	toSerialize["visibility"] = o.Visibility
@@ -1914,6 +1986,8 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "assertsGraphClusterApiUrl")
 		delete(additionalProperties, "providerRegion")
 		delete(additionalProperties, "isStub")
+		delete(additionalProperties, "geoLocation")
+		delete(additionalProperties, "countryCode")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "visibility")
