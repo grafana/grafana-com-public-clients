@@ -4438,6 +4438,14 @@
         "parameters": [
           {
             "in": "query",
+            "name": "countryCode",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
             "name": "direction",
             "schema": {
               "enum": [
@@ -6051,8 +6059,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "0e96788",
-    "x-generated-at": "2025-04-01T12:36:47.485Z"
+    "x-commit-sha": "cc8ce14",
+    "x-generated-at": "2025-04-01T14:45:28.026Z"
   },
   "security": [
     {
@@ -10711,6 +10719,17 @@
               "isStub": {
                 "type": "boolean",
                 "title": "isStub"
+              },
+              "geoLocation": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "title": "geoLocation"
+              },
+              "countryCode": {
+                "type": "string",
+                "title": "countryCode"
               },
               "id": {
                 "type": "number",
