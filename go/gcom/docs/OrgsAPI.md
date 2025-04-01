@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## DelApiKey
 
-> DelApiKey(ctx, name, slugOrId).XRequestId(xRequestId).Execute()
+> DelApiKey(ctx, name, slugOrId).XRequestId(xRequestId).Unlock(unlock).Execute()
 
 Delete an API key by name
 
@@ -111,10 +111,11 @@ func main() {
 	name := "name_example" // string | 
 	slugOrId := "slugOrId_example" // string | 
 	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	unlock := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.OrgsAPI.DelApiKey(context.Background(), name, slugOrId).XRequestId(xRequestId).Execute()
+	r, err := apiClient.OrgsAPI.DelApiKey(context.Background(), name, slugOrId).XRequestId(xRequestId).Unlock(unlock).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrgsAPI.DelApiKey``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -141,6 +142,7 @@ Name | Type | Description  | Notes
 
 
  **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **unlock** | **bool** |  | 
 
 ### Return type
 

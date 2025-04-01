@@ -141,10 +141,16 @@ type ApiDelApiKeyRequest struct {
 	name       string
 	slugOrId   string
 	xRequestId *string
+	unlock     *bool
 }
 
 func (r ApiDelApiKeyRequest) XRequestId(xRequestId string) ApiDelApiKeyRequest {
 	r.xRequestId = &xRequestId
+	return r
+}
+
+func (r ApiDelApiKeyRequest) Unlock(unlock bool) ApiDelApiKeyRequest {
+	r.unlock = &unlock
 	return r
 }
 
@@ -193,6 +199,9 @@ func (a *OrgsAPIService) DelApiKeyExecute(r ApiDelApiKeyRequest) (*http.Response
 		return nil, reportError("xRequestId is required and must be specified")
 	}
 
+	if r.unlock != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "unlock", r.unlock, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
