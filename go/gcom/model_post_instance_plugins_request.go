@@ -19,6 +19,7 @@ var _ MappedNullable = &PostInstancePluginsRequest{}
 
 // PostInstancePluginsRequest struct for PostInstancePluginsRequest
 type PostInstancePluginsRequest struct {
+	NoRestart            *bool   `json:"noRestart,omitempty"`
 	Plugin               string  `json:"plugin"`
 	Version              *string `json:"version,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -42,6 +43,38 @@ func NewPostInstancePluginsRequest(plugin string) *PostInstancePluginsRequest {
 func NewPostInstancePluginsRequestWithDefaults() *PostInstancePluginsRequest {
 	this := PostInstancePluginsRequest{}
 	return &this
+}
+
+// GetNoRestart returns the NoRestart field value if set, zero value otherwise.
+func (o *PostInstancePluginsRequest) GetNoRestart() bool {
+	if o == nil || IsNil(o.NoRestart) {
+		var ret bool
+		return ret
+	}
+	return *o.NoRestart
+}
+
+// GetNoRestartOk returns a tuple with the NoRestart field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancePluginsRequest) GetNoRestartOk() (*bool, bool) {
+	if o == nil || IsNil(o.NoRestart) {
+		return nil, false
+	}
+	return o.NoRestart, true
+}
+
+// HasNoRestart returns a boolean if a field has been set.
+func (o *PostInstancePluginsRequest) HasNoRestart() bool {
+	if o != nil && !IsNil(o.NoRestart) {
+		return true
+	}
+
+	return false
+}
+
+// SetNoRestart gets a reference to the given bool and assigns it to the NoRestart field.
+func (o *PostInstancePluginsRequest) SetNoRestart(v bool) {
+	o.NoRestart = &v
 }
 
 // GetPlugin returns the Plugin field value
@@ -110,6 +143,9 @@ func (o PostInstancePluginsRequest) MarshalJSON() ([]byte, error) {
 
 func (o PostInstancePluginsRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NoRestart) {
+		toSerialize["noRestart"] = o.NoRestart
+	}
 	toSerialize["plugin"] = o.Plugin
 	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
@@ -144,6 +180,7 @@ func (o *PostInstancePluginsRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "noRestart")
 		delete(additionalProperties, "plugin")
 		delete(additionalProperties, "version")
 		o.AdditionalProperties = additionalProperties

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**NoRestart** | Pointer to **bool** |  | [optional] 
 **Plugin** | **string** |  | 
 **Version** | Pointer to **string** |  | [optional] 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewPostInstancePluginsRequestWithDefaults instantiates a new PostInstancePluginsRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetNoRestart
+
+`func (o *PostInstancePluginsRequest) GetNoRestart() bool`
+
+GetNoRestart returns the NoRestart field if non-nil, zero value otherwise.
+
+### GetNoRestartOk
+
+`func (o *PostInstancePluginsRequest) GetNoRestartOk() (*bool, bool)`
+
+GetNoRestartOk returns a tuple with the NoRestart field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNoRestart
+
+`func (o *PostInstancePluginsRequest) SetNoRestart(v bool)`
+
+SetNoRestart sets NoRestart field to given value.
+
+### HasNoRestart
+
+`func (o *PostInstancePluginsRequest) HasNoRestart() bool`
+
+HasNoRestart returns a boolean if a field has been set.
 
 ### GetPlugin
 

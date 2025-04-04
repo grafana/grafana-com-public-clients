@@ -19,6 +19,7 @@ var _ MappedNullable = &PostInstancePluginRequest{}
 
 // PostInstancePluginRequest struct for PostInstancePluginRequest
 type PostInstancePluginRequest struct {
+	NoRestart            *bool   `json:"noRestart,omitempty"`
 	Version              *string `json:"version,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -40,6 +41,38 @@ func NewPostInstancePluginRequest() *PostInstancePluginRequest {
 func NewPostInstancePluginRequestWithDefaults() *PostInstancePluginRequest {
 	this := PostInstancePluginRequest{}
 	return &this
+}
+
+// GetNoRestart returns the NoRestart field value if set, zero value otherwise.
+func (o *PostInstancePluginRequest) GetNoRestart() bool {
+	if o == nil || IsNil(o.NoRestart) {
+		var ret bool
+		return ret
+	}
+	return *o.NoRestart
+}
+
+// GetNoRestartOk returns a tuple with the NoRestart field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancePluginRequest) GetNoRestartOk() (*bool, bool) {
+	if o == nil || IsNil(o.NoRestart) {
+		return nil, false
+	}
+	return o.NoRestart, true
+}
+
+// HasNoRestart returns a boolean if a field has been set.
+func (o *PostInstancePluginRequest) HasNoRestart() bool {
+	if o != nil && !IsNil(o.NoRestart) {
+		return true
+	}
+
+	return false
+}
+
+// SetNoRestart gets a reference to the given bool and assigns it to the NoRestart field.
+func (o *PostInstancePluginRequest) SetNoRestart(v bool) {
+	o.NoRestart = &v
 }
 
 // GetVersion returns the Version field value if set, zero value otherwise.
@@ -84,6 +117,9 @@ func (o PostInstancePluginRequest) MarshalJSON() ([]byte, error) {
 
 func (o PostInstancePluginRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.NoRestart) {
+		toSerialize["noRestart"] = o.NoRestart
+	}
 	if !IsNil(o.Version) {
 		toSerialize["version"] = o.Version
 	}
@@ -109,6 +145,7 @@ func (o *PostInstancePluginRequest) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "noRestart")
 		delete(additionalProperties, "version")
 		o.AdditionalProperties = additionalProperties
 	}

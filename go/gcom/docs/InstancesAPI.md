@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ## DeleteInstancePlugin
 
-> FormattedApiInstancePlugin DeleteInstancePlugin(ctx, instanceId, pluginSlugOrId).XRequestId(xRequestId).Execute()
+> FormattedApiInstancePlugin DeleteInstancePlugin(ctx, instanceId, pluginSlugOrId).XRequestId(xRequestId).NoRestart(noRestart).Execute()
 
 
 
@@ -405,10 +405,11 @@ func main() {
 	instanceId := "instanceId_example" // string | 
 	pluginSlugOrId := "pluginSlugOrId_example" // string | 
 	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	noRestart := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.DeleteInstancePlugin(context.Background(), instanceId, pluginSlugOrId).XRequestId(xRequestId).Execute()
+	resp, r, err := apiClient.InstancesAPI.DeleteInstancePlugin(context.Background(), instanceId, pluginSlugOrId).XRequestId(xRequestId).NoRestart(noRestart).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.DeleteInstancePlugin``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -437,6 +438,7 @@ Name | Type | Description  | Notes
 
 
  **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **noRestart** | **bool** |  | 
 
 ### Return type
 

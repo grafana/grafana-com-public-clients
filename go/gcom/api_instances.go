@@ -860,10 +860,16 @@ type ApiDeleteInstancePluginRequest struct {
 	instanceId     string
 	pluginSlugOrId string
 	xRequestId     *string
+	noRestart      *bool
 }
 
 func (r ApiDeleteInstancePluginRequest) XRequestId(xRequestId string) ApiDeleteInstancePluginRequest {
 	r.xRequestId = &xRequestId
+	return r
+}
+
+func (r ApiDeleteInstancePluginRequest) NoRestart(noRestart bool) ApiDeleteInstancePluginRequest {
+	r.noRestart = &noRestart
 	return r
 }
 
@@ -915,6 +921,9 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 		return localVarReturnValue, nil, reportError("xRequestId is required and must be specified")
 	}
 
+	if r.noRestart != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "noRestart", r.noRestart, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

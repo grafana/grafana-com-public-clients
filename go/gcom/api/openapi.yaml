@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 91bbec1
-  x-generated-at: 2025-04-04T13:15:13.929Z
+  x-commit-sha: 8e7eb7f
+  x-generated-at: 2025-04-04T15:08:13.142Z
 servers:
 - description: Main API server
   url: /api
@@ -1577,6 +1577,13 @@ paths:
         schema:
           type: string
         style: simple
+      - explode: true
+        in: query
+        name: noRestart
+        required: false
+        schema:
+          type: boolean
+        style: form
       - explode: false
         in: header
         name: x-request-id
@@ -6685,6 +6692,8 @@ components:
       type: object
     postInstancePlugins_request:
       properties:
+        noRestart:
+          type: boolean
         plugin:
           type: string
         version:
@@ -6694,6 +6703,8 @@ components:
       type: object
     postInstancePlugin_request:
       properties:
+        noRestart:
+          type: boolean
         version:
           type: string
       type: object
