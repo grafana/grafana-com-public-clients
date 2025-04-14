@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** | Pointer to [**PostAccessPoliciesRequestAttributes**](PostAccessPoliciesRequestAttributes.md) |  | [optional] 
-**Conditions** | Pointer to [**PostAccessPoliciesRequestConditions**](PostAccessPoliciesRequestConditions.md) |  | [optional] 
+**Attributes** | Pointer to [**NullablePostAccessPoliciesRequestAttributes**](PostAccessPoliciesRequestAttributes.md) |  | [optional] 
+**Conditions** | Pointer to [**NullablePostAccessPoliciesRequestConditions**](PostAccessPoliciesRequestConditions.md) |  | [optional] 
 **DisplayName** | Pointer to **string** |  | [optional] 
 **Name** | **string** |  | 
 **Realms** | [**[]PostAccessPoliciesRequestRealmsInner**](PostAccessPoliciesRequestRealmsInner.md) |  | 
@@ -55,6 +55,16 @@ SetAttributes sets Attributes field to given value.
 
 HasAttributes returns a boolean if a field has been set.
 
+### SetAttributesNil
+
+`func (o *PostAccessPoliciesRequest) SetAttributesNil(b bool)`
+
+ SetAttributesNil sets the value for Attributes to be an explicit nil
+
+### UnsetAttributes
+`func (o *PostAccessPoliciesRequest) UnsetAttributes()`
+
+UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 ### GetConditions
 
 `func (o *PostAccessPoliciesRequest) GetConditions() PostAccessPoliciesRequestConditions`
@@ -80,6 +90,16 @@ SetConditions sets Conditions field to given value.
 
 HasConditions returns a boolean if a field has been set.
 
+### SetConditionsNil
+
+`func (o *PostAccessPoliciesRequest) SetConditionsNil(b bool)`
+
+ SetConditionsNil sets the value for Conditions to be an explicit nil
+
+### UnsetConditions
+`func (o *PostAccessPoliciesRequest) UnsetConditions()`
+
+UnsetConditions ensures that no value is present for Conditions, not even an explicit nil
 ### GetDisplayName
 
 `func (o *PostAccessPoliciesRequest) GetDisplayName() string`

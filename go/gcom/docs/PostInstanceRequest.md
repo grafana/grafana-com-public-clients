@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Graphite** | Pointer to **bool** |  | [optional] 
 **HlInstanceId** | Pointer to **int32** |  | [optional] 
-**K6OrgId** | Pointer to **int32** |  | [optional] 
+**K6OrgId** | Pointer to **NullableInt32** |  | [optional] 
 **Labels** | Pointer to **map[string]string** |  | [optional] 
 **Logs** | Pointer to **bool** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
@@ -161,6 +161,16 @@ SetK6OrgId sets K6OrgId field to given value.
 
 HasK6OrgId returns a boolean if a field has been set.
 
+### SetK6OrgIdNil
+
+`func (o *PostInstanceRequest) SetK6OrgIdNil(b bool)`
+
+ SetK6OrgIdNil sets the value for K6OrgId to be an explicit nil
+
+### UnsetK6OrgId
+`func (o *PostInstanceRequest) UnsetK6OrgId()`
+
+UnsetK6OrgId ensures that no value is present for K6OrgId, not even an explicit nil
 ### GetLabels
 
 `func (o *PostInstanceRequest) GetLabels() map[string]string`

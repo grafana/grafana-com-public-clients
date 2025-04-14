@@ -19,14 +19,14 @@ var _ MappedNullable = &PostAccessPoliciesRequestAttributesLokiQueryPolicy{}
 
 // PostAccessPoliciesRequestAttributesLokiQueryPolicy struct for PostAccessPoliciesRequestAttributesLokiQueryPolicy
 type PostAccessPoliciesRequestAttributesLokiQueryPolicy struct {
-	MaxEntriesLimitPerQuery *int32   `json:"maxEntriesLimitPerQuery,omitempty"`
-	MaxQueryBytesRead       *string  `json:"maxQueryBytesRead,omitempty"`
-	MaxQueryInterval        *string  `json:"maxQueryInterval,omitempty"`
-	MaxQueryLength          *string  `json:"maxQueryLength,omitempty"`
-	MaxQueryLookback        *string  `json:"maxQueryLookback,omitempty"`
-	MaxQueryTime            *string  `json:"maxQueryTime,omitempty"`
-	MinimumLabelsNumber     *int32   `json:"minimumLabelsNumber,omitempty"`
-	RequiredLabels          []string `json:"requiredLabels,omitempty"`
+	MaxEntriesLimitPerQuery NullableInt32  `json:"maxEntriesLimitPerQuery,omitempty"`
+	MaxQueryBytesRead       NullableString `json:"maxQueryBytesRead,omitempty"`
+	MaxQueryInterval        NullableString `json:"maxQueryInterval,omitempty"`
+	MaxQueryLength          NullableString `json:"maxQueryLength,omitempty"`
+	MaxQueryLookback        NullableString `json:"maxQueryLookback,omitempty"`
+	MaxQueryTime            NullableString `json:"maxQueryTime,omitempty"`
+	MinimumLabelsNumber     NullableInt32  `json:"minimumLabelsNumber,omitempty"`
+	RequiredLabels          []string       `json:"requiredLabels,omitempty"`
 	AdditionalProperties    map[string]interface{}
 }
 
@@ -49,233 +49,310 @@ func NewPostAccessPoliciesRequestAttributesLokiQueryPolicyWithDefaults() *PostAc
 	return &this
 }
 
-// GetMaxEntriesLimitPerQuery returns the MaxEntriesLimitPerQuery field value if set, zero value otherwise.
+// GetMaxEntriesLimitPerQuery returns the MaxEntriesLimitPerQuery field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxEntriesLimitPerQuery() int32 {
-	if o == nil || IsNil(o.MaxEntriesLimitPerQuery) {
+	if o == nil || IsNil(o.MaxEntriesLimitPerQuery.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.MaxEntriesLimitPerQuery
+	return *o.MaxEntriesLimitPerQuery.Get()
 }
 
 // GetMaxEntriesLimitPerQueryOk returns a tuple with the MaxEntriesLimitPerQuery field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxEntriesLimitPerQueryOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxEntriesLimitPerQuery) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxEntriesLimitPerQuery, true
+	return o.MaxEntriesLimitPerQuery.Get(), o.MaxEntriesLimitPerQuery.IsSet()
 }
 
 // HasMaxEntriesLimitPerQuery returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) HasMaxEntriesLimitPerQuery() bool {
-	if o != nil && !IsNil(o.MaxEntriesLimitPerQuery) {
+	if o != nil && o.MaxEntriesLimitPerQuery.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxEntriesLimitPerQuery gets a reference to the given int32 and assigns it to the MaxEntriesLimitPerQuery field.
+// SetMaxEntriesLimitPerQuery gets a reference to the given NullableInt32 and assigns it to the MaxEntriesLimitPerQuery field.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxEntriesLimitPerQuery(v int32) {
-	o.MaxEntriesLimitPerQuery = &v
+	o.MaxEntriesLimitPerQuery.Set(&v)
 }
 
-// GetMaxQueryBytesRead returns the MaxQueryBytesRead field value if set, zero value otherwise.
+// SetMaxEntriesLimitPerQueryNil sets the value for MaxEntriesLimitPerQuery to be an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxEntriesLimitPerQueryNil() {
+	o.MaxEntriesLimitPerQuery.Set(nil)
+}
+
+// UnsetMaxEntriesLimitPerQuery ensures that no value is present for MaxEntriesLimitPerQuery, not even an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxEntriesLimitPerQuery() {
+	o.MaxEntriesLimitPerQuery.Unset()
+}
+
+// GetMaxQueryBytesRead returns the MaxQueryBytesRead field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryBytesRead() string {
-	if o == nil || IsNil(o.MaxQueryBytesRead) {
+	if o == nil || IsNil(o.MaxQueryBytesRead.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MaxQueryBytesRead
+	return *o.MaxQueryBytesRead.Get()
 }
 
 // GetMaxQueryBytesReadOk returns a tuple with the MaxQueryBytesRead field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryBytesReadOk() (*string, bool) {
-	if o == nil || IsNil(o.MaxQueryBytesRead) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxQueryBytesRead, true
+	return o.MaxQueryBytesRead.Get(), o.MaxQueryBytesRead.IsSet()
 }
 
 // HasMaxQueryBytesRead returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) HasMaxQueryBytesRead() bool {
-	if o != nil && !IsNil(o.MaxQueryBytesRead) {
+	if o != nil && o.MaxQueryBytesRead.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxQueryBytesRead gets a reference to the given string and assigns it to the MaxQueryBytesRead field.
+// SetMaxQueryBytesRead gets a reference to the given NullableString and assigns it to the MaxQueryBytesRead field.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryBytesRead(v string) {
-	o.MaxQueryBytesRead = &v
+	o.MaxQueryBytesRead.Set(&v)
 }
 
-// GetMaxQueryInterval returns the MaxQueryInterval field value if set, zero value otherwise.
+// SetMaxQueryBytesReadNil sets the value for MaxQueryBytesRead to be an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryBytesReadNil() {
+	o.MaxQueryBytesRead.Set(nil)
+}
+
+// UnsetMaxQueryBytesRead ensures that no value is present for MaxQueryBytesRead, not even an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxQueryBytesRead() {
+	o.MaxQueryBytesRead.Unset()
+}
+
+// GetMaxQueryInterval returns the MaxQueryInterval field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryInterval() string {
-	if o == nil || IsNil(o.MaxQueryInterval) {
+	if o == nil || IsNil(o.MaxQueryInterval.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MaxQueryInterval
+	return *o.MaxQueryInterval.Get()
 }
 
 // GetMaxQueryIntervalOk returns a tuple with the MaxQueryInterval field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryIntervalOk() (*string, bool) {
-	if o == nil || IsNil(o.MaxQueryInterval) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxQueryInterval, true
+	return o.MaxQueryInterval.Get(), o.MaxQueryInterval.IsSet()
 }
 
 // HasMaxQueryInterval returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) HasMaxQueryInterval() bool {
-	if o != nil && !IsNil(o.MaxQueryInterval) {
+	if o != nil && o.MaxQueryInterval.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxQueryInterval gets a reference to the given string and assigns it to the MaxQueryInterval field.
+// SetMaxQueryInterval gets a reference to the given NullableString and assigns it to the MaxQueryInterval field.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryInterval(v string) {
-	o.MaxQueryInterval = &v
+	o.MaxQueryInterval.Set(&v)
 }
 
-// GetMaxQueryLength returns the MaxQueryLength field value if set, zero value otherwise.
+// SetMaxQueryIntervalNil sets the value for MaxQueryInterval to be an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryIntervalNil() {
+	o.MaxQueryInterval.Set(nil)
+}
+
+// UnsetMaxQueryInterval ensures that no value is present for MaxQueryInterval, not even an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxQueryInterval() {
+	o.MaxQueryInterval.Unset()
+}
+
+// GetMaxQueryLength returns the MaxQueryLength field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryLength() string {
-	if o == nil || IsNil(o.MaxQueryLength) {
+	if o == nil || IsNil(o.MaxQueryLength.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MaxQueryLength
+	return *o.MaxQueryLength.Get()
 }
 
 // GetMaxQueryLengthOk returns a tuple with the MaxQueryLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryLengthOk() (*string, bool) {
-	if o == nil || IsNil(o.MaxQueryLength) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxQueryLength, true
+	return o.MaxQueryLength.Get(), o.MaxQueryLength.IsSet()
 }
 
 // HasMaxQueryLength returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) HasMaxQueryLength() bool {
-	if o != nil && !IsNil(o.MaxQueryLength) {
+	if o != nil && o.MaxQueryLength.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxQueryLength gets a reference to the given string and assigns it to the MaxQueryLength field.
+// SetMaxQueryLength gets a reference to the given NullableString and assigns it to the MaxQueryLength field.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryLength(v string) {
-	o.MaxQueryLength = &v
+	o.MaxQueryLength.Set(&v)
 }
 
-// GetMaxQueryLookback returns the MaxQueryLookback field value if set, zero value otherwise.
+// SetMaxQueryLengthNil sets the value for MaxQueryLength to be an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryLengthNil() {
+	o.MaxQueryLength.Set(nil)
+}
+
+// UnsetMaxQueryLength ensures that no value is present for MaxQueryLength, not even an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxQueryLength() {
+	o.MaxQueryLength.Unset()
+}
+
+// GetMaxQueryLookback returns the MaxQueryLookback field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryLookback() string {
-	if o == nil || IsNil(o.MaxQueryLookback) {
+	if o == nil || IsNil(o.MaxQueryLookback.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MaxQueryLookback
+	return *o.MaxQueryLookback.Get()
 }
 
 // GetMaxQueryLookbackOk returns a tuple with the MaxQueryLookback field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryLookbackOk() (*string, bool) {
-	if o == nil || IsNil(o.MaxQueryLookback) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxQueryLookback, true
+	return o.MaxQueryLookback.Get(), o.MaxQueryLookback.IsSet()
 }
 
 // HasMaxQueryLookback returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) HasMaxQueryLookback() bool {
-	if o != nil && !IsNil(o.MaxQueryLookback) {
+	if o != nil && o.MaxQueryLookback.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxQueryLookback gets a reference to the given string and assigns it to the MaxQueryLookback field.
+// SetMaxQueryLookback gets a reference to the given NullableString and assigns it to the MaxQueryLookback field.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryLookback(v string) {
-	o.MaxQueryLookback = &v
+	o.MaxQueryLookback.Set(&v)
 }
 
-// GetMaxQueryTime returns the MaxQueryTime field value if set, zero value otherwise.
+// SetMaxQueryLookbackNil sets the value for MaxQueryLookback to be an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryLookbackNil() {
+	o.MaxQueryLookback.Set(nil)
+}
+
+// UnsetMaxQueryLookback ensures that no value is present for MaxQueryLookback, not even an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxQueryLookback() {
+	o.MaxQueryLookback.Unset()
+}
+
+// GetMaxQueryTime returns the MaxQueryTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryTime() string {
-	if o == nil || IsNil(o.MaxQueryTime) {
+	if o == nil || IsNil(o.MaxQueryTime.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MaxQueryTime
+	return *o.MaxQueryTime.Get()
 }
 
 // GetMaxQueryTimeOk returns a tuple with the MaxQueryTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryTimeOk() (*string, bool) {
-	if o == nil || IsNil(o.MaxQueryTime) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MaxQueryTime, true
+	return o.MaxQueryTime.Get(), o.MaxQueryTime.IsSet()
 }
 
 // HasMaxQueryTime returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) HasMaxQueryTime() bool {
-	if o != nil && !IsNil(o.MaxQueryTime) {
+	if o != nil && o.MaxQueryTime.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMaxQueryTime gets a reference to the given string and assigns it to the MaxQueryTime field.
+// SetMaxQueryTime gets a reference to the given NullableString and assigns it to the MaxQueryTime field.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryTime(v string) {
-	o.MaxQueryTime = &v
+	o.MaxQueryTime.Set(&v)
 }
 
-// GetMinimumLabelsNumber returns the MinimumLabelsNumber field value if set, zero value otherwise.
+// SetMaxQueryTimeNil sets the value for MaxQueryTime to be an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryTimeNil() {
+	o.MaxQueryTime.Set(nil)
+}
+
+// UnsetMaxQueryTime ensures that no value is present for MaxQueryTime, not even an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxQueryTime() {
+	o.MaxQueryTime.Unset()
+}
+
+// GetMinimumLabelsNumber returns the MinimumLabelsNumber field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMinimumLabelsNumber() int32 {
-	if o == nil || IsNil(o.MinimumLabelsNumber) {
+	if o == nil || IsNil(o.MinimumLabelsNumber.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.MinimumLabelsNumber
+	return *o.MinimumLabelsNumber.Get()
 }
 
 // GetMinimumLabelsNumberOk returns a tuple with the MinimumLabelsNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMinimumLabelsNumberOk() (*int32, bool) {
-	if o == nil || IsNil(o.MinimumLabelsNumber) {
+	if o == nil {
 		return nil, false
 	}
-	return o.MinimumLabelsNumber, true
+	return o.MinimumLabelsNumber.Get(), o.MinimumLabelsNumber.IsSet()
 }
 
 // HasMinimumLabelsNumber returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) HasMinimumLabelsNumber() bool {
-	if o != nil && !IsNil(o.MinimumLabelsNumber) {
+	if o != nil && o.MinimumLabelsNumber.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMinimumLabelsNumber gets a reference to the given int32 and assigns it to the MinimumLabelsNumber field.
+// SetMinimumLabelsNumber gets a reference to the given NullableInt32 and assigns it to the MinimumLabelsNumber field.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMinimumLabelsNumber(v int32) {
-	o.MinimumLabelsNumber = &v
+	o.MinimumLabelsNumber.Set(&v)
 }
 
-// GetRequiredLabels returns the RequiredLabels field value if set, zero value otherwise.
+// SetMinimumLabelsNumberNil sets the value for MinimumLabelsNumber to be an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMinimumLabelsNumberNil() {
+	o.MinimumLabelsNumber.Set(nil)
+}
+
+// UnsetMinimumLabelsNumber ensures that no value is present for MinimumLabelsNumber, not even an explicit nil
+func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMinimumLabelsNumber() {
+	o.MinimumLabelsNumber.Unset()
+}
+
+// GetRequiredLabels returns the RequiredLabels field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetRequiredLabels() []string {
-	if o == nil || IsNil(o.RequiredLabels) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -284,6 +361,7 @@ func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetRequiredLabels()
 
 // GetRequiredLabelsOk returns a tuple with the RequiredLabels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetRequiredLabelsOk() ([]string, bool) {
 	if o == nil || IsNil(o.RequiredLabels) {
 		return nil, false
@@ -293,7 +371,7 @@ func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetRequiredLabelsOk
 
 // HasRequiredLabels returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) HasRequiredLabels() bool {
-	if o != nil && !IsNil(o.RequiredLabels) {
+	if o != nil && IsNil(o.RequiredLabels) {
 		return true
 	}
 
@@ -315,28 +393,28 @@ func (o PostAccessPoliciesRequestAttributesLokiQueryPolicy) MarshalJSON() ([]byt
 
 func (o PostAccessPoliciesRequestAttributesLokiQueryPolicy) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.MaxEntriesLimitPerQuery) {
-		toSerialize["maxEntriesLimitPerQuery"] = o.MaxEntriesLimitPerQuery
+	if o.MaxEntriesLimitPerQuery.IsSet() {
+		toSerialize["maxEntriesLimitPerQuery"] = o.MaxEntriesLimitPerQuery.Get()
 	}
-	if !IsNil(o.MaxQueryBytesRead) {
-		toSerialize["maxQueryBytesRead"] = o.MaxQueryBytesRead
+	if o.MaxQueryBytesRead.IsSet() {
+		toSerialize["maxQueryBytesRead"] = o.MaxQueryBytesRead.Get()
 	}
-	if !IsNil(o.MaxQueryInterval) {
-		toSerialize["maxQueryInterval"] = o.MaxQueryInterval
+	if o.MaxQueryInterval.IsSet() {
+		toSerialize["maxQueryInterval"] = o.MaxQueryInterval.Get()
 	}
-	if !IsNil(o.MaxQueryLength) {
-		toSerialize["maxQueryLength"] = o.MaxQueryLength
+	if o.MaxQueryLength.IsSet() {
+		toSerialize["maxQueryLength"] = o.MaxQueryLength.Get()
 	}
-	if !IsNil(o.MaxQueryLookback) {
-		toSerialize["maxQueryLookback"] = o.MaxQueryLookback
+	if o.MaxQueryLookback.IsSet() {
+		toSerialize["maxQueryLookback"] = o.MaxQueryLookback.Get()
 	}
-	if !IsNil(o.MaxQueryTime) {
-		toSerialize["maxQueryTime"] = o.MaxQueryTime
+	if o.MaxQueryTime.IsSet() {
+		toSerialize["maxQueryTime"] = o.MaxQueryTime.Get()
 	}
-	if !IsNil(o.MinimumLabelsNumber) {
-		toSerialize["minimumLabelsNumber"] = o.MinimumLabelsNumber
+	if o.MinimumLabelsNumber.IsSet() {
+		toSerialize["minimumLabelsNumber"] = o.MinimumLabelsNumber.Get()
 	}
-	if !IsNil(o.RequiredLabels) {
+	if o.RequiredLabels != nil {
 		toSerialize["requiredLabels"] = o.RequiredLabels
 	}
 

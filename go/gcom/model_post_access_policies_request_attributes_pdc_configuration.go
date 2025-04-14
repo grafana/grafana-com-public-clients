@@ -42,9 +42,9 @@ func NewPostAccessPoliciesRequestAttributesPdcConfigurationWithDefaults() *PostA
 	return &this
 }
 
-// GetLimitedHosts returns the LimitedHosts field value if set, zero value otherwise.
+// GetLimitedHosts returns the LimitedHosts field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequestAttributesPdcConfiguration) GetLimitedHosts() []string {
-	if o == nil || IsNil(o.LimitedHosts) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -53,6 +53,7 @@ func (o *PostAccessPoliciesRequestAttributesPdcConfiguration) GetLimitedHosts() 
 
 // GetLimitedHostsOk returns a tuple with the LimitedHosts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequestAttributesPdcConfiguration) GetLimitedHostsOk() ([]string, bool) {
 	if o == nil || IsNil(o.LimitedHosts) {
 		return nil, false
@@ -62,7 +63,7 @@ func (o *PostAccessPoliciesRequestAttributesPdcConfiguration) GetLimitedHostsOk(
 
 // HasLimitedHosts returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequestAttributesPdcConfiguration) HasLimitedHosts() bool {
-	if o != nil && !IsNil(o.LimitedHosts) {
+	if o != nil && IsNil(o.LimitedHosts) {
 		return true
 	}
 
@@ -84,7 +85,7 @@ func (o PostAccessPoliciesRequestAttributesPdcConfiguration) MarshalJSON() ([]by
 
 func (o PostAccessPoliciesRequestAttributesPdcConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.LimitedHosts) {
+	if o.LimitedHosts != nil {
 		toSerialize["limitedHosts"] = o.LimitedHosts
 	}
 

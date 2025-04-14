@@ -42,9 +42,9 @@ func NewPostAccessPoliciesRequestConditionsWithDefaults() *PostAccessPoliciesReq
 	return &this
 }
 
-// GetAllowedSubnets returns the AllowedSubnets field value if set, zero value otherwise.
+// GetAllowedSubnets returns the AllowedSubnets field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequestConditions) GetAllowedSubnets() []string {
-	if o == nil || IsNil(o.AllowedSubnets) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -53,6 +53,7 @@ func (o *PostAccessPoliciesRequestConditions) GetAllowedSubnets() []string {
 
 // GetAllowedSubnetsOk returns a tuple with the AllowedSubnets field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequestConditions) GetAllowedSubnetsOk() ([]string, bool) {
 	if o == nil || IsNil(o.AllowedSubnets) {
 		return nil, false
@@ -62,7 +63,7 @@ func (o *PostAccessPoliciesRequestConditions) GetAllowedSubnetsOk() ([]string, b
 
 // HasAllowedSubnets returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequestConditions) HasAllowedSubnets() bool {
-	if o != nil && !IsNil(o.AllowedSubnets) {
+	if o != nil && IsNil(o.AllowedSubnets) {
 		return true
 	}
 
@@ -84,7 +85,7 @@ func (o PostAccessPoliciesRequestConditions) MarshalJSON() ([]byte, error) {
 
 func (o PostAccessPoliciesRequestConditions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.AllowedSubnets) {
+	if o.AllowedSubnets != nil {
 		toSerialize["allowedSubnets"] = o.AllowedSubnets
 	}
 

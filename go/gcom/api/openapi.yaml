@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 01163e4
-  x-generated-at: 2025-04-11T21:51:42.973Z
+  x-commit-sha: 4237cac
+  x-generated-at: 2025-04-14T07:17:00.610Z
 servers:
 - description: Main API server
   url: /api
@@ -6488,6 +6488,7 @@ components:
         hlInstanceId:
           type: integer
         k6OrgId:
+          nullable: true
           type: integer
         labels:
           additionalProperties:
@@ -6919,22 +6920,30 @@ components:
     postAccessPolicies_request_attributes_lokiQueryPolicy:
       properties:
         maxEntriesLimitPerQuery:
+          nullable: true
           type: integer
         maxQueryBytesRead:
+          nullable: true
           type: string
         maxQueryInterval:
+          nullable: true
           type: string
         maxQueryLength:
+          nullable: true
           type: string
         maxQueryLookback:
+          nullable: true
           type: string
         maxQueryTime:
+          nullable: true
           type: string
         minimumLabelsNumber:
+          nullable: true
           type: integer
         requiredLabels:
           items:
             type: string
+          nullable: true
           type: array
       type: object
     postAccessPolicies_request_attributes_pdcConfiguration:
@@ -6942,9 +6951,11 @@ components:
         limitedHosts:
           items:
             type: string
+          nullable: true
           type: array
       type: object
     postAccessPolicies_request_attributes:
+      nullable: true
       properties:
         lokiQueryPolicy:
           $ref: '#/components/schemas/postAccessPolicies_request_attributes_lokiQueryPolicy'
@@ -6952,10 +6963,12 @@ components:
           $ref: '#/components/schemas/postAccessPolicies_request_attributes_pdcConfiguration'
       type: object
     postAccessPolicies_request_conditions:
+      nullable: true
       properties:
         allowedSubnets:
           items:
             type: string
+          nullable: true
           type: array
       type: object
     postAccessPolicies_request_realms_inner_labelPolicies_inner:

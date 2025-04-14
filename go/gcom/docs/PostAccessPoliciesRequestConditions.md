@@ -50,6 +50,16 @@ SetAllowedSubnets sets AllowedSubnets field to given value.
 
 HasAllowedSubnets returns a boolean if a field has been set.
 
+### SetAllowedSubnetsNil
+
+`func (o *PostAccessPoliciesRequestConditions) SetAllowedSubnetsNil(b bool)`
+
+ SetAllowedSubnetsNil sets the value for AllowedSubnets to be an explicit nil
+
+### UnsetAllowedSubnets
+`func (o *PostAccessPoliciesRequestConditions) UnsetAllowedSubnets()`
+
+UnsetAllowedSubnets ensures that no value is present for AllowedSubnets, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

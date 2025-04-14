@@ -19,12 +19,12 @@ var _ MappedNullable = &PostAccessPoliciesRequest{}
 
 // PostAccessPoliciesRequest struct for PostAccessPoliciesRequest
 type PostAccessPoliciesRequest struct {
-	Attributes           *PostAccessPoliciesRequestAttributes   `json:"attributes,omitempty"`
-	Conditions           *PostAccessPoliciesRequestConditions   `json:"conditions,omitempty"`
-	DisplayName          *string                                `json:"displayName,omitempty"`
-	Name                 string                                 `json:"name"`
-	Realms               []PostAccessPoliciesRequestRealmsInner `json:"realms"`
-	Scopes               []string                               `json:"scopes"`
+	Attributes           NullablePostAccessPoliciesRequestAttributes `json:"attributes,omitempty"`
+	Conditions           NullablePostAccessPoliciesRequestConditions `json:"conditions,omitempty"`
+	DisplayName          *string                                     `json:"displayName,omitempty"`
+	Name                 string                                      `json:"name"`
+	Realms               []PostAccessPoliciesRequestRealmsInner      `json:"realms"`
+	Scopes               []string                                    `json:"scopes"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -50,68 +50,90 @@ func NewPostAccessPoliciesRequestWithDefaults() *PostAccessPoliciesRequest {
 	return &this
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise.
+// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequest) GetAttributes() PostAccessPoliciesRequestAttributes {
-	if o == nil || IsNil(o.Attributes) {
+	if o == nil || IsNil(o.Attributes.Get()) {
 		var ret PostAccessPoliciesRequestAttributes
 		return ret
 	}
-	return *o.Attributes
+	return *o.Attributes.Get()
 }
 
 // GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequest) GetAttributesOk() (*PostAccessPoliciesRequestAttributes, bool) {
-	if o == nil || IsNil(o.Attributes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Attributes, true
+	return o.Attributes.Get(), o.Attributes.IsSet()
 }
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequest) HasAttributes() bool {
-	if o != nil && !IsNil(o.Attributes) {
+	if o != nil && o.Attributes.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAttributes gets a reference to the given PostAccessPoliciesRequestAttributes and assigns it to the Attributes field.
+// SetAttributes gets a reference to the given NullablePostAccessPoliciesRequestAttributes and assigns it to the Attributes field.
 func (o *PostAccessPoliciesRequest) SetAttributes(v PostAccessPoliciesRequestAttributes) {
-	o.Attributes = &v
+	o.Attributes.Set(&v)
 }
 
-// GetConditions returns the Conditions field value if set, zero value otherwise.
+// SetAttributesNil sets the value for Attributes to be an explicit nil
+func (o *PostAccessPoliciesRequest) SetAttributesNil() {
+	o.Attributes.Set(nil)
+}
+
+// UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
+func (o *PostAccessPoliciesRequest) UnsetAttributes() {
+	o.Attributes.Unset()
+}
+
+// GetConditions returns the Conditions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostAccessPoliciesRequest) GetConditions() PostAccessPoliciesRequestConditions {
-	if o == nil || IsNil(o.Conditions) {
+	if o == nil || IsNil(o.Conditions.Get()) {
 		var ret PostAccessPoliciesRequestConditions
 		return ret
 	}
-	return *o.Conditions
+	return *o.Conditions.Get()
 }
 
 // GetConditionsOk returns a tuple with the Conditions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostAccessPoliciesRequest) GetConditionsOk() (*PostAccessPoliciesRequestConditions, bool) {
-	if o == nil || IsNil(o.Conditions) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Conditions, true
+	return o.Conditions.Get(), o.Conditions.IsSet()
 }
 
 // HasConditions returns a boolean if a field has been set.
 func (o *PostAccessPoliciesRequest) HasConditions() bool {
-	if o != nil && !IsNil(o.Conditions) {
+	if o != nil && o.Conditions.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetConditions gets a reference to the given PostAccessPoliciesRequestConditions and assigns it to the Conditions field.
+// SetConditions gets a reference to the given NullablePostAccessPoliciesRequestConditions and assigns it to the Conditions field.
 func (o *PostAccessPoliciesRequest) SetConditions(v PostAccessPoliciesRequestConditions) {
-	o.Conditions = &v
+	o.Conditions.Set(&v)
+}
+
+// SetConditionsNil sets the value for Conditions to be an explicit nil
+func (o *PostAccessPoliciesRequest) SetConditionsNil() {
+	o.Conditions.Set(nil)
+}
+
+// UnsetConditions ensures that no value is present for Conditions, not even an explicit nil
+func (o *PostAccessPoliciesRequest) UnsetConditions() {
+	o.Conditions.Unset()
 }
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise.
@@ -228,11 +250,11 @@ func (o PostAccessPoliciesRequest) MarshalJSON() ([]byte, error) {
 
 func (o PostAccessPoliciesRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Attributes) {
-		toSerialize["attributes"] = o.Attributes
+	if o.Attributes.IsSet() {
+		toSerialize["attributes"] = o.Attributes.Get()
 	}
-	if !IsNil(o.Conditions) {
-		toSerialize["conditions"] = o.Conditions
+	if o.Conditions.IsSet() {
+		toSerialize["conditions"] = o.Conditions.Get()
 	}
 	if !IsNil(o.DisplayName) {
 		toSerialize["displayName"] = o.DisplayName

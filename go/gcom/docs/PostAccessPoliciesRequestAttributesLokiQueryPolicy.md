@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MaxEntriesLimitPerQuery** | Pointer to **int32** |  | [optional] 
-**MaxQueryBytesRead** | Pointer to **string** |  | [optional] 
-**MaxQueryInterval** | Pointer to **string** |  | [optional] 
-**MaxQueryLength** | Pointer to **string** |  | [optional] 
-**MaxQueryLookback** | Pointer to **string** |  | [optional] 
-**MaxQueryTime** | Pointer to **string** |  | [optional] 
-**MinimumLabelsNumber** | Pointer to **int32** |  | [optional] 
+**MaxEntriesLimitPerQuery** | Pointer to **NullableInt32** |  | [optional] 
+**MaxQueryBytesRead** | Pointer to **NullableString** |  | [optional] 
+**MaxQueryInterval** | Pointer to **NullableString** |  | [optional] 
+**MaxQueryLength** | Pointer to **NullableString** |  | [optional] 
+**MaxQueryLookback** | Pointer to **NullableString** |  | [optional] 
+**MaxQueryTime** | Pointer to **NullableString** |  | [optional] 
+**MinimumLabelsNumber** | Pointer to **NullableInt32** |  | [optional] 
 **RequiredLabels** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
@@ -57,6 +57,16 @@ SetMaxEntriesLimitPerQuery sets MaxEntriesLimitPerQuery field to given value.
 
 HasMaxEntriesLimitPerQuery returns a boolean if a field has been set.
 
+### SetMaxEntriesLimitPerQueryNil
+
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxEntriesLimitPerQueryNil(b bool)`
+
+ SetMaxEntriesLimitPerQueryNil sets the value for MaxEntriesLimitPerQuery to be an explicit nil
+
+### UnsetMaxEntriesLimitPerQuery
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxEntriesLimitPerQuery()`
+
+UnsetMaxEntriesLimitPerQuery ensures that no value is present for MaxEntriesLimitPerQuery, not even an explicit nil
 ### GetMaxQueryBytesRead
 
 `func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryBytesRead() string`
@@ -82,6 +92,16 @@ SetMaxQueryBytesRead sets MaxQueryBytesRead field to given value.
 
 HasMaxQueryBytesRead returns a boolean if a field has been set.
 
+### SetMaxQueryBytesReadNil
+
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryBytesReadNil(b bool)`
+
+ SetMaxQueryBytesReadNil sets the value for MaxQueryBytesRead to be an explicit nil
+
+### UnsetMaxQueryBytesRead
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxQueryBytesRead()`
+
+UnsetMaxQueryBytesRead ensures that no value is present for MaxQueryBytesRead, not even an explicit nil
 ### GetMaxQueryInterval
 
 `func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryInterval() string`
@@ -107,6 +127,16 @@ SetMaxQueryInterval sets MaxQueryInterval field to given value.
 
 HasMaxQueryInterval returns a boolean if a field has been set.
 
+### SetMaxQueryIntervalNil
+
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryIntervalNil(b bool)`
+
+ SetMaxQueryIntervalNil sets the value for MaxQueryInterval to be an explicit nil
+
+### UnsetMaxQueryInterval
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxQueryInterval()`
+
+UnsetMaxQueryInterval ensures that no value is present for MaxQueryInterval, not even an explicit nil
 ### GetMaxQueryLength
 
 `func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryLength() string`
@@ -132,6 +162,16 @@ SetMaxQueryLength sets MaxQueryLength field to given value.
 
 HasMaxQueryLength returns a boolean if a field has been set.
 
+### SetMaxQueryLengthNil
+
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryLengthNil(b bool)`
+
+ SetMaxQueryLengthNil sets the value for MaxQueryLength to be an explicit nil
+
+### UnsetMaxQueryLength
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxQueryLength()`
+
+UnsetMaxQueryLength ensures that no value is present for MaxQueryLength, not even an explicit nil
 ### GetMaxQueryLookback
 
 `func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryLookback() string`
@@ -157,6 +197,16 @@ SetMaxQueryLookback sets MaxQueryLookback field to given value.
 
 HasMaxQueryLookback returns a boolean if a field has been set.
 
+### SetMaxQueryLookbackNil
+
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryLookbackNil(b bool)`
+
+ SetMaxQueryLookbackNil sets the value for MaxQueryLookback to be an explicit nil
+
+### UnsetMaxQueryLookback
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxQueryLookback()`
+
+UnsetMaxQueryLookback ensures that no value is present for MaxQueryLookback, not even an explicit nil
 ### GetMaxQueryTime
 
 `func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMaxQueryTime() string`
@@ -182,6 +232,16 @@ SetMaxQueryTime sets MaxQueryTime field to given value.
 
 HasMaxQueryTime returns a boolean if a field has been set.
 
+### SetMaxQueryTimeNil
+
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMaxQueryTimeNil(b bool)`
+
+ SetMaxQueryTimeNil sets the value for MaxQueryTime to be an explicit nil
+
+### UnsetMaxQueryTime
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMaxQueryTime()`
+
+UnsetMaxQueryTime ensures that no value is present for MaxQueryTime, not even an explicit nil
 ### GetMinimumLabelsNumber
 
 `func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetMinimumLabelsNumber() int32`
@@ -207,6 +267,16 @@ SetMinimumLabelsNumber sets MinimumLabelsNumber field to given value.
 
 HasMinimumLabelsNumber returns a boolean if a field has been set.
 
+### SetMinimumLabelsNumberNil
+
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetMinimumLabelsNumberNil(b bool)`
+
+ SetMinimumLabelsNumberNil sets the value for MinimumLabelsNumber to be an explicit nil
+
+### UnsetMinimumLabelsNumber
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetMinimumLabelsNumber()`
+
+UnsetMinimumLabelsNumber ensures that no value is present for MinimumLabelsNumber, not even an explicit nil
 ### GetRequiredLabels
 
 `func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) GetRequiredLabels() []string`
@@ -232,6 +302,16 @@ SetRequiredLabels sets RequiredLabels field to given value.
 
 HasRequiredLabels returns a boolean if a field has been set.
 
+### SetRequiredLabelsNil
+
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) SetRequiredLabelsNil(b bool)`
+
+ SetRequiredLabelsNil sets the value for RequiredLabels to be an explicit nil
+
+### UnsetRequiredLabels
+`func (o *PostAccessPoliciesRequestAttributesLokiQueryPolicy) UnsetRequiredLabels()`
+
+UnsetRequiredLabels ensures that no value is present for RequiredLabels, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

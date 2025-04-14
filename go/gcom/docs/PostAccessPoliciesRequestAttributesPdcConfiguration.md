@@ -50,6 +50,16 @@ SetLimitedHosts sets LimitedHosts field to given value.
 
 HasLimitedHosts returns a boolean if a field has been set.
 
+### SetLimitedHostsNil
+
+`func (o *PostAccessPoliciesRequestAttributesPdcConfiguration) SetLimitedHostsNil(b bool)`
+
+ SetLimitedHostsNil sets the value for LimitedHosts to be an explicit nil
+
+### UnsetLimitedHosts
+`func (o *PostAccessPoliciesRequestAttributesPdcConfiguration) UnsetLimitedHosts()`
+
+UnsetLimitedHosts ensures that no value is present for LimitedHosts, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

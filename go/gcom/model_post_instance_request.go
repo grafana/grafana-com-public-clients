@@ -23,7 +23,7 @@ type PostInstanceRequest struct {
 	Description          *string            `json:"description,omitempty"`
 	Graphite             *bool              `json:"graphite,omitempty"`
 	HlInstanceId         *int32             `json:"hlInstanceId,omitempty"`
-	K6OrgId              *int32             `json:"k6OrgId,omitempty"`
+	K6OrgId              NullableInt32      `json:"k6OrgId,omitempty"`
 	Labels               *map[string]string `json:"labels,omitempty"`
 	Logs                 *bool              `json:"logs,omitempty"`
 	Name                 *string            `json:"name,omitempty"`
@@ -181,36 +181,47 @@ func (o *PostInstanceRequest) SetHlInstanceId(v int32) {
 	o.HlInstanceId = &v
 }
 
-// GetK6OrgId returns the K6OrgId field value if set, zero value otherwise.
+// GetK6OrgId returns the K6OrgId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PostInstanceRequest) GetK6OrgId() int32 {
-	if o == nil || IsNil(o.K6OrgId) {
+	if o == nil || IsNil(o.K6OrgId.Get()) {
 		var ret int32
 		return ret
 	}
-	return *o.K6OrgId
+	return *o.K6OrgId.Get()
 }
 
 // GetK6OrgIdOk returns a tuple with the K6OrgId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PostInstanceRequest) GetK6OrgIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.K6OrgId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.K6OrgId, true
+	return o.K6OrgId.Get(), o.K6OrgId.IsSet()
 }
 
 // HasK6OrgId returns a boolean if a field has been set.
 func (o *PostInstanceRequest) HasK6OrgId() bool {
-	if o != nil && !IsNil(o.K6OrgId) {
+	if o != nil && o.K6OrgId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetK6OrgId gets a reference to the given int32 and assigns it to the K6OrgId field.
+// SetK6OrgId gets a reference to the given NullableInt32 and assigns it to the K6OrgId field.
 func (o *PostInstanceRequest) SetK6OrgId(v int32) {
-	o.K6OrgId = &v
+	o.K6OrgId.Set(&v)
+}
+
+// SetK6OrgIdNil sets the value for K6OrgId to be an explicit nil
+func (o *PostInstanceRequest) SetK6OrgIdNil() {
+	o.K6OrgId.Set(nil)
+}
+
+// UnsetK6OrgId ensures that no value is present for K6OrgId, not even an explicit nil
+func (o *PostInstanceRequest) UnsetK6OrgId() {
+	o.K6OrgId.Unset()
 }
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
@@ -459,8 +470,8 @@ func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.HlInstanceId) {
 		toSerialize["hlInstanceId"] = o.HlInstanceId
 	}
-	if !IsNil(o.K6OrgId) {
-		toSerialize["k6OrgId"] = o.K6OrgId
+	if o.K6OrgId.IsSet() {
+		toSerialize["k6OrgId"] = o.K6OrgId.Get()
 	}
 	if !IsNil(o.Labels) {
 		toSerialize["labels"] = o.Labels
