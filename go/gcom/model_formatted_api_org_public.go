@@ -68,6 +68,7 @@ type FormattedApiOrgPublic struct {
 	InfraO11YContainersUsage     float32                                `json:"infraO11YContainersUsage"`
 	GeUsersUsage                 float32                                `json:"geUsersUsage"`
 	GeInstancesUsage             float32                                `json:"geInstancesUsage"`
+	SmBrowserUsage               float32                                `json:"smBrowserUsage"`
 	AwsMarketplaceSupport        float32                                `json:"awsMarketplaceSupport"`
 	TrialStartDate               NullableString                         `json:"trialStartDate"`
 	TrialEndDate                 NullableString                         `json:"trialEndDate"`
@@ -92,7 +93,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -143,6 +144,7 @@ func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, 
 	this.InfraO11YContainersUsage = infraO11YContainersUsage
 	this.GeUsersUsage = geUsersUsage
 	this.GeInstancesUsage = geInstancesUsage
+	this.SmBrowserUsage = smBrowserUsage
 	this.AwsMarketplaceSupport = awsMarketplaceSupport
 	this.TrialStartDate = trialStartDate
 	this.TrialEndDate = trialEndDate
@@ -1361,6 +1363,30 @@ func (o *FormattedApiOrgPublic) SetGeInstancesUsage(v float32) {
 	o.GeInstancesUsage = v
 }
 
+// GetSmBrowserUsage returns the SmBrowserUsage field value
+func (o *FormattedApiOrgPublic) GetSmBrowserUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.SmBrowserUsage
+}
+
+// GetSmBrowserUsageOk returns a tuple with the SmBrowserUsage field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiOrgPublic) GetSmBrowserUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SmBrowserUsage, true
+}
+
+// SetSmBrowserUsage sets field value
+func (o *FormattedApiOrgPublic) SetSmBrowserUsage(v float32) {
+	o.SmBrowserUsage = v
+}
+
 // GetAwsMarketplaceSupport returns the AwsMarketplaceSupport field value
 func (o *FormattedApiOrgPublic) GetAwsMarketplaceSupport() float32 {
 	if o == nil {
@@ -1790,6 +1816,7 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["infraO11YContainersUsage"] = o.InfraO11YContainersUsage
 	toSerialize["geUsersUsage"] = o.GeUsersUsage
 	toSerialize["geInstancesUsage"] = o.GeInstancesUsage
+	toSerialize["smBrowserUsage"] = o.SmBrowserUsage
 	toSerialize["awsMarketplaceSupport"] = o.AwsMarketplaceSupport
 	toSerialize["trialStartDate"] = o.TrialStartDate.Get()
 	toSerialize["trialEndDate"] = o.TrialEndDate.Get()
@@ -1884,6 +1911,7 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "infraO11YContainersUsage")
 		delete(additionalProperties, "geUsersUsage")
 		delete(additionalProperties, "geInstancesUsage")
+		delete(additionalProperties, "smBrowserUsage")
 		delete(additionalProperties, "awsMarketplaceSupport")
 		delete(additionalProperties, "trialStartDate")
 		delete(additionalProperties, "trialEndDate")

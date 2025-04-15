@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: b11b65d
-  x-generated-at: 2025-04-15T07:10:18.358Z
+  x-commit-sha: 7efae86
+  x-generated-at: 2025-04-15T07:15:39.535Z
 servers:
 - description: Main API server
   url: /api
@@ -5428,7 +5428,7 @@ components:
         resellerName: resellerName
         hgOnCallUsage: 1.4894159098541704
         geUsersUsage: 6.778324963048013
-        trialLengthDays: 6.704019297950036
+        trialLengthDays: 3.353193347011243
         htUsage: 9.965781217890562
         resellerId: 2.027123023002322
         hgGrafanaUsage: 1.0246457001441578
@@ -5446,6 +5446,7 @@ components:
         checksPerMonth: 6.027456183070403
         hlUsage: 4.965218492984954
         hgUsage: 7.386281948385884
+        smBrowserUsage: 5.944895607614016
         liveChatEnabled: true
         licenseProducts:
         - licenseProducts
@@ -5455,7 +5456,7 @@ components:
         emergencySupport: true
         infraO11YHostsUsage: 1.284659006116532
         cancellationDate: cancellationDate
-        awsMarketplaceSupport: 5.944895607614016
+        awsMarketplaceSupport: 6.704019297950036
         hgInstanceLimit: 1.4658129805029452
         hmCurrentUsage: 7.457744773683766
         trialStartDate: trialStartDate
@@ -5463,9 +5464,9 @@ components:
         hlRetentionUsage: 5.025004791520295
         reseller: reseller
         avatar: avatar
-        retainedStackId: 3.353193347011243
+        retainedStackId: 3.0937452626664474
         url: url
-        contractTypeId: 3.0937452626664474
+        contractTypeId: 7.143538047012306
         hpUsage: 9.369310271410669
         trialEndDate: trialEndDate
         createdBy: createdBy
@@ -5643,6 +5644,9 @@ components:
         geInstancesUsage:
           title: geInstancesUsage
           type: number
+        smBrowserUsage:
+          title: smBrowserUsage
+          type: number
         awsMarketplaceSupport:
           title: awsMarketplaceSupport
           type: number
@@ -5750,6 +5754,7 @@ components:
       - resellerName
       - retainedStackId
       - slug
+      - smBrowserUsage
       - smUsage
       - subscriptions
       - supportPlan

@@ -53,6 +53,7 @@ Name | Type | Description | Notes
 **InfraO11YContainersUsage** | **float32** |  | 
 **GeUsersUsage** | **float32** |  | 
 **GeInstancesUsage** | **float32** |  | 
+**SmBrowserUsage** | **float32** |  | 
 **AwsMarketplaceSupport** | **float32** |  | 
 **TrialStartDate** | **NullableString** |  | 
 **TrialEndDate** | **NullableString** |  | 
@@ -73,7 +74,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiOrgPublic
 
-`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, links []LinksInner1, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
+`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, links []LinksInner1, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
 
 NewFormattedApiOrgPublic instantiates a new FormattedApiOrgPublic object
 This constructor will assign default values to properties that have it defined,
@@ -1146,6 +1147,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiOrgPublic) SetGeInstancesUsage(v float32)`
 
 SetGeInstancesUsage sets GeInstancesUsage field to given value.
+
+
+### GetSmBrowserUsage
+
+`func (o *FormattedApiOrgPublic) GetSmBrowserUsage() float32`
+
+GetSmBrowserUsage returns the SmBrowserUsage field if non-nil, zero value otherwise.
+
+### GetSmBrowserUsageOk
+
+`func (o *FormattedApiOrgPublic) GetSmBrowserUsageOk() (*float32, bool)`
+
+GetSmBrowserUsageOk returns a tuple with the SmBrowserUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSmBrowserUsage
+
+`func (o *FormattedApiOrgPublic) SetSmBrowserUsage(v float32)`
+
+SetSmBrowserUsage sets SmBrowserUsage field to given value.
 
 
 ### GetAwsMarketplaceSupport
