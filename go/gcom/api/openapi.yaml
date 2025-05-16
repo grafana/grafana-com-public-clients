@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 7070e9f
-  x-generated-at: 2025-04-25T19:19:39.046Z
+  x-commit-sha: b209751
+  x-generated-at: 2025-05-16T07:12:05.963Z
 servers:
 - description: Main API server
   url: /api
@@ -6421,6 +6421,9 @@ components:
           type: boolean
         cluster:
           type: string
+        deleteProtection:
+          default: false
+          type: boolean
         description:
           type: string
         graphite:
@@ -6485,6 +6488,8 @@ components:
     postInstance_request:
       properties:
         alerts:
+          type: boolean
+        deleteProtection:
           type: boolean
         description:
           type: string

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AdminUserInstance** | Pointer to **bool** |  | [optional] 
 **Alerts** | Pointer to **bool** |  | [optional] 
 **Cluster** | Pointer to **string** |  | [optional] 
+**DeleteProtection** | Pointer to **bool** |  | [optional] [default to false]
 **Description** | Pointer to **string** |  | [optional] 
 **Graphite** | Pointer to **bool** |  | [optional] 
 **HlInstanceId** | Pointer to **int32** |  | [optional] 
@@ -120,6 +121,31 @@ SetCluster sets Cluster field to given value.
 `func (o *PostInstancesRequest) HasCluster() bool`
 
 HasCluster returns a boolean if a field has been set.
+
+### GetDeleteProtection
+
+`func (o *PostInstancesRequest) GetDeleteProtection() bool`
+
+GetDeleteProtection returns the DeleteProtection field if non-nil, zero value otherwise.
+
+### GetDeleteProtectionOk
+
+`func (o *PostInstancesRequest) GetDeleteProtectionOk() (*bool, bool)`
+
+GetDeleteProtectionOk returns a tuple with the DeleteProtection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeleteProtection
+
+`func (o *PostInstancesRequest) SetDeleteProtection(v bool)`
+
+SetDeleteProtection sets DeleteProtection field to given value.
+
+### HasDeleteProtection
+
+`func (o *PostInstancesRequest) HasDeleteProtection() bool`
+
+HasDeleteProtection returns a boolean if a field has been set.
 
 ### GetDescription
 

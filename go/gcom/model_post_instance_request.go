@@ -20,6 +20,7 @@ var _ MappedNullable = &PostInstanceRequest{}
 // PostInstanceRequest struct for PostInstanceRequest
 type PostInstanceRequest struct {
 	Alerts               *bool              `json:"alerts,omitempty"`
+	DeleteProtection     *bool              `json:"deleteProtection,omitempty"`
 	Description          *string            `json:"description,omitempty"`
 	Graphite             *bool              `json:"graphite,omitempty"`
 	HlInstanceId         *int32             `json:"hlInstanceId,omitempty"`
@@ -83,6 +84,38 @@ func (o *PostInstanceRequest) HasAlerts() bool {
 // SetAlerts gets a reference to the given bool and assigns it to the Alerts field.
 func (o *PostInstanceRequest) SetAlerts(v bool) {
 	o.Alerts = &v
+}
+
+// GetDeleteProtection returns the DeleteProtection field value if set, zero value otherwise.
+func (o *PostInstanceRequest) GetDeleteProtection() bool {
+	if o == nil || IsNil(o.DeleteProtection) {
+		var ret bool
+		return ret
+	}
+	return *o.DeleteProtection
+}
+
+// GetDeleteProtectionOk returns a tuple with the DeleteProtection field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstanceRequest) GetDeleteProtectionOk() (*bool, bool) {
+	if o == nil || IsNil(o.DeleteProtection) {
+		return nil, false
+	}
+	return o.DeleteProtection, true
+}
+
+// HasDeleteProtection returns a boolean if a field has been set.
+func (o *PostInstanceRequest) HasDeleteProtection() bool {
+	if o != nil && !IsNil(o.DeleteProtection) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeleteProtection gets a reference to the given bool and assigns it to the DeleteProtection field.
+func (o *PostInstanceRequest) SetDeleteProtection(v bool) {
+	o.DeleteProtection = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -461,6 +494,9 @@ func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Alerts) {
 		toSerialize["alerts"] = o.Alerts
 	}
+	if !IsNil(o.DeleteProtection) {
+		toSerialize["deleteProtection"] = o.DeleteProtection
+	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -517,6 +553,7 @@ func (o *PostInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "alerts")
+		delete(additionalProperties, "deleteProtection")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "graphite")
 		delete(additionalProperties, "hlInstanceId")
