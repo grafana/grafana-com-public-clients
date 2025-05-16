@@ -22,6 +22,7 @@ type PostInstancesRequest struct {
 	AdminUserInstance    *bool              `json:"adminUserInstance,omitempty"`
 	Alerts               *bool              `json:"alerts,omitempty"`
 	Cluster              *string            `json:"cluster,omitempty"`
+	DeleteProtection     *bool              `json:"deleteProtection,omitempty"`
 	Description          *string            `json:"description,omitempty"`
 	Graphite             *bool              `json:"graphite,omitempty"`
 	HlInstanceId         *int32             `json:"hlInstanceId,omitempty"`
@@ -52,6 +53,8 @@ type _PostInstancesRequest PostInstancesRequest
 // will change when the set of required properties is changed
 func NewPostInstancesRequest(name string) *PostInstancesRequest {
 	this := PostInstancesRequest{}
+	var deleteProtection bool = false
+	this.DeleteProtection = &deleteProtection
 	this.Name = name
 	var waitForReadiness bool = true
 	this.WaitForReadiness = &waitForReadiness
@@ -63,6 +66,8 @@ func NewPostInstancesRequest(name string) *PostInstancesRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewPostInstancesRequestWithDefaults() *PostInstancesRequest {
 	this := PostInstancesRequest{}
+	var deleteProtection bool = false
+	this.DeleteProtection = &deleteProtection
 	var waitForReadiness bool = true
 	this.WaitForReadiness = &waitForReadiness
 	return &this
@@ -162,6 +167,38 @@ func (o *PostInstancesRequest) HasCluster() bool {
 // SetCluster gets a reference to the given string and assigns it to the Cluster field.
 func (o *PostInstancesRequest) SetCluster(v string) {
 	o.Cluster = &v
+}
+
+// GetDeleteProtection returns the DeleteProtection field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetDeleteProtection() bool {
+	if o == nil || IsNil(o.DeleteProtection) {
+		var ret bool
+		return ret
+	}
+	return *o.DeleteProtection
+}
+
+// GetDeleteProtectionOk returns a tuple with the DeleteProtection field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetDeleteProtectionOk() (*bool, bool) {
+	if o == nil || IsNil(o.DeleteProtection) {
+		return nil, false
+	}
+	return o.DeleteProtection, true
+}
+
+// HasDeleteProtection returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasDeleteProtection() bool {
+	if o != nil && !IsNil(o.DeleteProtection) {
+		return true
+	}
+
+	return false
+}
+
+// SetDeleteProtection gets a reference to the given bool and assigns it to the DeleteProtection field.
+func (o *PostInstancesRequest) SetDeleteProtection(v bool) {
+	o.DeleteProtection = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
@@ -783,6 +820,9 @@ func (o PostInstancesRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Cluster) {
 		toSerialize["cluster"] = o.Cluster
 	}
+	if !IsNil(o.DeleteProtection) {
+		toSerialize["deleteProtection"] = o.DeleteProtection
+	}
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
@@ -871,6 +911,7 @@ func (o *PostInstancesRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "adminUserInstance")
 		delete(additionalProperties, "alerts")
 		delete(additionalProperties, "cluster")
+		delete(additionalProperties, "deleteProtection")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "graphite")
 		delete(additionalProperties, "hlInstanceId")

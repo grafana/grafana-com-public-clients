@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Alerts** | Pointer to **bool** |  | [optional] 
+**DeleteProtection** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Graphite** | Pointer to **bool** |  | [optional] 
 **HlInstanceId** | Pointer to **int32** |  | [optional] 
@@ -60,6 +61,31 @@ SetAlerts sets Alerts field to given value.
 `func (o *PostInstanceRequest) HasAlerts() bool`
 
 HasAlerts returns a boolean if a field has been set.
+
+### GetDeleteProtection
+
+`func (o *PostInstanceRequest) GetDeleteProtection() bool`
+
+GetDeleteProtection returns the DeleteProtection field if non-nil, zero value otherwise.
+
+### GetDeleteProtectionOk
+
+`func (o *PostInstanceRequest) GetDeleteProtectionOk() (*bool, bool)`
+
+GetDeleteProtectionOk returns a tuple with the DeleteProtection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeleteProtection
+
+`func (o *PostInstanceRequest) SetDeleteProtection(v bool)`
+
+SetDeleteProtection sets DeleteProtection field to given value.
+
+### HasDeleteProtection
+
+`func (o *PostInstanceRequest) HasDeleteProtection() bool`
+
+HasDeleteProtection returns a boolean if a field has been set.
 
 ### GetDescription
 
