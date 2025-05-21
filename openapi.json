@@ -6113,8 +6113,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "12dc71d",
-    "x-generated-at": "2025-05-21T08:07:49.552Z"
+    "x-commit-sha": "92607de",
+    "x-generated-at": "2025-05-21T08:33:24.018Z"
   },
   "security": [
     {
@@ -7389,6 +7389,10 @@
             "type": "string",
             "title": "regionLLMGatewayUrl"
           },
+          "regionAssistantUrl": {
+            "type": "string",
+            "title": "regionAssistantUrl"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -7502,6 +7506,7 @@
           "planName",
           "provider",
           "providerRegion",
+          "regionAssistantUrl",
           "regionHostedExportersApiUrl",
           "regionId",
           "regionInsightsApiUrl",
@@ -10143,6 +10148,10 @@
                 "type": "string",
                 "title": "llmGatewayUrl"
               },
+              "assistantUrl": {
+                "type": "string",
+                "title": "assistantUrl"
+              },
               "incidentApiUrl": {
                 "type": "string",
                 "title": "incidentApiUrl"
@@ -10854,6 +10863,7 @@
               "assertsGraphClusterId",
               "assertsGraphClusterName",
               "assertsGraphClusterSlug",
+              "assistantUrl",
               "authApiTokenSet",
               "authApiUrl",
               "createdAt",
