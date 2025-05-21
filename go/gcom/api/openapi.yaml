@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 12dc71d
-  x-generated-at: 2025-05-21T08:07:49.552Z
+  x-commit-sha: 92607de
+  x-generated-at: 2025-05-21T08:33:24.018Z
 servers:
 - description: Main API server
   url: /api
@@ -4205,6 +4205,7 @@ components:
         hlInstanceId: 9.965781217890562
         agentManagementInstanceUrl: agentManagementInstanceUrl
         agentManagementInstanceName: agentManagementInstanceName
+        regionAssistantUrl: regionAssistantUrl
         trial: 3.0205796992916243
         createdAt: createdAt
         hmInstancePromCurrentActiveSeries: 3.5571952270680973
@@ -4680,6 +4681,9 @@ components:
         regionLLMGatewayUrl:
           title: regionLLMGatewayUrl
           type: string
+        regionAssistantUrl:
+          title: regionAssistantUrl
+          type: string
         links:
           items:
             $ref: '#/components/schemas/links_inner_1'
@@ -4776,6 +4780,7 @@ components:
       - planName
       - provider
       - providerRegion
+      - regionAssistantUrl
       - regionHostedExportersApiUrl
       - regionId
       - regionInsightsApiUrl
@@ -6191,6 +6196,7 @@ components:
           hlInstanceId: 9.965781217890562
           agentManagementInstanceUrl: agentManagementInstanceUrl
           agentManagementInstanceName: agentManagementInstanceName
+          regionAssistantUrl: regionAssistantUrl
           trial: 3.0205796992916243
           createdAt: createdAt
           hmInstancePromCurrentActiveSeries: 3.5571952270680973
@@ -6312,6 +6318,7 @@ components:
           hlInstanceId: 9.965781217890562
           agentManagementInstanceUrl: agentManagementInstanceUrl
           agentManagementInstanceName: agentManagementInstanceName
+          regionAssistantUrl: regionAssistantUrl
           trial: 3.0205796992916243
           createdAt: createdAt
           hmInstancePromCurrentActiveSeries: 3.5571952270680973
@@ -8407,6 +8414,9 @@ components:
         llmGatewayUrl:
           title: llmGatewayUrl
           type: string
+        assistantUrl:
+          title: assistantUrl
+          type: string
         incidentApiUrl:
           title: incidentApiUrl
           type: string
@@ -8607,6 +8617,7 @@ components:
       - assertsGraphClusterId
       - assertsGraphClusterName
       - assertsGraphClusterSlug
+      - assistantUrl
       - authApiTokenSet
       - authApiUrl
       - createdAt
