@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: aaddc42
-  x-generated-at: 2025-05-22T16:15:03.454Z
+  x-commit-sha: 3cf9cdf
+  x-generated-at: 2025-05-22T16:40:59.826Z
 servers:
 - description: Main API server
   url: /api
@@ -7749,6 +7749,7 @@ components:
         product:
           enum:
           - grafana-cloud-advanced
+          - grafana-cloud-fedramp
           - grafana-cloud-free
           - grafana-cloud-pro
           - grafana-cloud-ss-advanced
@@ -7798,6 +7799,7 @@ components:
         product:
           enum:
           - grafana-cloud-advanced
+          - grafana-cloud-fedramp
           - grafana-cloud-free
           - grafana-cloud-pro
           - grafana-cloud-ss-advanced
@@ -7827,6 +7829,7 @@ components:
         nextProduct:
           enum:
           - grafana-cloud-advanced
+          - grafana-cloud-fedramp
           - grafana-cloud-free
           - grafana-cloud-pro
           - grafana-cloud-ss-advanced
@@ -7844,6 +7847,7 @@ components:
         product:
           enum:
           - grafana-cloud-advanced
+          - grafana-cloud-fedramp
           - grafana-cloud-free
           - grafana-cloud-pro
           - grafana-cloud-ss-advanced
