@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: "6229107"
-  x-generated-at: 2025-05-23T17:49:24.812Z
+  x-commit-sha: "9924489"
+  x-generated-at: 2025-05-26T07:43:53.132Z
 servers:
 - description: Main API server
   url: /api
@@ -4152,6 +4152,7 @@ components:
         hmInstanceGraphiteType: hmInstanceGraphiteType
         regionMachineLearningApiUrl: regionMachineLearningApiUrl
         versionIssueLink: versionIssueLink
+        deleteProtection: true
         customAuth: true
         planName: planName
         hmInstanceGraphiteStatus: active
@@ -4689,6 +4690,9 @@ components:
             $ref: '#/components/schemas/links_inner_1'
           title: links
           type: array
+        deleteProtection:
+          title: deleteProtection
+          type: boolean
       required:
       - agentManagementInstanceClusterId
       - agentManagementInstanceId
@@ -4727,6 +4731,7 @@ components:
       - dashboardCnt
       - dashboardQuota
       - datasourceCnts
+      - deleteProtection
       - description
       - gateway
       - hlInstanceBillingUsage
@@ -6143,6 +6148,7 @@ components:
           hmInstanceGraphiteType: hmInstanceGraphiteType
           regionMachineLearningApiUrl: regionMachineLearningApiUrl
           versionIssueLink: versionIssueLink
+          deleteProtection: true
           customAuth: true
           planName: planName
           hmInstanceGraphiteStatus: active
@@ -6265,6 +6271,7 @@ components:
           hmInstanceGraphiteType: hmInstanceGraphiteType
           regionMachineLearningApiUrl: regionMachineLearningApiUrl
           versionIssueLink: versionIssueLink
+          deleteProtection: true
           customAuth: true
           planName: planName
           hmInstanceGraphiteStatus: active
