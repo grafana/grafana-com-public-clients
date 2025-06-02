@@ -20,7 +20,6 @@ var _ MappedNullable = &SubscriptionsAnyOf1{}
 // SubscriptionsAnyOf1 struct for SubscriptionsAnyOf1
 type SubscriptionsAnyOf1 struct {
 	Current              Current1 `json:"current"`
-	NextProduct          string   `json:"nextProduct"`
 	Next                 Next     `json:"next"`
 	AdditionalProperties map[string]interface{}
 }
@@ -31,10 +30,9 @@ type _SubscriptionsAnyOf1 SubscriptionsAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSubscriptionsAnyOf1(current Current1, nextProduct string, next Next) *SubscriptionsAnyOf1 {
+func NewSubscriptionsAnyOf1(current Current1, next Next) *SubscriptionsAnyOf1 {
 	this := SubscriptionsAnyOf1{}
 	this.Current = current
-	this.NextProduct = nextProduct
 	this.Next = next
 	return &this
 }
@@ -69,30 +67,6 @@ func (o *SubscriptionsAnyOf1) GetCurrentOk() (*Current1, bool) {
 // SetCurrent sets field value
 func (o *SubscriptionsAnyOf1) SetCurrent(v Current1) {
 	o.Current = v
-}
-
-// GetNextProduct returns the NextProduct field value
-func (o *SubscriptionsAnyOf1) GetNextProduct() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.NextProduct
-}
-
-// GetNextProductOk returns a tuple with the NextProduct field value
-// and a boolean to check if the value has been set.
-func (o *SubscriptionsAnyOf1) GetNextProductOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.NextProduct, true
-}
-
-// SetNextProduct sets field value
-func (o *SubscriptionsAnyOf1) SetNextProduct(v string) {
-	o.NextProduct = v
 }
 
 // GetNext returns the Next field value
@@ -130,7 +104,6 @@ func (o SubscriptionsAnyOf1) MarshalJSON() ([]byte, error) {
 func (o SubscriptionsAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["current"] = o.Current
-	toSerialize["nextProduct"] = o.NextProduct
 	toSerialize["next"] = o.Next
 
 	for key, value := range o.AdditionalProperties {
@@ -163,7 +136,6 @@ func (o *SubscriptionsAnyOf1) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "current")
-		delete(additionalProperties, "nextProduct")
 		delete(additionalProperties, "next")
 		o.AdditionalProperties = additionalProperties
 	}

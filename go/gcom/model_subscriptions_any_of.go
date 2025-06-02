@@ -20,7 +20,6 @@ var _ MappedNullable = &SubscriptionsAnyOf{}
 // SubscriptionsAnyOf struct for SubscriptionsAnyOf
 type SubscriptionsAnyOf struct {
 	Current              Current     `json:"current"`
-	NextProduct          interface{} `json:"nextProduct"`
 	Next                 interface{} `json:"next"`
 	AdditionalProperties map[string]interface{}
 }
@@ -31,10 +30,9 @@ type _SubscriptionsAnyOf SubscriptionsAnyOf
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSubscriptionsAnyOf(current Current, nextProduct interface{}, next interface{}) *SubscriptionsAnyOf {
+func NewSubscriptionsAnyOf(current Current, next interface{}) *SubscriptionsAnyOf {
 	this := SubscriptionsAnyOf{}
 	this.Current = current
-	this.NextProduct = nextProduct
 	this.Next = next
 	return &this
 }
@@ -69,32 +67,6 @@ func (o *SubscriptionsAnyOf) GetCurrentOk() (*Current, bool) {
 // SetCurrent sets field value
 func (o *SubscriptionsAnyOf) SetCurrent(v Current) {
 	o.Current = v
-}
-
-// GetNextProduct returns the NextProduct field value
-// If the value is explicit nil, the zero value for interface{} will be returned
-func (o *SubscriptionsAnyOf) GetNextProduct() interface{} {
-	if o == nil {
-		var ret interface{}
-		return ret
-	}
-
-	return o.NextProduct
-}
-
-// GetNextProductOk returns a tuple with the NextProduct field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SubscriptionsAnyOf) GetNextProductOk() (*interface{}, bool) {
-	if o == nil || IsNil(o.NextProduct) {
-		return nil, false
-	}
-	return &o.NextProduct, true
-}
-
-// SetNextProduct sets field value
-func (o *SubscriptionsAnyOf) SetNextProduct(v interface{}) {
-	o.NextProduct = v
 }
 
 // GetNext returns the Next field value
@@ -134,9 +106,6 @@ func (o SubscriptionsAnyOf) MarshalJSON() ([]byte, error) {
 func (o SubscriptionsAnyOf) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["current"] = o.Current
-	if o.NextProduct != nil {
-		toSerialize["nextProduct"] = o.NextProduct
-	}
 	if o.Next != nil {
 		toSerialize["next"] = o.Next
 	}
@@ -171,7 +140,6 @@ func (o *SubscriptionsAnyOf) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "current")
-		delete(additionalProperties, "nextProduct")
 		delete(additionalProperties, "next")
 		o.AdditionalProperties = additionalProperties
 	}

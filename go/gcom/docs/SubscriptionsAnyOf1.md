@@ -5,14 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Current** | [**Current1**](Current1.md) |  | 
-**NextProduct** | **string** |  | 
 **Next** | [**Next**](Next.md) |  | 
 
 ## Methods
 
 ### NewSubscriptionsAnyOf1
 
-`func NewSubscriptionsAnyOf1(current Current1, nextProduct string, next Next, ) *SubscriptionsAnyOf1`
+`func NewSubscriptionsAnyOf1(current Current1, next Next, ) *SubscriptionsAnyOf1`
 
 NewSubscriptionsAnyOf1 instantiates a new SubscriptionsAnyOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -45,26 +44,6 @@ and a boolean to check if the value has been set.
 `func (o *SubscriptionsAnyOf1) SetCurrent(v Current1)`
 
 SetCurrent sets Current field to given value.
-
-
-### GetNextProduct
-
-`func (o *SubscriptionsAnyOf1) GetNextProduct() string`
-
-GetNextProduct returns the NextProduct field if non-nil, zero value otherwise.
-
-### GetNextProductOk
-
-`func (o *SubscriptionsAnyOf1) GetNextProductOk() (*string, bool)`
-
-GetNextProductOk returns a tuple with the NextProduct field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNextProduct
-
-`func (o *SubscriptionsAnyOf1) SetNextProduct(v string)`
-
-SetNextProduct sets NextProduct field to given value.
 
 
 ### GetNext

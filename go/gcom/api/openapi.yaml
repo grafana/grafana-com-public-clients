@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: b32418d
-  x-generated-at: 2025-06-02T11:26:45.721Z
+  x-commit-sha: c1d35f2
+  x-generated-at: 2025-06-02T11:32:03.767Z
 servers:
 - description: Main API server
   url: /api
@@ -5051,7 +5051,6 @@ components:
               isTrial: true
               plan: ""
               startDate: ""
-            nextProduct: ""
           role: Admin
           userStatus: 1.0246457001441578
           hmCurrentPrometheusUsage: 1.2315135367772556
@@ -5103,7 +5102,6 @@ components:
               isTrial: true
               plan: ""
               startDate: ""
-            nextProduct: ""
           role: Admin
           userStatus: 1.0246457001441578
           hmCurrentPrometheusUsage: 1.2315135367772556
@@ -5200,7 +5198,6 @@ components:
             isTrial: true
             plan: ""
             startDate: ""
-          nextProduct: ""
         role: Admin
         userStatus: 1.0246457001441578
         hmCurrentPrometheusUsage: 1.2315135367772556
@@ -5415,7 +5412,6 @@ components:
             isTrial: true
             plan: ""
             startDate: ""
-          nextProduct: ""
         contractType: contractType
         k6IPUsage: 9.018348186070783
         trialNoticeDate: trialNoticeDate
@@ -7720,20 +7716,15 @@ components:
           isTrial: true
           plan: ""
           startDate: ""
-        nextProduct: ""
       properties:
         current:
           $ref: '#/components/schemas/current'
-        nextProduct:
-          nullable: true
-          title: nextProduct
         next:
           nullable: true
           title: next
       required:
       - current
       - next
-      - nextProduct
       type: object
     payload:
       additionalProperties: {}
@@ -7833,21 +7824,11 @@ components:
       properties:
         current:
           $ref: '#/components/schemas/current_1'
-        nextProduct:
-          enum:
-          - grafana-cloud-advanced
-          - grafana-cloud-fedramp
-          - grafana-cloud-free
-          - grafana-cloud-pro
-          - grafana-cloud-ss-advanced
-          title: nextProduct
-          type: string
         next:
           $ref: '#/components/schemas/next'
       required:
       - current
       - next
-      - nextProduct
       type: object
     current_2:
       properties:
@@ -7902,16 +7883,12 @@ components:
       properties:
         current:
           $ref: '#/components/schemas/current_2'
-        nextProduct:
-          nullable: true
-          title: nextProduct
         next:
           nullable: true
           title: next
       required:
       - current
       - next
-      - nextProduct
       type: object
     subscriptions:
       anyOf:
@@ -7977,7 +7954,6 @@ components:
             isTrial: true
             plan: ""
             startDate: ""
-          nextProduct: ""
         role: Admin
         userStatus: 1.0246457001441578
         hmCurrentPrometheusUsage: 1.2315135367772556

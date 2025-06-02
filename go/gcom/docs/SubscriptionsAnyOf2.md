@@ -5,14 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Current** | [**Current2**](Current2.md) |  | 
-**NextProduct** | **interface{}** |  | 
 **Next** | **interface{}** |  | 
 
 ## Methods
 
 ### NewSubscriptionsAnyOf2
 
-`func NewSubscriptionsAnyOf2(current Current2, nextProduct interface{}, next interface{}, ) *SubscriptionsAnyOf2`
+`func NewSubscriptionsAnyOf2(current Current2, next interface{}, ) *SubscriptionsAnyOf2`
 
 NewSubscriptionsAnyOf2 instantiates a new SubscriptionsAnyOf2 object
 This constructor will assign default values to properties that have it defined,
@@ -47,36 +46,6 @@ and a boolean to check if the value has been set.
 SetCurrent sets Current field to given value.
 
 
-### GetNextProduct
-
-`func (o *SubscriptionsAnyOf2) GetNextProduct() interface{}`
-
-GetNextProduct returns the NextProduct field if non-nil, zero value otherwise.
-
-### GetNextProductOk
-
-`func (o *SubscriptionsAnyOf2) GetNextProductOk() (*interface{}, bool)`
-
-GetNextProductOk returns a tuple with the NextProduct field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNextProduct
-
-`func (o *SubscriptionsAnyOf2) SetNextProduct(v interface{})`
-
-SetNextProduct sets NextProduct field to given value.
-
-
-### SetNextProductNil
-
-`func (o *SubscriptionsAnyOf2) SetNextProductNil(b bool)`
-
- SetNextProductNil sets the value for NextProduct to be an explicit nil
-
-### UnsetNextProduct
-`func (o *SubscriptionsAnyOf2) UnsetNextProduct()`
-
-UnsetNextProduct ensures that no value is present for NextProduct, not even an explicit nil
 ### GetNext
 
 `func (o *SubscriptionsAnyOf2) GetNext() interface{}`
