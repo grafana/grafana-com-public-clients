@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 6cc3db6
-  x-generated-at: 2025-06-11T14:32:30.076Z
+  x-commit-sha: f82eb51
+  x-generated-at: 2025-06-11T15:45:32.238Z
 servers:
 - description: Main API server
   url: /api
@@ -4161,7 +4161,7 @@ components:
         ssl: true
         userQuota: 3.0576100241049344
         id: 6.519180951018382
-        plan: free
+        plan: advanced
         hlInstanceBillingUsage: 5.025004791520295
         agentManagementInstanceStatus: active
         htInstanceClusterId: 5.944895607614016
@@ -4543,8 +4543,20 @@ components:
           type: string
         plan:
           enum:
+          - advanced
+          - basic
+          - basic-prom
+          - bundled
+          - enterprise
+          - fedramp
+          - fog
           - free
+          - free-trial
           - gcloud
+          - logsdemo
+          - payg
+          - starter
+          - starter-prom
           - trial
           title: plan
           type: string
@@ -6153,7 +6165,7 @@ components:
           ssl: true
           userQuota: 3.0576100241049344
           id: 6.519180951018382
-          plan: free
+          plan: advanced
           hlInstanceBillingUsage: 5.025004791520295
           agentManagementInstanceStatus: active
           htInstanceClusterId: 5.944895607614016
@@ -6276,7 +6288,7 @@ components:
           ssl: true
           userQuota: 3.0576100241049344
           id: 6.519180951018382
-          plan: free
+          plan: advanced
           hlInstanceBillingUsage: 5.025004791520295
           agentManagementInstanceStatus: active
           htInstanceClusterId: 5.944895607614016
