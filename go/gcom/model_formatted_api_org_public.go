@@ -82,6 +82,7 @@ type FormattedApiOrgPublic struct {
 	ContractTypeId               float32                                `json:"contractTypeId"`
 	LiveChatEnabled              bool                                   `json:"liveChatEnabled"`
 	DisableTokenExpirationEmails bool                                   `json:"disableTokenExpirationEmails"`
+	MaxTokenExpirationDays       float32                                `json:"maxTokenExpirationDays"`
 	Links                        []LinksInner1                          `json:"links"`
 	Subscriptions                Subscriptions                          `json:"subscriptions"`
 	AdditionalProperties         map[string]interface{}
@@ -93,7 +94,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -158,6 +159,7 @@ func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, 
 	this.ContractTypeId = contractTypeId
 	this.LiveChatEnabled = liveChatEnabled
 	this.DisableTokenExpirationEmails = disableTokenExpirationEmails
+	this.MaxTokenExpirationDays = maxTokenExpirationDays
 	this.Links = links
 	this.Subscriptions = subscriptions
 	return &this
@@ -1709,6 +1711,30 @@ func (o *FormattedApiOrgPublic) SetDisableTokenExpirationEmails(v bool) {
 	o.DisableTokenExpirationEmails = v
 }
 
+// GetMaxTokenExpirationDays returns the MaxTokenExpirationDays field value
+func (o *FormattedApiOrgPublic) GetMaxTokenExpirationDays() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.MaxTokenExpirationDays
+}
+
+// GetMaxTokenExpirationDaysOk returns a tuple with the MaxTokenExpirationDays field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiOrgPublic) GetMaxTokenExpirationDaysOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MaxTokenExpirationDays, true
+}
+
+// SetMaxTokenExpirationDays sets field value
+func (o *FormattedApiOrgPublic) SetMaxTokenExpirationDays(v float32) {
+	o.MaxTokenExpirationDays = v
+}
+
 // GetLinks returns the Links field value
 func (o *FormattedApiOrgPublic) GetLinks() []LinksInner1 {
 	if o == nil {
@@ -1830,6 +1856,7 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["contractTypeId"] = o.ContractTypeId
 	toSerialize["liveChatEnabled"] = o.LiveChatEnabled
 	toSerialize["disableTokenExpirationEmails"] = o.DisableTokenExpirationEmails
+	toSerialize["maxTokenExpirationDays"] = o.MaxTokenExpirationDays
 	toSerialize["links"] = o.Links
 	toSerialize["subscriptions"] = o.Subscriptions
 
@@ -1925,6 +1952,7 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "contractTypeId")
 		delete(additionalProperties, "liveChatEnabled")
 		delete(additionalProperties, "disableTokenExpirationEmails")
+		delete(additionalProperties, "maxTokenExpirationDays")
 		delete(additionalProperties, "links")
 		delete(additionalProperties, "subscriptions")
 		o.AdditionalProperties = additionalProperties

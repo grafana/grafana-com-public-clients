@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: d1cf901
-  x-generated-at: 2025-06-27T14:53:39.056Z
+  x-commit-sha: cbf47f6
+  x-generated-at: 2025-06-27T18:25:32.794Z
 servers:
 - description: Main API server
   url: /api
@@ -5466,6 +5466,7 @@ components:
         hgUsage: 7.386281948385884
         smBrowserUsage: 5.944895607614016
         liveChatEnabled: true
+        maxTokenExpirationDays: 0.8851374739011653
         licenseProducts:
         - licenseProducts
         - licenseProducts
@@ -5712,6 +5713,9 @@ components:
         disableTokenExpirationEmails:
           title: disableTokenExpirationEmails
           type: boolean
+        maxTokenExpirationDays:
+          title: maxTokenExpirationDays
+          type: number
         links:
           items:
             $ref: '#/components/schemas/links_inner_1'
@@ -5762,6 +5766,7 @@ components:
       - licenseProducts
       - links
       - liveChatEnabled
+      - maxTokenExpirationDays
       - msaSignedAt
       - msaSignedBy
       - name
