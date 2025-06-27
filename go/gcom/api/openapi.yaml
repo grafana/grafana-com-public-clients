@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 8ecd8d6
-  x-generated-at: 2025-06-27T10:33:49.087Z
+  x-commit-sha: 318ee32
+  x-generated-at: 2025-06-27T12:33:53.101Z
 servers:
 - description: Main API server
   url: /api
@@ -8566,6 +8566,9 @@ components:
         countryCode:
           title: countryCode
           type: string
+        complete:
+          title: complete
+          type: boolean
         id:
           title: id
           type: number
@@ -8620,6 +8623,7 @@ components:
       - assistantUrl
       - authApiTokenSet
       - authApiUrl
+      - complete
       - createdAt
       - description
       - faroEndpointUrl

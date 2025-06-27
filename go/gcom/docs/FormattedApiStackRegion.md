@@ -72,12 +72,13 @@ Name | Type | Description | Notes
 **IsStub** | **bool** |  | 
 **GeoLocation** | Pointer to **[]float32** |  | [optional] 
 **CountryCode** | Pointer to **string** |  | [optional] 
+**Complete** | **bool** |  | 
 
 ## Methods
 
 ### NewFormattedApiStackRegion
 
-`func NewFormattedApiStackRegion(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, assistantUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, ) *FormattedApiStackRegion`
+`func NewFormattedApiStackRegion(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, assistantUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, complete bool, ) *FormattedApiStackRegion`
 
 NewFormattedApiStackRegion instantiates a new FormattedApiStackRegion object
 This constructor will assign default values to properties that have it defined,
@@ -1496,6 +1497,26 @@ SetCountryCode sets CountryCode field to given value.
 `func (o *FormattedApiStackRegion) HasCountryCode() bool`
 
 HasCountryCode returns a boolean if a field has been set.
+
+### GetComplete
+
+`func (o *FormattedApiStackRegion) GetComplete() bool`
+
+GetComplete returns the Complete field if non-nil, zero value otherwise.
+
+### GetCompleteOk
+
+`func (o *FormattedApiStackRegion) GetCompleteOk() (*bool, bool)`
+
+GetCompleteOk returns a tuple with the Complete field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComplete
+
+`func (o *FormattedApiStackRegion) SetComplete(v bool)`
+
+SetComplete sets Complete field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
