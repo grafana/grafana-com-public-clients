@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Schema** | Pointer to **string** | A URL to the JSON Schema for this object. | [optional] 
 **Items** | [**[]ItemsInner4**](ItemsInner4.md) |  | 
 
 ## Methods
@@ -24,6 +25,31 @@ will change when the set of required properties is changed
 NewOrgBilledUsageHistoryWithDefaults instantiates a new OrgBilledUsageHistory object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetSchema
+
+`func (o *OrgBilledUsageHistory) GetSchema() string`
+
+GetSchema returns the Schema field if non-nil, zero value otherwise.
+
+### GetSchemaOk
+
+`func (o *OrgBilledUsageHistory) GetSchemaOk() (*string, bool)`
+
+GetSchemaOk returns a tuple with the Schema field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSchema
+
+`func (o *OrgBilledUsageHistory) SetSchema(v string)`
+
+SetSchema sets Schema field to given value.
+
+### HasSchema
+
+`func (o *OrgBilledUsageHistory) HasSchema() bool`
+
+HasSchema returns a boolean if a field has been set.
 
 ### GetItems
 

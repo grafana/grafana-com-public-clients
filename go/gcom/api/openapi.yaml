@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 93eba8a
-  x-generated-at: 2025-07-03T12:55:02.012Z
+  x-commit-sha: b2a8e53
+  x-generated-at: 2025-07-03T13:15:01.300Z
 servers:
 - description: Main API server
   url: /api
@@ -1857,7 +1857,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModifiedGetOrgBilledUsageResponse'
+                $ref: '#/components/schemas/BilledUsageList'
           description: OK
         "401":
           content:
@@ -6096,32 +6096,134 @@ components:
       - accessPolicyId
       - name
       type: object
-    ModifiedGetOrgBilledUsageResponse:
+    BilledUsageList:
       example:
         total: 0.8008281904610115
+        $schema: $schema
         page: 6.027456183070403
         items:
-        - usages:
-          - stackLabels: "{}"
+        - notes: notes
+          description: description
+          dimensionName: dimensionName
+          amountDue: 7.061401241503109
+          unit: unit
+          orgRates: ""
+          dimensionId: app-o11y
+          totalUsage: 9.301444243932576
+          id: 5.962133916683182
+          usages:
+          - dpm: 1.2315135367772556
+            ingestUsage: 7.457744773683766
+            onCallUsage: 1.1730742509559433
+            stackId: 9.965781217890562
             stackName: stackName
-          - stackLabels: "{}"
+            activeUsers: 2.027123023002322
+            protocolUsage: 4.965218492984954
+            anonymousUsers: 4.145608029883936
+            grafanaUsage: 1.0246457001441578
+            browserUsage: 7.386281948385884
+            stackLabels: "{}"
+            queryUsage: 5.025004791520295
+            incidentUsage: 6.84685269835264
+            totalUsage: 9.369310271410669
+            id: 1.4894159098541704
+            activeSeries: 3.616076749251911
+            periodStart: periodStart
+            isProrated: true
+            periodEnd: periodEnd
+          - dpm: 1.2315135367772556
+            ingestUsage: 7.457744773683766
+            onCallUsage: 1.1730742509559433
+            stackId: 9.965781217890562
             stackName: stackName
-        - usages:
-          - stackLabels: "{}"
+            activeUsers: 2.027123023002322
+            protocolUsage: 4.965218492984954
+            anonymousUsers: 4.145608029883936
+            grafanaUsage: 1.0246457001441578
+            browserUsage: 7.386281948385884
+            stackLabels: "{}"
+            queryUsage: 5.025004791520295
+            incidentUsage: 6.84685269835264
+            totalUsage: 9.369310271410669
+            id: 1.4894159098541704
+            activeSeries: 3.616076749251911
+            periodStart: periodStart
+            isProrated: true
+            periodEnd: periodEnd
+          includedUsage: 2.3021358869347655
+          periodStart: periodStart
+          overage: 5.637376656633329
+          periodEnd: periodEnd
+        - notes: notes
+          description: description
+          dimensionName: dimensionName
+          amountDue: 7.061401241503109
+          unit: unit
+          orgRates: ""
+          dimensionId: app-o11y
+          totalUsage: 9.301444243932576
+          id: 5.962133916683182
+          usages:
+          - dpm: 1.2315135367772556
+            ingestUsage: 7.457744773683766
+            onCallUsage: 1.1730742509559433
+            stackId: 9.965781217890562
             stackName: stackName
-          - stackLabels: "{}"
+            activeUsers: 2.027123023002322
+            protocolUsage: 4.965218492984954
+            anonymousUsers: 4.145608029883936
+            grafanaUsage: 1.0246457001441578
+            browserUsage: 7.386281948385884
+            stackLabels: "{}"
+            queryUsage: 5.025004791520295
+            incidentUsage: 6.84685269835264
+            totalUsage: 9.369310271410669
+            id: 1.4894159098541704
+            activeSeries: 3.616076749251911
+            periodStart: periodStart
+            isProrated: true
+            periodEnd: periodEnd
+          - dpm: 1.2315135367772556
+            ingestUsage: 7.457744773683766
+            onCallUsage: 1.1730742509559433
+            stackId: 9.965781217890562
             stackName: stackName
+            activeUsers: 2.027123023002322
+            protocolUsage: 4.965218492984954
+            anonymousUsers: 4.145608029883936
+            grafanaUsage: 1.0246457001441578
+            browserUsage: 7.386281948385884
+            stackLabels: "{}"
+            queryUsage: 5.025004791520295
+            incidentUsage: 6.84685269835264
+            totalUsage: 9.369310271410669
+            id: 1.4894159098541704
+            activeSeries: 3.616076749251911
+            periodStart: periodStart
+            isProrated: true
+            periodEnd: periodEnd
+          includedUsage: 2.3021358869347655
+          periodStart: periodStart
+          overage: 5.637376656633329
+          periodEnd: periodEnd
         page_size: 1.4658129805029452
       properties:
         total:
+          description: The total number of items.
           title: total
           type: number
         page:
+          description: The page number of the items.
           title: page
           type: number
         page_size:
+          description: The page size of the items.
           title: page_size
           type: number
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          title: $schema
+          type: string
         items:
           items:
             $ref: '#/components/schemas/items_inner_3'
@@ -6135,12 +6237,17 @@ components:
       type: object
     OrgBilledUsageHistory:
       example:
+        $schema: $schema
         items:
         - month: 0.8008281904610115
           year: 6.027456183070403
         - month: 0.8008281904610115
           year: 6.027456183070403
       properties:
+        $schema:
+          description: A URL to the JSON Schema for this object.
+          title: $schema
+          type: string
         items:
           items:
             $ref: '#/components/schemas/items_inner_4'
@@ -8683,9 +8790,77 @@ components:
       type: object
     usages_inner:
       example:
-        stackLabels: "{}"
+        dpm: 1.2315135367772556
+        ingestUsage: 7.457744773683766
+        onCallUsage: 1.1730742509559433
+        stackId: 9.965781217890562
         stackName: stackName
+        activeUsers: 2.027123023002322
+        protocolUsage: 4.965218492984954
+        anonymousUsers: 4.145608029883936
+        grafanaUsage: 1.0246457001441578
+        browserUsage: 7.386281948385884
+        stackLabels: "{}"
+        queryUsage: 5.025004791520295
+        incidentUsage: 6.84685269835264
+        totalUsage: 9.369310271410669
+        id: 1.4894159098541704
+        activeSeries: 3.616076749251911
+        periodStart: periodStart
+        isProrated: true
+        periodEnd: periodEnd
       properties:
+        activeSeries:
+          title: activeSeries
+          type: number
+        activeUsers:
+          title: activeUsers
+          type: number
+        anonymousUsers:
+          title: anonymousUsers
+          type: number
+        browserUsage:
+          title: browserUsage
+          type: number
+        dpm:
+          title: dpm
+          type: number
+        grafanaUsage:
+          title: grafanaUsage
+          type: number
+        id:
+          title: id
+          type: number
+        incidentUsage:
+          title: incidentUsage
+          type: number
+        ingestUsage:
+          title: ingestUsage
+          type: number
+        isProrated:
+          title: isProrated
+          type: boolean
+        onCallUsage:
+          title: onCallUsage
+          type: number
+        periodEnd:
+          title: periodEnd
+          type: string
+        periodStart:
+          title: periodStart
+          type: string
+        protocolUsage:
+          title: protocolUsage
+          type: number
+        queryUsage:
+          title: queryUsage
+          type: number
+        stackId:
+          title: stackId
+          type: number
+        totalUsage:
+          title: totalUsage
+          type: number
         stackName:
           title: stackName
           type: string
@@ -8693,23 +8868,147 @@ components:
           title: stackLabels
           type: object
       required:
+      - id
+      - isProrated
+      - periodEnd
+      - periodStart
+      - stackId
       - stackLabels
       - stackName
+      - totalUsage
       type: object
     items_inner_3:
       example:
+        notes: notes
+        description: description
+        dimensionName: dimensionName
+        amountDue: 7.061401241503109
+        unit: unit
+        orgRates: ""
+        dimensionId: app-o11y
+        totalUsage: 9.301444243932576
+        id: 5.962133916683182
         usages:
-        - stackLabels: "{}"
+        - dpm: 1.2315135367772556
+          ingestUsage: 7.457744773683766
+          onCallUsage: 1.1730742509559433
+          stackId: 9.965781217890562
           stackName: stackName
-        - stackLabels: "{}"
+          activeUsers: 2.027123023002322
+          protocolUsage: 4.965218492984954
+          anonymousUsers: 4.145608029883936
+          grafanaUsage: 1.0246457001441578
+          browserUsage: 7.386281948385884
+          stackLabels: "{}"
+          queryUsage: 5.025004791520295
+          incidentUsage: 6.84685269835264
+          totalUsage: 9.369310271410669
+          id: 1.4894159098541704
+          activeSeries: 3.616076749251911
+          periodStart: periodStart
+          isProrated: true
+          periodEnd: periodEnd
+        - dpm: 1.2315135367772556
+          ingestUsage: 7.457744773683766
+          onCallUsage: 1.1730742509559433
+          stackId: 9.965781217890562
           stackName: stackName
+          activeUsers: 2.027123023002322
+          protocolUsage: 4.965218492984954
+          anonymousUsers: 4.145608029883936
+          grafanaUsage: 1.0246457001441578
+          browserUsage: 7.386281948385884
+          stackLabels: "{}"
+          queryUsage: 5.025004791520295
+          incidentUsage: 6.84685269835264
+          totalUsage: 9.369310271410669
+          id: 1.4894159098541704
+          activeSeries: 3.616076749251911
+          periodStart: periodStart
+          isProrated: true
+          periodEnd: periodEnd
+        includedUsage: 2.3021358869347655
+        periodStart: periodStart
+        overage: 5.637376656633329
+        periodEnd: periodEnd
       properties:
+        id:
+          title: id
+          type: number
+        notes:
+          title: notes
+          type: string
+        description:
+          title: description
+          type: string
+        unit:
+          title: unit
+          type: string
+        overage:
+          title: overage
+          type: number
+        includedUsage:
+          title: includedUsage
+          type: number
+        amountDue:
+          title: amountDue
+          type: number
+        dimensionId:
+          enum:
+          - app-o11y
+          - fe-o11y
+          - ge-instances
+          - ge-users
+          - hg
+          - hg-plugin-users
+          - hl
+          - hl-retention
+          - hm
+          - hm-graphite
+          - hp
+          - ht
+          - infra-o11y-containers
+          - infra-o11y-hosts
+          - irm
+          - k6-ip
+          - k6-vuh
+          - sm
+          - sm-browser
+          title: dimensionId
+          type: string
+        dimensionName:
+          title: dimensionName
+          type: string
+        orgRates:
+          title: orgRates
+        periodEnd:
+          title: periodEnd
+          type: string
+        periodStart:
+          title: periodStart
+          type: string
+        totalUsage:
+          title: totalUsage
+          type: number
         usages:
           items:
             $ref: '#/components/schemas/usages_inner'
           title: usages
           type: array
       required:
+      - amountDue
+      - description
+      - dimensionId
+      - dimensionName
+      - id
+      - includedUsage
+      - notes
+      - orgRates
+      - overage
+      - periodEnd
+      - periodStart
+      - totalUsage
+      - unit
       - usages
       type: object
     items_inner_4:

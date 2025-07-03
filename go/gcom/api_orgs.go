@@ -910,7 +910,7 @@ func (r ApiGetOrgBilledUsageRequest) Format(format string) ApiGetOrgBilledUsageR
 	return r
 }
 
-func (r ApiGetOrgBilledUsageRequest) Execute() (*ModifiedGetOrgBilledUsageResponse, *http.Response, error) {
+func (r ApiGetOrgBilledUsageRequest) Execute() (*BilledUsageList, *http.Response, error) {
 	return r.ApiService.GetOrgBilledUsageExecute(r)
 }
 
@@ -931,13 +931,13 @@ func (a *OrgsAPIService) GetOrgBilledUsage(ctx context.Context, orgSlugOrId stri
 
 // Execute executes the request
 //
-//	@return ModifiedGetOrgBilledUsageResponse
-func (a *OrgsAPIService) GetOrgBilledUsageExecute(r ApiGetOrgBilledUsageRequest) (*ModifiedGetOrgBilledUsageResponse, *http.Response, error) {
+//	@return BilledUsageList
+func (a *OrgsAPIService) GetOrgBilledUsageExecute(r ApiGetOrgBilledUsageRequest) (*BilledUsageList, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *ModifiedGetOrgBilledUsageResponse
+		localVarReturnValue *BilledUsageList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrgsAPIService.GetOrgBilledUsage")

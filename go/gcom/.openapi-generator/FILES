@@ -26,6 +26,7 @@ docs/AuthAccessPolicyRealmsInner.md
 docs/AuthAccessPolicyRealmsInnerLabelPoliciesInner.md
 docs/AuthToken.md
 docs/AuthTokenWithSecret.md
+docs/BilledUsageList.md
 docs/Current.md
 docs/Current1.md
 docs/Current2.md
@@ -71,7 +72,6 @@ docs/LinksInner.md
 docs/LinksInner1.md
 docs/Metadata.md
 docs/Mimir.md
-docs/ModifiedGetOrgBilledUsageResponse.md
 docs/Next.md
 docs/OrgBilledUsageHistory.md
 docs/OrgMemberListResponse.md
@@ -135,6 +135,7 @@ model_auth_access_policy_realms_inner.go
 model_auth_access_policy_realms_inner_label_policies_inner.go
 model_auth_token.go
 model_auth_token_with_secret.go
+model_billed_usage_list.go
 model_current.go
 model_current_1.go
 model_current_2.go
@@ -179,7 +180,6 @@ model_links_inner.go
 model_links_inner_1.go
 model_metadata.go
 model_mimir.go
-model_modified_get_org_billed_usage_response.go
 model_next.go
 model_org_billed_usage_history.go
 model_org_member_list_response.go

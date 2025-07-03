@@ -14,26 +14,31 @@ import (
 	"encoding/json"
 )
 
-// checks if the ModifiedGetOrgBilledUsageResponse type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ModifiedGetOrgBilledUsageResponse{}
+// checks if the BilledUsageList type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &BilledUsageList{}
 
-// ModifiedGetOrgBilledUsageResponse struct for ModifiedGetOrgBilledUsageResponse
-type ModifiedGetOrgBilledUsageResponse struct {
-	Total                float32       `json:"total"`
-	Page                 float32       `json:"page"`
-	PageSize             float32       `json:"page_size"`
+// BilledUsageList struct for BilledUsageList
+type BilledUsageList struct {
+	// The total number of items.
+	Total float32 `json:"total"`
+	// The page number of the items.
+	Page float32 `json:"page"`
+	// The page size of the items.
+	PageSize float32 `json:"page_size"`
+	// A URL to the JSON Schema for this object.
+	Schema               *string       `json:"$schema,omitempty"`
 	Items                []ItemsInner3 `json:"items"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _ModifiedGetOrgBilledUsageResponse ModifiedGetOrgBilledUsageResponse
+type _BilledUsageList BilledUsageList
 
-// NewModifiedGetOrgBilledUsageResponse instantiates a new ModifiedGetOrgBilledUsageResponse object
+// NewBilledUsageList instantiates a new BilledUsageList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewModifiedGetOrgBilledUsageResponse(total float32, page float32, pageSize float32, items []ItemsInner3) *ModifiedGetOrgBilledUsageResponse {
-	this := ModifiedGetOrgBilledUsageResponse{}
+func NewBilledUsageList(total float32, page float32, pageSize float32, items []ItemsInner3) *BilledUsageList {
+	this := BilledUsageList{}
 	this.Total = total
 	this.Page = page
 	this.PageSize = pageSize
@@ -41,16 +46,16 @@ func NewModifiedGetOrgBilledUsageResponse(total float32, page float32, pageSize 
 	return &this
 }
 
-// NewModifiedGetOrgBilledUsageResponseWithDefaults instantiates a new ModifiedGetOrgBilledUsageResponse object
+// NewBilledUsageListWithDefaults instantiates a new BilledUsageList object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewModifiedGetOrgBilledUsageResponseWithDefaults() *ModifiedGetOrgBilledUsageResponse {
-	this := ModifiedGetOrgBilledUsageResponse{}
+func NewBilledUsageListWithDefaults() *BilledUsageList {
+	this := BilledUsageList{}
 	return &this
 }
 
 // GetTotal returns the Total field value
-func (o *ModifiedGetOrgBilledUsageResponse) GetTotal() float32 {
+func (o *BilledUsageList) GetTotal() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -61,7 +66,7 @@ func (o *ModifiedGetOrgBilledUsageResponse) GetTotal() float32 {
 
 // GetTotalOk returns a tuple with the Total field value
 // and a boolean to check if the value has been set.
-func (o *ModifiedGetOrgBilledUsageResponse) GetTotalOk() (*float32, bool) {
+func (o *BilledUsageList) GetTotalOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -69,12 +74,12 @@ func (o *ModifiedGetOrgBilledUsageResponse) GetTotalOk() (*float32, bool) {
 }
 
 // SetTotal sets field value
-func (o *ModifiedGetOrgBilledUsageResponse) SetTotal(v float32) {
+func (o *BilledUsageList) SetTotal(v float32) {
 	o.Total = v
 }
 
 // GetPage returns the Page field value
-func (o *ModifiedGetOrgBilledUsageResponse) GetPage() float32 {
+func (o *BilledUsageList) GetPage() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -85,7 +90,7 @@ func (o *ModifiedGetOrgBilledUsageResponse) GetPage() float32 {
 
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
-func (o *ModifiedGetOrgBilledUsageResponse) GetPageOk() (*float32, bool) {
+func (o *BilledUsageList) GetPageOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -93,12 +98,12 @@ func (o *ModifiedGetOrgBilledUsageResponse) GetPageOk() (*float32, bool) {
 }
 
 // SetPage sets field value
-func (o *ModifiedGetOrgBilledUsageResponse) SetPage(v float32) {
+func (o *BilledUsageList) SetPage(v float32) {
 	o.Page = v
 }
 
 // GetPageSize returns the PageSize field value
-func (o *ModifiedGetOrgBilledUsageResponse) GetPageSize() float32 {
+func (o *BilledUsageList) GetPageSize() float32 {
 	if o == nil {
 		var ret float32
 		return ret
@@ -109,7 +114,7 @@ func (o *ModifiedGetOrgBilledUsageResponse) GetPageSize() float32 {
 
 // GetPageSizeOk returns a tuple with the PageSize field value
 // and a boolean to check if the value has been set.
-func (o *ModifiedGetOrgBilledUsageResponse) GetPageSizeOk() (*float32, bool) {
+func (o *BilledUsageList) GetPageSizeOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -117,12 +122,44 @@ func (o *ModifiedGetOrgBilledUsageResponse) GetPageSizeOk() (*float32, bool) {
 }
 
 // SetPageSize sets field value
-func (o *ModifiedGetOrgBilledUsageResponse) SetPageSize(v float32) {
+func (o *BilledUsageList) SetPageSize(v float32) {
 	o.PageSize = v
 }
 
+// GetSchema returns the Schema field value if set, zero value otherwise.
+func (o *BilledUsageList) GetSchema() string {
+	if o == nil || IsNil(o.Schema) {
+		var ret string
+		return ret
+	}
+	return *o.Schema
+}
+
+// GetSchemaOk returns a tuple with the Schema field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BilledUsageList) GetSchemaOk() (*string, bool) {
+	if o == nil || IsNil(o.Schema) {
+		return nil, false
+	}
+	return o.Schema, true
+}
+
+// HasSchema returns a boolean if a field has been set.
+func (o *BilledUsageList) HasSchema() bool {
+	if o != nil && !IsNil(o.Schema) {
+		return true
+	}
+
+	return false
+}
+
+// SetSchema gets a reference to the given string and assigns it to the Schema field.
+func (o *BilledUsageList) SetSchema(v string) {
+	o.Schema = &v
+}
+
 // GetItems returns the Items field value
-func (o *ModifiedGetOrgBilledUsageResponse) GetItems() []ItemsInner3 {
+func (o *BilledUsageList) GetItems() []ItemsInner3 {
 	if o == nil {
 		var ret []ItemsInner3
 		return ret
@@ -133,7 +170,7 @@ func (o *ModifiedGetOrgBilledUsageResponse) GetItems() []ItemsInner3 {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *ModifiedGetOrgBilledUsageResponse) GetItemsOk() ([]ItemsInner3, bool) {
+func (o *BilledUsageList) GetItemsOk() ([]ItemsInner3, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -141,11 +178,11 @@ func (o *ModifiedGetOrgBilledUsageResponse) GetItemsOk() ([]ItemsInner3, bool) {
 }
 
 // SetItems sets field value
-func (o *ModifiedGetOrgBilledUsageResponse) SetItems(v []ItemsInner3) {
+func (o *BilledUsageList) SetItems(v []ItemsInner3) {
 	o.Items = v
 }
 
-func (o ModifiedGetOrgBilledUsageResponse) MarshalJSON() ([]byte, error) {
+func (o BilledUsageList) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -153,11 +190,14 @@ func (o ModifiedGetOrgBilledUsageResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ModifiedGetOrgBilledUsageResponse) ToMap() (map[string]interface{}, error) {
+func (o BilledUsageList) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["total"] = o.Total
 	toSerialize["page"] = o.Page
 	toSerialize["page_size"] = o.PageSize
+	if !IsNil(o.Schema) {
+		toSerialize["$schema"] = o.Schema
+	}
 	toSerialize["items"] = o.Items
 
 	for key, value := range o.AdditionalProperties {
@@ -167,7 +207,7 @@ func (o ModifiedGetOrgBilledUsageResponse) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
-func (o *ModifiedGetOrgBilledUsageResponse) UnmarshalJSON(data []byte) (err error) {
+func (o *BilledUsageList) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -176,15 +216,15 @@ func (o *ModifiedGetOrgBilledUsageResponse) UnmarshalJSON(data []byte) (err erro
 		return err
 	}
 
-	varModifiedGetOrgBilledUsageResponse := _ModifiedGetOrgBilledUsageResponse{}
+	varBilledUsageList := _BilledUsageList{}
 
-	err = json.Unmarshal(data, &varModifiedGetOrgBilledUsageResponse)
+	err = json.Unmarshal(data, &varBilledUsageList)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ModifiedGetOrgBilledUsageResponse(varModifiedGetOrgBilledUsageResponse)
+	*o = BilledUsageList(varBilledUsageList)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -192,6 +232,7 @@ func (o *ModifiedGetOrgBilledUsageResponse) UnmarshalJSON(data []byte) (err erro
 		delete(additionalProperties, "total")
 		delete(additionalProperties, "page")
 		delete(additionalProperties, "page_size")
+		delete(additionalProperties, "$schema")
 		delete(additionalProperties, "items")
 		o.AdditionalProperties = additionalProperties
 	}
@@ -199,38 +240,38 @@ func (o *ModifiedGetOrgBilledUsageResponse) UnmarshalJSON(data []byte) (err erro
 	return err
 }
 
-type NullableModifiedGetOrgBilledUsageResponse struct {
-	value *ModifiedGetOrgBilledUsageResponse
+type NullableBilledUsageList struct {
+	value *BilledUsageList
 	isSet bool
 }
 
-func (v NullableModifiedGetOrgBilledUsageResponse) Get() *ModifiedGetOrgBilledUsageResponse {
+func (v NullableBilledUsageList) Get() *BilledUsageList {
 	return v.value
 }
 
-func (v *NullableModifiedGetOrgBilledUsageResponse) Set(val *ModifiedGetOrgBilledUsageResponse) {
+func (v *NullableBilledUsageList) Set(val *BilledUsageList) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableModifiedGetOrgBilledUsageResponse) IsSet() bool {
+func (v NullableBilledUsageList) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableModifiedGetOrgBilledUsageResponse) Unset() {
+func (v *NullableBilledUsageList) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableModifiedGetOrgBilledUsageResponse(val *ModifiedGetOrgBilledUsageResponse) *NullableModifiedGetOrgBilledUsageResponse {
-	return &NullableModifiedGetOrgBilledUsageResponse{value: val, isSet: true}
+func NewNullableBilledUsageList(val *BilledUsageList) *NullableBilledUsageList {
+	return &NullableBilledUsageList{value: val, isSet: true}
 }
 
-func (v NullableModifiedGetOrgBilledUsageResponse) MarshalJSON() ([]byte, error) {
+func (v NullableBilledUsageList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableModifiedGetOrgBilledUsageResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableBilledUsageList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

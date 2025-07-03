@@ -19,6 +19,19 @@ var _ MappedNullable = &ItemsInner3{}
 
 // ItemsInner3 struct for ItemsInner3
 type ItemsInner3 struct {
+	Id                   float32       `json:"id"`
+	Notes                string        `json:"notes"`
+	Description          string        `json:"description"`
+	Unit                 string        `json:"unit"`
+	Overage              float32       `json:"overage"`
+	IncludedUsage        float32       `json:"includedUsage"`
+	AmountDue            float32       `json:"amountDue"`
+	DimensionId          string        `json:"dimensionId"`
+	DimensionName        string        `json:"dimensionName"`
+	OrgRates             interface{}   `json:"orgRates"`
+	PeriodEnd            string        `json:"periodEnd"`
+	PeriodStart          string        `json:"periodStart"`
+	TotalUsage           float32       `json:"totalUsage"`
 	Usages               []UsagesInner `json:"usages"`
 	AdditionalProperties map[string]interface{}
 }
@@ -29,8 +42,21 @@ type _ItemsInner3 ItemsInner3
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsInner3(usages []UsagesInner) *ItemsInner3 {
+func NewItemsInner3(id float32, notes string, description string, unit string, overage float32, includedUsage float32, amountDue float32, dimensionId string, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner) *ItemsInner3 {
 	this := ItemsInner3{}
+	this.Id = id
+	this.Notes = notes
+	this.Description = description
+	this.Unit = unit
+	this.Overage = overage
+	this.IncludedUsage = includedUsage
+	this.AmountDue = amountDue
+	this.DimensionId = dimensionId
+	this.DimensionName = dimensionName
+	this.OrgRates = orgRates
+	this.PeriodEnd = periodEnd
+	this.PeriodStart = periodStart
+	this.TotalUsage = totalUsage
 	this.Usages = usages
 	return &this
 }
@@ -41,6 +67,320 @@ func NewItemsInner3(usages []UsagesInner) *ItemsInner3 {
 func NewItemsInner3WithDefaults() *ItemsInner3 {
 	this := ItemsInner3{}
 	return &this
+}
+
+// GetId returns the Id field value
+func (o *ItemsInner3) GetId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Id, true
+}
+
+// SetId sets field value
+func (o *ItemsInner3) SetId(v float32) {
+	o.Id = v
+}
+
+// GetNotes returns the Notes field value
+func (o *ItemsInner3) GetNotes() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Notes
+}
+
+// GetNotesOk returns a tuple with the Notes field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetNotesOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Notes, true
+}
+
+// SetNotes sets field value
+func (o *ItemsInner3) SetNotes(v string) {
+	o.Notes = v
+}
+
+// GetDescription returns the Description field value
+func (o *ItemsInner3) GetDescription() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Description, true
+}
+
+// SetDescription sets field value
+func (o *ItemsInner3) SetDescription(v string) {
+	o.Description = v
+}
+
+// GetUnit returns the Unit field value
+func (o *ItemsInner3) GetUnit() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Unit
+}
+
+// GetUnitOk returns a tuple with the Unit field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetUnitOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Unit, true
+}
+
+// SetUnit sets field value
+func (o *ItemsInner3) SetUnit(v string) {
+	o.Unit = v
+}
+
+// GetOverage returns the Overage field value
+func (o *ItemsInner3) GetOverage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Overage
+}
+
+// GetOverageOk returns a tuple with the Overage field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetOverageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Overage, true
+}
+
+// SetOverage sets field value
+func (o *ItemsInner3) SetOverage(v float32) {
+	o.Overage = v
+}
+
+// GetIncludedUsage returns the IncludedUsage field value
+func (o *ItemsInner3) GetIncludedUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.IncludedUsage
+}
+
+// GetIncludedUsageOk returns a tuple with the IncludedUsage field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetIncludedUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IncludedUsage, true
+}
+
+// SetIncludedUsage sets field value
+func (o *ItemsInner3) SetIncludedUsage(v float32) {
+	o.IncludedUsage = v
+}
+
+// GetAmountDue returns the AmountDue field value
+func (o *ItemsInner3) GetAmountDue() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.AmountDue
+}
+
+// GetAmountDueOk returns a tuple with the AmountDue field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetAmountDueOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AmountDue, true
+}
+
+// SetAmountDue sets field value
+func (o *ItemsInner3) SetAmountDue(v float32) {
+	o.AmountDue = v
+}
+
+// GetDimensionId returns the DimensionId field value
+func (o *ItemsInner3) GetDimensionId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DimensionId
+}
+
+// GetDimensionIdOk returns a tuple with the DimensionId field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetDimensionIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DimensionId, true
+}
+
+// SetDimensionId sets field value
+func (o *ItemsInner3) SetDimensionId(v string) {
+	o.DimensionId = v
+}
+
+// GetDimensionName returns the DimensionName field value
+func (o *ItemsInner3) GetDimensionName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.DimensionName
+}
+
+// GetDimensionNameOk returns a tuple with the DimensionName field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetDimensionNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DimensionName, true
+}
+
+// SetDimensionName sets field value
+func (o *ItemsInner3) SetDimensionName(v string) {
+	o.DimensionName = v
+}
+
+// GetOrgRates returns the OrgRates field value
+// If the value is explicit nil, the zero value for interface{} will be returned
+func (o *ItemsInner3) GetOrgRates() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+
+	return o.OrgRates
+}
+
+// GetOrgRatesOk returns a tuple with the OrgRates field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemsInner3) GetOrgRatesOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.OrgRates) {
+		return nil, false
+	}
+	return &o.OrgRates, true
+}
+
+// SetOrgRates sets field value
+func (o *ItemsInner3) SetOrgRates(v interface{}) {
+	o.OrgRates = v
+}
+
+// GetPeriodEnd returns the PeriodEnd field value
+func (o *ItemsInner3) GetPeriodEnd() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PeriodEnd
+}
+
+// GetPeriodEndOk returns a tuple with the PeriodEnd field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetPeriodEndOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PeriodEnd, true
+}
+
+// SetPeriodEnd sets field value
+func (o *ItemsInner3) SetPeriodEnd(v string) {
+	o.PeriodEnd = v
+}
+
+// GetPeriodStart returns the PeriodStart field value
+func (o *ItemsInner3) GetPeriodStart() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PeriodStart
+}
+
+// GetPeriodStartOk returns a tuple with the PeriodStart field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetPeriodStartOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PeriodStart, true
+}
+
+// SetPeriodStart sets field value
+func (o *ItemsInner3) SetPeriodStart(v string) {
+	o.PeriodStart = v
+}
+
+// GetTotalUsage returns the TotalUsage field value
+func (o *ItemsInner3) GetTotalUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.TotalUsage
+}
+
+// GetTotalUsageOk returns a tuple with the TotalUsage field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner3) GetTotalUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalUsage, true
+}
+
+// SetTotalUsage sets field value
+func (o *ItemsInner3) SetTotalUsage(v float32) {
+	o.TotalUsage = v
 }
 
 // GetUsages returns the Usages field value
@@ -77,6 +417,21 @@ func (o ItemsInner3) MarshalJSON() ([]byte, error) {
 
 func (o ItemsInner3) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["id"] = o.Id
+	toSerialize["notes"] = o.Notes
+	toSerialize["description"] = o.Description
+	toSerialize["unit"] = o.Unit
+	toSerialize["overage"] = o.Overage
+	toSerialize["includedUsage"] = o.IncludedUsage
+	toSerialize["amountDue"] = o.AmountDue
+	toSerialize["dimensionId"] = o.DimensionId
+	toSerialize["dimensionName"] = o.DimensionName
+	if o.OrgRates != nil {
+		toSerialize["orgRates"] = o.OrgRates
+	}
+	toSerialize["periodEnd"] = o.PeriodEnd
+	toSerialize["periodStart"] = o.PeriodStart
+	toSerialize["totalUsage"] = o.TotalUsage
 	toSerialize["usages"] = o.Usages
 
 	for key, value := range o.AdditionalProperties {
@@ -108,6 +463,19 @@ func (o *ItemsInner3) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "notes")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "unit")
+		delete(additionalProperties, "overage")
+		delete(additionalProperties, "includedUsage")
+		delete(additionalProperties, "amountDue")
+		delete(additionalProperties, "dimensionId")
+		delete(additionalProperties, "dimensionName")
+		delete(additionalProperties, "orgRates")
+		delete(additionalProperties, "periodEnd")
+		delete(additionalProperties, "periodStart")
+		delete(additionalProperties, "totalUsage")
 		delete(additionalProperties, "usages")
 		o.AdditionalProperties = additionalProperties
 	}

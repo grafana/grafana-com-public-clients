@@ -19,6 +19,23 @@ var _ MappedNullable = &UsagesInner{}
 
 // UsagesInner struct for UsagesInner
 type UsagesInner struct {
+	ActiveSeries         *float32               `json:"activeSeries,omitempty"`
+	ActiveUsers          *float32               `json:"activeUsers,omitempty"`
+	AnonymousUsers       *float32               `json:"anonymousUsers,omitempty"`
+	BrowserUsage         *float32               `json:"browserUsage,omitempty"`
+	Dpm                  *float32               `json:"dpm,omitempty"`
+	GrafanaUsage         *float32               `json:"grafanaUsage,omitempty"`
+	Id                   float32                `json:"id"`
+	IncidentUsage        *float32               `json:"incidentUsage,omitempty"`
+	IngestUsage          *float32               `json:"ingestUsage,omitempty"`
+	IsProrated           bool                   `json:"isProrated"`
+	OnCallUsage          *float32               `json:"onCallUsage,omitempty"`
+	PeriodEnd            string                 `json:"periodEnd"`
+	PeriodStart          string                 `json:"periodStart"`
+	ProtocolUsage        *float32               `json:"protocolUsage,omitempty"`
+	QueryUsage           *float32               `json:"queryUsage,omitempty"`
+	StackId              float32                `json:"stackId"`
+	TotalUsage           float32                `json:"totalUsage"`
 	StackName            string                 `json:"stackName"`
 	StackLabels          map[string]interface{} `json:"stackLabels"`
 	AdditionalProperties map[string]interface{}
@@ -30,8 +47,14 @@ type _UsagesInner UsagesInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUsagesInner(stackName string, stackLabels map[string]interface{}) *UsagesInner {
+func NewUsagesInner(id float32, isProrated bool, periodEnd string, periodStart string, stackId float32, totalUsage float32, stackName string, stackLabels map[string]interface{}) *UsagesInner {
 	this := UsagesInner{}
+	this.Id = id
+	this.IsProrated = isProrated
+	this.PeriodEnd = periodEnd
+	this.PeriodStart = periodStart
+	this.StackId = stackId
+	this.TotalUsage = totalUsage
 	this.StackName = stackName
 	this.StackLabels = stackLabels
 	return &this
@@ -43,6 +66,502 @@ func NewUsagesInner(stackName string, stackLabels map[string]interface{}) *Usage
 func NewUsagesInnerWithDefaults() *UsagesInner {
 	this := UsagesInner{}
 	return &this
+}
+
+// GetActiveSeries returns the ActiveSeries field value if set, zero value otherwise.
+func (o *UsagesInner) GetActiveSeries() float32 {
+	if o == nil || IsNil(o.ActiveSeries) {
+		var ret float32
+		return ret
+	}
+	return *o.ActiveSeries
+}
+
+// GetActiveSeriesOk returns a tuple with the ActiveSeries field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetActiveSeriesOk() (*float32, bool) {
+	if o == nil || IsNil(o.ActiveSeries) {
+		return nil, false
+	}
+	return o.ActiveSeries, true
+}
+
+// HasActiveSeries returns a boolean if a field has been set.
+func (o *UsagesInner) HasActiveSeries() bool {
+	if o != nil && !IsNil(o.ActiveSeries) {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveSeries gets a reference to the given float32 and assigns it to the ActiveSeries field.
+func (o *UsagesInner) SetActiveSeries(v float32) {
+	o.ActiveSeries = &v
+}
+
+// GetActiveUsers returns the ActiveUsers field value if set, zero value otherwise.
+func (o *UsagesInner) GetActiveUsers() float32 {
+	if o == nil || IsNil(o.ActiveUsers) {
+		var ret float32
+		return ret
+	}
+	return *o.ActiveUsers
+}
+
+// GetActiveUsersOk returns a tuple with the ActiveUsers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetActiveUsersOk() (*float32, bool) {
+	if o == nil || IsNil(o.ActiveUsers) {
+		return nil, false
+	}
+	return o.ActiveUsers, true
+}
+
+// HasActiveUsers returns a boolean if a field has been set.
+func (o *UsagesInner) HasActiveUsers() bool {
+	if o != nil && !IsNil(o.ActiveUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveUsers gets a reference to the given float32 and assigns it to the ActiveUsers field.
+func (o *UsagesInner) SetActiveUsers(v float32) {
+	o.ActiveUsers = &v
+}
+
+// GetAnonymousUsers returns the AnonymousUsers field value if set, zero value otherwise.
+func (o *UsagesInner) GetAnonymousUsers() float32 {
+	if o == nil || IsNil(o.AnonymousUsers) {
+		var ret float32
+		return ret
+	}
+	return *o.AnonymousUsers
+}
+
+// GetAnonymousUsersOk returns a tuple with the AnonymousUsers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetAnonymousUsersOk() (*float32, bool) {
+	if o == nil || IsNil(o.AnonymousUsers) {
+		return nil, false
+	}
+	return o.AnonymousUsers, true
+}
+
+// HasAnonymousUsers returns a boolean if a field has been set.
+func (o *UsagesInner) HasAnonymousUsers() bool {
+	if o != nil && !IsNil(o.AnonymousUsers) {
+		return true
+	}
+
+	return false
+}
+
+// SetAnonymousUsers gets a reference to the given float32 and assigns it to the AnonymousUsers field.
+func (o *UsagesInner) SetAnonymousUsers(v float32) {
+	o.AnonymousUsers = &v
+}
+
+// GetBrowserUsage returns the BrowserUsage field value if set, zero value otherwise.
+func (o *UsagesInner) GetBrowserUsage() float32 {
+	if o == nil || IsNil(o.BrowserUsage) {
+		var ret float32
+		return ret
+	}
+	return *o.BrowserUsage
+}
+
+// GetBrowserUsageOk returns a tuple with the BrowserUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetBrowserUsageOk() (*float32, bool) {
+	if o == nil || IsNil(o.BrowserUsage) {
+		return nil, false
+	}
+	return o.BrowserUsage, true
+}
+
+// HasBrowserUsage returns a boolean if a field has been set.
+func (o *UsagesInner) HasBrowserUsage() bool {
+	if o != nil && !IsNil(o.BrowserUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetBrowserUsage gets a reference to the given float32 and assigns it to the BrowserUsage field.
+func (o *UsagesInner) SetBrowserUsage(v float32) {
+	o.BrowserUsage = &v
+}
+
+// GetDpm returns the Dpm field value if set, zero value otherwise.
+func (o *UsagesInner) GetDpm() float32 {
+	if o == nil || IsNil(o.Dpm) {
+		var ret float32
+		return ret
+	}
+	return *o.Dpm
+}
+
+// GetDpmOk returns a tuple with the Dpm field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetDpmOk() (*float32, bool) {
+	if o == nil || IsNil(o.Dpm) {
+		return nil, false
+	}
+	return o.Dpm, true
+}
+
+// HasDpm returns a boolean if a field has been set.
+func (o *UsagesInner) HasDpm() bool {
+	if o != nil && !IsNil(o.Dpm) {
+		return true
+	}
+
+	return false
+}
+
+// SetDpm gets a reference to the given float32 and assigns it to the Dpm field.
+func (o *UsagesInner) SetDpm(v float32) {
+	o.Dpm = &v
+}
+
+// GetGrafanaUsage returns the GrafanaUsage field value if set, zero value otherwise.
+func (o *UsagesInner) GetGrafanaUsage() float32 {
+	if o == nil || IsNil(o.GrafanaUsage) {
+		var ret float32
+		return ret
+	}
+	return *o.GrafanaUsage
+}
+
+// GetGrafanaUsageOk returns a tuple with the GrafanaUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetGrafanaUsageOk() (*float32, bool) {
+	if o == nil || IsNil(o.GrafanaUsage) {
+		return nil, false
+	}
+	return o.GrafanaUsage, true
+}
+
+// HasGrafanaUsage returns a boolean if a field has been set.
+func (o *UsagesInner) HasGrafanaUsage() bool {
+	if o != nil && !IsNil(o.GrafanaUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetGrafanaUsage gets a reference to the given float32 and assigns it to the GrafanaUsage field.
+func (o *UsagesInner) SetGrafanaUsage(v float32) {
+	o.GrafanaUsage = &v
+}
+
+// GetId returns the Id field value
+func (o *UsagesInner) GetId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Id, true
+}
+
+// SetId sets field value
+func (o *UsagesInner) SetId(v float32) {
+	o.Id = v
+}
+
+// GetIncidentUsage returns the IncidentUsage field value if set, zero value otherwise.
+func (o *UsagesInner) GetIncidentUsage() float32 {
+	if o == nil || IsNil(o.IncidentUsage) {
+		var ret float32
+		return ret
+	}
+	return *o.IncidentUsage
+}
+
+// GetIncidentUsageOk returns a tuple with the IncidentUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetIncidentUsageOk() (*float32, bool) {
+	if o == nil || IsNil(o.IncidentUsage) {
+		return nil, false
+	}
+	return o.IncidentUsage, true
+}
+
+// HasIncidentUsage returns a boolean if a field has been set.
+func (o *UsagesInner) HasIncidentUsage() bool {
+	if o != nil && !IsNil(o.IncidentUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetIncidentUsage gets a reference to the given float32 and assigns it to the IncidentUsage field.
+func (o *UsagesInner) SetIncidentUsage(v float32) {
+	o.IncidentUsage = &v
+}
+
+// GetIngestUsage returns the IngestUsage field value if set, zero value otherwise.
+func (o *UsagesInner) GetIngestUsage() float32 {
+	if o == nil || IsNil(o.IngestUsage) {
+		var ret float32
+		return ret
+	}
+	return *o.IngestUsage
+}
+
+// GetIngestUsageOk returns a tuple with the IngestUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetIngestUsageOk() (*float32, bool) {
+	if o == nil || IsNil(o.IngestUsage) {
+		return nil, false
+	}
+	return o.IngestUsage, true
+}
+
+// HasIngestUsage returns a boolean if a field has been set.
+func (o *UsagesInner) HasIngestUsage() bool {
+	if o != nil && !IsNil(o.IngestUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetIngestUsage gets a reference to the given float32 and assigns it to the IngestUsage field.
+func (o *UsagesInner) SetIngestUsage(v float32) {
+	o.IngestUsage = &v
+}
+
+// GetIsProrated returns the IsProrated field value
+func (o *UsagesInner) GetIsProrated() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsProrated
+}
+
+// GetIsProratedOk returns a tuple with the IsProrated field value
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetIsProratedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsProrated, true
+}
+
+// SetIsProrated sets field value
+func (o *UsagesInner) SetIsProrated(v bool) {
+	o.IsProrated = v
+}
+
+// GetOnCallUsage returns the OnCallUsage field value if set, zero value otherwise.
+func (o *UsagesInner) GetOnCallUsage() float32 {
+	if o == nil || IsNil(o.OnCallUsage) {
+		var ret float32
+		return ret
+	}
+	return *o.OnCallUsage
+}
+
+// GetOnCallUsageOk returns a tuple with the OnCallUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetOnCallUsageOk() (*float32, bool) {
+	if o == nil || IsNil(o.OnCallUsage) {
+		return nil, false
+	}
+	return o.OnCallUsage, true
+}
+
+// HasOnCallUsage returns a boolean if a field has been set.
+func (o *UsagesInner) HasOnCallUsage() bool {
+	if o != nil && !IsNil(o.OnCallUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetOnCallUsage gets a reference to the given float32 and assigns it to the OnCallUsage field.
+func (o *UsagesInner) SetOnCallUsage(v float32) {
+	o.OnCallUsage = &v
+}
+
+// GetPeriodEnd returns the PeriodEnd field value
+func (o *UsagesInner) GetPeriodEnd() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PeriodEnd
+}
+
+// GetPeriodEndOk returns a tuple with the PeriodEnd field value
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetPeriodEndOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PeriodEnd, true
+}
+
+// SetPeriodEnd sets field value
+func (o *UsagesInner) SetPeriodEnd(v string) {
+	o.PeriodEnd = v
+}
+
+// GetPeriodStart returns the PeriodStart field value
+func (o *UsagesInner) GetPeriodStart() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PeriodStart
+}
+
+// GetPeriodStartOk returns a tuple with the PeriodStart field value
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetPeriodStartOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PeriodStart, true
+}
+
+// SetPeriodStart sets field value
+func (o *UsagesInner) SetPeriodStart(v string) {
+	o.PeriodStart = v
+}
+
+// GetProtocolUsage returns the ProtocolUsage field value if set, zero value otherwise.
+func (o *UsagesInner) GetProtocolUsage() float32 {
+	if o == nil || IsNil(o.ProtocolUsage) {
+		var ret float32
+		return ret
+	}
+	return *o.ProtocolUsage
+}
+
+// GetProtocolUsageOk returns a tuple with the ProtocolUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetProtocolUsageOk() (*float32, bool) {
+	if o == nil || IsNil(o.ProtocolUsage) {
+		return nil, false
+	}
+	return o.ProtocolUsage, true
+}
+
+// HasProtocolUsage returns a boolean if a field has been set.
+func (o *UsagesInner) HasProtocolUsage() bool {
+	if o != nil && !IsNil(o.ProtocolUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetProtocolUsage gets a reference to the given float32 and assigns it to the ProtocolUsage field.
+func (o *UsagesInner) SetProtocolUsage(v float32) {
+	o.ProtocolUsage = &v
+}
+
+// GetQueryUsage returns the QueryUsage field value if set, zero value otherwise.
+func (o *UsagesInner) GetQueryUsage() float32 {
+	if o == nil || IsNil(o.QueryUsage) {
+		var ret float32
+		return ret
+	}
+	return *o.QueryUsage
+}
+
+// GetQueryUsageOk returns a tuple with the QueryUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetQueryUsageOk() (*float32, bool) {
+	if o == nil || IsNil(o.QueryUsage) {
+		return nil, false
+	}
+	return o.QueryUsage, true
+}
+
+// HasQueryUsage returns a boolean if a field has been set.
+func (o *UsagesInner) HasQueryUsage() bool {
+	if o != nil && !IsNil(o.QueryUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetQueryUsage gets a reference to the given float32 and assigns it to the QueryUsage field.
+func (o *UsagesInner) SetQueryUsage(v float32) {
+	o.QueryUsage = &v
+}
+
+// GetStackId returns the StackId field value
+func (o *UsagesInner) GetStackId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.StackId
+}
+
+// GetStackIdOk returns a tuple with the StackId field value
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetStackIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StackId, true
+}
+
+// SetStackId sets field value
+func (o *UsagesInner) SetStackId(v float32) {
+	o.StackId = v
+}
+
+// GetTotalUsage returns the TotalUsage field value
+func (o *UsagesInner) GetTotalUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.TotalUsage
+}
+
+// GetTotalUsageOk returns a tuple with the TotalUsage field value
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetTotalUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalUsage, true
+}
+
+// SetTotalUsage sets field value
+func (o *UsagesInner) SetTotalUsage(v float32) {
+	o.TotalUsage = v
 }
 
 // GetStackName returns the StackName field value
@@ -103,6 +622,45 @@ func (o UsagesInner) MarshalJSON() ([]byte, error) {
 
 func (o UsagesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.ActiveSeries) {
+		toSerialize["activeSeries"] = o.ActiveSeries
+	}
+	if !IsNil(o.ActiveUsers) {
+		toSerialize["activeUsers"] = o.ActiveUsers
+	}
+	if !IsNil(o.AnonymousUsers) {
+		toSerialize["anonymousUsers"] = o.AnonymousUsers
+	}
+	if !IsNil(o.BrowserUsage) {
+		toSerialize["browserUsage"] = o.BrowserUsage
+	}
+	if !IsNil(o.Dpm) {
+		toSerialize["dpm"] = o.Dpm
+	}
+	if !IsNil(o.GrafanaUsage) {
+		toSerialize["grafanaUsage"] = o.GrafanaUsage
+	}
+	toSerialize["id"] = o.Id
+	if !IsNil(o.IncidentUsage) {
+		toSerialize["incidentUsage"] = o.IncidentUsage
+	}
+	if !IsNil(o.IngestUsage) {
+		toSerialize["ingestUsage"] = o.IngestUsage
+	}
+	toSerialize["isProrated"] = o.IsProrated
+	if !IsNil(o.OnCallUsage) {
+		toSerialize["onCallUsage"] = o.OnCallUsage
+	}
+	toSerialize["periodEnd"] = o.PeriodEnd
+	toSerialize["periodStart"] = o.PeriodStart
+	if !IsNil(o.ProtocolUsage) {
+		toSerialize["protocolUsage"] = o.ProtocolUsage
+	}
+	if !IsNil(o.QueryUsage) {
+		toSerialize["queryUsage"] = o.QueryUsage
+	}
+	toSerialize["stackId"] = o.StackId
+	toSerialize["totalUsage"] = o.TotalUsage
 	toSerialize["stackName"] = o.StackName
 	toSerialize["stackLabels"] = o.StackLabels
 
@@ -135,6 +693,23 @@ func (o *UsagesInner) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "activeSeries")
+		delete(additionalProperties, "activeUsers")
+		delete(additionalProperties, "anonymousUsers")
+		delete(additionalProperties, "browserUsage")
+		delete(additionalProperties, "dpm")
+		delete(additionalProperties, "grafanaUsage")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "incidentUsage")
+		delete(additionalProperties, "ingestUsage")
+		delete(additionalProperties, "isProrated")
+		delete(additionalProperties, "onCallUsage")
+		delete(additionalProperties, "periodEnd")
+		delete(additionalProperties, "periodStart")
+		delete(additionalProperties, "protocolUsage")
+		delete(additionalProperties, "queryUsage")
+		delete(additionalProperties, "stackId")
+		delete(additionalProperties, "totalUsage")
 		delete(additionalProperties, "stackName")
 		delete(additionalProperties, "stackLabels")
 		o.AdditionalProperties = additionalProperties

@@ -19,6 +19,8 @@ var _ MappedNullable = &OrgBilledUsageHistory{}
 
 // OrgBilledUsageHistory struct for OrgBilledUsageHistory
 type OrgBilledUsageHistory struct {
+	// A URL to the JSON Schema for this object.
+	Schema               *string       `json:"$schema,omitempty"`
 	Items                []ItemsInner4 `json:"items"`
 	AdditionalProperties map[string]interface{}
 }
@@ -41,6 +43,38 @@ func NewOrgBilledUsageHistory(items []ItemsInner4) *OrgBilledUsageHistory {
 func NewOrgBilledUsageHistoryWithDefaults() *OrgBilledUsageHistory {
 	this := OrgBilledUsageHistory{}
 	return &this
+}
+
+// GetSchema returns the Schema field value if set, zero value otherwise.
+func (o *OrgBilledUsageHistory) GetSchema() string {
+	if o == nil || IsNil(o.Schema) {
+		var ret string
+		return ret
+	}
+	return *o.Schema
+}
+
+// GetSchemaOk returns a tuple with the Schema field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrgBilledUsageHistory) GetSchemaOk() (*string, bool) {
+	if o == nil || IsNil(o.Schema) {
+		return nil, false
+	}
+	return o.Schema, true
+}
+
+// HasSchema returns a boolean if a field has been set.
+func (o *OrgBilledUsageHistory) HasSchema() bool {
+	if o != nil && !IsNil(o.Schema) {
+		return true
+	}
+
+	return false
+}
+
+// SetSchema gets a reference to the given string and assigns it to the Schema field.
+func (o *OrgBilledUsageHistory) SetSchema(v string) {
+	o.Schema = &v
 }
 
 // GetItems returns the Items field value
@@ -77,6 +111,9 @@ func (o OrgBilledUsageHistory) MarshalJSON() ([]byte, error) {
 
 func (o OrgBilledUsageHistory) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Schema) {
+		toSerialize["$schema"] = o.Schema
+	}
 	toSerialize["items"] = o.Items
 
 	for key, value := range o.AdditionalProperties {
@@ -108,6 +145,7 @@ func (o *OrgBilledUsageHistory) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "$schema")
 		delete(additionalProperties, "items")
 		o.AdditionalProperties = additionalProperties
 	}

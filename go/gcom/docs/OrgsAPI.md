@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ## GetOrgBilledUsage
 
-> ModifiedGetOrgBilledUsageResponse GetOrgBilledUsage(ctx, orgSlugOrId).Month(month).Year(year).Format(format).Execute()
+> BilledUsageList GetOrgBilledUsage(ctx, orgSlugOrId).Month(month).Year(year).Format(format).Execute()
 
 Retrieve an org's billed usage for a specific month
 
@@ -473,7 +473,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrgsAPI.GetOrgBilledUsage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetOrgBilledUsage`: ModifiedGetOrgBilledUsageResponse
+	// response from `GetOrgBilledUsage`: BilledUsageList
 	fmt.Fprintf(os.Stdout, "Response from `OrgsAPI.GetOrgBilledUsage`: %v\n", resp)
 }
 ```
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModifiedGetOrgBilledUsageResponse**](ModifiedGetOrgBilledUsageResponse.md)
+[**BilledUsageList**](BilledUsageList.md)
 
 ### Authorization
 
