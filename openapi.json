@@ -3078,7 +3078,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ModifiedGetOrgBilledUsageResponse"
+                  "$ref": "#/components/schemas/BilledUsageList"
                 }
               }
             }
@@ -6114,8 +6114,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "93eba8a",
-    "x-generated-at": "2025-07-03T12:55:02.012Z"
+    "x-commit-sha": "b2a8e53",
+    "x-generated-at": "2025-07-03T13:15:01.300Z"
   },
   "security": [
     {
@@ -11027,31 +11027,179 @@
           "name"
         ]
       },
-      "ModifiedGetOrgBilledUsageResponse": {
+      "BilledUsageList": {
         "type": "object",
         "properties": {
           "total": {
+            "description": "The total number of items.",
             "type": "number",
             "title": "total"
           },
           "page": {
+            "description": "The page number of the items.",
             "type": "number",
             "title": "page"
           },
           "page_size": {
+            "description": "The page size of the items.",
             "type": "number",
             "title": "page_size"
+          },
+          "$schema": {
+            "description": "A URL to the JSON Schema for this object.",
+            "type": "string",
+            "title": "$schema"
           },
           "items": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
+                "id": {
+                  "type": "number",
+                  "title": "id"
+                },
+                "notes": {
+                  "type": "string",
+                  "title": "notes"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "description"
+                },
+                "unit": {
+                  "type": "string",
+                  "title": "unit"
+                },
+                "overage": {
+                  "type": "number",
+                  "title": "overage"
+                },
+                "includedUsage": {
+                  "type": "number",
+                  "title": "includedUsage"
+                },
+                "amountDue": {
+                  "type": "number",
+                  "title": "amountDue"
+                },
+                "dimensionId": {
+                  "enum": [
+                    "app-o11y",
+                    "fe-o11y",
+                    "ge-instances",
+                    "ge-users",
+                    "hg",
+                    "hg-plugin-users",
+                    "hl",
+                    "hl-retention",
+                    "hm",
+                    "hm-graphite",
+                    "hp",
+                    "ht",
+                    "infra-o11y-containers",
+                    "infra-o11y-hosts",
+                    "irm",
+                    "k6-ip",
+                    "k6-vuh",
+                    "sm",
+                    "sm-browser"
+                  ],
+                  "type": "string",
+                  "title": "dimensionId"
+                },
+                "dimensionName": {
+                  "type": "string",
+                  "title": "dimensionName"
+                },
+                "orgRates": {
+                  "title": "orgRates"
+                },
+                "periodEnd": {
+                  "type": "string",
+                  "title": "periodEnd"
+                },
+                "periodStart": {
+                  "type": "string",
+                  "title": "periodStart"
+                },
+                "totalUsage": {
+                  "type": "number",
+                  "title": "totalUsage"
+                },
                 "usages": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
+                      "activeSeries": {
+                        "type": "number",
+                        "title": "activeSeries"
+                      },
+                      "activeUsers": {
+                        "type": "number",
+                        "title": "activeUsers"
+                      },
+                      "anonymousUsers": {
+                        "type": "number",
+                        "title": "anonymousUsers"
+                      },
+                      "browserUsage": {
+                        "type": "number",
+                        "title": "browserUsage"
+                      },
+                      "dpm": {
+                        "type": "number",
+                        "title": "dpm"
+                      },
+                      "grafanaUsage": {
+                        "type": "number",
+                        "title": "grafanaUsage"
+                      },
+                      "id": {
+                        "type": "number",
+                        "title": "id"
+                      },
+                      "incidentUsage": {
+                        "type": "number",
+                        "title": "incidentUsage"
+                      },
+                      "ingestUsage": {
+                        "type": "number",
+                        "title": "ingestUsage"
+                      },
+                      "isProrated": {
+                        "type": "boolean",
+                        "title": "isProrated"
+                      },
+                      "onCallUsage": {
+                        "type": "number",
+                        "title": "onCallUsage"
+                      },
+                      "periodEnd": {
+                        "type": "string",
+                        "title": "periodEnd"
+                      },
+                      "periodStart": {
+                        "type": "string",
+                        "title": "periodStart"
+                      },
+                      "protocolUsage": {
+                        "type": "number",
+                        "title": "protocolUsage"
+                      },
+                      "queryUsage": {
+                        "type": "number",
+                        "title": "queryUsage"
+                      },
+                      "stackId": {
+                        "type": "number",
+                        "title": "stackId"
+                      },
+                      "totalUsage": {
+                        "type": "number",
+                        "title": "totalUsage"
+                      },
                       "stackName": {
                         "type": "string",
                         "title": "stackName"
@@ -11062,14 +11210,33 @@
                       }
                     },
                     "required": [
+                      "id",
+                      "isProrated",
+                      "periodEnd",
+                      "periodStart",
+                      "stackId",
                       "stackLabels",
-                      "stackName"
+                      "stackName",
+                      "totalUsage"
                     ]
                   },
                   "title": "usages"
                 }
               },
               "required": [
+                "amountDue",
+                "description",
+                "dimensionId",
+                "dimensionName",
+                "id",
+                "includedUsage",
+                "notes",
+                "orgRates",
+                "overage",
+                "periodEnd",
+                "periodStart",
+                "totalUsage",
+                "unit",
                 "usages"
               ]
             },
@@ -11086,6 +11253,11 @@
       "OrgBilledUsageHistory": {
         "type": "object",
         "properties": {
+          "$schema": {
+            "description": "A URL to the JSON Schema for this object.",
+            "type": "string",
+            "title": "$schema"
+          },
           "items": {
             "type": "array",
             "items": {
