@@ -6160,8 +6160,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "b798561",
-    "x-generated-at": "2025-07-04T12:42:51.862Z"
+    "x-commit-sha": "d19e0c8",
+    "x-generated-at": "2025-07-04T14:16:43.899Z"
   },
   "security": [
     {
@@ -11100,6 +11100,10 @@
             "type": "number",
             "title": "includedUsage"
           },
+          "amountDue": {
+            "type": "number",
+            "title": "amountDue"
+          },
           "dimensionId": {
             "enum": [
               "app-o11y",
@@ -11129,24 +11133,20 @@
             "type": "string",
             "title": "dimensionName"
           },
-          "totalUsage": {
-            "type": "number",
-            "title": "totalUsage"
-          },
           "orgRates": {
             "title": "orgRates"
           },
-          "amountDue": {
-            "type": "number",
-            "title": "amountDue"
+          "periodEnd": {
+            "type": "string",
+            "title": "periodEnd"
           },
           "periodStart": {
             "type": "string",
             "title": "periodStart"
           },
-          "periodEnd": {
-            "type": "string",
-            "title": "periodEnd"
+          "totalUsage": {
+            "type": "number",
+            "title": "totalUsage"
           },
           "usages": {
             "type": "array",
