@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: c26d1ed
-  x-generated-at: 2025-07-04T12:01:04.150Z
+  x-commit-sha: b798561
+  x-generated-at: 2025-07-04T12:42:51.862Z
 servers:
 - description: Main API server
   url: /api
@@ -6101,11 +6101,11 @@ components:
         notes: notes
         description: description
         dimensionName: dimensionName
-        amountDue: 5.962133916683182
+        amountDue: 5.637376656633329
         unit: unit
         orgRates: ""
         dimensionId: app-o11y
-        totalUsage: 5.637376656633329
+        totalUsage: 5.962133916683182
         id: 0.8008281904610115
         usages:
         - dpm: 2.027123023002322
@@ -6169,9 +6169,6 @@ components:
         includedUsage:
           title: includedUsage
           type: number
-        amountDue:
-          title: amountDue
-          type: number
         dimensionId:
           enum:
           - app-o11y
@@ -6198,17 +6195,20 @@ components:
         dimensionName:
           title: dimensionName
           type: string
-        orgRates:
-          title: orgRates
-        periodEnd:
-          title: periodEnd
-          type: string
-        periodStart:
-          title: periodStart
-          type: string
         totalUsage:
           title: totalUsage
           type: number
+        orgRates:
+          title: orgRates
+        amountDue:
+          title: amountDue
+          type: number
+        periodStart:
+          title: periodStart
+          type: string
+        periodEnd:
+          title: periodEnd
+          type: string
         usages:
           items:
             $ref: '#/components/schemas/usages_inner'
@@ -6860,11 +6860,11 @@ components:
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 5.962133916683182
+          amountDue: 5.637376656633329
           unit: unit
           orgRates: ""
           dimensionId: app-o11y
-          totalUsage: 5.637376656633329
+          totalUsage: 5.962133916683182
           id: 0.8008281904610115
           usages:
           - dpm: 2.027123023002322
@@ -6912,11 +6912,11 @@ components:
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 5.962133916683182
+          amountDue: 5.637376656633329
           unit: unit
           orgRates: ""
           dimensionId: app-o11y
-          totalUsage: 5.637376656633329
+          totalUsage: 5.962133916683182
           id: 0.8008281904610115
           usages:
           - dpm: 2.027123023002322
