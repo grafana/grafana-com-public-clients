@@ -26,7 +26,7 @@ docs/AuthAccessPolicyRealmsInner.md
 docs/AuthAccessPolicyRealmsInnerLabelPoliciesInner.md
 docs/AuthToken.md
 docs/AuthTokenWithSecret.md
-docs/BilledUsageList.md
+docs/BilledUsage.md
 docs/Current.md
 docs/Current1.md
 docs/Current2.md
@@ -52,6 +52,7 @@ docs/Gateway1.md
 docs/GetAccessPolicies200Response.md
 docs/GetInstancePlugins200Response.md
 docs/GetInstances200Response.md
+docs/GetOrgBilledUsage200Response.md
 docs/GetStackRegions200Response.md
 docs/GrafanaNewApiKeyResult.md
 docs/GrafanaServiceAccountDTO.md
@@ -66,7 +67,6 @@ docs/ItemsInner2.md
 docs/ItemsInner2GrafanaStaffAccess.md
 docs/ItemsInner2MarketplaceSubscription.md
 docs/ItemsInner3.md
-docs/ItemsInner4.md
 docs/ItemsInnerId.md
 docs/LinksInner.md
 docs/LinksInner1.md
@@ -135,7 +135,7 @@ model_auth_access_policy_realms_inner.go
 model_auth_access_policy_realms_inner_label_policies_inner.go
 model_auth_token.go
 model_auth_token_with_secret.go
-model_billed_usage_list.go
+model_billed_usage.go
 model_current.go
 model_current_1.go
 model_current_2.go
@@ -161,6 +161,7 @@ model_gateway_1.go
 model_get_access_policies_200_response.go
 model_get_instance_plugins_200_response.go
 model_get_instances_200_response.go
+model_get_org_billed_usage_200_response.go
 model_get_stack_regions_200_response.go
 model_grafana_new_api_key_result.go
 model_grafana_service_account_dto.go
@@ -174,7 +175,6 @@ model_items_inner_2.go
 model_items_inner_2_grafana_staff_access.go
 model_items_inner_2_marketplace_subscription.go
 model_items_inner_3.go
-model_items_inner_4.go
 model_items_inner_id.go
 model_links_inner.go
 model_links_inner_1.go
