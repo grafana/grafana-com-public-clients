@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 943e3c1
-  x-generated-at: 2025-07-04T09:52:24.838Z
+  x-commit-sha: a132859
+  x-generated-at: 2025-07-04T11:09:47.837Z
 servers:
 - description: Main API server
   url: /api
@@ -6101,11 +6101,11 @@ components:
         notes: notes
         description: description
         dimensionName: dimensionName
-        amountDue: 5.637376656633329
+        amountDue: 5.962133916683182
         unit: unit
         orgRates: ""
         dimensionId: app-o11y
-        totalUsage: 5.962133916683182
+        totalUsage: 5.637376656633329
         id: 0.8008281904610115
         usages:
         - dpm: 2.027123023002322
@@ -6169,6 +6169,9 @@ components:
         includedUsage:
           title: includedUsage
           type: number
+        amountDue:
+          title: amountDue
+          type: number
         dimensionId:
           enum:
           - app-o11y
@@ -6195,20 +6198,17 @@ components:
         dimensionName:
           title: dimensionName
           type: string
-        totalUsage:
-          title: totalUsage
-          type: number
         orgRates:
           title: orgRates
-        amountDue:
-          title: amountDue
-          type: number
-        periodStart:
-          title: periodStart
-          type: string
         periodEnd:
           title: periodEnd
           type: string
+        periodStart:
+          title: periodStart
+          type: string
+        totalUsage:
+          title: totalUsage
+          type: number
         usages:
           items:
             $ref: '#/components/schemas/usages_inner'
@@ -6860,11 +6860,11 @@ components:
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 5.637376656633329
+          amountDue: 5.962133916683182
           unit: unit
           orgRates: ""
           dimensionId: app-o11y
-          totalUsage: 5.962133916683182
+          totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
           - dpm: 2.027123023002322
@@ -6912,11 +6912,11 @@ components:
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 5.637376656633329
+          amountDue: 5.962133916683182
           unit: unit
           orgRates: ""
           dimensionId: app-o11y
-          totalUsage: 5.962133916683182
+          totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
           - dpm: 2.027123023002322
