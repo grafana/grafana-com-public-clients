@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 6caf73b
-  x-generated-at: 2025-07-08T07:03:18.738Z
+  x-commit-sha: a114ef5
+  x-generated-at: 2025-07-08T07:42:21.351Z
 servers:
 - description: Main API server
   url: /api
@@ -5815,7 +5815,6 @@ components:
         - rel: rel
           href: href
         id: 0.8008281904610115
-        lastCommitDate: lastCommitDate
         slug: slug
         updatedAt: updatedAt
         orgName: orgName
@@ -5927,9 +5926,6 @@ components:
         angularDetected:
           title: angularDetected
           type: boolean
-        lastCommitDate:
-          title: lastCommitDate
-          type: string
         licenseUrl:
           title: licenseUrl
           type: string
@@ -5945,7 +5941,6 @@ components:
       - featured
       - id
       - internal
-      - lastCommitDate
       - links
       - name
       - orgId
