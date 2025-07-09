@@ -1517,874 +1517,6 @@
         }
       }
     },
-    "/instances/{instanceId}/oauth-azuread": {
-      "post": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "postInstanceOAuthAzureAD",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "allowedDomains": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "allowedGroups": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "authUrl": {
-                    "type": "string"
-                  },
-                  "clientId": {
-                    "type": "string"
-                  },
-                  "clientSecret": {
-                    "type": "string"
-                  },
-                  "scopes": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "tokenUrl": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "clientId",
-                  "authUrl",
-                  "tokenUrl"
-                ]
-              }
-            }
-          }
-        },
-        "summary": "Configure Azure OAuth in an instance",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiInstance"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "delInstanceOAuthAzureAD",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "summary": "Disable Azure OAuth in an instance",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiInstance"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/instances/{instanceId}/oauth-github": {
-      "post": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "postInstanceOAuthGithub",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "allowedOrganizations": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "clientId": {
-                    "type": "string"
-                  },
-                  "clientSecret": {
-                    "type": "string"
-                  },
-                  "teamIds": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "required": [
-                  "clientId"
-                ]
-              }
-            }
-          }
-        },
-        "summary": "Configure Github OAuth in an instance",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiInstance"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "delInstanceOAuthGithub",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "summary": "Disable Github OAuth in an instance",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiInstance"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/instances/{instanceId}/oauth-google": {
-      "post": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "postInstanceOAuthGoogle",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "allowedDomains": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "clientId": {
-                    "type": "string"
-                  },
-                  "clientSecret": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "clientId",
-                  "allowedDomains"
-                ]
-              }
-            }
-          }
-        },
-        "summary": "Configure Google OAuth in an instance",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiInstance"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "delInstanceOAuthGoogle",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "summary": "Disable Google OAuth in an instance",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiInstance"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/instances/{instanceId}/oauth-okta": {
-      "post": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "postInstanceOAuthOkta",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "allowedDomains": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "allowedGroups": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "apiUrl": {
-                    "type": "string"
-                  },
-                  "authUrl": {
-                    "type": "string"
-                  },
-                  "clientId": {
-                    "type": "string"
-                  },
-                  "clientSecret": {
-                    "type": "string"
-                  },
-                  "roleAttributePath": {
-                    "type": "string"
-                  },
-                  "tokenUrl": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "clientId",
-                  "authUrl",
-                  "tokenUrl",
-                  "apiUrl"
-                ]
-              }
-            }
-          }
-        },
-        "summary": "Configure Okta OAuth in an instance",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiInstance"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "delInstanceOAuthOkta",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "summary": "Disable Okta OAuth in an instance",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiInstance"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/instances/{instanceId}/plugins": {
       "get": {
         "tags": [
@@ -6160,8 +5292,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "1c2dd1e",
-    "x-generated-at": "2025-07-09T13:49:33.703Z"
+    "x-commit-sha": "039cf2f",
+    "x-generated-at": "2025-07-09T14:37:15.170Z"
   },
   "security": [
     {
@@ -6897,6 +6029,121 @@
           "version"
         ]
       },
+      "GrafanaServiceAccountDTO": {
+        "description": "swagger: model",
+        "properties": {
+          "accessControl": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "example": {
+              "serviceaccounts:delete": true,
+              "serviceaccounts:read": true,
+              "serviceaccounts:write": true
+            },
+            "type": "object"
+          },
+          "avatarUrl": {
+            "example": "/avatar/85ec38023d90823d3e5b43ef35646af9",
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "isDisabled": {
+            "example": false,
+            "type": "boolean"
+          },
+          "isExternal": {
+            "example": false,
+            "type": "boolean"
+          },
+          "login": {
+            "example": "sa-grafana",
+            "type": "string"
+          },
+          "name": {
+            "example": "grafana",
+            "type": "string"
+          },
+          "orgId": {
+            "example": 1,
+            "format": "int64",
+            "type": "integer"
+          },
+          "role": {
+            "example": "Viewer",
+            "type": "string"
+          },
+          "tokens": {
+            "example": 0,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "GrafanaNewApiKeyResult": {
+        "properties": {
+          "id": {
+            "example": 1,
+            "format": "int64",
+            "type": "integer"
+          },
+          "key": {
+            "example": "glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a",
+            "type": "string"
+          },
+          "name": {
+            "example": "grafana",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "GrafanaTokenDTO": {
+        "properties": {
+          "created": {
+            "example": "2022-03-23T10:31:02Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "expiration": {
+            "example": "2022-03-23T10:31:02Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "hasExpired": {
+            "example": false,
+            "type": "boolean"
+          },
+          "id": {
+            "example": 1,
+            "format": "int64",
+            "type": "integer"
+          },
+          "isRevoked": {
+            "example": false,
+            "type": "boolean"
+          },
+          "lastUsedAt": {
+            "example": "2022-03-23T10:31:02Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "name": {
+            "example": "grafana",
+            "type": "string"
+          },
+          "secondsUntilExpiration": {
+            "example": 0,
+            "format": "double",
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
       "FormattedApiInstance": {
         "type": "object",
         "properties": {
@@ -7596,121 +6843,6 @@
           "userQuota",
           "version"
         ]
-      },
-      "GrafanaServiceAccountDTO": {
-        "description": "swagger: model",
-        "properties": {
-          "accessControl": {
-            "additionalProperties": {
-              "type": "boolean"
-            },
-            "example": {
-              "serviceaccounts:delete": true,
-              "serviceaccounts:read": true,
-              "serviceaccounts:write": true
-            },
-            "type": "object"
-          },
-          "avatarUrl": {
-            "example": "/avatar/85ec38023d90823d3e5b43ef35646af9",
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "isDisabled": {
-            "example": false,
-            "type": "boolean"
-          },
-          "isExternal": {
-            "example": false,
-            "type": "boolean"
-          },
-          "login": {
-            "example": "sa-grafana",
-            "type": "string"
-          },
-          "name": {
-            "example": "grafana",
-            "type": "string"
-          },
-          "orgId": {
-            "example": 1,
-            "format": "int64",
-            "type": "integer"
-          },
-          "role": {
-            "example": "Viewer",
-            "type": "string"
-          },
-          "tokens": {
-            "example": 0,
-            "format": "int64",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "GrafanaNewApiKeyResult": {
-        "properties": {
-          "id": {
-            "example": 1,
-            "format": "int64",
-            "type": "integer"
-          },
-          "key": {
-            "example": "glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a",
-            "type": "string"
-          },
-          "name": {
-            "example": "grafana",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "GrafanaTokenDTO": {
-        "properties": {
-          "created": {
-            "example": "2022-03-23T10:31:02Z",
-            "format": "date-time",
-            "type": "string"
-          },
-          "expiration": {
-            "example": "2022-03-23T10:31:02Z",
-            "format": "date-time",
-            "type": "string"
-          },
-          "hasExpired": {
-            "example": false,
-            "type": "boolean"
-          },
-          "id": {
-            "example": 1,
-            "format": "int64",
-            "type": "integer"
-          },
-          "isRevoked": {
-            "example": false,
-            "type": "boolean"
-          },
-          "lastUsedAt": {
-            "example": "2022-03-23T10:31:02Z",
-            "format": "date-time",
-            "type": "string"
-          },
-          "name": {
-            "example": "grafana",
-            "type": "string"
-          },
-          "secondsUntilExpiration": {
-            "example": 0,
-            "format": "double",
-            "type": "number"
-          }
-        },
-        "type": "object"
       },
       "InstanceUsersResponse": {
         "type": "object",
