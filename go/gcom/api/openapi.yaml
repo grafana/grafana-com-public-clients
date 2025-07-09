@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 1c2dd1e
-  x-generated-at: 2025-07-09T13:49:33.703Z
+  x-commit-sha: 039cf2f
+  x-generated-at: 2025-07-09T14:37:15.170Z
 servers:
 - description: Main API server
   url: /api
@@ -936,498 +936,6 @@ paths:
           description: "Invalid arguments: wrong or missing parameters"
       summary: "Gets an instance's connectivity information (InfluxDB, OTEL, AWS private\
         \ link, etc.)"
-      tags:
-      - instances
-  /instances/{instanceId}/oauth-azuread:
-    delete:
-      operationId: delInstanceOAuthAzureAD
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Disable Azure OAuth in an instance
-      tags:
-      - instances
-    post:
-      operationId: postInstanceOAuthAzureAD
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/postInstanceOAuthAzureAD_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Configure Azure OAuth in an instance
-      tags:
-      - instances
-  /instances/{instanceId}/oauth-github:
-    delete:
-      operationId: delInstanceOAuthGithub
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Disable Github OAuth in an instance
-      tags:
-      - instances
-    post:
-      operationId: postInstanceOAuthGithub
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/postInstanceOAuthGithub_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Configure Github OAuth in an instance
-      tags:
-      - instances
-  /instances/{instanceId}/oauth-google:
-    delete:
-      operationId: delInstanceOAuthGoogle
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Disable Google OAuth in an instance
-      tags:
-      - instances
-    post:
-      operationId: postInstanceOAuthGoogle
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/postInstanceOAuthGoogle_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Configure Google OAuth in an instance
-      tags:
-      - instances
-  /instances/{instanceId}/oauth-okta:
-    delete:
-      operationId: delInstanceOAuthOkta
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Disable Okta OAuth in an instance
-      tags:
-      - instances
-    post:
-      operationId: postInstanceOAuthOkta
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/postInstanceOAuthOkta_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Configure Okta OAuth in an instance
       tags:
       - instances
   /instances/{instanceId}/plugins:
@@ -4146,6 +3654,119 @@ components:
       - pluginSlug
       - version
       type: object
+    GrafanaServiceAccountDTO:
+      description: "swagger: model"
+      example:
+        accessControl:
+          serviceaccounts:delete: true
+          serviceaccounts:read: true
+          serviceaccounts:write: true
+        role: Viewer
+        isExternal: false
+        avatarUrl: /avatar/85ec38023d90823d3e5b43ef35646af9
+        name: grafana
+        tokens: 0
+        id: 0
+        isDisabled: false
+        login: sa-grafana
+        orgId: 1
+      properties:
+        accessControl:
+          additionalProperties:
+            type: boolean
+          example:
+            serviceaccounts:delete: true
+            serviceaccounts:read: true
+            serviceaccounts:write: true
+          type: object
+        avatarUrl:
+          example: /avatar/85ec38023d90823d3e5b43ef35646af9
+          type: string
+        id:
+          format: int64
+          type: integer
+        isDisabled:
+          example: false
+          type: boolean
+        isExternal:
+          example: false
+          type: boolean
+        login:
+          example: sa-grafana
+          type: string
+        name:
+          example: grafana
+          type: string
+        orgId:
+          example: 1
+          format: int64
+          type: integer
+        role:
+          example: Viewer
+          type: string
+        tokens:
+          example: 0
+          format: int64
+          type: integer
+      type: object
+    GrafanaNewApiKeyResult:
+      example:
+        name: grafana
+        id: 1
+        key: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
+      properties:
+        id:
+          example: 1
+          format: int64
+          type: integer
+        key:
+          example: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
+          type: string
+        name:
+          example: grafana
+          type: string
+      type: object
+    GrafanaTokenDTO:
+      example:
+        isRevoked: false
+        hasExpired: false
+        lastUsedAt: 2022-03-23T10:31:02Z
+        created: 2022-03-23T10:31:02Z
+        name: grafana
+        secondsUntilExpiration: 0
+        expiration: 2022-03-23T10:31:02Z
+        id: 1
+      properties:
+        created:
+          example: 2022-03-23T10:31:02Z
+          format: date-time
+          type: string
+        expiration:
+          example: 2022-03-23T10:31:02Z
+          format: date-time
+          type: string
+        hasExpired:
+          example: false
+          type: boolean
+        id:
+          example: 1
+          format: int64
+          type: integer
+        isRevoked:
+          example: false
+          type: boolean
+        lastUsedAt:
+          example: 2022-03-23T10:31:02Z
+          format: date-time
+          type: string
+        name:
+          example: grafana
+          type: string
+        secondsUntilExpiration:
+          example: 0
+          format: double
+          type: number
+      type: object
     FormattedApiInstance:
       example:
         hmInstancePromName: hmInstancePromName
@@ -4822,119 +4443,6 @@ components:
       - usageStatsId
       - userQuota
       - version
-      type: object
-    GrafanaServiceAccountDTO:
-      description: "swagger: model"
-      example:
-        accessControl:
-          serviceaccounts:delete: true
-          serviceaccounts:read: true
-          serviceaccounts:write: true
-        role: Viewer
-        isExternal: false
-        avatarUrl: /avatar/85ec38023d90823d3e5b43ef35646af9
-        name: grafana
-        tokens: 0
-        id: 0
-        isDisabled: false
-        login: sa-grafana
-        orgId: 1
-      properties:
-        accessControl:
-          additionalProperties:
-            type: boolean
-          example:
-            serviceaccounts:delete: true
-            serviceaccounts:read: true
-            serviceaccounts:write: true
-          type: object
-        avatarUrl:
-          example: /avatar/85ec38023d90823d3e5b43ef35646af9
-          type: string
-        id:
-          format: int64
-          type: integer
-        isDisabled:
-          example: false
-          type: boolean
-        isExternal:
-          example: false
-          type: boolean
-        login:
-          example: sa-grafana
-          type: string
-        name:
-          example: grafana
-          type: string
-        orgId:
-          example: 1
-          format: int64
-          type: integer
-        role:
-          example: Viewer
-          type: string
-        tokens:
-          example: 0
-          format: int64
-          type: integer
-      type: object
-    GrafanaNewApiKeyResult:
-      example:
-        name: grafana
-        id: 1
-        key: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
-      properties:
-        id:
-          example: 1
-          format: int64
-          type: integer
-        key:
-          example: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
-          type: string
-        name:
-          example: grafana
-          type: string
-      type: object
-    GrafanaTokenDTO:
-      example:
-        isRevoked: false
-        hasExpired: false
-        lastUsedAt: 2022-03-23T10:31:02Z
-        created: 2022-03-23T10:31:02Z
-        name: grafana
-        secondsUntilExpiration: 0
-        expiration: 2022-03-23T10:31:02Z
-        id: 1
-      properties:
-        created:
-          example: 2022-03-23T10:31:02Z
-          format: date-time
-          type: string
-        expiration:
-          example: 2022-03-23T10:31:02Z
-          format: date-time
-          type: string
-        hasExpired:
-          example: false
-          type: boolean
-        id:
-          example: 1
-          format: int64
-          type: integer
-        isRevoked:
-          example: false
-          type: boolean
-        lastUsedAt:
-          example: 2022-03-23T10:31:02Z
-          format: date-time
-          type: string
-        name:
-          example: grafana
-          type: string
-        secondsUntilExpiration:
-          example: 0
-          format: double
-          type: number
       type: object
     InstanceUsersResponse:
       example:
@@ -6662,92 +6170,6 @@ components:
           type: integer
       required:
       - name
-      type: object
-    postInstanceOAuthAzureAD_request:
-      properties:
-        allowedDomains:
-          items:
-            type: string
-          type: array
-        allowedGroups:
-          items:
-            type: string
-          type: array
-        authUrl:
-          type: string
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        scopes:
-          items:
-            type: string
-          type: array
-        tokenUrl:
-          type: string
-      required:
-      - authUrl
-      - clientId
-      - tokenUrl
-      type: object
-    postInstanceOAuthGithub_request:
-      properties:
-        allowedOrganizations:
-          items:
-            type: string
-          type: array
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        teamIds:
-          items:
-            type: string
-          type: array
-      required:
-      - clientId
-      type: object
-    postInstanceOAuthGoogle_request:
-      properties:
-        allowedDomains:
-          items:
-            type: string
-          type: array
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-      required:
-      - allowedDomains
-      - clientId
-      type: object
-    postInstanceOAuthOkta_request:
-      properties:
-        allowedDomains:
-          items:
-            type: string
-          type: array
-        allowedGroups:
-          items:
-            type: string
-          type: array
-        apiUrl:
-          type: string
-        authUrl:
-          type: string
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        roleAttributePath:
-          type: string
-        tokenUrl:
-          type: string
-      required:
-      - apiUrl
-      - authUrl
-      - clientId
-      - tokenUrl
       type: object
     getInstancePlugins_200_response:
       example:
