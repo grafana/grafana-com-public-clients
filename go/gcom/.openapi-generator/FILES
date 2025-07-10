@@ -85,6 +85,7 @@ docs/PdcPrivateConnectivityInfo.md
 docs/PdcPrivateConnectivityInfoAnyOf.md
 docs/PdcPrivateConnectivityInfoAnyOf1.md
 docs/PdcPrivateConnectivityInfoAnyOf2.md
+docs/PdcPrivateConnectivityInfoAnyOf3.md
 docs/PluginsAPI.md
 docs/PostAccessPoliciesRequest.md
 docs/PostAccessPoliciesRequestAttributes.md
@@ -188,6 +189,7 @@ model_pdc_private_connectivity_info.go
 model_pdc_private_connectivity_info_any_of.go
 model_pdc_private_connectivity_info_any_of_1.go
 model_pdc_private_connectivity_info_any_of_2.go
+model_pdc_private_connectivity_info_any_of_3.go
 model_post_access_policies_request.go
 model_post_access_policies_request_attributes.go
 model_post_access_policies_request_attributes_loki_query_policy.go

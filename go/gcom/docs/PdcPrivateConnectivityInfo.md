@@ -14,12 +14,15 @@ Name | Type | Description | Notes
 **Mimir** | [**Mimir**](Mimir.md) |  | 
 **Graphite** | Pointer to [**Graphite**](Graphite.md) |  | [optional] 
 **Otlp** | Pointer to [**NullablePdcPrivateConnectivityInfoAnyOf**](PdcPrivateConnectivityInfoAnyOf.md) |  | [optional] 
+**Name** | **string** |  | 
+**Network** | **string** |  | 
+**IpCidrRange** | **string** |  | 
 
 ## Methods
 
 ### NewPdcPrivateConnectivityInfo
 
-`func NewPdcPrivateConnectivityInfo(privateDNS string, serviceName string, api Api1, gateway Gateway1, mimir Mimir, ) *PdcPrivateConnectivityInfo`
+`func NewPdcPrivateConnectivityInfo(privateDNS string, serviceName string, api Api1, gateway Gateway1, mimir Mimir, name string, network string, ipCidrRange string, ) *PdcPrivateConnectivityInfo`
 
 NewPdcPrivateConnectivityInfo instantiates a new PdcPrivateConnectivityInfo object
 This constructor will assign default values to properties that have it defined,
@@ -269,6 +272,66 @@ HasOtlp returns a boolean if a field has been set.
 `func (o *PdcPrivateConnectivityInfo) UnsetOtlp()`
 
 UnsetOtlp ensures that no value is present for Otlp, not even an explicit nil
+### GetName
+
+`func (o *PdcPrivateConnectivityInfo) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *PdcPrivateConnectivityInfo) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *PdcPrivateConnectivityInfo) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
+### GetNetwork
+
+`func (o *PdcPrivateConnectivityInfo) GetNetwork() string`
+
+GetNetwork returns the Network field if non-nil, zero value otherwise.
+
+### GetNetworkOk
+
+`func (o *PdcPrivateConnectivityInfo) GetNetworkOk() (*string, bool)`
+
+GetNetworkOk returns a tuple with the Network field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetwork
+
+`func (o *PdcPrivateConnectivityInfo) SetNetwork(v string)`
+
+SetNetwork sets Network field to given value.
+
+
+### GetIpCidrRange
+
+`func (o *PdcPrivateConnectivityInfo) GetIpCidrRange() string`
+
+GetIpCidrRange returns the IpCidrRange field if non-nil, zero value otherwise.
+
+### GetIpCidrRangeOk
+
+`func (o *PdcPrivateConnectivityInfo) GetIpCidrRangeOk() (*string, bool)`
+
+GetIpCidrRangeOk returns a tuple with the IpCidrRange field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIpCidrRange
+
+`func (o *PdcPrivateConnectivityInfo) SetIpCidrRange(v string)`
+
+SetIpCidrRange sets IpCidrRange field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

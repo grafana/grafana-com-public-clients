@@ -208,6 +208,7 @@ Class | Method | HTTP request | Description
  - [PdcPrivateConnectivityInfoAnyOf](docs/PdcPrivateConnectivityInfoAnyOf.md)
  - [PdcPrivateConnectivityInfoAnyOf1](docs/PdcPrivateConnectivityInfoAnyOf1.md)
  - [PdcPrivateConnectivityInfoAnyOf2](docs/PdcPrivateConnectivityInfoAnyOf2.md)
+ - [PdcPrivateConnectivityInfoAnyOf3](docs/PdcPrivateConnectivityInfoAnyOf3.md)
  - [PostAccessPoliciesRequest](docs/PostAccessPoliciesRequest.md)
  - [PostAccessPoliciesRequestAttributes](docs/PostAccessPoliciesRequestAttributes.md)
  - [PostAccessPoliciesRequestAttributesLokiQueryPolicy](docs/PostAccessPoliciesRequestAttributesLokiQueryPolicy.md)

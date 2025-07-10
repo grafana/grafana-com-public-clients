@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: aab88a5
-  x-generated-at: 2025-07-10T18:35:19.889Z
+  x-commit-sha: 7b7effa
+  x-generated-at: 2025-07-10T18:50:12.943Z
 servers:
 - description: Main API server
   url: /api
@@ -8052,17 +8052,36 @@ components:
       required:
       - mimir
       type: object
+    pdcPrivateConnectivityInfo_anyOf_3:
+      nullable: true
+      properties:
+        name:
+          title: name
+          type: string
+        network:
+          title: network
+          type: string
+        ipCidrRange:
+          title: ipCidrRange
+          type: string
+      required:
+      - ipCidrRange
+      - name
+      - network
+      type: object
     pdcPrivateConnectivityInfo:
       anyOf:
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2'
+      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_3'
       title: pdcPrivateConnectivityInfo
     otlpPrivateConnectivityInfo:
       anyOf:
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2'
+      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_3'
       title: otlpPrivateConnectivityInfo
     FormattedApiStackRegion_anyOf_1:
       properties:

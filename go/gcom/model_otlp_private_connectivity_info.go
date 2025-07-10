@@ -20,6 +20,7 @@ type OtlpPrivateConnectivityInfo struct {
 	PdcPrivateConnectivityInfoAnyOf  *PdcPrivateConnectivityInfoAnyOf
 	PdcPrivateConnectivityInfoAnyOf1 *PdcPrivateConnectivityInfoAnyOf1
 	PdcPrivateConnectivityInfoAnyOf2 *PdcPrivateConnectivityInfoAnyOf2
+	PdcPrivateConnectivityInfoAnyOf3 *PdcPrivateConnectivityInfoAnyOf3
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -64,6 +65,19 @@ func (dst *OtlpPrivateConnectivityInfo) UnmarshalJSON(data []byte) error {
 		dst.PdcPrivateConnectivityInfoAnyOf2 = nil
 	}
 
+	// try to unmarshal JSON data into PdcPrivateConnectivityInfoAnyOf3
+	err = json.Unmarshal(data, &dst.PdcPrivateConnectivityInfoAnyOf3)
+	if err == nil {
+		jsonPdcPrivateConnectivityInfoAnyOf3, _ := json.Marshal(dst.PdcPrivateConnectivityInfoAnyOf3)
+		if string(jsonPdcPrivateConnectivityInfoAnyOf3) == "{}" { // empty struct
+			dst.PdcPrivateConnectivityInfoAnyOf3 = nil
+		} else {
+			return nil // data stored in dst.PdcPrivateConnectivityInfoAnyOf3, return on the first match
+		}
+	} else {
+		dst.PdcPrivateConnectivityInfoAnyOf3 = nil
+	}
+
 	return fmt.Errorf("data failed to match schemas in anyOf(OtlpPrivateConnectivityInfo)")
 }
 
@@ -79,6 +93,10 @@ func (src *OtlpPrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
 
 	if src.PdcPrivateConnectivityInfoAnyOf2 != nil {
 		return json.Marshal(&src.PdcPrivateConnectivityInfoAnyOf2)
+	}
+
+	if src.PdcPrivateConnectivityInfoAnyOf3 != nil {
+		return json.Marshal(&src.PdcPrivateConnectivityInfoAnyOf3)
 	}
 
 	return nil, nil // no data in anyOf schemas
