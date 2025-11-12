@@ -1,0 +1,22 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  packageRules: [
+    {
+      groupName: "Minor / patch version changes",
+      groupSlug: "minor-patch",
+      matchUpdateTypes: ["minor", "patch"]
+    },
+    {
+      groupName: "github-actions",
+      groupSlug: "github-actions",
+      matchManagers: ["github-actions"],
+      schedule: ["* * * * 1"],
+    },
+    {
+      groupName: "docker-compose",
+      groupSlug: "docker-compose",
+      matchManagers: ["docker-compose"],
+      schedule: ["* * * * 1"],
+    },
+  ],
+}
