@@ -15,16 +15,18 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
         with:
           persist-credentials: true
-      - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
+      - uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
         with:
           go-version: 1.23
       - name: Generate Client
-        uses: grafana/shared-workflows/actions/generate-openapi-clients@da511b720bc646fe01a29ddaf37e92df2c4bacb3
+        uses: grafana/shared-workflows/actions/generate-openapi-clients@8b88213bca76e86f9f59b43038cc5d7545452436
         with:
           package-name: gcom
           spec-path: openapi.json
           modify-spec-script: .github/workflows/modify-spec.sh
+        env:
+          REPO_NAME: grafana-com-public-clients
 
