@@ -27,4 +27,6 @@ jobs:
           package-name: gcom
           spec-path: openapi.json
           modify-spec-script: .github/workflows/modify-spec.sh
+        env:
+          REPO_NAME: grafana-com-public-clients
 
