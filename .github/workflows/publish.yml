@@ -15,14 +15,14 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           persist-credentials: true
       - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6.0.0
         with:
           go-version: 1.25
       - name: Generate Client
-        uses: grafana/shared-workflows/actions/generate-openapi-clients@8b88213bca76e86f9f59b43038cc5d7545452436
+        uses: grafana/shared-workflows/actions/generate-openapi-clients@eec7f669cb9d905f576be86380f3c93958ab86e5
         with:
           package-name: gcom
           spec-path: openapi.json
