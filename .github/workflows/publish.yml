@@ -18,11 +18,11 @@ jobs:
       - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           persist-credentials: true
-      - uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6.0.0
+      - uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6.1.0
         with:
           go-version: 1.25
       - name: Generate Client
-        uses: grafana/shared-workflows/actions/generate-openapi-clients@9d49abed0c85b524b7c019797bdabb4b6caf28c4
+        uses: grafana/shared-workflows/actions/generate-openapi-clients@eb33f84481d38701f4d2c587a4817ce332784f5f
         with:
           package-name: gcom
           spec-path: openapi.json
