@@ -22,7 +22,7 @@ jobs:
         with:
           go-version: 1.25
       - name: Generate Client
-        uses: grafana/shared-workflows/actions/generate-openapi-clients@d80ddba3b588ad911410ce91c599bbbe513196b0
+        uses: grafana/shared-workflows/actions/generate-openapi-clients@3900ada80c6248738816426a7c570223c471316c
         with:
           package-name: gcom
           spec-path: openapi.json
