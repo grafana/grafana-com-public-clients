@@ -7,12 +7,14 @@ Name | Type | Description | Notes
 **ServiceName** | **string** |  | 
 **PrivateDNS** | **string** |  | 
 **Regions** | Pointer to **[]string** |  | [optional] 
+**ServiceAttachment** | **string** |  | 
+**DomainNames** | **[]string** |  | 
 
 ## Methods
 
 ### NewGateway
 
-`func NewGateway(serviceName string, privateDNS string, ) *Gateway`
+`func NewGateway(serviceName string, privateDNS string, serviceAttachment string, domainNames []string, ) *Gateway`
 
 NewGateway instantiates a new Gateway object
 This constructor will assign default values to properties that have it defined,
@@ -91,6 +93,46 @@ SetRegions sets Regions field to given value.
 `func (o *Gateway) HasRegions() bool`
 
 HasRegions returns a boolean if a field has been set.
+
+### GetServiceAttachment
+
+`func (o *Gateway) GetServiceAttachment() string`
+
+GetServiceAttachment returns the ServiceAttachment field if non-nil, zero value otherwise.
+
+### GetServiceAttachmentOk
+
+`func (o *Gateway) GetServiceAttachmentOk() (*string, bool)`
+
+GetServiceAttachmentOk returns a tuple with the ServiceAttachment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAttachment
+
+`func (o *Gateway) SetServiceAttachment(v string)`
+
+SetServiceAttachment sets ServiceAttachment field to given value.
+
+
+### GetDomainNames
+
+`func (o *Gateway) GetDomainNames() []string`
+
+GetDomainNames returns the DomainNames field if non-nil, zero value otherwise.
+
+### GetDomainNamesOk
+
+`func (o *Gateway) GetDomainNamesOk() (*[]string, bool)`
+
+GetDomainNamesOk returns a tuple with the DomainNames field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDomainNames
+
+`func (o *Gateway) SetDomainNames(v []string)`
+
+SetDomainNames sets DomainNames field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

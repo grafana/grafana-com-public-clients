@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**Network** | **string** |  | 
-**IpCidrRange** | **string** |  | 
+**Mimir** | [**Mimir**](Mimir.md) |  | 
+**Graphite** | Pointer to [**Graphite**](Graphite.md) |  | [optional] 
+**Otlp** | Pointer to [**Otlp1**](Otlp1.md) |  | [optional] 
 
 ## Methods
 
 ### NewPdcPrivateConnectivityInfoAnyOf3
 
-`func NewPdcPrivateConnectivityInfoAnyOf3(name string, network string, ipCidrRange string, ) *PdcPrivateConnectivityInfoAnyOf3`
+`func NewPdcPrivateConnectivityInfoAnyOf3(mimir Mimir, ) *PdcPrivateConnectivityInfoAnyOf3`
 
 NewPdcPrivateConnectivityInfoAnyOf3 instantiates a new PdcPrivateConnectivityInfoAnyOf3 object
 This constructor will assign default values to properties that have it defined,
@@ -27,65 +27,75 @@ NewPdcPrivateConnectivityInfoAnyOf3WithDefaults instantiates a new PdcPrivateCon
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetName
+### GetMimir
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetName() string`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetMimir() Mimir`
 
-GetName returns the Name field if non-nil, zero value otherwise.
+GetMimir returns the Mimir field if non-nil, zero value otherwise.
 
-### GetNameOk
+### GetMimirOk
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetNameOk() (*string, bool)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetMimirOk() (*Mimir, bool)`
 
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+GetMimirOk returns a tuple with the Mimir field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetName
+### SetMimir
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) SetName(v string)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) SetMimir(v Mimir)`
 
-SetName sets Name field to given value.
+SetMimir sets Mimir field to given value.
 
 
-### GetNetwork
+### GetGraphite
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetNetwork() string`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetGraphite() Graphite`
 
-GetNetwork returns the Network field if non-nil, zero value otherwise.
+GetGraphite returns the Graphite field if non-nil, zero value otherwise.
 
-### GetNetworkOk
+### GetGraphiteOk
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetNetworkOk() (*string, bool)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetGraphiteOk() (*Graphite, bool)`
 
-GetNetworkOk returns a tuple with the Network field if it's non-nil, zero value otherwise
+GetGraphiteOk returns a tuple with the Graphite field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetNetwork
+### SetGraphite
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) SetNetwork(v string)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) SetGraphite(v Graphite)`
 
-SetNetwork sets Network field to given value.
+SetGraphite sets Graphite field to given value.
 
+### HasGraphite
 
-### GetIpCidrRange
+`func (o *PdcPrivateConnectivityInfoAnyOf3) HasGraphite() bool`
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetIpCidrRange() string`
+HasGraphite returns a boolean if a field has been set.
 
-GetIpCidrRange returns the IpCidrRange field if non-nil, zero value otherwise.
+### GetOtlp
 
-### GetIpCidrRangeOk
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlp() Otlp1`
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetIpCidrRangeOk() (*string, bool)`
+GetOtlp returns the Otlp field if non-nil, zero value otherwise.
 
-GetIpCidrRangeOk returns a tuple with the IpCidrRange field if it's non-nil, zero value otherwise
+### GetOtlpOk
+
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlpOk() (*Otlp1, bool)`
+
+GetOtlpOk returns a tuple with the Otlp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIpCidrRange
+### SetOtlp
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) SetIpCidrRange(v string)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) SetOtlp(v Otlp1)`
 
-SetIpCidrRange sets IpCidrRange field to given value.
+SetOtlp sets Otlp field to given value.
 
+### HasOtlp
+
+`func (o *PdcPrivateConnectivityInfoAnyOf3) HasOtlp() bool`
+
+HasOtlp returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

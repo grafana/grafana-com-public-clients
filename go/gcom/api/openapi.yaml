@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
   description: |
     Grafana.com API (public).
@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: cf75ecf
-  x-generated-at: 2025-07-15T07:30:45.899Z
+  x-commit-sha: ee44d4f
+  x-generated-at: 2025-12-04T09:48:48.838Z
 servers:
 - description: Main API server
   url: /api
@@ -191,6 +191,22 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: regionIn
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       - explode: true
         in: query
@@ -1259,6 +1275,51 @@ paths:
           description: Service is currently unavailable
       tags:
       - instances
+  /instances/{instanceId}/readiness:
+    get:
+      operationId: getInstanceReadiness
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstanceReadiness'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorConflict'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Gets an instance's readiness status
+      tags:
+      - instances
   /instances/{instanceId}/users:
     get:
       operationId: getInstanceUsers
@@ -1326,6 +1387,51 @@ paths:
       summary: Gets instance active users
       tags:
       - instances
+  /org-stack-regions:
+    get:
+      operationId: getOrgStackRegions
+      parameters:
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: regionSlugOrId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getOrgStackRegions_200_response'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+          description: Forbidden
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorConflict'
+          description: "Invalid arguments: wrong or missing parameters"
+      tags:
+      - org-stack-regions
   /orgs/{orgSlugOrId}/billed-usage:
     get:
       operationId: getOrgBilledUsage
@@ -1612,242 +1718,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorConflict'
           description: "Invalid arguments: wrong or missing parameters"
-      tags:
-      - orgs
-  /orgs/{slugOrId}/api-keys:
-    get:
-      operationId: getApiKeys
-      parameters:
-      - explode: false
-        in: path
-        name: slugOrId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: excludeProvisioned
-        required: false
-        schema:
-          type: boolean
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiApiKeyListResponse'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-      summary: Get an organization's API keys
-      tags:
-      - orgs
-    post:
-      operationId: postApiKeys
-      parameters:
-      - explode: false
-        in: path
-        name: slugOrId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/postApiKeys_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiApiKey'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Create an API key.
-      tags:
-      - orgs
-  /orgs/{slugOrId}/api-keys/{name}:
-    delete:
-      operationId: delApiKey
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: slugOrId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: unlock
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          default: openapi-x-request-id
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Delete an API key by name
-      tags:
-      - orgs
-    get:
-      operationId: getApiKey
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: slugOrId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiApiKey'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-      summary: Get an API key by name
       tags:
       - orgs
   /orgs/{slugOrId}/check-visibility:
@@ -2293,6 +2163,13 @@ paths:
         style: form
       - explode: true
         in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
         name: provider
         required: false
         schema:
@@ -2357,6 +2234,13 @@ paths:
     get:
       operationId: getClosestStackRegion
       parameters:
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
       - explode: true
         in: query
         name: provider
@@ -2560,12 +2444,26 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: includeOrgMetadata
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: orgId
+        required: false
+        schema:
+          type: integer
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/AccessPoliciesConfig'
           description: OK
         "409":
           content:
@@ -2611,10 +2509,6 @@ paths:
         style: simple
       responses:
         "200":
-          content:
-            application/json:
-              schema:
-                type: object
           description: OK
         "401":
           content:
@@ -3406,182 +3300,49 @@ components:
       - realms
       - scopes
       type: object
-    FormattedApiApiKeyListResponse:
+    AccessPoliciesConfig:
       example:
-        cursor: 7.061401241503109
-        nextCursor: 9.301444243932576
-        total: 1.4658129805029452
-        pages: 5.962133916683182
-        orderBy: orderBy
-        pageSize: 5.637376656633329
-        links:
-        - rel: rel
-          href: href
-        - rel: rel
-          href: href
-        page: 2.3021358869347655
-        items:
-        - accessPolicyId: accessPolicyId
-          orgSlug: orgSlug
-          orgName: orgName
-          role: Admin
-          firstUsed: firstUsed
-          orgId: 0.8008281904610115
-          token: token
-          createdAt: createdAt
-          instanceId: 6.027456183070403
+        realms:
+        - identifier: identifier
+          type: org
+        - identifier: identifier
+          type: org
+        sets:
+        - name: name
+          scopes:
+          - scopes
+          - scopes
+        - name: name
+          scopes:
+          - scopes
+          - scopes
+        scopes:
+        - requiresRealmType: requiresRealmType
           name: name
-          links:
-          - rel: self
-            href: href
-          - rel: self
-            href: href
-          id: items_inner_id
-          updatedAt: updatedAt
-        - accessPolicyId: accessPolicyId
-          orgSlug: orgSlug
-          orgName: orgName
-          role: Admin
-          firstUsed: firstUsed
-          orgId: 0.8008281904610115
-          token: token
-          createdAt: createdAt
-          instanceId: 6.027456183070403
+          description: description
+        - requiresRealmType: requiresRealmType
           name: name
-          links:
-          - rel: self
-            href: href
-          - rel: self
-            href: href
-          id: items_inner_id
-          updatedAt: updatedAt
-        direction: asc
+          description: description
       properties:
-        items:
+        realms:
           items:
-            $ref: '#/components/schemas/items_inner'
-          title: items
+            $ref: '#/components/schemas/realms_inner'
+          title: realms
           type: array
-        orderBy:
-          title: orderBy
-          type: string
-        direction:
-          enum:
-          - asc
-          - desc
-          title: direction
-          type: string
-        total:
-          title: total
-          type: number
-        pages:
-          title: pages
-          type: number
-        pageSize:
-          title: pageSize
-          type: number
-        page:
-          title: page
-          type: number
-        cursor:
-          title: cursor
-          type: number
-        nextCursor:
-          title: nextCursor
-          type: number
-        links:
+        scopes:
           items:
-            $ref: '#/components/schemas/links_inner_1'
-          title: links
+            $ref: '#/components/schemas/scopes_inner'
+          title: scopes
+          type: array
+        sets:
+          items:
+            $ref: '#/components/schemas/sets_inner'
+          title: sets
           type: array
       required:
-      - items
-      type: object
-    FormattedApiApiKey:
-      example:
-        accessPolicyId: accessPolicyId
-        orgSlug: orgSlug
-        orgName: orgName
-        role: Admin
-        firstUsed: firstUsed
-        orgId: 0.8008281904610115
-        token: token
-        createdAt: createdAt
-        instanceId: 6.027456183070403
-        name: name
-        links:
-        - rel: self
-          href: href
-        - rel: self
-          href: href
-        id: items_inner_id
-        updatedAt: updatedAt
-      properties:
-        id:
-          $ref: '#/components/schemas/items_inner_id'
-        accessPolicyId:
-          title: accessPolicyId
-          type: string
-        orgId:
-          title: orgId
-          type: number
-        orgSlug:
-          title: orgSlug
-          type: string
-        orgName:
-          title: orgName
-          type: string
-        instanceId:
-          nullable: true
-          title: instanceId
-          type: number
-        name:
-          title: name
-          type: string
-        role:
-          enum:
-          - Admin
-          - EasyStart
-          - Editor
-          - MetricsPublisher
-          - None
-          - PluginPublisher
-          - SSO Access
-          - Viewer
-          title: role
-          type: string
-        createdAt:
-          title: createdAt
-          type: string
-        updatedAt:
-          nullable: true
-          title: updatedAt
-          type: string
-        firstUsed:
-          nullable: true
-          title: firstUsed
-          type: string
-        token:
-          title: token
-          type: string
-        links:
-          items:
-            $ref: '#/components/schemas/links_inner'
-          title: links
-          type: array
-      required:
-      - accessPolicyId
-      - createdAt
-      - firstUsed
-      - id
-      - instanceId
-      - links
-      - name
-      - orgId
-      - orgName
-      - orgSlug
-      - role
-      - updatedAt
+      - realms
+      - scopes
+      - sets
       type: object
     FormattedApiInstancePlugin:
       example:
@@ -4444,6 +4205,16 @@ components:
       - userQuota
       - version
       type: object
+    FormattedApiInstanceReadiness:
+      example:
+        ready: true
+      properties:
+        ready:
+          title: ready
+          type: boolean
+      required:
+      - ready
+      type: object
     InstanceUsersResponse:
       example:
         items:
@@ -4468,7 +4239,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/items_inner_1'
+            $ref: '#/components/schemas/items_inner'
           title: items
           type: array
       required:
@@ -4482,6 +4253,7 @@ components:
         appPlatform:
           url: url
           caData: caData
+        otlpMultiAZ: true
         privateConnectivityInfo:
           tenants:
           - ipAllowListCNAME: ipAllowListCNAME
@@ -4534,11 +4306,15 @@ components:
           nullable: true
           title: otlpHttpUrl
           type: string
+        otlpMultiAZ:
+          title: otlpMultiAZ
+          type: boolean
         oncallApiUrl:
           nullable: true
           title: oncallApiUrl
           type: string
       required:
+      - otlpMultiAZ
       - privateConnectivityInfo
       type: object
     OrgMemberListResponse:
@@ -4663,7 +4439,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/items_inner_2'
+            $ref: '#/components/schemas/items_inner_1'
           title: items
           type: array
         links:
@@ -4869,7 +4645,7 @@ components:
         subscriptions:
           $ref: '#/components/schemas/subscriptions'
         marketplaceSubscription:
-          $ref: '#/components/schemas/items_inner_2_marketplaceSubscription'
+          $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
         extraPermissions:
           items:
             enum:
@@ -4882,7 +4658,7 @@ components:
           title: extraPermissions
           type: array
         grafanaStaffAccess:
-          $ref: '#/components/schemas/items_inner_2_grafanaStaffAccess'
+          $ref: '#/components/schemas/items_inner_1_grafanaStaffAccess'
       required:
       - allowGCloudTrial
       - billing
@@ -5317,6 +5093,255 @@ components:
         createdAt: createdAt
         downloads: 5.637376656633329
         popularity: 7.061401241503109
+        json:
+          $schema: $schema
+          hideFromList: true
+          builtIn: true
+          enterpriseFeatures:
+            healthDiagnosticsErrors: true
+          roles:
+          - grants:
+            - grants
+            - grants
+            role:
+              permissions:
+              - scope: scope
+                action: action
+              - scope: scope
+                action: action
+              name: name
+              description: description
+          - grants:
+            - grants
+            - grants
+            role:
+              permissions:
+              - scope: scope
+                action: action
+              - scope: scope
+                action: action
+              name: name
+              description: description
+          annotations: true
+          buildMode: buildMode
+          pascalName: pascalName
+          type: app
+          preload: true
+          alerting: true
+          routes:
+          - reqAction: reqAction
+            path: path
+            headers:
+            - ""
+            - ""
+            method: method
+            tokenAuth:
+              scopes:
+              - scopes
+              - scopes
+              params:
+                grant_type: grant_type
+                resource: resource
+                client_secret: client_secret
+                client_id: client_id
+              url: url
+            jwtTokenAuth:
+              scopes:
+              - scopes
+              - scopes
+              params:
+                token_uri: token_uri
+                client_email: client_email
+                private_key: private_key
+              url: url
+            urlParams:
+            - name: name
+              content: content
+            - name: name
+              content: content
+            reqSignedIn: true
+            reqRole: reqRole
+            body:
+              key: ""
+            url: url
+          - reqAction: reqAction
+            path: path
+            headers:
+            - ""
+            - ""
+            method: method
+            tokenAuth:
+              scopes:
+              - scopes
+              - scopes
+              params:
+                grant_type: grant_type
+                resource: resource
+                client_secret: client_secret
+                client_id: client_id
+              url: url
+            jwtTokenAuth:
+              scopes:
+              - scopes
+              - scopes
+              params:
+                token_uri: token_uri
+                client_email: client_email
+                private_key: private_key
+              url: url
+            urlParams:
+            - name: name
+              content: content
+            - name: name
+              content: content
+            reqSignedIn: true
+            reqRole: reqRole
+            body:
+              key: ""
+            url: url
+          streaming: true
+          iam:
+            permissions:
+            - scope: scope
+              action: action
+            - scope: scope
+              action: action
+          backend: true
+          id: id
+          state: alpha
+          logs: true
+          info:
+            keywords:
+            - keywords
+            - keywords
+            build:
+              number: 3.616076749251911
+              pr: 2.027123023002322
+              build: 4.145608029883936
+              repo: repo
+              time: 9.301444243932576
+              branch: branch
+              hash: hash
+            author:
+              name: name
+              email: email
+              url: url
+            description: description
+            links:
+            - name: name
+              url: url
+              target: _blank
+            - name: name
+              url: url
+              target: _blank
+            logos:
+              small: small
+              large: large
+            updated: updated
+            version: version
+            screenshots:
+            - path: path
+              name: name
+            - path: path
+              name: name
+          tracing: true
+          languages:
+          - languages
+          - languages
+          queryOptions:
+            maxDataPoints: true
+            cacheTimeout: true
+            minInterval: true
+          includes:
+          - uid: uid
+            path: path
+            defaultNav: true
+            component: component
+            role: Admin
+            name: name
+            icon: icon
+            action: action
+            type: dashboard
+            addToNav: true
+          - uid: uid
+            path: path
+            defaultNav: true
+            component: component
+            role: Admin
+            name: name
+            icon: icon
+            action: action
+            type: dashboard
+            addToNav: true
+          executable: executable
+          dependencies:
+            extensions:
+              exposedComponents:
+              - exposedComponents
+              - exposedComponents
+            plugins:
+            - name: name
+              id: id
+              type: app
+            - name: name
+              id: id
+              type: app
+            grafanaVersion: grafanaVersion
+            grafanaDependency: grafanaDependency
+          skipDataQuery: true
+          extensions:
+            addedComponents:
+            - description: description
+              title: title
+              targets:
+              - targets
+              - targets
+            - description: description
+              title: title
+              targets:
+              - targets
+              - targets
+            addedFunctions:
+            - description: description
+              title: title
+              targets:
+              - targets
+              - targets
+            - description: description
+              title: title
+              targets:
+              - targets
+              - targets
+            extensionPoints:
+            - description: description
+              id: id
+              title: title
+            - description: description
+              id: id
+              title: title
+            addedLinks:
+            - description: description
+              title: title
+              targets:
+              - targets
+              - targets
+            - description: description
+              title: title
+              targets:
+              - targets
+              - targets
+            exposedComponents:
+            - description: description
+              id: id
+              title: title
+            - description: description
+              id: id
+              title: title
+          autoEnabled: true
+          multiValueFilterOperators: true
+          name: name
+          metrics: true
+          category: cloud
         links:
         - rel: rel
           href: href
@@ -5440,6 +5465,8 @@ components:
         documentationUrl:
           title: documentationUrl
           type: string
+        json:
+          $ref: '#/components/schemas/json'
       required:
       - angularDetected
       - createdAt
@@ -5472,6 +5499,37 @@ components:
       - versionSignedByOrg
       - versionSignedByOrgName
       - versionStatus
+      type: object
+    FormattedApiOrgStackRegion:
+      example:
+        createdAt: createdAt
+        id: 0.8008281904610115
+        orgId: 1.4658129805029452
+        stackRegionId: 6.027456183070403
+        updatedAt: updatedAt
+      properties:
+        id:
+          title: id
+          type: number
+        stackRegionId:
+          title: stackRegionId
+          type: number
+        orgId:
+          title: orgId
+          type: number
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+      required:
+      - createdAt
+      - id
+      - orgId
+      - stackRegionId
+      - updatedAt
       type: object
     FormattedApiStackRegion:
       anyOf:
@@ -5657,18 +5715,18 @@ components:
         id:
           title: id
           type: number
-        notes:
-          title: notes
-          type: string
+        overage:
+          title: overage
+          type: number
         description:
           title: description
+          type: string
+        notes:
+          title: notes
           type: string
         unit:
           title: unit
           type: string
-        overage:
-          title: overage
-          type: number
         includedUsage:
           title: includedUsage
           type: number
@@ -5678,17 +5736,23 @@ components:
         dimensionId:
           enum:
           - app-o11y
+          - assistant
           - fe-o11y
           - ge-instances
           - ge-users
           - hg
           - hg-plugin-users
           - hl
+          - hl-process
           - hl-retention
           - hm
           - hm-graphite
           - hp
+          - hp-process
+          - hp-retention
           - ht
+          - ht-process
+          - ht-retention
           - infra-o11y-containers
           - infra-o11y-hosts
           - irm
@@ -5748,12 +5812,22 @@ components:
           type: string
         items:
           items:
-            $ref: '#/components/schemas/items_inner_3'
+            $ref: '#/components/schemas/items_inner_2'
           title: items
           type: array
       required:
       - items
       type: object
+    FormattedApiApiKey:
+      properties:
+        id:
+          $ref: '#/components/schemas/FormattedApiApiKey_id'
+    FormattedApiApiKeyListResponse:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/FormattedApiApiKeyListResponse_items_inner'
+          type: array
     getInstances_200_response:
       example:
         total: 4.078845849666752
@@ -6266,6 +6340,61 @@ components:
         version:
           type: string
       type: object
+    getOrgStackRegions_200_response:
+      example:
+        total: 5.962133916683182
+        pages: 5.637376656633329
+        orderBy: orderBy
+        pageSize: 2.3021358869347655
+        page: 7.061401241503109
+        items:
+        - createdAt: createdAt
+          id: 0.8008281904610115
+          orgId: 1.4658129805029452
+          stackRegionId: 6.027456183070403
+          updatedAt: updatedAt
+        - createdAt: createdAt
+          id: 0.8008281904610115
+          orgId: 1.4658129805029452
+          stackRegionId: 6.027456183070403
+          updatedAt: updatedAt
+        direction: asc
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/FormattedApiOrgStackRegion'
+          title: items
+          type: array
+        orderBy:
+          title: orderBy
+          type: string
+        direction:
+          enum:
+          - asc
+          - desc
+          title: direction
+          type: string
+        total:
+          title: total
+          type: number
+        pages:
+          title: pages
+          type: number
+        pageSize:
+          title: pageSize
+          type: number
+        page:
+          title: page
+          type: number
+      required:
+      - direction
+      - items
+      - orderBy
+      - page
+      - pageSize
+      - pages
+      - total
+      type: object
     getOrgBilledUsage_200_response:
       example:
         total: 5.025004791520295
@@ -6414,22 +6543,6 @@ components:
       - pageSize
       - pages
       - total
-      type: object
-    postApiKeys_request:
-      properties:
-        name:
-          type: string
-        role:
-          enum:
-          - Viewer
-          - Editor
-          - Admin
-          - MetricsPublisher
-          - PluginPublisher
-          type: string
-      required:
-      - name
-      - role
       type: object
     postOrgMembers_request:
       properties:
@@ -6766,6 +6879,10 @@ components:
       properties:
         displayName:
           type: string
+        expiresAt:
+          format: date-time
+          nullable: true
+          type: string
       type: object
     pagination:
       example:
@@ -6951,10 +7068,78 @@ components:
             type: string
           type: array
       type: object
-    items_inner_id:
+    realms_inner_anyOf:
+      example:
+        identifier: identifier
+        type: org
+      properties:
+        type:
+          enum:
+          - org
+          title: type
+          type: string
+        identifier:
+          title: identifier
+          type: string
+      required:
+      - identifier
+      - type
+      type: object
+    realms_inner_anyOf_1:
+      properties:
+        type:
+          enum:
+          - stack
+          title: type
+          type: string
+        identifier:
+          title: identifier
+          type: string
+      required:
+      - identifier
+      - type
+      type: object
+    realms_inner:
       anyOf:
-      - type: string
-      - type: number
+      - $ref: '#/components/schemas/realms_inner_anyOf'
+      - $ref: '#/components/schemas/realms_inner_anyOf_1'
+    scopes_inner:
+      example:
+        requiresRealmType: requiresRealmType
+        name: name
+        description: description
+      properties:
+        name:
+          title: name
+          type: string
+        description:
+          title: description
+          type: string
+        requiresRealmType:
+          title: requiresRealmType
+          type: string
+      required:
+      - description
+      - name
+      type: object
+    sets_inner:
+      example:
+        name: name
+        scopes:
+        - scopes
+        - scopes
+      properties:
+        name:
+          title: name
+          type: string
+        scopes:
+          items:
+            type: string
+          title: scopes
+          type: array
+      required:
+      - name
+      type: object
     links_inner:
       example:
         rel: self
@@ -6971,92 +7156,6 @@ components:
       - href
       - rel
       type: object
-    items_inner:
-      example:
-        accessPolicyId: accessPolicyId
-        orgSlug: orgSlug
-        orgName: orgName
-        role: Admin
-        firstUsed: firstUsed
-        orgId: 0.8008281904610115
-        token: token
-        createdAt: createdAt
-        instanceId: 6.027456183070403
-        name: name
-        links:
-        - rel: self
-          href: href
-        - rel: self
-          href: href
-        id: items_inner_id
-        updatedAt: updatedAt
-      properties:
-        id:
-          $ref: '#/components/schemas/items_inner_id'
-        accessPolicyId:
-          title: accessPolicyId
-          type: string
-        orgId:
-          title: orgId
-          type: number
-        orgSlug:
-          title: orgSlug
-          type: string
-        orgName:
-          title: orgName
-          type: string
-        instanceId:
-          nullable: true
-          title: instanceId
-          type: number
-        name:
-          title: name
-          type: string
-        role:
-          enum:
-          - Admin
-          - EasyStart
-          - Editor
-          - MetricsPublisher
-          - None
-          - PluginPublisher
-          - SSO Access
-          - Viewer
-          title: role
-          type: string
-        createdAt:
-          title: createdAt
-          type: string
-        updatedAt:
-          nullable: true
-          title: updatedAt
-          type: string
-        firstUsed:
-          nullable: true
-          title: firstUsed
-          type: string
-        token:
-          title: token
-          type: string
-        links:
-          items:
-            $ref: '#/components/schemas/links_inner'
-          title: links
-          type: array
-      required:
-      - accessPolicyId
-      - createdAt
-      - firstUsed
-      - id
-      - instanceId
-      - links
-      - name
-      - orgId
-      - orgName
-      - orgSlug
-      - role
-      - updatedAt
-      type: object
     links_inner_1:
       example:
         rel: rel
@@ -7072,7 +7171,7 @@ components:
       - href
       - rel
       type: object
-    items_inner_1:
+    items_inner:
       example:
         lastSeenAt: lastSeenAt
         createdAt: createdAt
@@ -7121,7 +7220,7 @@ components:
       - role
       - updatedAt
       type: object
-    info:
+    info_anyOf:
       example:
         regions:
         - regions
@@ -7143,8 +7242,26 @@ components:
       required:
       - privateDNS
       - serviceName
-      title: info
       type: object
+    info_anyOf_1:
+      properties:
+        serviceAttachment:
+          title: serviceAttachment
+          type: string
+        domainNames:
+          items:
+            type: string
+          title: domainNames
+          type: array
+      required:
+      - domainNames
+      - serviceAttachment
+      type: object
+    info:
+      anyOf:
+      - $ref: '#/components/schemas/info_anyOf'
+      - $ref: '#/components/schemas/info_anyOf_1'
+      title: info
     tenants_inner:
       example:
         ipAllowListCNAME: ipAllowListCNAME
@@ -7173,77 +7290,20 @@ components:
       - type
       type: object
     otlp:
-      example:
-        regions:
-        - regions
-        - regions
-        privateDNS: privateDNS
-        serviceName: serviceName
-      properties:
-        serviceName:
-          title: serviceName
-          type: string
-        privateDNS:
-          title: privateDNS
-          type: string
-        regions:
-          items:
-            type: string
-          title: regions
-          type: array
-      required:
-      - privateDNS
-      - serviceName
+      anyOf:
+      - $ref: '#/components/schemas/info_anyOf'
+      - $ref: '#/components/schemas/info_anyOf_1'
       title: otlp
-      type: object
     api:
-      example:
-        regions:
-        - regions
-        - regions
-        privateDNS: privateDNS
-        serviceName: serviceName
-      properties:
-        serviceName:
-          title: serviceName
-          type: string
-        privateDNS:
-          title: privateDNS
-          type: string
-        regions:
-          items:
-            type: string
-          title: regions
-          type: array
-      required:
-      - privateDNS
-      - serviceName
+      anyOf:
+      - $ref: '#/components/schemas/info_anyOf'
+      - $ref: '#/components/schemas/info_anyOf_1'
       title: api
-      type: object
     gateway:
-      example:
-        regions:
-        - regions
-        - regions
-        privateDNS: privateDNS
-        serviceName: serviceName
-      properties:
-        serviceName:
-          title: serviceName
-          type: string
-        privateDNS:
-          title: privateDNS
-          type: string
-        regions:
-          items:
-            type: string
-          title: regions
-          type: array
-      required:
-      - privateDNS
-      - serviceName
+      anyOf:
+      - $ref: '#/components/schemas/info_anyOf'
+      - $ref: '#/components/schemas/info_anyOf_1'
       title: gateway
-      type: object
     pdc:
       example:
         api:
@@ -7582,7 +7642,7 @@ components:
       - $ref: '#/components/schemas/subscriptions_anyOf_1'
       - $ref: '#/components/schemas/subscriptions_anyOf_2'
       title: subscriptions
-    items_inner_2_marketplaceSubscription:
+    items_inner_1_marketplaceSubscription:
       example:
         isLegacy: true
         provider: aws
@@ -7602,7 +7662,7 @@ components:
       - isLegacy
       - provider
       type: object
-    items_inner_2_grafanaStaffAccess:
+    items_inner_1_grafanaStaffAccess:
       example:
         publicReason: publicReason
         accessExpiresAt: 2000-01-23T04:56:07.000+00:00
@@ -7624,7 +7684,7 @@ components:
       required:
       - accessExpiresAt
       type: object
-    items_inner_2:
+    items_inner_1:
       example:
         grafanaCloud: 9.301444243932576
         orgSlug: orgSlug
@@ -7792,7 +7852,7 @@ components:
         subscriptions:
           $ref: '#/components/schemas/subscriptions'
         marketplaceSubscription:
-          $ref: '#/components/schemas/items_inner_2_marketplaceSubscription'
+          $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
         extraPermissions:
           items:
             enum:
@@ -7805,7 +7865,7 @@ components:
           title: extraPermissions
           type: array
         grafanaStaffAccess:
-          $ref: '#/components/schemas/items_inner_2_grafanaStaffAccess'
+          $ref: '#/components/schemas/items_inner_1_grafanaStaffAccess'
       required:
       - allowGCloudTrial
       - billing
@@ -7843,6 +7903,1381 @@ components:
       anyOf:
       - type: boolean
       - type: number
+    author:
+      description: Information about the plugin author.
+      example:
+        name: name
+        email: email
+        url: url
+      properties:
+        name:
+          description: Author's name.
+          title: name
+          type: string
+        email:
+          description: Author's name.
+          title: email
+          type: string
+        url:
+          description: Link to author's website.
+          title: url
+          type: string
+      title: author
+      type: object
+    build:
+      description: Build information
+      example:
+        number: 3.616076749251911
+        pr: 2.027123023002322
+        build: 4.145608029883936
+        repo: repo
+        time: 9.301444243932576
+        branch: branch
+        hash: hash
+      properties:
+        time:
+          description: "Time when the plugin was built, as a Unix timestamp."
+          title: time
+          type: number
+        repo:
+          title: repo
+          type: string
+        branch:
+          description: Git branch the plugin was built from.
+          title: branch
+          type: string
+        hash:
+          description: Git hash of the commit the plugin was built from
+          title: hash
+          type: string
+        number:
+          title: number
+          type: number
+        pr:
+          description: GitHub pull request the plugin was built from
+          title: pr
+          type: number
+        build:
+          description: Build job number used to build this plugin.
+          title: build
+          type: number
+      title: build
+      type: object
+    links_inner_2:
+      example:
+        name: name
+        url: url
+        target: _blank
+      properties:
+        name:
+          description: "Display name of the link. Special names with predefined behavior:\
+            \ <br/>• `documentation` - sets Documentation link on plugins detail page<br/>•\
+            \ `repository` - used to determine and link to repository of the plugin<br/>•\
+            \ `license` - sets License link on plugins detail page<br/>• `raise issue`\
+            \ - sets `Raise an Issue` link on plugins detail page<br/>• `sponsorship`\
+            \ - sets `Sponsor this developer` link on plugins detail page to direct\
+            \ users to how they can support your work"
+          title: name
+          type: string
+        url:
+          description: URL value to use for this specific link.
+          title: url
+          type: string
+        target:
+          description: A string that indicates where to display the linked resource
+          enum:
+          - _blank
+          - _parent
+          - _self
+          - _top
+          title: target
+          type: string
+      type: object
+    logos:
+      description: SVG images that are used as plugin icons.
+      example:
+        small: small
+        large: large
+      properties:
+        small:
+          description: "Link to the \"small\" version of the plugin logo, which must\
+            \ be an SVG image. \"Large\" and \"small\" logos can be the same image."
+          title: small
+          type: string
+        large:
+          description: "Link to the \"large\" version of the plugin logo, which must\
+            \ be an SVG image. \"Large\" and \"small\" logos can be the same image."
+          title: large
+          type: string
+      required:
+      - large
+      - small
+      title: logos
+      type: object
+    screenshots_inner:
+      example:
+        path: path
+        name: name
+      properties:
+        name:
+          title: name
+          type: string
+        path:
+          title: path
+          type: string
+      type: object
+    info_1:
+      description: Metadata for the plugin. Some fields are used on the plugins page
+        in Grafana and others on grafana.com if the plugin is published.
+      example:
+        keywords:
+        - keywords
+        - keywords
+        build:
+          number: 3.616076749251911
+          pr: 2.027123023002322
+          build: 4.145608029883936
+          repo: repo
+          time: 9.301444243932576
+          branch: branch
+          hash: hash
+        author:
+          name: name
+          email: email
+          url: url
+        description: description
+        links:
+        - name: name
+          url: url
+          target: _blank
+        - name: name
+          url: url
+          target: _blank
+        logos:
+          small: small
+          large: large
+        updated: updated
+        version: version
+        screenshots:
+        - path: path
+          name: name
+        - path: path
+          name: name
+      properties:
+        author:
+          $ref: '#/components/schemas/author'
+        build:
+          $ref: '#/components/schemas/build'
+        description:
+          description: Description of plugin. Used on the plugins page in Grafana
+            and for search on grafana.com.
+          title: description
+          type: string
+        keywords:
+          description: Array of plugin keywords. Used for search on grafana.com.
+          items:
+            type: string
+          minItems: 1
+          title: keywords
+          type: array
+        links:
+          description: "An array of link objects to be displayed on this plugin's\
+            \ project page in the form `{name: 'foo', url: 'http://example.com'}`"
+          items:
+            $ref: '#/components/schemas/links_inner_2'
+          title: links
+          type: array
+        logos:
+          $ref: '#/components/schemas/logos'
+        screenshots:
+          description: "An array of screenshot objects in the form `{name: 'bar',\
+            \ path: 'img/screenshot.png'}`"
+          items:
+            $ref: '#/components/schemas/screenshots_inner'
+          title: screenshots
+          type: array
+        updated:
+          description: Date when this plugin was built.
+          title: updated
+          type: string
+        version:
+          description: "[SemVer](https://semver.org/) version of this commit, e.g.\
+            \ `6.7.1`."
+          title: version
+          type: string
+      required:
+      - keywords
+      - logos
+      - updated
+      - version
+      title: info
+      type: object
+    plugins_inner:
+      additionalProperties: {}
+      example:
+        name: name
+        id: id
+        type: app
+      properties:
+        id:
+          title: id
+          type: string
+        type:
+          enum:
+          - app
+          - datasource
+          - panel
+          title: type
+          type: string
+        name:
+          title: name
+          type: string
+      required:
+      - id
+      - name
+      - type
+      type: object
+    extensions:
+      additionalProperties: {}
+      description: Plugin extensions that this plugin depends on.
+      example:
+        exposedComponents:
+        - exposedComponents
+        - exposedComponents
+      properties:
+        exposedComponents:
+          description: An array of exposed component ids that this plugin depends
+            on.
+          items:
+            type: string
+          title: exposedComponents
+          type: array
+      title: extensions
+      type: object
+    dependencies:
+      description: Dependency information related to Grafana and other plugins.
+      example:
+        extensions:
+          exposedComponents:
+          - exposedComponents
+          - exposedComponents
+        plugins:
+        - name: name
+          id: id
+          type: app
+        - name: name
+          id: id
+          type: app
+        grafanaVersion: grafanaVersion
+        grafanaDependency: grafanaDependency
+      properties:
+        grafanaVersion:
+          description: "(Deprecated) Required Grafana version for this plugin, e.g.\
+            \ `6.x.x 7.x.x` to denote plugin requires Grafana v6.x.x or v7.x.x."
+          title: grafanaVersion
+          type: string
+        grafanaDependency:
+          description: Required Grafana version for this plugin. Validated using https://github.com/npm/node-semver.
+          title: grafanaDependency
+          type: string
+        plugins:
+          description: "An array of required plugins on which this plugin depends.\
+            \ Only non-core (that is, external plugins) have to be specified in this\
+            \ list."
+          items:
+            $ref: '#/components/schemas/plugins_inner'
+          title: plugins
+          type: array
+        extensions:
+          $ref: '#/components/schemas/extensions'
+      required:
+      - grafanaDependency
+      title: dependencies
+      type: object
+    enterpriseFeatures:
+      additionalProperties: {}
+      description: Grafana Enterprise specific features
+      example:
+        healthDiagnosticsErrors: true
+      properties:
+        healthDiagnosticsErrors:
+          description: Enable/Disable health diagnostics errors. Requires Grafana
+            >=7.5.5.
+          title: healthDiagnosticsErrors
+          type: boolean
+      title: enterpriseFeatures
+      type: object
+    includes_inner:
+      additionalProperties: {}
+      example:
+        uid: uid
+        path: path
+        defaultNav: true
+        component: component
+        role: Admin
+        name: name
+        icon: icon
+        action: action
+        type: dashboard
+        addToNav: true
+      properties:
+        uid:
+          description: Unique identifier of the included resource
+          title: uid
+          type: string
+        type:
+          enum:
+          - dashboard
+          - datasource
+          - page
+          - panel
+          title: type
+          type: string
+        name:
+          title: name
+          type: string
+        component:
+          description: (Legacy) The Angular component to use for a page.
+          title: component
+          type: string
+        role:
+          description: The minimum role a user must have to see this page in the navigation
+            menu.
+          enum:
+          - Admin
+          - Editor
+          - Viewer
+          title: role
+          type: string
+        action:
+          description: "The RBAC action a user must have to see this page in the navigation\
+            \ menu. **Warning**: unless the action targets the plugin, only the action\
+            \ is verified, not what it applies to."
+          title: action
+          type: string
+        path:
+          description: Used for app plugins.
+          title: path
+          type: string
+        addToNav:
+          description: Add the include to the navigation menu.
+          title: addToNav
+          type: boolean
+        defaultNav:
+          description: Page or dashboard when user clicks the icon in the side menu.
+          title: defaultNav
+          type: boolean
+        icon:
+          description: "Icon to use in the side menu. For information on available\
+            \ icon, refer to [Icons Overview](https://developers.grafana.com/ui/latest/index.html?path=/story/docs-overview-icon--icons-overview)."
+          title: icon
+          type: string
+      type: object
+    queryOptions:
+      description: For data source plugins. There is a query options section in the
+        plugin's query editor and these options can be turned on if needed.
+      example:
+        maxDataPoints: true
+        cacheTimeout: true
+        minInterval: true
+      properties:
+        maxDataPoints:
+          description: For data source plugins. If the `max data points` option should
+            be shown in the query options section in the query editor.
+          title: maxDataPoints
+          type: boolean
+        minInterval:
+          description: For data source plugins. If the `min interval` option should
+            be shown in the query options section in the query editor.
+          title: minInterval
+          type: boolean
+        cacheTimeout:
+          description: For data source plugins. If the `cache timeout` option should
+            be shown in the query options section in the query editor.
+          title: cacheTimeout
+          type: boolean
+      title: queryOptions
+      type: object
+    params:
+      additionalProperties: {}
+      description: Parameters for the token authentication request.
+      example:
+        grant_type: grant_type
+        resource: resource
+        client_secret: client_secret
+        client_id: client_id
+      properties:
+        grant_type:
+          description: OAuth grant type
+          title: grant_type
+          type: string
+        client_id:
+          description: OAuth client ID
+          title: client_id
+          type: string
+        client_secret:
+          description: OAuth client secret. Usually populated by decrypting the secret
+            from the SecureJson blob.
+          title: client_secret
+          type: string
+        resource:
+          description: OAuth resource
+          title: resource
+          type: string
+      title: params
+      type: object
+    tokenAuth:
+      description: For data source plugins. Token authentication section used with
+        an OAuth API.
+      example:
+        scopes:
+        - scopes
+        - scopes
+        params:
+          grant_type: grant_type
+          resource: resource
+          client_secret: client_secret
+          client_id: client_id
+        url: url
+      properties:
+        url:
+          description: URL to fetch the authentication token.
+          title: url
+          type: string
+        scopes:
+          description: The list of scopes that your application should be granted
+            access to.
+          items:
+            type: string
+          title: scopes
+          type: array
+        params:
+          $ref: '#/components/schemas/params'
+      title: tokenAuth
+      type: object
+    params_1:
+      description: Parameters for the JWT token authentication request.
+      example:
+        token_uri: token_uri
+        client_email: client_email
+        private_key: private_key
+      properties:
+        token_uri:
+          title: token_uri
+          type: string
+        client_email:
+          title: client_email
+          type: string
+        private_key:
+          title: private_key
+          type: string
+      title: params
+      type: object
+    jwtTokenAuth:
+      additionalProperties: {}
+      description: For data source plugins. Token authentication section used with
+        an JWT OAuth API.
+      example:
+        scopes:
+        - scopes
+        - scopes
+        params:
+          token_uri: token_uri
+          client_email: client_email
+          private_key: private_key
+        url: url
+      properties:
+        url:
+          description: URL to fetch the JWT token.
+          title: url
+          type: string
+        scopes:
+          description: The list of scopes that your application should be granted
+            access to.
+          items:
+            type: string
+          title: scopes
+          type: array
+        params:
+          $ref: '#/components/schemas/params_1'
+      title: jwtTokenAuth
+      type: object
+    urlParams_inner:
+      example:
+        name: name
+        content: content
+      properties:
+        name:
+          description: Name of the URL parameter
+          title: name
+          type: string
+        content:
+          description: Value of the URL parameter
+          title: content
+          type: string
+      type: object
+    routes_inner:
+      example:
+        reqAction: reqAction
+        path: path
+        headers:
+        - ""
+        - ""
+        method: method
+        tokenAuth:
+          scopes:
+          - scopes
+          - scopes
+          params:
+            grant_type: grant_type
+            resource: resource
+            client_secret: client_secret
+            client_id: client_id
+          url: url
+        jwtTokenAuth:
+          scopes:
+          - scopes
+          - scopes
+          params:
+            token_uri: token_uri
+            client_email: client_email
+            private_key: private_key
+          url: url
+        urlParams:
+        - name: name
+          content: content
+        - name: name
+          content: content
+        reqSignedIn: true
+        reqRole: reqRole
+        body:
+          key: ""
+        url: url
+      properties:
+        path:
+          description: For data source plugins. The route path that is replaced by
+            the route URL field when proxying the call.
+          title: path
+          type: string
+        method:
+          description: For data source plugins. Route method matches the HTTP verb
+            like `GET` or `POST`. Multiple methods can be provided as a comma-separated
+            list.
+          title: method
+          type: string
+        url:
+          description: For data source plugins. Route URL is where the request is
+            proxied to.
+          title: url
+          type: string
+        reqSignedIn:
+          title: reqSignedIn
+          type: boolean
+        reqRole:
+          title: reqRole
+          type: string
+        reqAction:
+          description: "The RBAC action a user must have to use this route. **Warning**:\
+            \ unless the action targets the plugin (or a nested datasource plugin),\
+            \ only the action is verified, not what it applies to."
+          title: reqAction
+          type: string
+        headers:
+          description: For data source plugins. Route headers adds HTTP headers to
+            the proxied request.
+          items: {}
+          title: headers
+          type: array
+        body:
+          additionalProperties: {}
+          description: For data source plugins. Route headers set the body content
+            and length to the proxied request.
+          title: body
+          type: object
+        tokenAuth:
+          $ref: '#/components/schemas/tokenAuth'
+        jwtTokenAuth:
+          $ref: '#/components/schemas/jwtTokenAuth'
+        urlParams:
+          description: Add URL parameters to a proxy route
+          items:
+            $ref: '#/components/schemas/urlParams_inner'
+          title: urlParams
+          type: array
+      type: object
+    permissions_inner:
+      example:
+        scope: scope
+        action: action
+      properties:
+        action:
+          description: "Action, for example: `teams:read`."
+          title: action
+          type: string
+        scope:
+          description: "The scope that the plugin needs to access e.g: `teams:*`."
+          title: scope
+          type: string
+      type: object
+    iam:
+      additionalProperties: {}
+      description: "Grafana reads the Identity and Access Management section and initializes\
+        \ a service account for the plugin, with a tailored set of [Grafana RBAC permissions](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control/custom-role-actions-scopes/#rbac-permissions-actions-and-scopes).\
+        \ Grafana will share the service account's bearer token with the plugin backend\
+        \ using the `GF_PLUGIN_APP_CLIENT_SECRET` environment variable. Requires Grafana\
+        \ version 10.3.0 or later. Currently, this is behind the `externalServiceAccounts`\
+        \ feature toggle. To try this feature out, follow this [guide](https://grafana.com/developers/plugin-tools/how-to-guides/app-plugins/implement-rbac-in-app-plugins)."
+      example:
+        permissions:
+        - scope: scope
+          action: action
+        - scope: scope
+          action: action
+      properties:
+        permissions:
+          description: Permissions are the permissions that the plugin needs its associated
+            service account to have to query Grafana.
+          items:
+            $ref: '#/components/schemas/permissions_inner'
+          title: permissions
+          type: array
+      title: iam
+      type: object
+    permissions_inner_1:
+      example:
+        scope: scope
+        action: action
+      properties:
+        action:
+          title: action
+          type: string
+        scope:
+          title: scope
+          type: string
+      type: object
+    role:
+      description: "A role groups your plugin's related RBAC permissions (ex: `Projects\
+        \ Admin` would group permissions to create, read, write and delete projects).\
+        \ The RBAC actions defined in your role must start with your plugin `id` (ex:\
+        \ `grafana-test-app.projects:read`)."
+      example:
+        permissions:
+        - scope: scope
+          action: action
+        - scope: scope
+          action: action
+        name: name
+        description: description
+      properties:
+        name:
+          description: Display name of the role.
+          title: name
+          type: string
+        description:
+          description: Describes the aim of the role.
+          title: description
+          type: string
+        permissions:
+          description: RBAC permission on the plugin.
+          items:
+            $ref: '#/components/schemas/permissions_inner_1'
+          title: permissions
+          type: array
+      title: role
+      type: object
+    roles_inner:
+      example:
+        grants:
+        - grants
+        - grants
+        role:
+          permissions:
+          - scope: scope
+            action: action
+          - scope: scope
+            action: action
+          name: name
+          description: description
+      properties:
+        role:
+          $ref: '#/components/schemas/role'
+        grants:
+          description: "Default assignments of the role to Grafana basic roles (`Viewer`,\
+            \ `Editor`, `Admin`, `Grafana Admin`)."
+          items:
+            type: string
+          title: grants
+          type: array
+      type: object
+    addedComponents_inner:
+      additionalProperties: {}
+      example:
+        description: description
+        title: title
+        targets:
+        - targets
+        - targets
+      properties:
+        targets:
+          description: "The extension point ids your plugin registers the extension\
+            \ to, e.g. `[\"grafana/user/profile/tab\"]`"
+          items:
+            type: string
+          title: targets
+          type: array
+        title:
+          description: The title of your component extension.
+          title: title
+          type: string
+        description:
+          description: Additional information about your component extension.
+          title: description
+          type: string
+      required:
+      - targets
+      - title
+      type: object
+    addedLinks_inner:
+      additionalProperties: {}
+      example:
+        description: description
+        title: title
+        targets:
+        - targets
+        - targets
+      properties:
+        targets:
+          description: "The extension point ids your plugin registers the extension\
+            \ to, e.g. `[\"grafana/dashboard/panel/menu\"]`"
+          items:
+            type: string
+          title: targets
+          type: array
+        title:
+          description: The title of your link extension.
+          title: title
+          type: string
+        description:
+          description: Additional information about your link extension.
+          title: description
+          type: string
+      required:
+      - targets
+      - title
+      type: object
+    addedFunctions_inner:
+      additionalProperties: {}
+      example:
+        description: description
+        title: title
+        targets:
+        - targets
+        - targets
+      properties:
+        targets:
+          description: "The extension point ids your plugin registers the extension\
+            \ to, e.g. `[\"grafana/dashboard/panel/menu\"]`"
+          items:
+            type: string
+          title: targets
+          type: array
+        title:
+          description: The title of your function extension.
+          title: title
+          type: string
+        description:
+          description: Additional information about your function extension.
+          title: description
+          type: string
+      required:
+      - targets
+      - title
+      type: object
+    exposedComponents_inner:
+      additionalProperties: {}
+      example:
+        description: description
+        id: id
+        title: title
+      properties:
+        id:
+          description: "A unique identifier for your exposed component. This is used\
+            \ to reference the component in other plugins. It must be in the following\
+            \ format: `{PLUGIN_ID}/name-of-component/v1`. It is recommended to add\
+            \ a version suffix to prevent future breaking changes. E.g.: `myorg-extensions-app/exposed-component/v1`."
+          title: id
+          type: string
+        title:
+          description: The title of your exposed component.
+          title: title
+          type: string
+        description:
+          description: Additional information about your exposed component.
+          title: description
+          type: string
+      required:
+      - id
+      type: object
+    extensionPoints_inner:
+      additionalProperties: {}
+      example:
+        description: description
+        id: id
+        title: title
+      properties:
+        id:
+          description: "A unique identifier for your extension point. This is used\
+            \ to reference the extension point in other plugins. It must be in the\
+            \ following format: `{PLUGIN_ID}/name-of-my-extension-point/v1`. It is\
+            \ recommended to add a version suffix to prevent future breaking changes.\
+            \ E.g.: `myorg-extensions-app/extension-point/v1`."
+          title: id
+          type: string
+        title:
+          description: The title of your extension point.
+          title: title
+          type: string
+        description:
+          description: Additional information about your extension point.
+          title: description
+          type: string
+      required:
+      - id
+      type: object
+    extensions_1:
+      additionalProperties: {}
+      description: Plugin extensions are a way to extend either the UI of core Grafana
+        or other plugins.
+      example:
+        addedComponents:
+        - description: description
+          title: title
+          targets:
+          - targets
+          - targets
+        - description: description
+          title: title
+          targets:
+          - targets
+          - targets
+        addedFunctions:
+        - description: description
+          title: title
+          targets:
+          - targets
+          - targets
+        - description: description
+          title: title
+          targets:
+          - targets
+          - targets
+        extensionPoints:
+        - description: description
+          id: id
+          title: title
+        - description: description
+          id: id
+          title: title
+        addedLinks:
+        - description: description
+          title: title
+          targets:
+          - targets
+          - targets
+        - description: description
+          title: title
+          targets:
+          - targets
+          - targets
+        exposedComponents:
+        - description: description
+          id: id
+          title: title
+        - description: description
+          id: id
+          title: title
+      properties:
+        addedComponents:
+          description: "This list must contain all component extensions that your\
+            \ plugin registers to other extension points using [`.addComponent()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#addcomponent).\
+            \ **Components that are not listed here won't work.**"
+          items:
+            $ref: '#/components/schemas/addedComponents_inner'
+          title: addedComponents
+          type: array
+        addedLinks:
+          description: "This list must contain all link extensions that your plugin\
+            \ registers to other extension points using [`.addLink()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#addlink).\
+            \ **Links that are not listed here won't work.**"
+          items:
+            $ref: '#/components/schemas/addedLinks_inner'
+          title: addedLinks
+          type: array
+        addedFunctions:
+          description: "This list must contain all function extensions that your plugin\
+            \ registers to other extension points using [`.addedFunctions()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#addfunction).\
+            \ **Functions that are not listed here won't work.**"
+          items:
+            $ref: '#/components/schemas/addedFunctions_inner'
+          title: addedFunctions
+          type: array
+        exposedComponents:
+          description: "This list must contain all components that your plugin exposes\
+            \ using [`.exposeComponent()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#exposecomponent).\
+            \ **Components that are not listed here won't work.**"
+          items:
+            $ref: '#/components/schemas/exposedComponents_inner'
+          title: exposedComponents
+          type: array
+        extensionPoints:
+          description: "This list must contain all extension points that your plugin\
+            \ defines using [`usePluginLinks()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#usepluginlinks)\
+            \ or [`usePluginComponents()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#useplugincomponents).\
+            \ **Extension points that are not listed in here won't work.**"
+          items:
+            $ref: '#/components/schemas/extensionPoints_inner'
+          title: extensionPoints
+          type: array
+      title: extensions
+      type: object
+    json:
+      description: "The `plugin.json` file is required for all plugins. When Grafana\
+        \ starts, it scans the plugin folders and mounts every folder that contains\
+        \ a `plugin.json` file unless the folder contains a subfolder named `dist`.\
+        \ In that case, Grafana mounts the `dist` folder instead."
+      example:
+        $schema: $schema
+        hideFromList: true
+        builtIn: true
+        enterpriseFeatures:
+          healthDiagnosticsErrors: true
+        roles:
+        - grants:
+          - grants
+          - grants
+          role:
+            permissions:
+            - scope: scope
+              action: action
+            - scope: scope
+              action: action
+            name: name
+            description: description
+        - grants:
+          - grants
+          - grants
+          role:
+            permissions:
+            - scope: scope
+              action: action
+            - scope: scope
+              action: action
+            name: name
+            description: description
+        annotations: true
+        buildMode: buildMode
+        pascalName: pascalName
+        type: app
+        preload: true
+        alerting: true
+        routes:
+        - reqAction: reqAction
+          path: path
+          headers:
+          - ""
+          - ""
+          method: method
+          tokenAuth:
+            scopes:
+            - scopes
+            - scopes
+            params:
+              grant_type: grant_type
+              resource: resource
+              client_secret: client_secret
+              client_id: client_id
+            url: url
+          jwtTokenAuth:
+            scopes:
+            - scopes
+            - scopes
+            params:
+              token_uri: token_uri
+              client_email: client_email
+              private_key: private_key
+            url: url
+          urlParams:
+          - name: name
+            content: content
+          - name: name
+            content: content
+          reqSignedIn: true
+          reqRole: reqRole
+          body:
+            key: ""
+          url: url
+        - reqAction: reqAction
+          path: path
+          headers:
+          - ""
+          - ""
+          method: method
+          tokenAuth:
+            scopes:
+            - scopes
+            - scopes
+            params:
+              grant_type: grant_type
+              resource: resource
+              client_secret: client_secret
+              client_id: client_id
+            url: url
+          jwtTokenAuth:
+            scopes:
+            - scopes
+            - scopes
+            params:
+              token_uri: token_uri
+              client_email: client_email
+              private_key: private_key
+            url: url
+          urlParams:
+          - name: name
+            content: content
+          - name: name
+            content: content
+          reqSignedIn: true
+          reqRole: reqRole
+          body:
+            key: ""
+          url: url
+        streaming: true
+        iam:
+          permissions:
+          - scope: scope
+            action: action
+          - scope: scope
+            action: action
+        backend: true
+        id: id
+        state: alpha
+        logs: true
+        info:
+          keywords:
+          - keywords
+          - keywords
+          build:
+            number: 3.616076749251911
+            pr: 2.027123023002322
+            build: 4.145608029883936
+            repo: repo
+            time: 9.301444243932576
+            branch: branch
+            hash: hash
+          author:
+            name: name
+            email: email
+            url: url
+          description: description
+          links:
+          - name: name
+            url: url
+            target: _blank
+          - name: name
+            url: url
+            target: _blank
+          logos:
+            small: small
+            large: large
+          updated: updated
+          version: version
+          screenshots:
+          - path: path
+            name: name
+          - path: path
+            name: name
+        tracing: true
+        languages:
+        - languages
+        - languages
+        queryOptions:
+          maxDataPoints: true
+          cacheTimeout: true
+          minInterval: true
+        includes:
+        - uid: uid
+          path: path
+          defaultNav: true
+          component: component
+          role: Admin
+          name: name
+          icon: icon
+          action: action
+          type: dashboard
+          addToNav: true
+        - uid: uid
+          path: path
+          defaultNav: true
+          component: component
+          role: Admin
+          name: name
+          icon: icon
+          action: action
+          type: dashboard
+          addToNav: true
+        executable: executable
+        dependencies:
+          extensions:
+            exposedComponents:
+            - exposedComponents
+            - exposedComponents
+          plugins:
+          - name: name
+            id: id
+            type: app
+          - name: name
+            id: id
+            type: app
+          grafanaVersion: grafanaVersion
+          grafanaDependency: grafanaDependency
+        skipDataQuery: true
+        extensions:
+          addedComponents:
+          - description: description
+            title: title
+            targets:
+            - targets
+            - targets
+          - description: description
+            title: title
+            targets:
+            - targets
+            - targets
+          addedFunctions:
+          - description: description
+            title: title
+            targets:
+            - targets
+            - targets
+          - description: description
+            title: title
+            targets:
+            - targets
+            - targets
+          extensionPoints:
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+          addedLinks:
+          - description: description
+            title: title
+            targets:
+            - targets
+            - targets
+          - description: description
+            title: title
+            targets:
+            - targets
+            - targets
+          exposedComponents:
+          - description: description
+            id: id
+            title: title
+          - description: description
+            id: id
+            title: title
+        autoEnabled: true
+        multiValueFilterOperators: true
+        name: name
+        metrics: true
+        category: cloud
+      properties:
+        id:
+          description: "Unique name of the plugin. If the plugin is published on grafana.com,\
+            \ then the plugin `id` has to follow the naming conventions."
+          title: id
+          type: string
+        type:
+          description: Plugin type.
+          enum:
+          - app
+          - datasource
+          - panel
+          - renderer
+          title: type
+          type: string
+        info:
+          $ref: '#/components/schemas/info_1'
+        name:
+          description: Human-readable name of the plugin that is shown to the user
+            in the UI.
+          title: name
+          type: string
+        dependencies:
+          $ref: '#/components/schemas/dependencies'
+        $schema:
+          description: Schema definition for the plugin.json file. Used primarily
+            for schema validation.
+          title: $schema
+          type: string
+        alerting:
+          description: "For data source plugins, if the plugin supports alerting.\
+            \ Requires `backend` to be set to `true`."
+          title: alerting
+          type: boolean
+        annotations:
+          description: "For data source plugins, if the plugin supports annotation\
+            \ queries."
+          title: annotations
+          type: boolean
+        autoEnabled:
+          description: Set to true for app plugins that should be enabled and pinned
+            to the navigation bar in all orgs.
+          title: autoEnabled
+          type: boolean
+        backend:
+          description: If the plugin has a backend component.
+          title: backend
+          type: boolean
+        buildMode:
+          description: "The build mode of the plugin. This field is set automatically\
+            \ at build time, so it should not be provided manually."
+          title: buildMode
+          type: string
+        builtIn:
+          description: "[internal only] Indicates whether the plugin is developed\
+            \ and shipped as part of Grafana. Also known as a 'core plugin'."
+          title: builtIn
+          type: boolean
+        category:
+          description: Plugin category used on the Add data source page.
+          enum:
+          - cloud
+          - enterprise
+          - iot
+          - logging
+          - other
+          - profiling
+          - sql
+          - tracing
+          - tsdb
+          title: category
+          type: string
+        enterpriseFeatures:
+          $ref: '#/components/schemas/enterpriseFeatures'
+        executable:
+          description: "The first part of the file name of the backend component executable.\
+            \ There can be multiple executables built for different operating system\
+            \ and architecture. Grafana will check for executables named `<executable>_<$GOOS>_<lower\
+            \ case $GOARCH><.exe for Windows>`, e.g. `plugin_linux_amd64`. Combination\
+            \ of $GOOS and $GOARCH can be found here: https://golang.org/doc/install/source#environment."
+          title: executable
+          type: string
+        hideFromList:
+          description: "[internal only] Excludes the plugin from listings in Grafana's\
+            \ UI. Only allowed for `builtIn` plugins."
+          title: hideFromList
+          type: boolean
+        includes:
+          description: Resources to include in plugin.
+          items:
+            $ref: '#/components/schemas/includes_inner'
+          title: includes
+          type: array
+        logs:
+          description: "For data source plugins, if the plugin supports logs. It may\
+            \ be used to filter logs only features."
+          title: logs
+          type: boolean
+        metrics:
+          description: "For data source plugins, if the plugin supports metric queries.\
+            \ Used to enable the plugin in the panel editor."
+          title: metrics
+          type: boolean
+        multiValueFilterOperators:
+          description: "For data source plugins, if the plugin supports multi value\
+            \ operators in adhoc filters."
+          title: multiValueFilterOperators
+          type: boolean
+        pascalName:
+          description: "[internal only] The PascalCase name for the plugin. Used for\
+            \ creating machine-friendly identifiers, typically in code generation.\
+            \ If not provided, defaults to name, but title-cased and sanitized (only\
+            \ alphabetical characters allowed)."
+          title: pascalName
+          type: string
+        preload:
+          description: "Initialize plugin on startup. By default, the plugin initializes\
+            \ on first use, but when preload is set to true the plugin loads when\
+            \ the Grafana web app loads the first time. Only applicable to app plugins.\
+            \ When setting to `true`, implement [frontend code splitting](https://grafana.com/developers/plugin-tools/get-started/best-practices#app-plugins)\
+            \ to minimise performance implications."
+          title: preload
+          type: boolean
+        queryOptions:
+          $ref: '#/components/schemas/queryOptions'
+        routes:
+          description: "For data source plugins. Proxy routes used for plugin authentication\
+            \ and adding headers to HTTP requests made by the plugin. For more information,\
+            \ refer to [Authentication for data source plugins](https://grafana.com/developers/plugin-tools/how-to-guides/data-source-plugins/add-authentication-for-data-source-plugins)."
+          items:
+            $ref: '#/components/schemas/routes_inner'
+          title: routes
+          type: array
+        skipDataQuery:
+          description: For panel plugins. Hides the query editor.
+          title: skipDataQuery
+          type: boolean
+        state:
+          description: Describes plugins life cycle status
+          enum:
+          - alpha
+          - beta
+          - deprecated
+          - stable
+          title: state
+          type: string
+        streaming:
+          description: "For data source plugins, if the plugin supports streaming.\
+            \ Used in Explore to start live streaming."
+          title: streaming
+          type: boolean
+        tracing:
+          description: "For data source plugins, if the plugin supports tracing. Used\
+            \ for example to link logs (e.g. Loki logs) with tracing plugins."
+          title: tracing
+          type: boolean
+        iam:
+          $ref: '#/components/schemas/iam'
+        roles:
+          description: "List of RBAC roles defined by the plugin and their default\
+            \ assignments to basic roles (`Viewer`, `Editor`, `Admin`, `Grafana Admin`).\
+            \ Requires Grafana version 9.4.0 or later."
+          items:
+            $ref: '#/components/schemas/roles_inner'
+          title: roles
+          type: array
+        extensions:
+          $ref: '#/components/schemas/extensions_1'
+        languages:
+          description: "The list of languages supported by the plugin. Each entry\
+            \ should be a locale identifier in the format `language-COUNTRY` (for\
+            \ example `en-US`, `es-ES`, `de-DE`)."
+          items:
+            type: string
+          title: languages
+          type: array
+      required:
+      - dependencies
+      - id
+      - info
+      - name
+      - type
+      title: json
+      type: object
     FormattedApiStackRegion_anyOf:
       example:
         createdAt: createdAt
@@ -7933,55 +9368,77 @@ components:
       - privateDNS
       - serviceName
       type: object
-    api_1:
-      properties:
-        privateDNS:
-          title: privateDNS
-          type: string
-        serviceName:
-          title: serviceName
-          type: string
-        regions:
-          items:
-            type: string
-          title: regions
-          type: array
-        endpointName:
-          title: endpointName
-          type: string
-        serviceId:
-          title: serviceId
-          type: string
-      required:
-      - privateDNS
-      - serviceName
-      title: api
-      type: object
-    gateway_1:
-      properties:
-        privateDNS:
-          title: privateDNS
-          type: string
-        serviceName:
-          title: serviceName
-          type: string
-        regions:
-          items:
-            type: string
-          title: regions
-          type: array
-        endpointName:
-          title: endpointName
-          type: string
-        serviceId:
-          title: serviceId
-          type: string
-      required:
-      - privateDNS
-      - serviceName
-      title: gateway
-      type: object
     pdcPrivateConnectivityInfo_anyOf_1:
+      nullable: true
+      properties:
+        serviceAttachment:
+          title: serviceAttachment
+          type: string
+        domainNames:
+          items:
+            type: string
+          title: domainNames
+          type: array
+        endpointName:
+          title: endpointName
+          type: string
+      required:
+      - domainNames
+      - endpointName
+      - serviceAttachment
+      type: object
+    api_1_anyOf:
+      properties:
+        privateDNS:
+          title: privateDNS
+          type: string
+        serviceName:
+          title: serviceName
+          type: string
+        regions:
+          items:
+            type: string
+          title: regions
+          type: array
+        endpointName:
+          title: endpointName
+          type: string
+        serviceId:
+          title: serviceId
+          type: string
+      required:
+      - privateDNS
+      - serviceName
+      type: object
+    api_1_anyOf_1:
+      properties:
+        serviceAttachment:
+          title: serviceAttachment
+          type: string
+        domainNames:
+          items:
+            type: string
+          title: domainNames
+          type: array
+        endpointName:
+          title: endpointName
+          type: string
+      required:
+      - domainNames
+      - endpointName
+      - serviceAttachment
+      type: object
+    api_1:
+      anyOf:
+      - $ref: '#/components/schemas/api_1_anyOf'
+      - $ref: '#/components/schemas/api_1_anyOf_1'
+      title: api
+    gateway_1:
+      anyOf:
+      - $ref: '#/components/schemas/api_1_anyOf'
+      - $ref: '#/components/schemas/api_1_anyOf_1'
+      title: gateway
+    pdcPrivateConnectivityInfo_anyOf_2:
       nullable: true
       properties:
         api:
@@ -7993,54 +9450,21 @@ components:
       - gateway
       type: object
     mimir:
-      properties:
-        privateDNS:
-          title: privateDNS
-          type: string
-        serviceName:
-          title: serviceName
-          type: string
-        regions:
-          items:
-            type: string
-          title: regions
-          type: array
-        endpointName:
-          title: endpointName
-          type: string
-        serviceId:
-          title: serviceId
-          type: string
-      required:
-      - privateDNS
-      - serviceName
+      anyOf:
+      - $ref: '#/components/schemas/api_1_anyOf'
+      - $ref: '#/components/schemas/api_1_anyOf_1'
       title: mimir
-      type: object
     graphite:
-      properties:
-        privateDNS:
-          title: privateDNS
-          type: string
-        serviceName:
-          title: serviceName
-          type: string
-        regions:
-          items:
-            type: string
-          title: regions
-          type: array
-        endpointName:
-          title: endpointName
-          type: string
-        serviceId:
-          title: serviceId
-          type: string
-      required:
-      - privateDNS
-      - serviceName
+      anyOf:
+      - $ref: '#/components/schemas/api_1_anyOf'
+      - $ref: '#/components/schemas/api_1_anyOf_1'
       title: graphite
-      type: object
-    pdcPrivateConnectivityInfo_anyOf_2:
+    otlp_1:
+      anyOf:
+      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf'
+      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
+      title: otlp
+    pdcPrivateConnectivityInfo_anyOf_3:
       nullable: true
       properties:
         mimir:
@@ -8048,26 +9472,9 @@ components:
         graphite:
           $ref: '#/components/schemas/graphite'
         otlp:
-          $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf'
+          $ref: '#/components/schemas/otlp_1'
       required:
       - mimir
-      type: object
-    pdcPrivateConnectivityInfo_anyOf_3:
-      nullable: true
-      properties:
-        name:
-          title: name
-          type: string
-        network:
-          title: network
-          type: string
-        ipCidrRange:
-          title: ipCidrRange
-          type: string
-      required:
-      - ipCidrRange
-      - name
-      - network
       type: object
     pdcPrivateConnectivityInfo:
       anyOf:
@@ -8261,6 +9668,9 @@ components:
         complete:
           title: complete
           type: boolean
+        readyForStacks:
+          title: readyForStacks
+          type: boolean
         id:
           title: id
           type: number
@@ -8360,6 +9770,7 @@ components:
       - provider
       - providerRegion
       - publicName
+      - readyForStacks
       - slug
       - sortOrder
       - stackStateServiceUrl
@@ -8457,7 +9868,7 @@ components:
       - stackName
       - totalUsage
       type: object
-    items_inner_3:
+    items_inner_2:
       example:
         month: 0.8008281904610115
         year: 6.027456183070403
@@ -8472,6 +9883,14 @@ components:
       - month
       - year
       type: object
+    FormattedApiApiKey_id:
+      anyOf:
+      - type: string
+      - type: number
+    FormattedApiApiKeyListResponse_items_inner:
+      properties:
+        id:
+          $ref: '#/components/schemas/FormattedApiApiKey_id'
   securitySchemes:
     BearerAuth:
       scheme: bearer

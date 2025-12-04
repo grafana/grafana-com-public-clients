@@ -34,15 +34,15 @@ Name | Type | Description | Notes
 **UserEmail** | **string** |  | 
 **UserName** | **string** |  | 
 **Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
-**MarketplaceSubscription** | [**NullableItemsInner2MarketplaceSubscription**](ItemsInner2MarketplaceSubscription.md) |  | 
+**MarketplaceSubscription** | [**NullableItemsInner1MarketplaceSubscription**](ItemsInner1MarketplaceSubscription.md) |  | 
 **ExtraPermissions** | Pointer to **[]string** |  | [optional] 
-**GrafanaStaffAccess** | Pointer to [**NullableItemsInner2GrafanaStaffAccess**](ItemsInner2GrafanaStaffAccess.md) |  | [optional] 
+**GrafanaStaffAccess** | Pointer to [**NullableItemsInner1GrafanaStaffAccess**](ItemsInner1GrafanaStaffAccess.md) |  | [optional] 
 
 ## Methods
 
 ### NewFormattedOrgMembership
 
-`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner2MarketplaceSubscription, ) *FormattedOrgMembership`
+`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription, ) *FormattedOrgMembership`
 
 NewFormattedOrgMembership instantiates a new FormattedOrgMembership object
 This constructor will assign default values to properties that have it defined,
@@ -679,20 +679,20 @@ SetSubscriptions sets Subscriptions field to given value.
 
 ### GetMarketplaceSubscription
 
-`func (o *FormattedOrgMembership) GetMarketplaceSubscription() ItemsInner2MarketplaceSubscription`
+`func (o *FormattedOrgMembership) GetMarketplaceSubscription() ItemsInner1MarketplaceSubscription`
 
 GetMarketplaceSubscription returns the MarketplaceSubscription field if non-nil, zero value otherwise.
 
 ### GetMarketplaceSubscriptionOk
 
-`func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*ItemsInner2MarketplaceSubscription, bool)`
+`func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*ItemsInner1MarketplaceSubscription, bool)`
 
 GetMarketplaceSubscriptionOk returns a tuple with the MarketplaceSubscription field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMarketplaceSubscription
 
-`func (o *FormattedOrgMembership) SetMarketplaceSubscription(v ItemsInner2MarketplaceSubscription)`
+`func (o *FormattedOrgMembership) SetMarketplaceSubscription(v ItemsInner1MarketplaceSubscription)`
 
 SetMarketplaceSubscription sets MarketplaceSubscription field to given value.
 
@@ -734,20 +734,20 @@ HasExtraPermissions returns a boolean if a field has been set.
 
 ### GetGrafanaStaffAccess
 
-`func (o *FormattedOrgMembership) GetGrafanaStaffAccess() ItemsInner2GrafanaStaffAccess`
+`func (o *FormattedOrgMembership) GetGrafanaStaffAccess() ItemsInner1GrafanaStaffAccess`
 
 GetGrafanaStaffAccess returns the GrafanaStaffAccess field if non-nil, zero value otherwise.
 
 ### GetGrafanaStaffAccessOk
 
-`func (o *FormattedOrgMembership) GetGrafanaStaffAccessOk() (*ItemsInner2GrafanaStaffAccess, bool)`
+`func (o *FormattedOrgMembership) GetGrafanaStaffAccessOk() (*ItemsInner1GrafanaStaffAccess, bool)`
 
 GetGrafanaStaffAccessOk returns a tuple with the GrafanaStaffAccess field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGrafanaStaffAccess
 
-`func (o *FormattedOrgMembership) SetGrafanaStaffAccess(v ItemsInner2GrafanaStaffAccess)`
+`func (o *FormattedOrgMembership) SetGrafanaStaffAccess(v ItemsInner1GrafanaStaffAccess)`
 
 SetGrafanaStaffAccess sets GrafanaStaffAccess field to given value.
 

@@ -23,6 +23,7 @@ type FormattedApiInstanceConnections struct {
 	AppPlatform             *AppPlatform            `json:"appPlatform,omitempty"`
 	InfluxUrl               NullableString          `json:"influxUrl,omitempty"`
 	OtlpHttpUrl             NullableString          `json:"otlpHttpUrl,omitempty"`
+	OtlpMultiAZ             bool                    `json:"otlpMultiAZ"`
 	OncallApiUrl            NullableString          `json:"oncallApiUrl,omitempty"`
 	AdditionalProperties    map[string]interface{}
 }
@@ -33,9 +34,10 @@ type _FormattedApiInstanceConnections FormattedApiInstanceConnections
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiInstanceConnections(privateConnectivityInfo PrivateConnectivityInfo) *FormattedApiInstanceConnections {
+func NewFormattedApiInstanceConnections(privateConnectivityInfo PrivateConnectivityInfo, otlpMultiAZ bool) *FormattedApiInstanceConnections {
 	this := FormattedApiInstanceConnections{}
 	this.PrivateConnectivityInfo = privateConnectivityInfo
+	this.OtlpMultiAZ = otlpMultiAZ
 	return &this
 }
 
@@ -189,6 +191,30 @@ func (o *FormattedApiInstanceConnections) UnsetOtlpHttpUrl() {
 	o.OtlpHttpUrl.Unset()
 }
 
+// GetOtlpMultiAZ returns the OtlpMultiAZ field value
+func (o *FormattedApiInstanceConnections) GetOtlpMultiAZ() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.OtlpMultiAZ
+}
+
+// GetOtlpMultiAZOk returns a tuple with the OtlpMultiAZ field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstanceConnections) GetOtlpMultiAZOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OtlpMultiAZ, true
+}
+
+// SetOtlpMultiAZ sets field value
+func (o *FormattedApiInstanceConnections) SetOtlpMultiAZ(v bool) {
+	o.OtlpMultiAZ = v
+}
+
 // GetOncallApiUrl returns the OncallApiUrl field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FormattedApiInstanceConnections) GetOncallApiUrl() string {
 	if o == nil || IsNil(o.OncallApiUrl.Get()) {
@@ -252,6 +278,7 @@ func (o FormattedApiInstanceConnections) ToMap() (map[string]interface{}, error)
 	if o.OtlpHttpUrl.IsSet() {
 		toSerialize["otlpHttpUrl"] = o.OtlpHttpUrl.Get()
 	}
+	toSerialize["otlpMultiAZ"] = o.OtlpMultiAZ
 	if o.OncallApiUrl.IsSet() {
 		toSerialize["oncallApiUrl"] = o.OncallApiUrl.Get()
 	}
@@ -289,6 +316,7 @@ func (o *FormattedApiInstanceConnections) UnmarshalJSON(data []byte) (err error)
 		delete(additionalProperties, "appPlatform")
 		delete(additionalProperties, "influxUrl")
 		delete(additionalProperties, "otlpHttpUrl")
+		delete(additionalProperties, "otlpMultiAZ")
 		delete(additionalProperties, "oncallApiUrl")
 		o.AdditionalProperties = additionalProperties
 	}
