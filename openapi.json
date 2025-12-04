@@ -1,4 +1,29 @@
 {
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GCOM API",
+    "version": "public",
+    "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
+    "x-commit-sha": "ee44d4f",
+    "x-generated-at": "2025-12-04T09:48:48.838Z"
+  },
+  "servers": [
+    {
+      "description": "Main API server",
+      "url": "/api"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "instances",
+      "description": "Everything related to our Hosted Grafana Instances"
+    }
+  ],
   "paths": {
     "/instances": {
       "get": {
@@ -194,6 +219,25 @@
             "name": "planNot",
             "schema": {
               "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "region",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "regionIn",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "required": false
           },
@@ -2064,6 +2108,77 @@
         }
       }
     },
+    "/instances/{instanceId}/readiness": {
+      "get": {
+        "tags": [
+          "instances"
+        ],
+        "operationId": "getInstanceReadiness",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instanceId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "summary": "Gets an instance's readiness status",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormattedApiInstanceReadiness"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorForbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorNotFound"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/instances/{instanceId}/users": {
       "get": {
         "tags": [
@@ -2143,6 +2258,120 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorNotFound"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/org-stack-regions": {
+      "get": {
+        "tags": [
+          "org-stack-regions"
+        ],
+        "operationId": "getOrgStackRegions",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "orgId",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "regionSlugOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "title": "items",
+                      "items": {
+                        "$ref": "#/components/schemas/FormattedApiOrgStackRegion"
+                      }
+                    },
+                    "orderBy": {
+                      "type": "string",
+                      "title": "orderBy"
+                    },
+                    "direction": {
+                      "enum": [
+                        "asc",
+                        "desc"
+                      ],
+                      "type": "string",
+                      "title": "direction"
+                    },
+                    "total": {
+                      "type": "number",
+                      "title": "total"
+                    },
+                    "pages": {
+                      "type": "number",
+                      "title": "pages"
+                    },
+                    "pageSize": {
+                      "type": "number",
+                      "title": "pageSize"
+                    },
+                    "page": {
+                      "type": "number",
+                      "title": "page"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "orderBy",
+                    "direction",
+                    "total",
+                    "pages",
+                    "pageSize",
+                    "page"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorForbidden"
                 }
               }
             }
@@ -2647,378 +2876,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/orgs/{slugOrId}/api-keys": {
-      "get": {
-        "tags": [
-          "orgs"
-        ],
-        "operationId": "getApiKeys",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "slugOrId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "excludeProvisioned",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          }
-        ],
-        "summary": "Get an organization's API keys",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiApiKeyListResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "orgs"
-        ],
-        "operationId": "postApiKeys",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "slugOrId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "enum": [
-                      "Viewer",
-                      "Editor",
-                      "Admin",
-                      "MetricsPublisher",
-                      "PluginPublisher"
-                    ],
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name",
-                  "role"
-                ]
-              }
-            }
-          }
-        },
-        "summary": "Create an API key.",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiApiKey"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/orgs/{slugOrId}/api-keys/{name}": {
-      "get": {
-        "tags": [
-          "orgs"
-        ],
-        "operationId": "getApiKey",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "name",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "slugOrId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "summary": "Get an API key by name",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiApiKey"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "orgs"
-        ],
-        "operationId": "delApiKey",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "name",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "slugOrId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "unlock",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string",
-              "default": "openapi-x-request-id"
-            },
-            "required": true
-          }
-        ],
-        "summary": "Delete an API key by name",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
                 }
               }
             }
@@ -3700,6 +3557,14 @@
           },
           {
             "in": "query",
+            "name": "orgId",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
             "name": "provider",
             "schema": {
               "enum": [
@@ -3837,6 +3702,14 @@
         ],
         "operationId": "getClosestStackRegion",
         "parameters": [
+          {
+            "in": "query",
+            "name": "orgId",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false
+          },
           {
             "in": "query",
             "name": "provider",
@@ -4249,6 +4122,22 @@
               "type": "string"
             },
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "includeOrgMetadata",
+            "schema": {
+              "type": "boolean"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "orgId",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false
           }
         ],
         "summary": "Get details about the Cloud Access Policy API",
@@ -4258,7 +4147,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/AccessPoliciesConfig"
                 }
               }
             }
@@ -4639,14 +4528,7 @@
         "summary": "Delete an access policy",
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
+            "description": "OK"
           },
           "401": {
             "description": "Login Required or invalid credentials",
@@ -5112,6 +4994,11 @@
                 "properties": {
                   "displayName": {
                     "type": "string"
+                  },
+                  "expiresAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
                   }
                 }
               }
@@ -5287,32 +5174,7 @@
       }
     }
   },
-  "openapi": "3.0.0",
-  "info": {
-    "title": "GCOM API",
-    "version": "public",
-    "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "cf75ecf",
-    "x-generated-at": "2025-07-15T07:30:45.899Z"
-  },
-  "security": [
-    {
-      "BearerAuth": []
-    }
-  ],
-  "servers": [
-    {
-      "description": "Main API server",
-      "url": "/api"
-    }
-  ],
   "components": {
-    "securitySchemes": {
-      "BearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
-      }
-    },
     "schemas": {
       "ErrorServiceUnavailable": {
         "type": "object",
@@ -5657,291 +5519,110 @@
           "realms"
         ]
       },
-      "FormattedApiApiKeyListResponse": {
+      "AccessPoliciesConfig": {
         "type": "object",
         "properties": {
-          "items": {
+          "realms": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "org"
+                      ],
+                      "title": "type"
+                    },
+                    "identifier": {
+                      "type": "string",
+                      "title": "identifier"
+                    }
+                  },
+                  "required": [
+                    "identifier",
+                    "type"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "stack"
+                      ],
+                      "title": "type"
+                    },
+                    "identifier": {
+                      "type": "string",
+                      "title": "identifier"
+                    }
+                  },
+                  "required": [
+                    "identifier",
+                    "type"
+                  ]
+                }
+              ]
+            },
+            "title": "realms"
+          },
+          "scopes": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "id": {
-                  "title": "id",
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "number"
-                    }
-                  ]
-                },
-                "accessPolicyId": {
-                  "type": "string",
-                  "title": "accessPolicyId"
-                },
-                "orgId": {
-                  "type": "number",
-                  "title": "orgId"
-                },
-                "orgSlug": {
-                  "type": "string",
-                  "title": "orgSlug"
-                },
-                "orgName": {
-                  "type": "string",
-                  "title": "orgName"
-                },
-                "instanceId": {
-                  "type": "number",
-                  "title": "instanceId",
-                  "nullable": true
-                },
                 "name": {
                   "type": "string",
                   "title": "name"
                 },
-                "role": {
-                  "enum": [
-                    "Admin",
-                    "EasyStart",
-                    "Editor",
-                    "MetricsPublisher",
-                    "None",
-                    "PluginPublisher",
-                    "SSO Access",
-                    "Viewer"
-                  ],
+                "description": {
                   "type": "string",
-                  "title": "role"
+                  "title": "description"
                 },
-                "createdAt": {
+                "requiresRealmType": {
                   "type": "string",
-                  "title": "createdAt"
-                },
-                "updatedAt": {
+                  "title": "requiresRealmType"
+                }
+              },
+              "required": [
+                "description",
+                "name"
+              ]
+            },
+            "title": "scopes"
+          },
+          "sets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
                   "type": "string",
-                  "title": "updatedAt",
-                  "nullable": true
+                  "title": "name"
                 },
-                "firstUsed": {
-                  "type": "string",
-                  "title": "firstUsed",
-                  "nullable": true
-                },
-                "token": {
-                  "type": "string",
-                  "title": "token"
-                },
-                "links": {
+                "scopes": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "rel": {
-                        "type": "string",
-                        "title": "rel",
-                        "default": "self"
-                      },
-                      "href": {
-                        "type": "string",
-                        "title": "href"
-                      }
-                    },
-                    "required": [
-                      "href",
-                      "rel"
-                    ]
+                    "type": "string"
                   },
-                  "title": "links"
+                  "title": "scopes"
                 }
               },
               "required": [
-                "accessPolicyId",
-                "createdAt",
-                "firstUsed",
-                "id",
-                "instanceId",
-                "links",
-                "name",
-                "orgId",
-                "orgName",
-                "orgSlug",
-                "role",
-                "updatedAt"
+                "name"
               ]
             },
-            "title": "items"
-          },
-          "orderBy": {
-            "type": "string",
-            "title": "orderBy"
-          },
-          "direction": {
-            "enum": [
-              "asc",
-              "desc"
-            ],
-            "type": "string",
-            "title": "direction"
-          },
-          "total": {
-            "type": "number",
-            "title": "total"
-          },
-          "pages": {
-            "type": "number",
-            "title": "pages"
-          },
-          "pageSize": {
-            "type": "number",
-            "title": "pageSize"
-          },
-          "page": {
-            "type": "number",
-            "title": "page"
-          },
-          "cursor": {
-            "type": "number",
-            "title": "cursor"
-          },
-          "nextCursor": {
-            "type": "number",
-            "title": "nextCursor"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "rel": {
-                  "type": "string",
-                  "title": "rel"
-                },
-                "href": {
-                  "type": "string",
-                  "title": "href"
-                }
-              },
-              "required": [
-                "href",
-                "rel"
-              ]
-            },
-            "title": "links"
+            "title": "sets"
           }
         },
         "required": [
-          "items"
-        ]
-      },
-      "FormattedApiApiKey": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "title": "id",
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "number"
-              }
-            ]
-          },
-          "accessPolicyId": {
-            "type": "string",
-            "title": "accessPolicyId"
-          },
-          "orgId": {
-            "type": "number",
-            "title": "orgId"
-          },
-          "orgSlug": {
-            "type": "string",
-            "title": "orgSlug"
-          },
-          "orgName": {
-            "type": "string",
-            "title": "orgName"
-          },
-          "instanceId": {
-            "type": "number",
-            "title": "instanceId",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "title": "name"
-          },
-          "role": {
-            "enum": [
-              "Admin",
-              "EasyStart",
-              "Editor",
-              "MetricsPublisher",
-              "None",
-              "PluginPublisher",
-              "SSO Access",
-              "Viewer"
-            ],
-            "type": "string",
-            "title": "role"
-          },
-          "createdAt": {
-            "type": "string",
-            "title": "createdAt"
-          },
-          "updatedAt": {
-            "type": "string",
-            "title": "updatedAt",
-            "nullable": true
-          },
-          "firstUsed": {
-            "type": "string",
-            "title": "firstUsed",
-            "nullable": true
-          },
-          "token": {
-            "type": "string",
-            "title": "token"
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "rel": {
-                  "type": "string",
-                  "title": "rel",
-                  "default": "self"
-                },
-                "href": {
-                  "type": "string",
-                  "title": "href"
-                }
-              },
-              "required": [
-                "href",
-                "rel"
-              ]
-            },
-            "title": "links"
-          }
-        },
-        "required": [
-          "accessPolicyId",
-          "createdAt",
-          "firstUsed",
-          "id",
-          "instanceId",
-          "links",
-          "name",
-          "orgId",
-          "orgName",
-          "orgSlug",
-          "role",
-          "updatedAt"
+          "realms",
+          "scopes",
+          "sets"
         ]
       },
       "FormattedApiInstancePlugin": {
@@ -6844,6 +6525,18 @@
           "version"
         ]
       },
+      "FormattedApiInstanceReadiness": {
+        "type": "object",
+        "properties": {
+          "ready": {
+            "type": "boolean",
+            "title": "ready"
+          }
+        },
+        "required": [
+          "ready"
+        ]
+      },
       "InstanceUsersResponse": {
         "type": "object",
         "properties": {
@@ -6927,27 +6620,51 @@
                       "title": "id"
                     },
                     "info": {
-                      "type": "object",
-                      "properties": {
-                        "serviceName": {
-                          "type": "string",
-                          "title": "serviceName"
-                        },
-                        "privateDNS": {
-                          "type": "string",
-                          "title": "privateDNS"
-                        },
-                        "regions": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "serviceName": {
+                              "type": "string",
+                              "title": "serviceName"
+                            },
+                            "privateDNS": {
+                              "type": "string",
+                              "title": "privateDNS"
+                            },
+                            "regions": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "title": "regions"
+                            }
                           },
-                          "title": "regions"
+                          "required": [
+                            "privateDNS",
+                            "serviceName"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "serviceAttachment": {
+                              "type": "string",
+                              "title": "serviceAttachment"
+                            },
+                            "domainNames": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "title": "domainNames"
+                            }
+                          },
+                          "required": [
+                            "domainNames",
+                            "serviceAttachment"
+                          ]
                         }
-                      },
-                      "required": [
-                        "privateDNS",
-                        "serviceName"
                       ],
                       "title": "info"
                     },
@@ -6964,27 +6681,51 @@
                 "title": "tenants"
               },
               "otlp": {
-                "type": "object",
-                "properties": {
-                  "serviceName": {
-                    "type": "string",
-                    "title": "serviceName"
-                  },
-                  "privateDNS": {
-                    "type": "string",
-                    "title": "privateDNS"
-                  },
-                  "regions": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "serviceName": {
+                        "type": "string",
+                        "title": "serviceName"
+                      },
+                      "privateDNS": {
+                        "type": "string",
+                        "title": "privateDNS"
+                      },
+                      "regions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "title": "regions"
+                      }
                     },
-                    "title": "regions"
+                    "required": [
+                      "privateDNS",
+                      "serviceName"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "serviceAttachment": {
+                        "type": "string",
+                        "title": "serviceAttachment"
+                      },
+                      "domainNames": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "title": "domainNames"
+                      }
+                    },
+                    "required": [
+                      "domainNames",
+                      "serviceAttachment"
+                    ]
                   }
-                },
-                "required": [
-                  "privateDNS",
-                  "serviceName"
                 ],
                 "title": "otlp"
               },
@@ -6992,52 +6733,100 @@
                 "type": "object",
                 "properties": {
                   "api": {
-                    "type": "object",
-                    "properties": {
-                      "serviceName": {
-                        "type": "string",
-                        "title": "serviceName"
-                      },
-                      "privateDNS": {
-                        "type": "string",
-                        "title": "privateDNS"
-                      },
-                      "regions": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          },
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "regions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "regions"
+                          }
                         },
-                        "title": "regions"
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "serviceAttachment": {
+                            "type": "string",
+                            "title": "serviceAttachment"
+                          },
+                          "domainNames": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "domainNames"
+                          }
+                        },
+                        "required": [
+                          "domainNames",
+                          "serviceAttachment"
+                        ]
                       }
-                    },
-                    "required": [
-                      "privateDNS",
-                      "serviceName"
                     ],
                     "title": "api"
                   },
                   "gateway": {
-                    "type": "object",
-                    "properties": {
-                      "serviceName": {
-                        "type": "string",
-                        "title": "serviceName"
-                      },
-                      "privateDNS": {
-                        "type": "string",
-                        "title": "privateDNS"
-                      },
-                      "regions": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          },
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "regions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "regions"
+                          }
                         },
-                        "title": "regions"
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "serviceAttachment": {
+                            "type": "string",
+                            "title": "serviceAttachment"
+                          },
+                          "domainNames": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "domainNames"
+                          }
+                        },
+                        "required": [
+                          "domainNames",
+                          "serviceAttachment"
+                        ]
                       }
-                    },
-                    "required": [
-                      "privateDNS",
-                      "serviceName"
                     ],
                     "title": "gateway"
                   }
@@ -7082,6 +6871,10 @@
             "title": "otlpHttpUrl",
             "nullable": true
           },
+          "otlpMultiAZ": {
+            "type": "boolean",
+            "title": "otlpMultiAZ"
+          },
           "oncallApiUrl": {
             "type": "string",
             "title": "oncallApiUrl",
@@ -7089,6 +6882,7 @@
           }
         },
         "required": [
+          "otlpMultiAZ",
           "privateConnectivityInfo"
         ]
       },
@@ -9152,6 +8946,908 @@
           "documentationUrl": {
             "type": "string",
             "title": "documentationUrl"
+          },
+          "json": {
+            "description": "The `plugin.json` file is required for all plugins. When Grafana starts, it scans the plugin folders and mounts every folder that contains a `plugin.json` file unless the folder contains a subfolder named `dist`. In that case, Grafana mounts the `dist` folder instead.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Unique name of the plugin. If the plugin is published on grafana.com, then the plugin `id` has to follow the naming conventions.",
+                "type": "string",
+                "title": "id"
+              },
+              "type": {
+                "description": "Plugin type.",
+                "enum": [
+                  "app",
+                  "datasource",
+                  "panel",
+                  "renderer"
+                ],
+                "type": "string",
+                "title": "type"
+              },
+              "info": {
+                "description": "Metadata for the plugin. Some fields are used on the plugins page in Grafana and others on grafana.com if the plugin is published.",
+                "type": "object",
+                "properties": {
+                  "author": {
+                    "description": "Information about the plugin author.",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Author's name.",
+                        "type": "string",
+                        "title": "name"
+                      },
+                      "email": {
+                        "description": "Author's name.",
+                        "type": "string",
+                        "title": "email"
+                      },
+                      "url": {
+                        "description": "Link to author's website.",
+                        "type": "string",
+                        "title": "url"
+                      }
+                    },
+                    "title": "author"
+                  },
+                  "build": {
+                    "description": "Build information",
+                    "type": "object",
+                    "properties": {
+                      "time": {
+                        "description": "Time when the plugin was built, as a Unix timestamp.",
+                        "type": "number",
+                        "title": "time"
+                      },
+                      "repo": {
+                        "type": "string",
+                        "title": "repo"
+                      },
+                      "branch": {
+                        "description": "Git branch the plugin was built from.",
+                        "type": "string",
+                        "title": "branch"
+                      },
+                      "hash": {
+                        "description": "Git hash of the commit the plugin was built from",
+                        "type": "string",
+                        "title": "hash"
+                      },
+                      "number": {
+                        "type": "number",
+                        "title": "number"
+                      },
+                      "pr": {
+                        "description": "GitHub pull request the plugin was built from",
+                        "type": "number",
+                        "title": "pr"
+                      },
+                      "build": {
+                        "description": "Build job number used to build this plugin.",
+                        "type": "number",
+                        "title": "build"
+                      }
+                    },
+                    "title": "build"
+                  },
+                  "description": {
+                    "description": "Description of plugin. Used on the plugins page in Grafana and for search on grafana.com.",
+                    "type": "string",
+                    "title": "description"
+                  },
+                  "keywords": {
+                    "description": "Array of plugin keywords. Used for search on grafana.com.",
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "keywords"
+                  },
+                  "links": {
+                    "description": "An array of link objects to be displayed on this plugin's project page in the form `{name: 'foo', url: 'http://example.com'}`",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "Display name of the link. Special names with predefined behavior: <br/>• `documentation` - sets Documentation link on plugins detail page<br/>• `repository` - used to determine and link to repository of the plugin<br/>• `license` - sets License link on plugins detail page<br/>• `raise issue` - sets `Raise an Issue` link on plugins detail page<br/>• `sponsorship` - sets `Sponsor this developer` link on plugins detail page to direct users to how they can support your work",
+                          "type": "string",
+                          "title": "name"
+                        },
+                        "url": {
+                          "description": "URL value to use for this specific link.",
+                          "type": "string",
+                          "title": "url"
+                        },
+                        "target": {
+                          "description": "A string that indicates where to display the linked resource",
+                          "enum": [
+                            "_blank",
+                            "_parent",
+                            "_self",
+                            "_top"
+                          ],
+                          "type": "string",
+                          "title": "target"
+                        }
+                      }
+                    },
+                    "title": "links"
+                  },
+                  "logos": {
+                    "description": "SVG images that are used as plugin icons.",
+                    "type": "object",
+                    "properties": {
+                      "small": {
+                        "description": "Link to the \"small\" version of the plugin logo, which must be an SVG image. \"Large\" and \"small\" logos can be the same image.",
+                        "type": "string",
+                        "title": "small"
+                      },
+                      "large": {
+                        "description": "Link to the \"large\" version of the plugin logo, which must be an SVG image. \"Large\" and \"small\" logos can be the same image.",
+                        "type": "string",
+                        "title": "large"
+                      }
+                    },
+                    "required": [
+                      "large",
+                      "small"
+                    ],
+                    "title": "logos"
+                  },
+                  "screenshots": {
+                    "description": "An array of screenshot objects in the form `{name: 'bar', path: 'img/screenshot.png'}`",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "title": "name"
+                        },
+                        "path": {
+                          "type": "string",
+                          "title": "path"
+                        }
+                      }
+                    },
+                    "title": "screenshots"
+                  },
+                  "updated": {
+                    "description": "Date when this plugin was built.",
+                    "type": "string",
+                    "title": "updated"
+                  },
+                  "version": {
+                    "description": "[SemVer](https://semver.org/) version of this commit, e.g. `6.7.1`.",
+                    "type": "string",
+                    "title": "version"
+                  }
+                },
+                "required": [
+                  "keywords",
+                  "logos",
+                  "updated",
+                  "version"
+                ],
+                "title": "info"
+              },
+              "name": {
+                "description": "Human-readable name of the plugin that is shown to the user in the UI.",
+                "type": "string",
+                "title": "name"
+              },
+              "dependencies": {
+                "description": "Dependency information related to Grafana and other plugins.",
+                "type": "object",
+                "properties": {
+                  "grafanaVersion": {
+                    "description": "(Deprecated) Required Grafana version for this plugin, e.g. `6.x.x 7.x.x` to denote plugin requires Grafana v6.x.x or v7.x.x.",
+                    "type": "string",
+                    "title": "grafanaVersion"
+                  },
+                  "grafanaDependency": {
+                    "description": "Required Grafana version for this plugin. Validated using https://github.com/npm/node-semver.",
+                    "type": "string",
+                    "title": "grafanaDependency"
+                  },
+                  "plugins": {
+                    "description": "An array of required plugins on which this plugin depends. Only non-core (that is, external plugins) have to be specified in this list.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {},
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "title": "id"
+                        },
+                        "type": {
+                          "enum": [
+                            "app",
+                            "datasource",
+                            "panel"
+                          ],
+                          "type": "string",
+                          "title": "type"
+                        },
+                        "name": {
+                          "type": "string",
+                          "title": "name"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "type"
+                      ]
+                    },
+                    "title": "plugins"
+                  },
+                  "extensions": {
+                    "description": "Plugin extensions that this plugin depends on.",
+                    "type": "object",
+                    "additionalProperties": {},
+                    "properties": {
+                      "exposedComponents": {
+                        "description": "An array of exposed component ids that this plugin depends on.",
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "title": "exposedComponents"
+                      }
+                    },
+                    "title": "extensions"
+                  }
+                },
+                "required": [
+                  "grafanaDependency"
+                ],
+                "title": "dependencies"
+              },
+              "$schema": {
+                "description": "Schema definition for the plugin.json file. Used primarily for schema validation.",
+                "type": "string",
+                "title": "$schema"
+              },
+              "alerting": {
+                "description": "For data source plugins, if the plugin supports alerting. Requires `backend` to be set to `true`.",
+                "type": "boolean",
+                "title": "alerting"
+              },
+              "annotations": {
+                "description": "For data source plugins, if the plugin supports annotation queries.",
+                "type": "boolean",
+                "title": "annotations"
+              },
+              "autoEnabled": {
+                "description": "Set to true for app plugins that should be enabled and pinned to the navigation bar in all orgs.",
+                "type": "boolean",
+                "title": "autoEnabled"
+              },
+              "backend": {
+                "description": "If the plugin has a backend component.",
+                "type": "boolean",
+                "title": "backend"
+              },
+              "buildMode": {
+                "description": "The build mode of the plugin. This field is set automatically at build time, so it should not be provided manually.",
+                "type": "string",
+                "title": "buildMode"
+              },
+              "builtIn": {
+                "description": "[internal only] Indicates whether the plugin is developed and shipped as part of Grafana. Also known as a 'core plugin'.",
+                "type": "boolean",
+                "title": "builtIn"
+              },
+              "category": {
+                "description": "Plugin category used on the Add data source page.",
+                "enum": [
+                  "cloud",
+                  "enterprise",
+                  "iot",
+                  "logging",
+                  "other",
+                  "profiling",
+                  "sql",
+                  "tracing",
+                  "tsdb"
+                ],
+                "type": "string",
+                "title": "category"
+              },
+              "enterpriseFeatures": {
+                "description": "Grafana Enterprise specific features",
+                "type": "object",
+                "additionalProperties": {},
+                "properties": {
+                  "healthDiagnosticsErrors": {
+                    "description": "Enable/Disable health diagnostics errors. Requires Grafana >=7.5.5.",
+                    "type": "boolean",
+                    "title": "healthDiagnosticsErrors"
+                  }
+                },
+                "title": "enterpriseFeatures"
+              },
+              "executable": {
+                "description": "The first part of the file name of the backend component executable. There can be multiple executables built for different operating system and architecture. Grafana will check for executables named `<executable>_<$GOOS>_<lower case $GOARCH><.exe for Windows>`, e.g. `plugin_linux_amd64`. Combination of $GOOS and $GOARCH can be found here: https://golang.org/doc/install/source#environment.",
+                "type": "string",
+                "title": "executable"
+              },
+              "hideFromList": {
+                "description": "[internal only] Excludes the plugin from listings in Grafana's UI. Only allowed for `builtIn` plugins.",
+                "type": "boolean",
+                "title": "hideFromList"
+              },
+              "includes": {
+                "description": "Resources to include in plugin.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": {},
+                  "properties": {
+                    "uid": {
+                      "description": "Unique identifier of the included resource",
+                      "type": "string",
+                      "title": "uid"
+                    },
+                    "type": {
+                      "enum": [
+                        "dashboard",
+                        "datasource",
+                        "page",
+                        "panel"
+                      ],
+                      "type": "string",
+                      "title": "type"
+                    },
+                    "name": {
+                      "type": "string",
+                      "title": "name"
+                    },
+                    "component": {
+                      "description": "(Legacy) The Angular component to use for a page.",
+                      "type": "string",
+                      "title": "component"
+                    },
+                    "role": {
+                      "description": "The minimum role a user must have to see this page in the navigation menu.",
+                      "enum": [
+                        "Admin",
+                        "Editor",
+                        "Viewer"
+                      ],
+                      "type": "string",
+                      "title": "role"
+                    },
+                    "action": {
+                      "description": "The RBAC action a user must have to see this page in the navigation menu. **Warning**: unless the action targets the plugin, only the action is verified, not what it applies to.",
+                      "type": "string",
+                      "title": "action"
+                    },
+                    "path": {
+                      "description": "Used for app plugins.",
+                      "type": "string",
+                      "title": "path"
+                    },
+                    "addToNav": {
+                      "description": "Add the include to the navigation menu.",
+                      "type": "boolean",
+                      "title": "addToNav"
+                    },
+                    "defaultNav": {
+                      "description": "Page or dashboard when user clicks the icon in the side menu.",
+                      "type": "boolean",
+                      "title": "defaultNav"
+                    },
+                    "icon": {
+                      "description": "Icon to use in the side menu. For information on available icon, refer to [Icons Overview](https://developers.grafana.com/ui/latest/index.html?path=/story/docs-overview-icon--icons-overview).",
+                      "type": "string",
+                      "title": "icon"
+                    }
+                  }
+                },
+                "title": "includes"
+              },
+              "logs": {
+                "description": "For data source plugins, if the plugin supports logs. It may be used to filter logs only features.",
+                "type": "boolean",
+                "title": "logs"
+              },
+              "metrics": {
+                "description": "For data source plugins, if the plugin supports metric queries. Used to enable the plugin in the panel editor.",
+                "type": "boolean",
+                "title": "metrics"
+              },
+              "multiValueFilterOperators": {
+                "description": "For data source plugins, if the plugin supports multi value operators in adhoc filters.",
+                "type": "boolean",
+                "title": "multiValueFilterOperators"
+              },
+              "pascalName": {
+                "description": "[internal only] The PascalCase name for the plugin. Used for creating machine-friendly identifiers, typically in code generation. If not provided, defaults to name, but title-cased and sanitized (only alphabetical characters allowed).",
+                "type": "string",
+                "title": "pascalName"
+              },
+              "preload": {
+                "description": "Initialize plugin on startup. By default, the plugin initializes on first use, but when preload is set to true the plugin loads when the Grafana web app loads the first time. Only applicable to app plugins. When setting to `true`, implement [frontend code splitting](https://grafana.com/developers/plugin-tools/get-started/best-practices#app-plugins) to minimise performance implications.",
+                "type": "boolean",
+                "title": "preload"
+              },
+              "queryOptions": {
+                "description": "For data source plugins. There is a query options section in the plugin's query editor and these options can be turned on if needed.",
+                "type": "object",
+                "properties": {
+                  "maxDataPoints": {
+                    "description": "For data source plugins. If the `max data points` option should be shown in the query options section in the query editor.",
+                    "type": "boolean",
+                    "title": "maxDataPoints"
+                  },
+                  "minInterval": {
+                    "description": "For data source plugins. If the `min interval` option should be shown in the query options section in the query editor.",
+                    "type": "boolean",
+                    "title": "minInterval"
+                  },
+                  "cacheTimeout": {
+                    "description": "For data source plugins. If the `cache timeout` option should be shown in the query options section in the query editor.",
+                    "type": "boolean",
+                    "title": "cacheTimeout"
+                  }
+                },
+                "title": "queryOptions"
+              },
+              "routes": {
+                "description": "For data source plugins. Proxy routes used for plugin authentication and adding headers to HTTP requests made by the plugin. For more information, refer to [Authentication for data source plugins](https://grafana.com/developers/plugin-tools/how-to-guides/data-source-plugins/add-authentication-for-data-source-plugins).",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "description": "For data source plugins. The route path that is replaced by the route URL field when proxying the call.",
+                      "type": "string",
+                      "title": "path"
+                    },
+                    "method": {
+                      "description": "For data source plugins. Route method matches the HTTP verb like `GET` or `POST`. Multiple methods can be provided as a comma-separated list.",
+                      "type": "string",
+                      "title": "method"
+                    },
+                    "url": {
+                      "description": "For data source plugins. Route URL is where the request is proxied to.",
+                      "type": "string",
+                      "title": "url"
+                    },
+                    "reqSignedIn": {
+                      "type": "boolean",
+                      "title": "reqSignedIn"
+                    },
+                    "reqRole": {
+                      "type": "string",
+                      "title": "reqRole"
+                    },
+                    "reqAction": {
+                      "description": "The RBAC action a user must have to use this route. **Warning**: unless the action targets the plugin (or a nested datasource plugin), only the action is verified, not what it applies to.",
+                      "type": "string",
+                      "title": "reqAction"
+                    },
+                    "headers": {
+                      "description": "For data source plugins. Route headers adds HTTP headers to the proxied request.",
+                      "type": "array",
+                      "items": {},
+                      "title": "headers"
+                    },
+                    "body": {
+                      "description": "For data source plugins. Route headers set the body content and length to the proxied request.",
+                      "type": "object",
+                      "additionalProperties": {},
+                      "title": "body"
+                    },
+                    "tokenAuth": {
+                      "description": "For data source plugins. Token authentication section used with an OAuth API.",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "description": "URL to fetch the authentication token.",
+                          "type": "string",
+                          "title": "url"
+                        },
+                        "scopes": {
+                          "description": "The list of scopes that your application should be granted access to.",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "scopes"
+                        },
+                        "params": {
+                          "description": "Parameters for the token authentication request.",
+                          "type": "object",
+                          "additionalProperties": {},
+                          "properties": {
+                            "grant_type": {
+                              "description": "OAuth grant type",
+                              "type": "string",
+                              "title": "grant_type"
+                            },
+                            "client_id": {
+                              "description": "OAuth client ID",
+                              "type": "string",
+                              "title": "client_id"
+                            },
+                            "client_secret": {
+                              "description": "OAuth client secret. Usually populated by decrypting the secret from the SecureJson blob.",
+                              "type": "string",
+                              "title": "client_secret"
+                            },
+                            "resource": {
+                              "description": "OAuth resource",
+                              "type": "string",
+                              "title": "resource"
+                            }
+                          },
+                          "title": "params"
+                        }
+                      },
+                      "title": "tokenAuth"
+                    },
+                    "jwtTokenAuth": {
+                      "description": "For data source plugins. Token authentication section used with an JWT OAuth API.",
+                      "type": "object",
+                      "additionalProperties": {},
+                      "properties": {
+                        "url": {
+                          "description": "URL to fetch the JWT token.",
+                          "type": "string",
+                          "title": "url"
+                        },
+                        "scopes": {
+                          "description": "The list of scopes that your application should be granted access to.",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "scopes"
+                        },
+                        "params": {
+                          "description": "Parameters for the JWT token authentication request.",
+                          "type": "object",
+                          "properties": {
+                            "token_uri": {
+                              "type": "string",
+                              "title": "token_uri"
+                            },
+                            "client_email": {
+                              "type": "string",
+                              "title": "client_email"
+                            },
+                            "private_key": {
+                              "type": "string",
+                              "title": "private_key"
+                            }
+                          },
+                          "title": "params"
+                        }
+                      },
+                      "title": "jwtTokenAuth"
+                    },
+                    "urlParams": {
+                      "description": "Add URL parameters to a proxy route",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Name of the URL parameter",
+                            "type": "string",
+                            "title": "name"
+                          },
+                          "content": {
+                            "description": "Value of the URL parameter",
+                            "type": "string",
+                            "title": "content"
+                          }
+                        }
+                      },
+                      "title": "urlParams"
+                    }
+                  }
+                },
+                "title": "routes"
+              },
+              "skipDataQuery": {
+                "description": "For panel plugins. Hides the query editor.",
+                "type": "boolean",
+                "title": "skipDataQuery"
+              },
+              "state": {
+                "description": "Describes plugins life cycle status",
+                "enum": [
+                  "alpha",
+                  "beta",
+                  "deprecated",
+                  "stable"
+                ],
+                "type": "string",
+                "title": "state"
+              },
+              "streaming": {
+                "description": "For data source plugins, if the plugin supports streaming. Used in Explore to start live streaming.",
+                "type": "boolean",
+                "title": "streaming"
+              },
+              "tracing": {
+                "description": "For data source plugins, if the plugin supports tracing. Used for example to link logs (e.g. Loki logs) with tracing plugins.",
+                "type": "boolean",
+                "title": "tracing"
+              },
+              "iam": {
+                "description": "Grafana reads the Identity and Access Management section and initializes a service account for the plugin, with a tailored set of [Grafana RBAC permissions](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control/custom-role-actions-scopes/#rbac-permissions-actions-and-scopes). Grafana will share the service account's bearer token with the plugin backend using the `GF_PLUGIN_APP_CLIENT_SECRET` environment variable. Requires Grafana version 10.3.0 or later. Currently, this is behind the `externalServiceAccounts` feature toggle. To try this feature out, follow this [guide](https://grafana.com/developers/plugin-tools/how-to-guides/app-plugins/implement-rbac-in-app-plugins).",
+                "type": "object",
+                "additionalProperties": {},
+                "properties": {
+                  "permissions": {
+                    "description": "Permissions are the permissions that the plugin needs its associated service account to have to query Grafana.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "action": {
+                          "description": "Action, for example: `teams:read`.",
+                          "type": "string",
+                          "title": "action"
+                        },
+                        "scope": {
+                          "description": "The scope that the plugin needs to access e.g: `teams:*`.",
+                          "type": "string",
+                          "title": "scope"
+                        }
+                      }
+                    },
+                    "title": "permissions"
+                  }
+                },
+                "title": "iam"
+              },
+              "roles": {
+                "description": "List of RBAC roles defined by the plugin and their default assignments to basic roles (`Viewer`, `Editor`, `Admin`, `Grafana Admin`). Requires Grafana version 9.4.0 or later.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "role": {
+                      "description": "A role groups your plugin's related RBAC permissions (ex: `Projects Admin` would group permissions to create, read, write and delete projects). The RBAC actions defined in your role must start with your plugin `id` (ex: `grafana-test-app.projects:read`).",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "description": "Display name of the role.",
+                          "type": "string",
+                          "title": "name"
+                        },
+                        "description": {
+                          "description": "Describes the aim of the role.",
+                          "type": "string",
+                          "title": "description"
+                        },
+                        "permissions": {
+                          "description": "RBAC permission on the plugin.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "action": {
+                                "type": "string",
+                                "title": "action"
+                              },
+                              "scope": {
+                                "type": "string",
+                                "title": "scope"
+                              }
+                            }
+                          },
+                          "title": "permissions"
+                        }
+                      },
+                      "title": "role"
+                    },
+                    "grants": {
+                      "description": "Default assignments of the role to Grafana basic roles (`Viewer`, `Editor`, `Admin`, `Grafana Admin`).",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "title": "grants"
+                    }
+                  }
+                },
+                "title": "roles"
+              },
+              "extensions": {
+                "description": "Plugin extensions are a way to extend either the UI of core Grafana or other plugins.",
+                "type": "object",
+                "additionalProperties": {},
+                "properties": {
+                  "addedComponents": {
+                    "description": "This list must contain all component extensions that your plugin registers to other extension points using [`.addComponent()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#addcomponent). **Components that are not listed here won't work.**",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {},
+                      "properties": {
+                        "targets": {
+                          "description": "The extension point ids your plugin registers the extension to, e.g. `[\"grafana/user/profile/tab\"]`",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "targets"
+                        },
+                        "title": {
+                          "description": "The title of your component extension.",
+                          "type": "string",
+                          "title": "title"
+                        },
+                        "description": {
+                          "description": "Additional information about your component extension.",
+                          "type": "string",
+                          "title": "description"
+                        }
+                      },
+                      "required": [
+                        "targets",
+                        "title"
+                      ]
+                    },
+                    "title": "addedComponents"
+                  },
+                  "addedLinks": {
+                    "description": "This list must contain all link extensions that your plugin registers to other extension points using [`.addLink()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#addlink). **Links that are not listed here won't work.**",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {},
+                      "properties": {
+                        "targets": {
+                          "description": "The extension point ids your plugin registers the extension to, e.g. `[\"grafana/dashboard/panel/menu\"]`",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "targets"
+                        },
+                        "title": {
+                          "description": "The title of your link extension.",
+                          "type": "string",
+                          "title": "title"
+                        },
+                        "description": {
+                          "description": "Additional information about your link extension.",
+                          "type": "string",
+                          "title": "description"
+                        }
+                      },
+                      "required": [
+                        "targets",
+                        "title"
+                      ]
+                    },
+                    "title": "addedLinks"
+                  },
+                  "addedFunctions": {
+                    "description": "This list must contain all function extensions that your plugin registers to other extension points using [`.addedFunctions()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#addfunction). **Functions that are not listed here won't work.**",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {},
+                      "properties": {
+                        "targets": {
+                          "description": "The extension point ids your plugin registers the extension to, e.g. `[\"grafana/dashboard/panel/menu\"]`",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "title": "targets"
+                        },
+                        "title": {
+                          "description": "The title of your function extension.",
+                          "type": "string",
+                          "title": "title"
+                        },
+                        "description": {
+                          "description": "Additional information about your function extension.",
+                          "type": "string",
+                          "title": "description"
+                        }
+                      },
+                      "required": [
+                        "targets",
+                        "title"
+                      ]
+                    },
+                    "title": "addedFunctions"
+                  },
+                  "exposedComponents": {
+                    "description": "This list must contain all components that your plugin exposes using [`.exposeComponent()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#exposecomponent). **Components that are not listed here won't work.**",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {},
+                      "properties": {
+                        "id": {
+                          "description": "A unique identifier for your exposed component. This is used to reference the component in other plugins. It must be in the following format: `{PLUGIN_ID}/name-of-component/v1`. It is recommended to add a version suffix to prevent future breaking changes. E.g.: `myorg-extensions-app/exposed-component/v1`.",
+                          "type": "string",
+                          "title": "id"
+                        },
+                        "title": {
+                          "description": "The title of your exposed component.",
+                          "type": "string",
+                          "title": "title"
+                        },
+                        "description": {
+                          "description": "Additional information about your exposed component.",
+                          "type": "string",
+                          "title": "description"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "title": "exposedComponents"
+                  },
+                  "extensionPoints": {
+                    "description": "This list must contain all extension points that your plugin defines using [`usePluginLinks()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#usepluginlinks) or [`usePluginComponents()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#useplugincomponents). **Extension points that are not listed in here won't work.**",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": {},
+                      "properties": {
+                        "id": {
+                          "description": "A unique identifier for your extension point. This is used to reference the extension point in other plugins. It must be in the following format: `{PLUGIN_ID}/name-of-my-extension-point/v1`. It is recommended to add a version suffix to prevent future breaking changes. E.g.: `myorg-extensions-app/extension-point/v1`.",
+                          "type": "string",
+                          "title": "id"
+                        },
+                        "title": {
+                          "description": "The title of your extension point.",
+                          "type": "string",
+                          "title": "title"
+                        },
+                        "description": {
+                          "description": "Additional information about your extension point.",
+                          "type": "string",
+                          "title": "description"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    },
+                    "title": "extensionPoints"
+                  }
+                },
+                "title": "extensions"
+              },
+              "languages": {
+                "description": "The list of languages supported by the plugin. Each entry should be a locale identifier in the format `language-COUNTRY` (for example `en-US`, `es-ES`, `de-DE`).",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "title": "languages"
+              }
+            },
+            "required": [
+              "dependencies",
+              "id",
+              "info",
+              "name",
+              "type"
+            ],
+            "title": "json"
           }
         },
         "required": [
@@ -9186,6 +9882,39 @@
           "versionSignedByOrg",
           "versionSignedByOrgName",
           "versionStatus"
+        ]
+      },
+      "FormattedApiOrgStackRegion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "title": "id"
+          },
+          "stackRegionId": {
+            "type": "number",
+            "title": "stackRegionId"
+          },
+          "orgId": {
+            "type": "number",
+            "title": "orgId"
+          },
+          "createdAt": {
+            "type": "string",
+            "title": "createdAt"
+          },
+          "updatedAt": {
+            "type": "string",
+            "title": "updatedAt",
+            "nullable": true
+          }
+        },
+        "required": [
+          "createdAt",
+          "id",
+          "orgId",
+          "stackRegionId",
+          "updatedAt"
         ]
       },
       "FormattedApiStackRegion": {
@@ -9348,69 +10077,153 @@
                   {
                     "type": "object",
                     "properties": {
-                      "api": {
-                        "type": "object",
-                        "properties": {
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "regions"
-                          },
-                          "endpointName": {
-                            "type": "string",
-                            "title": "endpointName"
-                          },
-                          "serviceId": {
-                            "type": "string",
-                            "title": "serviceId"
-                          }
+                      "serviceAttachment": {
+                        "type": "string",
+                        "title": "serviceAttachment"
+                      },
+                      "domainNames": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
                         },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
+                        "title": "domainNames"
+                      },
+                      "endpointName": {
+                        "type": "string",
+                        "title": "endpointName"
+                      }
+                    },
+                    "required": [
+                      "domainNames",
+                      "endpointName",
+                      "serviceAttachment"
+                    ],
+                    "nullable": true
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "api": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "privateDNS": {
+                                "type": "string",
+                                "title": "privateDNS"
+                              },
+                              "serviceName": {
+                                "type": "string",
+                                "title": "serviceName"
+                              },
+                              "regions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "regions"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              },
+                              "serviceId": {
+                                "type": "string",
+                                "title": "serviceId"
+                              }
+                            },
+                            "required": [
+                              "privateDNS",
+                              "serviceName"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "serviceAttachment": {
+                                "type": "string",
+                                "title": "serviceAttachment"
+                              },
+                              "domainNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "domainNames"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "domainNames",
+                              "endpointName",
+                              "serviceAttachment"
+                            ]
+                          }
                         ],
                         "title": "api"
                       },
                       "gateway": {
-                        "type": "object",
-                        "properties": {
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "privateDNS": {
+                                "type": "string",
+                                "title": "privateDNS"
+                              },
+                              "serviceName": {
+                                "type": "string",
+                                "title": "serviceName"
+                              },
+                              "regions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "regions"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              },
+                              "serviceId": {
+                                "type": "string",
+                                "title": "serviceId"
+                              }
                             },
-                            "title": "regions"
+                            "required": [
+                              "privateDNS",
+                              "serviceName"
+                            ]
                           },
-                          "endpointName": {
-                            "type": "string",
-                            "title": "endpointName"
-                          },
-                          "serviceId": {
-                            "type": "string",
-                            "title": "serviceId"
+                          {
+                            "type": "object",
+                            "properties": {
+                              "serviceAttachment": {
+                                "type": "string",
+                                "title": "serviceAttachment"
+                              },
+                              "domainNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "domainNames"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "domainNames",
+                              "endpointName",
+                              "serviceAttachment"
+                            ]
                           }
-                        },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
                         ],
                         "title": "gateway"
                       }
@@ -9425,68 +10238,126 @@
                     "type": "object",
                     "properties": {
                       "mimir": {
-                        "type": "object",
-                        "properties": {
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "privateDNS": {
+                                "type": "string",
+                                "title": "privateDNS"
+                              },
+                              "serviceName": {
+                                "type": "string",
+                                "title": "serviceName"
+                              },
+                              "regions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "regions"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              },
+                              "serviceId": {
+                                "type": "string",
+                                "title": "serviceId"
+                              }
                             },
-                            "title": "regions"
+                            "required": [
+                              "privateDNS",
+                              "serviceName"
+                            ]
                           },
-                          "endpointName": {
-                            "type": "string",
-                            "title": "endpointName"
-                          },
-                          "serviceId": {
-                            "type": "string",
-                            "title": "serviceId"
+                          {
+                            "type": "object",
+                            "properties": {
+                              "serviceAttachment": {
+                                "type": "string",
+                                "title": "serviceAttachment"
+                              },
+                              "domainNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "domainNames"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "domainNames",
+                              "endpointName",
+                              "serviceAttachment"
+                            ]
                           }
-                        },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
                         ],
                         "title": "mimir"
                       },
                       "graphite": {
-                        "type": "object",
-                        "properties": {
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "privateDNS": {
+                                "type": "string",
+                                "title": "privateDNS"
+                              },
+                              "serviceName": {
+                                "type": "string",
+                                "title": "serviceName"
+                              },
+                              "regions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "regions"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              },
+                              "serviceId": {
+                                "type": "string",
+                                "title": "serviceId"
+                              }
                             },
-                            "title": "regions"
+                            "required": [
+                              "privateDNS",
+                              "serviceName"
+                            ]
                           },
-                          "endpointName": {
-                            "type": "string",
-                            "title": "endpointName"
-                          },
-                          "serviceId": {
-                            "type": "string",
-                            "title": "serviceId"
+                          {
+                            "type": "object",
+                            "properties": {
+                              "serviceAttachment": {
+                                "type": "string",
+                                "title": "serviceAttachment"
+                              },
+                              "domainNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "domainNames"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "domainNames",
+                              "endpointName",
+                              "serviceAttachment"
+                            ]
                           }
-                        },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
                         ],
                         "title": "graphite"
                       },
@@ -9524,6 +10395,32 @@
                               "serviceName"
                             ],
                             "nullable": true
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "serviceAttachment": {
+                                "type": "string",
+                                "title": "serviceAttachment"
+                              },
+                              "domainNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "domainNames"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "domainNames",
+                              "endpointName",
+                              "serviceAttachment"
+                            ],
+                            "nullable": true
                           }
                         ],
                         "title": "otlp"
@@ -9531,29 +10428,6 @@
                     },
                     "required": [
                       "mimir"
-                    ],
-                    "nullable": true
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "title": "name"
-                      },
-                      "network": {
-                        "type": "string",
-                        "title": "network"
-                      },
-                      "ipCidrRange": {
-                        "type": "string",
-                        "title": "ipCidrRange"
-                      }
-                    },
-                    "required": [
-                      "ipCidrRange",
-                      "name",
-                      "network"
                     ],
                     "nullable": true
                   }
@@ -9603,69 +10477,153 @@
                   {
                     "type": "object",
                     "properties": {
-                      "api": {
-                        "type": "object",
-                        "properties": {
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "regions"
-                          },
-                          "endpointName": {
-                            "type": "string",
-                            "title": "endpointName"
-                          },
-                          "serviceId": {
-                            "type": "string",
-                            "title": "serviceId"
-                          }
+                      "serviceAttachment": {
+                        "type": "string",
+                        "title": "serviceAttachment"
+                      },
+                      "domainNames": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
                         },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
+                        "title": "domainNames"
+                      },
+                      "endpointName": {
+                        "type": "string",
+                        "title": "endpointName"
+                      }
+                    },
+                    "required": [
+                      "domainNames",
+                      "endpointName",
+                      "serviceAttachment"
+                    ],
+                    "nullable": true
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "api": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "privateDNS": {
+                                "type": "string",
+                                "title": "privateDNS"
+                              },
+                              "serviceName": {
+                                "type": "string",
+                                "title": "serviceName"
+                              },
+                              "regions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "regions"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              },
+                              "serviceId": {
+                                "type": "string",
+                                "title": "serviceId"
+                              }
+                            },
+                            "required": [
+                              "privateDNS",
+                              "serviceName"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "serviceAttachment": {
+                                "type": "string",
+                                "title": "serviceAttachment"
+                              },
+                              "domainNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "domainNames"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "domainNames",
+                              "endpointName",
+                              "serviceAttachment"
+                            ]
+                          }
                         ],
                         "title": "api"
                       },
                       "gateway": {
-                        "type": "object",
-                        "properties": {
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "privateDNS": {
+                                "type": "string",
+                                "title": "privateDNS"
+                              },
+                              "serviceName": {
+                                "type": "string",
+                                "title": "serviceName"
+                              },
+                              "regions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "regions"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              },
+                              "serviceId": {
+                                "type": "string",
+                                "title": "serviceId"
+                              }
                             },
-                            "title": "regions"
+                            "required": [
+                              "privateDNS",
+                              "serviceName"
+                            ]
                           },
-                          "endpointName": {
-                            "type": "string",
-                            "title": "endpointName"
-                          },
-                          "serviceId": {
-                            "type": "string",
-                            "title": "serviceId"
+                          {
+                            "type": "object",
+                            "properties": {
+                              "serviceAttachment": {
+                                "type": "string",
+                                "title": "serviceAttachment"
+                              },
+                              "domainNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "domainNames"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "domainNames",
+                              "endpointName",
+                              "serviceAttachment"
+                            ]
                           }
-                        },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
                         ],
                         "title": "gateway"
                       }
@@ -9680,68 +10638,126 @@
                     "type": "object",
                     "properties": {
                       "mimir": {
-                        "type": "object",
-                        "properties": {
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "privateDNS": {
+                                "type": "string",
+                                "title": "privateDNS"
+                              },
+                              "serviceName": {
+                                "type": "string",
+                                "title": "serviceName"
+                              },
+                              "regions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "regions"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              },
+                              "serviceId": {
+                                "type": "string",
+                                "title": "serviceId"
+                              }
                             },
-                            "title": "regions"
+                            "required": [
+                              "privateDNS",
+                              "serviceName"
+                            ]
                           },
-                          "endpointName": {
-                            "type": "string",
-                            "title": "endpointName"
-                          },
-                          "serviceId": {
-                            "type": "string",
-                            "title": "serviceId"
+                          {
+                            "type": "object",
+                            "properties": {
+                              "serviceAttachment": {
+                                "type": "string",
+                                "title": "serviceAttachment"
+                              },
+                              "domainNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "domainNames"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "domainNames",
+                              "endpointName",
+                              "serviceAttachment"
+                            ]
                           }
-                        },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
                         ],
                         "title": "mimir"
                       },
                       "graphite": {
-                        "type": "object",
-                        "properties": {
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "privateDNS": {
+                                "type": "string",
+                                "title": "privateDNS"
+                              },
+                              "serviceName": {
+                                "type": "string",
+                                "title": "serviceName"
+                              },
+                              "regions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "regions"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              },
+                              "serviceId": {
+                                "type": "string",
+                                "title": "serviceId"
+                              }
                             },
-                            "title": "regions"
+                            "required": [
+                              "privateDNS",
+                              "serviceName"
+                            ]
                           },
-                          "endpointName": {
-                            "type": "string",
-                            "title": "endpointName"
-                          },
-                          "serviceId": {
-                            "type": "string",
-                            "title": "serviceId"
+                          {
+                            "type": "object",
+                            "properties": {
+                              "serviceAttachment": {
+                                "type": "string",
+                                "title": "serviceAttachment"
+                              },
+                              "domainNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "domainNames"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "domainNames",
+                              "endpointName",
+                              "serviceAttachment"
+                            ]
                           }
-                        },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
                         ],
                         "title": "graphite"
                       },
@@ -9779,6 +10795,32 @@
                               "serviceName"
                             ],
                             "nullable": true
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "serviceAttachment": {
+                                "type": "string",
+                                "title": "serviceAttachment"
+                              },
+                              "domainNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "domainNames"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "domainNames",
+                              "endpointName",
+                              "serviceAttachment"
+                            ],
+                            "nullable": true
                           }
                         ],
                         "title": "otlp"
@@ -9786,29 +10828,6 @@
                     },
                     "required": [
                       "mimir"
-                    ],
-                    "nullable": true
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "title": "name"
-                      },
-                      "network": {
-                        "type": "string",
-                        "title": "network"
-                      },
-                      "ipCidrRange": {
-                        "type": "string",
-                        "title": "ipCidrRange"
-                      }
-                    },
-                    "required": [
-                      "ipCidrRange",
-                      "name",
-                      "network"
                     ],
                     "nullable": true
                   }
@@ -9991,6 +11010,10 @@
                 "type": "boolean",
                 "title": "complete"
               },
+              "readyForStacks": {
+                "type": "boolean",
+                "title": "readyForStacks"
+              },
               "id": {
                 "type": "number",
                 "title": "id"
@@ -10103,6 +11126,7 @@
               "provider",
               "providerRegion",
               "publicName",
+              "readyForStacks",
               "slug",
               "sortOrder",
               "stackStateServiceUrl",
@@ -10253,21 +11277,21 @@
             "type": "number",
             "title": "id"
           },
-          "notes": {
-            "type": "string",
-            "title": "notes"
+          "overage": {
+            "type": "number",
+            "title": "overage"
           },
           "description": {
             "type": "string",
             "title": "description"
           },
+          "notes": {
+            "type": "string",
+            "title": "notes"
+          },
           "unit": {
             "type": "string",
             "title": "unit"
-          },
-          "overage": {
-            "type": "number",
-            "title": "overage"
           },
           "includedUsage": {
             "type": "number",
@@ -10280,17 +11304,23 @@
           "dimensionId": {
             "enum": [
               "app-o11y",
+              "assistant",
               "fe-o11y",
               "ge-instances",
               "ge-users",
               "hg",
               "hg-plugin-users",
               "hl",
+              "hl-process",
               "hl-retention",
               "hm",
               "hm-graphite",
               "hp",
+              "hp-process",
+              "hp-retention",
               "ht",
+              "ht-process",
+              "ht-retention",
               "infra-o11y-containers",
               "infra-o11y-hosts",
               "irm",
@@ -10468,12 +11498,12 @@
           "items"
         ]
       }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
     }
-  },
-  "tags": [
-    {
-      "name": "instances",
-      "description": "Everything related to our Hosted Grafana Instances"
-    }
-  ]
+  }
 }
