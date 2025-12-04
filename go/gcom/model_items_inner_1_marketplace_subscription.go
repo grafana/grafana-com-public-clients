@@ -14,39 +14,39 @@ import (
 	"encoding/json"
 )
 
-// checks if the ItemsInner2MarketplaceSubscription type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ItemsInner2MarketplaceSubscription{}
+// checks if the ItemsInner1MarketplaceSubscription type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ItemsInner1MarketplaceSubscription{}
 
-// ItemsInner2MarketplaceSubscription struct for ItemsInner2MarketplaceSubscription
-type ItemsInner2MarketplaceSubscription struct {
+// ItemsInner1MarketplaceSubscription struct for ItemsInner1MarketplaceSubscription
+type ItemsInner1MarketplaceSubscription struct {
 	Provider             string `json:"provider"`
 	IsLegacy             bool   `json:"isLegacy"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _ItemsInner2MarketplaceSubscription ItemsInner2MarketplaceSubscription
+type _ItemsInner1MarketplaceSubscription ItemsInner1MarketplaceSubscription
 
-// NewItemsInner2MarketplaceSubscription instantiates a new ItemsInner2MarketplaceSubscription object
+// NewItemsInner1MarketplaceSubscription instantiates a new ItemsInner1MarketplaceSubscription object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsInner2MarketplaceSubscription(provider string, isLegacy bool) *ItemsInner2MarketplaceSubscription {
-	this := ItemsInner2MarketplaceSubscription{}
+func NewItemsInner1MarketplaceSubscription(provider string, isLegacy bool) *ItemsInner1MarketplaceSubscription {
+	this := ItemsInner1MarketplaceSubscription{}
 	this.Provider = provider
 	this.IsLegacy = isLegacy
 	return &this
 }
 
-// NewItemsInner2MarketplaceSubscriptionWithDefaults instantiates a new ItemsInner2MarketplaceSubscription object
+// NewItemsInner1MarketplaceSubscriptionWithDefaults instantiates a new ItemsInner1MarketplaceSubscription object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewItemsInner2MarketplaceSubscriptionWithDefaults() *ItemsInner2MarketplaceSubscription {
-	this := ItemsInner2MarketplaceSubscription{}
+func NewItemsInner1MarketplaceSubscriptionWithDefaults() *ItemsInner1MarketplaceSubscription {
+	this := ItemsInner1MarketplaceSubscription{}
 	return &this
 }
 
 // GetProvider returns the Provider field value
-func (o *ItemsInner2MarketplaceSubscription) GetProvider() string {
+func (o *ItemsInner1MarketplaceSubscription) GetProvider() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -57,7 +57,7 @@ func (o *ItemsInner2MarketplaceSubscription) GetProvider() string {
 
 // GetProviderOk returns a tuple with the Provider field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner2MarketplaceSubscription) GetProviderOk() (*string, bool) {
+func (o *ItemsInner1MarketplaceSubscription) GetProviderOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,12 +65,12 @@ func (o *ItemsInner2MarketplaceSubscription) GetProviderOk() (*string, bool) {
 }
 
 // SetProvider sets field value
-func (o *ItemsInner2MarketplaceSubscription) SetProvider(v string) {
+func (o *ItemsInner1MarketplaceSubscription) SetProvider(v string) {
 	o.Provider = v
 }
 
 // GetIsLegacy returns the IsLegacy field value
-func (o *ItemsInner2MarketplaceSubscription) GetIsLegacy() bool {
+func (o *ItemsInner1MarketplaceSubscription) GetIsLegacy() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -81,7 +81,7 @@ func (o *ItemsInner2MarketplaceSubscription) GetIsLegacy() bool {
 
 // GetIsLegacyOk returns a tuple with the IsLegacy field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner2MarketplaceSubscription) GetIsLegacyOk() (*bool, bool) {
+func (o *ItemsInner1MarketplaceSubscription) GetIsLegacyOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,11 +89,11 @@ func (o *ItemsInner2MarketplaceSubscription) GetIsLegacyOk() (*bool, bool) {
 }
 
 // SetIsLegacy sets field value
-func (o *ItemsInner2MarketplaceSubscription) SetIsLegacy(v bool) {
+func (o *ItemsInner1MarketplaceSubscription) SetIsLegacy(v bool) {
 	o.IsLegacy = v
 }
 
-func (o ItemsInner2MarketplaceSubscription) MarshalJSON() ([]byte, error) {
+func (o ItemsInner1MarketplaceSubscription) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -101,7 +101,7 @@ func (o ItemsInner2MarketplaceSubscription) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ItemsInner2MarketplaceSubscription) ToMap() (map[string]interface{}, error) {
+func (o ItemsInner1MarketplaceSubscription) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["provider"] = o.Provider
 	toSerialize["isLegacy"] = o.IsLegacy
@@ -113,7 +113,7 @@ func (o ItemsInner2MarketplaceSubscription) ToMap() (map[string]interface{}, err
 	return toSerialize, nil
 }
 
-func (o *ItemsInner2MarketplaceSubscription) UnmarshalJSON(data []byte) (err error) {
+func (o *ItemsInner1MarketplaceSubscription) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -122,15 +122,15 @@ func (o *ItemsInner2MarketplaceSubscription) UnmarshalJSON(data []byte) (err err
 		return err
 	}
 
-	varItemsInner2MarketplaceSubscription := _ItemsInner2MarketplaceSubscription{}
+	varItemsInner1MarketplaceSubscription := _ItemsInner1MarketplaceSubscription{}
 
-	err = json.Unmarshal(data, &varItemsInner2MarketplaceSubscription)
+	err = json.Unmarshal(data, &varItemsInner1MarketplaceSubscription)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ItemsInner2MarketplaceSubscription(varItemsInner2MarketplaceSubscription)
+	*o = ItemsInner1MarketplaceSubscription(varItemsInner1MarketplaceSubscription)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -143,38 +143,38 @@ func (o *ItemsInner2MarketplaceSubscription) UnmarshalJSON(data []byte) (err err
 	return err
 }
 
-type NullableItemsInner2MarketplaceSubscription struct {
-	value *ItemsInner2MarketplaceSubscription
+type NullableItemsInner1MarketplaceSubscription struct {
+	value *ItemsInner1MarketplaceSubscription
 	isSet bool
 }
 
-func (v NullableItemsInner2MarketplaceSubscription) Get() *ItemsInner2MarketplaceSubscription {
+func (v NullableItemsInner1MarketplaceSubscription) Get() *ItemsInner1MarketplaceSubscription {
 	return v.value
 }
 
-func (v *NullableItemsInner2MarketplaceSubscription) Set(val *ItemsInner2MarketplaceSubscription) {
+func (v *NullableItemsInner1MarketplaceSubscription) Set(val *ItemsInner1MarketplaceSubscription) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableItemsInner2MarketplaceSubscription) IsSet() bool {
+func (v NullableItemsInner1MarketplaceSubscription) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableItemsInner2MarketplaceSubscription) Unset() {
+func (v *NullableItemsInner1MarketplaceSubscription) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableItemsInner2MarketplaceSubscription(val *ItemsInner2MarketplaceSubscription) *NullableItemsInner2MarketplaceSubscription {
-	return &NullableItemsInner2MarketplaceSubscription{value: val, isSet: true}
+func NewNullableItemsInner1MarketplaceSubscription(val *ItemsInner1MarketplaceSubscription) *NullableItemsInner1MarketplaceSubscription {
+	return &NullableItemsInner1MarketplaceSubscription{value: val, isSet: true}
 }
 
-func (v NullableItemsInner2MarketplaceSubscription) MarshalJSON() ([]byte, error) {
+func (v NullableItemsInner1MarketplaceSubscription) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableItemsInner2MarketplaceSubscription) UnmarshalJSON(src []byte) error {
+func (v *NullableItemsInner1MarketplaceSubscription) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

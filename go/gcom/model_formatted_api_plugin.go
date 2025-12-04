@@ -52,6 +52,7 @@ type FormattedApiPlugin struct {
 	AngularDetected        bool                   `json:"angularDetected"`
 	LicenseUrl             *string                `json:"licenseUrl,omitempty"`
 	DocumentationUrl       *string                `json:"documentationUrl,omitempty"`
+	Json                   *Json                  `json:"json,omitempty"`
 	AdditionalProperties   map[string]interface{}
 }
 
@@ -913,6 +914,38 @@ func (o *FormattedApiPlugin) SetDocumentationUrl(v string) {
 	o.DocumentationUrl = &v
 }
 
+// GetJson returns the Json field value if set, zero value otherwise.
+func (o *FormattedApiPlugin) GetJson() Json {
+	if o == nil || IsNil(o.Json) {
+		var ret Json
+		return ret
+	}
+	return *o.Json
+}
+
+// GetJsonOk returns a tuple with the Json field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiPlugin) GetJsonOk() (*Json, bool) {
+	if o == nil || IsNil(o.Json) {
+		return nil, false
+	}
+	return o.Json, true
+}
+
+// HasJson returns a boolean if a field has been set.
+func (o *FormattedApiPlugin) HasJson() bool {
+	if o != nil && !IsNil(o.Json) {
+		return true
+	}
+
+	return false
+}
+
+// SetJson gets a reference to the given Json and assigns it to the Json field.
+func (o *FormattedApiPlugin) SetJson(v Json) {
+	o.Json = &v
+}
+
 func (o FormattedApiPlugin) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -959,6 +992,9 @@ func (o FormattedApiPlugin) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DocumentationUrl) {
 		toSerialize["documentationUrl"] = o.DocumentationUrl
+	}
+	if !IsNil(o.Json) {
+		toSerialize["json"] = o.Json
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -1023,6 +1059,7 @@ func (o *FormattedApiPlugin) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "angularDetected")
 		delete(additionalProperties, "licenseUrl")
 		delete(additionalProperties, "documentationUrl")
+		delete(additionalProperties, "json")
 		o.AdditionalProperties = additionalProperties
 	}
 

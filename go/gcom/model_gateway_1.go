@@ -12,246 +12,58 @@ package gcom
 
 import (
 	"encoding/json"
+	"fmt"
 )
-
-// checks if the Gateway1 type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &Gateway1{}
 
 // Gateway1 struct for Gateway1
 type Gateway1 struct {
-	PrivateDNS           string   `json:"privateDNS"`
-	ServiceName          string   `json:"serviceName"`
-	Regions              []string `json:"regions,omitempty"`
-	EndpointName         *string  `json:"endpointName,omitempty"`
-	ServiceId            *string  `json:"serviceId,omitempty"`
-	AdditionalProperties map[string]interface{}
+	Api1AnyOf  *Api1AnyOf
+	Api1AnyOf1 *Api1AnyOf1
 }
 
-type _Gateway1 Gateway1
-
-// NewGateway1 instantiates a new Gateway1 object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewGateway1(privateDNS string, serviceName string) *Gateway1 {
-	this := Gateway1{}
-	this.PrivateDNS = privateDNS
-	this.ServiceName = serviceName
-	return &this
-}
-
-// NewGateway1WithDefaults instantiates a new Gateway1 object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewGateway1WithDefaults() *Gateway1 {
-	this := Gateway1{}
-	return &this
-}
-
-// GetPrivateDNS returns the PrivateDNS field value
-func (o *Gateway1) GetPrivateDNS() string {
-	if o == nil {
-		var ret string
-		return ret
+// Unmarshal JSON data into any of the pointers in the struct
+func (dst *Gateway1) UnmarshalJSON(data []byte) error {
+	var err error
+	// try to unmarshal JSON data into Api1AnyOf
+	err = json.Unmarshal(data, &dst.Api1AnyOf)
+	if err == nil {
+		jsonApi1AnyOf, _ := json.Marshal(dst.Api1AnyOf)
+		if string(jsonApi1AnyOf) == "{}" { // empty struct
+			dst.Api1AnyOf = nil
+		} else {
+			return nil // data stored in dst.Api1AnyOf, return on the first match
+		}
+	} else {
+		dst.Api1AnyOf = nil
 	}
 
-	return o.PrivateDNS
-}
-
-// GetPrivateDNSOk returns a tuple with the PrivateDNS field value
-// and a boolean to check if the value has been set.
-func (o *Gateway1) GetPrivateDNSOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PrivateDNS, true
-}
-
-// SetPrivateDNS sets field value
-func (o *Gateway1) SetPrivateDNS(v string) {
-	o.PrivateDNS = v
-}
-
-// GetServiceName returns the ServiceName field value
-func (o *Gateway1) GetServiceName() string {
-	if o == nil {
-		var ret string
-		return ret
+	// try to unmarshal JSON data into Api1AnyOf1
+	err = json.Unmarshal(data, &dst.Api1AnyOf1)
+	if err == nil {
+		jsonApi1AnyOf1, _ := json.Marshal(dst.Api1AnyOf1)
+		if string(jsonApi1AnyOf1) == "{}" { // empty struct
+			dst.Api1AnyOf1 = nil
+		} else {
+			return nil // data stored in dst.Api1AnyOf1, return on the first match
+		}
+	} else {
+		dst.Api1AnyOf1 = nil
 	}
 
-	return o.ServiceName
+	return fmt.Errorf("data failed to match schemas in anyOf(Gateway1)")
 }
 
-// GetServiceNameOk returns a tuple with the ServiceName field value
-// and a boolean to check if the value has been set.
-func (o *Gateway1) GetServiceNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceName, true
-}
-
-// SetServiceName sets field value
-func (o *Gateway1) SetServiceName(v string) {
-	o.ServiceName = v
-}
-
-// GetRegions returns the Regions field value if set, zero value otherwise.
-func (o *Gateway1) GetRegions() []string {
-	if o == nil || IsNil(o.Regions) {
-		var ret []string
-		return ret
-	}
-	return o.Regions
-}
-
-// GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Gateway1) GetRegionsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Regions) {
-		return nil, false
-	}
-	return o.Regions, true
-}
-
-// HasRegions returns a boolean if a field has been set.
-func (o *Gateway1) HasRegions() bool {
-	if o != nil && !IsNil(o.Regions) {
-		return true
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src *Gateway1) MarshalJSON() ([]byte, error) {
+	if src.Api1AnyOf != nil {
+		return json.Marshal(&src.Api1AnyOf)
 	}
 
-	return false
-}
-
-// SetRegions gets a reference to the given []string and assigns it to the Regions field.
-func (o *Gateway1) SetRegions(v []string) {
-	o.Regions = v
-}
-
-// GetEndpointName returns the EndpointName field value if set, zero value otherwise.
-func (o *Gateway1) GetEndpointName() string {
-	if o == nil || IsNil(o.EndpointName) {
-		var ret string
-		return ret
-	}
-	return *o.EndpointName
-}
-
-// GetEndpointNameOk returns a tuple with the EndpointName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Gateway1) GetEndpointNameOk() (*string, bool) {
-	if o == nil || IsNil(o.EndpointName) {
-		return nil, false
-	}
-	return o.EndpointName, true
-}
-
-// HasEndpointName returns a boolean if a field has been set.
-func (o *Gateway1) HasEndpointName() bool {
-	if o != nil && !IsNil(o.EndpointName) {
-		return true
+	if src.Api1AnyOf1 != nil {
+		return json.Marshal(&src.Api1AnyOf1)
 	}
 
-	return false
-}
-
-// SetEndpointName gets a reference to the given string and assigns it to the EndpointName field.
-func (o *Gateway1) SetEndpointName(v string) {
-	o.EndpointName = &v
-}
-
-// GetServiceId returns the ServiceId field value if set, zero value otherwise.
-func (o *Gateway1) GetServiceId() string {
-	if o == nil || IsNil(o.ServiceId) {
-		var ret string
-		return ret
-	}
-	return *o.ServiceId
-}
-
-// GetServiceIdOk returns a tuple with the ServiceId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Gateway1) GetServiceIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ServiceId) {
-		return nil, false
-	}
-	return o.ServiceId, true
-}
-
-// HasServiceId returns a boolean if a field has been set.
-func (o *Gateway1) HasServiceId() bool {
-	if o != nil && !IsNil(o.ServiceId) {
-		return true
-	}
-
-	return false
-}
-
-// SetServiceId gets a reference to the given string and assigns it to the ServiceId field.
-func (o *Gateway1) SetServiceId(v string) {
-	o.ServiceId = &v
-}
-
-func (o Gateway1) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
-	}
-	return json.Marshal(toSerialize)
-}
-
-func (o Gateway1) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	toSerialize["privateDNS"] = o.PrivateDNS
-	toSerialize["serviceName"] = o.ServiceName
-	if !IsNil(o.Regions) {
-		toSerialize["regions"] = o.Regions
-	}
-	if !IsNil(o.EndpointName) {
-		toSerialize["endpointName"] = o.EndpointName
-	}
-	if !IsNil(o.ServiceId) {
-		toSerialize["serviceId"] = o.ServiceId
-	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
-	return toSerialize, nil
-}
-
-func (o *Gateway1) UnmarshalJSON(data []byte) (err error) {
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err
-	}
-
-	varGateway1 := _Gateway1{}
-
-	err = json.Unmarshal(data, &varGateway1)
-
-	if err != nil {
-		return err
-	}
-
-	*o = Gateway1(varGateway1)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "privateDNS")
-		delete(additionalProperties, "serviceName")
-		delete(additionalProperties, "regions")
-		delete(additionalProperties, "endpointName")
-		delete(additionalProperties, "serviceId")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
+	return nil, nil // no data in anyOf schemas
 }
 
 type NullableGateway1 struct {

@@ -25,7 +25,13 @@ type StackRegionsAPIService service
 type ApiGetClosestStackRegionRequest struct {
 	ctx        context.Context
 	ApiService *StackRegionsAPIService
+	orgId      *int32
 	provider   *string
+}
+
+func (r ApiGetClosestStackRegionRequest) OrgId(orgId int32) ApiGetClosestStackRegionRequest {
+	r.orgId = &orgId
+	return r
 }
 
 func (r ApiGetClosestStackRegionRequest) Provider(provider string) ApiGetClosestStackRegionRequest {
@@ -72,6 +78,9 @@ func (a *StackRegionsAPIService) GetClosestStackRegionExecute(r ApiGetClosestSta
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.orgId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+	}
 	if r.provider != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "provider", r.provider, "")
 	}
@@ -169,6 +178,7 @@ type ApiGetStackRegionsRequest struct {
 	id             *int32
 	idIn           *[]int32
 	orderBy        *string
+	orgId          *int32
 	provider       *string
 	providerRegion *string
 	slug           *string
@@ -197,6 +207,11 @@ func (r ApiGetStackRegionsRequest) IdIn(idIn []int32) ApiGetStackRegionsRequest 
 
 func (r ApiGetStackRegionsRequest) OrderBy(orderBy string) ApiGetStackRegionsRequest {
 	r.orderBy = &orderBy
+	return r
+}
+
+func (r ApiGetStackRegionsRequest) OrgId(orgId int32) ApiGetStackRegionsRequest {
+	r.orgId = &orgId
 	return r
 }
 
@@ -281,6 +296,9 @@ func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequ
 	}
 	if r.orderBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "")
+	}
+	if r.orgId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
 	}
 	if r.provider != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "provider", r.provider, "")

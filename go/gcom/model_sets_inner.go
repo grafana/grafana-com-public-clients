@@ -14,39 +14,38 @@ import (
 	"encoding/json"
 )
 
-// checks if the PostApiKeysRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PostApiKeysRequest{}
+// checks if the SetsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &SetsInner{}
 
-// PostApiKeysRequest struct for PostApiKeysRequest
-type PostApiKeysRequest struct {
-	Name                 string `json:"name"`
-	Role                 string `json:"role"`
+// SetsInner struct for SetsInner
+type SetsInner struct {
+	Name                 string   `json:"name"`
+	Scopes               []string `json:"scopes,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _PostApiKeysRequest PostApiKeysRequest
+type _SetsInner SetsInner
 
-// NewPostApiKeysRequest instantiates a new PostApiKeysRequest object
+// NewSetsInner instantiates a new SetsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostApiKeysRequest(name string, role string) *PostApiKeysRequest {
-	this := PostApiKeysRequest{}
+func NewSetsInner(name string) *SetsInner {
+	this := SetsInner{}
 	this.Name = name
-	this.Role = role
 	return &this
 }
 
-// NewPostApiKeysRequestWithDefaults instantiates a new PostApiKeysRequest object
+// NewSetsInnerWithDefaults instantiates a new SetsInner object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPostApiKeysRequestWithDefaults() *PostApiKeysRequest {
-	this := PostApiKeysRequest{}
+func NewSetsInnerWithDefaults() *SetsInner {
+	this := SetsInner{}
 	return &this
 }
 
 // GetName returns the Name field value
-func (o *PostApiKeysRequest) GetName() string {
+func (o *SetsInner) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -57,7 +56,7 @@ func (o *PostApiKeysRequest) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *PostApiKeysRequest) GetNameOk() (*string, bool) {
+func (o *SetsInner) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,35 +64,43 @@ func (o *PostApiKeysRequest) GetNameOk() (*string, bool) {
 }
 
 // SetName sets field value
-func (o *PostApiKeysRequest) SetName(v string) {
+func (o *SetsInner) SetName(v string) {
 	o.Name = v
 }
 
-// GetRole returns the Role field value
-func (o *PostApiKeysRequest) GetRole() string {
-	if o == nil {
-		var ret string
+// GetScopes returns the Scopes field value if set, zero value otherwise.
+func (o *SetsInner) GetScopes() []string {
+	if o == nil || IsNil(o.Scopes) {
+		var ret []string
 		return ret
 	}
-
-	return o.Role
+	return o.Scopes
 }
 
-// GetRoleOk returns a tuple with the Role field value
+// GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostApiKeysRequest) GetRoleOk() (*string, bool) {
-	if o == nil {
+func (o *SetsInner) GetScopesOk() ([]string, bool) {
+	if o == nil || IsNil(o.Scopes) {
 		return nil, false
 	}
-	return &o.Role, true
+	return o.Scopes, true
 }
 
-// SetRole sets field value
-func (o *PostApiKeysRequest) SetRole(v string) {
-	o.Role = v
+// HasScopes returns a boolean if a field has been set.
+func (o *SetsInner) HasScopes() bool {
+	if o != nil && !IsNil(o.Scopes) {
+		return true
+	}
+
+	return false
 }
 
-func (o PostApiKeysRequest) MarshalJSON() ([]byte, error) {
+// SetScopes gets a reference to the given []string and assigns it to the Scopes field.
+func (o *SetsInner) SetScopes(v []string) {
+	o.Scopes = v
+}
+
+func (o SetsInner) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -101,10 +108,12 @@ func (o PostApiKeysRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PostApiKeysRequest) ToMap() (map[string]interface{}, error) {
+func (o SetsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	toSerialize["role"] = o.Role
+	if !IsNil(o.Scopes) {
+		toSerialize["scopes"] = o.Scopes
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -113,7 +122,7 @@ func (o PostApiKeysRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *PostApiKeysRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *SetsInner) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -122,59 +131,59 @@ func (o *PostApiKeysRequest) UnmarshalJSON(data []byte) (err error) {
 		return err
 	}
 
-	varPostApiKeysRequest := _PostApiKeysRequest{}
+	varSetsInner := _SetsInner{}
 
-	err = json.Unmarshal(data, &varPostApiKeysRequest)
+	err = json.Unmarshal(data, &varSetsInner)
 
 	if err != nil {
 		return err
 	}
 
-	*o = PostApiKeysRequest(varPostApiKeysRequest)
+	*o = SetsInner(varSetsInner)
 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "name")
-		delete(additionalProperties, "role")
+		delete(additionalProperties, "scopes")
 		o.AdditionalProperties = additionalProperties
 	}
 
 	return err
 }
 
-type NullablePostApiKeysRequest struct {
-	value *PostApiKeysRequest
+type NullableSetsInner struct {
+	value *SetsInner
 	isSet bool
 }
 
-func (v NullablePostApiKeysRequest) Get() *PostApiKeysRequest {
+func (v NullableSetsInner) Get() *SetsInner {
 	return v.value
 }
 
-func (v *NullablePostApiKeysRequest) Set(val *PostApiKeysRequest) {
+func (v *NullableSetsInner) Set(val *SetsInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePostApiKeysRequest) IsSet() bool {
+func (v NullableSetsInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePostApiKeysRequest) Unset() {
+func (v *NullableSetsInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePostApiKeysRequest(val *PostApiKeysRequest) *NullablePostApiKeysRequest {
-	return &NullablePostApiKeysRequest{value: val, isSet: true}
+func NewNullableSetsInner(val *SetsInner) *NullableSetsInner {
+	return &NullableSetsInner{value: val, isSet: true}
 }
 
-func (v NullablePostApiKeysRequest) MarshalJSON() ([]byte, error) {
+func (v NullableSetsInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePostApiKeysRequest) UnmarshalJSON(src []byte) error {
+func (v *NullableSetsInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

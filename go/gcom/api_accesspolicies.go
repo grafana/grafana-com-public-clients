@@ -46,7 +46,7 @@ func (r ApiDeleteAccessPolicyRequest) OrgId(orgId int32) ApiDeleteAccessPolicyRe
 	return r
 }
 
-func (r ApiDeleteAccessPolicyRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiDeleteAccessPolicyRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteAccessPolicyExecute(r)
 }
 
@@ -66,19 +66,16 @@ func (a *AccesspoliciesAPIService) DeleteAccessPolicy(ctx context.Context, id st
 }
 
 // Execute executes the request
-//
-//	@return map[string]interface{}
-func (a *AccesspoliciesAPIService) DeleteAccessPolicyExecute(r ApiDeleteAccessPolicyRequest) (map[string]interface{}, *http.Response, error) {
+func (a *AccesspoliciesAPIService) DeleteAccessPolicyExecute(r ApiDeleteAccessPolicyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodDelete
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccesspoliciesAPIService.DeleteAccessPolicy")
 	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/v1/accesspolicies/{id}"
@@ -88,10 +85,10 @@ func (a *AccesspoliciesAPIService) DeleteAccessPolicyExecute(r ApiDeleteAccessPo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 	if r.region == nil {
-		return localVarReturnValue, nil, reportError("region is required and must be specified")
+		return nil, reportError("region is required and must be specified")
 	}
 	if r.xRequestId == nil {
-		return localVarReturnValue, nil, reportError("xRequestId is required and must be specified")
+		return nil, reportError("xRequestId is required and must be specified")
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
@@ -118,19 +115,19 @@ func (a *AccesspoliciesAPIService) DeleteAccessPolicyExecute(r ApiDeleteAccessPo
 	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -143,68 +140,59 @@ func (a *AccesspoliciesAPIService) DeleteAccessPolicyExecute(r ApiDeleteAccessPo
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ErrorForbidden
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ErrorNotFound
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ErrorConflict
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
 			var v ErrorServiceUnavailable
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 			newErr.model = v
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
 
 type ApiGetAccessPoliciesRequest struct {
@@ -575,9 +563,11 @@ func (a *AccesspoliciesAPIService) GetAccessPolicyExecute(r ApiGetAccessPolicyRe
 }
 
 type ApiGetConfigRequest struct {
-	ctx        context.Context
-	ApiService *AccesspoliciesAPIService
-	region     *string
+	ctx                context.Context
+	ApiService         *AccesspoliciesAPIService
+	region             *string
+	includeOrgMetadata *bool
+	orgId              *int32
 }
 
 func (r ApiGetConfigRequest) Region(region string) ApiGetConfigRequest {
@@ -585,7 +575,17 @@ func (r ApiGetConfigRequest) Region(region string) ApiGetConfigRequest {
 	return r
 }
 
-func (r ApiGetConfigRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiGetConfigRequest) IncludeOrgMetadata(includeOrgMetadata bool) ApiGetConfigRequest {
+	r.includeOrgMetadata = &includeOrgMetadata
+	return r
+}
+
+func (r ApiGetConfigRequest) OrgId(orgId int32) ApiGetConfigRequest {
+	r.orgId = &orgId
+	return r
+}
+
+func (r ApiGetConfigRequest) Execute() (*AccessPoliciesConfig, *http.Response, error) {
 	return r.ApiService.GetConfigExecute(r)
 }
 
@@ -604,13 +604,13 @@ func (a *AccesspoliciesAPIService) GetConfig(ctx context.Context) ApiGetConfigRe
 
 // Execute executes the request
 //
-//	@return map[string]interface{}
-func (a *AccesspoliciesAPIService) GetConfigExecute(r ApiGetConfigRequest) (map[string]interface{}, *http.Response, error) {
+//	@return AccessPoliciesConfig
+func (a *AccesspoliciesAPIService) GetConfigExecute(r ApiGetConfigRequest) (*AccessPoliciesConfig, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarReturnValue *AccessPoliciesConfig
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccesspoliciesAPIService.GetConfig")
@@ -628,6 +628,12 @@ func (a *AccesspoliciesAPIService) GetConfigExecute(r ApiGetConfigRequest) (map[
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	if r.includeOrgMetadata != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeOrgMetadata", r.includeOrgMetadata, "")
+	}
+	if r.orgId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

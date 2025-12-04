@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Api** | [**Api1**](Api1.md) |  | 
-**Gateway** | [**Gateway1**](Gateway1.md) |  | 
+**ServiceAttachment** | **string** |  | 
+**DomainNames** | **[]string** |  | 
+**EndpointName** | **string** |  | 
 
 ## Methods
 
 ### NewPdcPrivateConnectivityInfoAnyOf1
 
-`func NewPdcPrivateConnectivityInfoAnyOf1(api Api1, gateway Gateway1, ) *PdcPrivateConnectivityInfoAnyOf1`
+`func NewPdcPrivateConnectivityInfoAnyOf1(serviceAttachment string, domainNames []string, endpointName string, ) *PdcPrivateConnectivityInfoAnyOf1`
 
 NewPdcPrivateConnectivityInfoAnyOf1 instantiates a new PdcPrivateConnectivityInfoAnyOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -26,44 +27,64 @@ NewPdcPrivateConnectivityInfoAnyOf1WithDefaults instantiates a new PdcPrivateCon
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetApi
+### GetServiceAttachment
 
-`func (o *PdcPrivateConnectivityInfoAnyOf1) GetApi() Api1`
+`func (o *PdcPrivateConnectivityInfoAnyOf1) GetServiceAttachment() string`
 
-GetApi returns the Api field if non-nil, zero value otherwise.
+GetServiceAttachment returns the ServiceAttachment field if non-nil, zero value otherwise.
 
-### GetApiOk
+### GetServiceAttachmentOk
 
-`func (o *PdcPrivateConnectivityInfoAnyOf1) GetApiOk() (*Api1, bool)`
+`func (o *PdcPrivateConnectivityInfoAnyOf1) GetServiceAttachmentOk() (*string, bool)`
 
-GetApiOk returns a tuple with the Api field if it's non-nil, zero value otherwise
+GetServiceAttachmentOk returns a tuple with the ServiceAttachment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetApi
+### SetServiceAttachment
 
-`func (o *PdcPrivateConnectivityInfoAnyOf1) SetApi(v Api1)`
+`func (o *PdcPrivateConnectivityInfoAnyOf1) SetServiceAttachment(v string)`
 
-SetApi sets Api field to given value.
+SetServiceAttachment sets ServiceAttachment field to given value.
 
 
-### GetGateway
+### GetDomainNames
 
-`func (o *PdcPrivateConnectivityInfoAnyOf1) GetGateway() Gateway1`
+`func (o *PdcPrivateConnectivityInfoAnyOf1) GetDomainNames() []string`
 
-GetGateway returns the Gateway field if non-nil, zero value otherwise.
+GetDomainNames returns the DomainNames field if non-nil, zero value otherwise.
 
-### GetGatewayOk
+### GetDomainNamesOk
 
-`func (o *PdcPrivateConnectivityInfoAnyOf1) GetGatewayOk() (*Gateway1, bool)`
+`func (o *PdcPrivateConnectivityInfoAnyOf1) GetDomainNamesOk() (*[]string, bool)`
 
-GetGatewayOk returns a tuple with the Gateway field if it's non-nil, zero value otherwise
+GetDomainNamesOk returns a tuple with the DomainNames field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetGateway
+### SetDomainNames
 
-`func (o *PdcPrivateConnectivityInfoAnyOf1) SetGateway(v Gateway1)`
+`func (o *PdcPrivateConnectivityInfoAnyOf1) SetDomainNames(v []string)`
 
-SetGateway sets Gateway field to given value.
+SetDomainNames sets DomainNames field to given value.
+
+
+### GetEndpointName
+
+`func (o *PdcPrivateConnectivityInfoAnyOf1) GetEndpointName() string`
+
+GetEndpointName returns the EndpointName field if non-nil, zero value otherwise.
+
+### GetEndpointNameOk
+
+`func (o *PdcPrivateConnectivityInfoAnyOf1) GetEndpointNameOk() (*string, bool)`
+
+GetEndpointNameOk returns a tuple with the EndpointName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndpointName
+
+`func (o *PdcPrivateConnectivityInfoAnyOf1) SetEndpointName(v string)`
+
+SetEndpointName sets EndpointName field to given value.
 
 
 

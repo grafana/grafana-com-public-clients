@@ -19,9 +19,8 @@ var _ MappedNullable = &PdcPrivateConnectivityInfoAnyOf2{}
 
 // PdcPrivateConnectivityInfoAnyOf2 struct for PdcPrivateConnectivityInfoAnyOf2
 type PdcPrivateConnectivityInfoAnyOf2 struct {
-	Mimir                Mimir                                   `json:"mimir"`
-	Graphite             *Graphite                               `json:"graphite,omitempty"`
-	Otlp                 NullablePdcPrivateConnectivityInfoAnyOf `json:"otlp,omitempty"`
+	Api                  Api1     `json:"api"`
+	Gateway              Gateway1 `json:"gateway"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,9 +30,10 @@ type _PdcPrivateConnectivityInfoAnyOf2 PdcPrivateConnectivityInfoAnyOf2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPdcPrivateConnectivityInfoAnyOf2(mimir Mimir) *PdcPrivateConnectivityInfoAnyOf2 {
+func NewPdcPrivateConnectivityInfoAnyOf2(api Api1, gateway Gateway1) *PdcPrivateConnectivityInfoAnyOf2 {
 	this := PdcPrivateConnectivityInfoAnyOf2{}
-	this.Mimir = mimir
+	this.Api = api
+	this.Gateway = gateway
 	return &this
 }
 
@@ -45,103 +45,52 @@ func NewPdcPrivateConnectivityInfoAnyOf2WithDefaults() *PdcPrivateConnectivityIn
 	return &this
 }
 
-// GetMimir returns the Mimir field value
-func (o *PdcPrivateConnectivityInfoAnyOf2) GetMimir() Mimir {
+// GetApi returns the Api field value
+func (o *PdcPrivateConnectivityInfoAnyOf2) GetApi() Api1 {
 	if o == nil {
-		var ret Mimir
+		var ret Api1
 		return ret
 	}
 
-	return o.Mimir
+	return o.Api
 }
 
-// GetMimirOk returns a tuple with the Mimir field value
+// GetApiOk returns a tuple with the Api field value
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf2) GetMimirOk() (*Mimir, bool) {
+func (o *PdcPrivateConnectivityInfoAnyOf2) GetApiOk() (*Api1, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Mimir, true
+	return &o.Api, true
 }
 
-// SetMimir sets field value
-func (o *PdcPrivateConnectivityInfoAnyOf2) SetMimir(v Mimir) {
-	o.Mimir = v
+// SetApi sets field value
+func (o *PdcPrivateConnectivityInfoAnyOf2) SetApi(v Api1) {
+	o.Api = v
 }
 
-// GetGraphite returns the Graphite field value if set, zero value otherwise.
-func (o *PdcPrivateConnectivityInfoAnyOf2) GetGraphite() Graphite {
-	if o == nil || IsNil(o.Graphite) {
-		var ret Graphite
+// GetGateway returns the Gateway field value
+func (o *PdcPrivateConnectivityInfoAnyOf2) GetGateway() Gateway1 {
+	if o == nil {
+		var ret Gateway1
 		return ret
 	}
-	return *o.Graphite
+
+	return o.Gateway
 }
 
-// GetGraphiteOk returns a tuple with the Graphite field value if set, nil otherwise
+// GetGatewayOk returns a tuple with the Gateway field value
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf2) GetGraphiteOk() (*Graphite, bool) {
-	if o == nil || IsNil(o.Graphite) {
-		return nil, false
-	}
-	return o.Graphite, true
-}
-
-// HasGraphite returns a boolean if a field has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf2) HasGraphite() bool {
-	if o != nil && !IsNil(o.Graphite) {
-		return true
-	}
-
-	return false
-}
-
-// SetGraphite gets a reference to the given Graphite and assigns it to the Graphite field.
-func (o *PdcPrivateConnectivityInfoAnyOf2) SetGraphite(v Graphite) {
-	o.Graphite = &v
-}
-
-// GetOtlp returns the Otlp field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PdcPrivateConnectivityInfoAnyOf2) GetOtlp() PdcPrivateConnectivityInfoAnyOf {
-	if o == nil || IsNil(o.Otlp.Get()) {
-		var ret PdcPrivateConnectivityInfoAnyOf
-		return ret
-	}
-	return *o.Otlp.Get()
-}
-
-// GetOtlpOk returns a tuple with the Otlp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PdcPrivateConnectivityInfoAnyOf2) GetOtlpOk() (*PdcPrivateConnectivityInfoAnyOf, bool) {
+func (o *PdcPrivateConnectivityInfoAnyOf2) GetGatewayOk() (*Gateway1, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Otlp.Get(), o.Otlp.IsSet()
+	return &o.Gateway, true
 }
 
-// HasOtlp returns a boolean if a field has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf2) HasOtlp() bool {
-	if o != nil && o.Otlp.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetOtlp gets a reference to the given NullablePdcPrivateConnectivityInfoAnyOf and assigns it to the Otlp field.
-func (o *PdcPrivateConnectivityInfoAnyOf2) SetOtlp(v PdcPrivateConnectivityInfoAnyOf) {
-	o.Otlp.Set(&v)
-}
-
-// SetOtlpNil sets the value for Otlp to be an explicit nil
-func (o *PdcPrivateConnectivityInfoAnyOf2) SetOtlpNil() {
-	o.Otlp.Set(nil)
-}
-
-// UnsetOtlp ensures that no value is present for Otlp, not even an explicit nil
-func (o *PdcPrivateConnectivityInfoAnyOf2) UnsetOtlp() {
-	o.Otlp.Unset()
+// SetGateway sets field value
+func (o *PdcPrivateConnectivityInfoAnyOf2) SetGateway(v Gateway1) {
+	o.Gateway = v
 }
 
 func (o PdcPrivateConnectivityInfoAnyOf2) MarshalJSON() ([]byte, error) {
@@ -154,13 +103,8 @@ func (o PdcPrivateConnectivityInfoAnyOf2) MarshalJSON() ([]byte, error) {
 
 func (o PdcPrivateConnectivityInfoAnyOf2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["mimir"] = o.Mimir
-	if !IsNil(o.Graphite) {
-		toSerialize["graphite"] = o.Graphite
-	}
-	if o.Otlp.IsSet() {
-		toSerialize["otlp"] = o.Otlp.Get()
-	}
+	toSerialize["api"] = o.Api
+	toSerialize["gateway"] = o.Gateway
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -191,9 +135,8 @@ func (o *PdcPrivateConnectivityInfoAnyOf2) UnmarshalJSON(data []byte) (err error
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "mimir")
-		delete(additionalProperties, "graphite")
-		delete(additionalProperties, "otlp")
+		delete(additionalProperties, "api")
+		delete(additionalProperties, "gateway")
 		o.AdditionalProperties = additionalProperties
 	}
 
