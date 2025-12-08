@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]ItemsInner1**](ItemsInner1.md) |  | 
+**Items** | [**[]ItemsInner**](ItemsInner.md) |  | 
 
 ## Methods
 
 ### NewInstanceUsersResponse
 
-`func NewInstanceUsersResponse(items []ItemsInner1, ) *InstanceUsersResponse`
+`func NewInstanceUsersResponse(items []ItemsInner, ) *InstanceUsersResponse`
 
 NewInstanceUsersResponse instantiates a new InstanceUsersResponse object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetItems
 
-`func (o *InstanceUsersResponse) GetItems() []ItemsInner1`
+`func (o *InstanceUsersResponse) GetItems() []ItemsInner`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *InstanceUsersResponse) GetItemsOk() (*[]ItemsInner1, bool)`
+`func (o *InstanceUsersResponse) GetItemsOk() (*[]ItemsInner, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *InstanceUsersResponse) SetItems(v []ItemsInner1)`
+`func (o *InstanceUsersResponse) SetItems(v []ItemsInner)`
 
 SetItems sets Items field to given value.
 

@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Schema** | Pointer to **string** | A URL to the JSON Schema for this object. | [optional] 
-**Items** | [**[]ItemsInner3**](ItemsInner3.md) |  | 
+**Items** | [**[]ItemsInner2**](ItemsInner2.md) |  | 
 
 ## Methods
 
 ### NewOrgBilledUsageHistory
 
-`func NewOrgBilledUsageHistory(items []ItemsInner3, ) *OrgBilledUsageHistory`
+`func NewOrgBilledUsageHistory(items []ItemsInner2, ) *OrgBilledUsageHistory`
 
 NewOrgBilledUsageHistory instantiates a new OrgBilledUsageHistory object
 This constructor will assign default values to properties that have it defined,
@@ -53,20 +53,20 @@ HasSchema returns a boolean if a field has been set.
 
 ### GetItems
 
-`func (o *OrgBilledUsageHistory) GetItems() []ItemsInner3`
+`func (o *OrgBilledUsageHistory) GetItems() []ItemsInner2`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *OrgBilledUsageHistory) GetItemsOk() (*[]ItemsInner3, bool)`
+`func (o *OrgBilledUsageHistory) GetItemsOk() (*[]ItemsInner2, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *OrgBilledUsageHistory) SetItems(v []ItemsInner3)`
+`func (o *OrgBilledUsageHistory) SetItems(v []ItemsInner2)`
 
 SetItems sets Items field to given value.
 

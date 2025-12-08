@@ -7,22 +7,21 @@ Name | Type | Description | Notes
 **PrivateDNS** | **string** |  | 
 **ServiceName** | **string** |  | 
 **Regions** | Pointer to **[]string** |  | [optional] 
-**EndpointName** | Pointer to **string** |  | [optional] 
+**EndpointName** | **string** |  | 
 **ServiceId** | Pointer to **string** |  | [optional] 
+**ServiceAttachment** | **string** |  | 
+**DomainNames** | **[]string** |  | 
 **Api** | [**Api1**](Api1.md) |  | 
 **Gateway** | [**Gateway1**](Gateway1.md) |  | 
 **Mimir** | [**Mimir**](Mimir.md) |  | 
 **Graphite** | Pointer to [**Graphite**](Graphite.md) |  | [optional] 
-**Otlp** | Pointer to [**NullablePdcPrivateConnectivityInfoAnyOf**](PdcPrivateConnectivityInfoAnyOf.md) |  | [optional] 
-**Name** | **string** |  | 
-**Network** | **string** |  | 
-**IpCidrRange** | **string** |  | 
+**Otlp** | Pointer to [**Otlp1**](Otlp1.md) |  | [optional] 
 
 ## Methods
 
 ### NewOtlpPrivateConnectivityInfo
 
-`func NewOtlpPrivateConnectivityInfo(privateDNS string, serviceName string, api Api1, gateway Gateway1, mimir Mimir, name string, network string, ipCidrRange string, ) *OtlpPrivateConnectivityInfo`
+`func NewOtlpPrivateConnectivityInfo(privateDNS string, serviceName string, endpointName string, serviceAttachment string, domainNames []string, api Api1, gateway Gateway1, mimir Mimir, ) *OtlpPrivateConnectivityInfo`
 
 NewOtlpPrivateConnectivityInfo instantiates a new OtlpPrivateConnectivityInfo object
 This constructor will assign default values to properties that have it defined,
@@ -121,11 +120,6 @@ and a boolean to check if the value has been set.
 
 SetEndpointName sets EndpointName field to given value.
 
-### HasEndpointName
-
-`func (o *OtlpPrivateConnectivityInfo) HasEndpointName() bool`
-
-HasEndpointName returns a boolean if a field has been set.
 
 ### GetServiceId
 
@@ -151,6 +145,46 @@ SetServiceId sets ServiceId field to given value.
 `func (o *OtlpPrivateConnectivityInfo) HasServiceId() bool`
 
 HasServiceId returns a boolean if a field has been set.
+
+### GetServiceAttachment
+
+`func (o *OtlpPrivateConnectivityInfo) GetServiceAttachment() string`
+
+GetServiceAttachment returns the ServiceAttachment field if non-nil, zero value otherwise.
+
+### GetServiceAttachmentOk
+
+`func (o *OtlpPrivateConnectivityInfo) GetServiceAttachmentOk() (*string, bool)`
+
+GetServiceAttachmentOk returns a tuple with the ServiceAttachment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAttachment
+
+`func (o *OtlpPrivateConnectivityInfo) SetServiceAttachment(v string)`
+
+SetServiceAttachment sets ServiceAttachment field to given value.
+
+
+### GetDomainNames
+
+`func (o *OtlpPrivateConnectivityInfo) GetDomainNames() []string`
+
+GetDomainNames returns the DomainNames field if non-nil, zero value otherwise.
+
+### GetDomainNamesOk
+
+`func (o *OtlpPrivateConnectivityInfo) GetDomainNamesOk() (*[]string, bool)`
+
+GetDomainNamesOk returns a tuple with the DomainNames field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDomainNames
+
+`func (o *OtlpPrivateConnectivityInfo) SetDomainNames(v []string)`
+
+SetDomainNames sets DomainNames field to given value.
+
 
 ### GetApi
 
@@ -239,20 +273,20 @@ HasGraphite returns a boolean if a field has been set.
 
 ### GetOtlp
 
-`func (o *OtlpPrivateConnectivityInfo) GetOtlp() PdcPrivateConnectivityInfoAnyOf`
+`func (o *OtlpPrivateConnectivityInfo) GetOtlp() Otlp1`
 
 GetOtlp returns the Otlp field if non-nil, zero value otherwise.
 
 ### GetOtlpOk
 
-`func (o *OtlpPrivateConnectivityInfo) GetOtlpOk() (*PdcPrivateConnectivityInfoAnyOf, bool)`
+`func (o *OtlpPrivateConnectivityInfo) GetOtlpOk() (*Otlp1, bool)`
 
 GetOtlpOk returns a tuple with the Otlp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOtlp
 
-`func (o *OtlpPrivateConnectivityInfo) SetOtlp(v PdcPrivateConnectivityInfoAnyOf)`
+`func (o *OtlpPrivateConnectivityInfo) SetOtlp(v Otlp1)`
 
 SetOtlp sets Otlp field to given value.
 
@@ -261,76 +295,6 @@ SetOtlp sets Otlp field to given value.
 `func (o *OtlpPrivateConnectivityInfo) HasOtlp() bool`
 
 HasOtlp returns a boolean if a field has been set.
-
-### SetOtlpNil
-
-`func (o *OtlpPrivateConnectivityInfo) SetOtlpNil(b bool)`
-
- SetOtlpNil sets the value for Otlp to be an explicit nil
-
-### UnsetOtlp
-`func (o *OtlpPrivateConnectivityInfo) UnsetOtlp()`
-
-UnsetOtlp ensures that no value is present for Otlp, not even an explicit nil
-### GetName
-
-`func (o *OtlpPrivateConnectivityInfo) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *OtlpPrivateConnectivityInfo) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *OtlpPrivateConnectivityInfo) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
-### GetNetwork
-
-`func (o *OtlpPrivateConnectivityInfo) GetNetwork() string`
-
-GetNetwork returns the Network field if non-nil, zero value otherwise.
-
-### GetNetworkOk
-
-`func (o *OtlpPrivateConnectivityInfo) GetNetworkOk() (*string, bool)`
-
-GetNetworkOk returns a tuple with the Network field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNetwork
-
-`func (o *OtlpPrivateConnectivityInfo) SetNetwork(v string)`
-
-SetNetwork sets Network field to given value.
-
-
-### GetIpCidrRange
-
-`func (o *OtlpPrivateConnectivityInfo) GetIpCidrRange() string`
-
-GetIpCidrRange returns the IpCidrRange field if non-nil, zero value otherwise.
-
-### GetIpCidrRangeOk
-
-`func (o *OtlpPrivateConnectivityInfo) GetIpCidrRangeOk() (*string, bool)`
-
-GetIpCidrRangeOk returns a tuple with the IpCidrRange field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIpCidrRange
-
-`func (o *OtlpPrivateConnectivityInfo) SetIpCidrRange(v string)`
-
-SetIpCidrRange sets IpCidrRange field to given value.
-
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

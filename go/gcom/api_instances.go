@@ -1309,6 +1309,151 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetInstanceReadinessRequest struct {
+	ctx        context.Context
+	ApiService *InstancesAPIService
+	instanceId string
+}
+
+func (r ApiGetInstanceReadinessRequest) Execute() (*FormattedApiInstanceReadiness, *http.Response, error) {
+	return r.ApiService.GetInstanceReadinessExecute(r)
+}
+
+/*
+GetInstanceReadiness Gets an instance's readiness status
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param instanceId
+	@return ApiGetInstanceReadinessRequest
+*/
+func (a *InstancesAPIService) GetInstanceReadiness(ctx context.Context, instanceId string) ApiGetInstanceReadinessRequest {
+	return ApiGetInstanceReadinessRequest{
+		ApiService: a,
+		ctx:        ctx,
+		instanceId: instanceId,
+	}
+}
+
+// Execute executes the request
+//
+//	@return FormattedApiInstanceReadiness
+func (a *InstancesAPIService) GetInstanceReadinessExecute(r ApiGetInstanceReadinessRequest) (*FormattedApiInstanceReadiness, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FormattedApiInstanceReadiness
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetInstanceReadiness")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/instances/{instanceId}/readiness"
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorInvalidCredentials
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorForbidden
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorNotFound
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorConflict
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetInstanceServiceAccountRequest struct {
 	ctx              context.Context
 	ApiService       *InstancesAPIService
@@ -1805,6 +1950,8 @@ type ApiGetInstancesRequest struct {
 	plan                           *string
 	planIn                         *string
 	planNot                        *string
+	region                         *string
+	regionIn                       *[]string
 	slug                           *string
 	slugIn                         *string
 	status                         *string
@@ -1928,6 +2075,16 @@ func (r ApiGetInstancesRequest) PlanIn(planIn string) ApiGetInstancesRequest {
 
 func (r ApiGetInstancesRequest) PlanNot(planNot string) ApiGetInstancesRequest {
 	r.planNot = &planNot
+	return r
+}
+
+func (r ApiGetInstancesRequest) Region(region string) ApiGetInstancesRequest {
+	r.region = &region
+	return r
+}
+
+func (r ApiGetInstancesRequest) RegionIn(regionIn []string) ApiGetInstancesRequest {
+	r.regionIn = &regionIn
 	return r
 }
 
@@ -2099,6 +2256,20 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	}
 	if r.planNot != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "planNot", r.planNot, "")
+	}
+	if r.region != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	}
+	if r.regionIn != nil {
+		t := *r.regionIn
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "regionIn", s.Index(i).Interface(), "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "regionIn", t, "multi")
+		}
 	}
 	if r.slug != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "")

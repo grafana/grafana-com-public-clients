@@ -49,9 +49,9 @@ type FormattedOrgMembership struct {
 	UserEmail                string                                     `json:"userEmail"`
 	UserName                 string                                     `json:"userName"`
 	Subscriptions            Subscriptions                              `json:"subscriptions"`
-	MarketplaceSubscription  NullableItemsInner2MarketplaceSubscription `json:"marketplaceSubscription"`
+	MarketplaceSubscription  NullableItemsInner1MarketplaceSubscription `json:"marketplaceSubscription"`
 	ExtraPermissions         []string                                   `json:"extraPermissions,omitempty"`
-	GrafanaStaffAccess       NullableItemsInner2GrafanaStaffAccess      `json:"grafanaStaffAccess,omitempty"`
+	GrafanaStaffAccess       NullableItemsInner1GrafanaStaffAccess      `json:"grafanaStaffAccess,omitempty"`
 	AdditionalProperties     map[string]interface{}
 }
 
@@ -61,7 +61,7 @@ type _FormattedOrgMembership FormattedOrgMembership
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner2MarketplaceSubscription) *FormattedOrgMembership {
+func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription) *FormattedOrgMembership {
 	this := FormattedOrgMembership{}
 	this.Id = id
 	this.OrgId = orgId
@@ -830,10 +830,10 @@ func (o *FormattedOrgMembership) SetSubscriptions(v Subscriptions) {
 }
 
 // GetMarketplaceSubscription returns the MarketplaceSubscription field value
-// If the value is explicit nil, the zero value for ItemsInner2MarketplaceSubscription will be returned
-func (o *FormattedOrgMembership) GetMarketplaceSubscription() ItemsInner2MarketplaceSubscription {
+// If the value is explicit nil, the zero value for ItemsInner1MarketplaceSubscription will be returned
+func (o *FormattedOrgMembership) GetMarketplaceSubscription() ItemsInner1MarketplaceSubscription {
 	if o == nil || o.MarketplaceSubscription.Get() == nil {
-		var ret ItemsInner2MarketplaceSubscription
+		var ret ItemsInner1MarketplaceSubscription
 		return ret
 	}
 
@@ -843,7 +843,7 @@ func (o *FormattedOrgMembership) GetMarketplaceSubscription() ItemsInner2Marketp
 // GetMarketplaceSubscriptionOk returns a tuple with the MarketplaceSubscription field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*ItemsInner2MarketplaceSubscription, bool) {
+func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*ItemsInner1MarketplaceSubscription, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -851,7 +851,7 @@ func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*ItemsInner2Mar
 }
 
 // SetMarketplaceSubscription sets field value
-func (o *FormattedOrgMembership) SetMarketplaceSubscription(v ItemsInner2MarketplaceSubscription) {
+func (o *FormattedOrgMembership) SetMarketplaceSubscription(v ItemsInner1MarketplaceSubscription) {
 	o.MarketplaceSubscription.Set(&v)
 }
 
@@ -888,9 +888,9 @@ func (o *FormattedOrgMembership) SetExtraPermissions(v []string) {
 }
 
 // GetGrafanaStaffAccess returns the GrafanaStaffAccess field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FormattedOrgMembership) GetGrafanaStaffAccess() ItemsInner2GrafanaStaffAccess {
+func (o *FormattedOrgMembership) GetGrafanaStaffAccess() ItemsInner1GrafanaStaffAccess {
 	if o == nil || IsNil(o.GrafanaStaffAccess.Get()) {
-		var ret ItemsInner2GrafanaStaffAccess
+		var ret ItemsInner1GrafanaStaffAccess
 		return ret
 	}
 	return *o.GrafanaStaffAccess.Get()
@@ -899,7 +899,7 @@ func (o *FormattedOrgMembership) GetGrafanaStaffAccess() ItemsInner2GrafanaStaff
 // GetGrafanaStaffAccessOk returns a tuple with the GrafanaStaffAccess field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FormattedOrgMembership) GetGrafanaStaffAccessOk() (*ItemsInner2GrafanaStaffAccess, bool) {
+func (o *FormattedOrgMembership) GetGrafanaStaffAccessOk() (*ItemsInner1GrafanaStaffAccess, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -915,8 +915,8 @@ func (o *FormattedOrgMembership) HasGrafanaStaffAccess() bool {
 	return false
 }
 
-// SetGrafanaStaffAccess gets a reference to the given NullableItemsInner2GrafanaStaffAccess and assigns it to the GrafanaStaffAccess field.
-func (o *FormattedOrgMembership) SetGrafanaStaffAccess(v ItemsInner2GrafanaStaffAccess) {
+// SetGrafanaStaffAccess gets a reference to the given NullableItemsInner1GrafanaStaffAccess and assigns it to the GrafanaStaffAccess field.
+func (o *FormattedOrgMembership) SetGrafanaStaffAccess(v ItemsInner1GrafanaStaffAccess) {
 	o.GrafanaStaffAccess.Set(&v)
 }
 

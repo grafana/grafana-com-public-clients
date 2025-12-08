@@ -12,6 +12,7 @@ package gcom
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the PostTokenRequest type satisfies the MappedNullable interface at compile time
@@ -19,7 +20,8 @@ var _ MappedNullable = &PostTokenRequest{}
 
 // PostTokenRequest struct for PostTokenRequest
 type PostTokenRequest struct {
-	DisplayName          *string `json:"displayName,omitempty"`
+	DisplayName          *string      `json:"displayName,omitempty"`
+	ExpiresAt            NullableTime `json:"expiresAt,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -74,6 +76,49 @@ func (o *PostTokenRequest) SetDisplayName(v string) {
 	o.DisplayName = &v
 }
 
+// GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PostTokenRequest) GetExpiresAt() time.Time {
+	if o == nil || IsNil(o.ExpiresAt.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.ExpiresAt.Get()
+}
+
+// GetExpiresAtOk returns a tuple with the ExpiresAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PostTokenRequest) GetExpiresAtOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExpiresAt.Get(), o.ExpiresAt.IsSet()
+}
+
+// HasExpiresAt returns a boolean if a field has been set.
+func (o *PostTokenRequest) HasExpiresAt() bool {
+	if o != nil && o.ExpiresAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExpiresAt gets a reference to the given NullableTime and assigns it to the ExpiresAt field.
+func (o *PostTokenRequest) SetExpiresAt(v time.Time) {
+	o.ExpiresAt.Set(&v)
+}
+
+// SetExpiresAtNil sets the value for ExpiresAt to be an explicit nil
+func (o *PostTokenRequest) SetExpiresAtNil() {
+	o.ExpiresAt.Set(nil)
+}
+
+// UnsetExpiresAt ensures that no value is present for ExpiresAt, not even an explicit nil
+func (o *PostTokenRequest) UnsetExpiresAt() {
+	o.ExpiresAt.Unset()
+}
+
 func (o PostTokenRequest) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -86,6 +131,9 @@ func (o PostTokenRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.DisplayName) {
 		toSerialize["displayName"] = o.DisplayName
+	}
+	if o.ExpiresAt.IsSet() {
+		toSerialize["expiresAt"] = o.ExpiresAt.Get()
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -110,6 +158,7 @@ func (o *PostTokenRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "displayName")
+		delete(additionalProperties, "expiresAt")
 		o.AdditionalProperties = additionalProperties
 	}
 

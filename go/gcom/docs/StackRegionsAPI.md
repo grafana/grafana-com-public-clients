@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## GetClosestStackRegion
 
-> FormattedApiStackRegion GetClosestStackRegion(ctx).Provider(provider).Execute()
+> FormattedApiStackRegion GetClosestStackRegion(ctx).OrgId(orgId).Provider(provider).Execute()
 
 
 
@@ -28,11 +28,12 @@ import (
 )
 
 func main() {
+	orgId := int32(56) // int32 |  (optional)
 	provider := "provider_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StackRegionsAPI.GetClosestStackRegion(context.Background()).Provider(provider).Execute()
+	resp, r, err := apiClient.StackRegionsAPI.GetClosestStackRegion(context.Background()).OrgId(orgId).Provider(provider).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StackRegionsAPI.GetClosestStackRegion``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -53,6 +54,7 @@ Other parameters are passed through a pointer to a apiGetClosestStackRegionReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **orgId** | **int32** |  | 
  **provider** | **string** |  | 
 
 ### Return type
@@ -75,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## GetStackRegions
 
-> GetStackRegions200Response GetStackRegions(ctx).CountryCode(countryCode).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
+> GetStackRegions200Response GetStackRegions(ctx).CountryCode(countryCode).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).OrgId(orgId).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
 
 
 
@@ -97,6 +99,7 @@ func main() {
 	id := int32(56) // int32 |  (optional)
 	idIn := []int32{int32(123)} // []int32 |  (optional)
 	orderBy := "orderBy_example" // string |  (optional)
+	orgId := int32(56) // int32 |  (optional)
 	provider := "provider_example" // string |  (optional)
 	providerRegion := "providerRegion_example" // string |  (optional)
 	slug := "slug_example" // string |  (optional)
@@ -104,7 +107,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StackRegionsAPI.GetStackRegions(context.Background()).CountryCode(countryCode).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
+	resp, r, err := apiClient.StackRegionsAPI.GetStackRegions(context.Background()).CountryCode(countryCode).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).OrgId(orgId).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StackRegionsAPI.GetStackRegions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -130,6 +133,7 @@ Name | Type | Description  | Notes
  **id** | **int32** |  | 
  **idIn** | **[]int32** |  | 
  **orderBy** | **string** |  | 
+ **orgId** | **int32** |  | 
  **provider** | **string** |  | 
  **providerRegion** | **string** |  | 
  **slug** | **string** |  | 

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## DeleteAccessPolicy
 
-> map[string]interface{} DeleteAccessPolicy(ctx, id).Region(region).XRequestId(xRequestId).OrgId(orgId).Execute()
+> DeleteAccessPolicy(ctx, id).Region(region).XRequestId(xRequestId).OrgId(orgId).Execute()
 
 Delete an access policy
 
@@ -39,13 +39,11 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccesspoliciesAPI.DeleteAccessPolicy(context.Background(), id).Region(region).XRequestId(xRequestId).OrgId(orgId).Execute()
+	r, err := apiClient.AccesspoliciesAPI.DeleteAccessPolicy(context.Background(), id).Region(region).XRequestId(xRequestId).OrgId(orgId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccesspoliciesAPI.DeleteAccessPolicy``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DeleteAccessPolicy`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `AccesspoliciesAPI.DeleteAccessPolicy`: %v\n", resp)
 }
 ```
 
@@ -71,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+ (empty response body)
 
 ### Authorization
 
@@ -239,7 +237,7 @@ Name | Type | Description  | Notes
 
 ## GetConfig
 
-> map[string]interface{} GetConfig(ctx).Region(region).Execute()
+> AccessPoliciesConfig GetConfig(ctx).Region(region).IncludeOrgMetadata(includeOrgMetadata).OrgId(orgId).Execute()
 
 Get details about the Cloud Access Policy API
 
@@ -257,15 +255,17 @@ import (
 
 func main() {
 	region := "region_example" // string | 
+	includeOrgMetadata := true // bool |  (optional)
+	orgId := int32(56) // int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccesspoliciesAPI.GetConfig(context.Background()).Region(region).Execute()
+	resp, r, err := apiClient.AccesspoliciesAPI.GetConfig(context.Background()).Region(region).IncludeOrgMetadata(includeOrgMetadata).OrgId(orgId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccesspoliciesAPI.GetConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetConfig`: map[string]interface{}
+	// response from `GetConfig`: AccessPoliciesConfig
 	fmt.Fprintf(os.Stdout, "Response from `AccesspoliciesAPI.GetConfig`: %v\n", resp)
 }
 ```
@@ -282,10 +282,12 @@ Other parameters are passed through a pointer to a apiGetConfigRequest struct vi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **region** | **string** |  | 
+ **includeOrgMetadata** | **bool** |  | 
+ **orgId** | **int32** |  | 
 
 ### Return type
 
-**map[string]interface{}**
+[**AccessPoliciesConfig**](AccessPoliciesConfig.md)
 
 ### Authorization
 

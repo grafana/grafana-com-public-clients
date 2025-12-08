@@ -36,20 +36,6 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test OrgsAPIService DelApiKey", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
-
-		var name string
-		var slugOrId string
-
-		httpRes, err := apiClient.OrgsAPI.DelApiKey(context.Background(), name, slugOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test OrgsAPIService DeleteOrgMember", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -60,35 +46,6 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 		httpRes, err := apiClient.OrgsAPI.DeleteOrgMember(context.Background(), slugOrId, usernameOrId).Execute()
 
 		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrgsAPIService GetApiKey", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
-
-		var name string
-		var slugOrId string
-
-		resp, httpRes, err := apiClient.OrgsAPI.GetApiKey(context.Background(), name, slugOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrgsAPIService GetApiKeys", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
-
-		var slugOrId string
-
-		resp, httpRes, err := apiClient.OrgsAPI.GetApiKeys(context.Background(), slugOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -171,20 +128,6 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 		var slugOrId string
 
 		resp, httpRes, err := apiClient.OrgsAPI.GetOrgMembers(context.Background(), slugOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test OrgsAPIService PostApiKeys", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
-
-		var slugOrId string
-
-		resp, httpRes, err := apiClient.OrgsAPI.PostApiKeys(context.Background(), slugOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

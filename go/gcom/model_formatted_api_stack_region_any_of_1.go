@@ -77,6 +77,7 @@ type FormattedApiStackRegionAnyOf1 struct {
 	GeoLocation                 []float32                   `json:"geoLocation,omitempty"`
 	CountryCode                 *string                     `json:"countryCode,omitempty"`
 	Complete                    bool                        `json:"complete"`
+	ReadyForStacks              bool                        `json:"readyForStacks"`
 	Id                          float32                     `json:"id"`
 	Status                      string                      `json:"status"`
 	Visibility                  string                      `json:"visibility"`
@@ -97,7 +98,7 @@ type _FormattedApiStackRegionAnyOf1 FormattedApiStackRegionAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, assistantUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, complete bool, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
+func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, assistantUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, complete bool, readyForStacks bool, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
 	this := FormattedApiStackRegionAnyOf1{}
 	this.StackStateServiceUrl = stackStateServiceUrl
 	this.SyntheticMonitoringApiUrl = syntheticMonitoringApiUrl
@@ -154,6 +155,7 @@ func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMoni
 	this.ProviderRegion = providerRegion
 	this.IsStub = isStub
 	this.Complete = complete
+	this.ReadyForStacks = readyForStacks
 	this.Id = id
 	this.Status = status
 	this.Visibility = visibility
@@ -1605,6 +1607,30 @@ func (o *FormattedApiStackRegionAnyOf1) SetComplete(v bool) {
 	o.Complete = v
 }
 
+// GetReadyForStacks returns the ReadyForStacks field value
+func (o *FormattedApiStackRegionAnyOf1) GetReadyForStacks() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.ReadyForStacks
+}
+
+// GetReadyForStacksOk returns a tuple with the ReadyForStacks field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetReadyForStacksOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ReadyForStacks, true
+}
+
+// SetReadyForStacks sets field value
+func (o *FormattedApiStackRegionAnyOf1) SetReadyForStacks(v bool) {
+	o.ReadyForStacks = v
+}
+
 // GetId returns the Id field value
 func (o *FormattedApiStackRegionAnyOf1) GetId() float32 {
 	if o == nil {
@@ -1945,6 +1971,7 @@ func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 		toSerialize["countryCode"] = o.CountryCode
 	}
 	toSerialize["complete"] = o.Complete
+	toSerialize["readyForStacks"] = o.ReadyForStacks
 	toSerialize["id"] = o.Id
 	toSerialize["status"] = o.Status
 	toSerialize["visibility"] = o.Visibility
@@ -2044,6 +2071,7 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "geoLocation")
 		delete(additionalProperties, "countryCode")
 		delete(additionalProperties, "complete")
+		delete(additionalProperties, "readyForStacks")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "visibility")
