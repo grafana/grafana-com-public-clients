@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **MultiValueFilterOperators** | Pointer to **bool** | For data source plugins, if the plugin supports multi value operators in adhoc filters. | [optional] 
 **PascalName** | Pointer to **string** | [internal only] The PascalCase name for the plugin. Used for creating machine-friendly identifiers, typically in code generation. If not provided, defaults to name, but title-cased and sanitized (only alphabetical characters allowed). | [optional] 
 **Preload** | Pointer to **bool** | Initialize plugin on startup. By default, the plugin initializes on first use, but when preload is set to true the plugin loads when the Grafana web app loads the first time. Only applicable to app plugins. When setting to &#x60;true&#x60;, implement [frontend code splitting](https://grafana.com/developers/plugin-tools/get-started/best-practices#app-plugins) to minimise performance implications. | [optional] 
+**Suggestions** | Pointer to **bool** | For panel plugins. If set to true, the plugin&#39;s suggestions supplier will be invoked and any suggestions returned will be included in the Suggestions pane in the Panel Editor. | [optional] 
 **QueryOptions** | Pointer to [**QueryOptions**](QueryOptions.md) |  | [optional] 
 **Routes** | Pointer to [**[]RoutesInner**](RoutesInner.md) | For data source plugins. Proxy routes used for plugin authentication and adding headers to HTTP requests made by the plugin. For more information, refer to [Authentication for data source plugins](https://grafana.com/developers/plugin-tools/how-to-guides/data-source-plugins/add-authentication-for-data-source-plugins). | [optional] 
 **SkipDataQuery** | Pointer to **bool** | For panel plugins. Hides the query editor. | [optional] 
@@ -580,6 +581,31 @@ SetPreload sets Preload field to given value.
 `func (o *Json) HasPreload() bool`
 
 HasPreload returns a boolean if a field has been set.
+
+### GetSuggestions
+
+`func (o *Json) GetSuggestions() bool`
+
+GetSuggestions returns the Suggestions field if non-nil, zero value otherwise.
+
+### GetSuggestionsOk
+
+`func (o *Json) GetSuggestionsOk() (*bool, bool)`
+
+GetSuggestionsOk returns a tuple with the Suggestions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSuggestions
+
+`func (o *Json) SetSuggestions(v bool)`
+
+SetSuggestions sets Suggestions field to given value.
+
+### HasSuggestions
+
+`func (o *Json) HasSuggestions() bool`
+
+HasSuggestions returns a boolean if a field has been set.
 
 ### GetQueryOptions
 

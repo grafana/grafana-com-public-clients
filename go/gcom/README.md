@@ -121,8 +121,10 @@ Class | Method | HTTP request | Description
 *OrgsAPI* | [**GetOrgInstances**](docs/OrgsAPI.md#getorginstances) | **Get** /orgs/{orgSlug}/instances | Get the list of instances belonging to the org
 *OrgsAPI* | [**GetOrgMember**](docs/OrgsAPI.md#getorgmember) | **Get** /orgs/{slugOrId}/members/{usernameOrId} | 
 *OrgsAPI* | [**GetOrgMembers**](docs/OrgsAPI.md#getorgmembers) | **Get** /orgs/{slugOrId}/members | 
+*OrgsAPI* | [**GetOrgSettings**](docs/OrgsAPI.md#getorgsettings) | **Get** /orgs/{slugOrId}/settings | Get org settings
 *OrgsAPI* | [**PostOrgMember**](docs/OrgsAPI.md#postorgmember) | **Post** /orgs/{slugOrId}/members/{usernameOrId} | 
 *OrgsAPI* | [**PostOrgMembers**](docs/OrgsAPI.md#postorgmembers) | **Post** /orgs/{slugOrId}/members | 
+*OrgsAPI* | [**UpdateOrgSettings**](docs/OrgsAPI.md#updateorgsettings) | **Post** /orgs/{slugOrId}/settings | Update org settings
 *PluginsAPI* | [**GetPlugin**](docs/PluginsAPI.md#getplugin) | **Get** /plugins/{slug} | Fetches a plugin by slug or id
 *StackRegionsAPI* | [**GetClosestStackRegion**](docs/StackRegionsAPI.md#getcloseststackregion) | **Get** /stack-regions/closest | 
 *StackRegionsAPI* | [**GetStackRegions**](docs/StackRegionsAPI.md#getstackregions) | **Get** /stack-regions | 
@@ -181,6 +183,7 @@ Class | Method | HTTP request | Description
  - [FormattedApiInstancePlugin](docs/FormattedApiInstancePlugin.md)
  - [FormattedApiInstanceReadiness](docs/FormattedApiInstanceReadiness.md)
  - [FormattedApiOrgPublic](docs/FormattedApiOrgPublic.md)
+ - [FormattedApiOrgSettings](docs/FormattedApiOrgSettings.md)
  - [FormattedApiOrgStackRegion](docs/FormattedApiOrgStackRegion.md)
  - [FormattedApiPlugin](docs/FormattedApiPlugin.md)
  - [FormattedApiStackRegion](docs/FormattedApiStackRegion.md)
@@ -274,6 +277,7 @@ Class | Method | HTTP request | Description
  - [SubscriptionsAnyOf2](docs/SubscriptionsAnyOf2.md)
  - [TenantsInner](docs/TenantsInner.md)
  - [TokenAuth](docs/TokenAuth.md)
+ - [UpdateOrgSettingsRequest](docs/UpdateOrgSettingsRequest.md)
  - [UrlParamsInner](docs/UrlParamsInner.md)
  - [UsagesInner](docs/UsagesInner.md)
 

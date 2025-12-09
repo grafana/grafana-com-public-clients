@@ -4,8 +4,7 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "ee44d4f",
-    "x-generated-at": "2025-12-04T09:48:48.838Z"
+    "x-generated-at": "2025-12-09T09:03:29.903Z"
   },
   "servers": [
     {
@@ -3429,6 +3428,189 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorServiceUnavailable"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orgs/{slugOrId}/settings": {
+      "post": {
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "updateOrgSettings",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slugOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string",
+              "default": "openapi-x-request-id"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "aiDataSharingOptOut": {
+                    "type": "boolean",
+                    "nullable": true
+                  },
+                  "disableTokenExpirationEmails": {
+                    "type": "boolean",
+                    "nullable": true
+                  },
+                  "maxTokenExpirationDays": {
+                    "type": "integer",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update org settings",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormattedApiOrgSettings"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorForbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorNotFound"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is currently unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "orgs"
+        ],
+        "operationId": "getOrgSettings",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "slugOrId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "summary": "Get org settings",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormattedApiOrgSettings"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorForbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorNotFound"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
                 }
               }
             }
@@ -8094,6 +8276,26 @@
           "userUsername"
         ]
       },
+      "FormattedApiOrgSettings": {
+        "type": "object",
+        "properties": {
+          "aiDataSharingOptOut": {
+            "type": "boolean",
+            "title": "aiDataSharingOptOut",
+            "nullable": true
+          },
+          "disableTokenExpirationEmails": {
+            "type": "boolean",
+            "title": "disableTokenExpirationEmails",
+            "nullable": true
+          },
+          "maxTokenExpirationDays": {
+            "type": "number",
+            "title": "maxTokenExpirationDays",
+            "nullable": true
+          }
+        }
+      },
       "FormattedApiOrgPublic": {
         "type": "object",
         "properties": {
@@ -9378,6 +9580,11 @@
                 "description": "Initialize plugin on startup. By default, the plugin initializes on first use, but when preload is set to true the plugin loads when the Grafana web app loads the first time. Only applicable to app plugins. When setting to `true`, implement [frontend code splitting](https://grafana.com/developers/plugin-tools/get-started/best-practices#app-plugins) to minimise performance implications.",
                 "type": "boolean",
                 "title": "preload"
+              },
+              "suggestions": {
+                "description": "For panel plugins. If set to true, the plugin's suggestions supplier will be invoked and any suggestions returned will be included in the Suggestions pane in the Panel Editor.",
+                "type": "boolean",
+                "title": "suggestions"
               },
               "queryOptions": {
                 "description": "For data source plugins. There is a query options section in the plugin's query editor and these options can be turned on if needed.",

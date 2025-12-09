@@ -135,6 +135,20 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test OrgsAPIService GetOrgSettings", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var slugOrId string
+
+		resp, httpRes, err := apiClient.OrgsAPI.GetOrgSettings(context.Background(), slugOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test OrgsAPIService PostOrgMember", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -157,6 +171,20 @@ func Test_gcom_OrgsAPIService(t *testing.T) {
 		var slugOrId string
 
 		resp, httpRes, err := apiClient.OrgsAPI.PostOrgMembers(context.Background(), slugOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test OrgsAPIService UpdateOrgSettings", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var slugOrId string
+
+		resp, httpRes, err := apiClient.OrgsAPI.UpdateOrgSettings(context.Background(), slugOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
