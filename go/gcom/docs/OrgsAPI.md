@@ -12,8 +12,10 @@ Method | HTTP request | Description
 [**GetOrgInstances**](OrgsAPI.md#GetOrgInstances) | **Get** /orgs/{orgSlug}/instances | Get the list of instances belonging to the org
 [**GetOrgMember**](OrgsAPI.md#GetOrgMember) | **Get** /orgs/{slugOrId}/members/{usernameOrId} | 
 [**GetOrgMembers**](OrgsAPI.md#GetOrgMembers) | **Get** /orgs/{slugOrId}/members | 
+[**GetOrgSettings**](OrgsAPI.md#GetOrgSettings) | **Get** /orgs/{slugOrId}/settings | Get org settings
 [**PostOrgMember**](OrgsAPI.md#PostOrgMember) | **Post** /orgs/{slugOrId}/members/{usernameOrId} | 
 [**PostOrgMembers**](OrgsAPI.md#PostOrgMembers) | **Post** /orgs/{slugOrId}/members | 
+[**UpdateOrgSettings**](OrgsAPI.md#UpdateOrgSettings) | **Post** /orgs/{slugOrId}/settings | Update org settings
 
 
 
@@ -611,6 +613,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetOrgSettings
+
+> FormattedApiOrgSettings GetOrgSettings(ctx, slugOrId).Execute()
+
+Get org settings
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	slugOrId := "slugOrId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OrgsAPI.GetOrgSettings(context.Background(), slugOrId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OrgsAPI.GetOrgSettings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetOrgSettings`: FormattedApiOrgSettings
+	fmt.Fprintf(os.Stdout, "Response from `OrgsAPI.GetOrgSettings`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**slugOrId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetOrgSettingsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**FormattedApiOrgSettings**](FormattedApiOrgSettings.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## PostOrgMember
 
 > FormattedOrgMembership PostOrgMember(ctx, slugOrId, usernameOrId).XRequestId(xRequestId).PostOrgMemberRequest(postOrgMemberRequest).Execute()
@@ -743,6 +813,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FormattedOrgMembership**](FormattedOrgMembership.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateOrgSettings
+
+> FormattedApiOrgSettings UpdateOrgSettings(ctx, slugOrId).XRequestId(xRequestId).UpdateOrgSettingsRequest(updateOrgSettingsRequest).Execute()
+
+Update org settings
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	slugOrId := "slugOrId_example" // string | 
+	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	updateOrgSettingsRequest := *openapiclient.NewUpdateOrgSettingsRequest() // UpdateOrgSettingsRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OrgsAPI.UpdateOrgSettings(context.Background(), slugOrId).XRequestId(xRequestId).UpdateOrgSettingsRequest(updateOrgSettingsRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OrgsAPI.UpdateOrgSettings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateOrgSettings`: FormattedApiOrgSettings
+	fmt.Fprintf(os.Stdout, "Response from `OrgsAPI.UpdateOrgSettings`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**slugOrId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateOrgSettingsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **updateOrgSettingsRequest** | [**UpdateOrgSettingsRequest**](UpdateOrgSettingsRequest.md) |  | 
+
+### Return type
+
+[**FormattedApiOrgSettings**](FormattedApiOrgSettings.md)
 
 ### Authorization
 

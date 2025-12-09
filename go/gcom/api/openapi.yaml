@@ -12,8 +12,7 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: ee44d4f
-  x-generated-at: 2025-12-04T09:48:48.838Z
+  x-generated-at: 2025-12-09T09:03:29.903Z
 servers:
 - description: Main API server
   url: /api
@@ -2070,6 +2069,115 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
+      tags:
+      - orgs
+  /orgs/{slugOrId}/settings:
+    get:
+      operationId: getOrgSettings
+      parameters:
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiOrgSettings'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorConflict'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Get org settings
+      tags:
+      - orgs
+    post:
+      operationId: updateOrgSettings
+      parameters:
+      - explode: false
+        in: path
+        name: slugOrId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          default: openapi-x-request-id
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateOrgSettings_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiOrgSettings'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorConflict'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+          description: Service is currently unavailable
+      summary: Update org settings
       tags:
       - orgs
   /plugins/{slug}:
@@ -4692,6 +4800,25 @@ components:
       - userStatus
       - userUsername
       type: object
+    FormattedApiOrgSettings:
+      example:
+        aiDataSharingOptOut: true
+        maxTokenExpirationDays: 0.8008281904610115
+        disableTokenExpirationEmails: true
+      properties:
+        aiDataSharingOptOut:
+          nullable: true
+          title: aiDataSharingOptOut
+          type: boolean
+        disableTokenExpirationEmails:
+          nullable: true
+          title: disableTokenExpirationEmails
+          type: boolean
+        maxTokenExpirationDays:
+          nullable: true
+          title: maxTokenExpirationDays
+          type: number
+      type: object
     FormattedApiOrgPublic:
       example:
         grafanaCloud: 3.616076749251911
@@ -5340,6 +5467,7 @@ components:
           autoEnabled: true
           multiValueFilterOperators: true
           name: name
+          suggestions: true
           metrics: true
           category: cloud
         links:
@@ -6567,6 +6695,18 @@ components:
           type: string
         role:
           type: string
+      type: object
+    updateOrgSettings_request:
+      properties:
+        aiDataSharingOptOut:
+          nullable: true
+          type: boolean
+        disableTokenExpirationEmails:
+          nullable: true
+          type: boolean
+        maxTokenExpirationDays:
+          nullable: true
+          type: integer
       type: object
     getStackRegions_200_response:
       example:
@@ -9092,6 +9232,7 @@ components:
         autoEnabled: true
         multiValueFilterOperators: true
         name: name
+        suggestions: true
         metrics: true
         category: cloud
       properties:
@@ -9216,6 +9357,12 @@ components:
             \ When setting to `true`, implement [frontend code splitting](https://grafana.com/developers/plugin-tools/get-started/best-practices#app-plugins)\
             \ to minimise performance implications."
           title: preload
+          type: boolean
+        suggestions:
+          description: "For panel plugins. If set to true, the plugin's suggestions\
+            \ supplier will be invoked and any suggestions returned will be included\
+            \ in the Suggestions pane in the Panel Editor."
+          title: suggestions
           type: boolean
         queryOptions:
           $ref: '#/components/schemas/queryOptions'

@@ -59,7 +59,9 @@ type Json struct {
 	// [internal only] The PascalCase name for the plugin. Used for creating machine-friendly identifiers, typically in code generation. If not provided, defaults to name, but title-cased and sanitized (only alphabetical characters allowed).
 	PascalName *string `json:"pascalName,omitempty"`
 	// Initialize plugin on startup. By default, the plugin initializes on first use, but when preload is set to true the plugin loads when the Grafana web app loads the first time. Only applicable to app plugins. When setting to `true`, implement [frontend code splitting](https://grafana.com/developers/plugin-tools/get-started/best-practices#app-plugins) to minimise performance implications.
-	Preload      *bool         `json:"preload,omitempty"`
+	Preload *bool `json:"preload,omitempty"`
+	// For panel plugins. If set to true, the plugin's suggestions supplier will be invoked and any suggestions returned will be included in the Suggestions pane in the Panel Editor.
+	Suggestions  *bool         `json:"suggestions,omitempty"`
 	QueryOptions *QueryOptions `json:"queryOptions,omitempty"`
 	// For data source plugins. Proxy routes used for plugin authentication and adding headers to HTTP requests made by the plugin. For more information, refer to [Authentication for data source plugins](https://grafana.com/developers/plugin-tools/how-to-guides/data-source-plugins/add-authentication-for-data-source-plugins).
 	Routes []RoutesInner `json:"routes,omitempty"`
@@ -768,6 +770,38 @@ func (o *Json) SetPreload(v bool) {
 	o.Preload = &v
 }
 
+// GetSuggestions returns the Suggestions field value if set, zero value otherwise.
+func (o *Json) GetSuggestions() bool {
+	if o == nil || IsNil(o.Suggestions) {
+		var ret bool
+		return ret
+	}
+	return *o.Suggestions
+}
+
+// GetSuggestionsOk returns a tuple with the Suggestions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Json) GetSuggestionsOk() (*bool, bool) {
+	if o == nil || IsNil(o.Suggestions) {
+		return nil, false
+	}
+	return o.Suggestions, true
+}
+
+// HasSuggestions returns a boolean if a field has been set.
+func (o *Json) HasSuggestions() bool {
+	if o != nil && !IsNil(o.Suggestions) {
+		return true
+	}
+
+	return false
+}
+
+// SetSuggestions gets a reference to the given bool and assigns it to the Suggestions field.
+func (o *Json) SetSuggestions(v bool) {
+	o.Suggestions = &v
+}
+
 // GetQueryOptions returns the QueryOptions field value if set, zero value otherwise.
 func (o *Json) GetQueryOptions() QueryOptions {
 	if o == nil || IsNil(o.QueryOptions) {
@@ -1154,6 +1188,9 @@ func (o Json) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Preload) {
 		toSerialize["preload"] = o.Preload
 	}
+	if !IsNil(o.Suggestions) {
+		toSerialize["suggestions"] = o.Suggestions
+	}
 	if !IsNil(o.QueryOptions) {
 		toSerialize["queryOptions"] = o.QueryOptions
 	}
@@ -1236,6 +1273,7 @@ func (o *Json) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "multiValueFilterOperators")
 		delete(additionalProperties, "pascalName")
 		delete(additionalProperties, "preload")
+		delete(additionalProperties, "suggestions")
 		delete(additionalProperties, "queryOptions")
 		delete(additionalProperties, "routes")
 		delete(additionalProperties, "skipDataQuery")
