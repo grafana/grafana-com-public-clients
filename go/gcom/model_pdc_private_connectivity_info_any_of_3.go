@@ -19,9 +19,9 @@ var _ MappedNullable = &PdcPrivateConnectivityInfoAnyOf3{}
 
 // PdcPrivateConnectivityInfoAnyOf3 struct for PdcPrivateConnectivityInfoAnyOf3
 type PdcPrivateConnectivityInfoAnyOf3 struct {
-	Name                 string `json:"name"`
-	Network              string `json:"network"`
-	IpCidrRange          string `json:"ipCidrRange"`
+	Mimir                Mimir     `json:"mimir"`
+	Graphite             *Graphite `json:"graphite,omitempty"`
+	Otlp                 *Otlp1    `json:"otlp,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,11 +31,9 @@ type _PdcPrivateConnectivityInfoAnyOf3 PdcPrivateConnectivityInfoAnyOf3
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPdcPrivateConnectivityInfoAnyOf3(name string, network string, ipCidrRange string) *PdcPrivateConnectivityInfoAnyOf3 {
+func NewPdcPrivateConnectivityInfoAnyOf3(mimir Mimir) *PdcPrivateConnectivityInfoAnyOf3 {
 	this := PdcPrivateConnectivityInfoAnyOf3{}
-	this.Name = name
-	this.Network = network
-	this.IpCidrRange = ipCidrRange
+	this.Mimir = mimir
 	return &this
 }
 
@@ -47,76 +45,92 @@ func NewPdcPrivateConnectivityInfoAnyOf3WithDefaults() *PdcPrivateConnectivityIn
 	return &this
 }
 
-// GetName returns the Name field value
-func (o *PdcPrivateConnectivityInfoAnyOf3) GetName() string {
+// GetMimir returns the Mimir field value
+func (o *PdcPrivateConnectivityInfoAnyOf3) GetMimir() Mimir {
 	if o == nil {
-		var ret string
+		var ret Mimir
 		return ret
 	}
 
-	return o.Name
+	return o.Mimir
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetMimirOk returns a tuple with the Mimir field value
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf3) GetNameOk() (*string, bool) {
+func (o *PdcPrivateConnectivityInfoAnyOf3) GetMimirOk() (*Mimir, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return &o.Mimir, true
 }
 
-// SetName sets field value
-func (o *PdcPrivateConnectivityInfoAnyOf3) SetName(v string) {
-	o.Name = v
+// SetMimir sets field value
+func (o *PdcPrivateConnectivityInfoAnyOf3) SetMimir(v Mimir) {
+	o.Mimir = v
 }
 
-// GetNetwork returns the Network field value
-func (o *PdcPrivateConnectivityInfoAnyOf3) GetNetwork() string {
-	if o == nil {
-		var ret string
+// GetGraphite returns the Graphite field value if set, zero value otherwise.
+func (o *PdcPrivateConnectivityInfoAnyOf3) GetGraphite() Graphite {
+	if o == nil || IsNil(o.Graphite) {
+		var ret Graphite
 		return ret
 	}
-
-	return o.Network
+	return *o.Graphite
 }
 
-// GetNetworkOk returns a tuple with the Network field value
+// GetGraphiteOk returns a tuple with the Graphite field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf3) GetNetworkOk() (*string, bool) {
-	if o == nil {
+func (o *PdcPrivateConnectivityInfoAnyOf3) GetGraphiteOk() (*Graphite, bool) {
+	if o == nil || IsNil(o.Graphite) {
 		return nil, false
 	}
-	return &o.Network, true
+	return o.Graphite, true
 }
 
-// SetNetwork sets field value
-func (o *PdcPrivateConnectivityInfoAnyOf3) SetNetwork(v string) {
-	o.Network = v
+// HasGraphite returns a boolean if a field has been set.
+func (o *PdcPrivateConnectivityInfoAnyOf3) HasGraphite() bool {
+	if o != nil && !IsNil(o.Graphite) {
+		return true
+	}
+
+	return false
 }
 
-// GetIpCidrRange returns the IpCidrRange field value
-func (o *PdcPrivateConnectivityInfoAnyOf3) GetIpCidrRange() string {
-	if o == nil {
-		var ret string
+// SetGraphite gets a reference to the given Graphite and assigns it to the Graphite field.
+func (o *PdcPrivateConnectivityInfoAnyOf3) SetGraphite(v Graphite) {
+	o.Graphite = &v
+}
+
+// GetOtlp returns the Otlp field value if set, zero value otherwise.
+func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlp() Otlp1 {
+	if o == nil || IsNil(o.Otlp) {
+		var ret Otlp1
 		return ret
 	}
-
-	return o.IpCidrRange
+	return *o.Otlp
 }
 
-// GetIpCidrRangeOk returns a tuple with the IpCidrRange field value
+// GetOtlpOk returns a tuple with the Otlp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf3) GetIpCidrRangeOk() (*string, bool) {
-	if o == nil {
+func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlpOk() (*Otlp1, bool) {
+	if o == nil || IsNil(o.Otlp) {
 		return nil, false
 	}
-	return &o.IpCidrRange, true
+	return o.Otlp, true
 }
 
-// SetIpCidrRange sets field value
-func (o *PdcPrivateConnectivityInfoAnyOf3) SetIpCidrRange(v string) {
-	o.IpCidrRange = v
+// HasOtlp returns a boolean if a field has been set.
+func (o *PdcPrivateConnectivityInfoAnyOf3) HasOtlp() bool {
+	if o != nil && !IsNil(o.Otlp) {
+		return true
+	}
+
+	return false
+}
+
+// SetOtlp gets a reference to the given Otlp1 and assigns it to the Otlp field.
+func (o *PdcPrivateConnectivityInfoAnyOf3) SetOtlp(v Otlp1) {
+	o.Otlp = &v
 }
 
 func (o PdcPrivateConnectivityInfoAnyOf3) MarshalJSON() ([]byte, error) {
@@ -129,9 +143,13 @@ func (o PdcPrivateConnectivityInfoAnyOf3) MarshalJSON() ([]byte, error) {
 
 func (o PdcPrivateConnectivityInfoAnyOf3) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
-	toSerialize["network"] = o.Network
-	toSerialize["ipCidrRange"] = o.IpCidrRange
+	toSerialize["mimir"] = o.Mimir
+	if !IsNil(o.Graphite) {
+		toSerialize["graphite"] = o.Graphite
+	}
+	if !IsNil(o.Otlp) {
+		toSerialize["otlp"] = o.Otlp
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -162,9 +180,9 @@ func (o *PdcPrivateConnectivityInfoAnyOf3) UnmarshalJSON(data []byte) (err error
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "name")
-		delete(additionalProperties, "network")
-		delete(additionalProperties, "ipCidrRange")
+		delete(additionalProperties, "mimir")
+		delete(additionalProperties, "graphite")
+		delete(additionalProperties, "otlp")
 		o.AdditionalProperties = additionalProperties
 	}
 

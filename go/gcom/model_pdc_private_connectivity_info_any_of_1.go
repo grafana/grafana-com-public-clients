@@ -19,8 +19,9 @@ var _ MappedNullable = &PdcPrivateConnectivityInfoAnyOf1{}
 
 // PdcPrivateConnectivityInfoAnyOf1 struct for PdcPrivateConnectivityInfoAnyOf1
 type PdcPrivateConnectivityInfoAnyOf1 struct {
-	Api                  Api1     `json:"api"`
-	Gateway              Gateway1 `json:"gateway"`
+	ServiceAttachment    string   `json:"serviceAttachment"`
+	DomainNames          []string `json:"domainNames"`
+	EndpointName         string   `json:"endpointName"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -30,10 +31,11 @@ type _PdcPrivateConnectivityInfoAnyOf1 PdcPrivateConnectivityInfoAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPdcPrivateConnectivityInfoAnyOf1(api Api1, gateway Gateway1) *PdcPrivateConnectivityInfoAnyOf1 {
+func NewPdcPrivateConnectivityInfoAnyOf1(serviceAttachment string, domainNames []string, endpointName string) *PdcPrivateConnectivityInfoAnyOf1 {
 	this := PdcPrivateConnectivityInfoAnyOf1{}
-	this.Api = api
-	this.Gateway = gateway
+	this.ServiceAttachment = serviceAttachment
+	this.DomainNames = domainNames
+	this.EndpointName = endpointName
 	return &this
 }
 
@@ -45,52 +47,76 @@ func NewPdcPrivateConnectivityInfoAnyOf1WithDefaults() *PdcPrivateConnectivityIn
 	return &this
 }
 
-// GetApi returns the Api field value
-func (o *PdcPrivateConnectivityInfoAnyOf1) GetApi() Api1 {
+// GetServiceAttachment returns the ServiceAttachment field value
+func (o *PdcPrivateConnectivityInfoAnyOf1) GetServiceAttachment() string {
 	if o == nil {
-		var ret Api1
+		var ret string
 		return ret
 	}
 
-	return o.Api
+	return o.ServiceAttachment
 }
 
-// GetApiOk returns a tuple with the Api field value
+// GetServiceAttachmentOk returns a tuple with the ServiceAttachment field value
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf1) GetApiOk() (*Api1, bool) {
+func (o *PdcPrivateConnectivityInfoAnyOf1) GetServiceAttachmentOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Api, true
+	return &o.ServiceAttachment, true
 }
 
-// SetApi sets field value
-func (o *PdcPrivateConnectivityInfoAnyOf1) SetApi(v Api1) {
-	o.Api = v
+// SetServiceAttachment sets field value
+func (o *PdcPrivateConnectivityInfoAnyOf1) SetServiceAttachment(v string) {
+	o.ServiceAttachment = v
 }
 
-// GetGateway returns the Gateway field value
-func (o *PdcPrivateConnectivityInfoAnyOf1) GetGateway() Gateway1 {
+// GetDomainNames returns the DomainNames field value
+func (o *PdcPrivateConnectivityInfoAnyOf1) GetDomainNames() []string {
 	if o == nil {
-		var ret Gateway1
+		var ret []string
 		return ret
 	}
 
-	return o.Gateway
+	return o.DomainNames
 }
 
-// GetGatewayOk returns a tuple with the Gateway field value
+// GetDomainNamesOk returns a tuple with the DomainNames field value
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf1) GetGatewayOk() (*Gateway1, bool) {
+func (o *PdcPrivateConnectivityInfoAnyOf1) GetDomainNamesOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Gateway, true
+	return o.DomainNames, true
 }
 
-// SetGateway sets field value
-func (o *PdcPrivateConnectivityInfoAnyOf1) SetGateway(v Gateway1) {
-	o.Gateway = v
+// SetDomainNames sets field value
+func (o *PdcPrivateConnectivityInfoAnyOf1) SetDomainNames(v []string) {
+	o.DomainNames = v
+}
+
+// GetEndpointName returns the EndpointName field value
+func (o *PdcPrivateConnectivityInfoAnyOf1) GetEndpointName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.EndpointName
+}
+
+// GetEndpointNameOk returns a tuple with the EndpointName field value
+// and a boolean to check if the value has been set.
+func (o *PdcPrivateConnectivityInfoAnyOf1) GetEndpointNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EndpointName, true
+}
+
+// SetEndpointName sets field value
+func (o *PdcPrivateConnectivityInfoAnyOf1) SetEndpointName(v string) {
+	o.EndpointName = v
 }
 
 func (o PdcPrivateConnectivityInfoAnyOf1) MarshalJSON() ([]byte, error) {
@@ -103,8 +129,9 @@ func (o PdcPrivateConnectivityInfoAnyOf1) MarshalJSON() ([]byte, error) {
 
 func (o PdcPrivateConnectivityInfoAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["api"] = o.Api
-	toSerialize["gateway"] = o.Gateway
+	toSerialize["serviceAttachment"] = o.ServiceAttachment
+	toSerialize["domainNames"] = o.DomainNames
+	toSerialize["endpointName"] = o.EndpointName
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -135,8 +162,9 @@ func (o *PdcPrivateConnectivityInfoAnyOf1) UnmarshalJSON(data []byte) (err error
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "api")
-		delete(additionalProperties, "gateway")
+		delete(additionalProperties, "serviceAttachment")
+		delete(additionalProperties, "domainNames")
+		delete(additionalProperties, "endpointName")
 		o.AdditionalProperties = additionalProperties
 	}
 

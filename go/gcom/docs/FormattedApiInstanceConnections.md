@@ -8,13 +8,14 @@ Name | Type | Description | Notes
 **AppPlatform** | Pointer to [**AppPlatform**](AppPlatform.md) |  | [optional] 
 **InfluxUrl** | Pointer to **NullableString** |  | [optional] 
 **OtlpHttpUrl** | Pointer to **NullableString** |  | [optional] 
+**OtlpMultiAZ** | **bool** |  | 
 **OncallApiUrl** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiInstanceConnections
 
-`func NewFormattedApiInstanceConnections(privateConnectivityInfo PrivateConnectivityInfo, ) *FormattedApiInstanceConnections`
+`func NewFormattedApiInstanceConnections(privateConnectivityInfo PrivateConnectivityInfo, otlpMultiAZ bool, ) *FormattedApiInstanceConnections`
 
 NewFormattedApiInstanceConnections instantiates a new FormattedApiInstanceConnections object
 This constructor will assign default values to properties that have it defined,
@@ -144,6 +145,26 @@ HasOtlpHttpUrl returns a boolean if a field has been set.
 `func (o *FormattedApiInstanceConnections) UnsetOtlpHttpUrl()`
 
 UnsetOtlpHttpUrl ensures that no value is present for OtlpHttpUrl, not even an explicit nil
+### GetOtlpMultiAZ
+
+`func (o *FormattedApiInstanceConnections) GetOtlpMultiAZ() bool`
+
+GetOtlpMultiAZ returns the OtlpMultiAZ field if non-nil, zero value otherwise.
+
+### GetOtlpMultiAZOk
+
+`func (o *FormattedApiInstanceConnections) GetOtlpMultiAZOk() (*bool, bool)`
+
+GetOtlpMultiAZOk returns a tuple with the OtlpMultiAZ field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOtlpMultiAZ
+
+`func (o *FormattedApiInstanceConnections) SetOtlpMultiAZ(v bool)`
+
+SetOtlpMultiAZ sets OtlpMultiAZ field to given value.
+
+
 ### GetOncallApiUrl
 
 `func (o *FormattedApiInstanceConnections) GetOncallApiUrl() string`

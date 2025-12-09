@@ -19,19 +19,15 @@ var _ MappedNullable = &ItemsInner{}
 
 // ItemsInner struct for ItemsInner
 type ItemsInner struct {
-	Id                   ItemsInnerId    `json:"id"`
-	AccessPolicyId       string          `json:"accessPolicyId"`
-	OrgId                float32         `json:"orgId"`
-	OrgSlug              string          `json:"orgSlug"`
-	OrgName              string          `json:"orgName"`
-	InstanceId           NullableFloat32 `json:"instanceId"`
-	Name                 string          `json:"name"`
-	Role                 string          `json:"role"`
-	CreatedAt            string          `json:"createdAt"`
-	UpdatedAt            NullableString  `json:"updatedAt"`
-	FirstUsed            NullableString  `json:"firstUsed"`
-	Token                *string         `json:"token,omitempty"`
-	Links                []LinksInner    `json:"links"`
+	LastSeenAt           *string `json:"lastSeenAt,omitempty"`
+	CreatedAt            string  `json:"createdAt"`
+	UpdatedAt            string  `json:"updatedAt"`
+	Email                string  `json:"email"`
+	Login                string  `json:"login"`
+	Name                 string  `json:"name"`
+	Role                 string  `json:"role"`
+	Id                   float32 `json:"id"`
+	IsServiceAccount     bool    `json:"isServiceAccount"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -41,20 +37,16 @@ type _ItemsInner ItemsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsInner(id ItemsInnerId, accessPolicyId string, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner) *ItemsInner {
+func NewItemsInner(createdAt string, updatedAt string, email string, login string, name string, role string, id float32, isServiceAccount bool) *ItemsInner {
 	this := ItemsInner{}
-	this.Id = id
-	this.AccessPolicyId = accessPolicyId
-	this.OrgId = orgId
-	this.OrgSlug = orgSlug
-	this.OrgName = orgName
-	this.InstanceId = instanceId
-	this.Name = name
-	this.Role = role
 	this.CreatedAt = createdAt
 	this.UpdatedAt = updatedAt
-	this.FirstUsed = firstUsed
-	this.Links = links
+	this.Email = email
+	this.Login = login
+	this.Name = name
+	this.Role = role
+	this.Id = id
+	this.IsServiceAccount = isServiceAccount
 	return &this
 }
 
@@ -66,150 +58,132 @@ func NewItemsInnerWithDefaults() *ItemsInner {
 	return &this
 }
 
-// GetId returns the Id field value
-func (o *ItemsInner) GetId() ItemsInnerId {
-	if o == nil {
-		var ret ItemsInnerId
+// GetLastSeenAt returns the LastSeenAt field value if set, zero value otherwise.
+func (o *ItemsInner) GetLastSeenAt() string {
+	if o == nil || IsNil(o.LastSeenAt) {
+		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.LastSeenAt
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetLastSeenAtOk returns a tuple with the LastSeenAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ItemsInner) GetIdOk() (*ItemsInnerId, bool) {
-	if o == nil {
+func (o *ItemsInner) GetLastSeenAtOk() (*string, bool) {
+	if o == nil || IsNil(o.LastSeenAt) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.LastSeenAt, true
 }
 
-// SetId sets field value
-func (o *ItemsInner) SetId(v ItemsInnerId) {
-	o.Id = v
+// HasLastSeenAt returns a boolean if a field has been set.
+func (o *ItemsInner) HasLastSeenAt() bool {
+	if o != nil && !IsNil(o.LastSeenAt) {
+		return true
+	}
+
+	return false
 }
 
-// GetAccessPolicyId returns the AccessPolicyId field value
-func (o *ItemsInner) GetAccessPolicyId() string {
+// SetLastSeenAt gets a reference to the given string and assigns it to the LastSeenAt field.
+func (o *ItemsInner) SetLastSeenAt(v string) {
+	o.LastSeenAt = &v
+}
+
+// GetCreatedAt returns the CreatedAt field value
+func (o *ItemsInner) GetCreatedAt() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.AccessPolicyId
+	return o.CreatedAt
 }
 
-// GetAccessPolicyIdOk returns a tuple with the AccessPolicyId field value
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner) GetAccessPolicyIdOk() (*string, bool) {
+func (o *ItemsInner) GetCreatedAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.AccessPolicyId, true
+	return &o.CreatedAt, true
 }
 
-// SetAccessPolicyId sets field value
-func (o *ItemsInner) SetAccessPolicyId(v string) {
-	o.AccessPolicyId = v
+// SetCreatedAt sets field value
+func (o *ItemsInner) SetCreatedAt(v string) {
+	o.CreatedAt = v
 }
 
-// GetOrgId returns the OrgId field value
-func (o *ItemsInner) GetOrgId() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.OrgId
-}
-
-// GetOrgIdOk returns a tuple with the OrgId field value
-// and a boolean to check if the value has been set.
-func (o *ItemsInner) GetOrgIdOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.OrgId, true
-}
-
-// SetOrgId sets field value
-func (o *ItemsInner) SetOrgId(v float32) {
-	o.OrgId = v
-}
-
-// GetOrgSlug returns the OrgSlug field value
-func (o *ItemsInner) GetOrgSlug() string {
+// GetUpdatedAt returns the UpdatedAt field value
+func (o *ItemsInner) GetUpdatedAt() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.OrgSlug
+	return o.UpdatedAt
 }
 
-// GetOrgSlugOk returns a tuple with the OrgSlug field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner) GetOrgSlugOk() (*string, bool) {
+func (o *ItemsInner) GetUpdatedAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.OrgSlug, true
+	return &o.UpdatedAt, true
 }
 
-// SetOrgSlug sets field value
-func (o *ItemsInner) SetOrgSlug(v string) {
-	o.OrgSlug = v
+// SetUpdatedAt sets field value
+func (o *ItemsInner) SetUpdatedAt(v string) {
+	o.UpdatedAt = v
 }
 
-// GetOrgName returns the OrgName field value
-func (o *ItemsInner) GetOrgName() string {
+// GetEmail returns the Email field value
+func (o *ItemsInner) GetEmail() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.OrgName
+	return o.Email
 }
 
-// GetOrgNameOk returns a tuple with the OrgName field value
+// GetEmailOk returns a tuple with the Email field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner) GetOrgNameOk() (*string, bool) {
+func (o *ItemsInner) GetEmailOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.OrgName, true
+	return &o.Email, true
 }
 
-// SetOrgName sets field value
-func (o *ItemsInner) SetOrgName(v string) {
-	o.OrgName = v
+// SetEmail sets field value
+func (o *ItemsInner) SetEmail(v string) {
+	o.Email = v
 }
 
-// GetInstanceId returns the InstanceId field value
-// If the value is explicit nil, the zero value for float32 will be returned
-func (o *ItemsInner) GetInstanceId() float32 {
-	if o == nil || o.InstanceId.Get() == nil {
-		var ret float32
+// GetLogin returns the Login field value
+func (o *ItemsInner) GetLogin() string {
+	if o == nil {
+		var ret string
 		return ret
 	}
 
-	return *o.InstanceId.Get()
+	return o.Login
 }
 
-// GetInstanceIdOk returns a tuple with the InstanceId field value
+// GetLoginOk returns a tuple with the Login field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemsInner) GetInstanceIdOk() (*float32, bool) {
+func (o *ItemsInner) GetLoginOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.InstanceId.Get(), o.InstanceId.IsSet()
+	return &o.Login, true
 }
 
-// SetInstanceId sets field value
-func (o *ItemsInner) SetInstanceId(v float32) {
-	o.InstanceId.Set(&v)
+// SetLogin sets field value
+func (o *ItemsInner) SetLogin(v string) {
+	o.Login = v
 }
 
 // GetName returns the Name field value
@@ -260,136 +234,52 @@ func (o *ItemsInner) SetRole(v string) {
 	o.Role = v
 }
 
-// GetCreatedAt returns the CreatedAt field value
-func (o *ItemsInner) GetCreatedAt() string {
+// GetId returns the Id field value
+func (o *ItemsInner) GetId() float32 {
 	if o == nil {
-		var ret string
+		var ret float32
 		return ret
 	}
 
-	return o.CreatedAt
+	return o.Id
 }
 
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner) GetCreatedAtOk() (*string, bool) {
+func (o *ItemsInner) GetIdOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.CreatedAt, true
+	return &o.Id, true
 }
 
-// SetCreatedAt sets field value
-func (o *ItemsInner) SetCreatedAt(v string) {
-	o.CreatedAt = v
+// SetId sets field value
+func (o *ItemsInner) SetId(v float32) {
+	o.Id = v
 }
 
-// GetUpdatedAt returns the UpdatedAt field value
-// If the value is explicit nil, the zero value for string will be returned
-func (o *ItemsInner) GetUpdatedAt() string {
-	if o == nil || o.UpdatedAt.Get() == nil {
-		var ret string
+// GetIsServiceAccount returns the IsServiceAccount field value
+func (o *ItemsInner) GetIsServiceAccount() bool {
+	if o == nil {
+		var ret bool
 		return ret
 	}
 
-	return *o.UpdatedAt.Get()
+	return o.IsServiceAccount
 }
 
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
+// GetIsServiceAccountOk returns a tuple with the IsServiceAccount field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemsInner) GetUpdatedAtOk() (*string, bool) {
+func (o *ItemsInner) GetIsServiceAccountOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
+	return &o.IsServiceAccount, true
 }
 
-// SetUpdatedAt sets field value
-func (o *ItemsInner) SetUpdatedAt(v string) {
-	o.UpdatedAt.Set(&v)
-}
-
-// GetFirstUsed returns the FirstUsed field value
-// If the value is explicit nil, the zero value for string will be returned
-func (o *ItemsInner) GetFirstUsed() string {
-	if o == nil || o.FirstUsed.Get() == nil {
-		var ret string
-		return ret
-	}
-
-	return *o.FirstUsed.Get()
-}
-
-// GetFirstUsedOk returns a tuple with the FirstUsed field value
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemsInner) GetFirstUsedOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.FirstUsed.Get(), o.FirstUsed.IsSet()
-}
-
-// SetFirstUsed sets field value
-func (o *ItemsInner) SetFirstUsed(v string) {
-	o.FirstUsed.Set(&v)
-}
-
-// GetToken returns the Token field value if set, zero value otherwise.
-func (o *ItemsInner) GetToken() string {
-	if o == nil || IsNil(o.Token) {
-		var ret string
-		return ret
-	}
-	return *o.Token
-}
-
-// GetTokenOk returns a tuple with the Token field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ItemsInner) GetTokenOk() (*string, bool) {
-	if o == nil || IsNil(o.Token) {
-		return nil, false
-	}
-	return o.Token, true
-}
-
-// HasToken returns a boolean if a field has been set.
-func (o *ItemsInner) HasToken() bool {
-	if o != nil && !IsNil(o.Token) {
-		return true
-	}
-
-	return false
-}
-
-// SetToken gets a reference to the given string and assigns it to the Token field.
-func (o *ItemsInner) SetToken(v string) {
-	o.Token = &v
-}
-
-// GetLinks returns the Links field value
-func (o *ItemsInner) GetLinks() []LinksInner {
-	if o == nil {
-		var ret []LinksInner
-		return ret
-	}
-
-	return o.Links
-}
-
-// GetLinksOk returns a tuple with the Links field value
-// and a boolean to check if the value has been set.
-func (o *ItemsInner) GetLinksOk() ([]LinksInner, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Links, true
-}
-
-// SetLinks sets field value
-func (o *ItemsInner) SetLinks(v []LinksInner) {
-	o.Links = v
+// SetIsServiceAccount sets field value
+func (o *ItemsInner) SetIsServiceAccount(v bool) {
+	o.IsServiceAccount = v
 }
 
 func (o ItemsInner) MarshalJSON() ([]byte, error) {
@@ -402,21 +292,17 @@ func (o ItemsInner) MarshalJSON() ([]byte, error) {
 
 func (o ItemsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["accessPolicyId"] = o.AccessPolicyId
-	toSerialize["orgId"] = o.OrgId
-	toSerialize["orgSlug"] = o.OrgSlug
-	toSerialize["orgName"] = o.OrgName
-	toSerialize["instanceId"] = o.InstanceId.Get()
+	if !IsNil(o.LastSeenAt) {
+		toSerialize["lastSeenAt"] = o.LastSeenAt
+	}
+	toSerialize["createdAt"] = o.CreatedAt
+	toSerialize["updatedAt"] = o.UpdatedAt
+	toSerialize["email"] = o.Email
+	toSerialize["login"] = o.Login
 	toSerialize["name"] = o.Name
 	toSerialize["role"] = o.Role
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["updatedAt"] = o.UpdatedAt.Get()
-	toSerialize["firstUsed"] = o.FirstUsed.Get()
-	if !IsNil(o.Token) {
-		toSerialize["token"] = o.Token
-	}
-	toSerialize["links"] = o.Links
+	toSerialize["id"] = o.Id
+	toSerialize["isServiceAccount"] = o.IsServiceAccount
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -447,19 +333,15 @@ func (o *ItemsInner) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "accessPolicyId")
-		delete(additionalProperties, "orgId")
-		delete(additionalProperties, "orgSlug")
-		delete(additionalProperties, "orgName")
-		delete(additionalProperties, "instanceId")
-		delete(additionalProperties, "name")
-		delete(additionalProperties, "role")
+		delete(additionalProperties, "lastSeenAt")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "updatedAt")
-		delete(additionalProperties, "firstUsed")
-		delete(additionalProperties, "token")
-		delete(additionalProperties, "links")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "login")
+		delete(additionalProperties, "name")
+		delete(additionalProperties, "role")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "isServiceAccount")
 		o.AdditionalProperties = additionalProperties
 	}
 

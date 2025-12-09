@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **AngularDetected** | **bool** |  | 
 **LicenseUrl** | Pointer to **string** |  | [optional] 
 **DocumentationUrl** | Pointer to **string** |  | [optional] 
+**Json** | Pointer to [**Json**](Json.md) |  | [optional] 
 
 ## Methods
 
@@ -726,6 +727,31 @@ SetDocumentationUrl sets DocumentationUrl field to given value.
 `func (o *FormattedApiPlugin) HasDocumentationUrl() bool`
 
 HasDocumentationUrl returns a boolean if a field has been set.
+
+### GetJson
+
+`func (o *FormattedApiPlugin) GetJson() Json`
+
+GetJson returns the Json field if non-nil, zero value otherwise.
+
+### GetJsonOk
+
+`func (o *FormattedApiPlugin) GetJsonOk() (*Json, bool)`
+
+GetJsonOk returns a tuple with the Json field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJson
+
+`func (o *FormattedApiPlugin) SetJson(v Json)`
+
+SetJson sets Json field to given value.
+
+### HasJson
+
+`func (o *FormattedApiPlugin) HasJson() bool`
+
+HasJson returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

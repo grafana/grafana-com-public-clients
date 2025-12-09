@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**GetInstance**](InstancesAPI.md#GetInstance) | **Get** /instances/{instanceId} | Gets an instance
 [**GetInstancePlugin**](InstancesAPI.md#GetInstancePlugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 [**GetInstancePlugins**](InstancesAPI.md#GetInstancePlugins) | **Get** /instances/{instanceId}/plugins | 
+[**GetInstanceReadiness**](InstancesAPI.md#GetInstanceReadiness) | **Get** /instances/{instanceId}/readiness | Gets an instance&#39;s readiness status
 [**GetInstanceServiceAccount**](InstancesAPI.md#GetInstanceServiceAccount) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Gets a service account on a Grafana instance
 [**GetInstanceServiceAccountTokens**](InstancesAPI.md#GetInstanceServiceAccountTokens) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Get a service account&#39;s tokens on a Grafana instance
 [**GetInstanceUsers**](InstancesAPI.md#GetInstanceUsers) | **Get** /instances/{instanceId}/users | Gets instance active users
@@ -598,6 +599,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetInstanceReadiness
+
+> FormattedApiInstanceReadiness GetInstanceReadiness(ctx, instanceId).Execute()
+
+Gets an instance's readiness status
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.GetInstanceReadiness(context.Background(), instanceId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstanceReadiness``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetInstanceReadiness`: FormattedApiInstanceReadiness
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.GetInstanceReadiness`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInstanceReadinessRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**FormattedApiInstanceReadiness**](FormattedApiInstanceReadiness.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetInstanceServiceAccount
 
 > GrafanaServiceAccountDTO GetInstanceServiceAccount(ctx, instanceId, serviceAccountId).Execute()
@@ -817,7 +886,7 @@ Name | Type | Description  | Notes
 
 ## GetInstances
 
-> GetInstances200Response GetInstances(ctx).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).IncludeLabels(includeLabels).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).Labels(labels).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug(slug).SlugIn(slugIn).Status(status).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
+> GetInstances200Response GetInstances(ctx).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).IncludeLabels(includeLabels).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).Labels(labels).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Region(region).RegionIn(regionIn).Slug(slug).SlugIn(slugIn).Status(status).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
 
 Get a list of instances
 
@@ -858,6 +927,8 @@ func main() {
 	plan := "plan_example" // string |  (optional)
 	planIn := "planIn_example" // string |  (optional)
 	planNot := "planNot_example" // string |  (optional)
+	region := "region_example" // string |  (optional)
+	regionIn := []string{"Inner_example"} // []string |  (optional)
 	slug := "slug_example" // string |  (optional)
 	slugIn := "slugIn_example" // string |  (optional)
 	status := "status_example" // string |  (optional)
@@ -870,7 +941,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.GetInstances(context.Background()).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).IncludeLabels(includeLabels).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).Labels(labels).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Slug(slug).SlugIn(slugIn).Status(status).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
+	resp, r, err := apiClient.InstancesAPI.GetInstances(context.Background()).Cluster(cluster).ClusterIdIn(clusterIdIn).Cursor(cursor).Direction(direction).Hosted(hosted).Id(id).IdIn(idIn).IdMin(idMin).IncludeLabels(includeLabels).IncludePromCurrentActiveSeries(includePromCurrentActiveSeries).Labels(labels).Name(name).NameIn(nameIn).OrderBy(orderBy).OrgId(orgId).OrgIdIn(orgIdIn).OrgSlug(orgSlug).OrgSlugIn(orgSlugIn).Page(page).PageSize(pageSize).Plan(plan).PlanIn(planIn).PlanNot(planNot).Region(region).RegionIn(regionIn).Slug(slug).SlugIn(slugIn).Status(status).UpdatedOrCreatedAtMin(updatedOrCreatedAtMin).Url(url).Version(version).VersionIn(versionIn).VersionNot(versionNot).VersionNotIn(versionNotIn).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstances``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -914,6 +985,8 @@ Name | Type | Description  | Notes
  **plan** | **string** |  | 
  **planIn** | **string** |  | 
  **planNot** | **string** |  | 
+ **region** | **string** |  | 
+ **regionIn** | **[]string** |  | 
  **slug** | **string** |  | 
  **slugIn** | **string** |  | 
  **status** | **string** |  | 

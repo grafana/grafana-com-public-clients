@@ -101,6 +101,7 @@ Class | Method | HTTP request | Description
 *InstancesAPI* | [**GetInstance**](docs/InstancesAPI.md#getinstance) | **Get** /instances/{instanceId} | Gets an instance
 *InstancesAPI* | [**GetInstancePlugin**](docs/InstancesAPI.md#getinstanceplugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 *InstancesAPI* | [**GetInstancePlugins**](docs/InstancesAPI.md#getinstanceplugins) | **Get** /instances/{instanceId}/plugins | 
+*InstancesAPI* | [**GetInstanceReadiness**](docs/InstancesAPI.md#getinstancereadiness) | **Get** /instances/{instanceId}/readiness | Gets an instance&#39;s readiness status
 *InstancesAPI* | [**GetInstanceServiceAccount**](docs/InstancesAPI.md#getinstanceserviceaccount) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Gets a service account on a Grafana instance
 *InstancesAPI* | [**GetInstanceServiceAccountTokens**](docs/InstancesAPI.md#getinstanceserviceaccounttokens) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Get a service account&#39;s tokens on a Grafana instance
 *InstancesAPI* | [**GetInstanceUsers**](docs/InstancesAPI.md#getinstanceusers) | **Get** /instances/{instanceId}/users | Gets instance active users
@@ -111,18 +112,15 @@ Class | Method | HTTP request | Description
 *InstancesAPI* | [**PostInstanceServiceAccountTokens**](docs/InstancesAPI.md#postinstanceserviceaccounttokens) | **Post** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Creates a service account token on a Grafana instance
 *InstancesAPI* | [**PostInstanceServiceAccounts**](docs/InstancesAPI.md#postinstanceserviceaccounts) | **Post** /instances/{instanceId}/api/serviceaccounts | Creates a service account on a Grafana instance
 *InstancesAPI* | [**PostInstances**](docs/InstancesAPI.md#postinstances) | **Post** /instances | Create a new instance
+*OrgStackRegionsAPI* | [**GetOrgStackRegions**](docs/OrgStackRegionsAPI.md#getorgstackregions) | **Get** /org-stack-regions | 
 *OrgsAPI* | [**CheckOrgVisibility**](docs/OrgsAPI.md#checkorgvisibility) | **Get** /orgs/{slugOrId}/check-visibility | 
-*OrgsAPI* | [**DelApiKey**](docs/OrgsAPI.md#delapikey) | **Delete** /orgs/{slugOrId}/api-keys/{name} | Delete an API key by name
 *OrgsAPI* | [**DeleteOrgMember**](docs/OrgsAPI.md#deleteorgmember) | **Delete** /orgs/{slugOrId}/members/{usernameOrId} | 
-*OrgsAPI* | [**GetApiKey**](docs/OrgsAPI.md#getapikey) | **Get** /orgs/{slugOrId}/api-keys/{name} | Get an API key by name
-*OrgsAPI* | [**GetApiKeys**](docs/OrgsAPI.md#getapikeys) | **Get** /orgs/{slugOrId}/api-keys | Get an organization&#39;s API keys
 *OrgsAPI* | [**GetOrg**](docs/OrgsAPI.md#getorg) | **Get** /orgs/{slugOrId} | 
 *OrgsAPI* | [**GetOrgBilledUsage**](docs/OrgsAPI.md#getorgbilledusage) | **Get** /orgs/{orgSlugOrId}/billed-usage | Retrieve an org&#39;s billed usage for a specific month
 *OrgsAPI* | [**GetOrgBilledUsageHistory**](docs/OrgsAPI.md#getorgbilledusagehistory) | **Get** /orgs/{orgSlugOrId}/billed-usage-history | Retrieve an org&#39;s billed usage items for the last 12 months
 *OrgsAPI* | [**GetOrgInstances**](docs/OrgsAPI.md#getorginstances) | **Get** /orgs/{orgSlug}/instances | Get the list of instances belonging to the org
 *OrgsAPI* | [**GetOrgMember**](docs/OrgsAPI.md#getorgmember) | **Get** /orgs/{slugOrId}/members/{usernameOrId} | 
 *OrgsAPI* | [**GetOrgMembers**](docs/OrgsAPI.md#getorgmembers) | **Get** /orgs/{slugOrId}/members | 
-*OrgsAPI* | [**PostApiKeys**](docs/OrgsAPI.md#postapikeys) | **Post** /orgs/{slugOrId}/api-keys | Create an API key.
 *OrgsAPI* | [**PostOrgMember**](docs/OrgsAPI.md#postorgmember) | **Post** /orgs/{slugOrId}/members/{usernameOrId} | 
 *OrgsAPI* | [**PostOrgMembers**](docs/OrgsAPI.md#postorgmembers) | **Post** /orgs/{slugOrId}/members | 
 *PluginsAPI* | [**GetPlugin**](docs/PluginsAPI.md#getplugin) | **Get** /plugins/{slug} | Fetches a plugin by slug or id
@@ -137,9 +135,15 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AccessPoliciesConfig](docs/AccessPoliciesConfig.md)
  - [AccessPolicyListResponse](docs/AccessPolicyListResponse.md)
+ - [AddedComponentsInner](docs/AddedComponentsInner.md)
+ - [AddedFunctionsInner](docs/AddedFunctionsInner.md)
+ - [AddedLinksInner](docs/AddedLinksInner.md)
  - [Api](docs/Api.md)
  - [Api1](docs/Api1.md)
+ - [Api1AnyOf](docs/Api1AnyOf.md)
+ - [Api1AnyOf1](docs/Api1AnyOf1.md)
  - [AppPlatform](docs/AppPlatform.md)
  - [AuthAccessPolicy](docs/AuthAccessPolicy.md)
  - [AuthAccessPolicyAttributes](docs/AuthAccessPolicyAttributes.md)
@@ -151,21 +155,33 @@ Class | Method | HTTP request | Description
  - [AuthAccessPolicyRealmsInnerLabelPoliciesInner](docs/AuthAccessPolicyRealmsInnerLabelPoliciesInner.md)
  - [AuthToken](docs/AuthToken.md)
  - [AuthTokenWithSecret](docs/AuthTokenWithSecret.md)
+ - [Author](docs/Author.md)
  - [BilledUsage](docs/BilledUsage.md)
+ - [Build](docs/Build.md)
  - [Current](docs/Current.md)
  - [Current1](docs/Current1.md)
  - [Current2](docs/Current2.md)
+ - [Dependencies](docs/Dependencies.md)
+ - [EnterpriseFeatures](docs/EnterpriseFeatures.md)
  - [ErrorConflict](docs/ErrorConflict.md)
  - [ErrorForbidden](docs/ErrorForbidden.md)
  - [ErrorInvalidCredentials](docs/ErrorInvalidCredentials.md)
  - [ErrorNotFound](docs/ErrorNotFound.md)
  - [ErrorServiceUnavailable](docs/ErrorServiceUnavailable.md)
+ - [ExposedComponentsInner](docs/ExposedComponentsInner.md)
+ - [ExtensionPointsInner](docs/ExtensionPointsInner.md)
+ - [Extensions](docs/Extensions.md)
+ - [Extensions1](docs/Extensions1.md)
  - [FormattedApiApiKey](docs/FormattedApiApiKey.md)
+ - [FormattedApiApiKeyId](docs/FormattedApiApiKeyId.md)
  - [FormattedApiApiKeyListResponse](docs/FormattedApiApiKeyListResponse.md)
+ - [FormattedApiApiKeyListResponseItemsInner](docs/FormattedApiApiKeyListResponseItemsInner.md)
  - [FormattedApiInstance](docs/FormattedApiInstance.md)
  - [FormattedApiInstanceConnections](docs/FormattedApiInstanceConnections.md)
  - [FormattedApiInstancePlugin](docs/FormattedApiInstancePlugin.md)
+ - [FormattedApiInstanceReadiness](docs/FormattedApiInstanceReadiness.md)
  - [FormattedApiOrgPublic](docs/FormattedApiOrgPublic.md)
+ - [FormattedApiOrgStackRegion](docs/FormattedApiOrgStackRegion.md)
  - [FormattedApiPlugin](docs/FormattedApiPlugin.md)
  - [FormattedApiStackRegion](docs/FormattedApiStackRegion.md)
  - [FormattedApiStackRegionAnyOf](docs/FormattedApiStackRegionAnyOf.md)
@@ -178,30 +194,41 @@ Class | Method | HTTP request | Description
  - [GetInstancePlugins200Response](docs/GetInstancePlugins200Response.md)
  - [GetInstances200Response](docs/GetInstances200Response.md)
  - [GetOrgBilledUsage200Response](docs/GetOrgBilledUsage200Response.md)
+ - [GetOrgStackRegions200Response](docs/GetOrgStackRegions200Response.md)
  - [GetStackRegions200Response](docs/GetStackRegions200Response.md)
  - [GrafanaNewApiKeyResult](docs/GrafanaNewApiKeyResult.md)
  - [GrafanaServiceAccountDTO](docs/GrafanaServiceAccountDTO.md)
  - [GrafanaTokenDTO](docs/GrafanaTokenDTO.md)
  - [Graphite](docs/Graphite.md)
+ - [Iam](docs/Iam.md)
+ - [IncludesInner](docs/IncludesInner.md)
  - [Info](docs/Info.md)
+ - [Info1](docs/Info1.md)
+ - [InfoAnyOf](docs/InfoAnyOf.md)
+ - [InfoAnyOf1](docs/InfoAnyOf1.md)
  - [InstanceUsersResponse](docs/InstanceUsersResponse.md)
  - [ItemsInner](docs/ItemsInner.md)
  - [ItemsInner1](docs/ItemsInner1.md)
+ - [ItemsInner1GrafanaStaffAccess](docs/ItemsInner1GrafanaStaffAccess.md)
+ - [ItemsInner1MarketplaceSubscription](docs/ItemsInner1MarketplaceSubscription.md)
  - [ItemsInner2](docs/ItemsInner2.md)
- - [ItemsInner2GrafanaStaffAccess](docs/ItemsInner2GrafanaStaffAccess.md)
- - [ItemsInner2MarketplaceSubscription](docs/ItemsInner2MarketplaceSubscription.md)
- - [ItemsInner3](docs/ItemsInner3.md)
- - [ItemsInnerId](docs/ItemsInnerId.md)
+ - [Json](docs/Json.md)
+ - [JwtTokenAuth](docs/JwtTokenAuth.md)
  - [LinksInner](docs/LinksInner.md)
  - [LinksInner1](docs/LinksInner1.md)
+ - [LinksInner2](docs/LinksInner2.md)
+ - [Logos](docs/Logos.md)
  - [Metadata](docs/Metadata.md)
  - [Mimir](docs/Mimir.md)
  - [Next](docs/Next.md)
  - [OrgBilledUsageHistory](docs/OrgBilledUsageHistory.md)
  - [OrgMemberListResponse](docs/OrgMemberListResponse.md)
  - [Otlp](docs/Otlp.md)
+ - [Otlp1](docs/Otlp1.md)
  - [OtlpPrivateConnectivityInfo](docs/OtlpPrivateConnectivityInfo.md)
  - [Pagination](docs/Pagination.md)
+ - [Params](docs/Params.md)
+ - [Params1](docs/Params1.md)
  - [Payload](docs/Payload.md)
  - [Pdc](docs/Pdc.md)
  - [PdcPrivateConnectivityInfo](docs/PdcPrivateConnectivityInfo.md)
@@ -209,6 +236,9 @@ Class | Method | HTTP request | Description
  - [PdcPrivateConnectivityInfoAnyOf1](docs/PdcPrivateConnectivityInfoAnyOf1.md)
  - [PdcPrivateConnectivityInfoAnyOf2](docs/PdcPrivateConnectivityInfoAnyOf2.md)
  - [PdcPrivateConnectivityInfoAnyOf3](docs/PdcPrivateConnectivityInfoAnyOf3.md)
+ - [PermissionsInner](docs/PermissionsInner.md)
+ - [PermissionsInner1](docs/PermissionsInner1.md)
+ - [PluginsInner](docs/PluginsInner.md)
  - [PostAccessPoliciesRequest](docs/PostAccessPoliciesRequest.md)
  - [PostAccessPoliciesRequestAttributes](docs/PostAccessPoliciesRequestAttributes.md)
  - [PostAccessPoliciesRequestAttributesLokiQueryPolicy](docs/PostAccessPoliciesRequestAttributesLokiQueryPolicy.md)
@@ -217,7 +247,6 @@ Class | Method | HTTP request | Description
  - [PostAccessPoliciesRequestRealmsInner](docs/PostAccessPoliciesRequestRealmsInner.md)
  - [PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner](docs/PostAccessPoliciesRequestRealmsInnerLabelPoliciesInner.md)
  - [PostAccessPolicyRequest](docs/PostAccessPolicyRequest.md)
- - [PostApiKeysRequest](docs/PostApiKeysRequest.md)
  - [PostInstancePluginRequest](docs/PostInstancePluginRequest.md)
  - [PostInstancePluginsRequest](docs/PostInstancePluginsRequest.md)
  - [PostInstanceRequest](docs/PostInstanceRequest.md)
@@ -229,11 +258,23 @@ Class | Method | HTTP request | Description
  - [PostTokenRequest](docs/PostTokenRequest.md)
  - [PostTokensRequest](docs/PostTokensRequest.md)
  - [PrivateConnectivityInfo](docs/PrivateConnectivityInfo.md)
+ - [QueryOptions](docs/QueryOptions.md)
+ - [RealmsInner](docs/RealmsInner.md)
+ - [RealmsInnerAnyOf](docs/RealmsInnerAnyOf.md)
+ - [RealmsInnerAnyOf1](docs/RealmsInnerAnyOf1.md)
+ - [Role](docs/Role.md)
+ - [RolesInner](docs/RolesInner.md)
+ - [RoutesInner](docs/RoutesInner.md)
+ - [ScopesInner](docs/ScopesInner.md)
+ - [ScreenshotsInner](docs/ScreenshotsInner.md)
+ - [SetsInner](docs/SetsInner.md)
  - [Subscriptions](docs/Subscriptions.md)
  - [SubscriptionsAnyOf](docs/SubscriptionsAnyOf.md)
  - [SubscriptionsAnyOf1](docs/SubscriptionsAnyOf1.md)
  - [SubscriptionsAnyOf2](docs/SubscriptionsAnyOf2.md)
  - [TenantsInner](docs/TenantsInner.md)
+ - [TokenAuth](docs/TokenAuth.md)
+ - [UrlParamsInner](docs/UrlParamsInner.md)
  - [UsagesInner](docs/UsagesInner.md)
 
 

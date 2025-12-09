@@ -19,7 +19,7 @@ var _ MappedNullable = &InstanceUsersResponse{}
 
 // InstanceUsersResponse struct for InstanceUsersResponse
 type InstanceUsersResponse struct {
-	Items                []ItemsInner1 `json:"items"`
+	Items                []ItemsInner `json:"items"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -29,7 +29,7 @@ type _InstanceUsersResponse InstanceUsersResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInstanceUsersResponse(items []ItemsInner1) *InstanceUsersResponse {
+func NewInstanceUsersResponse(items []ItemsInner) *InstanceUsersResponse {
 	this := InstanceUsersResponse{}
 	this.Items = items
 	return &this
@@ -44,9 +44,9 @@ func NewInstanceUsersResponseWithDefaults() *InstanceUsersResponse {
 }
 
 // GetItems returns the Items field value
-func (o *InstanceUsersResponse) GetItems() []ItemsInner1 {
+func (o *InstanceUsersResponse) GetItems() []ItemsInner {
 	if o == nil {
-		var ret []ItemsInner1
+		var ret []ItemsInner
 		return ret
 	}
 
@@ -55,7 +55,7 @@ func (o *InstanceUsersResponse) GetItems() []ItemsInner1 {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *InstanceUsersResponse) GetItemsOk() ([]ItemsInner1, bool) {
+func (o *InstanceUsersResponse) GetItemsOk() ([]ItemsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -63,7 +63,7 @@ func (o *InstanceUsersResponse) GetItemsOk() ([]ItemsInner1, bool) {
 }
 
 // SetItems sets field value
-func (o *InstanceUsersResponse) SetItems(v []ItemsInner1) {
+func (o *InstanceUsersResponse) SetItems(v []ItemsInner) {
 	o.Items = v
 }
 

@@ -19,16 +19,40 @@ var _ MappedNullable = &ItemsInner1{}
 
 // ItemsInner1 struct for ItemsInner1
 type ItemsInner1 struct {
-	LastSeenAt           *string `json:"lastSeenAt,omitempty"`
-	CreatedAt            string  `json:"createdAt"`
-	UpdatedAt            string  `json:"updatedAt"`
-	Email                string  `json:"email"`
-	Login                string  `json:"login"`
-	Name                 string  `json:"name"`
-	Role                 string  `json:"role"`
-	Id                   float32 `json:"id"`
-	IsServiceAccount     bool    `json:"isServiceAccount"`
-	AdditionalProperties map[string]interface{}
+	Id                       float32                                    `json:"id"`
+	OrgId                    float32                                    `json:"orgId"`
+	UserId                   float32                                    `json:"userId"`
+	Status                   float32                                    `json:"status"`
+	CreatedAt                string                                     `json:"createdAt"`
+	UpdatedAt                NullableString                             `json:"updatedAt"`
+	DefaultOrg               float32                                    `json:"defaultOrg"`
+	Role                     string                                     `json:"role"`
+	Privacy                  float32                                    `json:"privacy"`
+	Billing                  float32                                    `json:"billing"`
+	CreatedBy                string                                     `json:"createdBy"`
+	UpdatedBy                string                                     `json:"updatedBy"`
+	OrgName                  string                                     `json:"orgName"`
+	OrgSlug                  string                                     `json:"orgSlug"`
+	OrgUrl                   string                                     `json:"orgUrl"`
+	GrafanaCloud             float32                                    `json:"grafanaCloud"`
+	ResellerId               NullableFloat32                            `json:"resellerId"`
+	ContractTypeId           float32                                    `json:"contractTypeId"`
+	AllowGCloudTrial         bool                                       `json:"allowGCloudTrial"`
+	HlUsage                  float32                                    `json:"hlUsage"`
+	HmCurrentGraphiteUsage   float32                                    `json:"hmCurrentGraphiteUsage"`
+	HmCurrentPrometheusUsage float32                                    `json:"hmCurrentPrometheusUsage"`
+	HgDatasourceCnts         string                                     `json:"hgDatasourceCnts"`
+	UserFirstName            string                                     `json:"userFirstName"`
+	UserLastName             string                                     `json:"userLastName"`
+	UserUsername             string                                     `json:"userUsername"`
+	UserStatus               float32                                    `json:"userStatus"`
+	UserEmail                string                                     `json:"userEmail"`
+	UserName                 string                                     `json:"userName"`
+	Subscriptions            Subscriptions                              `json:"subscriptions"`
+	MarketplaceSubscription  NullableItemsInner1MarketplaceSubscription `json:"marketplaceSubscription"`
+	ExtraPermissions         []string                                   `json:"extraPermissions,omitempty"`
+	GrafanaStaffAccess       NullableItemsInner1GrafanaStaffAccess      `json:"grafanaStaffAccess,omitempty"`
+	AdditionalProperties     map[string]interface{}
 }
 
 type _ItemsInner1 ItemsInner1
@@ -37,16 +61,39 @@ type _ItemsInner1 ItemsInner1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsInner1(createdAt string, updatedAt string, email string, login string, name string, role string, id float32, isServiceAccount bool) *ItemsInner1 {
+func NewItemsInner1(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial bool, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription) *ItemsInner1 {
 	this := ItemsInner1{}
+	this.Id = id
+	this.OrgId = orgId
+	this.UserId = userId
+	this.Status = status
 	this.CreatedAt = createdAt
 	this.UpdatedAt = updatedAt
-	this.Email = email
-	this.Login = login
-	this.Name = name
+	this.DefaultOrg = defaultOrg
 	this.Role = role
-	this.Id = id
-	this.IsServiceAccount = isServiceAccount
+	this.Privacy = privacy
+	this.Billing = billing
+	this.CreatedBy = createdBy
+	this.UpdatedBy = updatedBy
+	this.OrgName = orgName
+	this.OrgSlug = orgSlug
+	this.OrgUrl = orgUrl
+	this.GrafanaCloud = grafanaCloud
+	this.ResellerId = resellerId
+	this.ContractTypeId = contractTypeId
+	this.AllowGCloudTrial = allowGCloudTrial
+	this.HlUsage = hlUsage
+	this.HmCurrentGraphiteUsage = hmCurrentGraphiteUsage
+	this.HmCurrentPrometheusUsage = hmCurrentPrometheusUsage
+	this.HgDatasourceCnts = hgDatasourceCnts
+	this.UserFirstName = userFirstName
+	this.UserLastName = userLastName
+	this.UserUsername = userUsername
+	this.UserStatus = userStatus
+	this.UserEmail = userEmail
+	this.UserName = userName
+	this.Subscriptions = subscriptions
+	this.MarketplaceSubscription = marketplaceSubscription
 	return &this
 }
 
@@ -58,36 +105,100 @@ func NewItemsInner1WithDefaults() *ItemsInner1 {
 	return &this
 }
 
-// GetLastSeenAt returns the LastSeenAt field value if set, zero value otherwise.
-func (o *ItemsInner1) GetLastSeenAt() string {
-	if o == nil || IsNil(o.LastSeenAt) {
-		var ret string
+// GetId returns the Id field value
+func (o *ItemsInner1) GetId() float32 {
+	if o == nil {
+		var ret float32
 		return ret
 	}
-	return *o.LastSeenAt
+
+	return o.Id
 }
 
-// GetLastSeenAtOk returns a tuple with the LastSeenAt field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner1) GetLastSeenAtOk() (*string, bool) {
-	if o == nil || IsNil(o.LastSeenAt) {
+func (o *ItemsInner1) GetIdOk() (*float32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastSeenAt, true
+	return &o.Id, true
 }
 
-// HasLastSeenAt returns a boolean if a field has been set.
-func (o *ItemsInner1) HasLastSeenAt() bool {
-	if o != nil && !IsNil(o.LastSeenAt) {
-		return true
+// SetId sets field value
+func (o *ItemsInner1) SetId(v float32) {
+	o.Id = v
+}
+
+// GetOrgId returns the OrgId field value
+func (o *ItemsInner1) GetOrgId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
 	}
 
-	return false
+	return o.OrgId
 }
 
-// SetLastSeenAt gets a reference to the given string and assigns it to the LastSeenAt field.
-func (o *ItemsInner1) SetLastSeenAt(v string) {
-	o.LastSeenAt = &v
+// GetOrgIdOk returns a tuple with the OrgId field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetOrgIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OrgId, true
+}
+
+// SetOrgId sets field value
+func (o *ItemsInner1) SetOrgId(v float32) {
+	o.OrgId = v
+}
+
+// GetUserId returns the UserId field value
+func (o *ItemsInner1) GetUserId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.UserId
+}
+
+// GetUserIdOk returns a tuple with the UserId field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetUserIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UserId, true
+}
+
+// SetUserId sets field value
+func (o *ItemsInner1) SetUserId(v float32) {
+	o.UserId = v
+}
+
+// GetStatus returns the Status field value
+func (o *ItemsInner1) GetStatus() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Status
+}
+
+// GetStatusOk returns a tuple with the Status field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetStatusOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Status, true
+}
+
+// SetStatus sets field value
+func (o *ItemsInner1) SetStatus(v float32) {
+	o.Status = v
 }
 
 // GetCreatedAt returns the CreatedAt field value
@@ -115,99 +226,53 @@ func (o *ItemsInner1) SetCreatedAt(v string) {
 }
 
 // GetUpdatedAt returns the UpdatedAt field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *ItemsInner1) GetUpdatedAt() string {
-	if o == nil {
+	if o == nil || o.UpdatedAt.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.UpdatedAt
+	return *o.UpdatedAt.Get()
 }
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ItemsInner1) GetUpdatedAtOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.UpdatedAt, true
+	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
 }
 
 // SetUpdatedAt sets field value
 func (o *ItemsInner1) SetUpdatedAt(v string) {
-	o.UpdatedAt = v
+	o.UpdatedAt.Set(&v)
 }
 
-// GetEmail returns the Email field value
-func (o *ItemsInner1) GetEmail() string {
+// GetDefaultOrg returns the DefaultOrg field value
+func (o *ItemsInner1) GetDefaultOrg() float32 {
 	if o == nil {
-		var ret string
+		var ret float32
 		return ret
 	}
 
-	return o.Email
+	return o.DefaultOrg
 }
 
-// GetEmailOk returns a tuple with the Email field value
+// GetDefaultOrgOk returns a tuple with the DefaultOrg field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner1) GetEmailOk() (*string, bool) {
+func (o *ItemsInner1) GetDefaultOrgOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Email, true
+	return &o.DefaultOrg, true
 }
 
-// SetEmail sets field value
-func (o *ItemsInner1) SetEmail(v string) {
-	o.Email = v
-}
-
-// GetLogin returns the Login field value
-func (o *ItemsInner1) GetLogin() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Login
-}
-
-// GetLoginOk returns a tuple with the Login field value
-// and a boolean to check if the value has been set.
-func (o *ItemsInner1) GetLoginOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Login, true
-}
-
-// SetLogin sets field value
-func (o *ItemsInner1) SetLogin(v string) {
-	o.Login = v
-}
-
-// GetName returns the Name field value
-func (o *ItemsInner1) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *ItemsInner1) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *ItemsInner1) SetName(v string) {
-	o.Name = v
+// SetDefaultOrg sets field value
+func (o *ItemsInner1) SetDefaultOrg(v float32) {
+	o.DefaultOrg = v
 }
 
 // GetRole returns the Role field value
@@ -234,52 +299,635 @@ func (o *ItemsInner1) SetRole(v string) {
 	o.Role = v
 }
 
-// GetId returns the Id field value
-func (o *ItemsInner1) GetId() float32 {
+// GetPrivacy returns the Privacy field value
+func (o *ItemsInner1) GetPrivacy() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.Id
+	return o.Privacy
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetPrivacyOk returns a tuple with the Privacy field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner1) GetIdOk() (*float32, bool) {
+func (o *ItemsInner1) GetPrivacyOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Id, true
+	return &o.Privacy, true
 }
 
-// SetId sets field value
-func (o *ItemsInner1) SetId(v float32) {
-	o.Id = v
+// SetPrivacy sets field value
+func (o *ItemsInner1) SetPrivacy(v float32) {
+	o.Privacy = v
 }
 
-// GetIsServiceAccount returns the IsServiceAccount field value
-func (o *ItemsInner1) GetIsServiceAccount() bool {
+// GetBilling returns the Billing field value
+func (o *ItemsInner1) GetBilling() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Billing
+}
+
+// GetBillingOk returns a tuple with the Billing field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetBillingOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Billing, true
+}
+
+// SetBilling sets field value
+func (o *ItemsInner1) SetBilling(v float32) {
+	o.Billing = v
+}
+
+// GetCreatedBy returns the CreatedBy field value
+func (o *ItemsInner1) GetCreatedBy() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CreatedBy
+}
+
+// GetCreatedByOk returns a tuple with the CreatedBy field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetCreatedByOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedBy, true
+}
+
+// SetCreatedBy sets field value
+func (o *ItemsInner1) SetCreatedBy(v string) {
+	o.CreatedBy = v
+}
+
+// GetUpdatedBy returns the UpdatedBy field value
+func (o *ItemsInner1) GetUpdatedBy() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UpdatedBy
+}
+
+// GetUpdatedByOk returns a tuple with the UpdatedBy field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetUpdatedByOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UpdatedBy, true
+}
+
+// SetUpdatedBy sets field value
+func (o *ItemsInner1) SetUpdatedBy(v string) {
+	o.UpdatedBy = v
+}
+
+// GetOrgName returns the OrgName field value
+func (o *ItemsInner1) GetOrgName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.OrgName
+}
+
+// GetOrgNameOk returns a tuple with the OrgName field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetOrgNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OrgName, true
+}
+
+// SetOrgName sets field value
+func (o *ItemsInner1) SetOrgName(v string) {
+	o.OrgName = v
+}
+
+// GetOrgSlug returns the OrgSlug field value
+func (o *ItemsInner1) GetOrgSlug() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.OrgSlug
+}
+
+// GetOrgSlugOk returns a tuple with the OrgSlug field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetOrgSlugOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OrgSlug, true
+}
+
+// SetOrgSlug sets field value
+func (o *ItemsInner1) SetOrgSlug(v string) {
+	o.OrgSlug = v
+}
+
+// GetOrgUrl returns the OrgUrl field value
+func (o *ItemsInner1) GetOrgUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.OrgUrl
+}
+
+// GetOrgUrlOk returns a tuple with the OrgUrl field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetOrgUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OrgUrl, true
+}
+
+// SetOrgUrl sets field value
+func (o *ItemsInner1) SetOrgUrl(v string) {
+	o.OrgUrl = v
+}
+
+// GetGrafanaCloud returns the GrafanaCloud field value
+func (o *ItemsInner1) GetGrafanaCloud() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.GrafanaCloud
+}
+
+// GetGrafanaCloudOk returns a tuple with the GrafanaCloud field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetGrafanaCloudOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GrafanaCloud, true
+}
+
+// SetGrafanaCloud sets field value
+func (o *ItemsInner1) SetGrafanaCloud(v float32) {
+	o.GrafanaCloud = v
+}
+
+// GetResellerId returns the ResellerId field value
+// If the value is explicit nil, the zero value for float32 will be returned
+func (o *ItemsInner1) GetResellerId() float32 {
+	if o == nil || o.ResellerId.Get() == nil {
+		var ret float32
+		return ret
+	}
+
+	return *o.ResellerId.Get()
+}
+
+// GetResellerIdOk returns a tuple with the ResellerId field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemsInner1) GetResellerIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ResellerId.Get(), o.ResellerId.IsSet()
+}
+
+// SetResellerId sets field value
+func (o *ItemsInner1) SetResellerId(v float32) {
+	o.ResellerId.Set(&v)
+}
+
+// GetContractTypeId returns the ContractTypeId field value
+func (o *ItemsInner1) GetContractTypeId() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.ContractTypeId
+}
+
+// GetContractTypeIdOk returns a tuple with the ContractTypeId field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetContractTypeIdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ContractTypeId, true
+}
+
+// SetContractTypeId sets field value
+func (o *ItemsInner1) SetContractTypeId(v float32) {
+	o.ContractTypeId = v
+}
+
+// GetAllowGCloudTrial returns the AllowGCloudTrial field value
+func (o *ItemsInner1) GetAllowGCloudTrial() bool {
 	if o == nil {
 		var ret bool
 		return ret
 	}
 
-	return o.IsServiceAccount
+	return o.AllowGCloudTrial
 }
 
-// GetIsServiceAccountOk returns a tuple with the IsServiceAccount field value
+// GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner1) GetIsServiceAccountOk() (*bool, bool) {
+func (o *ItemsInner1) GetAllowGCloudTrialOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.IsServiceAccount, true
+	return &o.AllowGCloudTrial, true
 }
 
-// SetIsServiceAccount sets field value
-func (o *ItemsInner1) SetIsServiceAccount(v bool) {
-	o.IsServiceAccount = v
+// SetAllowGCloudTrial sets field value
+func (o *ItemsInner1) SetAllowGCloudTrial(v bool) {
+	o.AllowGCloudTrial = v
+}
+
+// GetHlUsage returns the HlUsage field value
+func (o *ItemsInner1) GetHlUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HlUsage
+}
+
+// GetHlUsageOk returns a tuple with the HlUsage field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetHlUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HlUsage, true
+}
+
+// SetHlUsage sets field value
+func (o *ItemsInner1) SetHlUsage(v float32) {
+	o.HlUsage = v
+}
+
+// GetHmCurrentGraphiteUsage returns the HmCurrentGraphiteUsage field value
+func (o *ItemsInner1) GetHmCurrentGraphiteUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HmCurrentGraphiteUsage
+}
+
+// GetHmCurrentGraphiteUsageOk returns a tuple with the HmCurrentGraphiteUsage field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetHmCurrentGraphiteUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HmCurrentGraphiteUsage, true
+}
+
+// SetHmCurrentGraphiteUsage sets field value
+func (o *ItemsInner1) SetHmCurrentGraphiteUsage(v float32) {
+	o.HmCurrentGraphiteUsage = v
+}
+
+// GetHmCurrentPrometheusUsage returns the HmCurrentPrometheusUsage field value
+func (o *ItemsInner1) GetHmCurrentPrometheusUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.HmCurrentPrometheusUsage
+}
+
+// GetHmCurrentPrometheusUsageOk returns a tuple with the HmCurrentPrometheusUsage field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetHmCurrentPrometheusUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HmCurrentPrometheusUsage, true
+}
+
+// SetHmCurrentPrometheusUsage sets field value
+func (o *ItemsInner1) SetHmCurrentPrometheusUsage(v float32) {
+	o.HmCurrentPrometheusUsage = v
+}
+
+// GetHgDatasourceCnts returns the HgDatasourceCnts field value
+func (o *ItemsInner1) GetHgDatasourceCnts() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.HgDatasourceCnts
+}
+
+// GetHgDatasourceCntsOk returns a tuple with the HgDatasourceCnts field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetHgDatasourceCntsOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.HgDatasourceCnts, true
+}
+
+// SetHgDatasourceCnts sets field value
+func (o *ItemsInner1) SetHgDatasourceCnts(v string) {
+	o.HgDatasourceCnts = v
+}
+
+// GetUserFirstName returns the UserFirstName field value
+func (o *ItemsInner1) GetUserFirstName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UserFirstName
+}
+
+// GetUserFirstNameOk returns a tuple with the UserFirstName field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetUserFirstNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UserFirstName, true
+}
+
+// SetUserFirstName sets field value
+func (o *ItemsInner1) SetUserFirstName(v string) {
+	o.UserFirstName = v
+}
+
+// GetUserLastName returns the UserLastName field value
+func (o *ItemsInner1) GetUserLastName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UserLastName
+}
+
+// GetUserLastNameOk returns a tuple with the UserLastName field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetUserLastNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UserLastName, true
+}
+
+// SetUserLastName sets field value
+func (o *ItemsInner1) SetUserLastName(v string) {
+	o.UserLastName = v
+}
+
+// GetUserUsername returns the UserUsername field value
+func (o *ItemsInner1) GetUserUsername() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UserUsername
+}
+
+// GetUserUsernameOk returns a tuple with the UserUsername field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetUserUsernameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UserUsername, true
+}
+
+// SetUserUsername sets field value
+func (o *ItemsInner1) SetUserUsername(v string) {
+	o.UserUsername = v
+}
+
+// GetUserStatus returns the UserStatus field value
+func (o *ItemsInner1) GetUserStatus() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.UserStatus
+}
+
+// GetUserStatusOk returns a tuple with the UserStatus field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetUserStatusOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UserStatus, true
+}
+
+// SetUserStatus sets field value
+func (o *ItemsInner1) SetUserStatus(v float32) {
+	o.UserStatus = v
+}
+
+// GetUserEmail returns the UserEmail field value
+func (o *ItemsInner1) GetUserEmail() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UserEmail
+}
+
+// GetUserEmailOk returns a tuple with the UserEmail field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetUserEmailOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UserEmail, true
+}
+
+// SetUserEmail sets field value
+func (o *ItemsInner1) SetUserEmail(v string) {
+	o.UserEmail = v
+}
+
+// GetUserName returns the UserName field value
+func (o *ItemsInner1) GetUserName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UserName
+}
+
+// GetUserNameOk returns a tuple with the UserName field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetUserNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UserName, true
+}
+
+// SetUserName sets field value
+func (o *ItemsInner1) SetUserName(v string) {
+	o.UserName = v
+}
+
+// GetSubscriptions returns the Subscriptions field value
+func (o *ItemsInner1) GetSubscriptions() Subscriptions {
+	if o == nil {
+		var ret Subscriptions
+		return ret
+	}
+
+	return o.Subscriptions
+}
+
+// GetSubscriptionsOk returns a tuple with the Subscriptions field value
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetSubscriptionsOk() (*Subscriptions, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Subscriptions, true
+}
+
+// SetSubscriptions sets field value
+func (o *ItemsInner1) SetSubscriptions(v Subscriptions) {
+	o.Subscriptions = v
+}
+
+// GetMarketplaceSubscription returns the MarketplaceSubscription field value
+// If the value is explicit nil, the zero value for ItemsInner1MarketplaceSubscription will be returned
+func (o *ItemsInner1) GetMarketplaceSubscription() ItemsInner1MarketplaceSubscription {
+	if o == nil || o.MarketplaceSubscription.Get() == nil {
+		var ret ItemsInner1MarketplaceSubscription
+		return ret
+	}
+
+	return *o.MarketplaceSubscription.Get()
+}
+
+// GetMarketplaceSubscriptionOk returns a tuple with the MarketplaceSubscription field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemsInner1) GetMarketplaceSubscriptionOk() (*ItemsInner1MarketplaceSubscription, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MarketplaceSubscription.Get(), o.MarketplaceSubscription.IsSet()
+}
+
+// SetMarketplaceSubscription sets field value
+func (o *ItemsInner1) SetMarketplaceSubscription(v ItemsInner1MarketplaceSubscription) {
+	o.MarketplaceSubscription.Set(&v)
+}
+
+// GetExtraPermissions returns the ExtraPermissions field value if set, zero value otherwise.
+func (o *ItemsInner1) GetExtraPermissions() []string {
+	if o == nil || IsNil(o.ExtraPermissions) {
+		var ret []string
+		return ret
+	}
+	return o.ExtraPermissions
+}
+
+// GetExtraPermissionsOk returns a tuple with the ExtraPermissions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetExtraPermissionsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ExtraPermissions) {
+		return nil, false
+	}
+	return o.ExtraPermissions, true
+}
+
+// HasExtraPermissions returns a boolean if a field has been set.
+func (o *ItemsInner1) HasExtraPermissions() bool {
+	if o != nil && !IsNil(o.ExtraPermissions) {
+		return true
+	}
+
+	return false
+}
+
+// SetExtraPermissions gets a reference to the given []string and assigns it to the ExtraPermissions field.
+func (o *ItemsInner1) SetExtraPermissions(v []string) {
+	o.ExtraPermissions = v
+}
+
+// GetGrafanaStaffAccess returns the GrafanaStaffAccess field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ItemsInner1) GetGrafanaStaffAccess() ItemsInner1GrafanaStaffAccess {
+	if o == nil || IsNil(o.GrafanaStaffAccess.Get()) {
+		var ret ItemsInner1GrafanaStaffAccess
+		return ret
+	}
+	return *o.GrafanaStaffAccess.Get()
+}
+
+// GetGrafanaStaffAccessOk returns a tuple with the GrafanaStaffAccess field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ItemsInner1) GetGrafanaStaffAccessOk() (*ItemsInner1GrafanaStaffAccess, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GrafanaStaffAccess.Get(), o.GrafanaStaffAccess.IsSet()
+}
+
+// HasGrafanaStaffAccess returns a boolean if a field has been set.
+func (o *ItemsInner1) HasGrafanaStaffAccess() bool {
+	if o != nil && o.GrafanaStaffAccess.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGrafanaStaffAccess gets a reference to the given NullableItemsInner1GrafanaStaffAccess and assigns it to the GrafanaStaffAccess field.
+func (o *ItemsInner1) SetGrafanaStaffAccess(v ItemsInner1GrafanaStaffAccess) {
+	o.GrafanaStaffAccess.Set(&v)
+}
+
+// SetGrafanaStaffAccessNil sets the value for GrafanaStaffAccess to be an explicit nil
+func (o *ItemsInner1) SetGrafanaStaffAccessNil() {
+	o.GrafanaStaffAccess.Set(nil)
+}
+
+// UnsetGrafanaStaffAccess ensures that no value is present for GrafanaStaffAccess, not even an explicit nil
+func (o *ItemsInner1) UnsetGrafanaStaffAccess() {
+	o.GrafanaStaffAccess.Unset()
 }
 
 func (o ItemsInner1) MarshalJSON() ([]byte, error) {
@@ -292,17 +940,43 @@ func (o ItemsInner1) MarshalJSON() ([]byte, error) {
 
 func (o ItemsInner1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.LastSeenAt) {
-		toSerialize["lastSeenAt"] = o.LastSeenAt
-	}
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["updatedAt"] = o.UpdatedAt
-	toSerialize["email"] = o.Email
-	toSerialize["login"] = o.Login
-	toSerialize["name"] = o.Name
-	toSerialize["role"] = o.Role
 	toSerialize["id"] = o.Id
-	toSerialize["isServiceAccount"] = o.IsServiceAccount
+	toSerialize["orgId"] = o.OrgId
+	toSerialize["userId"] = o.UserId
+	toSerialize["status"] = o.Status
+	toSerialize["createdAt"] = o.CreatedAt
+	toSerialize["updatedAt"] = o.UpdatedAt.Get()
+	toSerialize["defaultOrg"] = o.DefaultOrg
+	toSerialize["role"] = o.Role
+	toSerialize["privacy"] = o.Privacy
+	toSerialize["billing"] = o.Billing
+	toSerialize["createdBy"] = o.CreatedBy
+	toSerialize["updatedBy"] = o.UpdatedBy
+	toSerialize["orgName"] = o.OrgName
+	toSerialize["orgSlug"] = o.OrgSlug
+	toSerialize["orgUrl"] = o.OrgUrl
+	toSerialize["grafanaCloud"] = o.GrafanaCloud
+	toSerialize["resellerId"] = o.ResellerId.Get()
+	toSerialize["contractTypeId"] = o.ContractTypeId
+	toSerialize["allowGCloudTrial"] = o.AllowGCloudTrial
+	toSerialize["hlUsage"] = o.HlUsage
+	toSerialize["hmCurrentGraphiteUsage"] = o.HmCurrentGraphiteUsage
+	toSerialize["hmCurrentPrometheusUsage"] = o.HmCurrentPrometheusUsage
+	toSerialize["hgDatasourceCnts"] = o.HgDatasourceCnts
+	toSerialize["userFirstName"] = o.UserFirstName
+	toSerialize["userLastName"] = o.UserLastName
+	toSerialize["userUsername"] = o.UserUsername
+	toSerialize["userStatus"] = o.UserStatus
+	toSerialize["userEmail"] = o.UserEmail
+	toSerialize["userName"] = o.UserName
+	toSerialize["subscriptions"] = o.Subscriptions
+	toSerialize["marketplaceSubscription"] = o.MarketplaceSubscription.Get()
+	if !IsNil(o.ExtraPermissions) {
+		toSerialize["extraPermissions"] = o.ExtraPermissions
+	}
+	if o.GrafanaStaffAccess.IsSet() {
+		toSerialize["grafanaStaffAccess"] = o.GrafanaStaffAccess.Get()
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -333,15 +1007,39 @@ func (o *ItemsInner1) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "lastSeenAt")
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "orgId")
+		delete(additionalProperties, "userId")
+		delete(additionalProperties, "status")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "updatedAt")
-		delete(additionalProperties, "email")
-		delete(additionalProperties, "login")
-		delete(additionalProperties, "name")
+		delete(additionalProperties, "defaultOrg")
 		delete(additionalProperties, "role")
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "isServiceAccount")
+		delete(additionalProperties, "privacy")
+		delete(additionalProperties, "billing")
+		delete(additionalProperties, "createdBy")
+		delete(additionalProperties, "updatedBy")
+		delete(additionalProperties, "orgName")
+		delete(additionalProperties, "orgSlug")
+		delete(additionalProperties, "orgUrl")
+		delete(additionalProperties, "grafanaCloud")
+		delete(additionalProperties, "resellerId")
+		delete(additionalProperties, "contractTypeId")
+		delete(additionalProperties, "allowGCloudTrial")
+		delete(additionalProperties, "hlUsage")
+		delete(additionalProperties, "hmCurrentGraphiteUsage")
+		delete(additionalProperties, "hmCurrentPrometheusUsage")
+		delete(additionalProperties, "hgDatasourceCnts")
+		delete(additionalProperties, "userFirstName")
+		delete(additionalProperties, "userLastName")
+		delete(additionalProperties, "userUsername")
+		delete(additionalProperties, "userStatus")
+		delete(additionalProperties, "userEmail")
+		delete(additionalProperties, "userName")
+		delete(additionalProperties, "subscriptions")
+		delete(additionalProperties, "marketplaceSubscription")
+		delete(additionalProperties, "extraPermissions")
+		delete(additionalProperties, "grafanaStaffAccess")
 		o.AdditionalProperties = additionalProperties
 	}
 

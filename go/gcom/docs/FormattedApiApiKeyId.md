@@ -1,4 +1,4 @@
-# ItemsInnerId
+# FormattedApiApiKeyId
 
 ## Properties
 
@@ -7,20 +7,20 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewItemsInnerId
+### NewFormattedApiApiKeyId
 
-`func NewItemsInnerId() *ItemsInnerId`
+`func NewFormattedApiApiKeyId() *FormattedApiApiKeyId`
 
-NewItemsInnerId instantiates a new ItemsInnerId object
+NewFormattedApiApiKeyId instantiates a new FormattedApiApiKeyId object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewItemsInnerIdWithDefaults
+### NewFormattedApiApiKeyIdWithDefaults
 
-`func NewItemsInnerIdWithDefaults() *ItemsInnerId`
+`func NewFormattedApiApiKeyIdWithDefaults() *FormattedApiApiKeyId`
 
-NewItemsInnerIdWithDefaults instantiates a new ItemsInnerId object
+NewFormattedApiApiKeyIdWithDefaults instantiates a new FormattedApiApiKeyId object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 

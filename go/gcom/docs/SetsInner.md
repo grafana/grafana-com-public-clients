@@ -1,70 +1,75 @@
-# PostApiKeysRequest
+# SetsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**Role** | **string** |  | 
+**Scopes** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
-### NewPostApiKeysRequest
+### NewSetsInner
 
-`func NewPostApiKeysRequest(name string, role string, ) *PostApiKeysRequest`
+`func NewSetsInner(name string, ) *SetsInner`
 
-NewPostApiKeysRequest instantiates a new PostApiKeysRequest object
+NewSetsInner instantiates a new SetsInner object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewPostApiKeysRequestWithDefaults
+### NewSetsInnerWithDefaults
 
-`func NewPostApiKeysRequestWithDefaults() *PostApiKeysRequest`
+`func NewSetsInnerWithDefaults() *SetsInner`
 
-NewPostApiKeysRequestWithDefaults instantiates a new PostApiKeysRequest object
+NewSetsInnerWithDefaults instantiates a new SetsInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetName
 
-`func (o *PostApiKeysRequest) GetName() string`
+`func (o *SetsInner) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *PostApiKeysRequest) GetNameOk() (*string, bool)`
+`func (o *SetsInner) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *PostApiKeysRequest) SetName(v string)`
+`func (o *SetsInner) SetName(v string)`
 
 SetName sets Name field to given value.
 
 
-### GetRole
+### GetScopes
 
-`func (o *PostApiKeysRequest) GetRole() string`
+`func (o *SetsInner) GetScopes() []string`
 
-GetRole returns the Role field if non-nil, zero value otherwise.
+GetScopes returns the Scopes field if non-nil, zero value otherwise.
 
-### GetRoleOk
+### GetScopesOk
 
-`func (o *PostApiKeysRequest) GetRoleOk() (*string, bool)`
+`func (o *SetsInner) GetScopesOk() (*[]string, bool)`
 
-GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
+GetScopesOk returns a tuple with the Scopes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRole
+### SetScopes
 
-`func (o *PostApiKeysRequest) SetRole(v string)`
+`func (o *SetsInner) SetScopes(v []string)`
 
-SetRole sets Role field to given value.
+SetScopes sets Scopes field to given value.
 
+### HasScopes
+
+`func (o *SetsInner) HasScopes() bool`
+
+HasScopes returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

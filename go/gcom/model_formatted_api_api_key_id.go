@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// ItemsInnerId struct for ItemsInnerId
-type ItemsInnerId struct {
+// FormattedApiApiKeyId struct for FormattedApiApiKeyId
+type FormattedApiApiKeyId struct {
 	Float32 *float32
 	String  *string
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
-func (dst *ItemsInnerId) UnmarshalJSON(data []byte) error {
+func (dst *FormattedApiApiKeyId) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into Float32
 	err = json.Unmarshal(data, &dst.Float32)
@@ -50,11 +50,11 @@ func (dst *ItemsInnerId) UnmarshalJSON(data []byte) error {
 		dst.String = nil
 	}
 
-	return fmt.Errorf("data failed to match schemas in anyOf(ItemsInnerId)")
+	return fmt.Errorf("data failed to match schemas in anyOf(FormattedApiApiKeyId)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *ItemsInnerId) MarshalJSON() ([]byte, error) {
+func (src *FormattedApiApiKeyId) MarshalJSON() ([]byte, error) {
 	if src.Float32 != nil {
 		return json.Marshal(&src.Float32)
 	}
@@ -66,38 +66,38 @@ func (src *ItemsInnerId) MarshalJSON() ([]byte, error) {
 	return nil, nil // no data in anyOf schemas
 }
 
-type NullableItemsInnerId struct {
-	value *ItemsInnerId
+type NullableFormattedApiApiKeyId struct {
+	value *FormattedApiApiKeyId
 	isSet bool
 }
 
-func (v NullableItemsInnerId) Get() *ItemsInnerId {
+func (v NullableFormattedApiApiKeyId) Get() *FormattedApiApiKeyId {
 	return v.value
 }
 
-func (v *NullableItemsInnerId) Set(val *ItemsInnerId) {
+func (v *NullableFormattedApiApiKeyId) Set(val *FormattedApiApiKeyId) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableItemsInnerId) IsSet() bool {
+func (v NullableFormattedApiApiKeyId) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableItemsInnerId) Unset() {
+func (v *NullableFormattedApiApiKeyId) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableItemsInnerId(val *ItemsInnerId) *NullableItemsInnerId {
-	return &NullableItemsInnerId{value: val, isSet: true}
+func NewNullableFormattedApiApiKeyId(val *FormattedApiApiKeyId) *NullableFormattedApiApiKeyId {
+	return &NullableFormattedApiApiKeyId{value: val, isSet: true}
 }
 
-func (v NullableItemsInnerId) MarshalJSON() ([]byte, error) {
+func (v NullableFormattedApiApiKeyId) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableItemsInnerId) UnmarshalJSON(src []byte) error {
+func (v *NullableFormattedApiApiKeyId) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

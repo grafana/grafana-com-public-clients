@@ -73,12 +73,13 @@ Name | Type | Description | Notes
 **GeoLocation** | Pointer to **[]float32** |  | [optional] 
 **CountryCode** | Pointer to **string** |  | [optional] 
 **Complete** | **bool** |  | 
+**ReadyForStacks** | **bool** |  | 
 
 ## Methods
 
 ### NewFormattedApiStackRegion
 
-`func NewFormattedApiStackRegion(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, assistantUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, complete bool, ) *FormattedApiStackRegion`
+`func NewFormattedApiStackRegion(id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, assistantUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, complete bool, readyForStacks bool, ) *FormattedApiStackRegion`
 
 NewFormattedApiStackRegion instantiates a new FormattedApiStackRegion object
 This constructor will assign default values to properties that have it defined,
@@ -1516,6 +1517,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiStackRegion) SetComplete(v bool)`
 
 SetComplete sets Complete field to given value.
+
+
+### GetReadyForStacks
+
+`func (o *FormattedApiStackRegion) GetReadyForStacks() bool`
+
+GetReadyForStacks returns the ReadyForStacks field if non-nil, zero value otherwise.
+
+### GetReadyForStacksOk
+
+`func (o *FormattedApiStackRegion) GetReadyForStacksOk() (*bool, bool)`
+
+GetReadyForStacksOk returns a tuple with the ReadyForStacks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReadyForStacks
+
+`func (o *FormattedApiStackRegion) SetReadyForStacks(v bool)`
+
+SetReadyForStacks sets ReadyForStacks field to given value.
 
 
 

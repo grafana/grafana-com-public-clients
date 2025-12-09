@@ -15,39 +15,39 @@ import (
 	"time"
 )
 
-// checks if the ItemsInner2GrafanaStaffAccess type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ItemsInner2GrafanaStaffAccess{}
+// checks if the ItemsInner1GrafanaStaffAccess type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ItemsInner1GrafanaStaffAccess{}
 
-// ItemsInner2GrafanaStaffAccess struct for ItemsInner2GrafanaStaffAccess
-type ItemsInner2GrafanaStaffAccess struct {
+// ItemsInner1GrafanaStaffAccess struct for ItemsInner1GrafanaStaffAccess
+type ItemsInner1GrafanaStaffAccess struct {
 	AccessExpiresAt      time.Time       `json:"accessExpiresAt"`
 	TicketId             NullableFloat32 `json:"ticketId,omitempty"`
 	PublicReason         NullableString  `json:"publicReason,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _ItemsInner2GrafanaStaffAccess ItemsInner2GrafanaStaffAccess
+type _ItemsInner1GrafanaStaffAccess ItemsInner1GrafanaStaffAccess
 
-// NewItemsInner2GrafanaStaffAccess instantiates a new ItemsInner2GrafanaStaffAccess object
+// NewItemsInner1GrafanaStaffAccess instantiates a new ItemsInner1GrafanaStaffAccess object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsInner2GrafanaStaffAccess(accessExpiresAt time.Time) *ItemsInner2GrafanaStaffAccess {
-	this := ItemsInner2GrafanaStaffAccess{}
+func NewItemsInner1GrafanaStaffAccess(accessExpiresAt time.Time) *ItemsInner1GrafanaStaffAccess {
+	this := ItemsInner1GrafanaStaffAccess{}
 	this.AccessExpiresAt = accessExpiresAt
 	return &this
 }
 
-// NewItemsInner2GrafanaStaffAccessWithDefaults instantiates a new ItemsInner2GrafanaStaffAccess object
+// NewItemsInner1GrafanaStaffAccessWithDefaults instantiates a new ItemsInner1GrafanaStaffAccess object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewItemsInner2GrafanaStaffAccessWithDefaults() *ItemsInner2GrafanaStaffAccess {
-	this := ItemsInner2GrafanaStaffAccess{}
+func NewItemsInner1GrafanaStaffAccessWithDefaults() *ItemsInner1GrafanaStaffAccess {
+	this := ItemsInner1GrafanaStaffAccess{}
 	return &this
 }
 
 // GetAccessExpiresAt returns the AccessExpiresAt field value
-func (o *ItemsInner2GrafanaStaffAccess) GetAccessExpiresAt() time.Time {
+func (o *ItemsInner1GrafanaStaffAccess) GetAccessExpiresAt() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -58,7 +58,7 @@ func (o *ItemsInner2GrafanaStaffAccess) GetAccessExpiresAt() time.Time {
 
 // GetAccessExpiresAtOk returns a tuple with the AccessExpiresAt field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner2GrafanaStaffAccess) GetAccessExpiresAtOk() (*time.Time, bool) {
+func (o *ItemsInner1GrafanaStaffAccess) GetAccessExpiresAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,12 +66,12 @@ func (o *ItemsInner2GrafanaStaffAccess) GetAccessExpiresAtOk() (*time.Time, bool
 }
 
 // SetAccessExpiresAt sets field value
-func (o *ItemsInner2GrafanaStaffAccess) SetAccessExpiresAt(v time.Time) {
+func (o *ItemsInner1GrafanaStaffAccess) SetAccessExpiresAt(v time.Time) {
 	o.AccessExpiresAt = v
 }
 
 // GetTicketId returns the TicketId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemsInner2GrafanaStaffAccess) GetTicketId() float32 {
+func (o *ItemsInner1GrafanaStaffAccess) GetTicketId() float32 {
 	if o == nil || IsNil(o.TicketId.Get()) {
 		var ret float32
 		return ret
@@ -82,7 +82,7 @@ func (o *ItemsInner2GrafanaStaffAccess) GetTicketId() float32 {
 // GetTicketIdOk returns a tuple with the TicketId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemsInner2GrafanaStaffAccess) GetTicketIdOk() (*float32, bool) {
+func (o *ItemsInner1GrafanaStaffAccess) GetTicketIdOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *ItemsInner2GrafanaStaffAccess) GetTicketIdOk() (*float32, bool) {
 }
 
 // HasTicketId returns a boolean if a field has been set.
-func (o *ItemsInner2GrafanaStaffAccess) HasTicketId() bool {
+func (o *ItemsInner1GrafanaStaffAccess) HasTicketId() bool {
 	if o != nil && o.TicketId.IsSet() {
 		return true
 	}
@@ -99,22 +99,22 @@ func (o *ItemsInner2GrafanaStaffAccess) HasTicketId() bool {
 }
 
 // SetTicketId gets a reference to the given NullableFloat32 and assigns it to the TicketId field.
-func (o *ItemsInner2GrafanaStaffAccess) SetTicketId(v float32) {
+func (o *ItemsInner1GrafanaStaffAccess) SetTicketId(v float32) {
 	o.TicketId.Set(&v)
 }
 
 // SetTicketIdNil sets the value for TicketId to be an explicit nil
-func (o *ItemsInner2GrafanaStaffAccess) SetTicketIdNil() {
+func (o *ItemsInner1GrafanaStaffAccess) SetTicketIdNil() {
 	o.TicketId.Set(nil)
 }
 
 // UnsetTicketId ensures that no value is present for TicketId, not even an explicit nil
-func (o *ItemsInner2GrafanaStaffAccess) UnsetTicketId() {
+func (o *ItemsInner1GrafanaStaffAccess) UnsetTicketId() {
 	o.TicketId.Unset()
 }
 
 // GetPublicReason returns the PublicReason field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemsInner2GrafanaStaffAccess) GetPublicReason() string {
+func (o *ItemsInner1GrafanaStaffAccess) GetPublicReason() string {
 	if o == nil || IsNil(o.PublicReason.Get()) {
 		var ret string
 		return ret
@@ -125,7 +125,7 @@ func (o *ItemsInner2GrafanaStaffAccess) GetPublicReason() string {
 // GetPublicReasonOk returns a tuple with the PublicReason field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemsInner2GrafanaStaffAccess) GetPublicReasonOk() (*string, bool) {
+func (o *ItemsInner1GrafanaStaffAccess) GetPublicReasonOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *ItemsInner2GrafanaStaffAccess) GetPublicReasonOk() (*string, bool) {
 }
 
 // HasPublicReason returns a boolean if a field has been set.
-func (o *ItemsInner2GrafanaStaffAccess) HasPublicReason() bool {
+func (o *ItemsInner1GrafanaStaffAccess) HasPublicReason() bool {
 	if o != nil && o.PublicReason.IsSet() {
 		return true
 	}
@@ -142,21 +142,21 @@ func (o *ItemsInner2GrafanaStaffAccess) HasPublicReason() bool {
 }
 
 // SetPublicReason gets a reference to the given NullableString and assigns it to the PublicReason field.
-func (o *ItemsInner2GrafanaStaffAccess) SetPublicReason(v string) {
+func (o *ItemsInner1GrafanaStaffAccess) SetPublicReason(v string) {
 	o.PublicReason.Set(&v)
 }
 
 // SetPublicReasonNil sets the value for PublicReason to be an explicit nil
-func (o *ItemsInner2GrafanaStaffAccess) SetPublicReasonNil() {
+func (o *ItemsInner1GrafanaStaffAccess) SetPublicReasonNil() {
 	o.PublicReason.Set(nil)
 }
 
 // UnsetPublicReason ensures that no value is present for PublicReason, not even an explicit nil
-func (o *ItemsInner2GrafanaStaffAccess) UnsetPublicReason() {
+func (o *ItemsInner1GrafanaStaffAccess) UnsetPublicReason() {
 	o.PublicReason.Unset()
 }
 
-func (o ItemsInner2GrafanaStaffAccess) MarshalJSON() ([]byte, error) {
+func (o ItemsInner1GrafanaStaffAccess) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -164,7 +164,7 @@ func (o ItemsInner2GrafanaStaffAccess) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ItemsInner2GrafanaStaffAccess) ToMap() (map[string]interface{}, error) {
+func (o ItemsInner1GrafanaStaffAccess) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["accessExpiresAt"] = o.AccessExpiresAt
 	if o.TicketId.IsSet() {
@@ -181,7 +181,7 @@ func (o ItemsInner2GrafanaStaffAccess) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *ItemsInner2GrafanaStaffAccess) UnmarshalJSON(data []byte) (err error) {
+func (o *ItemsInner1GrafanaStaffAccess) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -190,15 +190,15 @@ func (o *ItemsInner2GrafanaStaffAccess) UnmarshalJSON(data []byte) (err error) {
 		return err
 	}
 
-	varItemsInner2GrafanaStaffAccess := _ItemsInner2GrafanaStaffAccess{}
+	varItemsInner1GrafanaStaffAccess := _ItemsInner1GrafanaStaffAccess{}
 
-	err = json.Unmarshal(data, &varItemsInner2GrafanaStaffAccess)
+	err = json.Unmarshal(data, &varItemsInner1GrafanaStaffAccess)
 
 	if err != nil {
 		return err
 	}
 
-	*o = ItemsInner2GrafanaStaffAccess(varItemsInner2GrafanaStaffAccess)
+	*o = ItemsInner1GrafanaStaffAccess(varItemsInner1GrafanaStaffAccess)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -212,38 +212,38 @@ func (o *ItemsInner2GrafanaStaffAccess) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullableItemsInner2GrafanaStaffAccess struct {
-	value *ItemsInner2GrafanaStaffAccess
+type NullableItemsInner1GrafanaStaffAccess struct {
+	value *ItemsInner1GrafanaStaffAccess
 	isSet bool
 }
 
-func (v NullableItemsInner2GrafanaStaffAccess) Get() *ItemsInner2GrafanaStaffAccess {
+func (v NullableItemsInner1GrafanaStaffAccess) Get() *ItemsInner1GrafanaStaffAccess {
 	return v.value
 }
 
-func (v *NullableItemsInner2GrafanaStaffAccess) Set(val *ItemsInner2GrafanaStaffAccess) {
+func (v *NullableItemsInner1GrafanaStaffAccess) Set(val *ItemsInner1GrafanaStaffAccess) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableItemsInner2GrafanaStaffAccess) IsSet() bool {
+func (v NullableItemsInner1GrafanaStaffAccess) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableItemsInner2GrafanaStaffAccess) Unset() {
+func (v *NullableItemsInner1GrafanaStaffAccess) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableItemsInner2GrafanaStaffAccess(val *ItemsInner2GrafanaStaffAccess) *NullableItemsInner2GrafanaStaffAccess {
-	return &NullableItemsInner2GrafanaStaffAccess{value: val, isSet: true}
+func NewNullableItemsInner1GrafanaStaffAccess(val *ItemsInner1GrafanaStaffAccess) *NullableItemsInner1GrafanaStaffAccess {
+	return &NullableItemsInner1GrafanaStaffAccess{value: val, isSet: true}
 }
 
-func (v NullableItemsInner2GrafanaStaffAccess) MarshalJSON() ([]byte, error) {
+func (v NullableItemsInner1GrafanaStaffAccess) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableItemsInner2GrafanaStaffAccess) UnmarshalJSON(src []byte) error {
+func (v *NullableItemsInner1GrafanaStaffAccess) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

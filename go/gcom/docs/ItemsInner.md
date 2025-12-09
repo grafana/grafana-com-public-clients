@@ -4,25 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | [**ItemsInnerId**](ItemsInnerId.md) |  | 
-**AccessPolicyId** | **string** |  | 
-**OrgId** | **float32** |  | 
-**OrgSlug** | **string** |  | 
-**OrgName** | **string** |  | 
-**InstanceId** | **NullableFloat32** |  | 
+**LastSeenAt** | Pointer to **string** |  | [optional] 
+**CreatedAt** | **string** |  | 
+**UpdatedAt** | **string** |  | 
+**Email** | **string** |  | 
+**Login** | **string** |  | 
 **Name** | **string** |  | 
 **Role** | **string** |  | 
-**CreatedAt** | **string** |  | 
-**UpdatedAt** | **NullableString** |  | 
-**FirstUsed** | **NullableString** |  | 
-**Token** | Pointer to **string** |  | [optional] 
-**Links** | [**[]LinksInner**](LinksInner.md) |  | 
+**Id** | **float32** |  | 
+**IsServiceAccount** | **bool** |  | 
 
 ## Methods
 
 ### NewItemsInner
 
-`func NewItemsInner(id ItemsInnerId, accessPolicyId string, orgId float32, orgSlug string, orgName string, instanceId NullableFloat32, name string, role string, createdAt string, updatedAt NullableString, firstUsed NullableString, links []LinksInner, ) *ItemsInner`
+`func NewItemsInner(createdAt string, updatedAt string, email string, login string, name string, role string, id float32, isServiceAccount bool, ) *ItemsInner`
 
 NewItemsInner instantiates a new ItemsInner object
 This constructor will assign default values to properties that have it defined,
@@ -37,175 +33,30 @@ NewItemsInnerWithDefaults instantiates a new ItemsInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetId
+### GetLastSeenAt
 
-`func (o *ItemsInner) GetId() ItemsInnerId`
+`func (o *ItemsInner) GetLastSeenAt() string`
 
-GetId returns the Id field if non-nil, zero value otherwise.
+GetLastSeenAt returns the LastSeenAt field if non-nil, zero value otherwise.
 
-### GetIdOk
+### GetLastSeenAtOk
 
-`func (o *ItemsInner) GetIdOk() (*ItemsInnerId, bool)`
+`func (o *ItemsInner) GetLastSeenAtOk() (*string, bool)`
 
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+GetLastSeenAtOk returns a tuple with the LastSeenAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetId
+### SetLastSeenAt
 
-`func (o *ItemsInner) SetId(v ItemsInnerId)`
+`func (o *ItemsInner) SetLastSeenAt(v string)`
 
-SetId sets Id field to given value.
+SetLastSeenAt sets LastSeenAt field to given value.
 
+### HasLastSeenAt
 
-### GetAccessPolicyId
+`func (o *ItemsInner) HasLastSeenAt() bool`
 
-`func (o *ItemsInner) GetAccessPolicyId() string`
-
-GetAccessPolicyId returns the AccessPolicyId field if non-nil, zero value otherwise.
-
-### GetAccessPolicyIdOk
-
-`func (o *ItemsInner) GetAccessPolicyIdOk() (*string, bool)`
-
-GetAccessPolicyIdOk returns a tuple with the AccessPolicyId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessPolicyId
-
-`func (o *ItemsInner) SetAccessPolicyId(v string)`
-
-SetAccessPolicyId sets AccessPolicyId field to given value.
-
-
-### GetOrgId
-
-`func (o *ItemsInner) GetOrgId() float32`
-
-GetOrgId returns the OrgId field if non-nil, zero value otherwise.
-
-### GetOrgIdOk
-
-`func (o *ItemsInner) GetOrgIdOk() (*float32, bool)`
-
-GetOrgIdOk returns a tuple with the OrgId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOrgId
-
-`func (o *ItemsInner) SetOrgId(v float32)`
-
-SetOrgId sets OrgId field to given value.
-
-
-### GetOrgSlug
-
-`func (o *ItemsInner) GetOrgSlug() string`
-
-GetOrgSlug returns the OrgSlug field if non-nil, zero value otherwise.
-
-### GetOrgSlugOk
-
-`func (o *ItemsInner) GetOrgSlugOk() (*string, bool)`
-
-GetOrgSlugOk returns a tuple with the OrgSlug field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOrgSlug
-
-`func (o *ItemsInner) SetOrgSlug(v string)`
-
-SetOrgSlug sets OrgSlug field to given value.
-
-
-### GetOrgName
-
-`func (o *ItemsInner) GetOrgName() string`
-
-GetOrgName returns the OrgName field if non-nil, zero value otherwise.
-
-### GetOrgNameOk
-
-`func (o *ItemsInner) GetOrgNameOk() (*string, bool)`
-
-GetOrgNameOk returns a tuple with the OrgName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOrgName
-
-`func (o *ItemsInner) SetOrgName(v string)`
-
-SetOrgName sets OrgName field to given value.
-
-
-### GetInstanceId
-
-`func (o *ItemsInner) GetInstanceId() float32`
-
-GetInstanceId returns the InstanceId field if non-nil, zero value otherwise.
-
-### GetInstanceIdOk
-
-`func (o *ItemsInner) GetInstanceIdOk() (*float32, bool)`
-
-GetInstanceIdOk returns a tuple with the InstanceId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInstanceId
-
-`func (o *ItemsInner) SetInstanceId(v float32)`
-
-SetInstanceId sets InstanceId field to given value.
-
-
-### SetInstanceIdNil
-
-`func (o *ItemsInner) SetInstanceIdNil(b bool)`
-
- SetInstanceIdNil sets the value for InstanceId to be an explicit nil
-
-### UnsetInstanceId
-`func (o *ItemsInner) UnsetInstanceId()`
-
-UnsetInstanceId ensures that no value is present for InstanceId, not even an explicit nil
-### GetName
-
-`func (o *ItemsInner) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *ItemsInner) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *ItemsInner) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
-### GetRole
-
-`func (o *ItemsInner) GetRole() string`
-
-GetRole returns the Role field if non-nil, zero value otherwise.
-
-### GetRoleOk
-
-`func (o *ItemsInner) GetRoleOk() (*string, bool)`
-
-GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRole
-
-`func (o *ItemsInner) SetRole(v string)`
-
-SetRole sets Role field to given value.
-
+HasLastSeenAt returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
@@ -247,89 +98,124 @@ and a boolean to check if the value has been set.
 SetUpdatedAt sets UpdatedAt field to given value.
 
 
-### SetUpdatedAtNil
+### GetEmail
 
-`func (o *ItemsInner) SetUpdatedAtNil(b bool)`
+`func (o *ItemsInner) GetEmail() string`
 
- SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
+GetEmail returns the Email field if non-nil, zero value otherwise.
 
-### UnsetUpdatedAt
-`func (o *ItemsInner) UnsetUpdatedAt()`
+### GetEmailOk
 
-UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
-### GetFirstUsed
+`func (o *ItemsInner) GetEmailOk() (*string, bool)`
 
-`func (o *ItemsInner) GetFirstUsed() string`
-
-GetFirstUsed returns the FirstUsed field if non-nil, zero value otherwise.
-
-### GetFirstUsedOk
-
-`func (o *ItemsInner) GetFirstUsedOk() (*string, bool)`
-
-GetFirstUsedOk returns a tuple with the FirstUsed field if it's non-nil, zero value otherwise
+GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFirstUsed
+### SetEmail
 
-`func (o *ItemsInner) SetFirstUsed(v string)`
+`func (o *ItemsInner) SetEmail(v string)`
 
-SetFirstUsed sets FirstUsed field to given value.
+SetEmail sets Email field to given value.
 
 
-### SetFirstUsedNil
+### GetLogin
 
-`func (o *ItemsInner) SetFirstUsedNil(b bool)`
+`func (o *ItemsInner) GetLogin() string`
 
- SetFirstUsedNil sets the value for FirstUsed to be an explicit nil
+GetLogin returns the Login field if non-nil, zero value otherwise.
 
-### UnsetFirstUsed
-`func (o *ItemsInner) UnsetFirstUsed()`
+### GetLoginOk
 
-UnsetFirstUsed ensures that no value is present for FirstUsed, not even an explicit nil
-### GetToken
+`func (o *ItemsInner) GetLoginOk() (*string, bool)`
 
-`func (o *ItemsInner) GetToken() string`
-
-GetToken returns the Token field if non-nil, zero value otherwise.
-
-### GetTokenOk
-
-`func (o *ItemsInner) GetTokenOk() (*string, bool)`
-
-GetTokenOk returns a tuple with the Token field if it's non-nil, zero value otherwise
+GetLoginOk returns a tuple with the Login field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetToken
+### SetLogin
 
-`func (o *ItemsInner) SetToken(v string)`
+`func (o *ItemsInner) SetLogin(v string)`
 
-SetToken sets Token field to given value.
+SetLogin sets Login field to given value.
 
-### HasToken
 
-`func (o *ItemsInner) HasToken() bool`
+### GetName
 
-HasToken returns a boolean if a field has been set.
+`func (o *ItemsInner) GetName() string`
 
-### GetLinks
+GetName returns the Name field if non-nil, zero value otherwise.
 
-`func (o *ItemsInner) GetLinks() []LinksInner`
+### GetNameOk
 
-GetLinks returns the Links field if non-nil, zero value otherwise.
+`func (o *ItemsInner) GetNameOk() (*string, bool)`
 
-### GetLinksOk
-
-`func (o *ItemsInner) GetLinksOk() (*[]LinksInner, bool)`
-
-GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLinks
+### SetName
 
-`func (o *ItemsInner) SetLinks(v []LinksInner)`
+`func (o *ItemsInner) SetName(v string)`
 
-SetLinks sets Links field to given value.
+SetName sets Name field to given value.
+
+
+### GetRole
+
+`func (o *ItemsInner) GetRole() string`
+
+GetRole returns the Role field if non-nil, zero value otherwise.
+
+### GetRoleOk
+
+`func (o *ItemsInner) GetRoleOk() (*string, bool)`
+
+GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRole
+
+`func (o *ItemsInner) SetRole(v string)`
+
+SetRole sets Role field to given value.
+
+
+### GetId
+
+`func (o *ItemsInner) GetId() float32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ItemsInner) GetIdOk() (*float32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ItemsInner) SetId(v float32)`
+
+SetId sets Id field to given value.
+
+
+### GetIsServiceAccount
+
+`func (o *ItemsInner) GetIsServiceAccount() bool`
+
+GetIsServiceAccount returns the IsServiceAccount field if non-nil, zero value otherwise.
+
+### GetIsServiceAccountOk
+
+`func (o *ItemsInner) GetIsServiceAccountOk() (*bool, bool)`
+
+GetIsServiceAccountOk returns a tuple with the IsServiceAccount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsServiceAccount
+
+`func (o *ItemsInner) SetIsServiceAccount(v bool)`
+
+SetIsServiceAccount sets IsServiceAccount field to given value.
 
 
 
