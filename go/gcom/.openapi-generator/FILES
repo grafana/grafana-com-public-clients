@@ -9,9 +9,11 @@ api_org_stack_regions.go
 api_orgs.go
 api_plugins.go
 api_stack_regions.go
+api_stacks.go
 api_tokens.go
 client.go
 configuration.go
+docs/APIListResponseStackRegionV1.md
 docs/AccessPoliciesConfig.md
 docs/AccessPolicyListResponse.md
 docs/AccesspoliciesAPI.md
@@ -45,6 +47,7 @@ docs/ErrorConflict.md
 docs/ErrorForbidden.md
 docs/ErrorInvalidCredentials.md
 docs/ErrorNotFound.md
+docs/ErrorPayload.md
 docs/ErrorServiceUnavailable.md
 docs/ExposedComponentsInner.md
 docs/ExtensionPointsInner.md
@@ -108,6 +111,7 @@ docs/OrgsAPI.md
 docs/Otlp.md
 docs/Otlp1.md
 docs/OtlpPrivateConnectivityInfo.md
+docs/PaginatedResponseStackV1.md
 docs/Pagination.md
 docs/Params.md
 docs/Params1.md
@@ -151,7 +155,15 @@ docs/RoutesInner.md
 docs/ScopesInner.md
 docs/ScreenshotsInner.md
 docs/SetsInner.md
+docs/StackCheckReadinessV1.md
+docs/StackCheckRequestV1.md
+docs/StackCheckV1.md
+docs/StackCreateRequestV1.md
+docs/StackRegionV1.md
 docs/StackRegionsAPI.md
+docs/StackUpdateRequestV1.md
+docs/StackV1.md
+docs/StacksAPI.md
 docs/Subscriptions.md
 docs/SubscriptionsAnyOf.md
 docs/SubscriptionsAnyOf1.md
@@ -174,6 +186,7 @@ model_api.go
 model_api_1.go
 model_api_1_any_of.go
 model_api_1_any_of_1.go
+model_api_list_response_stack_region_v1.go
 model_app_platform.go
 model_auth_access_policy.go
 model_auth_access_policy_attributes.go
@@ -197,6 +210,7 @@ model_error_conflict.go
 model_error_forbidden.go
 model_error_invalid_credentials.go
 model_error_not_found.go
+model_error_payload.go
 model_error_service_unavailable.go
 model_exposed_components_inner.go
 model_extension_points_inner.go
@@ -257,6 +271,7 @@ model_org_member_list_response.go
 model_otlp.go
 model_otlp_1.go
 model_otlp_private_connectivity_info.go
+model_paginated_response_stack_v1.go
 model_pagination.go
 model_params.go
 model_params_1.go
@@ -299,6 +314,13 @@ model_routes_inner.go
 model_scopes_inner.go
 model_screenshots_inner.go
 model_sets_inner.go
+model_stack_check_readiness_v1.go
+model_stack_check_request_v1.go
+model_stack_check_v1.go
+model_stack_create_request_v1.go
+model_stack_region_v1.go
+model_stack_update_request_v1.go
+model_stack_v1.go
 model_subscriptions.go
 model_subscriptions_any_of.go
 model_subscriptions_any_of_1.go
@@ -315,5 +337,6 @@ test/api_org_stack_regions_test.go
 test/api_orgs_test.go
 test/api_plugins_test.go
 test/api_stack_regions_test.go
+test/api_stacks_test.go
 test/api_tokens_test.go
 utils.go

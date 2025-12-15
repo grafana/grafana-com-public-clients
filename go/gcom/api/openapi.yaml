@@ -12,7 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-generated-at: 2025-12-09T09:03:29.903Z
+  x-commit-sha: 378a028
+  x-generated-at: 2025-12-15T20:54:30.824Z
 servers:
 - description: Main API server
   url: /api
@@ -3191,6 +3192,219 @@ paths:
       summary: Update a token
       tags:
       - tokens
+  /v1/stacks:
+    get:
+      operationId: listStacksV1
+      parameters:
+      - description: slug of the org to restrict the search to
+        explode: false
+        in: query
+        name: org
+        required: true
+        schema:
+          description: slug of the org to restrict the search to
+          type: string
+        style: form
+      - description: page to retrieve
+        explode: false
+        in: query
+        name: page
+        required: true
+        schema:
+          default: 1
+          description: page to retrieve
+          format: int64
+          type: integer
+        style: form
+      - description: page size to retrieve
+        explode: false
+        in: query
+        name: pageSize
+        required: true
+        schema:
+          default: 10
+          description: page size to retrieve
+          format: int64
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponseStackV1'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      tags:
+      - stacks
+    post:
+      operationId: createStackV1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StackCreateRequestV1'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StackV1'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      tags:
+      - stacks
+  /v1/stacks/checkUrl:
+    post:
+      operationId: checkStackSlugV1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StackCheckRequestV1'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StackCheckV1'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      tags:
+      - stacks
+  /v1/stacks/{idOrSlug}:
+    delete:
+      operationId: deleteStackV1
+      parameters:
+      - description: id of the stack to delete
+        explode: false
+        in: path
+        name: idOrSlug
+        required: true
+        schema:
+          description: id of the stack to delete
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StackV1'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      tags:
+      - stacks
+    get:
+      operationId: getStackV1
+      parameters:
+      - description: id of the stack to get
+        explode: false
+        in: path
+        name: idOrSlug
+        required: true
+        schema:
+          description: id of the stack to get
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StackV1'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      tags:
+      - stacks
+    post:
+      operationId: updateStackV1
+      parameters:
+      - description: id of the stack to update
+        explode: false
+        in: path
+        name: idOrSlug
+        required: true
+        schema:
+          description: id of the stack to update
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StackUpdateRequestV1'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StackV1'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      tags:
+      - stacks
+  /v1/stacks/{idOrSlug}/readiness:
+    get:
+      operationId: checkStackReadinessV1
+      parameters:
+      - description: id of the stack to check readiness
+        explode: false
+        in: path
+        name: idOrSlug
+        required: true
+        schema:
+          description: id of the stack to check readiness
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StackCheckReadinessV1'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      tags:
+      - stacks
 components:
   schemas:
     ErrorServiceUnavailable:
@@ -5945,6 +6159,318 @@ components:
           type: array
       required:
       - items
+      type: object
+    APIListResponseStackRegionV1:
+      additionalProperties: false
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/StackRegionV1'
+          nullable: true
+          type: array
+      required:
+      - items
+      type: object
+    ErrorPayload:
+      additionalProperties: false
+      example:
+        code: code
+        requestId: requestId
+        message: message
+        statusCode: 7
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        requestId:
+          type: string
+        statusCode:
+          format: int64
+          type: integer
+      required:
+      - code
+      - message
+      - requestId
+      - statusCode
+      type: object
+    PaginatedResponseStackV1:
+      additionalProperties: false
+      example:
+        total: 2
+        pages: 5
+        pageSize: 5
+        page: 1
+        items:
+        - orgSlug: orgSlug
+          deleteProtection: true
+          name: name
+          description: description
+          id: 0
+          region: region
+          orgId: 6
+          slug: slug
+          url: url
+          labels:
+            key: labels
+        - orgSlug: orgSlug
+          deleteProtection: true
+          name: name
+          description: description
+          id: 0
+          region: region
+          orgId: 6
+          slug: slug
+          url: url
+          labels:
+            key: labels
+      properties:
+        items:
+          description: items requested for the current page
+          items:
+            $ref: '#/components/schemas/StackV1'
+          nullable: true
+          type: array
+        page:
+          description: index of the current page (starting on 1)
+          format: int64
+          type: integer
+        pageSize:
+          description: applied page size
+          format: int64
+          type: integer
+        pages:
+          description: number of pages
+          format: int64
+          type: integer
+        total:
+          description: total of amount of items matching the request
+          format: int64
+          type: integer
+      required:
+      - items
+      - page
+      - pageSize
+      - pages
+      - total
+      type: object
+    StackCheckReadinessV1:
+      additionalProperties: false
+      example:
+        ready: true
+      properties:
+        ready:
+          description: "true if the stack can be used already, false otherwise"
+          type: boolean
+      required:
+      - ready
+      type: object
+    StackCheckRequestV1:
+      additionalProperties: false
+      example:
+        url: url
+      properties:
+        url:
+          description: url for the stack
+          type: string
+      required:
+      - url
+      type: object
+    StackCheckV1:
+      additionalProperties: false
+      example:
+        slug: slug
+        url: url
+      properties:
+        slug:
+          description: slug of the stack
+          type: string
+        url:
+          description: url for the stack
+          type: string
+      required:
+      - slug
+      - url
+      type: object
+    StackCreateRequestV1:
+      additionalProperties: false
+      example:
+        org: org
+        plugins:
+        - plugins
+        - plugins
+        deleteProtection: true
+        name: name
+        description: description
+        region: region
+        slug: slug
+        url: url
+        labels:
+          key: labels
+      properties:
+        deleteProtection:
+          default: true
+          description: protection active or not for the stack
+          type: boolean
+        description:
+          description: description of the stack
+          nullable: true
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          description: labels to add to the stack
+          type: object
+        name:
+          description: of the stack
+          type: string
+        org:
+          description: org owning the stack
+          type: string
+        plugins:
+          description: plugins to install to the stack
+          items:
+            type: string
+          nullable: true
+          type: array
+        region:
+          description: region of the stack
+          type: string
+        slug:
+          description: slug of the stack
+          type: string
+        url:
+          description: url for the stack
+          nullable: true
+          type: string
+      required:
+      - name
+      - org
+      - region
+      - slug
+      type: object
+    StackRegionV1:
+      additionalProperties: false
+      properties:
+        description:
+          nullable: true
+          type: string
+        id:
+          description: id of the region
+          format: int64
+          type: integer
+        name:
+          type: string
+        provider:
+          type: string
+        slug:
+          description: slug of the region
+          type: string
+      required:
+      - description
+      - id
+      - name
+      - provider
+      - slug
+      type: object
+    StackUpdateRequestV1:
+      additionalProperties: false
+      example:
+        deleteProtection: true
+        name: name
+        description: description
+        slug: slug
+        url: url
+        labels:
+          key: labels
+      properties:
+        deleteProtection:
+          description: protection active or not for the stack
+          nullable: true
+          type: boolean
+        description:
+          description: description of the stack
+          nullable: true
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          description: labels to add to the stack
+          type: object
+        name:
+          description: of the stack
+          nullable: true
+          type: string
+        slug:
+          description: slug of the stack
+          nullable: true
+          type: string
+        url:
+          description: url for the stack
+          nullable: true
+          type: string
+      type: object
+    StackV1:
+      additionalProperties: false
+      example:
+        orgSlug: orgSlug
+        deleteProtection: true
+        name: name
+        description: description
+        id: 0
+        region: region
+        orgId: 6
+        slug: slug
+        url: url
+        labels:
+          key: labels
+      properties:
+        deleteProtection:
+          description: protection active or not for the stack
+          type: boolean
+        description:
+          description: description of the stack
+          nullable: true
+          type: string
+        id:
+          description: id of the stack
+          format: int64
+          type: integer
+        labels:
+          additionalProperties:
+            type: string
+          description: labels to add to the stack
+          type: object
+        name:
+          description: of the stack
+          type: string
+        orgId:
+          description: id of the org
+          format: int64
+          type: integer
+        orgSlug:
+          description: org owning the stack
+          type: string
+        region:
+          description: region of the stack
+          type: string
+        slug:
+          description: slug of the stack
+          type: string
+        url:
+          description: url for the stack
+          type: string
+      required:
+      - deleteProtection
+      - description
+      - id
+      - labels
+      - name
+      - orgId
+      - orgSlug
+      - region
+      - slug
+      - url
       type: object
     FormattedApiApiKey:
       properties:
