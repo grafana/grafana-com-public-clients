@@ -48,19 +48,13 @@ type APIClient struct {
 
 	// API Services
 
-	AccesspoliciesAPI *AccesspoliciesAPIService
-
-	InstancesAPI *InstancesAPIService
-
+	AccesspoliciesAPI  *AccesspoliciesAPIService
+	InstancesAPI       *InstancesAPIService
 	OrgStackRegionsAPI *OrgStackRegionsAPIService
-
-	OrgsAPI *OrgsAPIService
-
-	PluginsAPI *PluginsAPIService
-
-	StackRegionsAPI *StackRegionsAPIService
-
-	TokensAPI *TokensAPIService
+	OrgsAPI            *OrgsAPIService
+	PluginsAPI         *PluginsAPIService
+	StackRegionsAPI    *StackRegionsAPIService
+	TokensAPI          *TokensAPIService
 }
 
 type service struct {
