@@ -128,6 +128,13 @@ Class | Method | HTTP request | Description
 *PluginsAPI* | [**GetPlugin**](docs/PluginsAPI.md#getplugin) | **Get** /plugins/{slug} | Fetches a plugin by slug or id
 *StackRegionsAPI* | [**GetClosestStackRegion**](docs/StackRegionsAPI.md#getcloseststackregion) | **Get** /stack-regions/closest | 
 *StackRegionsAPI* | [**GetStackRegions**](docs/StackRegionsAPI.md#getstackregions) | **Get** /stack-regions | 
+*StacksAPI* | [**CheckStackReadinessV1**](docs/StacksAPI.md#checkstackreadinessv1) | **Get** /v1/stacks/{idOrSlug}/readiness | 
+*StacksAPI* | [**CheckStackSlugV1**](docs/StacksAPI.md#checkstackslugv1) | **Post** /v1/stacks/checkUrl | 
+*StacksAPI* | [**CreateStackV1**](docs/StacksAPI.md#createstackv1) | **Post** /v1/stacks | 
+*StacksAPI* | [**DeleteStackV1**](docs/StacksAPI.md#deletestackv1) | **Delete** /v1/stacks/{idOrSlug} | 
+*StacksAPI* | [**GetStackV1**](docs/StacksAPI.md#getstackv1) | **Get** /v1/stacks/{idOrSlug} | 
+*StacksAPI* | [**ListStacksV1**](docs/StacksAPI.md#liststacksv1) | **Get** /v1/stacks | 
+*StacksAPI* | [**UpdateStackV1**](docs/StacksAPI.md#updatestackv1) | **Post** /v1/stacks/{idOrSlug} | 
 *TokensAPI* | [**DeleteToken**](docs/TokensAPI.md#deletetoken) | **Delete** /v1/tokens/{id} | Delete a token
 *TokensAPI* | [**GetToken**](docs/TokensAPI.md#gettoken) | **Get** /v1/tokens/{id} | Get info for a specific token
 *TokensAPI* | [**GetTokens**](docs/TokensAPI.md#gettokens) | **Get** /v1/tokens | Get a list of tokens
@@ -137,6 +144,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [APIListResponseStackRegionV1](docs/APIListResponseStackRegionV1.md)
  - [AccessPoliciesConfig](docs/AccessPoliciesConfig.md)
  - [AccessPolicyListResponse](docs/AccessPolicyListResponse.md)
  - [AddedComponentsInner](docs/AddedComponentsInner.md)
@@ -169,6 +177,7 @@ Class | Method | HTTP request | Description
  - [ErrorForbidden](docs/ErrorForbidden.md)
  - [ErrorInvalidCredentials](docs/ErrorInvalidCredentials.md)
  - [ErrorNotFound](docs/ErrorNotFound.md)
+ - [ErrorPayload](docs/ErrorPayload.md)
  - [ErrorServiceUnavailable](docs/ErrorServiceUnavailable.md)
  - [ExposedComponentsInner](docs/ExposedComponentsInner.md)
  - [ExtensionPointsInner](docs/ExtensionPointsInner.md)
@@ -229,6 +238,7 @@ Class | Method | HTTP request | Description
  - [Otlp](docs/Otlp.md)
  - [Otlp1](docs/Otlp1.md)
  - [OtlpPrivateConnectivityInfo](docs/OtlpPrivateConnectivityInfo.md)
+ - [PaginatedResponseStackV1](docs/PaginatedResponseStackV1.md)
  - [Pagination](docs/Pagination.md)
  - [Params](docs/Params.md)
  - [Params1](docs/Params1.md)
@@ -271,6 +281,13 @@ Class | Method | HTTP request | Description
  - [ScopesInner](docs/ScopesInner.md)
  - [ScreenshotsInner](docs/ScreenshotsInner.md)
  - [SetsInner](docs/SetsInner.md)
+ - [StackCheckReadinessV1](docs/StackCheckReadinessV1.md)
+ - [StackCheckRequestV1](docs/StackCheckRequestV1.md)
+ - [StackCheckV1](docs/StackCheckV1.md)
+ - [StackCreateRequestV1](docs/StackCreateRequestV1.md)
+ - [StackRegionV1](docs/StackRegionV1.md)
+ - [StackUpdateRequestV1](docs/StackUpdateRequestV1.md)
+ - [StackV1](docs/StackV1.md)
  - [Subscriptions](docs/Subscriptions.md)
  - [SubscriptionsAnyOf](docs/SubscriptionsAnyOf.md)
  - [SubscriptionsAnyOf1](docs/SubscriptionsAnyOf1.md)
