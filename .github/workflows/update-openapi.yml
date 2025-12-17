@@ -1,0 +1,56 @@
+name: Update openapi spec
+
+on:
+  workflow_call:
+# FIXME: uncomment after testing it manually
+#  schedule:
+#    - cron: "0 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Clone
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+      - name: Generate GitHub App Token
+        id: generate-token
+        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+        with:
+          app-id: ${{ env.GITHUB_APP_ID }}
+          private-key: ${{ env.GITHUB_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: |
+            grafana-com-public-clients
+      - name: Download OpenAPI spec
+        run: |
+          wget https://grafana.com/api/openapi.json -O openapi.json
+      - name: Generate Client
+        uses: grafana/shared-workflows/actions/generate-openapi-clients@081a366728379fd0426b9cfef190e9a21c2d5418
+        with:
+          package-name: gcom
+          spec-path: openapi.json
+          modify-spec-script: .github/workflows/modify-spec.sh
+          commit-changes: false
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8.0.0
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
+          branch: updater/update-openapi-token
+          sign-commits: true
+          commit-message: |
+            Update openapi spec from grafana.com
+          title: |
+            Update openapi spec from grafana.com
+          body: |
+            https://grafana.com/api/openapi.json spec has changed.
+          add-paths: |
+            openapi.json
