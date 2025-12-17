@@ -54,3 +54,4 @@ jobs:
             https://grafana.com/api/openapi.json spec has changed.
           add-paths: |
             openapi.json
+            go/
