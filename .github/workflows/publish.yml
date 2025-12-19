@@ -28,9 +28,6 @@ jobs:
           spec-path: openapi.json
           modify-spec-script: .github/workflows/modify-spec.sh
           commit-message: "Updating generated clients after openapi change"
-          commit-author: "grafana-com[bot] <141460161+grafana-com[bot]@users.noreply.github.com>"
-          commit-user-name: "grafana-com[bot]"
-          commit-user-email: "141460161+grafana-com[bot]@users.noreply.github.com"
         env:
           REPO_NAME: grafana-com-public-clients
 
