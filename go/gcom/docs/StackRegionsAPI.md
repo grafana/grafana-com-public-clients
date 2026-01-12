@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## GetStackRegions
 
-> GetStackRegions200Response GetStackRegions(ctx).CountryCode(countryCode).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).OrgId(orgId).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
+> GetStackRegions200Response GetStackRegions(ctx).CountryCode(countryCode).Direction(direction).Id(id).IdIn(idIn).Labels(labels).OrderBy(orderBy).OrgId(orgId).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
 
 
 
@@ -98,6 +98,7 @@ func main() {
 	direction := "direction_example" // string |  (optional)
 	id := int32(56) // int32 |  (optional)
 	idIn := []int32{int32(123)} // []int32 |  (optional)
+	labels := []string{"Inner_example"} // []string |  (optional)
 	orderBy := "orderBy_example" // string |  (optional)
 	orgId := int32(56) // int32 |  (optional)
 	provider := "provider_example" // string |  (optional)
@@ -107,7 +108,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StackRegionsAPI.GetStackRegions(context.Background()).CountryCode(countryCode).Direction(direction).Id(id).IdIn(idIn).OrderBy(orderBy).OrgId(orgId).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
+	resp, r, err := apiClient.StackRegionsAPI.GetStackRegions(context.Background()).CountryCode(countryCode).Direction(direction).Id(id).IdIn(idIn).Labels(labels).OrderBy(orderBy).OrgId(orgId).Provider(provider).ProviderRegion(providerRegion).Slug(slug).SlugIn(slugIn).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StackRegionsAPI.GetStackRegions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -132,6 +133,7 @@ Name | Type | Description  | Notes
  **direction** | **string** |  | 
  **id** | **int32** |  | 
  **idIn** | **[]int32** |  | 
+ **labels** | **[]string** |  | 
  **orderBy** | **string** |  | 
  **orgId** | **int32** |  | 
  **provider** | **string** |  | 

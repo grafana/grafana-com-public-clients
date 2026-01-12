@@ -177,6 +177,7 @@ type ApiGetStackRegionsRequest struct {
 	direction      *string
 	id             *int32
 	idIn           *[]int32
+	labels         *[]string
 	orderBy        *string
 	orgId          *int32
 	provider       *string
@@ -202,6 +203,11 @@ func (r ApiGetStackRegionsRequest) Id(id int32) ApiGetStackRegionsRequest {
 
 func (r ApiGetStackRegionsRequest) IdIn(idIn []int32) ApiGetStackRegionsRequest {
 	r.idIn = &idIn
+	return r
+}
+
+func (r ApiGetStackRegionsRequest) Labels(labels []string) ApiGetStackRegionsRequest {
+	r.labels = &labels
 	return r
 }
 
@@ -292,6 +298,17 @@ func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequ
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", t, "multi")
+		}
+	}
+	if r.labels != nil {
+		t := *r.labels
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "labels", s.Index(i).Interface(), "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "labels", t, "multi")
 		}
 	}
 	if r.orderBy != nil {
