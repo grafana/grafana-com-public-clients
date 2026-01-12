@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 378a028
-  x-generated-at: 2025-12-15T20:54:30.824Z
+  x-commit-sha: 151dca2
+  x-generated-at: 2026-01-09T18:22:34.314Z
 servers:
 - description: Main API server
   url: /api
@@ -2256,6 +2256,15 @@ paths:
         schema:
           items:
             type: integer
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: labels
+        required: false
+        schema:
+          items:
+            type: string
           type: array
         style: form
       - explode: true
@@ -10344,6 +10353,9 @@ components:
         readyForStacks:
           title: readyForStacks
           type: boolean
+        labels:
+          title: labels
+          type: object
         id:
           title: id
           type: number

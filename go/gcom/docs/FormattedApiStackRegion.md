@@ -74,6 +74,7 @@ Name | Type | Description | Notes
 **CountryCode** | Pointer to **string** |  | [optional] 
 **Complete** | **bool** |  | 
 **ReadyForStacks** | **bool** |  | 
+**Labels** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -1538,6 +1539,31 @@ and a boolean to check if the value has been set.
 
 SetReadyForStacks sets ReadyForStacks field to given value.
 
+
+### GetLabels
+
+`func (o *FormattedApiStackRegion) GetLabels() map[string]interface{}`
+
+GetLabels returns the Labels field if non-nil, zero value otherwise.
+
+### GetLabelsOk
+
+`func (o *FormattedApiStackRegion) GetLabelsOk() (*map[string]interface{}, bool)`
+
+GetLabelsOk returns a tuple with the Labels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLabels
+
+`func (o *FormattedApiStackRegion) SetLabels(v map[string]interface{})`
+
+SetLabels sets Labels field to given value.
+
+### HasLabels
+
+`func (o *FormattedApiStackRegion) HasLabels() bool`
+
+HasLabels returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

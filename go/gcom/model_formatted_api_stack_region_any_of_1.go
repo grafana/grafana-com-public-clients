@@ -78,6 +78,7 @@ type FormattedApiStackRegionAnyOf1 struct {
 	CountryCode                 *string                     `json:"countryCode,omitempty"`
 	Complete                    bool                        `json:"complete"`
 	ReadyForStacks              bool                        `json:"readyForStacks"`
+	Labels                      map[string]interface{}      `json:"labels,omitempty"`
 	Id                          float32                     `json:"id"`
 	Status                      string                      `json:"status"`
 	Visibility                  string                      `json:"visibility"`
@@ -1631,6 +1632,38 @@ func (o *FormattedApiStackRegionAnyOf1) SetReadyForStacks(v bool) {
 	o.ReadyForStacks = v
 }
 
+// GetLabels returns the Labels field value if set, zero value otherwise.
+func (o *FormattedApiStackRegionAnyOf1) GetLabels() map[string]interface{} {
+	if o == nil || IsNil(o.Labels) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Labels
+}
+
+// GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetLabelsOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Labels) {
+		return map[string]interface{}{}, false
+	}
+	return o.Labels, true
+}
+
+// HasLabels returns a boolean if a field has been set.
+func (o *FormattedApiStackRegionAnyOf1) HasLabels() bool {
+	if o != nil && !IsNil(o.Labels) {
+		return true
+	}
+
+	return false
+}
+
+// SetLabels gets a reference to the given map[string]interface{} and assigns it to the Labels field.
+func (o *FormattedApiStackRegionAnyOf1) SetLabels(v map[string]interface{}) {
+	o.Labels = v
+}
+
 // GetId returns the Id field value
 func (o *FormattedApiStackRegionAnyOf1) GetId() float32 {
 	if o == nil {
@@ -1972,6 +2005,9 @@ func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["complete"] = o.Complete
 	toSerialize["readyForStacks"] = o.ReadyForStacks
+	if !IsNil(o.Labels) {
+		toSerialize["labels"] = o.Labels
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["status"] = o.Status
 	toSerialize["visibility"] = o.Visibility
@@ -2072,6 +2108,7 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "countryCode")
 		delete(additionalProperties, "complete")
 		delete(additionalProperties, "readyForStacks")
+		delete(additionalProperties, "labels")
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "visibility")
