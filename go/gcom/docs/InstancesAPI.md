@@ -46,7 +46,7 @@ import (
 
 func main() {
 	instanceId := "instanceId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -76,7 +76,7 @@ Other parameters are passed through a pointer to a apiDeleteInstanceRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
 
 ### Return type
 
@@ -117,7 +117,7 @@ import (
 func main() {
 	instanceId := "instanceId_example" // string | 
 	pluginSlugOrId := "pluginSlugOrId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	noRestart := true // bool |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **noRestart** | **bool** |  | 
 
 ### Return type
@@ -192,7 +192,7 @@ import (
 func main() {
 	instanceId := "instanceId_example" // string | 
 	serviceAccountId := "serviceAccountId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
 
 ### Return type
 
@@ -264,7 +264,7 @@ func main() {
 	instanceId := "instanceId_example" // string | 
 	serviceAccountId := "serviceAccountId_example" // string | 
 	tokenId := "tokenId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
 
 ### Return type
 
@@ -1035,7 +1035,7 @@ import (
 
 func main() {
 	instanceId := "instanceId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postInstanceRequest := *openapiclient.NewPostInstanceRequest() // PostInstanceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -1066,7 +1066,7 @@ Other parameters are passed through a pointer to a apiPostInstanceRequest struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postInstanceRequest** | [**PostInstanceRequest**](PostInstanceRequest.md) |  | 
 
 ### Return type
@@ -1108,7 +1108,7 @@ import (
 func main() {
 	instanceId := "instanceId_example" // string | 
 	pluginSlugOrId := "pluginSlugOrId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postInstancePluginRequest := *openapiclient.NewPostInstancePluginRequest() // PostInstancePluginRequest | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -1141,7 +1141,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postInstancePluginRequest** | [**PostInstancePluginRequest**](PostInstancePluginRequest.md) |  | 
 
 ### Return type
@@ -1182,7 +1182,7 @@ import (
 
 func main() {
 	instanceId := "instanceId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postInstancePluginsRequest := *openapiclient.NewPostInstancePluginsRequest("Plugin_example") // PostInstancePluginsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -1213,7 +1213,7 @@ Other parameters are passed through a pointer to a apiPostInstancePluginsRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postInstancePluginsRequest** | [**PostInstancePluginsRequest**](PostInstancePluginsRequest.md) |  | 
 
 ### Return type
@@ -1255,7 +1255,7 @@ import (
 func main() {
 	instanceId := "instanceId_example" // string | 
 	serviceAccountId := "serviceAccountId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postInstanceServiceAccountTokensRequest := *openapiclient.NewPostInstanceServiceAccountTokensRequest("Name_example") // PostInstanceServiceAccountTokensRequest | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -1288,7 +1288,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postInstanceServiceAccountTokensRequest** | [**PostInstanceServiceAccountTokensRequest**](PostInstanceServiceAccountTokensRequest.md) |  | 
 
 ### Return type
@@ -1329,7 +1329,7 @@ import (
 
 func main() {
 	instanceId := "instanceId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postInstanceServiceAccountsRequest := *openapiclient.NewPostInstanceServiceAccountsRequest("Name_example", "Role_example") // PostInstanceServiceAccountsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -1360,7 +1360,7 @@ Other parameters are passed through a pointer to a apiPostInstanceServiceAccount
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postInstanceServiceAccountsRequest** | [**PostInstanceServiceAccountsRequest**](PostInstanceServiceAccountsRequest.md) |  | 
 
 ### Return type
@@ -1400,7 +1400,7 @@ import (
 )
 
 func main() {
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postInstancesRequest := *openapiclient.NewPostInstancesRequest("Name_example") // PostInstancesRequest | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -1426,7 +1426,7 @@ Other parameters are passed through a pointer to a apiPostInstancesRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postInstancesRequest** | [**PostInstancesRequest**](PostInstancesRequest.md) |  | 
 
 ### Return type

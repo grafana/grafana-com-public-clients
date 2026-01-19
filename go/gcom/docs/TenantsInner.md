@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Type** | **string** |  | 
 **Id** | **float32** |  | 
 **Info** | Pointer to [**Info**](Info.md) |  | [optional] 
-**IpAllowListCNAME** | Pointer to **string** |  | [optional] 
+**IpAllowListCNAME** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -118,6 +118,16 @@ SetIpAllowListCNAME sets IpAllowListCNAME field to given value.
 
 HasIpAllowListCNAME returns a boolean if a field has been set.
 
+### SetIpAllowListCNAMENil
+
+`func (o *TenantsInner) SetIpAllowListCNAMENil(b bool)`
+
+ SetIpAllowListCNAMENil sets the value for IpAllowListCNAME to be an explicit nil
+
+### UnsetIpAllowListCNAME
+`func (o *TenantsInner) UnsetIpAllowListCNAME()`
+
+UnsetIpAllowListCNAME ensures that no value is present for IpAllowListCNAME, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

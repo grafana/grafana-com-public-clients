@@ -108,7 +108,7 @@ import (
 func main() {
 	slugOrId := "slugOrId_example" // string | 
 	usernameOrId := "usernameOrId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
 
 ### Return type
 
@@ -702,7 +702,7 @@ import (
 func main() {
 	slugOrId := "slugOrId_example" // string | 
 	usernameOrId := "usernameOrId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postOrgMemberRequest := *openapiclient.NewPostOrgMemberRequest() // PostOrgMemberRequest | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -735,7 +735,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postOrgMemberRequest** | [**PostOrgMemberRequest**](PostOrgMemberRequest.md) |  | 
 
 ### Return type
@@ -776,7 +776,7 @@ import (
 
 func main() {
 	slugOrId := "slugOrId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postOrgMembersRequest := *openapiclient.NewPostOrgMembersRequest("Username_example") // PostOrgMembersRequest | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -807,7 +807,7 @@ Other parameters are passed through a pointer to a apiPostOrgMembersRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postOrgMembersRequest** | [**PostOrgMembersRequest**](PostOrgMembersRequest.md) |  | 
 
 ### Return type
@@ -848,7 +848,7 @@ import (
 
 func main() {
 	slugOrId := "slugOrId_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	updateOrgSettingsRequest := *openapiclient.NewUpdateOrgSettingsRequest() // UpdateOrgSettingsRequest | 
 
 	configuration := openapiclient.NewConfiguration()
@@ -879,7 +879,7 @@ Other parameters are passed through a pointer to a apiUpdateOrgSettingsRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **updateOrgSettingsRequest** | [**UpdateOrgSettingsRequest**](UpdateOrgSettingsRequest.md) |  | 
 
 ### Return type

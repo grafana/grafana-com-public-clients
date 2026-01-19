@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 151dca2
-  x-generated-at: 2026-01-09T18:22:34.314Z
+  x-commit-sha: 749ebd6
+  x-generated-at: 2026-01-16T23:06:53.602Z
 servers:
 - description: Main API server
   url: /api
@@ -312,7 +312,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -371,7 +370,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       responses:
@@ -480,7 +478,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -545,7 +542,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -617,7 +613,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       responses:
@@ -783,7 +778,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -862,7 +856,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       responses:
@@ -1035,7 +1028,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -1113,7 +1105,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       responses:
@@ -1227,7 +1218,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -1843,7 +1833,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -1914,7 +1903,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       responses:
@@ -2024,7 +2012,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -2132,7 +2119,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -2508,7 +2494,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -2622,7 +2607,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       responses:
@@ -2748,7 +2732,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -2949,7 +2932,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -3022,7 +3004,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       responses:
@@ -3152,7 +3133,6 @@ paths:
         name: x-request-id
         required: true
         schema:
-          default: openapi-x-request-id
           type: string
         style: simple
       requestBody:
@@ -3916,6 +3896,7 @@ components:
         hmInstanceGraphiteCurrentUsage: 6.683562403749608
         hlInstanceCurrentUsage: 4.965218492984954
         dailyViewerCnt: 6.84685269835264
+        statusUpdatedAt: statusUpdatedAt
         hlInstanceId: 9.965781217890562
         agentManagementInstanceUrl: agentManagementInstanceUrl
         agentManagementInstanceName: agentManagementInstanceName
@@ -4335,6 +4316,10 @@ components:
         updatedBy:
           nullable: true
           title: updatedBy
+          type: string
+        statusUpdatedAt:
+          nullable: true
+          title: statusUpdatedAt
           type: string
         url:
           title: url
@@ -6013,7 +5998,7 @@ components:
         notes: notes
         description: description
         dimensionName: dimensionName
-        amountDue: 5.962133916683182
+        amountDue: 1.4658129805029452
         unit: unit
         orgRates: ""
         dimensionId: app-o11y
@@ -6058,7 +6043,7 @@ components:
           periodStart: periodStart
           isProrated: true
           periodEnd: periodEnd
-        includedUsage: 1.4658129805029452
+        includedUsage: 5.962133916683182
         periodStart: periodStart
         overage: 6.027456183070403
         periodEnd: periodEnd
@@ -6072,17 +6057,26 @@ components:
         description:
           title: description
           type: string
+        amountDue:
+          title: amountDue
+          type: number
         notes:
           title: notes
-          type: string
-        unit:
-          title: unit
           type: string
         includedUsage:
           title: includedUsage
           type: number
-        amountDue:
-          title: amountDue
+        unit:
+          title: unit
+          type: string
+        periodStart:
+          title: periodStart
+          type: string
+        periodEnd:
+          title: periodEnd
+          type: string
+        totalUsage:
+          title: totalUsage
           type: number
         dimensionId:
           enum:
@@ -6118,15 +6112,6 @@ components:
           type: string
         orgRates:
           title: orgRates
-        periodEnd:
-          title: periodEnd
-          type: string
-        periodStart:
-          title: periodStart
-          type: string
-        totalUsage:
-          title: totalUsage
-          type: number
         usages:
           items:
             $ref: '#/components/schemas/usages_inner'
@@ -6554,6 +6539,7 @@ components:
           hmInstanceGraphiteCurrentUsage: 6.683562403749608
           hlInstanceCurrentUsage: 4.965218492984954
           dailyViewerCnt: 6.84685269835264
+          statusUpdatedAt: statusUpdatedAt
           hlInstanceId: 9.965781217890562
           agentManagementInstanceUrl: agentManagementInstanceUrl
           agentManagementInstanceName: agentManagementInstanceName
@@ -6677,6 +6663,7 @@ components:
           hmInstanceGraphiteCurrentUsage: 6.683562403749608
           hlInstanceCurrentUsage: 4.965218492984954
           dailyViewerCnt: 6.84685269835264
+          statusUpdatedAt: statusUpdatedAt
           hlInstanceId: 9.965781217890562
           agentManagementInstanceUrl: agentManagementInstanceUrl
           agentManagementInstanceName: agentManagementInstanceName
@@ -7069,7 +7056,7 @@ components:
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 5.962133916683182
+          amountDue: 1.4658129805029452
           unit: unit
           orgRates: ""
           dimensionId: app-o11y
@@ -7114,14 +7101,14 @@ components:
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          includedUsage: 1.4658129805029452
+          includedUsage: 5.962133916683182
           periodStart: periodStart
           overage: 6.027456183070403
           periodEnd: periodEnd
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 5.962133916683182
+          amountDue: 1.4658129805029452
           unit: unit
           orgRates: ""
           dimensionId: app-o11y
@@ -7166,7 +7153,7 @@ components:
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          includedUsage: 1.4658129805029452
+          includedUsage: 5.962133916683182
           periodStart: periodStart
           overage: 6.027456183070403
           periodEnd: periodEnd
@@ -7958,6 +7945,7 @@ components:
         info:
           $ref: '#/components/schemas/info'
         ipAllowListCNAME:
+          nullable: true
           title: ipAllowListCNAME
           type: string
       required:
