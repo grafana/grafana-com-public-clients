@@ -19,10 +19,10 @@ var _ MappedNullable = &TenantsInner{}
 
 // TenantsInner struct for TenantsInner
 type TenantsInner struct {
-	Type                 string  `json:"type"`
-	Id                   float32 `json:"id"`
-	Info                 *Info   `json:"info,omitempty"`
-	IpAllowListCNAME     *string `json:"ipAllowListCNAME,omitempty"`
+	Type                 string         `json:"type"`
+	Id                   float32        `json:"id"`
+	Info                 *Info          `json:"info,omitempty"`
+	IpAllowListCNAME     NullableString `json:"ipAllowListCNAME,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -127,36 +127,47 @@ func (o *TenantsInner) SetInfo(v Info) {
 	o.Info = &v
 }
 
-// GetIpAllowListCNAME returns the IpAllowListCNAME field value if set, zero value otherwise.
+// GetIpAllowListCNAME returns the IpAllowListCNAME field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TenantsInner) GetIpAllowListCNAME() string {
-	if o == nil || IsNil(o.IpAllowListCNAME) {
+	if o == nil || IsNil(o.IpAllowListCNAME.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.IpAllowListCNAME
+	return *o.IpAllowListCNAME.Get()
 }
 
 // GetIpAllowListCNAMEOk returns a tuple with the IpAllowListCNAME field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TenantsInner) GetIpAllowListCNAMEOk() (*string, bool) {
-	if o == nil || IsNil(o.IpAllowListCNAME) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IpAllowListCNAME, true
+	return o.IpAllowListCNAME.Get(), o.IpAllowListCNAME.IsSet()
 }
 
 // HasIpAllowListCNAME returns a boolean if a field has been set.
 func (o *TenantsInner) HasIpAllowListCNAME() bool {
-	if o != nil && !IsNil(o.IpAllowListCNAME) {
+	if o != nil && o.IpAllowListCNAME.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIpAllowListCNAME gets a reference to the given string and assigns it to the IpAllowListCNAME field.
+// SetIpAllowListCNAME gets a reference to the given NullableString and assigns it to the IpAllowListCNAME field.
 func (o *TenantsInner) SetIpAllowListCNAME(v string) {
-	o.IpAllowListCNAME = &v
+	o.IpAllowListCNAME.Set(&v)
+}
+
+// SetIpAllowListCNAMENil sets the value for IpAllowListCNAME to be an explicit nil
+func (o *TenantsInner) SetIpAllowListCNAMENil() {
+	o.IpAllowListCNAME.Set(nil)
+}
+
+// UnsetIpAllowListCNAME ensures that no value is present for IpAllowListCNAME, not even an explicit nil
+func (o *TenantsInner) UnsetIpAllowListCNAME() {
+	o.IpAllowListCNAME.Unset()
 }
 
 func (o TenantsInner) MarshalJSON() ([]byte, error) {
@@ -174,8 +185,8 @@ func (o TenantsInner) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Info) {
 		toSerialize["info"] = o.Info
 	}
-	if !IsNil(o.IpAllowListCNAME) {
-		toSerialize["ipAllowListCNAME"] = o.IpAllowListCNAME
+	if o.IpAllowListCNAME.IsSet() {
+		toSerialize["ipAllowListCNAME"] = o.IpAllowListCNAME.Get()
 	}
 
 	for key, value := range o.AdditionalProperties {

@@ -99,6 +99,7 @@ Name | Type | Description | Notes
 **TrialExpiresAt** | **NullableString** |  | 
 **UpdatedAt** | **NullableString** |  | 
 **UpdatedBy** | **NullableString** |  | 
+**StatusUpdatedAt** | Pointer to **NullableString** |  | [optional] 
 **Url** | **string** |  | 
 **UserQuota** | **float32** |  | 
 **Version** | **string** |  | 
@@ -2098,6 +2099,41 @@ SetUpdatedBy sets UpdatedBy field to given value.
 `func (o *FormattedApiInstance) UnsetUpdatedBy()`
 
 UnsetUpdatedBy ensures that no value is present for UpdatedBy, not even an explicit nil
+### GetStatusUpdatedAt
+
+`func (o *FormattedApiInstance) GetStatusUpdatedAt() string`
+
+GetStatusUpdatedAt returns the StatusUpdatedAt field if non-nil, zero value otherwise.
+
+### GetStatusUpdatedAtOk
+
+`func (o *FormattedApiInstance) GetStatusUpdatedAtOk() (*string, bool)`
+
+GetStatusUpdatedAtOk returns a tuple with the StatusUpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusUpdatedAt
+
+`func (o *FormattedApiInstance) SetStatusUpdatedAt(v string)`
+
+SetStatusUpdatedAt sets StatusUpdatedAt field to given value.
+
+### HasStatusUpdatedAt
+
+`func (o *FormattedApiInstance) HasStatusUpdatedAt() bool`
+
+HasStatusUpdatedAt returns a boolean if a field has been set.
+
+### SetStatusUpdatedAtNil
+
+`func (o *FormattedApiInstance) SetStatusUpdatedAtNil(b bool)`
+
+ SetStatusUpdatedAtNil sets the value for StatusUpdatedAt to be an explicit nil
+
+### UnsetStatusUpdatedAt
+`func (o *FormattedApiInstance) UnsetStatusUpdatedAt()`
+
+UnsetStatusUpdatedAt ensures that no value is present for StatusUpdatedAt, not even an explicit nil
 ### GetUrl
 
 `func (o *FormattedApiInstance) GetUrl() string`
