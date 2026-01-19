@@ -33,7 +33,7 @@ import (
 func main() {
 	id := "id_example" // string | 
 	region := "region_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	orgId := int32(56) // int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **region** | **string** |  | 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **orgId** | **int32** |  | 
 
 ### Return type
@@ -269,7 +269,7 @@ import (
 func main() {
 	id := "id_example" // string | 
 	region := "region_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postTokenRequest := *openapiclient.NewPostTokenRequest() // PostTokenRequest | 
 	orgId := int32(56) // int32 |  (optional)
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **region** | **string** |  | 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postTokenRequest** | [**PostTokenRequest**](PostTokenRequest.md) |  | 
  **orgId** | **int32** |  | 
 
@@ -344,7 +344,7 @@ import (
 
 func main() {
 	region := "region_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postTokensRequest := *openapiclient.NewPostTokensRequest("AccessPolicyId_example", "Name_example") // PostTokensRequest | 
 	orgId := int32(56) // int32 |  (optional)
 
@@ -372,7 +372,7 @@ Other parameters are passed through a pointer to a apiPostTokensRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **region** | **string** |  | 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postTokensRequest** | [**PostTokensRequest**](PostTokensRequest.md) |  | 
  **orgId** | **int32** |  | 
 

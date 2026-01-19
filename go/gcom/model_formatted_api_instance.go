@@ -114,6 +114,7 @@ type FormattedApiInstance struct {
 	TrialExpiresAt                    NullableString         `json:"trialExpiresAt"`
 	UpdatedAt                         NullableString         `json:"updatedAt"`
 	UpdatedBy                         NullableString         `json:"updatedBy"`
+	StatusUpdatedAt                   NullableString         `json:"statusUpdatedAt,omitempty"`
 	Url                               string                 `json:"url"`
 	UserQuota                         float32                `json:"userQuota"`
 	Version                           string                 `json:"version"`
@@ -2574,6 +2575,49 @@ func (o *FormattedApiInstance) SetUpdatedBy(v string) {
 	o.UpdatedBy.Set(&v)
 }
 
+// GetStatusUpdatedAt returns the StatusUpdatedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FormattedApiInstance) GetStatusUpdatedAt() string {
+	if o == nil || IsNil(o.StatusUpdatedAt.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.StatusUpdatedAt.Get()
+}
+
+// GetStatusUpdatedAtOk returns a tuple with the StatusUpdatedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiInstance) GetStatusUpdatedAtOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StatusUpdatedAt.Get(), o.StatusUpdatedAt.IsSet()
+}
+
+// HasStatusUpdatedAt returns a boolean if a field has been set.
+func (o *FormattedApiInstance) HasStatusUpdatedAt() bool {
+	if o != nil && o.StatusUpdatedAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusUpdatedAt gets a reference to the given NullableString and assigns it to the StatusUpdatedAt field.
+func (o *FormattedApiInstance) SetStatusUpdatedAt(v string) {
+	o.StatusUpdatedAt.Set(&v)
+}
+
+// SetStatusUpdatedAtNil sets the value for StatusUpdatedAt to be an explicit nil
+func (o *FormattedApiInstance) SetStatusUpdatedAtNil() {
+	o.StatusUpdatedAt.Set(nil)
+}
+
+// UnsetStatusUpdatedAt ensures that no value is present for StatusUpdatedAt, not even an explicit nil
+func (o *FormattedApiInstance) UnsetStatusUpdatedAt() {
+	o.StatusUpdatedAt.Unset()
+}
+
 // GetUrl returns the Url field value
 func (o *FormattedApiInstance) GetUrl() string {
 	if o == nil {
@@ -3275,6 +3319,9 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["trialExpiresAt"] = o.TrialExpiresAt.Get()
 	toSerialize["updatedAt"] = o.UpdatedAt.Get()
 	toSerialize["updatedBy"] = o.UpdatedBy.Get()
+	if o.StatusUpdatedAt.IsSet() {
+		toSerialize["statusUpdatedAt"] = o.StatusUpdatedAt.Get()
+	}
 	toSerialize["url"] = o.Url
 	toSerialize["userQuota"] = o.UserQuota
 	toSerialize["version"] = o.Version
@@ -3428,6 +3475,7 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "trialExpiresAt")
 		delete(additionalProperties, "updatedAt")
 		delete(additionalProperties, "updatedBy")
+		delete(additionalProperties, "statusUpdatedAt")
 		delete(additionalProperties, "url")
 		delete(additionalProperties, "userQuota")
 		delete(additionalProperties, "version")

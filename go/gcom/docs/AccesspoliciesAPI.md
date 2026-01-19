@@ -34,7 +34,7 @@ import (
 func main() {
 	id := "id_example" // string | 
 	region := "region_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	orgId := int32(56) // int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **region** | **string** |  | 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **orgId** | **int32** |  | 
 
 ### Return type
@@ -323,7 +323,7 @@ import (
 
 func main() {
 	region := "region_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postAccessPoliciesRequest := *openapiclient.NewPostAccessPoliciesRequest("Name_example", []openapiclient.PostAccessPoliciesRequestRealmsInner{*openapiclient.NewPostAccessPoliciesRequestRealmsInner("Identifier_example", "Type_example")}, []string{"Scopes_example"}) // PostAccessPoliciesRequest | 
 	orgId := int32(56) // int32 |  (optional)
 
@@ -351,7 +351,7 @@ Other parameters are passed through a pointer to a apiPostAccessPoliciesRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **region** | **string** |  | 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postAccessPoliciesRequest** | [**PostAccessPoliciesRequest**](PostAccessPoliciesRequest.md) |  | 
  **orgId** | **int32** |  | 
 
@@ -394,7 +394,7 @@ import (
 func main() {
 	id := "id_example" // string | 
 	region := "region_example" // string | 
-	xRequestId := "xRequestId_example" // string |  (default to "openapi-x-request-id")
+	xRequestId := "xRequestId_example" // string | 
 	postAccessPolicyRequest := *openapiclient.NewPostAccessPolicyRequest() // PostAccessPolicyRequest | 
 	orgId := int32(56) // int32 |  (optional)
 
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **region** | **string** |  | 
- **xRequestId** | **string** |  | [default to &quot;openapi-x-request-id&quot;]
+ **xRequestId** | **string** |  | 
  **postAccessPolicyRequest** | [**PostAccessPolicyRequest**](PostAccessPolicyRequest.md) |  | 
  **orgId** | **int32** |  | 
 
