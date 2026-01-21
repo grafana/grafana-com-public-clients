@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "5ac1778",
-    "x-generated-at": "2026-01-21T09:15:00.461Z"
+    "x-commit-sha": "67ae4a2",
+    "x-generated-at": "2026-01-21T09:49:44.382Z"
   },
   "servers": [
     {
@@ -9934,7 +9934,7 @@
                   "type": "object",
                   "properties": {
                     "path": {
-                      "description": "For data source plugins. The route path that is replaced by the route URL field when proxying the call.",
+                      "description": "For data source plugins. The route path that is replaced by the route URL field when proxying the call. **Warning**: Don't use an empty string (\"\").",
                       "type": "string",
                       "title": "path"
                     },
@@ -10081,7 +10081,10 @@
                       },
                       "title": "urlParams"
                     }
-                  }
+                  },
+                  "required": [
+                    "path"
+                  ]
                 },
                 "title": "routes"
               },
