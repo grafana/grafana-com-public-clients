@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "1789ab0",
-    "x-generated-at": "2026-01-22T08:16:09.037Z"
+    "x-commit-sha": "7b65992",
+    "x-generated-at": "2026-01-22T08:25:34.092Z"
   },
   "servers": [
     {
@@ -12069,6 +12069,70 @@
           "code",
           "message",
           "requestId"
+        ],
+        "type": "object"
+      },
+      "InternalStackCreateRequestV1": {
+        "additionalProperties": false,
+        "properties": {
+          "deleteProtection": {
+            "default": true,
+            "description": "protection active or not for the stack",
+            "type": "boolean"
+          },
+          "description": {
+            "description": "description of the stack",
+            "nullable": true,
+            "type": "string"
+          },
+          "labels": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "labels to add to the stack",
+            "type": "object"
+          },
+          "name": {
+            "description": "of the stack",
+            "type": "string"
+          },
+          "org": {
+            "description": "org owning the stack",
+            "type": "string"
+          },
+          "plugins": {
+            "description": "plugins to install to the stack",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "type": "array"
+          },
+          "region": {
+            "description": "region of the stack",
+            "type": "string"
+          },
+          "slug": {
+            "description": "slug of the stack",
+            "type": "string"
+          },
+          "trialExpiresAt": {
+            "description": "trial expiration date for the stack",
+            "format": "date-time",
+            "nullable": true,
+            "type": "string"
+          },
+          "url": {
+            "description": "url for the stack",
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "slug",
+          "name",
+          "region",
+          "org"
         ],
         "type": "object"
       },
