@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "7b1f7ac",
-    "x-generated-at": "2026-02-17T15:56:33.482Z"
+    "x-commit-sha": "d81d5f7",
+    "x-generated-at": "2026-02-17T17:02:29.736Z"
   },
   "servers": [
     {
@@ -3065,6 +3065,9 @@
                   "role": {
                     "type": "string"
                   },
+                  "security": {
+                    "type": "integer"
+                  },
                   "username": {
                     "type": "string"
                   }
@@ -3266,6 +3269,9 @@
                   },
                   "role": {
                     "type": "string"
+                  },
+                  "security": {
+                    "type": "integer"
                   }
                 }
               }
@@ -7443,6 +7449,10 @@
                   "type": "number",
                   "title": "billing"
                 },
+                "security": {
+                  "type": "number",
+                  "title": "security"
+                },
                 "createdBy": {
                   "type": "string",
                   "title": "createdBy"
@@ -7948,6 +7958,7 @@
                 "privacy",
                 "resellerId",
                 "role",
+                "security",
                 "status",
                 "subscriptions",
                 "updatedAt",
@@ -8076,6 +8087,10 @@
           "billing": {
             "type": "number",
             "title": "billing"
+          },
+          "security": {
+            "type": "number",
+            "title": "security"
           },
           "createdBy": {
             "type": "string",
@@ -8582,6 +8597,7 @@
           "privacy",
           "resellerId",
           "role",
+          "security",
           "status",
           "subscriptions",
           "updatedAt",
