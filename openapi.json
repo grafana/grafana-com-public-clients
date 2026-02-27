@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "ee58218",
-    "x-generated-at": "2026-02-27T15:31:59.346Z"
+    "x-commit-sha": "569ae2e",
+    "x-generated-at": "2026-02-27T16:29:18.180Z"
   },
   "servers": [
     {
@@ -3470,6 +3470,14 @@
                   },
                   "maxTokenExpirationDays": {
                     "type": "integer",
+                    "nullable": true
+                  },
+                  "mfaAdminRecoveryOnly": {
+                    "type": "boolean",
+                    "nullable": true
+                  },
+                  "mfaRequired": {
+                    "type": "boolean",
                     "nullable": true
                   }
                 }
@@ -8627,6 +8635,16 @@
           "maxTokenExpirationDays": {
             "type": "number",
             "title": "maxTokenExpirationDays",
+            "nullable": true
+          },
+          "mfaAdminRecoveryOnly": {
+            "type": "boolean",
+            "title": "mfaAdminRecoveryOnly",
+            "nullable": true
+          },
+          "mfaRequired": {
+            "type": "boolean",
+            "title": "mfaRequired",
             "nullable": true
           }
         }
