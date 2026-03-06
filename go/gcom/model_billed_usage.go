@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
 
 API version: public
 */
@@ -22,16 +22,16 @@ type BilledUsage struct {
 	Id                   float32       `json:"id"`
 	Overage              float32       `json:"overage"`
 	Description          string        `json:"description"`
-	AmountDue            float32       `json:"amountDue"`
 	Notes                string        `json:"notes"`
-	IncludedUsage        float32       `json:"includedUsage"`
 	Unit                 string        `json:"unit"`
-	PeriodStart          string        `json:"periodStart"`
-	PeriodEnd            string        `json:"periodEnd"`
-	TotalUsage           float32       `json:"totalUsage"`
+	IncludedUsage        float32       `json:"includedUsage"`
+	AmountDue            float32       `json:"amountDue"`
 	DimensionId          string        `json:"dimensionId"`
 	DimensionName        string        `json:"dimensionName"`
 	OrgRates             interface{}   `json:"orgRates"`
+	PeriodEnd            string        `json:"periodEnd"`
+	PeriodStart          string        `json:"periodStart"`
+	TotalUsage           float32       `json:"totalUsage"`
 	Usages               []UsagesInner `json:"usages"`
 	AdditionalProperties map[string]interface{}
 }
@@ -42,21 +42,21 @@ type _BilledUsage BilledUsage
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBilledUsage(id float32, overage float32, description string, amountDue float32, notes string, includedUsage float32, unit string, periodStart string, periodEnd string, totalUsage float32, dimensionId string, dimensionName string, orgRates interface{}, usages []UsagesInner) *BilledUsage {
+func NewBilledUsage(id float32, overage float32, description string, notes string, unit string, includedUsage float32, amountDue float32, dimensionId string, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner) *BilledUsage {
 	this := BilledUsage{}
 	this.Id = id
 	this.Overage = overage
 	this.Description = description
-	this.AmountDue = amountDue
 	this.Notes = notes
-	this.IncludedUsage = includedUsage
 	this.Unit = unit
-	this.PeriodStart = periodStart
-	this.PeriodEnd = periodEnd
-	this.TotalUsage = totalUsage
+	this.IncludedUsage = includedUsage
+	this.AmountDue = amountDue
 	this.DimensionId = dimensionId
 	this.DimensionName = dimensionName
 	this.OrgRates = orgRates
+	this.PeriodEnd = periodEnd
+	this.PeriodStart = periodStart
+	this.TotalUsage = totalUsage
 	this.Usages = usages
 	return &this
 }
@@ -141,30 +141,6 @@ func (o *BilledUsage) SetDescription(v string) {
 	o.Description = v
 }
 
-// GetAmountDue returns the AmountDue field value
-func (o *BilledUsage) GetAmountDue() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.AmountDue
-}
-
-// GetAmountDueOk returns a tuple with the AmountDue field value
-// and a boolean to check if the value has been set.
-func (o *BilledUsage) GetAmountDueOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AmountDue, true
-}
-
-// SetAmountDue sets field value
-func (o *BilledUsage) SetAmountDue(v float32) {
-	o.AmountDue = v
-}
-
 // GetNotes returns the Notes field value
 func (o *BilledUsage) GetNotes() string {
 	if o == nil {
@@ -187,30 +163,6 @@ func (o *BilledUsage) GetNotesOk() (*string, bool) {
 // SetNotes sets field value
 func (o *BilledUsage) SetNotes(v string) {
 	o.Notes = v
-}
-
-// GetIncludedUsage returns the IncludedUsage field value
-func (o *BilledUsage) GetIncludedUsage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.IncludedUsage
-}
-
-// GetIncludedUsageOk returns a tuple with the IncludedUsage field value
-// and a boolean to check if the value has been set.
-func (o *BilledUsage) GetIncludedUsageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IncludedUsage, true
-}
-
-// SetIncludedUsage sets field value
-func (o *BilledUsage) SetIncludedUsage(v float32) {
-	o.IncludedUsage = v
 }
 
 // GetUnit returns the Unit field value
@@ -237,76 +189,52 @@ func (o *BilledUsage) SetUnit(v string) {
 	o.Unit = v
 }
 
-// GetPeriodStart returns the PeriodStart field value
-func (o *BilledUsage) GetPeriodStart() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.PeriodStart
-}
-
-// GetPeriodStartOk returns a tuple with the PeriodStart field value
-// and a boolean to check if the value has been set.
-func (o *BilledUsage) GetPeriodStartOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PeriodStart, true
-}
-
-// SetPeriodStart sets field value
-func (o *BilledUsage) SetPeriodStart(v string) {
-	o.PeriodStart = v
-}
-
-// GetPeriodEnd returns the PeriodEnd field value
-func (o *BilledUsage) GetPeriodEnd() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.PeriodEnd
-}
-
-// GetPeriodEndOk returns a tuple with the PeriodEnd field value
-// and a boolean to check if the value has been set.
-func (o *BilledUsage) GetPeriodEndOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PeriodEnd, true
-}
-
-// SetPeriodEnd sets field value
-func (o *BilledUsage) SetPeriodEnd(v string) {
-	o.PeriodEnd = v
-}
-
-// GetTotalUsage returns the TotalUsage field value
-func (o *BilledUsage) GetTotalUsage() float32 {
+// GetIncludedUsage returns the IncludedUsage field value
+func (o *BilledUsage) GetIncludedUsage() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.TotalUsage
+	return o.IncludedUsage
 }
 
-// GetTotalUsageOk returns a tuple with the TotalUsage field value
+// GetIncludedUsageOk returns a tuple with the IncludedUsage field value
 // and a boolean to check if the value has been set.
-func (o *BilledUsage) GetTotalUsageOk() (*float32, bool) {
+func (o *BilledUsage) GetIncludedUsageOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TotalUsage, true
+	return &o.IncludedUsage, true
 }
 
-// SetTotalUsage sets field value
-func (o *BilledUsage) SetTotalUsage(v float32) {
-	o.TotalUsage = v
+// SetIncludedUsage sets field value
+func (o *BilledUsage) SetIncludedUsage(v float32) {
+	o.IncludedUsage = v
+}
+
+// GetAmountDue returns the AmountDue field value
+func (o *BilledUsage) GetAmountDue() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.AmountDue
+}
+
+// GetAmountDueOk returns a tuple with the AmountDue field value
+// and a boolean to check if the value has been set.
+func (o *BilledUsage) GetAmountDueOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AmountDue, true
+}
+
+// SetAmountDue sets field value
+func (o *BilledUsage) SetAmountDue(v float32) {
+	o.AmountDue = v
 }
 
 // GetDimensionId returns the DimensionId field value
@@ -383,6 +311,78 @@ func (o *BilledUsage) SetOrgRates(v interface{}) {
 	o.OrgRates = v
 }
 
+// GetPeriodEnd returns the PeriodEnd field value
+func (o *BilledUsage) GetPeriodEnd() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PeriodEnd
+}
+
+// GetPeriodEndOk returns a tuple with the PeriodEnd field value
+// and a boolean to check if the value has been set.
+func (o *BilledUsage) GetPeriodEndOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PeriodEnd, true
+}
+
+// SetPeriodEnd sets field value
+func (o *BilledUsage) SetPeriodEnd(v string) {
+	o.PeriodEnd = v
+}
+
+// GetPeriodStart returns the PeriodStart field value
+func (o *BilledUsage) GetPeriodStart() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PeriodStart
+}
+
+// GetPeriodStartOk returns a tuple with the PeriodStart field value
+// and a boolean to check if the value has been set.
+func (o *BilledUsage) GetPeriodStartOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PeriodStart, true
+}
+
+// SetPeriodStart sets field value
+func (o *BilledUsage) SetPeriodStart(v string) {
+	o.PeriodStart = v
+}
+
+// GetTotalUsage returns the TotalUsage field value
+func (o *BilledUsage) GetTotalUsage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.TotalUsage
+}
+
+// GetTotalUsageOk returns a tuple with the TotalUsage field value
+// and a boolean to check if the value has been set.
+func (o *BilledUsage) GetTotalUsageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalUsage, true
+}
+
+// SetTotalUsage sets field value
+func (o *BilledUsage) SetTotalUsage(v float32) {
+	o.TotalUsage = v
+}
+
 // GetUsages returns the Usages field value
 func (o *BilledUsage) GetUsages() []UsagesInner {
 	if o == nil {
@@ -420,18 +420,18 @@ func (o BilledUsage) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["overage"] = o.Overage
 	toSerialize["description"] = o.Description
-	toSerialize["amountDue"] = o.AmountDue
 	toSerialize["notes"] = o.Notes
-	toSerialize["includedUsage"] = o.IncludedUsage
 	toSerialize["unit"] = o.Unit
-	toSerialize["periodStart"] = o.PeriodStart
-	toSerialize["periodEnd"] = o.PeriodEnd
-	toSerialize["totalUsage"] = o.TotalUsage
+	toSerialize["includedUsage"] = o.IncludedUsage
+	toSerialize["amountDue"] = o.AmountDue
 	toSerialize["dimensionId"] = o.DimensionId
 	toSerialize["dimensionName"] = o.DimensionName
 	if o.OrgRates != nil {
 		toSerialize["orgRates"] = o.OrgRates
 	}
+	toSerialize["periodEnd"] = o.PeriodEnd
+	toSerialize["periodStart"] = o.PeriodStart
+	toSerialize["totalUsage"] = o.TotalUsage
 	toSerialize["usages"] = o.Usages
 
 	for key, value := range o.AdditionalProperties {
@@ -466,16 +466,16 @@ func (o *BilledUsage) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "overage")
 		delete(additionalProperties, "description")
-		delete(additionalProperties, "amountDue")
 		delete(additionalProperties, "notes")
-		delete(additionalProperties, "includedUsage")
 		delete(additionalProperties, "unit")
-		delete(additionalProperties, "periodStart")
-		delete(additionalProperties, "periodEnd")
-		delete(additionalProperties, "totalUsage")
+		delete(additionalProperties, "includedUsage")
+		delete(additionalProperties, "amountDue")
 		delete(additionalProperties, "dimensionId")
 		delete(additionalProperties, "dimensionName")
 		delete(additionalProperties, "orgRates")
+		delete(additionalProperties, "periodEnd")
+		delete(additionalProperties, "periodStart")
+		delete(additionalProperties, "totalUsage")
 		delete(additionalProperties, "usages")
 		o.AdditionalProperties = additionalProperties
 	}

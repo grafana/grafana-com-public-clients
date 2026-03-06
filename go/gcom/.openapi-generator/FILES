@@ -90,6 +90,7 @@ docs/InfoAnyOf.md
 docs/InfoAnyOf1.md
 docs/InstanceUsersResponse.md
 docs/InstancesAPI.md
+docs/InternalStackCreateRequestV1.md
 docs/ItemsInner.md
 docs/ItemsInner1.md
 docs/ItemsInner1GrafanaStaffAccess.md
@@ -101,6 +102,7 @@ docs/LinksInner.md
 docs/LinksInner1.md
 docs/LinksInner2.md
 docs/Logos.md
+docs/Managed.md
 docs/Metadata.md
 docs/Mimir.md
 docs/Next.md
@@ -252,6 +254,7 @@ model_info_1.go
 model_info_any_of.go
 model_info_any_of_1.go
 model_instance_users_response.go
+model_internal_stack_create_request_v1.go
 model_items_inner.go
 model_items_inner_1.go
 model_items_inner_1_grafana_staff_access.go
@@ -263,6 +266,7 @@ model_links_inner.go
 model_links_inner_1.go
 model_links_inner_2.go
 model_logos.go
+model_managed.go
 model_metadata.go
 model_mimir.go
 model_next.go

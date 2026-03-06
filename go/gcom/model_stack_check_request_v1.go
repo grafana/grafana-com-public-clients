@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
 
 API version: public
 */
@@ -20,6 +20,8 @@ var _ MappedNullable = &StackCheckRequestV1{}
 
 // StackCheckRequestV1 struct for StackCheckRequestV1
 type StackCheckRequestV1 struct {
+	// org owning the stack
+	Org *string `json:"org,omitempty"`
 	// url for the stack
 	Url string `json:"url"`
 }
@@ -42,6 +44,38 @@ func NewStackCheckRequestV1(url string) *StackCheckRequestV1 {
 func NewStackCheckRequestV1WithDefaults() *StackCheckRequestV1 {
 	this := StackCheckRequestV1{}
 	return &this
+}
+
+// GetOrg returns the Org field value if set, zero value otherwise.
+func (o *StackCheckRequestV1) GetOrg() string {
+	if o == nil || IsNil(o.Org) {
+		var ret string
+		return ret
+	}
+	return *o.Org
+}
+
+// GetOrgOk returns a tuple with the Org field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StackCheckRequestV1) GetOrgOk() (*string, bool) {
+	if o == nil || IsNil(o.Org) {
+		return nil, false
+	}
+	return o.Org, true
+}
+
+// HasOrg returns a boolean if a field has been set.
+func (o *StackCheckRequestV1) HasOrg() bool {
+	if o != nil && !IsNil(o.Org) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrg gets a reference to the given string and assigns it to the Org field.
+func (o *StackCheckRequestV1) SetOrg(v string) {
+	o.Org = &v
 }
 
 // GetUrl returns the Url field value
@@ -78,6 +112,9 @@ func (o StackCheckRequestV1) MarshalJSON() ([]byte, error) {
 
 func (o StackCheckRequestV1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Org) {
+		toSerialize["org"] = o.Org
+	}
 	toSerialize["url"] = o.Url
 	return toSerialize, nil
 }

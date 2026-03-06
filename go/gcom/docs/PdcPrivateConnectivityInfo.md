@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Regions** | Pointer to **[]string** |  | [optional] 
 **EndpointName** | **string** |  | 
 **ServiceId** | Pointer to **string** |  | [optional] 
+**AvailabilityZones** | Pointer to **[]string** |  | [optional] 
 **ServiceAttachment** | **string** |  | 
 **DomainNames** | **[]string** |  | 
 **Api** | [**Api1**](Api1.md) |  | 
@@ -145,6 +146,31 @@ SetServiceId sets ServiceId field to given value.
 `func (o *PdcPrivateConnectivityInfo) HasServiceId() bool`
 
 HasServiceId returns a boolean if a field has been set.
+
+### GetAvailabilityZones
+
+`func (o *PdcPrivateConnectivityInfo) GetAvailabilityZones() []string`
+
+GetAvailabilityZones returns the AvailabilityZones field if non-nil, zero value otherwise.
+
+### GetAvailabilityZonesOk
+
+`func (o *PdcPrivateConnectivityInfo) GetAvailabilityZonesOk() (*[]string, bool)`
+
+GetAvailabilityZonesOk returns a tuple with the AvailabilityZones field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZones
+
+`func (o *PdcPrivateConnectivityInfo) SetAvailabilityZones(v []string)`
+
+SetAvailabilityZones sets AvailabilityZones field to given value.
+
+### HasAvailabilityZones
+
+`func (o *PdcPrivateConnectivityInfo) HasAvailabilityZones() bool`
+
+HasAvailabilityZones returns a boolean if a field has been set.
 
 ### GetServiceAttachment
 

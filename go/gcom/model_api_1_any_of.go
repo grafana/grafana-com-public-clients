@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
 
 API version: public
 */
@@ -24,6 +24,7 @@ type Api1AnyOf struct {
 	Regions              []string `json:"regions,omitempty"`
 	EndpointName         *string  `json:"endpointName,omitempty"`
 	ServiceId            *string  `json:"serviceId,omitempty"`
+	AvailabilityZones    []string `json:"availabilityZones,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -192,6 +193,38 @@ func (o *Api1AnyOf) SetServiceId(v string) {
 	o.ServiceId = &v
 }
 
+// GetAvailabilityZones returns the AvailabilityZones field value if set, zero value otherwise.
+func (o *Api1AnyOf) GetAvailabilityZones() []string {
+	if o == nil || IsNil(o.AvailabilityZones) {
+		var ret []string
+		return ret
+	}
+	return o.AvailabilityZones
+}
+
+// GetAvailabilityZonesOk returns a tuple with the AvailabilityZones field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Api1AnyOf) GetAvailabilityZonesOk() ([]string, bool) {
+	if o == nil || IsNil(o.AvailabilityZones) {
+		return nil, false
+	}
+	return o.AvailabilityZones, true
+}
+
+// HasAvailabilityZones returns a boolean if a field has been set.
+func (o *Api1AnyOf) HasAvailabilityZones() bool {
+	if o != nil && !IsNil(o.AvailabilityZones) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailabilityZones gets a reference to the given []string and assigns it to the AvailabilityZones field.
+func (o *Api1AnyOf) SetAvailabilityZones(v []string) {
+	o.AvailabilityZones = v
+}
+
 func (o Api1AnyOf) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -212,6 +245,9 @@ func (o Api1AnyOf) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ServiceId) {
 		toSerialize["serviceId"] = o.ServiceId
+	}
+	if !IsNil(o.AvailabilityZones) {
+		toSerialize["availabilityZones"] = o.AvailabilityZones
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -248,6 +284,7 @@ func (o *Api1AnyOf) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "regions")
 		delete(additionalProperties, "endpointName")
 		delete(additionalProperties, "serviceId")
+		delete(additionalProperties, "availabilityZones")
 		o.AdditionalProperties = additionalProperties
 	}
 

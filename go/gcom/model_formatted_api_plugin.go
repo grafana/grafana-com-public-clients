@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
 
 API version: public
 */
@@ -53,6 +53,7 @@ type FormattedApiPlugin struct {
 	LicenseUrl             *string                `json:"licenseUrl,omitempty"`
 	DocumentationUrl       *string                `json:"documentationUrl,omitempty"`
 	Json                   *Json                  `json:"json,omitempty"`
+	Managed                *Managed               `json:"managed,omitempty"`
 	AdditionalProperties   map[string]interface{}
 }
 
@@ -946,6 +947,38 @@ func (o *FormattedApiPlugin) SetJson(v Json) {
 	o.Json = &v
 }
 
+// GetManaged returns the Managed field value if set, zero value otherwise.
+func (o *FormattedApiPlugin) GetManaged() Managed {
+	if o == nil || IsNil(o.Managed) {
+		var ret Managed
+		return ret
+	}
+	return *o.Managed
+}
+
+// GetManagedOk returns a tuple with the Managed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiPlugin) GetManagedOk() (*Managed, bool) {
+	if o == nil || IsNil(o.Managed) {
+		return nil, false
+	}
+	return o.Managed, true
+}
+
+// HasManaged returns a boolean if a field has been set.
+func (o *FormattedApiPlugin) HasManaged() bool {
+	if o != nil && !IsNil(o.Managed) {
+		return true
+	}
+
+	return false
+}
+
+// SetManaged gets a reference to the given Managed and assigns it to the Managed field.
+func (o *FormattedApiPlugin) SetManaged(v Managed) {
+	o.Managed = &v
+}
+
 func (o FormattedApiPlugin) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -995,6 +1028,9 @@ func (o FormattedApiPlugin) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Json) {
 		toSerialize["json"] = o.Json
+	}
+	if !IsNil(o.Managed) {
+		toSerialize["managed"] = o.Managed
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -1060,6 +1096,7 @@ func (o *FormattedApiPlugin) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "licenseUrl")
 		delete(additionalProperties, "documentationUrl")
 		delete(additionalProperties, "json")
+		delete(additionalProperties, "managed")
 		o.AdditionalProperties = additionalProperties
 	}
 

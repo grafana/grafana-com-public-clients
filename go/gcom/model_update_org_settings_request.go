@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
 
 API version: public
 */
@@ -22,6 +22,8 @@ type UpdateOrgSettingsRequest struct {
 	AiDataSharingOptOut          NullableBool  `json:"aiDataSharingOptOut,omitempty"`
 	DisableTokenExpirationEmails NullableBool  `json:"disableTokenExpirationEmails,omitempty"`
 	MaxTokenExpirationDays       NullableInt32 `json:"maxTokenExpirationDays,omitempty"`
+	MfaAdminRecoveryOnly         NullableBool  `json:"mfaAdminRecoveryOnly,omitempty"`
+	MfaRequired                  NullableBool  `json:"mfaRequired,omitempty"`
 	AdditionalProperties         map[string]interface{}
 }
 
@@ -173,6 +175,92 @@ func (o *UpdateOrgSettingsRequest) UnsetMaxTokenExpirationDays() {
 	o.MaxTokenExpirationDays.Unset()
 }
 
+// GetMfaAdminRecoveryOnly returns the MfaAdminRecoveryOnly field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateOrgSettingsRequest) GetMfaAdminRecoveryOnly() bool {
+	if o == nil || IsNil(o.MfaAdminRecoveryOnly.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.MfaAdminRecoveryOnly.Get()
+}
+
+// GetMfaAdminRecoveryOnlyOk returns a tuple with the MfaAdminRecoveryOnly field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateOrgSettingsRequest) GetMfaAdminRecoveryOnlyOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MfaAdminRecoveryOnly.Get(), o.MfaAdminRecoveryOnly.IsSet()
+}
+
+// HasMfaAdminRecoveryOnly returns a boolean if a field has been set.
+func (o *UpdateOrgSettingsRequest) HasMfaAdminRecoveryOnly() bool {
+	if o != nil && o.MfaAdminRecoveryOnly.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMfaAdminRecoveryOnly gets a reference to the given NullableBool and assigns it to the MfaAdminRecoveryOnly field.
+func (o *UpdateOrgSettingsRequest) SetMfaAdminRecoveryOnly(v bool) {
+	o.MfaAdminRecoveryOnly.Set(&v)
+}
+
+// SetMfaAdminRecoveryOnlyNil sets the value for MfaAdminRecoveryOnly to be an explicit nil
+func (o *UpdateOrgSettingsRequest) SetMfaAdminRecoveryOnlyNil() {
+	o.MfaAdminRecoveryOnly.Set(nil)
+}
+
+// UnsetMfaAdminRecoveryOnly ensures that no value is present for MfaAdminRecoveryOnly, not even an explicit nil
+func (o *UpdateOrgSettingsRequest) UnsetMfaAdminRecoveryOnly() {
+	o.MfaAdminRecoveryOnly.Unset()
+}
+
+// GetMfaRequired returns the MfaRequired field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateOrgSettingsRequest) GetMfaRequired() bool {
+	if o == nil || IsNil(o.MfaRequired.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.MfaRequired.Get()
+}
+
+// GetMfaRequiredOk returns a tuple with the MfaRequired field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateOrgSettingsRequest) GetMfaRequiredOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MfaRequired.Get(), o.MfaRequired.IsSet()
+}
+
+// HasMfaRequired returns a boolean if a field has been set.
+func (o *UpdateOrgSettingsRequest) HasMfaRequired() bool {
+	if o != nil && o.MfaRequired.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMfaRequired gets a reference to the given NullableBool and assigns it to the MfaRequired field.
+func (o *UpdateOrgSettingsRequest) SetMfaRequired(v bool) {
+	o.MfaRequired.Set(&v)
+}
+
+// SetMfaRequiredNil sets the value for MfaRequired to be an explicit nil
+func (o *UpdateOrgSettingsRequest) SetMfaRequiredNil() {
+	o.MfaRequired.Set(nil)
+}
+
+// UnsetMfaRequired ensures that no value is present for MfaRequired, not even an explicit nil
+func (o *UpdateOrgSettingsRequest) UnsetMfaRequired() {
+	o.MfaRequired.Unset()
+}
+
 func (o UpdateOrgSettingsRequest) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -191,6 +279,12 @@ func (o UpdateOrgSettingsRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.MaxTokenExpirationDays.IsSet() {
 		toSerialize["maxTokenExpirationDays"] = o.MaxTokenExpirationDays.Get()
+	}
+	if o.MfaAdminRecoveryOnly.IsSet() {
+		toSerialize["mfaAdminRecoveryOnly"] = o.MfaAdminRecoveryOnly.Get()
+	}
+	if o.MfaRequired.IsSet() {
+		toSerialize["mfaRequired"] = o.MfaRequired.Get()
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -217,6 +311,8 @@ func (o *UpdateOrgSettingsRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "aiDataSharingOptOut")
 		delete(additionalProperties, "disableTokenExpirationEmails")
 		delete(additionalProperties, "maxTokenExpirationDays")
+		delete(additionalProperties, "mfaAdminRecoveryOnly")
+		delete(additionalProperties, "mfaRequired")
 		o.AdditionalProperties = additionalProperties
 	}
 

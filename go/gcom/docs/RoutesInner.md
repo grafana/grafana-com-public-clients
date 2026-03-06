@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Path** | Pointer to **string** | For data source plugins. The route path that is replaced by the route URL field when proxying the call. | [optional] 
+**Path** | **string** | For data source plugins. The route path that is replaced by the route URL field when proxying the call. **Warning**: Don&#39;t use an empty string (\&quot;\&quot;). | 
 **Method** | Pointer to **string** | For data source plugins. Route method matches the HTTP verb like &#x60;GET&#x60; or &#x60;POST&#x60;. Multiple methods can be provided as a comma-separated list. | [optional] 
 **Url** | Pointer to **string** | For data source plugins. Route URL is where the request is proxied to. | [optional] 
 **ReqSignedIn** | Pointer to **bool** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewRoutesInner
 
-`func NewRoutesInner() *RoutesInner`
+`func NewRoutesInner(path string, ) *RoutesInner`
 
 NewRoutesInner instantiates a new RoutesInner object
 This constructor will assign default values to properties that have it defined,
@@ -54,11 +54,6 @@ and a boolean to check if the value has been set.
 
 SetPath sets Path field to given value.
 
-### HasPath
-
-`func (o *RoutesInner) HasPath() bool`
-
-HasPath returns a boolean if a field has been set.
 
 ### GetMethod
 

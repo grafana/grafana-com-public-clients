@@ -8,7 +8,7 @@ If you have any questions, please contact support in the Grafana Cloud UI.
 
 This spec is in *Beta* stage, so use it with caution:
 - Not all endpoint responses are properly typed for the time being.
-- Some request parameter types may not be precise
+- Some request parameter types may not be precise.
 
 
 ## Overview
@@ -219,6 +219,7 @@ Class | Method | HTTP request | Description
  - [InfoAnyOf](docs/InfoAnyOf.md)
  - [InfoAnyOf1](docs/InfoAnyOf1.md)
  - [InstanceUsersResponse](docs/InstanceUsersResponse.md)
+ - [InternalStackCreateRequestV1](docs/InternalStackCreateRequestV1.md)
  - [ItemsInner](docs/ItemsInner.md)
  - [ItemsInner1](docs/ItemsInner1.md)
  - [ItemsInner1GrafanaStaffAccess](docs/ItemsInner1GrafanaStaffAccess.md)
@@ -230,6 +231,7 @@ Class | Method | HTTP request | Description
  - [LinksInner1](docs/LinksInner1.md)
  - [LinksInner2](docs/LinksInner2.md)
  - [Logos](docs/Logos.md)
+ - [Managed](docs/Managed.md)
  - [Metadata](docs/Metadata.md)
  - [Mimir](docs/Mimir.md)
  - [Next](docs/Next.md)
