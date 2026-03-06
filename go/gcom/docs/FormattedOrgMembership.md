@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Role** | **string** |  | 
 **Privacy** | **float32** |  | 
 **Billing** | **float32** |  | 
+**Security** | **float32** |  | 
 **CreatedBy** | **string** |  | 
 **UpdatedBy** | **string** |  | 
 **OrgName** | **string** |  | 
@@ -42,7 +43,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedOrgMembership
 
-`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription, ) *FormattedOrgMembership`
+`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, security float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription, ) *FormattedOrgMembership`
 
 NewFormattedOrgMembership instantiates a new FormattedOrgMembership object
 This constructor will assign default values to properties that have it defined,
@@ -265,6 +266,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedOrgMembership) SetBilling(v float32)`
 
 SetBilling sets Billing field to given value.
+
+
+### GetSecurity
+
+`func (o *FormattedOrgMembership) GetSecurity() float32`
+
+GetSecurity returns the Security field if non-nil, zero value otherwise.
+
+### GetSecurityOk
+
+`func (o *FormattedOrgMembership) GetSecurityOk() (*float32, bool)`
+
+GetSecurityOk returns a tuple with the Security field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecurity
+
+`func (o *FormattedOrgMembership) SetSecurity(v float32)`
+
+SetSecurity sets Security field to given value.
 
 
 ### GetCreatedBy

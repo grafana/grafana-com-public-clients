@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
 
 API version: public
 */
@@ -29,6 +29,7 @@ type FormattedOrgMembership struct {
 	Role                     string                                     `json:"role"`
 	Privacy                  float32                                    `json:"privacy"`
 	Billing                  float32                                    `json:"billing"`
+	Security                 float32                                    `json:"security"`
 	CreatedBy                string                                     `json:"createdBy"`
 	UpdatedBy                string                                     `json:"updatedBy"`
 	OrgName                  string                                     `json:"orgName"`
@@ -61,7 +62,7 @@ type _FormattedOrgMembership FormattedOrgMembership
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription) *FormattedOrgMembership {
+func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, security float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription) *FormattedOrgMembership {
 	this := FormattedOrgMembership{}
 	this.Id = id
 	this.OrgId = orgId
@@ -73,6 +74,7 @@ func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status
 	this.Role = role
 	this.Privacy = privacy
 	this.Billing = billing
+	this.Security = security
 	this.CreatedBy = createdBy
 	this.UpdatedBy = updatedBy
 	this.OrgName = orgName
@@ -345,6 +347,30 @@ func (o *FormattedOrgMembership) GetBillingOk() (*float32, bool) {
 // SetBilling sets field value
 func (o *FormattedOrgMembership) SetBilling(v float32) {
 	o.Billing = v
+}
+
+// GetSecurity returns the Security field value
+func (o *FormattedOrgMembership) GetSecurity() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Security
+}
+
+// GetSecurityOk returns a tuple with the Security field value
+// and a boolean to check if the value has been set.
+func (o *FormattedOrgMembership) GetSecurityOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Security, true
+}
+
+// SetSecurity sets field value
+func (o *FormattedOrgMembership) SetSecurity(v float32) {
+	o.Security = v
 }
 
 // GetCreatedBy returns the CreatedBy field value
@@ -950,6 +976,7 @@ func (o FormattedOrgMembership) ToMap() (map[string]interface{}, error) {
 	toSerialize["role"] = o.Role
 	toSerialize["privacy"] = o.Privacy
 	toSerialize["billing"] = o.Billing
+	toSerialize["security"] = o.Security
 	toSerialize["createdBy"] = o.CreatedBy
 	toSerialize["updatedBy"] = o.UpdatedBy
 	toSerialize["orgName"] = o.OrgName
@@ -1017,6 +1044,7 @@ func (o *FormattedOrgMembership) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "role")
 		delete(additionalProperties, "privacy")
 		delete(additionalProperties, "billing")
+		delete(additionalProperties, "security")
 		delete(additionalProperties, "createdBy")
 		delete(additionalProperties, "updatedBy")
 		delete(additionalProperties, "orgName")

@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **AiDataSharingOptOut** | Pointer to **NullableBool** |  | [optional] 
 **DisableTokenExpirationEmails** | Pointer to **NullableBool** |  | [optional] 
 **MaxTokenExpirationDays** | Pointer to **NullableInt32** |  | [optional] 
+**MfaAdminRecoveryOnly** | Pointer to **NullableBool** |  | [optional] 
+**MfaRequired** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
@@ -132,6 +134,76 @@ HasMaxTokenExpirationDays returns a boolean if a field has been set.
 `func (o *UpdateOrgSettingsRequest) UnsetMaxTokenExpirationDays()`
 
 UnsetMaxTokenExpirationDays ensures that no value is present for MaxTokenExpirationDays, not even an explicit nil
+### GetMfaAdminRecoveryOnly
+
+`func (o *UpdateOrgSettingsRequest) GetMfaAdminRecoveryOnly() bool`
+
+GetMfaAdminRecoveryOnly returns the MfaAdminRecoveryOnly field if non-nil, zero value otherwise.
+
+### GetMfaAdminRecoveryOnlyOk
+
+`func (o *UpdateOrgSettingsRequest) GetMfaAdminRecoveryOnlyOk() (*bool, bool)`
+
+GetMfaAdminRecoveryOnlyOk returns a tuple with the MfaAdminRecoveryOnly field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMfaAdminRecoveryOnly
+
+`func (o *UpdateOrgSettingsRequest) SetMfaAdminRecoveryOnly(v bool)`
+
+SetMfaAdminRecoveryOnly sets MfaAdminRecoveryOnly field to given value.
+
+### HasMfaAdminRecoveryOnly
+
+`func (o *UpdateOrgSettingsRequest) HasMfaAdminRecoveryOnly() bool`
+
+HasMfaAdminRecoveryOnly returns a boolean if a field has been set.
+
+### SetMfaAdminRecoveryOnlyNil
+
+`func (o *UpdateOrgSettingsRequest) SetMfaAdminRecoveryOnlyNil(b bool)`
+
+ SetMfaAdminRecoveryOnlyNil sets the value for MfaAdminRecoveryOnly to be an explicit nil
+
+### UnsetMfaAdminRecoveryOnly
+`func (o *UpdateOrgSettingsRequest) UnsetMfaAdminRecoveryOnly()`
+
+UnsetMfaAdminRecoveryOnly ensures that no value is present for MfaAdminRecoveryOnly, not even an explicit nil
+### GetMfaRequired
+
+`func (o *UpdateOrgSettingsRequest) GetMfaRequired() bool`
+
+GetMfaRequired returns the MfaRequired field if non-nil, zero value otherwise.
+
+### GetMfaRequiredOk
+
+`func (o *UpdateOrgSettingsRequest) GetMfaRequiredOk() (*bool, bool)`
+
+GetMfaRequiredOk returns a tuple with the MfaRequired field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMfaRequired
+
+`func (o *UpdateOrgSettingsRequest) SetMfaRequired(v bool)`
+
+SetMfaRequired sets MfaRequired field to given value.
+
+### HasMfaRequired
+
+`func (o *UpdateOrgSettingsRequest) HasMfaRequired() bool`
+
+HasMfaRequired returns a boolean if a field has been set.
+
+### SetMfaRequiredNil
+
+`func (o *UpdateOrgSettingsRequest) SetMfaRequiredNil(b bool)`
+
+ SetMfaRequiredNil sets the value for MfaRequired to be an explicit nil
+
+### UnsetMfaRequired
+`func (o *UpdateOrgSettingsRequest) UnsetMfaRequired()`
+
+UnsetMfaRequired ensures that no value is present for MfaRequired, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

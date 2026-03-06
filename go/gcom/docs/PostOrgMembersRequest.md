@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Billing** | Pointer to **int32** |  | [optional] 
 **Privacy** | Pointer to **string** |  | [optional] 
 **Role** | Pointer to **string** |  | [optional] 
+**Security** | Pointer to **int32** |  | [optional] 
 **Username** | **string** |  | 
 
 ## Methods
@@ -102,6 +103,31 @@ SetRole sets Role field to given value.
 `func (o *PostOrgMembersRequest) HasRole() bool`
 
 HasRole returns a boolean if a field has been set.
+
+### GetSecurity
+
+`func (o *PostOrgMembersRequest) GetSecurity() int32`
+
+GetSecurity returns the Security field if non-nil, zero value otherwise.
+
+### GetSecurityOk
+
+`func (o *PostOrgMembersRequest) GetSecurityOk() (*int32, bool)`
+
+GetSecurityOk returns a tuple with the Security field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecurity
+
+`func (o *PostOrgMembersRequest) SetSecurity(v int32)`
+
+SetSecurity sets Security field to given value.
+
+### HasSecurity
+
+`func (o *PostOrgMembersRequest) HasSecurity() bool`
+
+HasSecurity returns a boolean if a field has been set.
 
 ### GetUsername
 

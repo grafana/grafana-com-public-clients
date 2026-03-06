@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Org** | Pointer to **string** | org owning the stack | [optional] 
 **Url** | **string** | url for the stack | 
 
 ## Methods
@@ -24,6 +25,31 @@ will change when the set of required properties is changed
 NewStackCheckRequestV1WithDefaults instantiates a new StackCheckRequestV1 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetOrg
+
+`func (o *StackCheckRequestV1) GetOrg() string`
+
+GetOrg returns the Org field if non-nil, zero value otherwise.
+
+### GetOrgOk
+
+`func (o *StackCheckRequestV1) GetOrgOk() (*string, bool)`
+
+GetOrgOk returns a tuple with the Org field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrg
+
+`func (o *StackCheckRequestV1) SetOrg(v string)`
+
+SetOrg sets Org field to given value.
+
+### HasOrg
+
+`func (o *StackCheckRequestV1) HasOrg() bool`
+
+HasOrg returns a boolean if a field has been set.
 
 ### GetUrl
 

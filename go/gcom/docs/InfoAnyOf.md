@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ServiceName** | **string** |  | 
 **PrivateDNS** | **string** |  | 
 **Regions** | Pointer to **[]string** |  | [optional] 
+**AvailabilityZones** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -91,6 +92,31 @@ SetRegions sets Regions field to given value.
 `func (o *InfoAnyOf) HasRegions() bool`
 
 HasRegions returns a boolean if a field has been set.
+
+### GetAvailabilityZones
+
+`func (o *InfoAnyOf) GetAvailabilityZones() []string`
+
+GetAvailabilityZones returns the AvailabilityZones field if non-nil, zero value otherwise.
+
+### GetAvailabilityZonesOk
+
+`func (o *InfoAnyOf) GetAvailabilityZonesOk() (*[]string, bool)`
+
+GetAvailabilityZonesOk returns a tuple with the AvailabilityZones field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZones
+
+`func (o *InfoAnyOf) SetAvailabilityZones(v []string)`
+
+SetAvailabilityZones sets AvailabilityZones field to given value.
+
+### HasAvailabilityZones
+
+`func (o *InfoAnyOf) HasAvailabilityZones() bool`
+
+HasAvailabilityZones returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

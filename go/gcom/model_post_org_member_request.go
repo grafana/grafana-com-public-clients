@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
 
 API version: public
 */
@@ -23,6 +23,7 @@ type PostOrgMemberRequest struct {
 	DefaultOrg           *string `json:"defaultOrg,omitempty"`
 	Privacy              *string `json:"privacy,omitempty"`
 	Role                 *string `json:"role,omitempty"`
+	Security             *int32  `json:"security,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -173,6 +174,38 @@ func (o *PostOrgMemberRequest) SetRole(v string) {
 	o.Role = &v
 }
 
+// GetSecurity returns the Security field value if set, zero value otherwise.
+func (o *PostOrgMemberRequest) GetSecurity() int32 {
+	if o == nil || IsNil(o.Security) {
+		var ret int32
+		return ret
+	}
+	return *o.Security
+}
+
+// GetSecurityOk returns a tuple with the Security field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostOrgMemberRequest) GetSecurityOk() (*int32, bool) {
+	if o == nil || IsNil(o.Security) {
+		return nil, false
+	}
+	return o.Security, true
+}
+
+// HasSecurity returns a boolean if a field has been set.
+func (o *PostOrgMemberRequest) HasSecurity() bool {
+	if o != nil && !IsNil(o.Security) {
+		return true
+	}
+
+	return false
+}
+
+// SetSecurity gets a reference to the given int32 and assigns it to the Security field.
+func (o *PostOrgMemberRequest) SetSecurity(v int32) {
+	o.Security = &v
+}
+
 func (o PostOrgMemberRequest) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -194,6 +227,9 @@ func (o PostOrgMemberRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Role) {
 		toSerialize["role"] = o.Role
+	}
+	if !IsNil(o.Security) {
+		toSerialize["security"] = o.Security
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -221,6 +257,7 @@ func (o *PostOrgMemberRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "defaultOrg")
 		delete(additionalProperties, "privacy")
 		delete(additionalProperties, "role")
+		delete(additionalProperties, "security")
 		o.AdditionalProperties = additionalProperties
 	}
 

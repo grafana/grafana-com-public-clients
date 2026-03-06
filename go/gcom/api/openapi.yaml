@@ -9,11 +9,11 @@ info:
 
     This spec is in *Beta* stage, so use it with caution:
     - Not all endpoint responses are properly typed for the time being.
-    - Some request parameter types may not be precise
+    - Some request parameter types may not be precise.
   title: GCOM API
   version: public
-  x-commit-sha: 253300e
-  x-generated-at: 2026-01-19T08:59:30.615Z
+  x-commit-sha: eaae6c4
+  x-generated-at: 2026-03-06T08:48:24.955Z
 servers:
 - description: Main API server
   url: /api
@@ -4579,6 +4579,9 @@ components:
               regions:
               - regions
               - regions
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
               privateDNS: privateDNS
               serviceName: serviceName
           - ipAllowListCNAME: ipAllowListCNAME
@@ -4588,12 +4591,18 @@ components:
               regions:
               - regions
               - regions
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
               privateDNS: privateDNS
               serviceName: serviceName
           otlp:
             regions:
             - regions
             - regions
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
             privateDNS: privateDNS
             serviceName: serviceName
           pdc:
@@ -4601,12 +4610,18 @@ components:
               regions:
               - regions
               - regions
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
               privateDNS: privateDNS
               serviceName: serviceName
             gateway:
               regions:
               - regions
               - regions
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
               privateDNS: privateDNS
               serviceName: serviceName
       properties:
@@ -4635,21 +4650,21 @@ components:
       type: object
     OrgMemberListResponse:
       example:
-        cursor: 9.965781217890562
-        nextCursor: 9.369310271410669
-        total: 6.84685269835264
-        pages: 7.457744773683766
-        perPage: 4.965218492984954
+        cursor: 9.369310271410669
+        nextCursor: 6.683562403749608
+        total: 7.457744773683766
+        pages: 1.1730742509559433
+        perPage: 5.025004791520295
         orderBy: orderBy
         links:
         - rel: rel
           href: href
         - rel: rel
           href: href
-        page: 1.1730742509559433
-        totalCount: 5.025004791520295
+        page: 4.965218492984954
+        totalCount: 9.965781217890562
         items:
-        - grafanaCloud: 9.301444243932576
+        - grafanaCloud: 3.616076749251911
           orgSlug: orgSlug
           subscriptions:
             next: ""
@@ -4664,19 +4679,20 @@ components:
               plan: ""
               startDate: ""
           role: Admin
-          userStatus: 1.0246457001441578
-          hmCurrentPrometheusUsage: 1.2315135367772556
+          userStatus: 1.4894159098541704
+          hmCurrentPrometheusUsage: 1.0246457001441578
           privacy: 2.3021358869347655
           grafanaStaffAccess:
             publicReason: publicReason
             accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-            ticketId: 1.4894159098541704
-          hlUsage: 4.145608029883936
+            ticketId: 6.84685269835264
+          hlUsage: 7.386281948385884
           orgUrl: orgUrl
           orgId: 6.027456183070403
           billing: 7.061401241503109
           defaultOrg: 5.637376656633329
           createdAt: createdAt
+          security: 9.301444243932576
           hgDatasourceCnts: hgDatasourceCnts
           userLastName: userLastName
           userEmail: userEmail
@@ -4691,16 +4707,16 @@ components:
           userFirstName: userFirstName
           userName: userName
           userId: 1.4658129805029452
-          contractTypeId: 2.027123023002322
-          resellerId: 3.616076749251911
-          hmCurrentGraphiteUsage: 7.386281948385884
+          contractTypeId: 4.145608029883936
+          resellerId: 2.027123023002322
+          hmCurrentGraphiteUsage: 1.2315135367772556
           createdBy: createdBy
           allowGCloudTrial: true
           marketplaceSubscription:
             isLegacy: true
             provider: aws
           status: 5.962133916683182
-        - grafanaCloud: 9.301444243932576
+        - grafanaCloud: 3.616076749251911
           orgSlug: orgSlug
           subscriptions:
             next: ""
@@ -4715,19 +4731,20 @@ components:
               plan: ""
               startDate: ""
           role: Admin
-          userStatus: 1.0246457001441578
-          hmCurrentPrometheusUsage: 1.2315135367772556
+          userStatus: 1.4894159098541704
+          hmCurrentPrometheusUsage: 1.0246457001441578
           privacy: 2.3021358869347655
           grafanaStaffAccess:
             publicReason: publicReason
             accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-            ticketId: 1.4894159098541704
-          hlUsage: 4.145608029883936
+            ticketId: 6.84685269835264
+          hlUsage: 7.386281948385884
           orgUrl: orgUrl
           orgId: 6.027456183070403
           billing: 7.061401241503109
           defaultOrg: 5.637376656633329
           createdAt: createdAt
+          security: 9.301444243932576
           hgDatasourceCnts: hgDatasourceCnts
           userLastName: userLastName
           userEmail: userEmail
@@ -4742,9 +4759,9 @@ components:
           userFirstName: userFirstName
           userName: userName
           userId: 1.4658129805029452
-          contractTypeId: 2.027123023002322
-          resellerId: 3.616076749251911
-          hmCurrentGraphiteUsage: 7.386281948385884
+          contractTypeId: 4.145608029883936
+          resellerId: 2.027123023002322
+          hmCurrentGraphiteUsage: 1.2315135367772556
           createdBy: createdBy
           allowGCloudTrial: true
           marketplaceSubscription:
@@ -4796,7 +4813,7 @@ components:
       type: object
     FormattedOrgMembership:
       example:
-        grafanaCloud: 9.301444243932576
+        grafanaCloud: 3.616076749251911
         orgSlug: orgSlug
         subscriptions:
           next: ""
@@ -4811,19 +4828,20 @@ components:
             plan: ""
             startDate: ""
         role: Admin
-        userStatus: 1.0246457001441578
-        hmCurrentPrometheusUsage: 1.2315135367772556
+        userStatus: 1.4894159098541704
+        hmCurrentPrometheusUsage: 1.0246457001441578
         privacy: 2.3021358869347655
         grafanaStaffAccess:
           publicReason: publicReason
           accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-          ticketId: 1.4894159098541704
-        hlUsage: 4.145608029883936
+          ticketId: 6.84685269835264
+        hlUsage: 7.386281948385884
         orgUrl: orgUrl
         orgId: 6.027456183070403
         billing: 7.061401241503109
         defaultOrg: 5.637376656633329
         createdAt: createdAt
+        security: 9.301444243932576
         hgDatasourceCnts: hgDatasourceCnts
         userLastName: userLastName
         userEmail: userEmail
@@ -4838,9 +4856,9 @@ components:
         userFirstName: userFirstName
         userName: userName
         userId: 1.4658129805029452
-        contractTypeId: 2.027123023002322
-        resellerId: 3.616076749251911
-        hmCurrentGraphiteUsage: 7.386281948385884
+        contractTypeId: 4.145608029883936
+        resellerId: 2.027123023002322
+        hmCurrentGraphiteUsage: 1.2315135367772556
         createdBy: createdBy
         allowGCloudTrial: true
         marketplaceSubscription:
@@ -4884,6 +4902,9 @@ components:
           type: number
         billing:
           title: billing
+          type: number
+        security:
+          title: security
           type: number
         createdBy:
           title: createdBy
@@ -4996,6 +5017,7 @@ components:
       - privacy
       - resellerId
       - role
+      - security
       - status
       - subscriptions
       - updatedAt
@@ -5011,8 +5033,10 @@ components:
     FormattedApiOrgSettings:
       example:
         aiDataSharingOptOut: true
+        mfaAdminRecoveryOnly: true
         maxTokenExpirationDays: 0.8008281904610115
         disableTokenExpirationEmails: true
+        mfaRequired: true
       properties:
         aiDataSharingOptOut:
           nullable: true
@@ -5026,6 +5050,14 @@ components:
           nullable: true
           title: maxTokenExpirationDays
           type: number
+        mfaAdminRecoveryOnly:
+          nullable: true
+          title: mfaAdminRecoveryOnly
+          type: boolean
+        mfaRequired:
+          nullable: true
+          title: mfaRequired
+          type: boolean
       type: object
     FormattedApiOrgPublic:
       example:
@@ -5427,6 +5459,9 @@ components:
         versionSignedByOrg: versionSignedByOrg
         createdAt: createdAt
         downloads: 5.637376656633329
+        managed:
+          strategy: strategy
+          enabled: true
         popularity: 7.061401241503109
         json:
           $schema: $schema
@@ -5803,6 +5838,8 @@ components:
           type: string
         json:
           $ref: '#/components/schemas/json'
+        managed:
+          $ref: '#/components/schemas/managed'
       required:
       - angularDetected
       - createdAt
@@ -5998,7 +6035,7 @@ components:
         notes: notes
         description: description
         dimensionName: dimensionName
-        amountDue: 1.4658129805029452
+        amountDue: 5.962133916683182
         unit: unit
         orgRates: ""
         dimensionId: app-o11y
@@ -6043,7 +6080,7 @@ components:
           periodStart: periodStart
           isProrated: true
           periodEnd: periodEnd
-        includedUsage: 5.962133916683182
+        includedUsage: 1.4658129805029452
         periodStart: periodStart
         overage: 6.027456183070403
         periodEnd: periodEnd
@@ -6057,31 +6094,23 @@ components:
         description:
           title: description
           type: string
-        amountDue:
-          title: amountDue
-          type: number
         notes:
           title: notes
+          type: string
+        unit:
+          title: unit
           type: string
         includedUsage:
           title: includedUsage
           type: number
-        unit:
-          title: unit
-          type: string
-        periodStart:
-          title: periodStart
-          type: string
-        periodEnd:
-          title: periodEnd
-          type: string
-        totalUsage:
-          title: totalUsage
+        amountDue:
+          title: amountDue
           type: number
         dimensionId:
           enum:
           - app-o11y
           - assistant
+          - db-o11y-hosts
           - fe-o11y
           - ge-instances
           - ge-users
@@ -6112,6 +6141,15 @@ components:
           type: string
         orgRates:
           title: orgRates
+        periodEnd:
+          title: periodEnd
+          type: string
+        periodStart:
+          title: periodStart
+          type: string
+        totalUsage:
+          title: totalUsage
+          type: number
         usages:
           items:
             $ref: '#/components/schemas/usages_inner'
@@ -6188,6 +6226,55 @@ components:
       - requestId
       - statusCode
       type: object
+    InternalStackCreateRequestV1:
+      additionalProperties: false
+      properties:
+        deleteProtection:
+          default: true
+          description: protection active or not for the stack
+          type: boolean
+        description:
+          description: description of the stack
+          nullable: true
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          description: labels to add to the stack
+          type: object
+        name:
+          description: of the stack
+          type: string
+        org:
+          description: org owning the stack
+          type: string
+        plugins:
+          description: plugins to install to the stack
+          items:
+            type: string
+          nullable: true
+          type: array
+        region:
+          description: region of the stack
+          type: string
+        slug:
+          description: slug of the stack
+          type: string
+        trialExpiresAt:
+          description: trial expiration date for the stack
+          format: date-time
+          nullable: true
+          type: string
+        url:
+          description: url for the stack
+          nullable: true
+          type: string
+      required:
+      - name
+      - org
+      - region
+      - slug
+      type: object
     PaginatedResponseStackV1:
       additionalProperties: false
       example:
@@ -6262,8 +6349,12 @@ components:
     StackCheckRequestV1:
       additionalProperties: false
       example:
+        org: org
         url: url
       properties:
+        org:
+          description: org owning the stack
+          type: string
         url:
           description: url for the stack
           type: string
@@ -7056,7 +7147,7 @@ components:
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 1.4658129805029452
+          amountDue: 5.962133916683182
           unit: unit
           orgRates: ""
           dimensionId: app-o11y
@@ -7101,14 +7192,14 @@ components:
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          includedUsage: 5.962133916683182
+          includedUsage: 1.4658129805029452
           periodStart: periodStart
           overage: 6.027456183070403
           periodEnd: periodEnd
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 1.4658129805029452
+          amountDue: 5.962133916683182
           unit: unit
           orgRates: ""
           dimensionId: app-o11y
@@ -7153,7 +7244,7 @@ components:
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          includedUsage: 5.962133916683182
+          includedUsage: 1.4658129805029452
           periodStart: periodStart
           overage: 6.027456183070403
           periodEnd: periodEnd
@@ -7202,6 +7293,8 @@ components:
           type: string
         role:
           type: string
+        security:
+          type: integer
         username:
           type: string
       required:
@@ -7217,6 +7310,8 @@ components:
           type: string
         role:
           type: string
+        security:
+          type: integer
       type: object
     updateOrgSettings_request:
       properties:
@@ -7229,6 +7324,12 @@ components:
         maxTokenExpirationDays:
           nullable: true
           type: integer
+        mfaAdminRecoveryOnly:
+          nullable: true
+          type: boolean
+        mfaRequired:
+          nullable: true
+          type: boolean
       type: object
     getStackRegions_200_response:
       example:
@@ -7887,6 +7988,9 @@ components:
         regions:
         - regions
         - regions
+        availabilityZones:
+        - availabilityZones
+        - availabilityZones
         privateDNS: privateDNS
         serviceName: serviceName
       properties:
@@ -7900,6 +8004,11 @@ components:
           items:
             type: string
           title: regions
+          type: array
+        availabilityZones:
+          items:
+            type: string
+          title: availabilityZones
           type: array
       required:
       - privateDNS
@@ -7933,6 +8042,9 @@ components:
           regions:
           - regions
           - regions
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
           privateDNS: privateDNS
           serviceName: serviceName
       properties:
@@ -7973,12 +8085,18 @@ components:
           regions:
           - regions
           - regions
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
           privateDNS: privateDNS
           serviceName: serviceName
         gateway:
           regions:
           - regions
           - regions
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
           privateDNS: privateDNS
           serviceName: serviceName
       properties:
@@ -8001,6 +8119,9 @@ components:
             regions:
             - regions
             - regions
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
             privateDNS: privateDNS
             serviceName: serviceName
         - ipAllowListCNAME: ipAllowListCNAME
@@ -8010,12 +8131,18 @@ components:
             regions:
             - regions
             - regions
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
             privateDNS: privateDNS
             serviceName: serviceName
         otlp:
           regions:
           - regions
           - regions
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
           privateDNS: privateDNS
           serviceName: serviceName
         pdc:
@@ -8023,12 +8150,18 @@ components:
             regions:
             - regions
             - regions
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
             privateDNS: privateDNS
             serviceName: serviceName
           gateway:
             regions:
             - regions
             - regions
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
             privateDNS: privateDNS
             serviceName: serviceName
       properties:
@@ -8329,7 +8462,7 @@ components:
       example:
         publicReason: publicReason
         accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-        ticketId: 1.4894159098541704
+        ticketId: 6.84685269835264
       nullable: true
       properties:
         accessExpiresAt:
@@ -8349,7 +8482,7 @@ components:
       type: object
     items_inner_1:
       example:
-        grafanaCloud: 9.301444243932576
+        grafanaCloud: 3.616076749251911
         orgSlug: orgSlug
         subscriptions:
           next: ""
@@ -8364,19 +8497,20 @@ components:
             plan: ""
             startDate: ""
         role: Admin
-        userStatus: 1.0246457001441578
-        hmCurrentPrometheusUsage: 1.2315135367772556
+        userStatus: 1.4894159098541704
+        hmCurrentPrometheusUsage: 1.0246457001441578
         privacy: 2.3021358869347655
         grafanaStaffAccess:
           publicReason: publicReason
           accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-          ticketId: 1.4894159098541704
-        hlUsage: 4.145608029883936
+          ticketId: 6.84685269835264
+        hlUsage: 7.386281948385884
         orgUrl: orgUrl
         orgId: 6.027456183070403
         billing: 7.061401241503109
         defaultOrg: 5.637376656633329
         createdAt: createdAt
+        security: 9.301444243932576
         hgDatasourceCnts: hgDatasourceCnts
         userLastName: userLastName
         userEmail: userEmail
@@ -8391,9 +8525,9 @@ components:
         userFirstName: userFirstName
         userName: userName
         userId: 1.4658129805029452
-        contractTypeId: 2.027123023002322
-        resellerId: 3.616076749251911
-        hmCurrentGraphiteUsage: 7.386281948385884
+        contractTypeId: 4.145608029883936
+        resellerId: 2.027123023002322
+        hmCurrentGraphiteUsage: 1.2315135367772556
         createdBy: createdBy
         allowGCloudTrial: true
         marketplaceSubscription:
@@ -8437,6 +8571,9 @@ components:
           type: number
         billing:
           title: billing
+          type: number
+        security:
+          title: security
           type: number
         createdBy:
           title: createdBy
@@ -8550,6 +8687,7 @@ components:
       - privacy
       - resellerId
       - role
+      - security
       - status
       - subscriptions
       - updatedAt
@@ -9118,8 +9256,9 @@ components:
         url: url
       properties:
         path:
-          description: For data source plugins. The route path that is replaced by
-            the route URL field when proxying the call.
+          description: "For data source plugins. The route path that is replaced by\
+            \ the route URL field when proxying the call. **Warning**: Don't use an\
+            \ empty string (\"\")."
           title: path
           type: string
         method:
@@ -9167,6 +9306,8 @@ components:
             $ref: '#/components/schemas/urlParams_inner'
           title: urlParams
           type: array
+      required:
+      - path
       type: object
     permissions_inner:
       example:
@@ -9948,6 +10089,21 @@ components:
       - type
       title: json
       type: object
+    managed:
+      example:
+        strategy: strategy
+        enabled: true
+      properties:
+        enabled:
+          title: enabled
+          type: boolean
+        strategy:
+          title: strategy
+          type: string
+      required:
+      - enabled
+      title: managed
+      type: object
     FormattedApiStackRegion_anyOf:
       example:
         createdAt: createdAt
@@ -10034,6 +10190,11 @@ components:
         serviceId:
           title: serviceId
           type: string
+        availabilityZones:
+          items:
+            type: string
+          title: availabilityZones
+          type: array
       required:
       - privateDNS
       - serviceName
@@ -10076,6 +10237,11 @@ components:
         serviceId:
           title: serviceId
           type: string
+        availabilityZones:
+          items:
+            type: string
+          title: availabilityZones
+          type: array
       required:
       - privateDNS
       - serviceName

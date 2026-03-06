@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Regions** | Pointer to **[]string** |  | [optional] 
 **EndpointName** | **string** |  | 
 **ServiceId** | Pointer to **string** |  | [optional] 
+**AvailabilityZones** | Pointer to **[]string** |  | [optional] 
 **ServiceAttachment** | **string** |  | 
 **DomainNames** | **[]string** |  | 
 
@@ -140,6 +141,31 @@ SetServiceId sets ServiceId field to given value.
 `func (o *Otlp1) HasServiceId() bool`
 
 HasServiceId returns a boolean if a field has been set.
+
+### GetAvailabilityZones
+
+`func (o *Otlp1) GetAvailabilityZones() []string`
+
+GetAvailabilityZones returns the AvailabilityZones field if non-nil, zero value otherwise.
+
+### GetAvailabilityZonesOk
+
+`func (o *Otlp1) GetAvailabilityZonesOk() (*[]string, bool)`
+
+GetAvailabilityZonesOk returns a tuple with the AvailabilityZones field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZones
+
+`func (o *Otlp1) SetAvailabilityZones(v []string)`
+
+SetAvailabilityZones sets AvailabilityZones field to given value.
+
+### HasAvailabilityZones
+
+`func (o *Otlp1) HasAvailabilityZones() bool`
+
+HasAvailabilityZones returns a boolean if a field has been set.
 
 ### GetServiceAttachment
 

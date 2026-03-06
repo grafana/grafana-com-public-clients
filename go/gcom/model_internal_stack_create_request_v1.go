@@ -13,13 +13,14 @@ package gcom
 import (
 	"bytes"
 	"encoding/json"
+	"time"
 )
 
-// checks if the StackCreateRequestV1 type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &StackCreateRequestV1{}
+// checks if the InternalStackCreateRequestV1 type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &InternalStackCreateRequestV1{}
 
-// StackCreateRequestV1 struct for StackCreateRequestV1
-type StackCreateRequestV1 struct {
+// InternalStackCreateRequestV1 struct for InternalStackCreateRequestV1
+type InternalStackCreateRequestV1 struct {
 	// protection active or not for the stack
 	DeleteProtection *bool `json:"deleteProtection,omitempty"`
 	// description of the stack
@@ -36,18 +37,20 @@ type StackCreateRequestV1 struct {
 	Region string `json:"region"`
 	// slug of the stack
 	Slug string `json:"slug"`
+	// trial expiration date for the stack
+	TrialExpiresAt NullableTime `json:"trialExpiresAt,omitempty"`
 	// url for the stack
 	Url NullableString `json:"url,omitempty"`
 }
 
-type _StackCreateRequestV1 StackCreateRequestV1
+type _InternalStackCreateRequestV1 InternalStackCreateRequestV1
 
-// NewStackCreateRequestV1 instantiates a new StackCreateRequestV1 object
+// NewInternalStackCreateRequestV1 instantiates a new InternalStackCreateRequestV1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStackCreateRequestV1(name string, org string, region string, slug string) *StackCreateRequestV1 {
-	this := StackCreateRequestV1{}
+func NewInternalStackCreateRequestV1(name string, org string, region string, slug string) *InternalStackCreateRequestV1 {
+	this := InternalStackCreateRequestV1{}
 	var deleteProtection bool = true
 	this.DeleteProtection = &deleteProtection
 	this.Name = name
@@ -57,18 +60,18 @@ func NewStackCreateRequestV1(name string, org string, region string, slug string
 	return &this
 }
 
-// NewStackCreateRequestV1WithDefaults instantiates a new StackCreateRequestV1 object
+// NewInternalStackCreateRequestV1WithDefaults instantiates a new InternalStackCreateRequestV1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewStackCreateRequestV1WithDefaults() *StackCreateRequestV1 {
-	this := StackCreateRequestV1{}
+func NewInternalStackCreateRequestV1WithDefaults() *InternalStackCreateRequestV1 {
+	this := InternalStackCreateRequestV1{}
 	var deleteProtection bool = true
 	this.DeleteProtection = &deleteProtection
 	return &this
 }
 
 // GetDeleteProtection returns the DeleteProtection field value if set, zero value otherwise.
-func (o *StackCreateRequestV1) GetDeleteProtection() bool {
+func (o *InternalStackCreateRequestV1) GetDeleteProtection() bool {
 	if o == nil || IsNil(o.DeleteProtection) {
 		var ret bool
 		return ret
@@ -78,7 +81,7 @@ func (o *StackCreateRequestV1) GetDeleteProtection() bool {
 
 // GetDeleteProtectionOk returns a tuple with the DeleteProtection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StackCreateRequestV1) GetDeleteProtectionOk() (*bool, bool) {
+func (o *InternalStackCreateRequestV1) GetDeleteProtectionOk() (*bool, bool) {
 	if o == nil || IsNil(o.DeleteProtection) {
 		return nil, false
 	}
@@ -86,7 +89,7 @@ func (o *StackCreateRequestV1) GetDeleteProtectionOk() (*bool, bool) {
 }
 
 // HasDeleteProtection returns a boolean if a field has been set.
-func (o *StackCreateRequestV1) HasDeleteProtection() bool {
+func (o *InternalStackCreateRequestV1) HasDeleteProtection() bool {
 	if o != nil && !IsNil(o.DeleteProtection) {
 		return true
 	}
@@ -95,12 +98,12 @@ func (o *StackCreateRequestV1) HasDeleteProtection() bool {
 }
 
 // SetDeleteProtection gets a reference to the given bool and assigns it to the DeleteProtection field.
-func (o *StackCreateRequestV1) SetDeleteProtection(v bool) {
+func (o *InternalStackCreateRequestV1) SetDeleteProtection(v bool) {
 	o.DeleteProtection = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StackCreateRequestV1) GetDescription() string {
+func (o *InternalStackCreateRequestV1) GetDescription() string {
 	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
@@ -111,7 +114,7 @@ func (o *StackCreateRequestV1) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StackCreateRequestV1) GetDescriptionOk() (*string, bool) {
+func (o *InternalStackCreateRequestV1) GetDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +122,7 @@ func (o *StackCreateRequestV1) GetDescriptionOk() (*string, bool) {
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *StackCreateRequestV1) HasDescription() bool {
+func (o *InternalStackCreateRequestV1) HasDescription() bool {
 	if o != nil && o.Description.IsSet() {
 		return true
 	}
@@ -128,22 +131,22 @@ func (o *StackCreateRequestV1) HasDescription() bool {
 }
 
 // SetDescription gets a reference to the given NullableString and assigns it to the Description field.
-func (o *StackCreateRequestV1) SetDescription(v string) {
+func (o *InternalStackCreateRequestV1) SetDescription(v string) {
 	o.Description.Set(&v)
 }
 
 // SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *StackCreateRequestV1) SetDescriptionNil() {
+func (o *InternalStackCreateRequestV1) SetDescriptionNil() {
 	o.Description.Set(nil)
 }
 
 // UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *StackCreateRequestV1) UnsetDescription() {
+func (o *InternalStackCreateRequestV1) UnsetDescription() {
 	o.Description.Unset()
 }
 
 // GetLabels returns the Labels field value if set, zero value otherwise.
-func (o *StackCreateRequestV1) GetLabels() map[string]string {
+func (o *InternalStackCreateRequestV1) GetLabels() map[string]string {
 	if o == nil || IsNil(o.Labels) {
 		var ret map[string]string
 		return ret
@@ -153,7 +156,7 @@ func (o *StackCreateRequestV1) GetLabels() map[string]string {
 
 // GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StackCreateRequestV1) GetLabelsOk() (*map[string]string, bool) {
+func (o *InternalStackCreateRequestV1) GetLabelsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Labels) {
 		return nil, false
 	}
@@ -161,7 +164,7 @@ func (o *StackCreateRequestV1) GetLabelsOk() (*map[string]string, bool) {
 }
 
 // HasLabels returns a boolean if a field has been set.
-func (o *StackCreateRequestV1) HasLabels() bool {
+func (o *InternalStackCreateRequestV1) HasLabels() bool {
 	if o != nil && !IsNil(o.Labels) {
 		return true
 	}
@@ -170,12 +173,12 @@ func (o *StackCreateRequestV1) HasLabels() bool {
 }
 
 // SetLabels gets a reference to the given map[string]string and assigns it to the Labels field.
-func (o *StackCreateRequestV1) SetLabels(v map[string]string) {
+func (o *InternalStackCreateRequestV1) SetLabels(v map[string]string) {
 	o.Labels = &v
 }
 
 // GetName returns the Name field value
-func (o *StackCreateRequestV1) GetName() string {
+func (o *InternalStackCreateRequestV1) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -186,7 +189,7 @@ func (o *StackCreateRequestV1) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *StackCreateRequestV1) GetNameOk() (*string, bool) {
+func (o *InternalStackCreateRequestV1) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,12 +197,12 @@ func (o *StackCreateRequestV1) GetNameOk() (*string, bool) {
 }
 
 // SetName sets field value
-func (o *StackCreateRequestV1) SetName(v string) {
+func (o *InternalStackCreateRequestV1) SetName(v string) {
 	o.Name = v
 }
 
 // GetOrg returns the Org field value
-func (o *StackCreateRequestV1) GetOrg() string {
+func (o *InternalStackCreateRequestV1) GetOrg() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -210,7 +213,7 @@ func (o *StackCreateRequestV1) GetOrg() string {
 
 // GetOrgOk returns a tuple with the Org field value
 // and a boolean to check if the value has been set.
-func (o *StackCreateRequestV1) GetOrgOk() (*string, bool) {
+func (o *InternalStackCreateRequestV1) GetOrgOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -218,12 +221,12 @@ func (o *StackCreateRequestV1) GetOrgOk() (*string, bool) {
 }
 
 // SetOrg sets field value
-func (o *StackCreateRequestV1) SetOrg(v string) {
+func (o *InternalStackCreateRequestV1) SetOrg(v string) {
 	o.Org = v
 }
 
 // GetPlugins returns the Plugins field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StackCreateRequestV1) GetPlugins() []string {
+func (o *InternalStackCreateRequestV1) GetPlugins() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -234,7 +237,7 @@ func (o *StackCreateRequestV1) GetPlugins() []string {
 // GetPluginsOk returns a tuple with the Plugins field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StackCreateRequestV1) GetPluginsOk() ([]string, bool) {
+func (o *InternalStackCreateRequestV1) GetPluginsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Plugins) {
 		return nil, false
 	}
@@ -242,7 +245,7 @@ func (o *StackCreateRequestV1) GetPluginsOk() ([]string, bool) {
 }
 
 // HasPlugins returns a boolean if a field has been set.
-func (o *StackCreateRequestV1) HasPlugins() bool {
+func (o *InternalStackCreateRequestV1) HasPlugins() bool {
 	if o != nil && IsNil(o.Plugins) {
 		return true
 	}
@@ -251,12 +254,12 @@ func (o *StackCreateRequestV1) HasPlugins() bool {
 }
 
 // SetPlugins gets a reference to the given []string and assigns it to the Plugins field.
-func (o *StackCreateRequestV1) SetPlugins(v []string) {
+func (o *InternalStackCreateRequestV1) SetPlugins(v []string) {
 	o.Plugins = v
 }
 
 // GetRegion returns the Region field value
-func (o *StackCreateRequestV1) GetRegion() string {
+func (o *InternalStackCreateRequestV1) GetRegion() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -267,7 +270,7 @@ func (o *StackCreateRequestV1) GetRegion() string {
 
 // GetRegionOk returns a tuple with the Region field value
 // and a boolean to check if the value has been set.
-func (o *StackCreateRequestV1) GetRegionOk() (*string, bool) {
+func (o *InternalStackCreateRequestV1) GetRegionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -275,12 +278,12 @@ func (o *StackCreateRequestV1) GetRegionOk() (*string, bool) {
 }
 
 // SetRegion sets field value
-func (o *StackCreateRequestV1) SetRegion(v string) {
+func (o *InternalStackCreateRequestV1) SetRegion(v string) {
 	o.Region = v
 }
 
 // GetSlug returns the Slug field value
-func (o *StackCreateRequestV1) GetSlug() string {
+func (o *InternalStackCreateRequestV1) GetSlug() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -291,7 +294,7 @@ func (o *StackCreateRequestV1) GetSlug() string {
 
 // GetSlugOk returns a tuple with the Slug field value
 // and a boolean to check if the value has been set.
-func (o *StackCreateRequestV1) GetSlugOk() (*string, bool) {
+func (o *InternalStackCreateRequestV1) GetSlugOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -299,12 +302,55 @@ func (o *StackCreateRequestV1) GetSlugOk() (*string, bool) {
 }
 
 // SetSlug sets field value
-func (o *StackCreateRequestV1) SetSlug(v string) {
+func (o *InternalStackCreateRequestV1) SetSlug(v string) {
 	o.Slug = v
 }
 
+// GetTrialExpiresAt returns the TrialExpiresAt field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *InternalStackCreateRequestV1) GetTrialExpiresAt() time.Time {
+	if o == nil || IsNil(o.TrialExpiresAt.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.TrialExpiresAt.Get()
+}
+
+// GetTrialExpiresAtOk returns a tuple with the TrialExpiresAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InternalStackCreateRequestV1) GetTrialExpiresAtOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TrialExpiresAt.Get(), o.TrialExpiresAt.IsSet()
+}
+
+// HasTrialExpiresAt returns a boolean if a field has been set.
+func (o *InternalStackCreateRequestV1) HasTrialExpiresAt() bool {
+	if o != nil && o.TrialExpiresAt.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTrialExpiresAt gets a reference to the given NullableTime and assigns it to the TrialExpiresAt field.
+func (o *InternalStackCreateRequestV1) SetTrialExpiresAt(v time.Time) {
+	o.TrialExpiresAt.Set(&v)
+}
+
+// SetTrialExpiresAtNil sets the value for TrialExpiresAt to be an explicit nil
+func (o *InternalStackCreateRequestV1) SetTrialExpiresAtNil() {
+	o.TrialExpiresAt.Set(nil)
+}
+
+// UnsetTrialExpiresAt ensures that no value is present for TrialExpiresAt, not even an explicit nil
+func (o *InternalStackCreateRequestV1) UnsetTrialExpiresAt() {
+	o.TrialExpiresAt.Unset()
+}
+
 // GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StackCreateRequestV1) GetUrl() string {
+func (o *InternalStackCreateRequestV1) GetUrl() string {
 	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
@@ -315,7 +361,7 @@ func (o *StackCreateRequestV1) GetUrl() string {
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StackCreateRequestV1) GetUrlOk() (*string, bool) {
+func (o *InternalStackCreateRequestV1) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -323,7 +369,7 @@ func (o *StackCreateRequestV1) GetUrlOk() (*string, bool) {
 }
 
 // HasUrl returns a boolean if a field has been set.
-func (o *StackCreateRequestV1) HasUrl() bool {
+func (o *InternalStackCreateRequestV1) HasUrl() bool {
 	if o != nil && o.Url.IsSet() {
 		return true
 	}
@@ -332,21 +378,21 @@ func (o *StackCreateRequestV1) HasUrl() bool {
 }
 
 // SetUrl gets a reference to the given NullableString and assigns it to the Url field.
-func (o *StackCreateRequestV1) SetUrl(v string) {
+func (o *InternalStackCreateRequestV1) SetUrl(v string) {
 	o.Url.Set(&v)
 }
 
 // SetUrlNil sets the value for Url to be an explicit nil
-func (o *StackCreateRequestV1) SetUrlNil() {
+func (o *InternalStackCreateRequestV1) SetUrlNil() {
 	o.Url.Set(nil)
 }
 
 // UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *StackCreateRequestV1) UnsetUrl() {
+func (o *InternalStackCreateRequestV1) UnsetUrl() {
 	o.Url.Unset()
 }
 
-func (o StackCreateRequestV1) MarshalJSON() ([]byte, error) {
+func (o InternalStackCreateRequestV1) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -354,7 +400,7 @@ func (o StackCreateRequestV1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o StackCreateRequestV1) ToMap() (map[string]interface{}, error) {
+func (o InternalStackCreateRequestV1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.DeleteProtection) {
 		toSerialize["deleteProtection"] = o.DeleteProtection
@@ -372,13 +418,16 @@ func (o StackCreateRequestV1) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["region"] = o.Region
 	toSerialize["slug"] = o.Slug
+	if o.TrialExpiresAt.IsSet() {
+		toSerialize["trialExpiresAt"] = o.TrialExpiresAt.Get()
+	}
 	if o.Url.IsSet() {
 		toSerialize["url"] = o.Url.Get()
 	}
 	return toSerialize, nil
 }
 
-func (o *StackCreateRequestV1) UnmarshalJSON(data []byte) (err error) {
+func (o *InternalStackCreateRequestV1) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -387,52 +436,52 @@ func (o *StackCreateRequestV1) UnmarshalJSON(data []byte) (err error) {
 		return err
 	}
 
-	varStackCreateRequestV1 := _StackCreateRequestV1{}
+	varInternalStackCreateRequestV1 := _InternalStackCreateRequestV1{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	err = decoder.Decode(&varStackCreateRequestV1)
+	err = decoder.Decode(&varInternalStackCreateRequestV1)
 
 	if err != nil {
 		return err
 	}
 
-	*o = StackCreateRequestV1(varStackCreateRequestV1)
+	*o = InternalStackCreateRequestV1(varInternalStackCreateRequestV1)
 
 	return err
 }
 
-type NullableStackCreateRequestV1 struct {
-	value *StackCreateRequestV1
+type NullableInternalStackCreateRequestV1 struct {
+	value *InternalStackCreateRequestV1
 	isSet bool
 }
 
-func (v NullableStackCreateRequestV1) Get() *StackCreateRequestV1 {
+func (v NullableInternalStackCreateRequestV1) Get() *InternalStackCreateRequestV1 {
 	return v.value
 }
 
-func (v *NullableStackCreateRequestV1) Set(val *StackCreateRequestV1) {
+func (v *NullableInternalStackCreateRequestV1) Set(val *InternalStackCreateRequestV1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableStackCreateRequestV1) IsSet() bool {
+func (v NullableInternalStackCreateRequestV1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableStackCreateRequestV1) Unset() {
+func (v *NullableInternalStackCreateRequestV1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableStackCreateRequestV1(val *StackCreateRequestV1) *NullableStackCreateRequestV1 {
-	return &NullableStackCreateRequestV1{value: val, isSet: true}
+func NewNullableInternalStackCreateRequestV1(val *InternalStackCreateRequestV1) *NullableInternalStackCreateRequestV1 {
+	return &NullableInternalStackCreateRequestV1{value: val, isSet: true}
 }
 
-func (v NullableStackCreateRequestV1) MarshalJSON() ([]byte, error) {
+func (v NullableInternalStackCreateRequestV1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableStackCreateRequestV1) UnmarshalJSON(src []byte) error {
+func (v *NullableInternalStackCreateRequestV1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

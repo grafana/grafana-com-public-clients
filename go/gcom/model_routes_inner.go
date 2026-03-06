@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
 
 API version: public
 */
@@ -19,8 +19,8 @@ var _ MappedNullable = &RoutesInner{}
 
 // RoutesInner struct for RoutesInner
 type RoutesInner struct {
-	// For data source plugins. The route path that is replaced by the route URL field when proxying the call.
-	Path *string `json:"path,omitempty"`
+	// For data source plugins. The route path that is replaced by the route URL field when proxying the call. **Warning**: Don't use an empty string (\"\").
+	Path string `json:"path"`
 	// For data source plugins. Route method matches the HTTP verb like `GET` or `POST`. Multiple methods can be provided as a comma-separated list.
 	Method *string `json:"method,omitempty"`
 	// For data source plugins. Route URL is where the request is proxied to.
@@ -46,8 +46,9 @@ type _RoutesInner RoutesInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRoutesInner() *RoutesInner {
+func NewRoutesInner(path string) *RoutesInner {
 	this := RoutesInner{}
+	this.Path = path
 	return &this
 }
 
@@ -59,36 +60,28 @@ func NewRoutesInnerWithDefaults() *RoutesInner {
 	return &this
 }
 
-// GetPath returns the Path field value if set, zero value otherwise.
+// GetPath returns the Path field value
 func (o *RoutesInner) GetPath() string {
-	if o == nil || IsNil(o.Path) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Path
+
+	return o.Path
 }
 
-// GetPathOk returns a tuple with the Path field value if set, nil otherwise
+// GetPathOk returns a tuple with the Path field value
 // and a boolean to check if the value has been set.
 func (o *RoutesInner) GetPathOk() (*string, bool) {
-	if o == nil || IsNil(o.Path) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Path, true
+	return &o.Path, true
 }
 
-// HasPath returns a boolean if a field has been set.
-func (o *RoutesInner) HasPath() bool {
-	if o != nil && !IsNil(o.Path) {
-		return true
-	}
-
-	return false
-}
-
-// SetPath gets a reference to the given string and assigns it to the Path field.
+// SetPath sets field value
 func (o *RoutesInner) SetPath(v string) {
-	o.Path = &v
+	o.Path = v
 }
 
 // GetMethod returns the Method field value if set, zero value otherwise.
@@ -421,9 +414,7 @@ func (o RoutesInner) MarshalJSON() ([]byte, error) {
 
 func (o RoutesInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Path) {
-		toSerialize["path"] = o.Path
-	}
+	toSerialize["path"] = o.Path
 	if !IsNil(o.Method) {
 		toSerialize["method"] = o.Method
 	}
@@ -463,6 +454,14 @@ func (o RoutesInner) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *RoutesInner) UnmarshalJSON(data []byte) (err error) {
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
 	varRoutesInner := _RoutesInner{}
 
 	err = json.Unmarshal(data, &varRoutesInner)
