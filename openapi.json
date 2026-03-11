@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "53c1f9e",
-    "x-generated-at": "2026-03-11T08:05:10.279Z"
+    "x-commit-sha": "e830311",
+    "x-generated-at": "2026-03-11T08:21:05.551Z"
   },
   "servers": [
     {
@@ -63,6 +63,10 @@
             "in": "query",
             "name": "direction",
             "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
               "type": "string"
             },
             "required": false
@@ -146,6 +150,20 @@
             "in": "query",
             "name": "orderBy",
             "schema": {
+              "enum": [
+                "id",
+                "name",
+                "version",
+                "createdAt",
+                "runningVersion",
+                "billingActiveUsers",
+                "billingGrafanaActiveUsers",
+                "billingOnCallActiveUsers",
+                "currentActiveUsers",
+                "currentActiveAdminUsers",
+                "currentActiveEditorUsers",
+                "currentActiveViewerUsers"
+              ],
               "type": "string"
             },
             "required": false
@@ -730,6 +748,23 @@
                     "type": "string"
                   },
                   "plan": {
+                    "enum": [
+                      "free",
+                      "free-trial",
+                      "gcloud",
+                      "enterprise",
+                      "advanced",
+                      "payg",
+                      "fedramp",
+                      "trial",
+                      "logsdemo",
+                      "starter",
+                      "starter-prom",
+                      "basic",
+                      "basic-prom",
+                      "bundled",
+                      "fog"
+                    ],
                     "type": "string"
                   },
                   "prometheus": {
@@ -2621,6 +2656,10 @@
             "in": "query",
             "name": "direction",
             "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
               "type": "string"
             },
             "required": false
@@ -2629,7 +2668,7 @@
             "in": "query",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "required": false
           },
@@ -2637,7 +2676,10 @@
             "in": "query",
             "name": "idIn",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
             },
             "required": false
           },
@@ -2653,7 +2695,10 @@
             "in": "query",
             "name": "nameIn",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "required": false
           },
@@ -2661,6 +2706,20 @@
             "in": "query",
             "name": "orderBy",
             "schema": {
+              "enum": [
+                "id",
+                "name",
+                "version",
+                "createdAt",
+                "runningVersion",
+                "billingActiveUsers",
+                "billingGrafanaActiveUsers",
+                "billingOnCallActiveUsers",
+                "currentActiveUsers",
+                "currentActiveAdminUsers",
+                "currentActiveEditorUsers",
+                "currentActiveViewerUsers"
+              ],
               "type": "string"
             },
             "required": false
@@ -2669,6 +2728,23 @@
             "in": "query",
             "name": "plan",
             "schema": {
+              "enum": [
+                "free",
+                "free-trial",
+                "gcloud",
+                "enterprise",
+                "advanced",
+                "payg",
+                "fedramp",
+                "trial",
+                "logsdemo",
+                "starter",
+                "starter-prom",
+                "basic",
+                "basic-prom",
+                "bundled",
+                "fog"
+              ],
               "type": "string"
             },
             "required": false
@@ -2677,7 +2753,27 @@
             "in": "query",
             "name": "planIn",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "enum": [
+                  "free",
+                  "free-trial",
+                  "gcloud",
+                  "enterprise",
+                  "advanced",
+                  "payg",
+                  "fedramp",
+                  "trial",
+                  "logsdemo",
+                  "starter",
+                  "starter-prom",
+                  "basic",
+                  "basic-prom",
+                  "bundled",
+                  "fog"
+                ],
+                "type": "string"
+              }
             },
             "required": false
           },
@@ -2701,7 +2797,10 @@
             "in": "query",
             "name": "slugIn",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "required": false
           },
@@ -2717,7 +2816,10 @@
             "in": "query",
             "name": "urlIn",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "required": false
           }
