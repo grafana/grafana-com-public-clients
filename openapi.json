@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "25be318",
-    "x-generated-at": "2026-03-12T14:44:22.929Z"
+    "x-commit-sha": "d45a8f9",
+    "x-generated-at": "2026-03-12T15:18:47.922Z"
   },
   "servers": [
     {
@@ -9931,18 +9931,7 @@
                 "title": "builtIn"
               },
               "category": {
-                "description": "Plugin category used on the Add data source page.",
-                "enum": [
-                  "cloud",
-                  "enterprise",
-                  "iot",
-                  "logging",
-                  "other",
-                  "profiling",
-                  "sql",
-                  "tracing",
-                  "tsdb"
-                ],
+                "description": "Plugin category used on the Add new connection page. Can be one from the list: \"tsdb\", \"logging\", \"cloud\", \"tracing\", \"profiling\", \"sql\", \"enterprise\", \"iot\", \"other\", empty string or custom string",
                 "type": "string",
                 "title": "category"
               },
@@ -10541,6 +10530,10 @@
               "type"
             ],
             "title": "json"
+          },
+          "category": {
+            "type": "string",
+            "title": "category"
           },
           "managed": {
             "type": "object",
