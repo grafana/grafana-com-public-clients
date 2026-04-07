@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: public
 */
@@ -25,8 +25,8 @@ type BilledUsage struct {
 	Notes                string        `json:"notes"`
 	Unit                 string        `json:"unit"`
 	IncludedUsage        float32       `json:"includedUsage"`
-	AmountDue            float32       `json:"amountDue"`
 	DimensionId          string        `json:"dimensionId"`
+	AmountDue            float32       `json:"amountDue"`
 	DimensionName        string        `json:"dimensionName"`
 	OrgRates             interface{}   `json:"orgRates"`
 	PeriodEnd            string        `json:"periodEnd"`
@@ -42,7 +42,7 @@ type _BilledUsage BilledUsage
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBilledUsage(id float32, overage float32, description string, notes string, unit string, includedUsage float32, amountDue float32, dimensionId string, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner) *BilledUsage {
+func NewBilledUsage(id float32, overage float32, description string, notes string, unit string, includedUsage float32, dimensionId string, amountDue float32, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner) *BilledUsage {
 	this := BilledUsage{}
 	this.Id = id
 	this.Overage = overage
@@ -50,8 +50,8 @@ func NewBilledUsage(id float32, overage float32, description string, notes strin
 	this.Notes = notes
 	this.Unit = unit
 	this.IncludedUsage = includedUsage
-	this.AmountDue = amountDue
 	this.DimensionId = dimensionId
+	this.AmountDue = amountDue
 	this.DimensionName = dimensionName
 	this.OrgRates = orgRates
 	this.PeriodEnd = periodEnd
@@ -213,30 +213,6 @@ func (o *BilledUsage) SetIncludedUsage(v float32) {
 	o.IncludedUsage = v
 }
 
-// GetAmountDue returns the AmountDue field value
-func (o *BilledUsage) GetAmountDue() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.AmountDue
-}
-
-// GetAmountDueOk returns a tuple with the AmountDue field value
-// and a boolean to check if the value has been set.
-func (o *BilledUsage) GetAmountDueOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AmountDue, true
-}
-
-// SetAmountDue sets field value
-func (o *BilledUsage) SetAmountDue(v float32) {
-	o.AmountDue = v
-}
-
 // GetDimensionId returns the DimensionId field value
 func (o *BilledUsage) GetDimensionId() string {
 	if o == nil {
@@ -259,6 +235,30 @@ func (o *BilledUsage) GetDimensionIdOk() (*string, bool) {
 // SetDimensionId sets field value
 func (o *BilledUsage) SetDimensionId(v string) {
 	o.DimensionId = v
+}
+
+// GetAmountDue returns the AmountDue field value
+func (o *BilledUsage) GetAmountDue() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.AmountDue
+}
+
+// GetAmountDueOk returns a tuple with the AmountDue field value
+// and a boolean to check if the value has been set.
+func (o *BilledUsage) GetAmountDueOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AmountDue, true
+}
+
+// SetAmountDue sets field value
+func (o *BilledUsage) SetAmountDue(v float32) {
+	o.AmountDue = v
 }
 
 // GetDimensionName returns the DimensionName field value
@@ -423,8 +423,8 @@ func (o BilledUsage) ToMap() (map[string]interface{}, error) {
 	toSerialize["notes"] = o.Notes
 	toSerialize["unit"] = o.Unit
 	toSerialize["includedUsage"] = o.IncludedUsage
-	toSerialize["amountDue"] = o.AmountDue
 	toSerialize["dimensionId"] = o.DimensionId
+	toSerialize["amountDue"] = o.AmountDue
 	toSerialize["dimensionName"] = o.DimensionName
 	if o.OrgRates != nil {
 		toSerialize["orgRates"] = o.OrgRates
@@ -469,8 +469,8 @@ func (o *BilledUsage) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "notes")
 		delete(additionalProperties, "unit")
 		delete(additionalProperties, "includedUsage")
-		delete(additionalProperties, "amountDue")
 		delete(additionalProperties, "dimensionId")
+		delete(additionalProperties, "amountDue")
 		delete(additionalProperties, "dimensionName")
 		delete(additionalProperties, "orgRates")
 		delete(additionalProperties, "periodEnd")

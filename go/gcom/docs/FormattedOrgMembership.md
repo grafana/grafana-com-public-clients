@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **UserName** | **string** |  | 
 **Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
 **MarketplaceSubscription** | [**NullableItemsInner1MarketplaceSubscription**](ItemsInner1MarketplaceSubscription.md) |  | 
+**MfaEnabled** | Pointer to **bool** |  | [optional] 
 **ExtraPermissions** | Pointer to **[]string** |  | [optional] 
 **GrafanaStaffAccess** | Pointer to [**NullableItemsInner1GrafanaStaffAccess**](ItemsInner1GrafanaStaffAccess.md) |  | [optional] 
 
@@ -728,6 +729,31 @@ SetMarketplaceSubscription sets MarketplaceSubscription field to given value.
 `func (o *FormattedOrgMembership) UnsetMarketplaceSubscription()`
 
 UnsetMarketplaceSubscription ensures that no value is present for MarketplaceSubscription, not even an explicit nil
+### GetMfaEnabled
+
+`func (o *FormattedOrgMembership) GetMfaEnabled() bool`
+
+GetMfaEnabled returns the MfaEnabled field if non-nil, zero value otherwise.
+
+### GetMfaEnabledOk
+
+`func (o *FormattedOrgMembership) GetMfaEnabledOk() (*bool, bool)`
+
+GetMfaEnabledOk returns a tuple with the MfaEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMfaEnabled
+
+`func (o *FormattedOrgMembership) SetMfaEnabled(v bool)`
+
+SetMfaEnabled sets MfaEnabled field to given value.
+
+### HasMfaEnabled
+
+`func (o *FormattedOrgMembership) HasMfaEnabled() bool`
+
+HasMfaEnabled returns a boolean if a field has been set.
+
 ### GetExtraPermissions
 
 `func (o *FormattedOrgMembership) GetExtraPermissions() []string`

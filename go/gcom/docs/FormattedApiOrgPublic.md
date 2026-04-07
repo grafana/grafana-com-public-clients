@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **UpdatedAt** | **NullableString** |  | 
 **UpdatedBy** | **NullableString** |  | 
 **Avatar** | **NullableString** |  | 
+**IsStaff** | **bool** |  | 
 **ChecksPerMonth** | **float32** |  | 
 **WpPlan** | **string** |  | 
 **HgInstanceLimit** | **float32** |  | 
@@ -68,6 +69,8 @@ Name | Type | Description | Notes
 **LiveChatEnabled** | **bool** |  | 
 **DisableTokenExpirationEmails** | **bool** |  | 
 **MaxTokenExpirationDays** | **float32** |  | 
+**MfaRequired** | Pointer to **bool** |  | [optional] 
+**MfaAdminRecoveryOnly** | Pointer to **bool** |  | [optional] 
 **Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
 **Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
 
@@ -75,7 +78,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiOrgPublic
 
-`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
+`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
 
 NewFormattedApiOrgPublic instantiates a new FormattedApiOrgPublic object
 This constructor will assign default values to properties that have it defined,
@@ -310,6 +313,26 @@ SetAvatar sets Avatar field to given value.
 `func (o *FormattedApiOrgPublic) UnsetAvatar()`
 
 UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
+### GetIsStaff
+
+`func (o *FormattedApiOrgPublic) GetIsStaff() bool`
+
+GetIsStaff returns the IsStaff field if non-nil, zero value otherwise.
+
+### GetIsStaffOk
+
+`func (o *FormattedApiOrgPublic) GetIsStaffOk() (*bool, bool)`
+
+GetIsStaffOk returns a tuple with the IsStaff field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsStaff
+
+`func (o *FormattedApiOrgPublic) SetIsStaff(v bool)`
+
+SetIsStaff sets IsStaff field to given value.
+
+
 ### GetChecksPerMonth
 
 `func (o *FormattedApiOrgPublic) GetChecksPerMonth() float32`
@@ -1499,6 +1522,56 @@ and a boolean to check if the value has been set.
 
 SetMaxTokenExpirationDays sets MaxTokenExpirationDays field to given value.
 
+
+### GetMfaRequired
+
+`func (o *FormattedApiOrgPublic) GetMfaRequired() bool`
+
+GetMfaRequired returns the MfaRequired field if non-nil, zero value otherwise.
+
+### GetMfaRequiredOk
+
+`func (o *FormattedApiOrgPublic) GetMfaRequiredOk() (*bool, bool)`
+
+GetMfaRequiredOk returns a tuple with the MfaRequired field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMfaRequired
+
+`func (o *FormattedApiOrgPublic) SetMfaRequired(v bool)`
+
+SetMfaRequired sets MfaRequired field to given value.
+
+### HasMfaRequired
+
+`func (o *FormattedApiOrgPublic) HasMfaRequired() bool`
+
+HasMfaRequired returns a boolean if a field has been set.
+
+### GetMfaAdminRecoveryOnly
+
+`func (o *FormattedApiOrgPublic) GetMfaAdminRecoveryOnly() bool`
+
+GetMfaAdminRecoveryOnly returns the MfaAdminRecoveryOnly field if non-nil, zero value otherwise.
+
+### GetMfaAdminRecoveryOnlyOk
+
+`func (o *FormattedApiOrgPublic) GetMfaAdminRecoveryOnlyOk() (*bool, bool)`
+
+GetMfaAdminRecoveryOnlyOk returns a tuple with the MfaAdminRecoveryOnly field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMfaAdminRecoveryOnly
+
+`func (o *FormattedApiOrgPublic) SetMfaAdminRecoveryOnly(v bool)`
+
+SetMfaAdminRecoveryOnly sets MfaAdminRecoveryOnly field to given value.
+
+### HasMfaAdminRecoveryOnly
+
+`func (o *FormattedApiOrgPublic) HasMfaAdminRecoveryOnly() bool`
+
+HasMfaAdminRecoveryOnly returns a boolean if a field has been set.
 
 ### GetLinks
 

@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: public
 */
@@ -21,7 +21,7 @@ var _ MappedNullable = &IncludesInner{}
 type IncludesInner struct {
 	// Unique identifier of the included resource
 	Uid  *string `json:"uid,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Type string  `json:"type"`
 	Name *string `json:"name,omitempty"`
 	// (Legacy) The Angular component to use for a page.
 	Component *string `json:"component,omitempty"`
@@ -46,8 +46,9 @@ type _IncludesInner IncludesInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIncludesInner() *IncludesInner {
+func NewIncludesInner(type_ string) *IncludesInner {
 	this := IncludesInner{}
+	this.Type = type_
 	return &this
 }
 
@@ -91,36 +92,28 @@ func (o *IncludesInner) SetUid(v string) {
 	o.Uid = &v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value
 func (o *IncludesInner) GetType() string {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Type
+
+	return o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *IncludesInner) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return &o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *IncludesInner) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given string and assigns it to the Type field.
+// SetType sets field value
 func (o *IncludesInner) SetType(v string) {
-	o.Type = &v
+	o.Type = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -392,9 +385,7 @@ func (o IncludesInner) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Uid) {
 		toSerialize["uid"] = o.Uid
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
+	toSerialize["type"] = o.Type
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -428,6 +419,14 @@ func (o IncludesInner) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *IncludesInner) UnmarshalJSON(data []byte) (err error) {
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
 	varIncludesInner := _IncludesInner{}
 
 	err = json.Unmarshal(data, &varIncludesInner)

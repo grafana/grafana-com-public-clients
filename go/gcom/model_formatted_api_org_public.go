@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: public
 */
@@ -28,6 +28,7 @@ type FormattedApiOrgPublic struct {
 	UpdatedAt                    NullableString                         `json:"updatedAt"`
 	UpdatedBy                    NullableString                         `json:"updatedBy"`
 	Avatar                       NullableString                         `json:"avatar"`
+	IsStaff                      bool                                   `json:"isStaff"`
 	ChecksPerMonth               float32                                `json:"checksPerMonth"`
 	WpPlan                       string                                 `json:"wpPlan"`
 	HgInstanceLimit              float32                                `json:"hgInstanceLimit"`
@@ -83,6 +84,8 @@ type FormattedApiOrgPublic struct {
 	LiveChatEnabled              bool                                   `json:"liveChatEnabled"`
 	DisableTokenExpirationEmails bool                                   `json:"disableTokenExpirationEmails"`
 	MaxTokenExpirationDays       float32                                `json:"maxTokenExpirationDays"`
+	MfaRequired                  *bool                                  `json:"mfaRequired,omitempty"`
+	MfaAdminRecoveryOnly         *bool                                  `json:"mfaAdminRecoveryOnly,omitempty"`
 	Links                        []LinksInner1                          `json:"links"`
 	Subscriptions                Subscriptions                          `json:"subscriptions"`
 	AdditionalProperties         map[string]interface{}
@@ -94,7 +97,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -105,6 +108,7 @@ func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, 
 	this.UpdatedAt = updatedAt
 	this.UpdatedBy = updatedBy
 	this.Avatar = avatar
+	this.IsStaff = isStaff
 	this.ChecksPerMonth = checksPerMonth
 	this.WpPlan = wpPlan
 	this.HgInstanceLimit = hgInstanceLimit
@@ -395,6 +399,30 @@ func (o *FormattedApiOrgPublic) GetAvatarOk() (*string, bool) {
 // SetAvatar sets field value
 func (o *FormattedApiOrgPublic) SetAvatar(v string) {
 	o.Avatar.Set(&v)
+}
+
+// GetIsStaff returns the IsStaff field value
+func (o *FormattedApiOrgPublic) GetIsStaff() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsStaff
+}
+
+// GetIsStaffOk returns a tuple with the IsStaff field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiOrgPublic) GetIsStaffOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsStaff, true
+}
+
+// SetIsStaff sets field value
+func (o *FormattedApiOrgPublic) SetIsStaff(v bool) {
+	o.IsStaff = v
 }
 
 // GetChecksPerMonth returns the ChecksPerMonth field value
@@ -1735,6 +1763,70 @@ func (o *FormattedApiOrgPublic) SetMaxTokenExpirationDays(v float32) {
 	o.MaxTokenExpirationDays = v
 }
 
+// GetMfaRequired returns the MfaRequired field value if set, zero value otherwise.
+func (o *FormattedApiOrgPublic) GetMfaRequired() bool {
+	if o == nil || IsNil(o.MfaRequired) {
+		var ret bool
+		return ret
+	}
+	return *o.MfaRequired
+}
+
+// GetMfaRequiredOk returns a tuple with the MfaRequired field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiOrgPublic) GetMfaRequiredOk() (*bool, bool) {
+	if o == nil || IsNil(o.MfaRequired) {
+		return nil, false
+	}
+	return o.MfaRequired, true
+}
+
+// HasMfaRequired returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasMfaRequired() bool {
+	if o != nil && !IsNil(o.MfaRequired) {
+		return true
+	}
+
+	return false
+}
+
+// SetMfaRequired gets a reference to the given bool and assigns it to the MfaRequired field.
+func (o *FormattedApiOrgPublic) SetMfaRequired(v bool) {
+	o.MfaRequired = &v
+}
+
+// GetMfaAdminRecoveryOnly returns the MfaAdminRecoveryOnly field value if set, zero value otherwise.
+func (o *FormattedApiOrgPublic) GetMfaAdminRecoveryOnly() bool {
+	if o == nil || IsNil(o.MfaAdminRecoveryOnly) {
+		var ret bool
+		return ret
+	}
+	return *o.MfaAdminRecoveryOnly
+}
+
+// GetMfaAdminRecoveryOnlyOk returns a tuple with the MfaAdminRecoveryOnly field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiOrgPublic) GetMfaAdminRecoveryOnlyOk() (*bool, bool) {
+	if o == nil || IsNil(o.MfaAdminRecoveryOnly) {
+		return nil, false
+	}
+	return o.MfaAdminRecoveryOnly, true
+}
+
+// HasMfaAdminRecoveryOnly returns a boolean if a field has been set.
+func (o *FormattedApiOrgPublic) HasMfaAdminRecoveryOnly() bool {
+	if o != nil && !IsNil(o.MfaAdminRecoveryOnly) {
+		return true
+	}
+
+	return false
+}
+
+// SetMfaAdminRecoveryOnly gets a reference to the given bool and assigns it to the MfaAdminRecoveryOnly field.
+func (o *FormattedApiOrgPublic) SetMfaAdminRecoveryOnly(v bool) {
+	o.MfaAdminRecoveryOnly = &v
+}
+
 // GetLinks returns the Links field value
 func (o *FormattedApiOrgPublic) GetLinks() []LinksInner1 {
 	if o == nil {
@@ -1802,6 +1894,7 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["updatedAt"] = o.UpdatedAt.Get()
 	toSerialize["updatedBy"] = o.UpdatedBy.Get()
 	toSerialize["avatar"] = o.Avatar.Get()
+	toSerialize["isStaff"] = o.IsStaff
 	toSerialize["checksPerMonth"] = o.ChecksPerMonth
 	toSerialize["wpPlan"] = o.WpPlan
 	toSerialize["hgInstanceLimit"] = o.HgInstanceLimit
@@ -1857,6 +1950,12 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["liveChatEnabled"] = o.LiveChatEnabled
 	toSerialize["disableTokenExpirationEmails"] = o.DisableTokenExpirationEmails
 	toSerialize["maxTokenExpirationDays"] = o.MaxTokenExpirationDays
+	if !IsNil(o.MfaRequired) {
+		toSerialize["mfaRequired"] = o.MfaRequired
+	}
+	if !IsNil(o.MfaAdminRecoveryOnly) {
+		toSerialize["mfaAdminRecoveryOnly"] = o.MfaAdminRecoveryOnly
+	}
 	toSerialize["links"] = o.Links
 	toSerialize["subscriptions"] = o.Subscriptions
 
@@ -1898,6 +1997,7 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "updatedAt")
 		delete(additionalProperties, "updatedBy")
 		delete(additionalProperties, "avatar")
+		delete(additionalProperties, "isStaff")
 		delete(additionalProperties, "checksPerMonth")
 		delete(additionalProperties, "wpPlan")
 		delete(additionalProperties, "hgInstanceLimit")
@@ -1953,6 +2053,8 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "liveChatEnabled")
 		delete(additionalProperties, "disableTokenExpirationEmails")
 		delete(additionalProperties, "maxTokenExpirationDays")
+		delete(additionalProperties, "mfaRequired")
+		delete(additionalProperties, "mfaAdminRecoveryOnly")
 		delete(additionalProperties, "links")
 		delete(additionalProperties, "subscriptions")
 		o.AdditionalProperties = additionalProperties

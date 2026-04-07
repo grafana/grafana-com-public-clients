@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: public
 */
@@ -22,6 +22,8 @@ type UsagesInner struct {
 	ActiveSeries         *float32               `json:"activeSeries,omitempty"`
 	ActiveUsers          *float32               `json:"activeUsers,omitempty"`
 	AnonymousUsers       *float32               `json:"anonymousUsers,omitempty"`
+	AttributedCost       *float32               `json:"attributedCost,omitempty"`
+	AttributedUsage      *float32               `json:"attributedUsage,omitempty"`
 	BrowserUsage         *float32               `json:"browserUsage,omitempty"`
 	Dpm                  *float32               `json:"dpm,omitempty"`
 	GrafanaUsage         *float32               `json:"grafanaUsage,omitempty"`
@@ -162,6 +164,70 @@ func (o *UsagesInner) HasAnonymousUsers() bool {
 // SetAnonymousUsers gets a reference to the given float32 and assigns it to the AnonymousUsers field.
 func (o *UsagesInner) SetAnonymousUsers(v float32) {
 	o.AnonymousUsers = &v
+}
+
+// GetAttributedCost returns the AttributedCost field value if set, zero value otherwise.
+func (o *UsagesInner) GetAttributedCost() float32 {
+	if o == nil || IsNil(o.AttributedCost) {
+		var ret float32
+		return ret
+	}
+	return *o.AttributedCost
+}
+
+// GetAttributedCostOk returns a tuple with the AttributedCost field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetAttributedCostOk() (*float32, bool) {
+	if o == nil || IsNil(o.AttributedCost) {
+		return nil, false
+	}
+	return o.AttributedCost, true
+}
+
+// HasAttributedCost returns a boolean if a field has been set.
+func (o *UsagesInner) HasAttributedCost() bool {
+	if o != nil && !IsNil(o.AttributedCost) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttributedCost gets a reference to the given float32 and assigns it to the AttributedCost field.
+func (o *UsagesInner) SetAttributedCost(v float32) {
+	o.AttributedCost = &v
+}
+
+// GetAttributedUsage returns the AttributedUsage field value if set, zero value otherwise.
+func (o *UsagesInner) GetAttributedUsage() float32 {
+	if o == nil || IsNil(o.AttributedUsage) {
+		var ret float32
+		return ret
+	}
+	return *o.AttributedUsage
+}
+
+// GetAttributedUsageOk returns a tuple with the AttributedUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetAttributedUsageOk() (*float32, bool) {
+	if o == nil || IsNil(o.AttributedUsage) {
+		return nil, false
+	}
+	return o.AttributedUsage, true
+}
+
+// HasAttributedUsage returns a boolean if a field has been set.
+func (o *UsagesInner) HasAttributedUsage() bool {
+	if o != nil && !IsNil(o.AttributedUsage) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttributedUsage gets a reference to the given float32 and assigns it to the AttributedUsage field.
+func (o *UsagesInner) SetAttributedUsage(v float32) {
+	o.AttributedUsage = &v
 }
 
 // GetBrowserUsage returns the BrowserUsage field value if set, zero value otherwise.
@@ -631,6 +697,12 @@ func (o UsagesInner) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AnonymousUsers) {
 		toSerialize["anonymousUsers"] = o.AnonymousUsers
 	}
+	if !IsNil(o.AttributedCost) {
+		toSerialize["attributedCost"] = o.AttributedCost
+	}
+	if !IsNil(o.AttributedUsage) {
+		toSerialize["attributedUsage"] = o.AttributedUsage
+	}
 	if !IsNil(o.BrowserUsage) {
 		toSerialize["browserUsage"] = o.BrowserUsage
 	}
@@ -696,6 +768,8 @@ func (o *UsagesInner) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "activeSeries")
 		delete(additionalProperties, "activeUsers")
 		delete(additionalProperties, "anonymousUsers")
+		delete(additionalProperties, "attributedCost")
+		delete(additionalProperties, "attributedUsage")
 		delete(additionalProperties, "browserUsage")
 		delete(additionalProperties, "dpm")
 		delete(additionalProperties, "grafanaUsage")

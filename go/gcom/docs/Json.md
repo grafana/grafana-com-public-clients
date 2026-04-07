@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Backend** | Pointer to **bool** | If the plugin has a backend component. | [optional] 
 **BuildMode** | Pointer to **string** | The build mode of the plugin. This field is set automatically at build time, so it should not be provided manually. | [optional] 
 **BuiltIn** | Pointer to **bool** | [internal only] Indicates whether the plugin is developed and shipped as part of Grafana. Also known as a &#39;core plugin&#39;. | [optional] 
-**Category** | Pointer to **string** | Plugin category used on the Add data source page. | [optional] 
+**Category** | Pointer to **string** | Plugin category used on the Add new connection page. Can be one from the list: \&quot;tsdb\&quot;, \&quot;logging\&quot;, \&quot;cloud\&quot;, \&quot;tracing\&quot;, \&quot;profiling\&quot;, \&quot;sql\&quot;, \&quot;enterprise\&quot;, \&quot;iot\&quot;, \&quot;other\&quot;, empty string or custom string | [optional] 
 **EnterpriseFeatures** | Pointer to [**EnterpriseFeatures**](EnterpriseFeatures.md) |  | [optional] 
 **Executable** | Pointer to **string** | The first part of the file name of the backend component executable. There can be multiple executables built for different operating system and architecture. Grafana will check for executables named &#x60;&lt;executable&gt;_&lt;$GOOS&gt;_&lt;lower case $GOARCH&gt;&lt;.exe for Windows&gt;&#x60;, e.g. &#x60;plugin_linux_amd64&#x60;. Combination of $GOOS and $GOARCH can be found here: https://golang.org/doc/install/source#environment. | [optional] 
 **HideFromList** | Pointer to **bool** | [internal only] Excludes the plugin from listings in Grafana&#39;s UI. Only allowed for &#x60;builtIn&#x60; plugins. | [optional] 

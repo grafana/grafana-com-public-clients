@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeleteProtection** | Pointer to **bool** | protection active or not for the stack | [optional] [default to true]
+**DeleteProtection** | Pointer to **NullableBool** | protection active or not for the stack | [optional] [default to true]
 **Description** | Pointer to **NullableString** | description of the stack | [optional] 
 **Labels** | Pointer to **map[string]string** | labels to add to the stack | [optional] 
 **Name** | **string** | of the stack | 
@@ -58,6 +58,16 @@ SetDeleteProtection sets DeleteProtection field to given value.
 
 HasDeleteProtection returns a boolean if a field has been set.
 
+### SetDeleteProtectionNil
+
+`func (o *StackCreateRequestV1) SetDeleteProtectionNil(b bool)`
+
+ SetDeleteProtectionNil sets the value for DeleteProtection to be an explicit nil
+
+### UnsetDeleteProtection
+`func (o *StackCreateRequestV1) UnsetDeleteProtection()`
+
+UnsetDeleteProtection ensures that no value is present for DeleteProtection, not even an explicit nil
 ### GetDescription
 
 `func (o *StackCreateRequestV1) GetDescription() string`

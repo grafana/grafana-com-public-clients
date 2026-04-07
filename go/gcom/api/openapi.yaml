@@ -9,11 +9,11 @@ info:
 
     This spec is in *Beta* stage, so use it with caution:
     - Not all endpoint responses are properly typed for the time being.
-    - Some request parameter types may not be precise.
+    - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: eaae6c4
-  x-generated-at: 2026-03-06T08:48:24.955Z
+  x-commit-sha: bdb5f60
+  x-generated-at: 2026-04-07T11:05:57.093Z
 servers:
 - description: Main API server
   url: /api
@@ -55,6 +55,9 @@ paths:
         name: direction
         required: false
         schema:
+          enum:
+          - asc
+          - desc
           type: string
         style: form
       - explode: true
@@ -127,6 +130,19 @@ paths:
         name: orderBy
         required: false
         schema:
+          enum:
+          - id
+          - name
+          - version
+          - createdAt
+          - runningVersion
+          - billingActiveUsers
+          - billingGrafanaActiveUsers
+          - billingOnCallActiveUsers
+          - currentActiveUsers
+          - currentActiveAdminUsers
+          - currentActiveEditorUsers
+          - currentActiveViewerUsers
           type: string
         style: form
       - explode: true
@@ -1558,6 +1574,9 @@ paths:
         name: direction
         required: false
         schema:
+          enum:
+          - asc
+          - desc
           type: string
         style: form
       - explode: true
@@ -1565,14 +1584,16 @@ paths:
         name: id
         required: false
         schema:
-          type: string
+          type: integer
         style: form
       - explode: true
         in: query
         name: idIn
         required: false
         schema:
-          type: string
+          items:
+            type: integer
+          type: array
         style: form
       - explode: true
         in: query
@@ -1586,13 +1607,28 @@ paths:
         name: nameIn
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       - explode: true
         in: query
         name: orderBy
         required: false
         schema:
+          enum:
+          - id
+          - name
+          - version
+          - createdAt
+          - runningVersion
+          - billingActiveUsers
+          - billingGrafanaActiveUsers
+          - billingOnCallActiveUsers
+          - currentActiveUsers
+          - currentActiveAdminUsers
+          - currentActiveEditorUsers
+          - currentActiveViewerUsers
           type: string
         style: form
       - explode: true
@@ -1600,6 +1636,22 @@ paths:
         name: plan
         required: false
         schema:
+          enum:
+          - free
+          - free-trial
+          - gcloud
+          - enterprise
+          - advanced
+          - payg
+          - fedramp
+          - trial
+          - logsdemo
+          - starter
+          - starter-prom
+          - basic
+          - basic-prom
+          - bundled
+          - fog
           type: string
         style: form
       - explode: true
@@ -1607,7 +1659,25 @@ paths:
         name: planIn
         required: false
         schema:
-          type: string
+          items:
+            enum:
+            - free
+            - free-trial
+            - gcloud
+            - enterprise
+            - advanced
+            - payg
+            - fedramp
+            - trial
+            - logsdemo
+            - starter
+            - starter-prom
+            - basic
+            - basic-prom
+            - bundled
+            - fog
+            type: string
+          type: array
         style: form
       - explode: true
         in: query
@@ -1628,7 +1698,9 @@ paths:
         name: slugIn
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       - explode: true
         in: query
@@ -1642,7 +1714,9 @@ paths:
         name: urlIn
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -3844,6 +3918,7 @@ components:
         hmInstancePromName: hmInstancePromName
         hmInstanceGraphiteType: hmInstanceGraphiteType
         regionMachineLearningApiUrl: regionMachineLearningApiUrl
+        regionSigilUrl: regionSigilUrl
         versionIssueLink: versionIssueLink
         deleteProtection: true
         customAuth: true
@@ -4395,6 +4470,9 @@ components:
         regionAssistantUrl:
           title: regionAssistantUrl
           type: string
+        regionSigilUrl:
+          title: regionSigilUrl
+          type: string
         links:
           items:
             $ref: '#/components/schemas/links_inner_1'
@@ -4503,6 +4581,7 @@ components:
       - regionLLMGatewayUrl
       - regionMachineLearningApiUrl
       - regionPublicName
+      - regionSigilUrl
       - regionSlug
       - regionStackStateServiceUrl
       - regionSyntheticMonitoringApiUrl
@@ -4696,6 +4775,7 @@ components:
           hgDatasourceCnts: hgDatasourceCnts
           userLastName: userLastName
           userEmail: userEmail
+          mfaEnabled: true
           id: 0.8008281904610115
           extraPermissions:
           - accesspolicies:write
@@ -4748,6 +4828,7 @@ components:
           hgDatasourceCnts: hgDatasourceCnts
           userLastName: userLastName
           userEmail: userEmail
+          mfaEnabled: true
           id: 0.8008281904610115
           extraPermissions:
           - accesspolicies:write
@@ -4845,6 +4926,7 @@ components:
         hgDatasourceCnts: hgDatasourceCnts
         userLastName: userLastName
         userEmail: userEmail
+        mfaEnabled: true
         id: 0.8008281904610115
         extraPermissions:
         - accesspolicies:write
@@ -4926,8 +5008,6 @@ components:
           - 0
           - 1
           - 11
-          - 14
-          - 15
           - 2
           - 31
           - 4
@@ -4983,6 +5063,9 @@ components:
           $ref: '#/components/schemas/subscriptions'
         marketplaceSubscription:
           $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
+        mfaEnabled:
+          title: mfaEnabled
+          type: boolean
         extraPermissions:
           items:
             enum:
@@ -5094,6 +5177,7 @@ components:
         slug: slug
         updatedAt: updatedAt
         updatedBy: updatedBy
+        isStaff: true
         resellerName: resellerName
         hgOnCallUsage: 1.4894159098541704
         geUsersUsage: 6.778324963048013
@@ -5111,6 +5195,7 @@ components:
         appO11YUsage: 3.5571952270680973
         geInstancesUsage: 6.878052220127876
         wpPlan: wpPlan
+        mfaAdminRecoveryOnly: true
         privacy: privacy
         checksPerMonth: 6.027456183070403
         hlUsage: 4.965218492984954
@@ -5124,6 +5209,7 @@ components:
         irmUsage: 6.683562403749608
         hlInstanceLimit: 5.637376656633329
         emergencySupport: true
+        mfaRequired: true
         infraO11YHostsUsage: 1.284659006116532
         cancellationDate: cancellationDate
         awsMarketplaceSupport: 6.704019297950036
@@ -5176,6 +5262,9 @@ components:
           nullable: true
           title: avatar
           type: string
+        isStaff:
+          title: isStaff
+          type: boolean
         checksPerMonth:
           title: checksPerMonth
           type: number
@@ -5221,8 +5310,6 @@ components:
           - 0
           - 1
           - 11
-          - 14
-          - 15
           - 2
           - 31
           - 4
@@ -5367,6 +5454,12 @@ components:
         maxTokenExpirationDays:
           title: maxTokenExpirationDays
           type: number
+        mfaRequired:
+          title: mfaRequired
+          type: boolean
+        mfaAdminRecoveryOnly:
+          title: mfaAdminRecoveryOnly
+          type: boolean
         links:
           items:
             $ref: '#/components/schemas/links_inner_1'
@@ -5412,6 +5505,7 @@ components:
       - infraO11YContainersUsage
       - infraO11YHostsUsage
       - irmUsage
+      - isStaff
       - k6IPUsage
       - k6VuhUsage
       - licenseProducts
@@ -5449,6 +5543,7 @@ components:
         documentationUrl: documentationUrl
         featured: 2.3021358869347655
         internal: true
+        hasDocumentation: true
         typeName: typeName
         description: description
         versionSignedByOrgName: versionSignedByOrgName
@@ -5712,7 +5807,7 @@ components:
           name: name
           suggestions: true
           metrics: true
-          category: cloud
+          category: category
         links:
         - rel: rel
           href: href
@@ -5722,6 +5817,7 @@ components:
         slug: slug
         updatedAt: updatedAt
         orgName: orgName
+        versionDistributionType: versionDistributionType
         verified: true
         signatureType: signatureType
         packages: "{}"
@@ -5733,6 +5829,7 @@ components:
         angularDetected: true
         name: name
         typeId: 6.027456183070403
+        category: category
         status: status
       properties:
         status:
@@ -5767,6 +5864,9 @@ components:
           type: string
         versionSignatureType:
           title: versionSignatureType
+          type: string
+        versionDistributionType:
+          title: versionDistributionType
           type: string
         versionSignedByOrg:
           title: versionSignedByOrg
@@ -5838,8 +5938,14 @@ components:
           type: string
         json:
           $ref: '#/components/schemas/json'
+        category:
+          title: category
+          type: string
         managed:
           $ref: '#/components/schemas/managed'
+        hasDocumentation:
+          title: hasDocumentation
+          type: boolean
       required:
       - angularDetected
       - createdAt
@@ -5868,6 +5974,7 @@ components:
       - userId
       - verified
       - version
+      - versionDistributionType
       - versionSignatureType
       - versionSignedByOrg
       - versionSignedByOrgName
@@ -6042,40 +6149,44 @@ components:
         totalUsage: 5.637376656633329
         id: 0.8008281904610115
         usages:
-        - dpm: 2.027123023002322
-          ingestUsage: 1.0246457001441578
-          onCallUsage: 1.4894159098541704
-          stackId: 1.1730742509559433
+        - dpm: 7.386281948385884
+          ingestUsage: 6.84685269835264
+          onCallUsage: 7.457744773683766
+          stackId: 5.025004791520295
           stackName: stackName
           activeUsers: 7.061401241503109
-          protocolUsage: 6.84685269835264
+          protocolUsage: 1.1730742509559433
           anonymousUsers: 9.301444243932576
-          grafanaUsage: 4.145608029883936
-          browserUsage: 3.616076749251911
+          attributedUsage: 2.027123023002322
+          grafanaUsage: 1.2315135367772556
+          browserUsage: 4.145608029883936
           stackLabels: "{}"
-          queryUsage: 7.457744773683766
-          incidentUsage: 1.2315135367772556
-          totalUsage: 4.965218492984954
-          id: 7.386281948385884
+          attributedCost: 3.616076749251911
+          queryUsage: 4.965218492984954
+          incidentUsage: 1.4894159098541704
+          totalUsage: 9.965781217890562
+          id: 1.0246457001441578
           activeSeries: 2.3021358869347655
           periodStart: periodStart
           isProrated: true
           periodEnd: periodEnd
-        - dpm: 2.027123023002322
-          ingestUsage: 1.0246457001441578
-          onCallUsage: 1.4894159098541704
-          stackId: 1.1730742509559433
+        - dpm: 7.386281948385884
+          ingestUsage: 6.84685269835264
+          onCallUsage: 7.457744773683766
+          stackId: 5.025004791520295
           stackName: stackName
           activeUsers: 7.061401241503109
-          protocolUsage: 6.84685269835264
+          protocolUsage: 1.1730742509559433
           anonymousUsers: 9.301444243932576
-          grafanaUsage: 4.145608029883936
-          browserUsage: 3.616076749251911
+          attributedUsage: 2.027123023002322
+          grafanaUsage: 1.2315135367772556
+          browserUsage: 4.145608029883936
           stackLabels: "{}"
-          queryUsage: 7.457744773683766
-          incidentUsage: 1.2315135367772556
-          totalUsage: 4.965218492984954
-          id: 7.386281948385884
+          attributedCost: 3.616076749251911
+          queryUsage: 4.965218492984954
+          incidentUsage: 1.4894159098541704
+          totalUsage: 9.965781217890562
+          id: 1.0246457001441578
           activeSeries: 2.3021358869347655
           periodStart: periodStart
           isProrated: true
@@ -6102,9 +6213,6 @@ components:
           type: string
         includedUsage:
           title: includedUsage
-          type: number
-        amountDue:
-          title: amountDue
           type: number
         dimensionId:
           enum:
@@ -6136,6 +6244,9 @@ components:
           - sm-browser
           title: dimensionId
           type: string
+        amountDue:
+          title: amountDue
+          type: number
         dimensionName:
           title: dimensionName
           type: string
@@ -6396,6 +6507,7 @@ components:
         deleteProtection:
           default: true
           description: protection active or not for the stack
+          nullable: true
           type: boolean
         description:
           description: description of the stack
@@ -6578,6 +6690,7 @@ components:
         - hmInstancePromName: hmInstancePromName
           hmInstanceGraphiteType: hmInstanceGraphiteType
           regionMachineLearningApiUrl: regionMachineLearningApiUrl
+          regionSigilUrl: regionSigilUrl
           versionIssueLink: versionIssueLink
           deleteProtection: true
           customAuth: true
@@ -6702,6 +6815,7 @@ components:
         - hmInstancePromName: hmInstancePromName
           hmInstanceGraphiteType: hmInstanceGraphiteType
           regionMachineLearningApiUrl: regionMachineLearningApiUrl
+          regionSigilUrl: regionSigilUrl
           versionIssueLink: versionIssueLink
           deleteProtection: true
           customAuth: true
@@ -6957,6 +7071,22 @@ components:
         name:
           type: string
         plan:
+          enum:
+          - free
+          - free-trial
+          - gcloud
+          - enterprise
+          - advanced
+          - payg
+          - fedramp
+          - trial
+          - logsdemo
+          - starter
+          - starter-prom
+          - basic
+          - basic-prom
+          - bundled
+          - fog
           type: string
         prometheus:
           type: boolean
@@ -7138,11 +7268,11 @@ components:
       type: object
     getOrgBilledUsage_200_response:
       example:
-        total: 5.025004791520295
-        pages: 9.965781217890562
+        total: 9.369310271410669
+        pages: 6.683562403749608
         orderBy: orderBy
-        pageSize: 9.369310271410669
-        page: 6.683562403749608
+        pageSize: 8.762042012749001
+        page: 9.018348186070783
         items:
         - notes: notes
           description: description
@@ -7154,40 +7284,44 @@ components:
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
-          - dpm: 2.027123023002322
-            ingestUsage: 1.0246457001441578
-            onCallUsage: 1.4894159098541704
-            stackId: 1.1730742509559433
+          - dpm: 7.386281948385884
+            ingestUsage: 6.84685269835264
+            onCallUsage: 7.457744773683766
+            stackId: 5.025004791520295
             stackName: stackName
             activeUsers: 7.061401241503109
-            protocolUsage: 6.84685269835264
+            protocolUsage: 1.1730742509559433
             anonymousUsers: 9.301444243932576
-            grafanaUsage: 4.145608029883936
-            browserUsage: 3.616076749251911
+            attributedUsage: 2.027123023002322
+            grafanaUsage: 1.2315135367772556
+            browserUsage: 4.145608029883936
             stackLabels: "{}"
-            queryUsage: 7.457744773683766
-            incidentUsage: 1.2315135367772556
-            totalUsage: 4.965218492984954
-            id: 7.386281948385884
+            attributedCost: 3.616076749251911
+            queryUsage: 4.965218492984954
+            incidentUsage: 1.4894159098541704
+            totalUsage: 9.965781217890562
+            id: 1.0246457001441578
             activeSeries: 2.3021358869347655
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          - dpm: 2.027123023002322
-            ingestUsage: 1.0246457001441578
-            onCallUsage: 1.4894159098541704
-            stackId: 1.1730742509559433
+          - dpm: 7.386281948385884
+            ingestUsage: 6.84685269835264
+            onCallUsage: 7.457744773683766
+            stackId: 5.025004791520295
             stackName: stackName
             activeUsers: 7.061401241503109
-            protocolUsage: 6.84685269835264
+            protocolUsage: 1.1730742509559433
             anonymousUsers: 9.301444243932576
-            grafanaUsage: 4.145608029883936
-            browserUsage: 3.616076749251911
+            attributedUsage: 2.027123023002322
+            grafanaUsage: 1.2315135367772556
+            browserUsage: 4.145608029883936
             stackLabels: "{}"
-            queryUsage: 7.457744773683766
-            incidentUsage: 1.2315135367772556
-            totalUsage: 4.965218492984954
-            id: 7.386281948385884
+            attributedCost: 3.616076749251911
+            queryUsage: 4.965218492984954
+            incidentUsage: 1.4894159098541704
+            totalUsage: 9.965781217890562
+            id: 1.0246457001441578
             activeSeries: 2.3021358869347655
             periodStart: periodStart
             isProrated: true
@@ -7206,40 +7340,44 @@ components:
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
-          - dpm: 2.027123023002322
-            ingestUsage: 1.0246457001441578
-            onCallUsage: 1.4894159098541704
-            stackId: 1.1730742509559433
+          - dpm: 7.386281948385884
+            ingestUsage: 6.84685269835264
+            onCallUsage: 7.457744773683766
+            stackId: 5.025004791520295
             stackName: stackName
             activeUsers: 7.061401241503109
-            protocolUsage: 6.84685269835264
+            protocolUsage: 1.1730742509559433
             anonymousUsers: 9.301444243932576
-            grafanaUsage: 4.145608029883936
-            browserUsage: 3.616076749251911
+            attributedUsage: 2.027123023002322
+            grafanaUsage: 1.2315135367772556
+            browserUsage: 4.145608029883936
             stackLabels: "{}"
-            queryUsage: 7.457744773683766
-            incidentUsage: 1.2315135367772556
-            totalUsage: 4.965218492984954
-            id: 7.386281948385884
+            attributedCost: 3.616076749251911
+            queryUsage: 4.965218492984954
+            incidentUsage: 1.4894159098541704
+            totalUsage: 9.965781217890562
+            id: 1.0246457001441578
             activeSeries: 2.3021358869347655
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          - dpm: 2.027123023002322
-            ingestUsage: 1.0246457001441578
-            onCallUsage: 1.4894159098541704
-            stackId: 1.1730742509559433
+          - dpm: 7.386281948385884
+            ingestUsage: 6.84685269835264
+            onCallUsage: 7.457744773683766
+            stackId: 5.025004791520295
             stackName: stackName
             activeUsers: 7.061401241503109
-            protocolUsage: 6.84685269835264
+            protocolUsage: 1.1730742509559433
             anonymousUsers: 9.301444243932576
-            grafanaUsage: 4.145608029883936
-            browserUsage: 3.616076749251911
+            attributedUsage: 2.027123023002322
+            grafanaUsage: 1.2315135367772556
+            browserUsage: 4.145608029883936
             stackLabels: "{}"
-            queryUsage: 7.457744773683766
-            incidentUsage: 1.2315135367772556
-            totalUsage: 4.965218492984954
-            id: 7.386281948385884
+            attributedCost: 3.616076749251911
+            queryUsage: 4.965218492984954
+            incidentUsage: 1.4894159098541704
+            totalUsage: 9.965781217890562
+            id: 1.0246457001441578
             activeSeries: 2.3021358869347655
             periodStart: periodStart
             isProrated: true
@@ -8514,6 +8652,7 @@ components:
         hgDatasourceCnts: hgDatasourceCnts
         userLastName: userLastName
         userEmail: userEmail
+        mfaEnabled: true
         id: 0.8008281904610115
         extraPermissions:
         - accesspolicies:write
@@ -8595,8 +8734,6 @@ components:
           - 0
           - 1
           - 11
-          - 14
-          - 15
           - 2
           - 31
           - 4
@@ -8653,6 +8790,9 @@ components:
           $ref: '#/components/schemas/subscriptions'
         marketplaceSubscription:
           $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
+        mfaEnabled:
+          title: mfaEnabled
+          type: boolean
         extraPermissions:
           items:
             enum:
@@ -9073,6 +9213,8 @@ components:
             \ icon, refer to [Icons Overview](https://developers.grafana.com/ui/latest/index.html?path=/story/docs-overview-icon--icons-overview)."
           title: icon
           type: string
+      required:
+      - type
       type: object
     queryOptions:
       description: For data source plugins. There is a query options section in the
@@ -9898,7 +10040,7 @@ components:
         name: name
         suggestions: true
         metrics: true
-        category: cloud
+        category: category
       properties:
         id:
           description: "Unique name of the plugin. If the plugin is published on grafana.com,\
@@ -9958,17 +10100,10 @@ components:
           title: builtIn
           type: boolean
         category:
-          description: Plugin category used on the Add data source page.
-          enum:
-          - cloud
-          - enterprise
-          - iot
-          - logging
-          - other
-          - profiling
-          - sql
-          - tracing
-          - tsdb
+          description: "Plugin category used on the Add new connection page. Can be\
+            \ one from the list: \"tsdb\", \"logging\", \"cloud\", \"tracing\", \"\
+            profiling\", \"sql\", \"enterprise\", \"iot\", \"other\", empty string\
+            \ or custom string"
           title: category
           type: string
         enterpriseFeatures:
@@ -10352,6 +10487,12 @@ components:
         assistantUrl:
           title: assistantUrl
           type: string
+        sigilUrl:
+          title: sigilUrl
+          type: string
+        workflowEngineUrl:
+          title: workflowEngineUrl
+          type: string
         incidentApiUrl:
           title: incidentApiUrl
           type: string
@@ -10610,6 +10751,7 @@ components:
       - providerRegion
       - publicName
       - readyForStacks
+      - sigilUrl
       - slug
       - sortOrder
       - stackStateServiceUrl
@@ -10617,24 +10759,27 @@ components:
       - syntheticMonitoringApiUrl
       - updatedAt
       - visibility
+      - workflowEngineUrl
       type: object
     usages_inner:
       example:
-        dpm: 2.027123023002322
-        ingestUsage: 1.0246457001441578
-        onCallUsage: 1.4894159098541704
-        stackId: 1.1730742509559433
+        dpm: 7.386281948385884
+        ingestUsage: 6.84685269835264
+        onCallUsage: 7.457744773683766
+        stackId: 5.025004791520295
         stackName: stackName
         activeUsers: 7.061401241503109
-        protocolUsage: 6.84685269835264
+        protocolUsage: 1.1730742509559433
         anonymousUsers: 9.301444243932576
-        grafanaUsage: 4.145608029883936
-        browserUsage: 3.616076749251911
+        attributedUsage: 2.027123023002322
+        grafanaUsage: 1.2315135367772556
+        browserUsage: 4.145608029883936
         stackLabels: "{}"
-        queryUsage: 7.457744773683766
-        incidentUsage: 1.2315135367772556
-        totalUsage: 4.965218492984954
-        id: 7.386281948385884
+        attributedCost: 3.616076749251911
+        queryUsage: 4.965218492984954
+        incidentUsage: 1.4894159098541704
+        totalUsage: 9.965781217890562
+        id: 1.0246457001441578
         activeSeries: 2.3021358869347655
         periodStart: periodStart
         isProrated: true
@@ -10648,6 +10793,12 @@ components:
           type: number
         anonymousUsers:
           title: anonymousUsers
+          type: number
+        attributedCost:
+          title: attributedCost
+          type: number
+        attributedUsage:
+          title: attributedUsage
           type: number
         browserUsage:
           title: browserUsage
