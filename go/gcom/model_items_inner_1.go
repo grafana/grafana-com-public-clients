@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: public
 */
@@ -51,6 +51,7 @@ type ItemsInner1 struct {
 	UserName                 string                                     `json:"userName"`
 	Subscriptions            Subscriptions                              `json:"subscriptions"`
 	MarketplaceSubscription  NullableItemsInner1MarketplaceSubscription `json:"marketplaceSubscription"`
+	MfaEnabled               *bool                                      `json:"mfaEnabled,omitempty"`
 	ExtraPermissions         []string                                   `json:"extraPermissions,omitempty"`
 	GrafanaStaffAccess       NullableItemsInner1GrafanaStaffAccess      `json:"grafanaStaffAccess,omitempty"`
 	AdditionalProperties     map[string]interface{}
@@ -881,6 +882,38 @@ func (o *ItemsInner1) SetMarketplaceSubscription(v ItemsInner1MarketplaceSubscri
 	o.MarketplaceSubscription.Set(&v)
 }
 
+// GetMfaEnabled returns the MfaEnabled field value if set, zero value otherwise.
+func (o *ItemsInner1) GetMfaEnabled() bool {
+	if o == nil || IsNil(o.MfaEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.MfaEnabled
+}
+
+// GetMfaEnabledOk returns a tuple with the MfaEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ItemsInner1) GetMfaEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.MfaEnabled) {
+		return nil, false
+	}
+	return o.MfaEnabled, true
+}
+
+// HasMfaEnabled returns a boolean if a field has been set.
+func (o *ItemsInner1) HasMfaEnabled() bool {
+	if o != nil && !IsNil(o.MfaEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetMfaEnabled gets a reference to the given bool and assigns it to the MfaEnabled field.
+func (o *ItemsInner1) SetMfaEnabled(v bool) {
+	o.MfaEnabled = &v
+}
+
 // GetExtraPermissions returns the ExtraPermissions field value if set, zero value otherwise.
 func (o *ItemsInner1) GetExtraPermissions() []string {
 	if o == nil || IsNil(o.ExtraPermissions) {
@@ -998,6 +1031,9 @@ func (o ItemsInner1) ToMap() (map[string]interface{}, error) {
 	toSerialize["userName"] = o.UserName
 	toSerialize["subscriptions"] = o.Subscriptions
 	toSerialize["marketplaceSubscription"] = o.MarketplaceSubscription.Get()
+	if !IsNil(o.MfaEnabled) {
+		toSerialize["mfaEnabled"] = o.MfaEnabled
+	}
 	if !IsNil(o.ExtraPermissions) {
 		toSerialize["extraPermissions"] = o.ExtraPermissions
 	}
@@ -1066,6 +1102,7 @@ func (o *ItemsInner1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "userName")
 		delete(additionalProperties, "subscriptions")
 		delete(additionalProperties, "marketplaceSubscription")
+		delete(additionalProperties, "mfaEnabled")
 		delete(additionalProperties, "extraPermissions")
 		delete(additionalProperties, "grafanaStaffAccess")
 		o.AdditionalProperties = additionalProperties

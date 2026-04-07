@@ -390,18 +390,18 @@ func main() {
 	orgSlug := "orgSlug_example" // string | 
 	cluster := "cluster_example" // string |  (optional)
 	direction := "direction_example" // string |  (optional)
-	id := "id_example" // string |  (optional)
-	idIn := "idIn_example" // string |  (optional)
+	id := int32(56) // int32 |  (optional)
+	idIn := []int32{int32(123)} // []int32 |  (optional)
 	name := "name_example" // string |  (optional)
-	nameIn := "nameIn_example" // string |  (optional)
+	nameIn := []string{"Inner_example"} // []string |  (optional)
 	orderBy := "orderBy_example" // string |  (optional)
 	plan := "plan_example" // string |  (optional)
-	planIn := "planIn_example" // string |  (optional)
+	planIn := []string{"PlanIn_example"} // []string |  (optional)
 	planNot := "planNot_example" // string |  (optional)
 	slug := "slug_example" // string |  (optional)
-	slugIn := "slugIn_example" // string |  (optional)
+	slugIn := []string{"Inner_example"} // []string |  (optional)
 	url := "url_example" // string |  (optional)
-	urlIn := "urlIn_example" // string |  (optional)
+	urlIn := []string{"Inner_example"} // []string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -433,18 +433,18 @@ Name | Type | Description  | Notes
 
  **cluster** | **string** |  | 
  **direction** | **string** |  | 
- **id** | **string** |  | 
- **idIn** | **string** |  | 
+ **id** | **int32** |  | 
+ **idIn** | **[]int32** |  | 
  **name** | **string** |  | 
- **nameIn** | **string** |  | 
+ **nameIn** | **[]string** |  | 
  **orderBy** | **string** |  | 
  **plan** | **string** |  | 
- **planIn** | **string** |  | 
+ **planIn** | **[]string** |  | 
  **planNot** | **string** |  | 
  **slug** | **string** |  | 
- **slugIn** | **string** |  | 
+ **slugIn** | **[]string** |  | 
  **url** | **string** |  | 
- **urlIn** | **string** |  | 
+ **urlIn** | **[]string** |  | 
 
 ### Return type
 

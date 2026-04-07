@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: public
 */
@@ -41,7 +41,7 @@ type Json struct {
 	BuildMode *string `json:"buildMode,omitempty"`
 	// [internal only] Indicates whether the plugin is developed and shipped as part of Grafana. Also known as a 'core plugin'.
 	BuiltIn *bool `json:"builtIn,omitempty"`
-	// Plugin category used on the Add data source page.
+	// Plugin category used on the Add new connection page. Can be one from the list: \"tsdb\", \"logging\", \"cloud\", \"tracing\", \"profiling\", \"sql\", \"enterprise\", \"iot\", \"other\", empty string or custom string
 	Category           *string             `json:"category,omitempty"`
 	EnterpriseFeatures *EnterpriseFeatures `json:"enterpriseFeatures,omitempty"`
 	// The first part of the file name of the backend component executable. There can be multiple executables built for different operating system and architecture. Grafana will check for executables named `<executable>_<$GOOS>_<lower case $GOARCH><.exe for Windows>`, e.g. `plugin_linux_amd64`. Combination of $GOOS and $GOARCH can be found here: https://golang.org/doc/install/source#environment.
