@@ -18,5 +18,58 @@
       matchManagers: ["docker-compose"],
       schedule: ["* * * * 1"],
     },
+    {
+      matchDatasources: ["custom.grafana-com-openapi"],
+      matchFileNames: ["openapi.json"],
+      automerge: true,
+      branchPrefix: "auto-merge/grafanarenovatebot/",
+    },
   ],
+  /*
+   * Custom datasources for querying version information from non-standard APIs.
+   * https://docs.renovatebot.com/modules/datasource/custom/
+   */
+  customDatasources: {
+    "grafana-com-openapi": {
+      defaultRegistryUrlTemplate: "https://grafana.com/api/openapi.json",
+      format: "json",
+      transformTemplates: [
+        "{\"releases\":[{\"version\": $$.(info.\"x-commit-sha\"),\"sourceUrl\":\"https://grafana.com/api/openapi.json\",\"releaseTimestamp\":$$.(info.\"x-generated-at\")}]}"
+      ],
+    },
+  },
+  customManagers: [
+    /*
+     * This is a [custom manager]. It means you can write something like
+     *
+     * ```
+     * # renovate: datasource=github depName=renovatebot/renovate
+     * ARG RENOVATE_VERSION=x.y.z
+     *
+     * # ... more stuff ...
+     *
+     * RUN echo "we are using ${RENOVATE_VERSION} in this Dockerfile"
+     * ```
+     *
+     * and the argument value will be kept up to date by Renovate. This is
+     * useful when we have a version number in a place where Renovate won't
+     * normally find it (e.g. not in a `FROM` statement in a Dockerfile, not in
+     * a `uses:` line in a GitHub Action). Such dependencies can be kept up to
+     * date using this.
+     *
+     * [custom manager]: https://docs.renovatebot.com/modules/manager/regex/
+     */
+    {
+      customType: "regex",
+      description: "Update openapi.json file",
+      fileMatch: [
+        "^openapi.json$",
+      ],
+      matchStrings: ['\"(?<depName>x-commit-sha)\": \"(?<currentValue>[^"]+)\"'],
+      datasourceTemplate: "custom.grafana-com-openapi",
+    },
+  ],
+  postUpgradeTasks: {
+    "commands": [ "curl", "https://grafana.com/api/openapi.json", ">", "openapi.json" ]
+  }
 }
