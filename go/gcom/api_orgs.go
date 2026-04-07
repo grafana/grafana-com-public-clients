@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: public
 */
@@ -16,6 +16,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"reflect"
 	"strings"
 )
 
@@ -741,18 +742,18 @@ type ApiGetOrgInstancesRequest struct {
 	orgSlug    string
 	cluster    *string
 	direction  *string
-	id         *string
-	idIn       *string
+	id         *int32
+	idIn       *[]int32
 	name       *string
-	nameIn     *string
+	nameIn     *[]string
 	orderBy    *string
 	plan       *string
-	planIn     *string
+	planIn     *[]string
 	planNot    *string
 	slug       *string
-	slugIn     *string
+	slugIn     *[]string
 	url        *string
-	urlIn      *string
+	urlIn      *[]string
 }
 
 func (r ApiGetOrgInstancesRequest) Cluster(cluster string) ApiGetOrgInstancesRequest {
@@ -765,12 +766,12 @@ func (r ApiGetOrgInstancesRequest) Direction(direction string) ApiGetOrgInstance
 	return r
 }
 
-func (r ApiGetOrgInstancesRequest) Id(id string) ApiGetOrgInstancesRequest {
+func (r ApiGetOrgInstancesRequest) Id(id int32) ApiGetOrgInstancesRequest {
 	r.id = &id
 	return r
 }
 
-func (r ApiGetOrgInstancesRequest) IdIn(idIn string) ApiGetOrgInstancesRequest {
+func (r ApiGetOrgInstancesRequest) IdIn(idIn []int32) ApiGetOrgInstancesRequest {
 	r.idIn = &idIn
 	return r
 }
@@ -780,7 +781,7 @@ func (r ApiGetOrgInstancesRequest) Name(name string) ApiGetOrgInstancesRequest {
 	return r
 }
 
-func (r ApiGetOrgInstancesRequest) NameIn(nameIn string) ApiGetOrgInstancesRequest {
+func (r ApiGetOrgInstancesRequest) NameIn(nameIn []string) ApiGetOrgInstancesRequest {
 	r.nameIn = &nameIn
 	return r
 }
@@ -795,7 +796,7 @@ func (r ApiGetOrgInstancesRequest) Plan(plan string) ApiGetOrgInstancesRequest {
 	return r
 }
 
-func (r ApiGetOrgInstancesRequest) PlanIn(planIn string) ApiGetOrgInstancesRequest {
+func (r ApiGetOrgInstancesRequest) PlanIn(planIn []string) ApiGetOrgInstancesRequest {
 	r.planIn = &planIn
 	return r
 }
@@ -810,7 +811,7 @@ func (r ApiGetOrgInstancesRequest) Slug(slug string) ApiGetOrgInstancesRequest {
 	return r
 }
 
-func (r ApiGetOrgInstancesRequest) SlugIn(slugIn string) ApiGetOrgInstancesRequest {
+func (r ApiGetOrgInstancesRequest) SlugIn(slugIn []string) ApiGetOrgInstancesRequest {
 	r.slugIn = &slugIn
 	return r
 }
@@ -820,7 +821,7 @@ func (r ApiGetOrgInstancesRequest) Url(url string) ApiGetOrgInstancesRequest {
 	return r
 }
 
-func (r ApiGetOrgInstancesRequest) UrlIn(urlIn string) ApiGetOrgInstancesRequest {
+func (r ApiGetOrgInstancesRequest) UrlIn(urlIn []string) ApiGetOrgInstancesRequest {
 	r.urlIn = &urlIn
 	return r
 }
@@ -877,13 +878,29 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "")
 	}
 	if r.idIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", r.idIn, "")
+		t := *r.idIn
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", s.Index(i).Interface(), "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", t, "multi")
+		}
 	}
 	if r.name != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
 	}
 	if r.nameIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", r.nameIn, "")
+		t := *r.nameIn
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", s.Index(i).Interface(), "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", t, "multi")
+		}
 	}
 	if r.orderBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "")
@@ -892,7 +909,15 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 		parameterAddToHeaderOrQuery(localVarQueryParams, "plan", r.plan, "")
 	}
 	if r.planIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "planIn", r.planIn, "")
+		t := *r.planIn
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "planIn", s.Index(i).Interface(), "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "planIn", t, "multi")
+		}
 	}
 	if r.planNot != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "planNot", r.planNot, "")
@@ -901,13 +926,29 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "")
 	}
 	if r.slugIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", r.slugIn, "")
+		t := *r.slugIn
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", s.Index(i).Interface(), "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", t, "multi")
+		}
 	}
 	if r.url != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "url", r.url, "")
 	}
 	if r.urlIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "urlIn", r.urlIn, "")
+		t := *r.urlIn
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "urlIn", s.Index(i).Interface(), "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "urlIn", t, "multi")
+		}
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

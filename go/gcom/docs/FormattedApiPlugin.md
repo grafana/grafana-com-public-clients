@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Version** | **string** |  | 
 **VersionStatus** | **string** |  | 
 **VersionSignatureType** | **string** |  | 
+**VersionDistributionType** | **string** |  | 
 **VersionSignedByOrg** | **string** |  | 
 **VersionSignedByOrgName** | **string** |  | 
 **UserId** | **float32** |  | 
@@ -38,13 +39,15 @@ Name | Type | Description | Notes
 **LicenseUrl** | Pointer to **string** |  | [optional] 
 **DocumentationUrl** | Pointer to **string** |  | [optional] 
 **Json** | Pointer to [**Json**](Json.md) |  | [optional] 
+**Category** | Pointer to **string** |  | [optional] 
 **Managed** | Pointer to [**Managed**](Managed.md) |  | [optional] 
+**HasDocumentation** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiPlugin
 
-`func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool, ) *FormattedApiPlugin`
+`func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionDistributionType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool, ) *FormattedApiPlugin`
 
 NewFormattedApiPlugin instantiates a new FormattedApiPlugin object
 This constructor will assign default values to properties that have it defined,
@@ -277,6 +280,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiPlugin) SetVersionSignatureType(v string)`
 
 SetVersionSignatureType sets VersionSignatureType field to given value.
+
+
+### GetVersionDistributionType
+
+`func (o *FormattedApiPlugin) GetVersionDistributionType() string`
+
+GetVersionDistributionType returns the VersionDistributionType field if non-nil, zero value otherwise.
+
+### GetVersionDistributionTypeOk
+
+`func (o *FormattedApiPlugin) GetVersionDistributionTypeOk() (*string, bool)`
+
+GetVersionDistributionTypeOk returns a tuple with the VersionDistributionType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersionDistributionType
+
+`func (o *FormattedApiPlugin) SetVersionDistributionType(v string)`
+
+SetVersionDistributionType sets VersionDistributionType field to given value.
 
 
 ### GetVersionSignedByOrg
@@ -754,6 +777,31 @@ SetJson sets Json field to given value.
 
 HasJson returns a boolean if a field has been set.
 
+### GetCategory
+
+`func (o *FormattedApiPlugin) GetCategory() string`
+
+GetCategory returns the Category field if non-nil, zero value otherwise.
+
+### GetCategoryOk
+
+`func (o *FormattedApiPlugin) GetCategoryOk() (*string, bool)`
+
+GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCategory
+
+`func (o *FormattedApiPlugin) SetCategory(v string)`
+
+SetCategory sets Category field to given value.
+
+### HasCategory
+
+`func (o *FormattedApiPlugin) HasCategory() bool`
+
+HasCategory returns a boolean if a field has been set.
+
 ### GetManaged
 
 `func (o *FormattedApiPlugin) GetManaged() Managed`
@@ -778,6 +826,31 @@ SetManaged sets Managed field to given value.
 `func (o *FormattedApiPlugin) HasManaged() bool`
 
 HasManaged returns a boolean if a field has been set.
+
+### GetHasDocumentation
+
+`func (o *FormattedApiPlugin) GetHasDocumentation() bool`
+
+GetHasDocumentation returns the HasDocumentation field if non-nil, zero value otherwise.
+
+### GetHasDocumentationOk
+
+`func (o *FormattedApiPlugin) GetHasDocumentationOk() (*bool, bool)`
+
+GetHasDocumentationOk returns a tuple with the HasDocumentation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasDocumentation
+
+`func (o *FormattedApiPlugin) SetHasDocumentation(v bool)`
+
+SetHasDocumentation sets HasDocumentation field to given value.
+
+### HasHasDocumentation
+
+`func (o *FormattedApiPlugin) HasHasDocumentation() bool`
+
+HasHasDocumentation returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

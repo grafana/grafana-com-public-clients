@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **ActiveSeries** | Pointer to **float32** |  | [optional] 
 **ActiveUsers** | Pointer to **float32** |  | [optional] 
 **AnonymousUsers** | Pointer to **float32** |  | [optional] 
+**AttributedCost** | Pointer to **float32** |  | [optional] 
+**AttributedUsage** | Pointer to **float32** |  | [optional] 
 **BrowserUsage** | Pointer to **float32** |  | [optional] 
 **Dpm** | Pointer to **float32** |  | [optional] 
 **GrafanaUsage** | Pointer to **float32** |  | [optional] 
@@ -117,6 +119,56 @@ SetAnonymousUsers sets AnonymousUsers field to given value.
 `func (o *UsagesInner) HasAnonymousUsers() bool`
 
 HasAnonymousUsers returns a boolean if a field has been set.
+
+### GetAttributedCost
+
+`func (o *UsagesInner) GetAttributedCost() float32`
+
+GetAttributedCost returns the AttributedCost field if non-nil, zero value otherwise.
+
+### GetAttributedCostOk
+
+`func (o *UsagesInner) GetAttributedCostOk() (*float32, bool)`
+
+GetAttributedCostOk returns a tuple with the AttributedCost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributedCost
+
+`func (o *UsagesInner) SetAttributedCost(v float32)`
+
+SetAttributedCost sets AttributedCost field to given value.
+
+### HasAttributedCost
+
+`func (o *UsagesInner) HasAttributedCost() bool`
+
+HasAttributedCost returns a boolean if a field has been set.
+
+### GetAttributedUsage
+
+`func (o *UsagesInner) GetAttributedUsage() float32`
+
+GetAttributedUsage returns the AttributedUsage field if non-nil, zero value otherwise.
+
+### GetAttributedUsageOk
+
+`func (o *UsagesInner) GetAttributedUsageOk() (*float32, bool)`
+
+GetAttributedUsageOk returns a tuple with the AttributedUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributedUsage
+
+`func (o *UsagesInner) SetAttributedUsage(v float32)`
+
+SetAttributedUsage sets AttributedUsage field to given value.
+
+### HasAttributedUsage
+
+`func (o *UsagesInner) HasAttributedUsage() bool`
+
+HasAttributedUsage returns a boolean if a field has been set.
 
 ### GetBrowserUsage
 

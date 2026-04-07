@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **Notes** | **string** |  | 
 **Unit** | **string** |  | 
 **IncludedUsage** | **float32** |  | 
-**AmountDue** | **float32** |  | 
 **DimensionId** | **string** |  | 
+**AmountDue** | **float32** |  | 
 **DimensionName** | **string** |  | 
 **OrgRates** | **interface{}** |  | 
 **PeriodEnd** | **string** |  | 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewBilledUsage
 
-`func NewBilledUsage(id float32, overage float32, description string, notes string, unit string, includedUsage float32, amountDue float32, dimensionId string, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner, ) *BilledUsage`
+`func NewBilledUsage(id float32, overage float32, description string, notes string, unit string, includedUsage float32, dimensionId string, amountDue float32, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner, ) *BilledUsage`
 
 NewBilledUsage instantiates a new BilledUsage object
 This constructor will assign default values to properties that have it defined,
@@ -158,26 +158,6 @@ and a boolean to check if the value has been set.
 SetIncludedUsage sets IncludedUsage field to given value.
 
 
-### GetAmountDue
-
-`func (o *BilledUsage) GetAmountDue() float32`
-
-GetAmountDue returns the AmountDue field if non-nil, zero value otherwise.
-
-### GetAmountDueOk
-
-`func (o *BilledUsage) GetAmountDueOk() (*float32, bool)`
-
-GetAmountDueOk returns a tuple with the AmountDue field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAmountDue
-
-`func (o *BilledUsage) SetAmountDue(v float32)`
-
-SetAmountDue sets AmountDue field to given value.
-
-
 ### GetDimensionId
 
 `func (o *BilledUsage) GetDimensionId() string`
@@ -196,6 +176,26 @@ and a boolean to check if the value has been set.
 `func (o *BilledUsage) SetDimensionId(v string)`
 
 SetDimensionId sets DimensionId field to given value.
+
+
+### GetAmountDue
+
+`func (o *BilledUsage) GetAmountDue() float32`
+
+GetAmountDue returns the AmountDue field if non-nil, zero value otherwise.
+
+### GetAmountDueOk
+
+`func (o *BilledUsage) GetAmountDueOk() (*float32, bool)`
+
+GetAmountDueOk returns a tuple with the AmountDue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmountDue
+
+`func (o *BilledUsage) SetAmountDue(v float32)`
+
+SetAmountDue sets AmountDue field to given value.
 
 
 ### GetDimensionName

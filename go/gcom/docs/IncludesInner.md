@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Uid** | Pointer to **string** | Unique identifier of the included resource | [optional] 
-**Type** | Pointer to **string** |  | [optional] 
+**Type** | **string** |  | 
 **Name** | Pointer to **string** |  | [optional] 
 **Component** | Pointer to **string** | (Legacy) The Angular component to use for a page. | [optional] 
 **Role** | Pointer to **string** | The minimum role a user must have to see this page in the navigation menu. | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewIncludesInner
 
-`func NewIncludesInner() *IncludesInner`
+`func NewIncludesInner(type_ string, ) *IncludesInner`
 
 NewIncludesInner instantiates a new IncludesInner object
 This constructor will assign default values to properties that have it defined,
@@ -78,11 +78,6 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
-
-`func (o *IncludesInner) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 ### GetName
 

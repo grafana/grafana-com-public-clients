@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: public
 */
@@ -21,7 +21,7 @@ var _ MappedNullable = &StackCreateRequestV1{}
 // StackCreateRequestV1 struct for StackCreateRequestV1
 type StackCreateRequestV1 struct {
 	// protection active or not for the stack
-	DeleteProtection *bool `json:"deleteProtection,omitempty"`
+	DeleteProtection NullableBool `json:"deleteProtection,omitempty"`
 	// description of the stack
 	Description NullableString `json:"description,omitempty"`
 	// labels to add to the stack
@@ -49,7 +49,7 @@ type _StackCreateRequestV1 StackCreateRequestV1
 func NewStackCreateRequestV1(name string, org string, region string, slug string) *StackCreateRequestV1 {
 	this := StackCreateRequestV1{}
 	var deleteProtection bool = true
-	this.DeleteProtection = &deleteProtection
+	this.DeleteProtection = *NewNullableBool(&deleteProtection)
 	this.Name = name
 	this.Org = org
 	this.Region = region
@@ -63,40 +63,51 @@ func NewStackCreateRequestV1(name string, org string, region string, slug string
 func NewStackCreateRequestV1WithDefaults() *StackCreateRequestV1 {
 	this := StackCreateRequestV1{}
 	var deleteProtection bool = true
-	this.DeleteProtection = &deleteProtection
+	this.DeleteProtection = *NewNullableBool(&deleteProtection)
 	return &this
 }
 
-// GetDeleteProtection returns the DeleteProtection field value if set, zero value otherwise.
+// GetDeleteProtection returns the DeleteProtection field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StackCreateRequestV1) GetDeleteProtection() bool {
-	if o == nil || IsNil(o.DeleteProtection) {
+	if o == nil || IsNil(o.DeleteProtection.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.DeleteProtection
+	return *o.DeleteProtection.Get()
 }
 
 // GetDeleteProtectionOk returns a tuple with the DeleteProtection field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StackCreateRequestV1) GetDeleteProtectionOk() (*bool, bool) {
-	if o == nil || IsNil(o.DeleteProtection) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DeleteProtection, true
+	return o.DeleteProtection.Get(), o.DeleteProtection.IsSet()
 }
 
 // HasDeleteProtection returns a boolean if a field has been set.
 func (o *StackCreateRequestV1) HasDeleteProtection() bool {
-	if o != nil && !IsNil(o.DeleteProtection) {
+	if o != nil && o.DeleteProtection.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDeleteProtection gets a reference to the given bool and assigns it to the DeleteProtection field.
+// SetDeleteProtection gets a reference to the given NullableBool and assigns it to the DeleteProtection field.
 func (o *StackCreateRequestV1) SetDeleteProtection(v bool) {
-	o.DeleteProtection = &v
+	o.DeleteProtection.Set(&v)
+}
+
+// SetDeleteProtectionNil sets the value for DeleteProtection to be an explicit nil
+func (o *StackCreateRequestV1) SetDeleteProtectionNil() {
+	o.DeleteProtection.Set(nil)
+}
+
+// UnsetDeleteProtection ensures that no value is present for DeleteProtection, not even an explicit nil
+func (o *StackCreateRequestV1) UnsetDeleteProtection() {
+	o.DeleteProtection.Unset()
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -243,7 +254,7 @@ func (o *StackCreateRequestV1) GetPluginsOk() ([]string, bool) {
 
 // HasPlugins returns a boolean if a field has been set.
 func (o *StackCreateRequestV1) HasPlugins() bool {
-	if o != nil && IsNil(o.Plugins) {
+	if o != nil && !IsNil(o.Plugins) {
 		return true
 	}
 
@@ -356,8 +367,8 @@ func (o StackCreateRequestV1) MarshalJSON() ([]byte, error) {
 
 func (o StackCreateRequestV1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DeleteProtection) {
-		toSerialize["deleteProtection"] = o.DeleteProtection
+	if o.DeleteProtection.IsSet() {
+		toSerialize["deleteProtection"] = o.DeleteProtection.Get()
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()

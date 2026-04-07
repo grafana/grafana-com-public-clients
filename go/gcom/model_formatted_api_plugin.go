@@ -1,7 +1,7 @@
 /*
 GCOM API
 
-Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise.
+Grafana.com API (public).  Looking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.  If you have any questions, please contact support in the Grafana Cloud UI.  This spec is in *Beta* stage, so use it with caution: - Not all endpoint responses are properly typed for the time being. - Some request parameter types may not be precise
 
 API version: public
 */
@@ -19,42 +19,45 @@ var _ MappedNullable = &FormattedApiPlugin{}
 
 // FormattedApiPlugin struct for FormattedApiPlugin
 type FormattedApiPlugin struct {
-	Status                 string                 `json:"status"`
-	Id                     float32                `json:"id"`
-	TypeId                 float32                `json:"typeId"`
-	TypeName               string                 `json:"typeName"`
-	TypeCode               string                 `json:"typeCode"`
-	Slug                   string                 `json:"slug"`
-	Name                   string                 `json:"name"`
-	Description            string                 `json:"description"`
-	Version                string                 `json:"version"`
-	VersionStatus          string                 `json:"versionStatus"`
-	VersionSignatureType   string                 `json:"versionSignatureType"`
-	VersionSignedByOrg     string                 `json:"versionSignedByOrg"`
-	VersionSignedByOrgName string                 `json:"versionSignedByOrgName"`
-	UserId                 float32                `json:"userId"`
-	OrgId                  float32                `json:"orgId"`
-	OrgName                string                 `json:"orgName"`
-	OrgSlug                string                 `json:"orgSlug"`
-	OrgUrl                 string                 `json:"orgUrl"`
-	Url                    string                 `json:"url"`
-	CreatedAt              string                 `json:"createdAt"`
-	UpdatedAt              string                 `json:"updatedAt"`
-	Downloads              float32                `json:"downloads"`
-	Verified               bool                   `json:"verified"`
-	Featured               float32                `json:"featured"`
-	Internal               bool                   `json:"internal"`
-	DownloadSlug           string                 `json:"downloadSlug"`
-	Popularity             float32                `json:"popularity"`
-	SignatureType          string                 `json:"signatureType"`
-	Packages               map[string]interface{} `json:"packages"`
-	Links                  []LinksInner1          `json:"links"`
-	AngularDetected        bool                   `json:"angularDetected"`
-	LicenseUrl             *string                `json:"licenseUrl,omitempty"`
-	DocumentationUrl       *string                `json:"documentationUrl,omitempty"`
-	Json                   *Json                  `json:"json,omitempty"`
-	Managed                *Managed               `json:"managed,omitempty"`
-	AdditionalProperties   map[string]interface{}
+	Status                  string                 `json:"status"`
+	Id                      float32                `json:"id"`
+	TypeId                  float32                `json:"typeId"`
+	TypeName                string                 `json:"typeName"`
+	TypeCode                string                 `json:"typeCode"`
+	Slug                    string                 `json:"slug"`
+	Name                    string                 `json:"name"`
+	Description             string                 `json:"description"`
+	Version                 string                 `json:"version"`
+	VersionStatus           string                 `json:"versionStatus"`
+	VersionSignatureType    string                 `json:"versionSignatureType"`
+	VersionDistributionType string                 `json:"versionDistributionType"`
+	VersionSignedByOrg      string                 `json:"versionSignedByOrg"`
+	VersionSignedByOrgName  string                 `json:"versionSignedByOrgName"`
+	UserId                  float32                `json:"userId"`
+	OrgId                   float32                `json:"orgId"`
+	OrgName                 string                 `json:"orgName"`
+	OrgSlug                 string                 `json:"orgSlug"`
+	OrgUrl                  string                 `json:"orgUrl"`
+	Url                     string                 `json:"url"`
+	CreatedAt               string                 `json:"createdAt"`
+	UpdatedAt               string                 `json:"updatedAt"`
+	Downloads               float32                `json:"downloads"`
+	Verified                bool                   `json:"verified"`
+	Featured                float32                `json:"featured"`
+	Internal                bool                   `json:"internal"`
+	DownloadSlug            string                 `json:"downloadSlug"`
+	Popularity              float32                `json:"popularity"`
+	SignatureType           string                 `json:"signatureType"`
+	Packages                map[string]interface{} `json:"packages"`
+	Links                   []LinksInner1          `json:"links"`
+	AngularDetected         bool                   `json:"angularDetected"`
+	LicenseUrl              *string                `json:"licenseUrl,omitempty"`
+	DocumentationUrl        *string                `json:"documentationUrl,omitempty"`
+	Json                    *Json                  `json:"json,omitempty"`
+	Category                *string                `json:"category,omitempty"`
+	Managed                 *Managed               `json:"managed,omitempty"`
+	HasDocumentation        *bool                  `json:"hasDocumentation,omitempty"`
+	AdditionalProperties    map[string]interface{}
 }
 
 type _FormattedApiPlugin FormattedApiPlugin
@@ -63,7 +66,7 @@ type _FormattedApiPlugin FormattedApiPlugin
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool) *FormattedApiPlugin {
+func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName string, typeCode string, slug string, name string, description string, version string, versionStatus string, versionSignatureType string, versionDistributionType string, versionSignedByOrg string, versionSignedByOrgName string, userId float32, orgId float32, orgName string, orgSlug string, orgUrl string, url string, createdAt string, updatedAt string, downloads float32, verified bool, featured float32, internal bool, downloadSlug string, popularity float32, signatureType string, packages map[string]interface{}, links []LinksInner1, angularDetected bool) *FormattedApiPlugin {
 	this := FormattedApiPlugin{}
 	this.Status = status
 	this.Id = id
@@ -76,6 +79,7 @@ func NewFormattedApiPlugin(status string, id float32, typeId float32, typeName s
 	this.Version = version
 	this.VersionStatus = versionStatus
 	this.VersionSignatureType = versionSignatureType
+	this.VersionDistributionType = versionDistributionType
 	this.VersionSignedByOrg = versionSignedByOrg
 	this.VersionSignedByOrgName = versionSignedByOrgName
 	this.UserId = userId
@@ -369,6 +373,30 @@ func (o *FormattedApiPlugin) GetVersionSignatureTypeOk() (*string, bool) {
 // SetVersionSignatureType sets field value
 func (o *FormattedApiPlugin) SetVersionSignatureType(v string) {
 	o.VersionSignatureType = v
+}
+
+// GetVersionDistributionType returns the VersionDistributionType field value
+func (o *FormattedApiPlugin) GetVersionDistributionType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.VersionDistributionType
+}
+
+// GetVersionDistributionTypeOk returns a tuple with the VersionDistributionType field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiPlugin) GetVersionDistributionTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VersionDistributionType, true
+}
+
+// SetVersionDistributionType sets field value
+func (o *FormattedApiPlugin) SetVersionDistributionType(v string) {
+	o.VersionDistributionType = v
 }
 
 // GetVersionSignedByOrg returns the VersionSignedByOrg field value
@@ -947,6 +975,38 @@ func (o *FormattedApiPlugin) SetJson(v Json) {
 	o.Json = &v
 }
 
+// GetCategory returns the Category field value if set, zero value otherwise.
+func (o *FormattedApiPlugin) GetCategory() string {
+	if o == nil || IsNil(o.Category) {
+		var ret string
+		return ret
+	}
+	return *o.Category
+}
+
+// GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiPlugin) GetCategoryOk() (*string, bool) {
+	if o == nil || IsNil(o.Category) {
+		return nil, false
+	}
+	return o.Category, true
+}
+
+// HasCategory returns a boolean if a field has been set.
+func (o *FormattedApiPlugin) HasCategory() bool {
+	if o != nil && !IsNil(o.Category) {
+		return true
+	}
+
+	return false
+}
+
+// SetCategory gets a reference to the given string and assigns it to the Category field.
+func (o *FormattedApiPlugin) SetCategory(v string) {
+	o.Category = &v
+}
+
 // GetManaged returns the Managed field value if set, zero value otherwise.
 func (o *FormattedApiPlugin) GetManaged() Managed {
 	if o == nil || IsNil(o.Managed) {
@@ -979,6 +1039,38 @@ func (o *FormattedApiPlugin) SetManaged(v Managed) {
 	o.Managed = &v
 }
 
+// GetHasDocumentation returns the HasDocumentation field value if set, zero value otherwise.
+func (o *FormattedApiPlugin) GetHasDocumentation() bool {
+	if o == nil || IsNil(o.HasDocumentation) {
+		var ret bool
+		return ret
+	}
+	return *o.HasDocumentation
+}
+
+// GetHasDocumentationOk returns a tuple with the HasDocumentation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiPlugin) GetHasDocumentationOk() (*bool, bool) {
+	if o == nil || IsNil(o.HasDocumentation) {
+		return nil, false
+	}
+	return o.HasDocumentation, true
+}
+
+// HasHasDocumentation returns a boolean if a field has been set.
+func (o *FormattedApiPlugin) HasHasDocumentation() bool {
+	if o != nil && !IsNil(o.HasDocumentation) {
+		return true
+	}
+
+	return false
+}
+
+// SetHasDocumentation gets a reference to the given bool and assigns it to the HasDocumentation field.
+func (o *FormattedApiPlugin) SetHasDocumentation(v bool) {
+	o.HasDocumentation = &v
+}
+
 func (o FormattedApiPlugin) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -1000,6 +1092,7 @@ func (o FormattedApiPlugin) ToMap() (map[string]interface{}, error) {
 	toSerialize["version"] = o.Version
 	toSerialize["versionStatus"] = o.VersionStatus
 	toSerialize["versionSignatureType"] = o.VersionSignatureType
+	toSerialize["versionDistributionType"] = o.VersionDistributionType
 	toSerialize["versionSignedByOrg"] = o.VersionSignedByOrg
 	toSerialize["versionSignedByOrgName"] = o.VersionSignedByOrgName
 	toSerialize["userId"] = o.UserId
@@ -1029,8 +1122,14 @@ func (o FormattedApiPlugin) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Json) {
 		toSerialize["json"] = o.Json
 	}
+	if !IsNil(o.Category) {
+		toSerialize["category"] = o.Category
+	}
 	if !IsNil(o.Managed) {
 		toSerialize["managed"] = o.Managed
+	}
+	if !IsNil(o.HasDocumentation) {
+		toSerialize["hasDocumentation"] = o.HasDocumentation
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -1073,6 +1172,7 @@ func (o *FormattedApiPlugin) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "version")
 		delete(additionalProperties, "versionStatus")
 		delete(additionalProperties, "versionSignatureType")
+		delete(additionalProperties, "versionDistributionType")
 		delete(additionalProperties, "versionSignedByOrg")
 		delete(additionalProperties, "versionSignedByOrgName")
 		delete(additionalProperties, "userId")
@@ -1096,7 +1196,9 @@ func (o *FormattedApiPlugin) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "licenseUrl")
 		delete(additionalProperties, "documentationUrl")
 		delete(additionalProperties, "json")
+		delete(additionalProperties, "category")
 		delete(additionalProperties, "managed")
+		delete(additionalProperties, "hasDocumentation")
 		o.AdditionalProperties = additionalProperties
 	}
 
