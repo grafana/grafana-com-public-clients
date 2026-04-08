@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **EndpointName** | Pointer to **string** |  | [optional] 
 **ServiceId** | Pointer to **string** |  | [optional] 
 **AvailabilityZones** | Pointer to **[]string** |  | [optional] 
+**AvailabilityZoneIds** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -169,6 +170,31 @@ SetAvailabilityZones sets AvailabilityZones field to given value.
 `func (o *PdcPrivateConnectivityInfoAnyOf) HasAvailabilityZones() bool`
 
 HasAvailabilityZones returns a boolean if a field has been set.
+
+### GetAvailabilityZoneIds
+
+`func (o *PdcPrivateConnectivityInfoAnyOf) GetAvailabilityZoneIds() []string`
+
+GetAvailabilityZoneIds returns the AvailabilityZoneIds field if non-nil, zero value otherwise.
+
+### GetAvailabilityZoneIdsOk
+
+`func (o *PdcPrivateConnectivityInfoAnyOf) GetAvailabilityZoneIdsOk() (*[]string, bool)`
+
+GetAvailabilityZoneIdsOk returns a tuple with the AvailabilityZoneIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZoneIds
+
+`func (o *PdcPrivateConnectivityInfoAnyOf) SetAvailabilityZoneIds(v []string)`
+
+SetAvailabilityZoneIds sets AvailabilityZoneIds field to given value.
+
+### HasAvailabilityZoneIds
+
+`func (o *PdcPrivateConnectivityInfoAnyOf) HasAvailabilityZoneIds() bool`
+
+HasAvailabilityZoneIds returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

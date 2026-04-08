@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **PrivateDNS** | **string** |  | 
 **Regions** | Pointer to **[]string** |  | [optional] 
 **AvailabilityZones** | Pointer to **[]string** |  | [optional] 
+**AvailabilityZoneIds** | Pointer to **[]string** |  | [optional] 
 **ServiceAttachment** | **string** |  | 
 **DomainNames** | **[]string** |  | 
 
@@ -119,6 +120,31 @@ SetAvailabilityZones sets AvailabilityZones field to given value.
 `func (o *Info) HasAvailabilityZones() bool`
 
 HasAvailabilityZones returns a boolean if a field has been set.
+
+### GetAvailabilityZoneIds
+
+`func (o *Info) GetAvailabilityZoneIds() []string`
+
+GetAvailabilityZoneIds returns the AvailabilityZoneIds field if non-nil, zero value otherwise.
+
+### GetAvailabilityZoneIdsOk
+
+`func (o *Info) GetAvailabilityZoneIdsOk() (*[]string, bool)`
+
+GetAvailabilityZoneIdsOk returns a tuple with the AvailabilityZoneIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZoneIds
+
+`func (o *Info) SetAvailabilityZoneIds(v []string)`
+
+SetAvailabilityZoneIds sets AvailabilityZoneIds field to given value.
+
+### HasAvailabilityZoneIds
+
+`func (o *Info) HasAvailabilityZoneIds() bool`
+
+HasAvailabilityZoneIds returns a boolean if a field has been set.
 
 ### GetServiceAttachment
 

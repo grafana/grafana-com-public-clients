@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: c6408df
-  x-generated-at: 2026-04-07T17:39:25.814Z
+  x-commit-sha: b133db5
+  x-generated-at: 2026-04-08T08:47:59.888Z
 servers:
 - description: Main API server
   url: /api
@@ -4655,6 +4655,9 @@ components:
             id: 0.8008281904610115
             type: type
             info:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
               regions:
               - regions
               - regions
@@ -4667,6 +4670,9 @@ components:
             id: 0.8008281904610115
             type: type
             info:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
               regions:
               - regions
               - regions
@@ -4676,6 +4682,9 @@ components:
               privateDNS: privateDNS
               serviceName: serviceName
           otlp:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
             regions:
             - regions
             - regions
@@ -4686,6 +4695,9 @@ components:
             serviceName: serviceName
           pdc:
             api:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
               regions:
               - regions
               - regions
@@ -4695,6 +4707,9 @@ components:
               privateDNS: privateDNS
               serviceName: serviceName
             gateway:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
               regions:
               - regions
               - regions
@@ -8123,6 +8138,9 @@ components:
       type: object
     info_anyOf:
       example:
+        availabilityZoneIds:
+        - availabilityZoneIds
+        - availabilityZoneIds
         regions:
         - regions
         - regions
@@ -8147,6 +8165,11 @@ components:
           items:
             type: string
           title: availabilityZones
+          type: array
+        availabilityZoneIds:
+          items:
+            type: string
+          title: availabilityZoneIds
           type: array
       required:
       - privateDNS
@@ -8177,6 +8200,9 @@ components:
         id: 0.8008281904610115
         type: type
         info:
+          availabilityZoneIds:
+          - availabilityZoneIds
+          - availabilityZoneIds
           regions:
           - regions
           - regions
@@ -8220,6 +8246,9 @@ components:
     pdc:
       example:
         api:
+          availabilityZoneIds:
+          - availabilityZoneIds
+          - availabilityZoneIds
           regions:
           - regions
           - regions
@@ -8229,6 +8258,9 @@ components:
           privateDNS: privateDNS
           serviceName: serviceName
         gateway:
+          availabilityZoneIds:
+          - availabilityZoneIds
+          - availabilityZoneIds
           regions:
           - regions
           - regions
@@ -8254,6 +8286,9 @@ components:
           id: 0.8008281904610115
           type: type
           info:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
             regions:
             - regions
             - regions
@@ -8266,6 +8301,9 @@ components:
           id: 0.8008281904610115
           type: type
           info:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
             regions:
             - regions
             - regions
@@ -8275,6 +8313,9 @@ components:
             privateDNS: privateDNS
             serviceName: serviceName
         otlp:
+          availabilityZoneIds:
+          - availabilityZoneIds
+          - availabilityZoneIds
           regions:
           - regions
           - regions
@@ -8285,6 +8326,9 @@ components:
           serviceName: serviceName
         pdc:
           api:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
             regions:
             - regions
             - regions
@@ -8294,6 +8338,9 @@ components:
             privateDNS: privateDNS
             serviceName: serviceName
           gateway:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
             regions:
             - regions
             - regions
@@ -10330,6 +10377,11 @@ components:
             type: string
           title: availabilityZones
           type: array
+        availabilityZoneIds:
+          items:
+            type: string
+          title: availabilityZoneIds
+          type: array
       required:
       - privateDNS
       - serviceName
@@ -10376,6 +10428,11 @@ components:
           items:
             type: string
           title: availabilityZones
+          type: array
+        availabilityZoneIds:
+          items:
+            type: string
+          title: availabilityZoneIds
           type: array
       required:
       - privateDNS

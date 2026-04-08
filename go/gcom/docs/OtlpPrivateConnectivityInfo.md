@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **EndpointName** | **string** |  | 
 **ServiceId** | Pointer to **string** |  | [optional] 
 **AvailabilityZones** | Pointer to **[]string** |  | [optional] 
+**AvailabilityZoneIds** | Pointer to **[]string** |  | [optional] 
 **ServiceAttachment** | **string** |  | 
 **DomainNames** | **[]string** |  | 
 **Api** | [**Api1**](Api1.md) |  | 
@@ -171,6 +172,31 @@ SetAvailabilityZones sets AvailabilityZones field to given value.
 `func (o *OtlpPrivateConnectivityInfo) HasAvailabilityZones() bool`
 
 HasAvailabilityZones returns a boolean if a field has been set.
+
+### GetAvailabilityZoneIds
+
+`func (o *OtlpPrivateConnectivityInfo) GetAvailabilityZoneIds() []string`
+
+GetAvailabilityZoneIds returns the AvailabilityZoneIds field if non-nil, zero value otherwise.
+
+### GetAvailabilityZoneIdsOk
+
+`func (o *OtlpPrivateConnectivityInfo) GetAvailabilityZoneIdsOk() (*[]string, bool)`
+
+GetAvailabilityZoneIdsOk returns a tuple with the AvailabilityZoneIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailabilityZoneIds
+
+`func (o *OtlpPrivateConnectivityInfo) SetAvailabilityZoneIds(v []string)`
+
+SetAvailabilityZoneIds sets AvailabilityZoneIds field to given value.
+
+### HasAvailabilityZoneIds
+
+`func (o *OtlpPrivateConnectivityInfo) HasAvailabilityZoneIds() bool`
+
+HasAvailabilityZoneIds returns a boolean if a field has been set.
 
 ### GetServiceAttachment
 
