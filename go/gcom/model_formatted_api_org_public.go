@@ -28,6 +28,8 @@ type FormattedApiOrgPublic struct {
 	UpdatedAt                    NullableString                         `json:"updatedAt"`
 	UpdatedBy                    NullableString                         `json:"updatedBy"`
 	Avatar                       NullableString                         `json:"avatar"`
+	Isource                      NullableString                         `json:"isource"`
+	Osource                      NullableString                         `json:"osource"`
 	IsStaff                      bool                                   `json:"isStaff"`
 	ChecksPerMonth               float32                                `json:"checksPerMonth"`
 	WpPlan                       string                                 `json:"wpPlan"`
@@ -97,7 +99,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isource NullableString, osource NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -108,6 +110,8 @@ func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, 
 	this.UpdatedAt = updatedAt
 	this.UpdatedBy = updatedBy
 	this.Avatar = avatar
+	this.Isource = isource
+	this.Osource = osource
 	this.IsStaff = isStaff
 	this.ChecksPerMonth = checksPerMonth
 	this.WpPlan = wpPlan
@@ -399,6 +403,58 @@ func (o *FormattedApiOrgPublic) GetAvatarOk() (*string, bool) {
 // SetAvatar sets field value
 func (o *FormattedApiOrgPublic) SetAvatar(v string) {
 	o.Avatar.Set(&v)
+}
+
+// GetIsource returns the Isource field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *FormattedApiOrgPublic) GetIsource() string {
+	if o == nil || o.Isource.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Isource.Get()
+}
+
+// GetIsourceOk returns a tuple with the Isource field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiOrgPublic) GetIsourceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Isource.Get(), o.Isource.IsSet()
+}
+
+// SetIsource sets field value
+func (o *FormattedApiOrgPublic) SetIsource(v string) {
+	o.Isource.Set(&v)
+}
+
+// GetOsource returns the Osource field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *FormattedApiOrgPublic) GetOsource() string {
+	if o == nil || o.Osource.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Osource.Get()
+}
+
+// GetOsourceOk returns a tuple with the Osource field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiOrgPublic) GetOsourceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Osource.Get(), o.Osource.IsSet()
+}
+
+// SetOsource sets field value
+func (o *FormattedApiOrgPublic) SetOsource(v string) {
+	o.Osource.Set(&v)
 }
 
 // GetIsStaff returns the IsStaff field value
@@ -1894,6 +1950,8 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["updatedAt"] = o.UpdatedAt.Get()
 	toSerialize["updatedBy"] = o.UpdatedBy.Get()
 	toSerialize["avatar"] = o.Avatar.Get()
+	toSerialize["isource"] = o.Isource.Get()
+	toSerialize["osource"] = o.Osource.Get()
 	toSerialize["isStaff"] = o.IsStaff
 	toSerialize["checksPerMonth"] = o.ChecksPerMonth
 	toSerialize["wpPlan"] = o.WpPlan
@@ -1997,6 +2055,8 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "updatedAt")
 		delete(additionalProperties, "updatedBy")
 		delete(additionalProperties, "avatar")
+		delete(additionalProperties, "isource")
+		delete(additionalProperties, "osource")
 		delete(additionalProperties, "isStaff")
 		delete(additionalProperties, "checksPerMonth")
 		delete(additionalProperties, "wpPlan")

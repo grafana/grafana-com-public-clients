@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **UpdatedAt** | **NullableString** |  | 
 **UpdatedBy** | **NullableString** |  | 
 **Avatar** | **NullableString** |  | 
+**Isource** | **NullableString** |  | 
+**Osource** | **NullableString** |  | 
 **IsStaff** | **bool** |  | 
 **ChecksPerMonth** | **float32** |  | 
 **WpPlan** | **string** |  | 
@@ -78,7 +80,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiOrgPublic
 
-`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
+`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isource NullableString, osource NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
 
 NewFormattedApiOrgPublic instantiates a new FormattedApiOrgPublic object
 This constructor will assign default values to properties that have it defined,
@@ -313,6 +315,66 @@ SetAvatar sets Avatar field to given value.
 `func (o *FormattedApiOrgPublic) UnsetAvatar()`
 
 UnsetAvatar ensures that no value is present for Avatar, not even an explicit nil
+### GetIsource
+
+`func (o *FormattedApiOrgPublic) GetIsource() string`
+
+GetIsource returns the Isource field if non-nil, zero value otherwise.
+
+### GetIsourceOk
+
+`func (o *FormattedApiOrgPublic) GetIsourceOk() (*string, bool)`
+
+GetIsourceOk returns a tuple with the Isource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsource
+
+`func (o *FormattedApiOrgPublic) SetIsource(v string)`
+
+SetIsource sets Isource field to given value.
+
+
+### SetIsourceNil
+
+`func (o *FormattedApiOrgPublic) SetIsourceNil(b bool)`
+
+ SetIsourceNil sets the value for Isource to be an explicit nil
+
+### UnsetIsource
+`func (o *FormattedApiOrgPublic) UnsetIsource()`
+
+UnsetIsource ensures that no value is present for Isource, not even an explicit nil
+### GetOsource
+
+`func (o *FormattedApiOrgPublic) GetOsource() string`
+
+GetOsource returns the Osource field if non-nil, zero value otherwise.
+
+### GetOsourceOk
+
+`func (o *FormattedApiOrgPublic) GetOsourceOk() (*string, bool)`
+
+GetOsourceOk returns a tuple with the Osource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOsource
+
+`func (o *FormattedApiOrgPublic) SetOsource(v string)`
+
+SetOsource sets Osource field to given value.
+
+
+### SetOsourceNil
+
+`func (o *FormattedApiOrgPublic) SetOsourceNil(b bool)`
+
+ SetOsourceNil sets the value for Osource to be an explicit nil
+
+### UnsetOsource
+`func (o *FormattedApiOrgPublic) UnsetOsource()`
+
+UnsetOsource ensures that no value is present for Osource, not even an explicit nil
 ### GetIsStaff
 
 `func (o *FormattedApiOrgPublic) GetIsStaff() bool`
