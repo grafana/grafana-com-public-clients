@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 3d026c8
-  x-generated-at: 2026-04-08T09:54:57.918Z
+  x-commit-sha: 0472e87
+  x-generated-at: 2026-04-09T09:57:19.220Z
 servers:
 - description: Main API server
   url: /api
@@ -5198,6 +5198,7 @@ components:
         geUsersUsage: 6.778324963048013
         trialLengthDays: 3.353193347011243
         htUsage: 9.965781217890562
+        osource: osource
         resellerId: 2.027123023002322
         hgGrafanaUsage: 1.0246457001441578
         disableTokenExpirationEmails: true
@@ -5205,6 +5206,7 @@ components:
         smUsage: 6.965117697638846
         name: name
         k6VuhUsage: 8.762042012749001
+        isource: isource
         allowGCloudTrial: true
         supportPlan: supportPlan
         appO11YUsage: 3.5571952270680973
@@ -5276,6 +5278,14 @@ components:
         avatar:
           nullable: true
           title: avatar
+          type: string
+        isource:
+          nullable: true
+          title: isource
+          type: string
+        osource:
+          nullable: true
+          title: osource
           type: string
         isStaff:
           title: isStaff
@@ -5521,6 +5531,7 @@ components:
       - infraO11YHostsUsage
       - irmUsage
       - isStaff
+      - isource
       - k6IPUsage
       - k6VuhUsage
       - licenseProducts
@@ -5530,6 +5541,7 @@ components:
       - msaSignedAt
       - msaSignedBy
       - name
+      - osource
       - pluginSignatureType
       - privacy
       - reseller
