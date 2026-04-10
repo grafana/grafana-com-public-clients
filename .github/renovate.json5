@@ -39,6 +39,7 @@
       automerge: true,
       branchPrefix: 'auto-merge/grafanarenovatebot/',
       versioning: 'loose',
+      minimumReleaseAge: null,
     },
   ],
   customDatasources: {
