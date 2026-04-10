@@ -38,6 +38,7 @@
       ],
       automerge: true,
       branchPrefix: 'auto-merge/grafanarenovatebot/',
+      versioning: 'loose',
     },
   ],
   customDatasources: {
@@ -45,7 +46,7 @@
       defaultRegistryUrlTemplate: 'https://grafana.com/api/openapi.json',
       format: 'json',
       transformTemplates: [
-        '{"releases":[{"version": $$.(info."x-commit-sha"),"sourceUrl":"https://grafana.com/api/openapi.json","releaseTimestamp":$$.(info."x-generated-at")}]}',
+        '{"tags": {"latestVersion": $$.(info."x-generated-at")}, "releases":[{"version": $$.(info."x-generated-at"),"sourceUrl":"https://grafana.com/api/openapi.json","releaseTimestamp":$$.(info."x-generated-at"),"digest": $$.(info."x-commit-sha")}]}',
       ],
     },
   },
@@ -57,7 +58,7 @@
         '/^openapi.json$/',
       ],
       matchStrings: [
-        '"(?<depName>x-commit-sha)": "(?<currentValue>[^"]+)"',
+        '"(?<depName>x-generated-at)": "(?<currentValue>[^"]+)"',
       ],
       datasourceTemplate: 'custom.grafana-com-openapi',
     },
