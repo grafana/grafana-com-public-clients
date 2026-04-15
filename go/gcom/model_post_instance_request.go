@@ -32,6 +32,7 @@ type PostInstanceRequest struct {
 	Prometheus           *bool              `json:"prometheus,omitempty"`
 	Slug                 *string            `json:"slug,omitempty"`
 	Url                  *string            `json:"url,omitempty"`
+	WaitForReadiness     *bool              `json:"waitForReadiness,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -43,6 +44,8 @@ type _PostInstanceRequest PostInstanceRequest
 // will change when the set of required properties is changed
 func NewPostInstanceRequest() *PostInstanceRequest {
 	this := PostInstanceRequest{}
+	var waitForReadiness bool = true
+	this.WaitForReadiness = &waitForReadiness
 	return &this
 }
 
@@ -51,6 +54,8 @@ func NewPostInstanceRequest() *PostInstanceRequest {
 // but it doesn't guarantee that properties required by API are set
 func NewPostInstanceRequestWithDefaults() *PostInstanceRequest {
 	this := PostInstanceRequest{}
+	var waitForReadiness bool = true
+	this.WaitForReadiness = &waitForReadiness
 	return &this
 }
 
@@ -481,6 +486,38 @@ func (o *PostInstanceRequest) SetUrl(v string) {
 	o.Url = &v
 }
 
+// GetWaitForReadiness returns the WaitForReadiness field value if set, zero value otherwise.
+func (o *PostInstanceRequest) GetWaitForReadiness() bool {
+	if o == nil || IsNil(o.WaitForReadiness) {
+		var ret bool
+		return ret
+	}
+	return *o.WaitForReadiness
+}
+
+// GetWaitForReadinessOk returns a tuple with the WaitForReadiness field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstanceRequest) GetWaitForReadinessOk() (*bool, bool) {
+	if o == nil || IsNil(o.WaitForReadiness) {
+		return nil, false
+	}
+	return o.WaitForReadiness, true
+}
+
+// HasWaitForReadiness returns a boolean if a field has been set.
+func (o *PostInstanceRequest) HasWaitForReadiness() bool {
+	if o != nil && !IsNil(o.WaitForReadiness) {
+		return true
+	}
+
+	return false
+}
+
+// SetWaitForReadiness gets a reference to the given bool and assigns it to the WaitForReadiness field.
+func (o *PostInstanceRequest) SetWaitForReadiness(v bool) {
+	o.WaitForReadiness = &v
+}
+
 func (o PostInstanceRequest) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -530,6 +567,9 @@ func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
 	}
+	if !IsNil(o.WaitForReadiness) {
+		toSerialize["waitForReadiness"] = o.WaitForReadiness
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -565,6 +605,7 @@ func (o *PostInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "prometheus")
 		delete(additionalProperties, "slug")
 		delete(additionalProperties, "url")
+		delete(additionalProperties, "waitForReadiness")
 		o.AdditionalProperties = additionalProperties
 	}
 
