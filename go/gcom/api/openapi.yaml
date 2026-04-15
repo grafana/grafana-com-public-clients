@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: a631a3c
-  x-generated-at: 2026-04-14T12:06:03.592Z
+  x-commit-sha: b0fb91c
+  x-generated-at: 2026-04-15T06:27:48.060Z
 servers:
 - description: Main API server
   url: /api
