@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: b0fb91c
-  x-generated-at: 2026-04-15T06:27:48.060Z
+  x-commit-sha: "4275135"
+  x-generated-at: 2026-04-15T13:21:44.970Z
 servers:
 - description: Main API server
   url: /api
@@ -7121,6 +7121,9 @@ components:
           type: string
         url:
           type: string
+        waitForReadiness:
+          default: true
+          type: boolean
       type: object
     postInstanceServiceAccounts_request:
       properties:

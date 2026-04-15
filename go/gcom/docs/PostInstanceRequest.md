@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Prometheus** | Pointer to **bool** |  | [optional] 
 **Slug** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
+**WaitForReadiness** | Pointer to **bool** |  | [optional] [default to true]
 
 ## Methods
 
@@ -371,6 +372,31 @@ SetUrl sets Url field to given value.
 `func (o *PostInstanceRequest) HasUrl() bool`
 
 HasUrl returns a boolean if a field has been set.
+
+### GetWaitForReadiness
+
+`func (o *PostInstanceRequest) GetWaitForReadiness() bool`
+
+GetWaitForReadiness returns the WaitForReadiness field if non-nil, zero value otherwise.
+
+### GetWaitForReadinessOk
+
+`func (o *PostInstanceRequest) GetWaitForReadinessOk() (*bool, bool)`
+
+GetWaitForReadinessOk returns a tuple with the WaitForReadiness field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWaitForReadiness
+
+`func (o *PostInstanceRequest) SetWaitForReadiness(v bool)`
+
+SetWaitForReadiness sets WaitForReadiness field to given value.
+
+### HasWaitForReadiness
+
+`func (o *PostInstanceRequest) HasWaitForReadiness() bool`
+
+HasWaitForReadiness returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
