@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: "4275135"
-  x-generated-at: 2026-04-15T13:21:44.970Z
+  x-commit-sha: 478ecf6
+  x-generated-at: 2026-04-15T20:12:49.538Z
 servers:
 - description: Main API server
   url: /api
@@ -10577,6 +10577,9 @@ components:
         pdcClusterSlug:
           title: pdcClusterSlug
           type: string
+        pdcHostname:
+          title: pdcHostname
+          type: string
         pdcPrivateConnectivityInfo:
           $ref: '#/components/schemas/pdcPrivateConnectivityInfo'
         otlpHttpUrl:
@@ -10818,6 +10821,7 @@ components:
       - otlpHttpUrl
       - otlpPrivateConnectivityInfo
       - pdcClusterSlug
+      - pdcHostname
       - pdcPrivateConnectivityInfo
       - provider
       - providerRegion
