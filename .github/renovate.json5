@@ -66,7 +66,7 @@
   ],
   postUpgradeTasks: {
     commands: [
-      'curl https://grafana.com/api/openapi.json -o openapi.json',
+      'bash .github/scripts/update-openapi-spec.sh',
     ],
   },
 }
