@@ -27,21 +27,5 @@ jobs:
           package-name: gcom
           spec-path: openapi.json
           modify-spec-script: .github/workflows/modify-spec.sh
-          commit-changes: "false"
         env:
           REPO_NAME: grafana-com-public-clients
-      - name: Pin Go module version
-        shell: bash
-        run: |
-          cd go/gcom
-          go mod edit -go=1.26.2
-          go mod tidy
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
-        if: github.event_name == 'push'
-        with:
-          commit_message: "Updating generated clients after openapi change"
-          commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
-
