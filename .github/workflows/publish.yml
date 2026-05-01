@@ -28,14 +28,12 @@ jobs:
           spec-path: openapi.json
           modify-spec-script: .github/workflows/modify-spec.sh
           commit-changes: "false"
+          generator-version: "7.22.0"
         env:
           REPO_NAME: grafana-com-public-clients
       - name: Pin Go module version
         shell: bash
-        run: |
-          cd go/gcom
-          go mod edit -go=1.26.2
-          go mod tidy
+        run: go mod edit -go=1.26.2 ./go/gcom/go.mod
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
         if: github.event_name == 'push'
