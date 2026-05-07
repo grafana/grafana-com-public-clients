@@ -54,7 +54,7 @@ func (dst *Graphite) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *Graphite) MarshalJSON() ([]byte, error) {
+func (src Graphite) MarshalJSON() ([]byte, error) {
 	if src.Api1AnyOf != nil {
 		return json.Marshal(&src.Api1AnyOf)
 	}

@@ -78,10 +78,10 @@ func (a *OrgStackRegionsAPIService) GetOrgStackRegionsExecute(r ApiGetOrgStackRe
 	localVarFormParams := url.Values{}
 
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	if r.regionSlugOrId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "regionSlugOrId", r.regionSlugOrId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "regionSlugOrId", r.regionSlugOrId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

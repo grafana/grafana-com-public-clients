@@ -54,7 +54,7 @@ func (dst *Otlp1) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *Otlp1) MarshalJSON() ([]byte, error) {
+func (src Otlp1) MarshalJSON() ([]byte, error) {
 	if src.PdcPrivateConnectivityInfoAnyOf != nil {
 		return json.Marshal(&src.PdcPrivateConnectivityInfoAnyOf)
 	}

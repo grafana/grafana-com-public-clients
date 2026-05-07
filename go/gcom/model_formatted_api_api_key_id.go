@@ -54,7 +54,7 @@ func (dst *FormattedApiApiKeyId) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *FormattedApiApiKeyId) MarshalJSON() ([]byte, error) {
+func (src FormattedApiApiKeyId) MarshalJSON() ([]byte, error) {
 	if src.Float32 != nil {
 		return json.Marshal(&src.Float32)
 	}

@@ -79,10 +79,10 @@ func (a *StackRegionsAPIService) GetClosestStackRegionExecute(r ApiGetClosestSta
 	localVarFormParams := url.Values{}
 
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	if r.provider != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "provider", r.provider, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "provider", r.provider, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -281,23 +281,23 @@ func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequ
 	localVarFormParams := url.Values{}
 
 	if r.countryCode != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "countryCode", r.countryCode, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "countryCode", r.countryCode, "form", "")
 	}
 	if r.direction != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "form", "")
 	}
 	if r.id != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "form", "")
 	}
 	if r.idIn != nil {
 		t := *r.idIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", t, "form", "multi")
 		}
 	}
 	if r.labels != nil {
@@ -305,36 +305,36 @@ func (a *StackRegionsAPIService) GetStackRegionsExecute(r ApiGetStackRegionsRequ
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "labels", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "labels", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "labels", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "labels", t, "form", "multi")
 		}
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "form", "")
 	}
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	if r.provider != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "provider", r.provider, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "provider", r.provider, "form", "")
 	}
 	if r.providerRegion != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "providerRegion", r.providerRegion, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "providerRegion", r.providerRegion, "form", "")
 	}
 	if r.slug != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "form", "")
 	}
 	if r.slugIn != nil {
 		t := *r.slugIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", t, "form", "multi")
 		}
 	}
 	// to determine the Content-Type header

@@ -660,9 +660,9 @@ func (a *StacksAPIService) ListStacksV1Execute(r ApiListStacksV1Request) (*Pagin
 		return localVarReturnValue, nil, reportError("pageSize is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "org", r.org, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "org", r.org, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

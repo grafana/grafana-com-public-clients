@@ -77,7 +77,7 @@ func (a *PluginsAPIService) GetPluginExecute(r ApiGetPluginRequest) (*FormattedA
 	localVarFormParams := url.Values{}
 
 	if r.version != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

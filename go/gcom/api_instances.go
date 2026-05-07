@@ -98,7 +98,7 @@ func (a *InstancesAPIService) DeleteInstanceExecute(r ApiDeleteInstanceRequest) 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -258,7 +258,7 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 	}
 
 	if r.noRestart != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "noRestart", r.noRestart, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "noRestart", r.noRestart, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -277,7 +277,7 @@ func (a *InstancesAPIService) DeleteInstancePluginExecute(r ApiDeleteInstancePlu
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -444,7 +444,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountExecute(r ApiDeleteIns
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -606,7 +606,7 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountTokenExecute(r ApiDele
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -744,7 +744,7 @@ func (a *InstancesAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest) 
 	localVarFormParams := url.Values{}
 
 	if r.config != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "config", r.config, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "config", r.config, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -898,7 +898,7 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Form
 	localVarFormParams := url.Values{}
 
 	if r.config != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "config", r.config, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "config", r.config, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1207,10 +1207,10 @@ func (a *InstancesAPIService) GetInstancePluginsExecute(r ApiGetInstancePluginsR
 	localVarFormParams := url.Values{}
 
 	if r.direction != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1819,13 +1819,13 @@ func (a *InstancesAPIService) GetInstanceUsersExecute(r ApiGetInstanceUsersReque
 	localVarFormParams := url.Values{}
 
 	if r.active != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "active", r.active, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "active", r.active, "form", "")
 	}
 	if r.activeSince != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "activeSince", r.activeSince, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "activeSince", r.activeSince, "form", "")
 	}
 	if r.includeInternal != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeInternal", r.includeInternal, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeInternal", r.includeInternal, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2173,145 +2173,145 @@ func (a *InstancesAPIService) GetInstancesExecute(r ApiGetInstancesRequest) (*Ge
 	localVarFormParams := url.Values{}
 
 	if r.cluster != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "cluster", r.cluster, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "cluster", r.cluster, "form", "")
 	}
 	if r.clusterIdIn != nil {
 		t := *r.clusterIdIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "clusterIdIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "clusterIdIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "clusterIdIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "clusterIdIn", t, "form", "multi")
 		}
 	}
 	if r.cursor != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "cursor", r.cursor, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "cursor", r.cursor, "form", "")
 	}
 	if r.direction != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "form", "")
 	}
 	if r.hosted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "hosted", r.hosted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hosted", r.hosted, "form", "")
 	}
 	if r.id != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "form", "")
 	}
 	if r.idIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", r.idIn, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", r.idIn, "form", "")
 	}
 	if r.idMin != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "idMin", r.idMin, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "idMin", r.idMin, "form", "")
 	}
 	if r.includeLabels != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeLabels", r.includeLabels, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeLabels", r.includeLabels, "form", "")
 	}
 	if r.includePromCurrentActiveSeries != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includePromCurrentActiveSeries", r.includePromCurrentActiveSeries, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includePromCurrentActiveSeries", r.includePromCurrentActiveSeries, "form", "")
 	}
 	if r.labels != nil {
 		t := *r.labels
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "labels", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "labels", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "labels", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "labels", t, "form", "multi")
 		}
 	}
 	if r.name != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "form", "")
 	}
 	if r.nameIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", r.nameIn, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", r.nameIn, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "form", "")
 	}
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	if r.orgIdIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgIdIn", r.orgIdIn, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgIdIn", r.orgIdIn, "form", "")
 	}
 	if r.orgSlug != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgSlug", r.orgSlug, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgSlug", r.orgSlug, "form", "")
 	}
 	if r.orgSlugIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgSlugIn", r.orgSlugIn, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgSlugIn", r.orgSlugIn, "form", "")
 	}
 	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
 	}
 	if r.pageSize != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
 	}
 	if r.plan != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "plan", r.plan, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "plan", r.plan, "form", "")
 	}
 	if r.planIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "planIn", r.planIn, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "planIn", r.planIn, "form", "")
 	}
 	if r.planNot != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "planNot", r.planNot, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "planNot", r.planNot, "form", "")
 	}
 	if r.region != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	}
 	if r.regionIn != nil {
 		t := *r.regionIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "regionIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "regionIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "regionIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "regionIn", t, "form", "multi")
 		}
 	}
 	if r.slug != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "form", "")
 	}
 	if r.slugIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", r.slugIn, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", r.slugIn, "form", "")
 	}
 	if r.status != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "form", "")
 	}
 	if r.updatedOrCreatedAtMin != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "updatedOrCreatedAtMin", r.updatedOrCreatedAtMin, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "updatedOrCreatedAtMin", r.updatedOrCreatedAtMin, "form", "")
 	}
 	if r.url != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "url", r.url, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "url", r.url, "form", "")
 	}
 	if r.version != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "version", r.version, "form", "")
 	}
 	if r.versionIn != nil {
 		t := *r.versionIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "versionIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "versionIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "versionIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "versionIn", t, "form", "multi")
 		}
 	}
 	if r.versionNot != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "versionNot", r.versionNot, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "versionNot", r.versionNot, "form", "")
 	}
 	if r.versionNotIn != nil {
 		t := *r.versionNotIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "versionNotIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "versionNotIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "versionNotIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "versionNotIn", t, "form", "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -2483,7 +2483,7 @@ func (a *InstancesAPIService) PostInstanceExecute(r ApiPostInstanceRequest) (*Fo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postInstanceRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -2664,7 +2664,7 @@ func (a *InstancesAPIService) PostInstancePluginExecute(r ApiPostInstancePluginR
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postInstancePluginRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -2841,7 +2841,7 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postInstancePluginsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -3022,7 +3022,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postInstanceServiceAccountTokensRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -3199,7 +3199,7 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postInstanceServiceAccountsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -3372,7 +3372,7 @@ func (a *InstancesAPIService) PostInstancesExecute(r ApiPostInstancesRequest) (*
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postInstancesRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)

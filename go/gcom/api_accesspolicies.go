@@ -91,9 +91,9 @@ func (a *AccesspoliciesAPIService) DeleteAccessPolicyExecute(r ApiDeleteAccessPo
 		return nil, reportError("xRequestId is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,7 +112,7 @@ func (a *AccesspoliciesAPIService) DeleteAccessPolicyExecute(r ApiDeleteAccessPo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -290,27 +290,27 @@ func (a *AccesspoliciesAPIService) GetAccessPoliciesExecute(r ApiGetAccessPolici
 		return localVarReturnValue, nil, reportError("region is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.name != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "form", "")
 	}
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	if r.pageCursor != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "pageCursor", r.pageCursor, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageCursor", r.pageCursor, "form", "")
 	}
 	if r.pageSize != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
 	}
 	if r.realmIdentifier != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "realmIdentifier", r.realmIdentifier, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "realmIdentifier", r.realmIdentifier, "form", "")
 	}
 	if r.realmType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "realmType", r.realmType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "realmType", r.realmType, "form", "")
 	}
 	if r.status != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "status", r.status, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -461,9 +461,9 @@ func (a *AccesspoliciesAPIService) GetAccessPolicyExecute(r ApiGetAccessPolicyRe
 		return localVarReturnValue, nil, reportError("region is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -627,12 +627,12 @@ func (a *AccesspoliciesAPIService) GetConfigExecute(r ApiGetConfigRequest) (*Acc
 		return localVarReturnValue, nil, reportError("region is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.includeOrgMetadata != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeOrgMetadata", r.includeOrgMetadata, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeOrgMetadata", r.includeOrgMetadata, "form", "")
 	}
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -775,9 +775,9 @@ func (a *AccesspoliciesAPIService) PostAccessPoliciesExecute(r ApiPostAccessPoli
 		return localVarReturnValue, nil, reportError("postAccessPoliciesRequest is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -796,7 +796,7 @@ func (a *AccesspoliciesAPIService) PostAccessPoliciesExecute(r ApiPostAccessPoli
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postAccessPoliciesRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -960,9 +960,9 @@ func (a *AccesspoliciesAPIService) PostAccessPolicyExecute(r ApiPostAccessPolicy
 		return localVarReturnValue, nil, reportError("postAccessPolicyRequest is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -981,7 +981,7 @@ func (a *AccesspoliciesAPIService) PostAccessPolicyExecute(r ApiPostAccessPolicy
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postAccessPolicyRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)

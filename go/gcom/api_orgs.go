@@ -211,7 +211,7 @@ func (a *OrgsAPIService) DeleteOrgMemberExecute(r ApiDeleteOrgMemberRequest) (*h
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -489,10 +489,10 @@ func (a *OrgsAPIService) GetOrgBilledUsageExecute(r ApiGetOrgBilledUsageRequest)
 		return localVarReturnValue, nil, reportError("year is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "month", r.month, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "year", r.year, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "month", r.month, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "year", r.year, "form", "")
 	if r.format != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -869,85 +869,85 @@ func (a *OrgsAPIService) GetOrgInstancesExecute(r ApiGetOrgInstancesRequest) (*G
 	localVarFormParams := url.Values{}
 
 	if r.cluster != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "cluster", r.cluster, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "cluster", r.cluster, "form", "")
 	}
 	if r.direction != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "form", "")
 	}
 	if r.id != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "form", "")
 	}
 	if r.idIn != nil {
 		t := *r.idIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "idIn", t, "form", "multi")
 		}
 	}
 	if r.name != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "form", "")
 	}
 	if r.nameIn != nil {
 		t := *r.nameIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "nameIn", t, "form", "multi")
 		}
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "form", "")
 	}
 	if r.plan != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "plan", r.plan, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "plan", r.plan, "form", "")
 	}
 	if r.planIn != nil {
 		t := *r.planIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "planIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "planIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "planIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "planIn", t, "form", "multi")
 		}
 	}
 	if r.planNot != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "planNot", r.planNot, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "planNot", r.planNot, "form", "")
 	}
 	if r.slug != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "slug", r.slug, "form", "")
 	}
 	if r.slugIn != nil {
 		t := *r.slugIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "slugIn", t, "form", "multi")
 		}
 	}
 	if r.url != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "url", r.url, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "url", r.url, "form", "")
 	}
 	if r.urlIn != nil {
 		t := *r.urlIn
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "urlIn", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "urlIn", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "urlIn", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "urlIn", t, "form", "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -1275,19 +1275,19 @@ func (a *OrgsAPIService) GetOrgMembersExecute(r ApiGetOrgMembersRequest) (*OrgMe
 	localVarFormParams := url.Values{}
 
 	if r.billing != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "billing", r.billing, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "billing", r.billing, "form", "")
 	}
 	if r.direction != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "direction", r.direction, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orderBy", r.orderBy, "form", "")
 	}
 	if r.privacy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "privacy", r.privacy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "privacy", r.privacy, "form", "")
 	}
 	if r.privacyIn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "privacyIn", r.privacyIn, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "privacyIn", r.privacyIn, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1618,7 +1618,7 @@ func (a *OrgsAPIService) PostOrgMemberExecute(r ApiPostOrgMemberRequest) (*Forma
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postOrgMemberRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -1795,7 +1795,7 @@ func (a *OrgsAPIService) PostOrgMembersExecute(r ApiPostOrgMembersRequest) (*For
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postOrgMembersRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -1972,7 +1972,7 @@ func (a *OrgsAPIService) UpdateOrgSettingsExecute(r ApiUpdateOrgSettingsRequest)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.updateOrgSettingsRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
