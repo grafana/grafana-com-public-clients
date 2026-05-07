@@ -54,7 +54,7 @@ func (dst *FormattedOrgMembershipAllowGCloudTrial) UnmarshalJSON(data []byte) er
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *FormattedOrgMembershipAllowGCloudTrial) MarshalJSON() ([]byte, error) {
+func (src FormattedOrgMembershipAllowGCloudTrial) MarshalJSON() ([]byte, error) {
 	if src.Bool != nil {
 		return json.Marshal(&src.Bool)
 	}

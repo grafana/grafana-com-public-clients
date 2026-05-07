@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 9e633bc
-  x-generated-at: 2026-04-16T08:49:27.802Z
+  x-commit-sha: e21a7da
+  x-generated-at: 2026-04-30T16:33:24.428Z
 servers:
 - description: Main API server
   url: /api
@@ -297,25 +297,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstances_200_response'
+                $ref: "#/components/schemas/getInstances_200_response"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get a list of instances
       tags:
@@ -334,38 +334,38 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postInstances_request'
+              $ref: "#/components/schemas/postInstances_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
+                $ref: "#/components/schemas/FormattedApiInstance"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Create a new instance
       tags:
@@ -393,37 +393,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
+                $ref: "#/components/schemas/FormattedApiInstance"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Deletes an instance
       tags:
@@ -450,31 +450,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
+                $ref: "#/components/schemas/FormattedApiInstance"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Gets an instance
       tags:
@@ -500,44 +500,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postInstance_request'
+              $ref: "#/components/schemas/postInstance_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiInstance'
+                $ref: "#/components/schemas/FormattedApiInstance"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Updates an instance
       tags:
@@ -564,44 +564,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postInstanceServiceAccounts_request'
+              $ref: "#/components/schemas/postInstanceServiceAccounts_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GrafanaServiceAccountDTO'
+                $ref: "#/components/schemas/GrafanaServiceAccountDTO"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Creates a service account on a Grafana instance
       tags:
@@ -638,31 +638,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Delete a service account on a Grafana instance
       tags:
@@ -689,31 +689,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GrafanaServiceAccountDTO'
+                $ref: "#/components/schemas/GrafanaServiceAccountDTO"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Gets a service account on a Grafana instance
       tags:
@@ -742,32 +742,32 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/GrafanaTokenDTO'
+                  $ref: "#/components/schemas/GrafanaTokenDTO"
                 type: array
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get a service account's tokens on a Grafana instance
       tags:
@@ -800,44 +800,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postInstanceServiceAccountTokens_request'
+              $ref: "#/components/schemas/postInstanceServiceAccountTokens_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GrafanaNewApiKeyResult'
+                $ref: "#/components/schemas/GrafanaNewApiKeyResult"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Creates a service account token on a Grafana instance
       tags:
@@ -881,31 +881,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Delete a service account token on a Grafana instance
       tags:
@@ -933,31 +933,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiInstanceConnections'
+                $ref: "#/components/schemas/FormattedApiInstanceConnections"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: "Gets an instance's connectivity information (InfluxDB, OTEL, AWS private\
         \ link, etc.)"
@@ -1001,31 +1001,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstancePlugins_200_response'
+                $ref: "#/components/schemas/getInstancePlugins_200_response"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - instances
@@ -1050,44 +1050,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postInstancePlugins_request'
+              $ref: "#/components/schemas/postInstancePlugins_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiInstancePlugin'
+                $ref: "#/components/schemas/FormattedApiInstancePlugin"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       tags:
       - instances
@@ -1128,37 +1128,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiInstancePlugin'
+                $ref: "#/components/schemas/FormattedApiInstancePlugin"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       tags:
       - instances
@@ -1184,31 +1184,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiInstancePlugin'
+                $ref: "#/components/schemas/FormattedApiInstancePlugin"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - instances
@@ -1240,44 +1240,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postInstancePlugin_request'
+              $ref: "#/components/schemas/postInstancePlugin_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiInstancePlugin'
+                $ref: "#/components/schemas/FormattedApiInstancePlugin"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       tags:
       - instances
@@ -1297,31 +1297,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiInstanceReadiness'
+                $ref: "#/components/schemas/FormattedApiInstanceReadiness"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Gets an instance's readiness status
       tags:
@@ -1364,31 +1364,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InstanceUsersResponse'
+                $ref: "#/components/schemas/InstanceUsersResponse"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Gets instance active users
       tags:
@@ -1416,25 +1416,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getOrgStackRegions_200_response'
+                $ref: "#/components/schemas/getOrgStackRegions_200_response"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - org-stack-regions
@@ -1477,31 +1477,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getOrgBilledUsage_200_response'
+                $ref: "#/components/schemas/getOrgBilledUsage_200_response"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Retrieve an org's billed usage for a specific month
       tags:
@@ -1522,31 +1522,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrgBilledUsageHistory'
+                $ref: "#/components/schemas/OrgBilledUsageHistory"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Retrieve an org's billed usage items for the last 12 months
       tags:
@@ -1723,31 +1723,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getInstances_200_response'
+                $ref: "#/components/schemas/getInstances_200_response"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get the list of instances belonging to the org
       tags:
@@ -1768,19 +1768,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiOrgPublic'
+                $ref: "#/components/schemas/FormattedApiOrgPublic"
           description: OK
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - orgs
@@ -1803,13 +1803,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - orgs
@@ -1864,31 +1864,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrgMemberListResponse'
+                $ref: "#/components/schemas/OrgMemberListResponse"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - orgs
@@ -1913,44 +1913,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postOrgMembers_request'
+              $ref: "#/components/schemas/postOrgMembers_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedOrgMembership'
+                $ref: "#/components/schemas/FormattedOrgMembership"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       tags:
       - orgs
@@ -1986,31 +1986,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       tags:
       - orgs
@@ -2036,31 +2036,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedOrgMembership'
+                $ref: "#/components/schemas/FormattedOrgMembership"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - orgs
@@ -2092,44 +2092,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postOrgMember_request'
+              $ref: "#/components/schemas/postOrgMember_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedOrgMembership'
+                $ref: "#/components/schemas/FormattedOrgMembership"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       tags:
       - orgs
@@ -2149,31 +2149,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiOrgSettings'
+                $ref: "#/components/schemas/FormattedApiOrgSettings"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get org settings
       tags:
@@ -2199,44 +2199,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/updateOrgSettings_request'
+              $ref: "#/components/schemas/updateOrgSettings_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiOrgSettings'
+                $ref: "#/components/schemas/FormattedApiOrgSettings"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Update org settings
       tags:
@@ -2264,19 +2264,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiPlugin'
+                $ref: "#/components/schemas/FormattedApiPlugin"
           description: OK
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Fetches a plugin by slug or id
       tags:
@@ -2386,25 +2386,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getStackRegions_200_response'
+                $ref: "#/components/schemas/getStackRegions_200_response"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - stack-regions
@@ -2436,25 +2436,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FormattedApiStackRegion'
+                $ref: "#/components/schemas/FormattedApiStackRegion"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - stack-regions
@@ -2523,25 +2523,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/getAccessPolicies_200_response'
+                $ref: "#/components/schemas/getAccessPolicies_200_response"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get a list of access policies
       tags:
@@ -2574,38 +2574,38 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postAccessPolicies_request'
+              $ref: "#/components/schemas/postAccessPolicies_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthAccessPolicy'
+                $ref: "#/components/schemas/AuthAccessPolicy"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Create a new access policy
       tags:
@@ -2640,13 +2640,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccessPoliciesConfig'
+                $ref: "#/components/schemas/AccessPoliciesConfig"
           description: OK
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get details about the Cloud Access Policy API
       tags:
@@ -2690,31 +2690,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Delete an access policy
       tags:
@@ -2748,31 +2748,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthAccessPolicy'
+                $ref: "#/components/schemas/AuthAccessPolicy"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get an access policy
       tags:
@@ -2812,44 +2812,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postAccessPolicy_request'
+              $ref: "#/components/schemas/postAccessPolicy_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthAccessPolicy'
+                $ref: "#/components/schemas/AuthAccessPolicy"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Update an access policy
       tags:
@@ -2961,25 +2961,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccessPolicyListResponse'
+                $ref: "#/components/schemas/AccessPolicyListResponse"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get a list of tokens
       tags:
@@ -3012,38 +3012,38 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postTokens_request'
+              $ref: "#/components/schemas/postTokens_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthTokenWithSecret'
+                $ref: "#/components/schemas/AuthTokenWithSecret"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Create a new token
       tags:
@@ -3091,31 +3091,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Delete a token
       tags:
@@ -3149,31 +3149,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthToken'
+                $ref: "#/components/schemas/AuthToken"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
       summary: Get info for a specific token
       tags:
@@ -3213,44 +3213,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postToken_request'
+              $ref: "#/components/schemas/postToken_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthToken'
+                $ref: "#/components/schemas/AuthToken"
           description: OK
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
+                $ref: "#/components/schemas/ErrorInvalidCredentials"
           description: Login Required or invalid credentials
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorForbidden'
+                $ref: "#/components/schemas/ErrorForbidden"
           description: Forbidden
         "404":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorNotFound'
+                $ref: "#/components/schemas/ErrorNotFound"
           description: Element not found
         "409":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorConflict'
+                $ref: "#/components/schemas/ErrorConflict"
           description: "Invalid arguments: wrong or missing parameters"
         "503":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
+                $ref: "#/components/schemas/ErrorServiceUnavailable"
           description: Service is currently unavailable
       summary: Update a token
       tags:
@@ -3295,13 +3295,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedResponseStackV1'
+                $ref: "#/components/schemas/PaginatedResponseStackV1"
           description: OK
         default:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorPayload'
+                $ref: "#/components/schemas/ErrorPayload"
           description: Error
       tags:
       - stacks
@@ -3311,20 +3311,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StackCreateRequestV1'
+              $ref: "#/components/schemas/StackCreateRequestV1"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StackV1'
+                $ref: "#/components/schemas/StackV1"
           description: OK
         default:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorPayload'
+                $ref: "#/components/schemas/ErrorPayload"
           description: Error
       tags:
       - stacks
@@ -3335,20 +3335,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StackCheckRequestV1'
+              $ref: "#/components/schemas/StackCheckRequestV1"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StackCheckV1'
+                $ref: "#/components/schemas/StackCheckV1"
           description: OK
         default:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorPayload'
+                $ref: "#/components/schemas/ErrorPayload"
           description: Error
       tags:
       - stacks
@@ -3370,13 +3370,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StackV1'
+                $ref: "#/components/schemas/StackV1"
           description: OK
         default:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorPayload'
+                $ref: "#/components/schemas/ErrorPayload"
           description: Error
       tags:
       - stacks
@@ -3397,13 +3397,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StackV1'
+                $ref: "#/components/schemas/StackV1"
           description: OK
         default:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorPayload'
+                $ref: "#/components/schemas/ErrorPayload"
           description: Error
       tags:
       - stacks
@@ -3423,20 +3423,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StackUpdateRequestV1'
+              $ref: "#/components/schemas/StackUpdateRequestV1"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StackV1'
+                $ref: "#/components/schemas/StackV1"
           description: OK
         default:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorPayload'
+                $ref: "#/components/schemas/ErrorPayload"
           description: Error
       tags:
       - stacks
@@ -3458,13 +3458,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StackCheckReadinessV1'
+                $ref: "#/components/schemas/StackCheckReadinessV1"
           description: OK
         default:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorPayload'
+                $ref: "#/components/schemas/ErrorPayload"
           description: Error
       tags:
       - stacks
@@ -3552,7 +3552,7 @@ components:
           title: items
           type: array
         metadata:
-          $ref: '#/components/schemas/metadata'
+          $ref: "#/components/schemas/metadata"
       required:
       - items
       - metadata
@@ -3659,7 +3659,7 @@ components:
           type: array
         realms:
           items:
-            $ref: '#/components/schemas/AuthAccessPolicy_realms_inner'
+            $ref: "#/components/schemas/AuthAccessPolicy_realms_inner"
           type: array
         createdAt:
           format: date-time
@@ -3670,9 +3670,9 @@ components:
           readOnly: true
           type: string
         conditions:
-          $ref: '#/components/schemas/AuthAccessPolicy_conditions'
+          $ref: "#/components/schemas/AuthAccessPolicy_conditions"
         attributes:
-          $ref: '#/components/schemas/AuthAccessPolicy_attributes'
+          $ref: "#/components/schemas/AuthAccessPolicy_attributes"
         status:
           description: The status of the access policy.
           enum:
@@ -3711,17 +3711,17 @@ components:
       properties:
         realms:
           items:
-            $ref: '#/components/schemas/realms_inner'
+            $ref: "#/components/schemas/realms_inner"
           title: realms
           type: array
         scopes:
           items:
-            $ref: '#/components/schemas/scopes_inner'
+            $ref: "#/components/schemas/scopes_inner"
           title: scopes
           type: array
         sets:
           items:
-            $ref: '#/components/schemas/sets_inner'
+            $ref: "#/components/schemas/sets_inner"
           title: sets
           type: array
       required:
@@ -3784,7 +3784,7 @@ components:
           type: string
         links:
           items:
-            $ref: '#/components/schemas/links_inner'
+            $ref: "#/components/schemas/links_inner"
           title: links
           type: array
       required:
@@ -4475,7 +4475,7 @@ components:
           type: string
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: "#/components/schemas/links_inner_1"
           title: links
           type: array
         deleteProtection:
@@ -4634,7 +4634,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/items_inner'
+            $ref: "#/components/schemas/items_inner"
           title: items
           type: array
       required:
@@ -4720,9 +4720,9 @@ components:
               serviceName: serviceName
       properties:
         privateConnectivityInfo:
-          $ref: '#/components/schemas/privateConnectivityInfo'
+          $ref: "#/components/schemas/privateConnectivityInfo"
         appPlatform:
-          $ref: '#/components/schemas/appPlatform'
+          $ref: "#/components/schemas/appPlatform"
         influxUrl:
           nullable: true
           title: influxUrl
@@ -4868,12 +4868,12 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/items_inner_1'
+            $ref: "#/components/schemas/items_inner_1"
           title: items
           type: array
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: "#/components/schemas/links_inner_1"
           title: links
           type: array
         total:
@@ -5043,7 +5043,7 @@ components:
           title: contractTypeId
           type: number
         allowGCloudTrial:
-          $ref: '#/components/schemas/FormattedOrgMembership_allowGCloudTrial'
+          $ref: "#/components/schemas/FormattedOrgMembership_allowGCloudTrial"
         hlUsage:
           title: hlUsage
           type: number
@@ -5075,9 +5075,9 @@ components:
           title: userName
           type: string
         subscriptions:
-          $ref: '#/components/schemas/subscriptions'
+          $ref: "#/components/schemas/subscriptions"
         marketplaceSubscription:
-          $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
+          $ref: "#/components/schemas/items_inner_1_marketplaceSubscription"
         mfaEnabled:
           title: mfaEnabled
           type: boolean
@@ -5093,7 +5093,7 @@ components:
           title: extraPermissions
           type: array
         grafanaStaffAccess:
-          $ref: '#/components/schemas/items_inner_1_grafanaStaffAccess'
+          $ref: "#/components/schemas/items_inner_1_grafanaStaffAccess"
       required:
       - allowGCloudTrial
       - billing
@@ -5456,7 +5456,7 @@ components:
           title: retainedStackId
           type: number
         allowGCloudTrial:
-          $ref: '#/components/schemas/FormattedOrgMembership_allowGCloudTrial'
+          $ref: "#/components/schemas/FormattedOrgMembership_allowGCloudTrial"
         pluginSignatureType:
           title: pluginSignatureType
           type: string
@@ -5487,11 +5487,11 @@ components:
           type: boolean
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: "#/components/schemas/links_inner_1"
           title: links
           type: array
         subscriptions:
-          $ref: '#/components/schemas/subscriptions'
+          $ref: "#/components/schemas/subscriptions"
       required:
       - allowGCloudTrial
       - appO11YUsage
@@ -5951,7 +5951,7 @@ components:
           type: object
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: "#/components/schemas/links_inner_1"
           title: links
           type: array
         angularDetected:
@@ -5964,12 +5964,12 @@ components:
           title: documentationUrl
           type: string
         json:
-          $ref: '#/components/schemas/json'
+          $ref: "#/components/schemas/json"
         category:
           title: category
           type: string
         managed:
-          $ref: '#/components/schemas/managed'
+          $ref: "#/components/schemas/managed"
         hasDocumentation:
           title: hasDocumentation
           type: boolean
@@ -6040,8 +6040,8 @@ components:
       type: object
     FormattedApiStackRegion:
       anyOf:
-      - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf'
-      - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf_1'
+      - $ref: "#/components/schemas/FormattedApiStackRegion_anyOf"
+      - $ref: "#/components/schemas/FormattedApiStackRegion_anyOf_1"
     AuthTokenWithSecret:
       allOf:
       - properties:
@@ -6172,7 +6172,7 @@ components:
         amountDue: 5.962133916683182
         unit: unit
         orgRates: ""
-        dimensionId: app-o11y
+        dimensionId: ai-tokens
         totalUsage: 5.637376656633329
         id: 0.8008281904610115
         usages:
@@ -6243,6 +6243,7 @@ components:
           type: number
         dimensionId:
           enum:
+          - ai-tokens
           - app-o11y
           - assistant
           - db-o11y-hosts
@@ -6290,7 +6291,7 @@ components:
           type: number
         usages:
           items:
-            $ref: '#/components/schemas/usages_inner'
+            $ref: "#/components/schemas/usages_inner"
           title: usages
           type: array
       required:
@@ -6324,7 +6325,7 @@ components:
           type: string
         items:
           items:
-            $ref: '#/components/schemas/items_inner_2'
+            $ref: "#/components/schemas/items_inner_2"
           title: items
           type: array
       required:
@@ -6335,7 +6336,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/StackRegionV1'
+            $ref: "#/components/schemas/StackRegionV1"
           nullable: true
           type: array
       required:
@@ -6447,7 +6448,7 @@ components:
         items:
           description: items requested for the current page
           items:
-            $ref: '#/components/schemas/StackV1'
+            $ref: "#/components/schemas/StackV1"
           nullable: true
           type: array
         page:
@@ -6699,12 +6700,12 @@ components:
     FormattedApiApiKey:
       properties:
         id:
-          $ref: '#/components/schemas/FormattedApiApiKey_id'
+          $ref: "#/components/schemas/FormattedApiApiKey_id"
     FormattedApiApiKeyListResponse:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/FormattedApiApiKeyListResponse_items_inner'
+            $ref: "#/components/schemas/FormattedApiApiKeyListResponse_items_inner"
           type: array
     getInstances_200_response:
       example:
@@ -6968,7 +6969,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/FormattedApiInstance'
+            $ref: "#/components/schemas/FormattedApiInstance"
           title: items
           type: array
         orderBy:
@@ -7190,7 +7191,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/FormattedApiInstancePlugin'
+            $ref: "#/components/schemas/FormattedApiInstancePlugin"
           title: items
           type: array
         orderBy:
@@ -7263,7 +7264,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/FormattedApiOrgStackRegion'
+            $ref: "#/components/schemas/FormattedApiOrgStackRegion"
           title: items
           type: array
         orderBy:
@@ -7310,7 +7311,7 @@ components:
           amountDue: 5.962133916683182
           unit: unit
           orgRates: ""
-          dimensionId: app-o11y
+          dimensionId: ai-tokens
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
@@ -7366,7 +7367,7 @@ components:
           amountDue: 5.962133916683182
           unit: unit
           orgRates: ""
-          dimensionId: app-o11y
+          dimensionId: ai-tokens
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
@@ -7420,7 +7421,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/BilledUsage'
+            $ref: "#/components/schemas/BilledUsage"
           title: items
           type: array
         orderBy:
@@ -7533,7 +7534,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/FormattedApiStackRegion'
+            $ref: "#/components/schemas/FormattedApiStackRegion"
           title: items
           type: array
         orderBy:
@@ -7664,7 +7665,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/AuthAccessPolicy'
+            $ref: "#/components/schemas/AuthAccessPolicy"
           type: array
       type: object
     postAccessPolicies_request_attributes_lokiQueryPolicy:
@@ -7708,9 +7709,9 @@ components:
       nullable: true
       properties:
         lokiQueryPolicy:
-          $ref: '#/components/schemas/postAccessPolicies_request_attributes_lokiQueryPolicy'
+          $ref: "#/components/schemas/postAccessPolicies_request_attributes_lokiQueryPolicy"
         pdcConfiguration:
-          $ref: '#/components/schemas/postAccessPolicies_request_attributes_pdcConfiguration'
+          $ref: "#/components/schemas/postAccessPolicies_request_attributes_pdcConfiguration"
       type: object
     postAccessPolicies_request_conditions:
       nullable: true
@@ -7734,7 +7735,7 @@ components:
           type: string
         labelPolicies:
           items:
-            $ref: '#/components/schemas/postAccessPolicies_request_realms_inner_labelPolicies_inner'
+            $ref: "#/components/schemas/postAccessPolicies_request_realms_inner_labelPolicies_inner"
           type: array
         type:
           enum:
@@ -7748,16 +7749,16 @@ components:
     postAccessPolicies_request:
       properties:
         attributes:
-          $ref: '#/components/schemas/postAccessPolicies_request_attributes'
+          $ref: "#/components/schemas/postAccessPolicies_request_attributes"
         conditions:
-          $ref: '#/components/schemas/postAccessPolicies_request_conditions'
+          $ref: "#/components/schemas/postAccessPolicies_request_conditions"
         displayName:
           type: string
         name:
           type: string
         realms:
           items:
-            $ref: '#/components/schemas/postAccessPolicies_request_realms_inner'
+            $ref: "#/components/schemas/postAccessPolicies_request_realms_inner"
           minLength: 1
           type: array
         scopes:
@@ -7773,14 +7774,14 @@ components:
     postAccessPolicy_request:
       properties:
         attributes:
-          $ref: '#/components/schemas/postAccessPolicies_request_attributes'
+          $ref: "#/components/schemas/postAccessPolicies_request_attributes"
         conditions:
-          $ref: '#/components/schemas/postAccessPolicies_request_conditions'
+          $ref: "#/components/schemas/postAccessPolicies_request_conditions"
         displayName:
           type: string
         realms:
           items:
-            $ref: '#/components/schemas/postAccessPolicies_request_realms_inner'
+            $ref: "#/components/schemas/postAccessPolicies_request_realms_inner"
           minLength: 1
           type: array
         scopes:
@@ -7844,7 +7845,7 @@ components:
           pageCursor: pageCursor
       properties:
         pagination:
-          $ref: '#/components/schemas/pagination'
+          $ref: "#/components/schemas/pagination"
       required:
       - pagination
       title: metadata
@@ -7882,7 +7883,7 @@ components:
           type: string
         labelPolicies:
           items:
-            $ref: '#/components/schemas/AuthAccessPolicy_realms_inner_labelPolicies_inner'
+            $ref: "#/components/schemas/AuthAccessPolicy_realms_inner_labelPolicies_inner"
           type: array
       type: object
     AuthAccessPolicy_conditions_allowedSubnets_inner:
@@ -7905,7 +7906,7 @@ components:
             Note that an IP address is not valid CIDR notation. For specifying a single IP address use a subnet mask of `/32` for IPv4 and `/128` for IPv6.
             Examples: 192.168.0.10/32 2001:db0:82a3:0:0:8a2e:370:1234/128
           items:
-            $ref: '#/components/schemas/AuthAccessPolicy_conditions_allowedSubnets_inner'
+            $ref: "#/components/schemas/AuthAccessPolicy_conditions_allowedSubnets_inner"
           type: array
       type: object
     AuthAccessPolicy_attributes_lokiQueryPolicy:
@@ -7978,7 +7979,7 @@ components:
         - alerts:read
       properties:
         lokiQueryPolicy:
-          $ref: '#/components/schemas/AuthAccessPolicy_attributes_lokiQueryPolicy'
+          $ref: "#/components/schemas/AuthAccessPolicy_attributes_lokiQueryPolicy"
         allowedScopes:
           description: |
             List of scopes allowed to be signed by an access policy (required if the access policy contains `grafana-id-token:sign`).
@@ -7991,7 +7992,7 @@ components:
             type: string
           type: array
         pdcConfiguration:
-          $ref: '#/components/schemas/AuthAccessPolicy_attributes_pdcConfiguration'
+          $ref: "#/components/schemas/AuthAccessPolicy_attributes_pdcConfiguration"
         allowedAudiences:
           description: |
             List of audience claims allowed to be included when signing access tokens.
@@ -8032,8 +8033,8 @@ components:
       type: object
     realms_inner:
       anyOf:
-      - $ref: '#/components/schemas/realms_inner_anyOf'
-      - $ref: '#/components/schemas/realms_inner_anyOf_1'
+      - $ref: "#/components/schemas/realms_inner_anyOf"
+      - $ref: "#/components/schemas/realms_inner_anyOf_1"
     scopes_inner:
       example:
         requiresRealmType: requiresRealmType
@@ -8206,8 +8207,8 @@ components:
       type: object
     info:
       anyOf:
-      - $ref: '#/components/schemas/info_anyOf'
-      - $ref: '#/components/schemas/info_anyOf_1'
+      - $ref: "#/components/schemas/info_anyOf"
+      - $ref: "#/components/schemas/info_anyOf_1"
       title: info
     tenants_inner:
       example:
@@ -8234,7 +8235,7 @@ components:
           title: id
           type: number
         info:
-          $ref: '#/components/schemas/info'
+          $ref: "#/components/schemas/info"
         ipAllowListCNAME:
           nullable: true
           title: ipAllowListCNAME
@@ -8245,18 +8246,18 @@ components:
       type: object
     otlp:
       anyOf:
-      - $ref: '#/components/schemas/info_anyOf'
-      - $ref: '#/components/schemas/info_anyOf_1'
+      - $ref: "#/components/schemas/info_anyOf"
+      - $ref: "#/components/schemas/info_anyOf_1"
       title: otlp
     api:
       anyOf:
-      - $ref: '#/components/schemas/info_anyOf'
-      - $ref: '#/components/schemas/info_anyOf_1'
+      - $ref: "#/components/schemas/info_anyOf"
+      - $ref: "#/components/schemas/info_anyOf_1"
       title: api
     gateway:
       anyOf:
-      - $ref: '#/components/schemas/info_anyOf'
-      - $ref: '#/components/schemas/info_anyOf_1'
+      - $ref: "#/components/schemas/info_anyOf"
+      - $ref: "#/components/schemas/info_anyOf_1"
       title: gateway
     pdc:
       example:
@@ -8286,9 +8287,9 @@ components:
           serviceName: serviceName
       properties:
         api:
-          $ref: '#/components/schemas/api'
+          $ref: "#/components/schemas/api"
         gateway:
-          $ref: '#/components/schemas/gateway'
+          $ref: "#/components/schemas/gateway"
       required:
       - api
       - gateway
@@ -8367,13 +8368,13 @@ components:
       properties:
         tenants:
           items:
-            $ref: '#/components/schemas/tenants_inner'
+            $ref: "#/components/schemas/tenants_inner"
           title: tenants
           type: array
         otlp:
-          $ref: '#/components/schemas/otlp'
+          $ref: "#/components/schemas/otlp"
         pdc:
-          $ref: '#/components/schemas/pdc'
+          $ref: "#/components/schemas/pdc"
       required:
       - tenants
       title: privateConnectivityInfo
@@ -8460,7 +8461,7 @@ components:
           startDate: ""
       properties:
         current:
-          $ref: '#/components/schemas/current'
+          $ref: "#/components/schemas/current"
         next:
           nullable: true
           title: next
@@ -8507,7 +8508,7 @@ components:
           title: endDate
           type: string
         payload:
-          $ref: '#/components/schemas/payload'
+          $ref: "#/components/schemas/payload"
         plan:
           nullable: true
           title: plan
@@ -8546,7 +8547,7 @@ components:
           title: product
           type: string
         payload:
-          $ref: '#/components/schemas/payload'
+          $ref: "#/components/schemas/payload"
         plan:
           nullable: true
           title: plan
@@ -8565,9 +8566,9 @@ components:
     subscriptions_anyOf_1:
       properties:
         current:
-          $ref: '#/components/schemas/current_1'
+          $ref: "#/components/schemas/current_1"
         next:
-          $ref: '#/components/schemas/next'
+          $ref: "#/components/schemas/next"
       required:
       - current
       - next
@@ -8594,7 +8595,7 @@ components:
           nullable: true
           title: endDate
         payload:
-          $ref: '#/components/schemas/payload'
+          $ref: "#/components/schemas/payload"
         plan:
           nullable: true
           title: plan
@@ -8624,7 +8625,7 @@ components:
     subscriptions_anyOf_2:
       properties:
         current:
-          $ref: '#/components/schemas/current_2'
+          $ref: "#/components/schemas/current_2"
         next:
           nullable: true
           title: next
@@ -8634,9 +8635,9 @@ components:
       type: object
     subscriptions:
       anyOf:
-      - $ref: '#/components/schemas/subscriptions_anyOf'
-      - $ref: '#/components/schemas/subscriptions_anyOf_1'
-      - $ref: '#/components/schemas/subscriptions_anyOf_2'
+      - $ref: "#/components/schemas/subscriptions_anyOf"
+      - $ref: "#/components/schemas/subscriptions_anyOf_1"
+      - $ref: "#/components/schemas/subscriptions_anyOf_2"
       title: subscriptions
     items_inner_1_marketplaceSubscription:
       example:
@@ -8849,9 +8850,9 @@ components:
           title: userName
           type: string
         subscriptions:
-          $ref: '#/components/schemas/subscriptions'
+          $ref: "#/components/schemas/subscriptions"
         marketplaceSubscription:
-          $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
+          $ref: "#/components/schemas/items_inner_1_marketplaceSubscription"
         mfaEnabled:
           title: mfaEnabled
           type: boolean
@@ -8867,7 +8868,7 @@ components:
           title: extraPermissions
           type: array
         grafanaStaffAccess:
-          $ref: '#/components/schemas/items_inner_1_grafanaStaffAccess'
+          $ref: "#/components/schemas/items_inner_1_grafanaStaffAccess"
       required:
       - allowGCloudTrial
       - billing
@@ -9068,9 +9069,9 @@ components:
           name: name
       properties:
         author:
-          $ref: '#/components/schemas/author'
+          $ref: "#/components/schemas/author"
         build:
-          $ref: '#/components/schemas/build'
+          $ref: "#/components/schemas/build"
         description:
           description: Description of plugin. Used on the plugins page in Grafana
             and for search on grafana.com.
@@ -9087,16 +9088,16 @@ components:
           description: "An array of link objects to be displayed on this plugin's\
             \ project page in the form `{name: 'foo', url: 'http://example.com'}`"
           items:
-            $ref: '#/components/schemas/links_inner_2'
+            $ref: "#/components/schemas/links_inner_2"
           title: links
           type: array
         logos:
-          $ref: '#/components/schemas/logos'
+          $ref: "#/components/schemas/logos"
         screenshots:
           description: "An array of screenshot objects in the form `{name: 'bar',\
             \ path: 'img/screenshot.png'}`"
           items:
-            $ref: '#/components/schemas/screenshots_inner'
+            $ref: "#/components/schemas/screenshots_inner"
           title: screenshots
           type: array
         updated:
@@ -9188,11 +9189,11 @@ components:
             \ Only non-core (that is, external plugins) have to be specified in this\
             \ list."
           items:
-            $ref: '#/components/schemas/plugins_inner'
+            $ref: "#/components/schemas/plugins_inner"
           title: plugins
           type: array
         extensions:
-          $ref: '#/components/schemas/extensions'
+          $ref: "#/components/schemas/extensions"
       required:
       - grafanaDependency
       title: dependencies
@@ -9357,7 +9358,7 @@ components:
           title: scopes
           type: array
         params:
-          $ref: '#/components/schemas/params'
+          $ref: "#/components/schemas/params"
       title: tokenAuth
       type: object
     params_1:
@@ -9404,7 +9405,7 @@ components:
           title: scopes
           type: array
         params:
-          $ref: '#/components/schemas/params_1'
+          $ref: "#/components/schemas/params_1"
       title: jwtTokenAuth
       type: object
     urlParams_inner:
@@ -9501,13 +9502,13 @@ components:
           title: body
           type: object
         tokenAuth:
-          $ref: '#/components/schemas/tokenAuth'
+          $ref: "#/components/schemas/tokenAuth"
         jwtTokenAuth:
-          $ref: '#/components/schemas/jwtTokenAuth'
+          $ref: "#/components/schemas/jwtTokenAuth"
         urlParams:
           description: Add URL parameters to a proxy route
           items:
-            $ref: '#/components/schemas/urlParams_inner'
+            $ref: "#/components/schemas/urlParams_inner"
           title: urlParams
           type: array
       required:
@@ -9546,7 +9547,7 @@ components:
           description: Permissions are the permissions that the plugin needs its associated
             service account to have to query Grafana.
           items:
-            $ref: '#/components/schemas/permissions_inner'
+            $ref: "#/components/schemas/permissions_inner"
           title: permissions
           type: array
       title: iam
@@ -9588,7 +9589,7 @@ components:
         permissions:
           description: RBAC permission on the plugin.
           items:
-            $ref: '#/components/schemas/permissions_inner_1'
+            $ref: "#/components/schemas/permissions_inner_1"
           title: permissions
           type: array
       title: role
@@ -9608,7 +9609,7 @@ components:
           description: description
       properties:
         role:
-          $ref: '#/components/schemas/role'
+          $ref: "#/components/schemas/role"
         grants:
           description: "Default assignments of the role to Grafana basic roles (`Viewer`,\
             \ `Editor`, `Admin`, `Grafana Admin`)."
@@ -9810,7 +9811,7 @@ components:
             \ plugin registers to other extension points using [`.addComponent()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#addcomponent).\
             \ **Components that are not listed here won't work.**"
           items:
-            $ref: '#/components/schemas/addedComponents_inner'
+            $ref: "#/components/schemas/addedComponents_inner"
           title: addedComponents
           type: array
         addedLinks:
@@ -9818,7 +9819,7 @@ components:
             \ registers to other extension points using [`.addLink()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#addlink).\
             \ **Links that are not listed here won't work.**"
           items:
-            $ref: '#/components/schemas/addedLinks_inner'
+            $ref: "#/components/schemas/addedLinks_inner"
           title: addedLinks
           type: array
         addedFunctions:
@@ -9826,7 +9827,7 @@ components:
             \ registers to other extension points using [`.addedFunctions()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#addfunction).\
             \ **Functions that are not listed here won't work.**"
           items:
-            $ref: '#/components/schemas/addedFunctions_inner'
+            $ref: "#/components/schemas/addedFunctions_inner"
           title: addedFunctions
           type: array
         exposedComponents:
@@ -9834,7 +9835,7 @@ components:
             \ using [`.exposeComponent()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#exposecomponent).\
             \ **Components that are not listed here won't work.**"
           items:
-            $ref: '#/components/schemas/exposedComponents_inner'
+            $ref: "#/components/schemas/exposedComponents_inner"
           title: exposedComponents
           type: array
         extensionPoints:
@@ -9843,7 +9844,7 @@ components:
             \ or [`usePluginComponents()`](https://grafana.com/developers/plugin-tools/reference/ui-extensions-reference/ui-extensions#useplugincomponents).\
             \ **Extension points that are not listed in here won't work.**"
           items:
-            $ref: '#/components/schemas/extensionPoints_inner'
+            $ref: "#/components/schemas/extensionPoints_inner"
           title: extensionPoints
           type: array
       title: extensions
@@ -10119,14 +10120,14 @@ components:
           title: type
           type: string
         info:
-          $ref: '#/components/schemas/info_1'
+          $ref: "#/components/schemas/info_1"
         name:
           description: Human-readable name of the plugin that is shown to the user
             in the UI.
           title: name
           type: string
         dependencies:
-          $ref: '#/components/schemas/dependencies'
+          $ref: "#/components/schemas/dependencies"
         $schema:
           description: Schema definition for the plugin.json file. Used primarily
             for schema validation.
@@ -10169,7 +10170,7 @@ components:
           title: category
           type: string
         enterpriseFeatures:
-          $ref: '#/components/schemas/enterpriseFeatures'
+          $ref: "#/components/schemas/enterpriseFeatures"
         executable:
           description: "The first part of the file name of the backend component executable.\
             \ There can be multiple executables built for different operating system\
@@ -10186,7 +10187,7 @@ components:
         includes:
           description: Resources to include in plugin.
           items:
-            $ref: '#/components/schemas/includes_inner'
+            $ref: "#/components/schemas/includes_inner"
           title: includes
           type: array
         logs:
@@ -10226,13 +10227,13 @@ components:
           title: suggestions
           type: boolean
         queryOptions:
-          $ref: '#/components/schemas/queryOptions'
+          $ref: "#/components/schemas/queryOptions"
         routes:
           description: "For data source plugins. Proxy routes used for plugin authentication\
             \ and adding headers to HTTP requests made by the plugin. For more information,\
             \ refer to [Authentication for data source plugins](https://grafana.com/developers/plugin-tools/how-to-guides/data-source-plugins/add-authentication-for-data-source-plugins)."
           items:
-            $ref: '#/components/schemas/routes_inner'
+            $ref: "#/components/schemas/routes_inner"
           title: routes
           type: array
         skipDataQuery:
@@ -10259,17 +10260,17 @@ components:
           title: tracing
           type: boolean
         iam:
-          $ref: '#/components/schemas/iam'
+          $ref: "#/components/schemas/iam"
         roles:
           description: "List of RBAC roles defined by the plugin and their default\
             \ assignments to basic roles (`Viewer`, `Editor`, `Admin`, `Grafana Admin`).\
             \ Requires Grafana version 9.4.0 or later."
           items:
-            $ref: '#/components/schemas/roles_inner'
+            $ref: "#/components/schemas/roles_inner"
           title: roles
           type: array
         extensions:
-          $ref: '#/components/schemas/extensions_1'
+          $ref: "#/components/schemas/extensions_1"
         languages:
           description: "The list of languages supported by the plugin. Each entry\
             \ should be a locale identifier in the format `language-COUNTRY` (for\
@@ -10473,65 +10474,65 @@ components:
       type: object
     api_1:
       anyOf:
-      - $ref: '#/components/schemas/api_1_anyOf'
-      - $ref: '#/components/schemas/api_1_anyOf_1'
+      - $ref: "#/components/schemas/api_1_anyOf"
+      - $ref: "#/components/schemas/api_1_anyOf_1"
       title: api
     gateway_1:
       anyOf:
-      - $ref: '#/components/schemas/api_1_anyOf'
-      - $ref: '#/components/schemas/api_1_anyOf_1'
+      - $ref: "#/components/schemas/api_1_anyOf"
+      - $ref: "#/components/schemas/api_1_anyOf_1"
       title: gateway
     pdcPrivateConnectivityInfo_anyOf_2:
       nullable: true
       properties:
         api:
-          $ref: '#/components/schemas/api_1'
+          $ref: "#/components/schemas/api_1"
         gateway:
-          $ref: '#/components/schemas/gateway_1'
+          $ref: "#/components/schemas/gateway_1"
       required:
       - api
       - gateway
       type: object
     mimir:
       anyOf:
-      - $ref: '#/components/schemas/api_1_anyOf'
-      - $ref: '#/components/schemas/api_1_anyOf_1'
+      - $ref: "#/components/schemas/api_1_anyOf"
+      - $ref: "#/components/schemas/api_1_anyOf_1"
       title: mimir
     graphite:
       anyOf:
-      - $ref: '#/components/schemas/api_1_anyOf'
-      - $ref: '#/components/schemas/api_1_anyOf_1'
+      - $ref: "#/components/schemas/api_1_anyOf"
+      - $ref: "#/components/schemas/api_1_anyOf_1"
       title: graphite
     otlp_1:
       anyOf:
-      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf'
-      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
+      - $ref: "#/components/schemas/pdcPrivateConnectivityInfo_anyOf"
+      - $ref: "#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1"
       title: otlp
     pdcPrivateConnectivityInfo_anyOf_3:
       nullable: true
       properties:
         mimir:
-          $ref: '#/components/schemas/mimir'
+          $ref: "#/components/schemas/mimir"
         graphite:
-          $ref: '#/components/schemas/graphite'
+          $ref: "#/components/schemas/graphite"
         otlp:
-          $ref: '#/components/schemas/otlp_1'
+          $ref: "#/components/schemas/otlp_1"
       required:
       - mimir
       type: object
     pdcPrivateConnectivityInfo:
       anyOf:
-      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf'
-      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
-      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2'
-      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_3'
+      - $ref: "#/components/schemas/pdcPrivateConnectivityInfo_anyOf"
+      - $ref: "#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1"
+      - $ref: "#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2"
+      - $ref: "#/components/schemas/pdcPrivateConnectivityInfo_anyOf_3"
       title: pdcPrivateConnectivityInfo
     otlpPrivateConnectivityInfo:
       anyOf:
-      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf'
-      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
-      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2'
-      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_3'
+      - $ref: "#/components/schemas/pdcPrivateConnectivityInfo_anyOf"
+      - $ref: "#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1"
+      - $ref: "#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2"
+      - $ref: "#/components/schemas/pdcPrivateConnectivityInfo_anyOf_3"
       title: otlpPrivateConnectivityInfo
     FormattedApiStackRegion_anyOf_1:
       properties:
@@ -10581,13 +10582,13 @@ components:
           title: pdcHostname
           type: string
         pdcPrivateConnectivityInfo:
-          $ref: '#/components/schemas/pdcPrivateConnectivityInfo'
+          $ref: "#/components/schemas/pdcPrivateConnectivityInfo"
         otlpHttpUrl:
           nullable: true
           title: otlpHttpUrl
           type: string
         otlpPrivateConnectivityInfo:
-          $ref: '#/components/schemas/otlpPrivateConnectivityInfo'
+          $ref: "#/components/schemas/otlpPrivateConnectivityInfo"
         authApiUrl:
           title: authApiUrl
           type: string
@@ -10956,7 +10957,7 @@ components:
     FormattedApiApiKeyListResponse_items_inner:
       properties:
         id:
-          $ref: '#/components/schemas/FormattedApiApiKey_id'
+          $ref: "#/components/schemas/FormattedApiApiKey_id"
   securitySchemes:
     BearerAuth:
       scheme: bearer

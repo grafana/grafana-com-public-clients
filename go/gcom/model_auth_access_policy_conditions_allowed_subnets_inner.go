@@ -84,6 +84,16 @@ func (obj *AuthAccessPolicyConditionsAllowedSubnetsInner) GetActualInstance() in
 	return nil
 }
 
+// Get the actual instance value
+func (obj AuthAccessPolicyConditionsAllowedSubnetsInner) GetActualInstanceValue() interface{} {
+	if obj.String != nil {
+		return *obj.String
+	}
+
+	// all schemas are nil
+	return nil
+}
+
 type NullableAuthAccessPolicyConditionsAllowedSubnetsInner struct {
 	value *AuthAccessPolicyConditionsAllowedSubnetsInner
 	isSet bool

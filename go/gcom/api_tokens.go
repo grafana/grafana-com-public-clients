@@ -94,9 +94,9 @@ func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (map[stri
 		return localVarReturnValue, nil, reportError("xRequestId is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -115,7 +115,7 @@ func (a *TokensAPIService) DeleteTokenExecute(r ApiDeleteTokenRequest) (map[stri
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -270,9 +270,9 @@ func (a *TokensAPIService) GetTokenExecute(r ApiGetTokenRequest) (*AuthToken, *h
 		return localVarReturnValue, nil, reportError("region is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -502,45 +502,45 @@ func (a *TokensAPIService) GetTokensExecute(r ApiGetTokensRequest) (*AccessPolic
 		return localVarReturnValue, nil, reportError("region is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.accessPolicyId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyId", r.accessPolicyId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyId", r.accessPolicyId, "form", "")
 	}
 	if r.accessPolicyIds != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyIds", r.accessPolicyIds, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyIds", r.accessPolicyIds, "form", "")
 	}
 	if r.accessPolicyName != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyName", r.accessPolicyName, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyName", r.accessPolicyName, "form", "")
 	}
 	if r.accessPolicyRealmIdentifier != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyRealmIdentifier", r.accessPolicyRealmIdentifier, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyRealmIdentifier", r.accessPolicyRealmIdentifier, "form", "")
 	}
 	if r.accessPolicyRealmType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyRealmType", r.accessPolicyRealmType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyRealmType", r.accessPolicyRealmType, "form", "")
 	}
 	if r.accessPolicyStatus != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyStatus", r.accessPolicyStatus, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "accessPolicyStatus", r.accessPolicyStatus, "form", "")
 	}
 	if r.expiresAfter != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "expiresAfter", r.expiresAfter, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "expiresAfter", r.expiresAfter, "form", "")
 	}
 	if r.expiresBefore != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "expiresBefore", r.expiresBefore, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "expiresBefore", r.expiresBefore, "form", "")
 	}
 	if r.includeExpired != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeExpired", r.includeExpired, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeExpired", r.includeExpired, "form", "")
 	}
 	if r.name != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "form", "")
 	}
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	if r.pageCursor != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "pageCursor", r.pageCursor, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageCursor", r.pageCursor, "form", "")
 	}
 	if r.pageSize != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -709,9 +709,9 @@ func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (*AuthToken, 
 		return localVarReturnValue, nil, reportError("postTokenRequest is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -730,7 +730,7 @@ func (a *TokensAPIService) PostTokenExecute(r ApiPostTokenRequest) (*AuthToken, 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postTokenRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -901,9 +901,9 @@ func (a *TokensAPIService) PostTokensExecute(r ApiPostTokensRequest) (*AuthToken
 		return localVarReturnValue, nil, reportError("postTokensRequest is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "region", r.region, "form", "")
 	if r.orgId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "orgId", r.orgId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -922,7 +922,7 @@ func (a *TokensAPIService) PostTokensExecute(r ApiPostTokensRequest) (*AuthToken
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "simple", "")
 	// body params
 	localVarPostBody = r.postTokensRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)

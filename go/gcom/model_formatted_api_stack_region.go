@@ -54,7 +54,7 @@ func (dst *FormattedApiStackRegion) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *FormattedApiStackRegion) MarshalJSON() ([]byte, error) {
+func (src FormattedApiStackRegion) MarshalJSON() ([]byte, error) {
 	if src.FormattedApiStackRegionAnyOf != nil {
 		return json.Marshal(&src.FormattedApiStackRegionAnyOf)
 	}
