@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "3b658c4",
-    "x-generated-at": "2026-05-12T14:09:33.420Z"
+    "x-commit-sha": "e7e9408",
+    "x-generated-at": "2026-05-12T20:44:26.233Z"
   },
   "servers": [
     {
@@ -1044,6 +1044,101 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorServiceUnavailable"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceId}/api/serviceaccounts/search": {
+      "get": {
+        "tags": [
+          "instances"
+        ],
+        "operationId": "getInstanceServiceAccountsSearch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "instanceId",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "perpage",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
+        "summary": "Search service accounts on a Grafana instance with paging",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceAccountSearchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login Required or invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorForbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorNotFound"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
                 }
               }
             }
@@ -6379,6 +6474,50 @@
           }
         },
         "type": "object"
+      },
+      "ServiceAccountSearchResponse": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "number",
+            "title": "totalCount"
+          },
+          "serviceAccounts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "title": "id"
+                },
+                "name": {
+                  "type": "string",
+                  "title": "name"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            },
+            "title": "serviceAccounts"
+          },
+          "page": {
+            "type": "number",
+            "title": "page"
+          },
+          "perPage": {
+            "type": "number",
+            "title": "perPage"
+          }
+        },
+        "required": [
+          "page",
+          "perPage",
+          "serviceAccounts",
+          "totalCount"
+        ]
       },
       "GrafanaNewApiKeyResult": {
         "properties": {
