@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **float32** |  | 
-**Overage** | **float32** |  | 
 **Description** | **string** |  | 
+**Overage** | **float32** |  | 
 **Notes** | **string** |  | 
 **Unit** | **string** |  | 
 **IncludedUsage** | **float32** |  | 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewBilledUsage
 
-`func NewBilledUsage(id float32, overage float32, description string, notes string, unit string, includedUsage float32, dimensionId string, amountDue float32, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner, ) *BilledUsage`
+`func NewBilledUsage(id float32, description string, overage float32, notes string, unit string, includedUsage float32, dimensionId string, amountDue float32, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner, ) *BilledUsage`
 
 NewBilledUsage instantiates a new BilledUsage object
 This constructor will assign default values to properties that have it defined,
@@ -58,26 +58,6 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetOverage
-
-`func (o *BilledUsage) GetOverage() float32`
-
-GetOverage returns the Overage field if non-nil, zero value otherwise.
-
-### GetOverageOk
-
-`func (o *BilledUsage) GetOverageOk() (*float32, bool)`
-
-GetOverageOk returns a tuple with the Overage field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOverage
-
-`func (o *BilledUsage) SetOverage(v float32)`
-
-SetOverage sets Overage field to given value.
-
-
 ### GetDescription
 
 `func (o *BilledUsage) GetDescription() string`
@@ -96,6 +76,26 @@ and a boolean to check if the value has been set.
 `func (o *BilledUsage) SetDescription(v string)`
 
 SetDescription sets Description field to given value.
+
+
+### GetOverage
+
+`func (o *BilledUsage) GetOverage() float32`
+
+GetOverage returns the Overage field if non-nil, zero value otherwise.
+
+### GetOverageOk
+
+`func (o *BilledUsage) GetOverageOk() (*float32, bool)`
+
+GetOverageOk returns a tuple with the Overage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOverage
+
+`func (o *BilledUsage) SetOverage(v float32)`
+
+SetOverage sets Overage field to given value.
 
 
 ### GetNotes

@@ -25,6 +25,7 @@ type UsagesInner struct {
 	AttributedCost       *float32               `json:"attributedCost,omitempty"`
 	AttributedUsage      *float32               `json:"attributedUsage,omitempty"`
 	BrowserUsage         *float32               `json:"browserUsage,omitempty"`
+	Credits              []CreditsInner         `json:"credits,omitempty"`
 	Dpm                  *float32               `json:"dpm,omitempty"`
 	GrafanaUsage         *float32               `json:"grafanaUsage,omitempty"`
 	Id                   float32                `json:"id"`
@@ -260,6 +261,38 @@ func (o *UsagesInner) HasBrowserUsage() bool {
 // SetBrowserUsage gets a reference to the given float32 and assigns it to the BrowserUsage field.
 func (o *UsagesInner) SetBrowserUsage(v float32) {
 	o.BrowserUsage = &v
+}
+
+// GetCredits returns the Credits field value if set, zero value otherwise.
+func (o *UsagesInner) GetCredits() []CreditsInner {
+	if o == nil || IsNil(o.Credits) {
+		var ret []CreditsInner
+		return ret
+	}
+	return o.Credits
+}
+
+// GetCreditsOk returns a tuple with the Credits field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UsagesInner) GetCreditsOk() ([]CreditsInner, bool) {
+	if o == nil || IsNil(o.Credits) {
+		return nil, false
+	}
+	return o.Credits, true
+}
+
+// HasCredits returns a boolean if a field has been set.
+func (o *UsagesInner) HasCredits() bool {
+	if o != nil && !IsNil(o.Credits) {
+		return true
+	}
+
+	return false
+}
+
+// SetCredits gets a reference to the given []CreditsInner and assigns it to the Credits field.
+func (o *UsagesInner) SetCredits(v []CreditsInner) {
+	o.Credits = v
 }
 
 // GetDpm returns the Dpm field value if set, zero value otherwise.
@@ -706,6 +739,9 @@ func (o UsagesInner) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BrowserUsage) {
 		toSerialize["browserUsage"] = o.BrowserUsage
 	}
+	if !IsNil(o.Credits) {
+		toSerialize["credits"] = o.Credits
+	}
 	if !IsNil(o.Dpm) {
 		toSerialize["dpm"] = o.Dpm
 	}
@@ -771,6 +807,7 @@ func (o *UsagesInner) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "attributedCost")
 		delete(additionalProperties, "attributedUsage")
 		delete(additionalProperties, "browserUsage")
+		delete(additionalProperties, "credits")
 		delete(additionalProperties, "dpm")
 		delete(additionalProperties, "grafanaUsage")
 		delete(additionalProperties, "id")

@@ -38,6 +38,7 @@ docs/AuthTokenWithSecret.md
 docs/Author.md
 docs/BilledUsage.md
 docs/Build.md
+docs/CreditsInner.md
 docs/Current.md
 docs/Current1.md
 docs/Current2.md
@@ -156,6 +157,8 @@ docs/RolesInner.md
 docs/RoutesInner.md
 docs/ScopesInner.md
 docs/ScreenshotsInner.md
+docs/ServiceAccountSearchResponse.md
+docs/ServiceAccountsInner.md
 docs/SetsInner.md
 docs/StackCheckReadinessV1.md
 docs/StackCheckRequestV1.md
@@ -203,6 +206,7 @@ model_auth_token_with_secret.go
 model_author.go
 model_billed_usage.go
 model_build.go
+model_credits_inner.go
 model_current.go
 model_current_1.go
 model_current_2.go
@@ -317,6 +321,8 @@ model_roles_inner.go
 model_routes_inner.go
 model_scopes_inner.go
 model_screenshots_inner.go
+model_service_account_search_response.go
+model_service_accounts_inner.go
 model_sets_inner.go
 model_stack_check_readiness_v1.go
 model_stack_check_request_v1.go
