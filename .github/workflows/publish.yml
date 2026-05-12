@@ -38,7 +38,7 @@ jobs:
           go mod tidy
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
-        if: github.event_name == 'push'
+        if: github.event_name == 'pull_request'
         with:
           commit_message: "Updating generated clients after openapi change"
           commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"

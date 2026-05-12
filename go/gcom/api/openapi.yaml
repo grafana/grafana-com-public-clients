@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 9e633bc
-  x-generated-at: 2026-04-16T08:49:27.802Z
+  x-commit-sha: e21a7da
+  x-generated-at: 2026-04-30T16:33:24.428Z
 servers:
 - description: Main API server
   url: /api
@@ -6172,7 +6172,7 @@ components:
         amountDue: 5.962133916683182
         unit: unit
         orgRates: ""
-        dimensionId: app-o11y
+        dimensionId: ai-tokens
         totalUsage: 5.637376656633329
         id: 0.8008281904610115
         usages:
@@ -6243,6 +6243,7 @@ components:
           type: number
         dimensionId:
           enum:
+          - ai-tokens
           - app-o11y
           - assistant
           - db-o11y-hosts
@@ -7310,7 +7311,7 @@ components:
           amountDue: 5.962133916683182
           unit: unit
           orgRates: ""
-          dimensionId: app-o11y
+          dimensionId: ai-tokens
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
@@ -7366,7 +7367,7 @@ components:
           amountDue: 5.962133916683182
           unit: unit
           orgRates: ""
-          dimensionId: app-o11y
+          dimensionId: ai-tokens
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
