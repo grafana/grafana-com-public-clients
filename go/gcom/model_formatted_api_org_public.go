@@ -84,6 +84,7 @@ type FormattedApiOrgPublic struct {
 	ContractType                 string                                 `json:"contractType"`
 	ContractTypeId               float32                                `json:"contractTypeId"`
 	LiveChatEnabled              bool                                   `json:"liveChatEnabled"`
+	KapaDeflectorEnabled         bool                                   `json:"kapaDeflectorEnabled"`
 	DisableTokenExpirationEmails bool                                   `json:"disableTokenExpirationEmails"`
 	MaxTokenExpirationDays       float32                                `json:"maxTokenExpirationDays"`
 	MfaRequired                  *bool                                  `json:"mfaRequired,omitempty"`
@@ -99,7 +100,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isource NullableString, osource NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isource NullableString, osource NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, kapaDeflectorEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -166,6 +167,7 @@ func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, 
 	this.ContractType = contractType
 	this.ContractTypeId = contractTypeId
 	this.LiveChatEnabled = liveChatEnabled
+	this.KapaDeflectorEnabled = kapaDeflectorEnabled
 	this.DisableTokenExpirationEmails = disableTokenExpirationEmails
 	this.MaxTokenExpirationDays = maxTokenExpirationDays
 	this.Links = links
@@ -1771,6 +1773,30 @@ func (o *FormattedApiOrgPublic) SetLiveChatEnabled(v bool) {
 	o.LiveChatEnabled = v
 }
 
+// GetKapaDeflectorEnabled returns the KapaDeflectorEnabled field value
+func (o *FormattedApiOrgPublic) GetKapaDeflectorEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.KapaDeflectorEnabled
+}
+
+// GetKapaDeflectorEnabledOk returns a tuple with the KapaDeflectorEnabled field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiOrgPublic) GetKapaDeflectorEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.KapaDeflectorEnabled, true
+}
+
+// SetKapaDeflectorEnabled sets field value
+func (o *FormattedApiOrgPublic) SetKapaDeflectorEnabled(v bool) {
+	o.KapaDeflectorEnabled = v
+}
+
 // GetDisableTokenExpirationEmails returns the DisableTokenExpirationEmails field value
 func (o *FormattedApiOrgPublic) GetDisableTokenExpirationEmails() bool {
 	if o == nil {
@@ -2006,6 +2032,7 @@ func (o FormattedApiOrgPublic) ToMap() (map[string]interface{}, error) {
 	toSerialize["contractType"] = o.ContractType
 	toSerialize["contractTypeId"] = o.ContractTypeId
 	toSerialize["liveChatEnabled"] = o.LiveChatEnabled
+	toSerialize["kapaDeflectorEnabled"] = o.KapaDeflectorEnabled
 	toSerialize["disableTokenExpirationEmails"] = o.DisableTokenExpirationEmails
 	toSerialize["maxTokenExpirationDays"] = o.MaxTokenExpirationDays
 	if !IsNil(o.MfaRequired) {
@@ -2111,6 +2138,7 @@ func (o *FormattedApiOrgPublic) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "contractType")
 		delete(additionalProperties, "contractTypeId")
 		delete(additionalProperties, "liveChatEnabled")
+		delete(additionalProperties, "kapaDeflectorEnabled")
 		delete(additionalProperties, "disableTokenExpirationEmails")
 		delete(additionalProperties, "maxTokenExpirationDays")
 		delete(additionalProperties, "mfaRequired")

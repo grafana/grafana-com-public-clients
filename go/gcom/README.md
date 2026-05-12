@@ -104,6 +104,7 @@ Class | Method | HTTP request | Description
 *InstancesAPI* | [**GetInstanceReadiness**](docs/InstancesAPI.md#getinstancereadiness) | **Get** /instances/{instanceId}/readiness | Gets an instance&#39;s readiness status
 *InstancesAPI* | [**GetInstanceServiceAccount**](docs/InstancesAPI.md#getinstanceserviceaccount) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Gets a service account on a Grafana instance
 *InstancesAPI* | [**GetInstanceServiceAccountTokens**](docs/InstancesAPI.md#getinstanceserviceaccounttokens) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Get a service account&#39;s tokens on a Grafana instance
+*InstancesAPI* | [**GetInstanceServiceAccountsSearch**](docs/InstancesAPI.md#getinstanceserviceaccountssearch) | **Get** /instances/{instanceId}/api/serviceaccounts/search | Search service accounts on a Grafana instance with paging
 *InstancesAPI* | [**GetInstanceUsers**](docs/InstancesAPI.md#getinstanceusers) | **Get** /instances/{instanceId}/users | Gets instance active users
 *InstancesAPI* | [**GetInstances**](docs/InstancesAPI.md#getinstances) | **Get** /instances | Get a list of instances
 *InstancesAPI* | [**PostInstance**](docs/InstancesAPI.md#postinstance) | **Post** /instances/{instanceId} | Updates an instance
@@ -168,6 +169,7 @@ Class | Method | HTTP request | Description
  - [Author](docs/Author.md)
  - [BilledUsage](docs/BilledUsage.md)
  - [Build](docs/Build.md)
+ - [CreditsInner](docs/CreditsInner.md)
  - [Current](docs/Current.md)
  - [Current1](docs/Current1.md)
  - [Current2](docs/Current2.md)
@@ -282,6 +284,8 @@ Class | Method | HTTP request | Description
  - [RoutesInner](docs/RoutesInner.md)
  - [ScopesInner](docs/ScopesInner.md)
  - [ScreenshotsInner](docs/ScreenshotsInner.md)
+ - [ServiceAccountSearchResponse](docs/ServiceAccountSearchResponse.md)
+ - [ServiceAccountsInner](docs/ServiceAccountsInner.md)
  - [SetsInner](docs/SetsInner.md)
  - [StackCheckReadinessV1](docs/StackCheckReadinessV1.md)
  - [StackCheckRequestV1](docs/StackCheckRequestV1.md)

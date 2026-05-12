@@ -20,8 +20,8 @@ var _ MappedNullable = &BilledUsage{}
 // BilledUsage struct for BilledUsage
 type BilledUsage struct {
 	Id                   float32       `json:"id"`
-	Overage              float32       `json:"overage"`
 	Description          string        `json:"description"`
+	Overage              float32       `json:"overage"`
 	Notes                string        `json:"notes"`
 	Unit                 string        `json:"unit"`
 	IncludedUsage        float32       `json:"includedUsage"`
@@ -42,11 +42,11 @@ type _BilledUsage BilledUsage
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBilledUsage(id float32, overage float32, description string, notes string, unit string, includedUsage float32, dimensionId string, amountDue float32, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner) *BilledUsage {
+func NewBilledUsage(id float32, description string, overage float32, notes string, unit string, includedUsage float32, dimensionId string, amountDue float32, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner) *BilledUsage {
 	this := BilledUsage{}
 	this.Id = id
-	this.Overage = overage
 	this.Description = description
+	this.Overage = overage
 	this.Notes = notes
 	this.Unit = unit
 	this.IncludedUsage = includedUsage
@@ -93,30 +93,6 @@ func (o *BilledUsage) SetId(v float32) {
 	o.Id = v
 }
 
-// GetOverage returns the Overage field value
-func (o *BilledUsage) GetOverage() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.Overage
-}
-
-// GetOverageOk returns a tuple with the Overage field value
-// and a boolean to check if the value has been set.
-func (o *BilledUsage) GetOverageOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Overage, true
-}
-
-// SetOverage sets field value
-func (o *BilledUsage) SetOverage(v float32) {
-	o.Overage = v
-}
-
 // GetDescription returns the Description field value
 func (o *BilledUsage) GetDescription() string {
 	if o == nil {
@@ -139,6 +115,30 @@ func (o *BilledUsage) GetDescriptionOk() (*string, bool) {
 // SetDescription sets field value
 func (o *BilledUsage) SetDescription(v string) {
 	o.Description = v
+}
+
+// GetOverage returns the Overage field value
+func (o *BilledUsage) GetOverage() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Overage
+}
+
+// GetOverageOk returns a tuple with the Overage field value
+// and a boolean to check if the value has been set.
+func (o *BilledUsage) GetOverageOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Overage, true
+}
+
+// SetOverage sets field value
+func (o *BilledUsage) SetOverage(v float32) {
+	o.Overage = v
 }
 
 // GetNotes returns the Notes field value
@@ -418,8 +418,8 @@ func (o BilledUsage) MarshalJSON() ([]byte, error) {
 func (o BilledUsage) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	toSerialize["overage"] = o.Overage
 	toSerialize["description"] = o.Description
+	toSerialize["overage"] = o.Overage
 	toSerialize["notes"] = o.Notes
 	toSerialize["unit"] = o.Unit
 	toSerialize["includedUsage"] = o.IncludedUsage
@@ -464,8 +464,8 @@ func (o *BilledUsage) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "id")
-		delete(additionalProperties, "overage")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "overage")
 		delete(additionalProperties, "notes")
 		delete(additionalProperties, "unit")
 		delete(additionalProperties, "includedUsage")

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AttributedCost** | Pointer to **float32** |  | [optional] 
 **AttributedUsage** | Pointer to **float32** |  | [optional] 
 **BrowserUsage** | Pointer to **float32** |  | [optional] 
+**Credits** | Pointer to [**[]CreditsInner**](CreditsInner.md) |  | [optional] 
 **Dpm** | Pointer to **float32** |  | [optional] 
 **GrafanaUsage** | Pointer to **float32** |  | [optional] 
 **Id** | **float32** |  | 
@@ -194,6 +195,31 @@ SetBrowserUsage sets BrowserUsage field to given value.
 `func (o *UsagesInner) HasBrowserUsage() bool`
 
 HasBrowserUsage returns a boolean if a field has been set.
+
+### GetCredits
+
+`func (o *UsagesInner) GetCredits() []CreditsInner`
+
+GetCredits returns the Credits field if non-nil, zero value otherwise.
+
+### GetCreditsOk
+
+`func (o *UsagesInner) GetCreditsOk() (*[]CreditsInner, bool)`
+
+GetCreditsOk returns a tuple with the Credits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCredits
+
+`func (o *UsagesInner) SetCredits(v []CreditsInner)`
+
+SetCredits sets Credits field to given value.
+
+### HasCredits
+
+`func (o *UsagesInner) HasCredits() bool`
+
+HasCredits returns a boolean if a field has been set.
 
 ### GetDpm
 

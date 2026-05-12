@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**GetInstanceReadiness**](InstancesAPI.md#GetInstanceReadiness) | **Get** /instances/{instanceId}/readiness | Gets an instance&#39;s readiness status
 [**GetInstanceServiceAccount**](InstancesAPI.md#GetInstanceServiceAccount) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Gets a service account on a Grafana instance
 [**GetInstanceServiceAccountTokens**](InstancesAPI.md#GetInstanceServiceAccountTokens) | **Get** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens | Get a service account&#39;s tokens on a Grafana instance
+[**GetInstanceServiceAccountsSearch**](InstancesAPI.md#GetInstanceServiceAccountsSearch) | **Get** /instances/{instanceId}/api/serviceaccounts/search | Search service accounts on a Grafana instance with paging
 [**GetInstanceUsers**](InstancesAPI.md#GetInstanceUsers) | **Get** /instances/{instanceId}/users | Gets instance active users
 [**GetInstances**](InstancesAPI.md#GetInstances) | **Get** /instances | Get a list of instances
 [**PostInstance**](InstancesAPI.md#PostInstance) | **Post** /instances/{instanceId} | Updates an instance
@@ -794,6 +795,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]GrafanaTokenDTO**](GrafanaTokenDTO.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInstanceServiceAccountsSearch
+
+> ServiceAccountSearchResponse GetInstanceServiceAccountsSearch(ctx, instanceId).Page(page).Perpage(perpage).Query(query).Execute()
+
+Search service accounts on a Grafana instance with paging
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | 
+	page := int32(56) // int32 |  (optional)
+	perpage := int32(56) // int32 |  (optional)
+	query := "query_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InstancesAPI.GetInstanceServiceAccountsSearch(context.Background(), instanceId).Page(page).Perpage(perpage).Query(query).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstanceServiceAccountsSearch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetInstanceServiceAccountsSearch`: ServiceAccountSearchResponse
+	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.GetInstanceServiceAccountsSearch`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInstanceServiceAccountsSearchRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **page** | **int32** |  | 
+ **perpage** | **int32** |  | 
+ **query** | **string** |  | 
+
+### Return type
+
+[**ServiceAccountSearchResponse**](ServiceAccountSearchResponse.md)
 
 ### Authorization
 

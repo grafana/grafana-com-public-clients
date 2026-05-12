@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: e21a7da
-  x-generated-at: 2026-04-30T16:33:24.428Z
+  x-commit-sha: e7e9408
+  x-generated-at: 2026-05-12T20:44:26.233Z
 servers:
 - description: Main API server
   url: /api
@@ -604,6 +604,72 @@ paths:
                 $ref: '#/components/schemas/ErrorServiceUnavailable'
           description: Service is currently unavailable
       summary: Creates a service account on a Grafana instance
+      tags:
+      - instances
+  /instances/{instanceId}/api/serviceaccounts/search:
+    get:
+      operationId: getInstanceServiceAccountsSearch
+      parameters:
+      - explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: perpage
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceAccountSearchResponse'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInvalidCredentials'
+          description: Login Required or invalid credentials
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorForbidden'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorNotFound'
+          description: Element not found
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorConflict'
+          description: "Invalid arguments: wrong or missing parameters"
+      summary: Search service accounts on a Grafana instance with paging
       tags:
       - instances
   /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}:
@@ -3855,6 +3921,37 @@ components:
           format: int64
           type: integer
       type: object
+    ServiceAccountSearchResponse:
+      example:
+        serviceAccounts:
+        - name: name
+          id: 6.027456183070403
+        - name: name
+          id: 6.027456183070403
+        perPage: 5.962133916683182
+        page: 1.4658129805029452
+        totalCount: 0.8008281904610115
+      properties:
+        totalCount:
+          title: totalCount
+          type: number
+        serviceAccounts:
+          items:
+            $ref: '#/components/schemas/serviceAccounts_inner'
+          title: serviceAccounts
+          type: array
+        page:
+          title: page
+          type: number
+        perPage:
+          title: perPage
+          type: number
+      required:
+      - page
+      - perPage
+      - serviceAccounts
+      - totalCount
+      type: object
     GrafanaNewApiKeyResult:
       example:
         name: grafana
@@ -5181,6 +5278,7 @@ components:
         msaSignedBy: msaSignedBy
         pluginSignatureType: pluginSignatureType
         userQuota: 2.3021358869347655
+        kapaDeflectorEnabled: true
         hmInstanceLimit: 5.962133916683182
         links:
         - rel: rel
@@ -5473,6 +5571,9 @@ components:
         liveChatEnabled:
           title: liveChatEnabled
           type: boolean
+        kapaDeflectorEnabled:
+          title: kapaDeflectorEnabled
+          type: boolean
         disableTokenExpirationEmails:
           title: disableTokenExpirationEmails
           type: boolean
@@ -5534,6 +5635,7 @@ components:
       - isource
       - k6IPUsage
       - k6VuhUsage
+      - kapaDeflectorEnabled
       - licenseProducts
       - links
       - liveChatEnabled
@@ -6176,44 +6278,58 @@ components:
         totalUsage: 5.637376656633329
         id: 0.8008281904610115
         usages:
-        - dpm: 7.386281948385884
-          ingestUsage: 6.84685269835264
-          onCallUsage: 7.457744773683766
-          stackId: 5.025004791520295
+        - dpm: 1.2315135367772556
+          ingestUsage: 7.457744773683766
+          onCallUsage: 1.1730742509559433
+          stackId: 9.965781217890562
           stackName: stackName
           activeUsers: 7.061401241503109
-          protocolUsage: 1.1730742509559433
+          protocolUsage: 4.965218492984954
           anonymousUsers: 9.301444243932576
           attributedUsage: 2.027123023002322
-          grafanaUsage: 1.2315135367772556
+          grafanaUsage: 1.0246457001441578
           browserUsage: 4.145608029883936
           stackLabels: "{}"
           attributedCost: 3.616076749251911
-          queryUsage: 4.965218492984954
-          incidentUsage: 1.4894159098541704
-          totalUsage: 9.965781217890562
-          id: 1.0246457001441578
+          credits:
+          - amount: 7.386281948385884
+            dimensionId: dimensionId
+            dimensionName: dimensionName
+          - amount: 7.386281948385884
+            dimensionId: dimensionId
+            dimensionName: dimensionName
+          queryUsage: 5.025004791520295
+          incidentUsage: 6.84685269835264
+          totalUsage: 9.369310271410669
+          id: 1.4894159098541704
           activeSeries: 2.3021358869347655
           periodStart: periodStart
           isProrated: true
           periodEnd: periodEnd
-        - dpm: 7.386281948385884
-          ingestUsage: 6.84685269835264
-          onCallUsage: 7.457744773683766
-          stackId: 5.025004791520295
+        - dpm: 1.2315135367772556
+          ingestUsage: 7.457744773683766
+          onCallUsage: 1.1730742509559433
+          stackId: 9.965781217890562
           stackName: stackName
           activeUsers: 7.061401241503109
-          protocolUsage: 1.1730742509559433
+          protocolUsage: 4.965218492984954
           anonymousUsers: 9.301444243932576
           attributedUsage: 2.027123023002322
-          grafanaUsage: 1.2315135367772556
+          grafanaUsage: 1.0246457001441578
           browserUsage: 4.145608029883936
           stackLabels: "{}"
           attributedCost: 3.616076749251911
-          queryUsage: 4.965218492984954
-          incidentUsage: 1.4894159098541704
-          totalUsage: 9.965781217890562
-          id: 1.0246457001441578
+          credits:
+          - amount: 7.386281948385884
+            dimensionId: dimensionId
+            dimensionName: dimensionName
+          - amount: 7.386281948385884
+            dimensionId: dimensionId
+            dimensionName: dimensionName
+          queryUsage: 5.025004791520295
+          incidentUsage: 6.84685269835264
+          totalUsage: 9.369310271410669
+          id: 1.4894159098541704
           activeSeries: 2.3021358869347655
           periodStart: periodStart
           isProrated: true
@@ -6226,12 +6342,12 @@ components:
         id:
           title: id
           type: number
-        overage:
-          title: overage
-          type: number
         description:
           title: description
           type: string
+        overage:
+          title: overage
+          type: number
         notes:
           title: notes
           type: string
@@ -7299,11 +7415,11 @@ components:
       type: object
     getOrgBilledUsage_200_response:
       example:
-        total: 9.369310271410669
-        pages: 6.683562403749608
+        total: 6.683562403749608
+        pages: 8.762042012749001
         orderBy: orderBy
-        pageSize: 8.762042012749001
-        page: 9.018348186070783
+        pageSize: 9.018348186070783
+        page: 6.438423552598547
         items:
         - notes: notes
           description: description
@@ -7315,44 +7431,58 @@ components:
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
-          - dpm: 7.386281948385884
-            ingestUsage: 6.84685269835264
-            onCallUsage: 7.457744773683766
-            stackId: 5.025004791520295
+          - dpm: 1.2315135367772556
+            ingestUsage: 7.457744773683766
+            onCallUsage: 1.1730742509559433
+            stackId: 9.965781217890562
             stackName: stackName
             activeUsers: 7.061401241503109
-            protocolUsage: 1.1730742509559433
+            protocolUsage: 4.965218492984954
             anonymousUsers: 9.301444243932576
             attributedUsage: 2.027123023002322
-            grafanaUsage: 1.2315135367772556
+            grafanaUsage: 1.0246457001441578
             browserUsage: 4.145608029883936
             stackLabels: "{}"
             attributedCost: 3.616076749251911
-            queryUsage: 4.965218492984954
-            incidentUsage: 1.4894159098541704
-            totalUsage: 9.965781217890562
-            id: 1.0246457001441578
+            credits:
+            - amount: 7.386281948385884
+              dimensionId: dimensionId
+              dimensionName: dimensionName
+            - amount: 7.386281948385884
+              dimensionId: dimensionId
+              dimensionName: dimensionName
+            queryUsage: 5.025004791520295
+            incidentUsage: 6.84685269835264
+            totalUsage: 9.369310271410669
+            id: 1.4894159098541704
             activeSeries: 2.3021358869347655
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          - dpm: 7.386281948385884
-            ingestUsage: 6.84685269835264
-            onCallUsage: 7.457744773683766
-            stackId: 5.025004791520295
+          - dpm: 1.2315135367772556
+            ingestUsage: 7.457744773683766
+            onCallUsage: 1.1730742509559433
+            stackId: 9.965781217890562
             stackName: stackName
             activeUsers: 7.061401241503109
-            protocolUsage: 1.1730742509559433
+            protocolUsage: 4.965218492984954
             anonymousUsers: 9.301444243932576
             attributedUsage: 2.027123023002322
-            grafanaUsage: 1.2315135367772556
+            grafanaUsage: 1.0246457001441578
             browserUsage: 4.145608029883936
             stackLabels: "{}"
             attributedCost: 3.616076749251911
-            queryUsage: 4.965218492984954
-            incidentUsage: 1.4894159098541704
-            totalUsage: 9.965781217890562
-            id: 1.0246457001441578
+            credits:
+            - amount: 7.386281948385884
+              dimensionId: dimensionId
+              dimensionName: dimensionName
+            - amount: 7.386281948385884
+              dimensionId: dimensionId
+              dimensionName: dimensionName
+            queryUsage: 5.025004791520295
+            incidentUsage: 6.84685269835264
+            totalUsage: 9.369310271410669
+            id: 1.4894159098541704
             activeSeries: 2.3021358869347655
             periodStart: periodStart
             isProrated: true
@@ -7371,44 +7501,58 @@ components:
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
-          - dpm: 7.386281948385884
-            ingestUsage: 6.84685269835264
-            onCallUsage: 7.457744773683766
-            stackId: 5.025004791520295
+          - dpm: 1.2315135367772556
+            ingestUsage: 7.457744773683766
+            onCallUsage: 1.1730742509559433
+            stackId: 9.965781217890562
             stackName: stackName
             activeUsers: 7.061401241503109
-            protocolUsage: 1.1730742509559433
+            protocolUsage: 4.965218492984954
             anonymousUsers: 9.301444243932576
             attributedUsage: 2.027123023002322
-            grafanaUsage: 1.2315135367772556
+            grafanaUsage: 1.0246457001441578
             browserUsage: 4.145608029883936
             stackLabels: "{}"
             attributedCost: 3.616076749251911
-            queryUsage: 4.965218492984954
-            incidentUsage: 1.4894159098541704
-            totalUsage: 9.965781217890562
-            id: 1.0246457001441578
+            credits:
+            - amount: 7.386281948385884
+              dimensionId: dimensionId
+              dimensionName: dimensionName
+            - amount: 7.386281948385884
+              dimensionId: dimensionId
+              dimensionName: dimensionName
+            queryUsage: 5.025004791520295
+            incidentUsage: 6.84685269835264
+            totalUsage: 9.369310271410669
+            id: 1.4894159098541704
             activeSeries: 2.3021358869347655
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          - dpm: 7.386281948385884
-            ingestUsage: 6.84685269835264
-            onCallUsage: 7.457744773683766
-            stackId: 5.025004791520295
+          - dpm: 1.2315135367772556
+            ingestUsage: 7.457744773683766
+            onCallUsage: 1.1730742509559433
+            stackId: 9.965781217890562
             stackName: stackName
             activeUsers: 7.061401241503109
-            protocolUsage: 1.1730742509559433
+            protocolUsage: 4.965218492984954
             anonymousUsers: 9.301444243932576
             attributedUsage: 2.027123023002322
-            grafanaUsage: 1.2315135367772556
+            grafanaUsage: 1.0246457001441578
             browserUsage: 4.145608029883936
             stackLabels: "{}"
             attributedCost: 3.616076749251911
-            queryUsage: 4.965218492984954
-            incidentUsage: 1.4894159098541704
-            totalUsage: 9.965781217890562
-            id: 1.0246457001441578
+            credits:
+            - amount: 7.386281948385884
+              dimensionId: dimensionId
+              dimensionName: dimensionName
+            - amount: 7.386281948385884
+              dimensionId: dimensionId
+              dimensionName: dimensionName
+            queryUsage: 5.025004791520295
+            incidentUsage: 6.84685269835264
+            totalUsage: 9.369310271410669
+            id: 1.4894159098541704
             activeSeries: 2.3021358869347655
             periodStart: periodStart
             isProrated: true
@@ -8087,6 +8231,21 @@ components:
       required:
       - href
       - rel
+      type: object
+    serviceAccounts_inner:
+      example:
+        name: name
+        id: 6.027456183070403
+      properties:
+        id:
+          title: id
+          type: number
+        name:
+          title: name
+          type: string
+      required:
+      - id
+      - name
       type: object
     links_inner_1:
       example:
@@ -10838,25 +10997,52 @@ components:
       - visibility
       - workflowEngineUrl
       type: object
+    credits_inner:
+      example:
+        amount: 7.386281948385884
+        dimensionId: dimensionId
+        dimensionName: dimensionName
+      properties:
+        amount:
+          title: amount
+          type: number
+        dimensionId:
+          title: dimensionId
+          type: string
+        dimensionName:
+          title: dimensionName
+          type: string
+      required:
+      - amount
+      - dimensionId
+      - dimensionName
+      type: object
     usages_inner:
       example:
-        dpm: 7.386281948385884
-        ingestUsage: 6.84685269835264
-        onCallUsage: 7.457744773683766
-        stackId: 5.025004791520295
+        dpm: 1.2315135367772556
+        ingestUsage: 7.457744773683766
+        onCallUsage: 1.1730742509559433
+        stackId: 9.965781217890562
         stackName: stackName
         activeUsers: 7.061401241503109
-        protocolUsage: 1.1730742509559433
+        protocolUsage: 4.965218492984954
         anonymousUsers: 9.301444243932576
         attributedUsage: 2.027123023002322
-        grafanaUsage: 1.2315135367772556
+        grafanaUsage: 1.0246457001441578
         browserUsage: 4.145608029883936
         stackLabels: "{}"
         attributedCost: 3.616076749251911
-        queryUsage: 4.965218492984954
-        incidentUsage: 1.4894159098541704
-        totalUsage: 9.965781217890562
-        id: 1.0246457001441578
+        credits:
+        - amount: 7.386281948385884
+          dimensionId: dimensionId
+          dimensionName: dimensionName
+        - amount: 7.386281948385884
+          dimensionId: dimensionId
+          dimensionName: dimensionName
+        queryUsage: 5.025004791520295
+        incidentUsage: 6.84685269835264
+        totalUsage: 9.369310271410669
+        id: 1.4894159098541704
         activeSeries: 2.3021358869347655
         periodStart: periodStart
         isProrated: true
@@ -10880,6 +11066,11 @@ components:
         browserUsage:
           title: browserUsage
           type: number
+        credits:
+          items:
+            $ref: '#/components/schemas/credits_inner'
+          title: credits
+          type: array
         dpm:
           title: dpm
           type: number
