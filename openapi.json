@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "e21a7da",
-    "x-generated-at": "2026-04-30T16:33:24.428Z"
+    "x-commit-sha": "3b658c4",
+    "x-generated-at": "2026-05-12T14:09:33.420Z"
   },
   "servers": [
     {
@@ -9117,6 +9117,10 @@
             "type": "boolean",
             "title": "liveChatEnabled"
           },
+          "kapaDeflectorEnabled": {
+            "type": "boolean",
+            "title": "kapaDeflectorEnabled"
+          },
           "disableTokenExpirationEmails": {
             "type": "boolean",
             "title": "disableTokenExpirationEmails"
@@ -9514,6 +9518,7 @@
           "isource",
           "k6IPUsage",
           "k6VuhUsage",
+          "kapaDeflectorEnabled",
           "licenseProducts",
           "links",
           "liveChatEnabled",
@@ -12243,13 +12248,13 @@
             "type": "number",
             "title": "id"
           },
-          "overage": {
-            "type": "number",
-            "title": "overage"
-          },
           "description": {
             "type": "string",
             "title": "description"
+          },
+          "overage": {
+            "type": "number",
+            "title": "overage"
           },
           "notes": {
             "type": "string",
@@ -12347,6 +12352,32 @@
                 "browserUsage": {
                   "type": "number",
                   "title": "browserUsage"
+                },
+                "credits": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "number",
+                        "title": "amount"
+                      },
+                      "dimensionId": {
+                        "type": "string",
+                        "title": "dimensionId"
+                      },
+                      "dimensionName": {
+                        "type": "string",
+                        "title": "dimensionName"
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "dimensionId",
+                      "dimensionName"
+                    ]
+                  },
+                  "title": "credits"
                 },
                 "dpm": {
                   "type": "number",
