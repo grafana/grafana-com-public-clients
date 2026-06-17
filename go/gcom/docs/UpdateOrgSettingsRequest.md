@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AiDataSharingOptOut** | Pointer to **NullableBool** |  | [optional] 
+**AllowedInviteDomains** | Pointer to **NullableString** |  | [optional] 
 **DisableTokenExpirationEmails** | Pointer to **NullableBool** |  | [optional] 
 **MaxTokenExpirationDays** | Pointer to **NullableInt32** |  | [optional] 
 **MfaAdminRecoveryOnly** | Pointer to **NullableBool** |  | [optional] 
@@ -64,6 +65,41 @@ HasAiDataSharingOptOut returns a boolean if a field has been set.
 `func (o *UpdateOrgSettingsRequest) UnsetAiDataSharingOptOut()`
 
 UnsetAiDataSharingOptOut ensures that no value is present for AiDataSharingOptOut, not even an explicit nil
+### GetAllowedInviteDomains
+
+`func (o *UpdateOrgSettingsRequest) GetAllowedInviteDomains() string`
+
+GetAllowedInviteDomains returns the AllowedInviteDomains field if non-nil, zero value otherwise.
+
+### GetAllowedInviteDomainsOk
+
+`func (o *UpdateOrgSettingsRequest) GetAllowedInviteDomainsOk() (*string, bool)`
+
+GetAllowedInviteDomainsOk returns a tuple with the AllowedInviteDomains field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedInviteDomains
+
+`func (o *UpdateOrgSettingsRequest) SetAllowedInviteDomains(v string)`
+
+SetAllowedInviteDomains sets AllowedInviteDomains field to given value.
+
+### HasAllowedInviteDomains
+
+`func (o *UpdateOrgSettingsRequest) HasAllowedInviteDomains() bool`
+
+HasAllowedInviteDomains returns a boolean if a field has been set.
+
+### SetAllowedInviteDomainsNil
+
+`func (o *UpdateOrgSettingsRequest) SetAllowedInviteDomainsNil(b bool)`
+
+ SetAllowedInviteDomainsNil sets the value for AllowedInviteDomains to be an explicit nil
+
+### UnsetAllowedInviteDomains
+`func (o *UpdateOrgSettingsRequest) UnsetAllowedInviteDomains()`
+
+UnsetAllowedInviteDomains ensures that no value is present for AllowedInviteDomains, not even an explicit nil
 ### GetDisableTokenExpirationEmails
 
 `func (o *UpdateOrgSettingsRequest) GetDisableTokenExpirationEmails() bool`

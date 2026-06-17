@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **OtlpHttpUrl** | Pointer to **NullableString** |  | [optional] 
 **OtlpMultiAZ** | **bool** |  | 
 **OncallApiUrl** | Pointer to **NullableString** |  | [optional] 
+**SyntheticMonitoringApiUrl** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -200,6 +201,41 @@ HasOncallApiUrl returns a boolean if a field has been set.
 `func (o *FormattedApiInstanceConnections) UnsetOncallApiUrl()`
 
 UnsetOncallApiUrl ensures that no value is present for OncallApiUrl, not even an explicit nil
+### GetSyntheticMonitoringApiUrl
+
+`func (o *FormattedApiInstanceConnections) GetSyntheticMonitoringApiUrl() string`
+
+GetSyntheticMonitoringApiUrl returns the SyntheticMonitoringApiUrl field if non-nil, zero value otherwise.
+
+### GetSyntheticMonitoringApiUrlOk
+
+`func (o *FormattedApiInstanceConnections) GetSyntheticMonitoringApiUrlOk() (*string, bool)`
+
+GetSyntheticMonitoringApiUrlOk returns a tuple with the SyntheticMonitoringApiUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSyntheticMonitoringApiUrl
+
+`func (o *FormattedApiInstanceConnections) SetSyntheticMonitoringApiUrl(v string)`
+
+SetSyntheticMonitoringApiUrl sets SyntheticMonitoringApiUrl field to given value.
+
+### HasSyntheticMonitoringApiUrl
+
+`func (o *FormattedApiInstanceConnections) HasSyntheticMonitoringApiUrl() bool`
+
+HasSyntheticMonitoringApiUrl returns a boolean if a field has been set.
+
+### SetSyntheticMonitoringApiUrlNil
+
+`func (o *FormattedApiInstanceConnections) SetSyntheticMonitoringApiUrlNil(b bool)`
+
+ SetSyntheticMonitoringApiUrlNil sets the value for SyntheticMonitoringApiUrl to be an explicit nil
+
+### UnsetSyntheticMonitoringApiUrl
+`func (o *FormattedApiInstanceConnections) UnsetSyntheticMonitoringApiUrl()`
+
+UnsetSyntheticMonitoringApiUrl ensures that no value is present for SyntheticMonitoringApiUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

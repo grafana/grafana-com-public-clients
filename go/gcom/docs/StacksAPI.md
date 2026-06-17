@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**CheckStackSlugV1**](StacksAPI.md#CheckStackSlugV1) | **Post** /v1/stacks/checkUrl | 
 [**CreateStackV1**](StacksAPI.md#CreateStackV1) | **Post** /v1/stacks | 
 [**DeleteStackV1**](StacksAPI.md#DeleteStackV1) | **Delete** /v1/stacks/{idOrSlug} | 
+[**GetStackConnectionsV1**](StacksAPI.md#GetStackConnectionsV1) | **Get** /v1/stacks/{idOrSlug}/connections | 
 [**GetStackV1**](StacksAPI.md#GetStackV1) | **Get** /v1/stacks/{idOrSlug} | 
 [**ListStacksV1**](StacksAPI.md#ListStacksV1) | **Get** /v1/stacks | 
 [**UpdateStackV1**](StacksAPI.md#UpdateStackV1) | **Post** /v1/stacks/{idOrSlug} | 
@@ -263,6 +264,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StackV1**](StackV1.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetStackConnectionsV1
+
+> StackConnectionsV1 GetStackConnectionsV1(ctx, idOrSlug).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	idOrSlug := "idOrSlug_example" // string | id or slug of the stack
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StacksAPI.GetStackConnectionsV1(context.Background(), idOrSlug).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.GetStackConnectionsV1``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetStackConnectionsV1`: StackConnectionsV1
+	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.GetStackConnectionsV1`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**idOrSlug** | **string** | id or slug of the stack | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetStackConnectionsV1Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**StackConnectionsV1**](StackConnectionsV1.md)
 
 ### Authorization
 

@@ -19,11 +19,12 @@ var _ MappedNullable = &UpdateOrgSettingsRequest{}
 
 // UpdateOrgSettingsRequest struct for UpdateOrgSettingsRequest
 type UpdateOrgSettingsRequest struct {
-	AiDataSharingOptOut          NullableBool  `json:"aiDataSharingOptOut,omitempty"`
-	DisableTokenExpirationEmails NullableBool  `json:"disableTokenExpirationEmails,omitempty"`
-	MaxTokenExpirationDays       NullableInt32 `json:"maxTokenExpirationDays,omitempty"`
-	MfaAdminRecoveryOnly         NullableBool  `json:"mfaAdminRecoveryOnly,omitempty"`
-	MfaRequired                  NullableBool  `json:"mfaRequired,omitempty"`
+	AiDataSharingOptOut          NullableBool   `json:"aiDataSharingOptOut,omitempty"`
+	AllowedInviteDomains         NullableString `json:"allowedInviteDomains,omitempty"`
+	DisableTokenExpirationEmails NullableBool   `json:"disableTokenExpirationEmails,omitempty"`
+	MaxTokenExpirationDays       NullableInt32  `json:"maxTokenExpirationDays,omitempty"`
+	MfaAdminRecoveryOnly         NullableBool   `json:"mfaAdminRecoveryOnly,omitempty"`
+	MfaRequired                  NullableBool   `json:"mfaRequired,omitempty"`
 	AdditionalProperties         map[string]interface{}
 }
 
@@ -87,6 +88,49 @@ func (o *UpdateOrgSettingsRequest) SetAiDataSharingOptOutNil() {
 // UnsetAiDataSharingOptOut ensures that no value is present for AiDataSharingOptOut, not even an explicit nil
 func (o *UpdateOrgSettingsRequest) UnsetAiDataSharingOptOut() {
 	o.AiDataSharingOptOut.Unset()
+}
+
+// GetAllowedInviteDomains returns the AllowedInviteDomains field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateOrgSettingsRequest) GetAllowedInviteDomains() string {
+	if o == nil || IsNil(o.AllowedInviteDomains.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.AllowedInviteDomains.Get()
+}
+
+// GetAllowedInviteDomainsOk returns a tuple with the AllowedInviteDomains field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateOrgSettingsRequest) GetAllowedInviteDomainsOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AllowedInviteDomains.Get(), o.AllowedInviteDomains.IsSet()
+}
+
+// HasAllowedInviteDomains returns a boolean if a field has been set.
+func (o *UpdateOrgSettingsRequest) HasAllowedInviteDomains() bool {
+	if o != nil && o.AllowedInviteDomains.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowedInviteDomains gets a reference to the given NullableString and assigns it to the AllowedInviteDomains field.
+func (o *UpdateOrgSettingsRequest) SetAllowedInviteDomains(v string) {
+	o.AllowedInviteDomains.Set(&v)
+}
+
+// SetAllowedInviteDomainsNil sets the value for AllowedInviteDomains to be an explicit nil
+func (o *UpdateOrgSettingsRequest) SetAllowedInviteDomainsNil() {
+	o.AllowedInviteDomains.Set(nil)
+}
+
+// UnsetAllowedInviteDomains ensures that no value is present for AllowedInviteDomains, not even an explicit nil
+func (o *UpdateOrgSettingsRequest) UnsetAllowedInviteDomains() {
+	o.AllowedInviteDomains.Unset()
 }
 
 // GetDisableTokenExpirationEmails returns the DisableTokenExpirationEmails field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -274,6 +318,9 @@ func (o UpdateOrgSettingsRequest) ToMap() (map[string]interface{}, error) {
 	if o.AiDataSharingOptOut.IsSet() {
 		toSerialize["aiDataSharingOptOut"] = o.AiDataSharingOptOut.Get()
 	}
+	if o.AllowedInviteDomains.IsSet() {
+		toSerialize["allowedInviteDomains"] = o.AllowedInviteDomains.Get()
+	}
 	if o.DisableTokenExpirationEmails.IsSet() {
 		toSerialize["disableTokenExpirationEmails"] = o.DisableTokenExpirationEmails.Get()
 	}
@@ -309,6 +356,7 @@ func (o *UpdateOrgSettingsRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "aiDataSharingOptOut")
+		delete(additionalProperties, "allowedInviteDomains")
 		delete(additionalProperties, "disableTokenExpirationEmails")
 		delete(additionalProperties, "maxTokenExpirationDays")
 		delete(additionalProperties, "mfaAdminRecoveryOnly")

@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *StacksAPI* | [**CheckStackSlugV1**](docs/StacksAPI.md#checkstackslugv1) | **Post** /v1/stacks/checkUrl | 
 *StacksAPI* | [**CreateStackV1**](docs/StacksAPI.md#createstackv1) | **Post** /v1/stacks | 
 *StacksAPI* | [**DeleteStackV1**](docs/StacksAPI.md#deletestackv1) | **Delete** /v1/stacks/{idOrSlug} | 
+*StacksAPI* | [**GetStackConnectionsV1**](docs/StacksAPI.md#getstackconnectionsv1) | **Get** /v1/stacks/{idOrSlug}/connections | 
 *StacksAPI* | [**GetStackV1**](docs/StacksAPI.md#getstackv1) | **Get** /v1/stacks/{idOrSlug} | 
 *StacksAPI* | [**ListStacksV1**](docs/StacksAPI.md#liststacksv1) | **Get** /v1/stacks | 
 *StacksAPI* | [**UpdateStackV1**](docs/StacksAPI.md#updatestackv1) | **Post** /v1/stacks/{idOrSlug} | 
@@ -167,6 +168,7 @@ Class | Method | HTTP request | Description
  - [AuthToken](docs/AuthToken.md)
  - [AuthTokenWithSecret](docs/AuthTokenWithSecret.md)
  - [Author](docs/Author.md)
+ - [BasicPrivateConnectivityInfo](docs/BasicPrivateConnectivityInfo.md)
  - [BilledUsage](docs/BilledUsage.md)
  - [Build](docs/Build.md)
  - [CreditsInner](docs/CreditsInner.md)
@@ -191,7 +193,9 @@ Class | Method | HTTP request | Description
  - [FormattedApiApiKeyListResponseItemsInner](docs/FormattedApiApiKeyListResponseItemsInner.md)
  - [FormattedApiInstance](docs/FormattedApiInstance.md)
  - [FormattedApiInstanceConnections](docs/FormattedApiInstanceConnections.md)
+ - [FormattedApiInstanceConnections1](docs/FormattedApiInstanceConnections1.md)
  - [FormattedApiInstancePlugin](docs/FormattedApiInstancePlugin.md)
+ - [FormattedApiInstancePrivateConnectivityInfo](docs/FormattedApiInstancePrivateConnectivityInfo.md)
  - [FormattedApiInstanceReadiness](docs/FormattedApiInstanceReadiness.md)
  - [FormattedApiOrgPublic](docs/FormattedApiOrgPublic.md)
  - [FormattedApiOrgSettings](docs/FormattedApiOrgSettings.md)
@@ -220,6 +224,7 @@ Class | Method | HTTP request | Description
  - [Info1](docs/Info1.md)
  - [InfoAnyOf](docs/InfoAnyOf.md)
  - [InfoAnyOf1](docs/InfoAnyOf1.md)
+ - [InstanceConnectionTenant](docs/InstanceConnectionTenant.md)
  - [InstanceUsersResponse](docs/InstanceUsersResponse.md)
  - [InternalStackCreateRequestV1](docs/InternalStackCreateRequestV1.md)
  - [ItemsInner](docs/ItemsInner.md)
@@ -290,6 +295,12 @@ Class | Method | HTTP request | Description
  - [StackCheckReadinessV1](docs/StackCheckReadinessV1.md)
  - [StackCheckRequestV1](docs/StackCheckRequestV1.md)
  - [StackCheckV1](docs/StackCheckV1.md)
+ - [StackConnectionAppPlatformV1](docs/StackConnectionAppPlatformV1.md)
+ - [StackConnectionOtlpV1](docs/StackConnectionOtlpV1.md)
+ - [StackConnectionPdcV1](docs/StackConnectionPdcV1.md)
+ - [StackConnectionServicesV1](docs/StackConnectionServicesV1.md)
+ - [StackConnectionTenantV1](docs/StackConnectionTenantV1.md)
+ - [StackConnectionsV1](docs/StackConnectionsV1.md)
  - [StackCreateRequestV1](docs/StackCreateRequestV1.md)
  - [StackRegionV1](docs/StackRegionV1.md)
  - [StackUpdateRequestV1](docs/StackUpdateRequestV1.md)

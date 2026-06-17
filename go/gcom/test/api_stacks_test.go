@@ -75,6 +75,20 @@ func Test_gcom_StacksAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test StacksAPIService GetStackConnectionsV1", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var idOrSlug string
+
+		resp, httpRes, err := apiClient.StacksAPI.GetStackConnectionsV1(context.Background(), idOrSlug).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test StacksAPIService GetStackV1", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
