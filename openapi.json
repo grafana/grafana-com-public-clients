@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "e7e9408",
-    "x-generated-at": "2026-05-12T20:44:26.233Z"
+    "x-commit-sha": "c15eadf",
+    "x-generated-at": "2026-06-17T07:50:41.429Z"
   },
   "servers": [
     {
@@ -3665,6 +3665,10 @@
                     "type": "boolean",
                     "nullable": true
                   },
+                  "allowedInviteDomains": {
+                    "nullable": true,
+                    "type": "string"
+                  },
                   "disableTokenExpirationEmails": {
                     "type": "boolean",
                     "nullable": true
@@ -5841,6 +5845,48 @@
         ]
       }
     },
+    "/v1/stacks/{idOrSlug}/connections": {
+      "get": {
+        "operationId": "getStackConnectionsV1",
+        "parameters": [
+          {
+            "description": "id or slug of the stack",
+            "in": "path",
+            "name": "idOrSlug",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the stack",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StackConnectionsV1"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "tags": [
+          "stacks"
+        ]
+      }
+    },
     "/v1/stacks/{idOrSlug}/readiness": {
       "get": {
         "operationId": "checkStackReadinessV1",
@@ -6333,6 +6379,354 @@
           "realms",
           "scopes",
           "sets"
+        ]
+      },
+      "FormattedApiInstanceConnections": {
+        "type": "object",
+        "properties": {
+          "privateConnectivityInfo": {
+            "type": "object",
+            "properties": {
+              "tenants": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "title": "type"
+                    },
+                    "id": {
+                      "type": "number",
+                      "title": "id"
+                    },
+                    "info": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "serviceName": {
+                              "type": "string",
+                              "title": "serviceName"
+                            },
+                            "privateDNS": {
+                              "type": "string",
+                              "title": "privateDNS"
+                            },
+                            "regions": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "title": "regions"
+                            },
+                            "availabilityZones": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "title": "availabilityZones"
+                            },
+                            "availabilityZoneIds": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "title": "availabilityZoneIds"
+                            }
+                          },
+                          "required": [
+                            "privateDNS",
+                            "serviceName"
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "serviceAttachment": {
+                              "type": "string",
+                              "title": "serviceAttachment"
+                            },
+                            "domainNames": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "title": "domainNames"
+                            }
+                          },
+                          "required": [
+                            "domainNames",
+                            "serviceAttachment"
+                          ]
+                        }
+                      ],
+                      "title": "info"
+                    },
+                    "ipAllowListCNAME": {
+                      "type": "string",
+                      "title": "ipAllowListCNAME",
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type"
+                  ]
+                },
+                "title": "tenants"
+              },
+              "otlp": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "serviceName": {
+                        "type": "string",
+                        "title": "serviceName"
+                      },
+                      "privateDNS": {
+                        "type": "string",
+                        "title": "privateDNS"
+                      },
+                      "regions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "title": "regions"
+                      },
+                      "availabilityZones": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "title": "availabilityZones"
+                      },
+                      "availabilityZoneIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "title": "availabilityZoneIds"
+                      }
+                    },
+                    "required": [
+                      "privateDNS",
+                      "serviceName"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "serviceAttachment": {
+                        "type": "string",
+                        "title": "serviceAttachment"
+                      },
+                      "domainNames": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "title": "domainNames"
+                      }
+                    },
+                    "required": [
+                      "domainNames",
+                      "serviceAttachment"
+                    ]
+                  }
+                ],
+                "title": "otlp"
+              },
+              "pdc": {
+                "type": "object",
+                "properties": {
+                  "api": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          },
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "regions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "regions"
+                          },
+                          "availabilityZones": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "availabilityZones"
+                          },
+                          "availabilityZoneIds": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "availabilityZoneIds"
+                          }
+                        },
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "serviceAttachment": {
+                            "type": "string",
+                            "title": "serviceAttachment"
+                          },
+                          "domainNames": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "domainNames"
+                          }
+                        },
+                        "required": [
+                          "domainNames",
+                          "serviceAttachment"
+                        ]
+                      }
+                    ],
+                    "title": "api"
+                  },
+                  "gateway": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "serviceName": {
+                            "type": "string",
+                            "title": "serviceName"
+                          },
+                          "privateDNS": {
+                            "type": "string",
+                            "title": "privateDNS"
+                          },
+                          "regions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "regions"
+                          },
+                          "availabilityZones": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "availabilityZones"
+                          },
+                          "availabilityZoneIds": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "availabilityZoneIds"
+                          }
+                        },
+                        "required": [
+                          "privateDNS",
+                          "serviceName"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "serviceAttachment": {
+                            "type": "string",
+                            "title": "serviceAttachment"
+                          },
+                          "domainNames": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "domainNames"
+                          }
+                        },
+                        "required": [
+                          "domainNames",
+                          "serviceAttachment"
+                        ]
+                      }
+                    ],
+                    "title": "gateway"
+                  }
+                },
+                "required": [
+                  "api",
+                  "gateway"
+                ],
+                "title": "pdc"
+              }
+            },
+            "required": [
+              "tenants"
+            ],
+            "title": "privateConnectivityInfo"
+          },
+          "appPlatform": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "title": "url"
+              },
+              "caData": {
+                "type": "string",
+                "title": "caData",
+                "nullable": true
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "title": "appPlatform"
+          },
+          "influxUrl": {
+            "type": "string",
+            "title": "influxUrl",
+            "nullable": true
+          },
+          "otlpHttpUrl": {
+            "type": "string",
+            "title": "otlpHttpUrl",
+            "nullable": true
+          },
+          "otlpMultiAZ": {
+            "type": "boolean",
+            "title": "otlpMultiAZ"
+          },
+          "oncallApiUrl": {
+            "type": "string",
+            "title": "oncallApiUrl",
+            "nullable": true
+          },
+          "syntheticMonitoringApiUrl": {
+            "type": "string",
+            "title": "syntheticMonitoringApiUrl",
+            "nullable": true
+          }
+        },
+        "required": [
+          "otlpMultiAZ",
+          "privateConnectivityInfo"
         ]
       },
       "FormattedApiInstancePlugin": {
@@ -6936,6 +7330,10 @@
             "type": "string",
             "title": "orgSlug"
           },
+          "orgCreatedAt": {
+            "type": "string",
+            "title": "orgCreatedAt"
+          },
           "plan": {
             "enum": [
               "advanced",
@@ -7254,6 +7652,7 @@
           "machineLearning",
           "machineLearningLogsToken",
           "name",
+          "orgCreatedAt",
           "orgId",
           "orgName",
           "orgSlug",
@@ -7362,349 +7761,6 @@
         },
         "required": [
           "items"
-        ]
-      },
-      "FormattedApiInstanceConnections": {
-        "type": "object",
-        "properties": {
-          "privateConnectivityInfo": {
-            "type": "object",
-            "properties": {
-              "tenants": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "title": "type"
-                    },
-                    "id": {
-                      "type": "number",
-                      "title": "id"
-                    },
-                    "info": {
-                      "anyOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "serviceName": {
-                              "type": "string",
-                              "title": "serviceName"
-                            },
-                            "privateDNS": {
-                              "type": "string",
-                              "title": "privateDNS"
-                            },
-                            "regions": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "title": "regions"
-                            },
-                            "availabilityZones": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "title": "availabilityZones"
-                            },
-                            "availabilityZoneIds": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "title": "availabilityZoneIds"
-                            }
-                          },
-                          "required": [
-                            "privateDNS",
-                            "serviceName"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "serviceAttachment": {
-                              "type": "string",
-                              "title": "serviceAttachment"
-                            },
-                            "domainNames": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "title": "domainNames"
-                            }
-                          },
-                          "required": [
-                            "domainNames",
-                            "serviceAttachment"
-                          ]
-                        }
-                      ],
-                      "title": "info"
-                    },
-                    "ipAllowListCNAME": {
-                      "type": "string",
-                      "title": "ipAllowListCNAME",
-                      "nullable": true
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "type"
-                  ]
-                },
-                "title": "tenants"
-              },
-              "otlp": {
-                "anyOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "serviceName": {
-                        "type": "string",
-                        "title": "serviceName"
-                      },
-                      "privateDNS": {
-                        "type": "string",
-                        "title": "privateDNS"
-                      },
-                      "regions": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "title": "regions"
-                      },
-                      "availabilityZones": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "title": "availabilityZones"
-                      },
-                      "availabilityZoneIds": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "title": "availabilityZoneIds"
-                      }
-                    },
-                    "required": [
-                      "privateDNS",
-                      "serviceName"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "serviceAttachment": {
-                        "type": "string",
-                        "title": "serviceAttachment"
-                      },
-                      "domainNames": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "title": "domainNames"
-                      }
-                    },
-                    "required": [
-                      "domainNames",
-                      "serviceAttachment"
-                    ]
-                  }
-                ],
-                "title": "otlp"
-              },
-              "pdc": {
-                "type": "object",
-                "properties": {
-                  "api": {
-                    "anyOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "regions"
-                          },
-                          "availabilityZones": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "availabilityZones"
-                          },
-                          "availabilityZoneIds": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "availabilityZoneIds"
-                          }
-                        },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
-                        ]
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "serviceAttachment": {
-                            "type": "string",
-                            "title": "serviceAttachment"
-                          },
-                          "domainNames": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "domainNames"
-                          }
-                        },
-                        "required": [
-                          "domainNames",
-                          "serviceAttachment"
-                        ]
-                      }
-                    ],
-                    "title": "api"
-                  },
-                  "gateway": {
-                    "anyOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "regions"
-                          },
-                          "availabilityZones": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "availabilityZones"
-                          },
-                          "availabilityZoneIds": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "availabilityZoneIds"
-                          }
-                        },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
-                        ]
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "serviceAttachment": {
-                            "type": "string",
-                            "title": "serviceAttachment"
-                          },
-                          "domainNames": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "domainNames"
-                          }
-                        },
-                        "required": [
-                          "domainNames",
-                          "serviceAttachment"
-                        ]
-                      }
-                    ],
-                    "title": "gateway"
-                  }
-                },
-                "required": [
-                  "api",
-                  "gateway"
-                ],
-                "title": "pdc"
-              }
-            },
-            "required": [
-              "tenants"
-            ],
-            "title": "privateConnectivityInfo"
-          },
-          "appPlatform": {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "title": "url"
-              },
-              "caData": {
-                "type": "string",
-                "title": "caData",
-                "nullable": true
-              }
-            },
-            "required": [
-              "url"
-            ],
-            "title": "appPlatform"
-          },
-          "influxUrl": {
-            "type": "string",
-            "title": "influxUrl",
-            "nullable": true
-          },
-          "otlpHttpUrl": {
-            "type": "string",
-            "title": "otlpHttpUrl",
-            "nullable": true
-          },
-          "otlpMultiAZ": {
-            "type": "boolean",
-            "title": "otlpMultiAZ"
-          },
-          "oncallApiUrl": {
-            "type": "string",
-            "title": "oncallApiUrl",
-            "nullable": true
-          }
-        },
-        "required": [
-          "otlpMultiAZ",
-          "privateConnectivityInfo"
         ]
       },
       "OrgMemberListResponse": {
@@ -8956,8 +9012,53 @@
             "type": "boolean",
             "title": "mfaRequired",
             "nullable": true
+          },
+          "allowedInviteDomains": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            ],
+            "title": "allowedInviteDomains"
           }
         }
+      },
+      "FormattedApiOrgStackRegion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "title": "id"
+          },
+          "stackRegionId": {
+            "type": "number",
+            "title": "stackRegionId"
+          },
+          "orgId": {
+            "type": "number",
+            "title": "orgId"
+          },
+          "createdAt": {
+            "type": "string",
+            "title": "createdAt"
+          },
+          "updatedAt": {
+            "type": "string",
+            "title": "updatedAt",
+            "nullable": true
+          }
+        },
+        "required": [
+          "createdAt",
+          "id",
+          "orgId",
+          "stackRegionId",
+          "updatedAt"
+        ]
       },
       "FormattedApiOrgPublic": {
         "type": "object",
@@ -10807,39 +10908,6 @@
           "versionStatus"
         ]
       },
-      "FormattedApiOrgStackRegion": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "title": "id"
-          },
-          "stackRegionId": {
-            "type": "number",
-            "title": "stackRegionId"
-          },
-          "orgId": {
-            "type": "number",
-            "title": "orgId"
-          },
-          "createdAt": {
-            "type": "string",
-            "title": "createdAt"
-          },
-          "updatedAt": {
-            "type": "string",
-            "title": "updatedAt",
-            "nullable": true
-          }
-        },
-        "required": [
-          "createdAt",
-          "id",
-          "orgId",
-          "stackRegionId",
-          "updatedAt"
-        ]
-      },
       "FormattedApiStackRegion": {
         "anyOf": [
           {
@@ -12660,6 +12728,52 @@
         ],
         "type": "object"
       },
+      "BasicPrivateConnectivityInfo": {
+        "additionalProperties": false,
+        "properties": {
+          "availabilityZoneIds": {
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "type": "array"
+          },
+          "availabilityZones": {
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "type": "array"
+          },
+          "domainNames": {
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "type": "array"
+          },
+          "endpointName": {
+            "type": "string"
+          },
+          "privateDNS": {
+            "type": "string"
+          },
+          "regions": {
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "type": "array"
+          },
+          "serviceAttachment": {
+            "type": "string"
+          },
+          "serviceName": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "ErrorPayload": {
         "additionalProperties": false,
         "properties": {
@@ -12682,6 +12796,89 @@
           "code",
           "message",
           "requestId"
+        ],
+        "type": "object"
+      },
+      "FormattedApiInstanceConnections1": {
+        "additionalProperties": false,
+        "properties": {
+          "appPlatform": {
+            "$ref": "#/components/schemas/StackConnectionAppPlatformV1"
+          },
+          "influxUrl": {
+            "type": "string"
+          },
+          "oncallApiUrl": {
+            "type": "string"
+          },
+          "otlpHttpUrl": {
+            "nullable": true,
+            "type": "string"
+          },
+          "otlpMultiAZ": {
+            "type": "boolean"
+          },
+          "privateConnectivityInfo": {
+            "$ref": "#/components/schemas/FormattedApiInstancePrivateConnectivityInfo"
+          },
+          "syntheticMonitoringApiUrl": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "privateConnectivityInfo",
+          "otlpHttpUrl",
+          "otlpMultiAZ"
+        ],
+        "type": "object"
+      },
+      "FormattedApiInstancePrivateConnectivityInfo": {
+        "additionalProperties": false,
+        "properties": {
+          "otlp": {
+            "$ref": "#/components/schemas/BasicPrivateConnectivityInfo"
+          },
+          "pdc": {
+            "$ref": "#/components/schemas/StackConnectionPdcV1"
+          },
+          "tenants": {
+            "items": {
+              "$ref": "#/components/schemas/InstanceConnectionTenant"
+            },
+            "nullable": true,
+            "type": "array"
+          }
+        },
+        "required": [
+          "tenants"
+        ],
+        "type": "object"
+      },
+      "InstanceConnectionTenant": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "tenant id",
+            "format": "int64",
+            "type": "integer"
+          },
+          "info": {
+            "$ref": "#/components/schemas/BasicPrivateConnectivityInfo"
+          },
+          "ipAllowListCNAME": {
+            "description": "IP allow list CNAME",
+            "nullable": true,
+            "type": "string"
+          },
+          "type": {
+            "description": "tenant type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "id",
+          "ipAllowListCNAME"
         ],
         "type": "object"
       },
@@ -12838,6 +13035,129 @@
         ],
         "type": "object"
       },
+      "StackConnectionAppPlatformV1": {
+        "additionalProperties": false,
+        "properties": {
+          "caData": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      },
+      "StackConnectionOtlpV1": {
+        "additionalProperties": false,
+        "properties": {
+          "multiAZ": {
+            "description": "whether OTLP is multi-AZ",
+            "type": "boolean"
+          },
+          "privateConnectivityInfo": {
+            "$ref": "#/components/schemas/BasicPrivateConnectivityInfo"
+          },
+          "url": {
+            "description": "OTLP HTTP endpoint URL",
+            "type": "string"
+          }
+        },
+        "required": [
+          "multiAZ"
+        ],
+        "type": "object"
+      },
+      "StackConnectionPdcV1": {
+        "additionalProperties": false,
+        "properties": {
+          "api": {
+            "$ref": "#/components/schemas/BasicPrivateConnectivityInfo"
+          },
+          "gateway": {
+            "$ref": "#/components/schemas/BasicPrivateConnectivityInfo"
+          }
+        },
+        "required": [
+          "api",
+          "gateway"
+        ],
+        "type": "object"
+      },
+      "StackConnectionServicesV1": {
+        "additionalProperties": false,
+        "properties": {
+          "influxUrl": {
+            "type": "string"
+          },
+          "oncallApiUrl": {
+            "type": "string"
+          },
+          "syntheticMonitoringApiUrl": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "StackConnectionTenantV1": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "tenant id",
+            "format": "int64",
+            "type": "integer"
+          },
+          "ipAllowListCNAME": {
+            "type": "string"
+          },
+          "privateConnectivityInfo": {
+            "$ref": "#/components/schemas/BasicPrivateConnectivityInfo"
+          },
+          "type": {
+            "description": "tenant type",
+            "type": "string"
+          },
+          "url": {
+            "description": "URL for the tenant",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "id"
+        ],
+        "type": "object"
+      },
+      "StackConnectionsV1": {
+        "additionalProperties": false,
+        "properties": {
+          "appPlatform": {
+            "$ref": "#/components/schemas/StackConnectionAppPlatformV1"
+          },
+          "otlp": {
+            "$ref": "#/components/schemas/StackConnectionOtlpV1"
+          },
+          "pdc": {
+            "$ref": "#/components/schemas/StackConnectionPdcV1"
+          },
+          "services": {
+            "$ref": "#/components/schemas/StackConnectionServicesV1"
+          },
+          "tenants": {
+            "items": {
+              "$ref": "#/components/schemas/StackConnectionTenantV1"
+            },
+            "nullable": true,
+            "type": "array"
+          }
+        },
+        "required": [
+          "tenants"
+        ],
+        "type": "object"
+      },
       "StackCreateRequestV1": {
         "additionalProperties": false,
         "properties": {
@@ -12915,8 +13235,20 @@
           "provider": {
             "type": "string"
           },
+          "publicName": {
+            "nullable": true,
+            "type": "string"
+          },
           "slug": {
             "description": "slug of the region",
+            "type": "string"
+          },
+          "visibility": {
+            "enum": [
+              "public",
+              "private",
+              "customer-restricted"
+            ],
             "type": "string"
           }
         },
@@ -12925,7 +13257,9 @@
           "slug",
           "name",
           "description",
-          "provider"
+          "provider",
+          "publicName",
+          "visibility"
         ],
         "type": "object"
       },
