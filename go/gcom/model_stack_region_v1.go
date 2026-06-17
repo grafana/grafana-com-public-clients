@@ -22,11 +22,13 @@ var _ MappedNullable = &StackRegionV1{}
 type StackRegionV1 struct {
 	Description NullableString `json:"description"`
 	// id of the region
-	Id       int64  `json:"id"`
-	Name     string `json:"name"`
-	Provider string `json:"provider"`
+	Id         int64          `json:"id"`
+	Name       string         `json:"name"`
+	Provider   string         `json:"provider"`
+	PublicName NullableString `json:"publicName"`
 	// slug of the region
-	Slug string `json:"slug"`
+	Slug       string `json:"slug"`
+	Visibility string `json:"visibility"`
 }
 
 type _StackRegionV1 StackRegionV1
@@ -35,13 +37,15 @@ type _StackRegionV1 StackRegionV1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStackRegionV1(description NullableString, id int64, name string, provider string, slug string) *StackRegionV1 {
+func NewStackRegionV1(description NullableString, id int64, name string, provider string, publicName NullableString, slug string, visibility string) *StackRegionV1 {
 	this := StackRegionV1{}
 	this.Description = description
 	this.Id = id
 	this.Name = name
 	this.Provider = provider
+	this.PublicName = publicName
 	this.Slug = slug
+	this.Visibility = visibility
 	return &this
 }
 
@@ -151,6 +155,32 @@ func (o *StackRegionV1) SetProvider(v string) {
 	o.Provider = v
 }
 
+// GetPublicName returns the PublicName field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *StackRegionV1) GetPublicName() string {
+	if o == nil || o.PublicName.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.PublicName.Get()
+}
+
+// GetPublicNameOk returns a tuple with the PublicName field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StackRegionV1) GetPublicNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PublicName.Get(), o.PublicName.IsSet()
+}
+
+// SetPublicName sets field value
+func (o *StackRegionV1) SetPublicName(v string) {
+	o.PublicName.Set(&v)
+}
+
 // GetSlug returns the Slug field value
 func (o *StackRegionV1) GetSlug() string {
 	if o == nil {
@@ -175,6 +205,30 @@ func (o *StackRegionV1) SetSlug(v string) {
 	o.Slug = v
 }
 
+// GetVisibility returns the Visibility field value
+func (o *StackRegionV1) GetVisibility() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Visibility
+}
+
+// GetVisibilityOk returns a tuple with the Visibility field value
+// and a boolean to check if the value has been set.
+func (o *StackRegionV1) GetVisibilityOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Visibility, true
+}
+
+// SetVisibility sets field value
+func (o *StackRegionV1) SetVisibility(v string) {
+	o.Visibility = v
+}
+
 func (o StackRegionV1) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -189,7 +243,9 @@ func (o StackRegionV1) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["provider"] = o.Provider
+	toSerialize["publicName"] = o.PublicName.Get()
 	toSerialize["slug"] = o.Slug
+	toSerialize["visibility"] = o.Visibility
 	return toSerialize, nil
 }
 

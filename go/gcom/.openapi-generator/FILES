@@ -36,6 +36,7 @@ docs/AuthAccessPolicyRealmsInnerLabelPoliciesInner.md
 docs/AuthToken.md
 docs/AuthTokenWithSecret.md
 docs/Author.md
+docs/BasicPrivateConnectivityInfo.md
 docs/BilledUsage.md
 docs/Build.md
 docs/CreditsInner.md
@@ -60,7 +61,9 @@ docs/FormattedApiApiKeyListResponse.md
 docs/FormattedApiApiKeyListResponseItemsInner.md
 docs/FormattedApiInstance.md
 docs/FormattedApiInstanceConnections.md
+docs/FormattedApiInstanceConnections1.md
 docs/FormattedApiInstancePlugin.md
+docs/FormattedApiInstancePrivateConnectivityInfo.md
 docs/FormattedApiInstanceReadiness.md
 docs/FormattedApiOrgPublic.md
 docs/FormattedApiOrgSettings.md
@@ -89,6 +92,7 @@ docs/Info.md
 docs/Info1.md
 docs/InfoAnyOf.md
 docs/InfoAnyOf1.md
+docs/InstanceConnectionTenant.md
 docs/InstanceUsersResponse.md
 docs/InstancesAPI.md
 docs/InternalStackCreateRequestV1.md
@@ -163,6 +167,12 @@ docs/SetsInner.md
 docs/StackCheckReadinessV1.md
 docs/StackCheckRequestV1.md
 docs/StackCheckV1.md
+docs/StackConnectionAppPlatformV1.md
+docs/StackConnectionOtlpV1.md
+docs/StackConnectionPdcV1.md
+docs/StackConnectionServicesV1.md
+docs/StackConnectionTenantV1.md
+docs/StackConnectionsV1.md
 docs/StackCreateRequestV1.md
 docs/StackRegionV1.md
 docs/StackRegionsAPI.md
@@ -204,6 +214,7 @@ model_auth_access_policy_realms_inner_label_policies_inner.go
 model_auth_token.go
 model_auth_token_with_secret.go
 model_author.go
+model_basic_private_connectivity_info.go
 model_billed_usage.go
 model_build.go
 model_credits_inner.go
@@ -228,7 +239,9 @@ model_formatted_api_api_key_list_response.go
 model_formatted_api_api_key_list_response_items_inner.go
 model_formatted_api_instance.go
 model_formatted_api_instance_connections.go
+model_formatted_api_instance_connections1.go
 model_formatted_api_instance_plugin.go
+model_formatted_api_instance_private_connectivity_info.go
 model_formatted_api_instance_readiness.go
 model_formatted_api_org_public.go
 model_formatted_api_org_settings.go
@@ -257,6 +270,7 @@ model_info.go
 model_info_1.go
 model_info_any_of.go
 model_info_any_of_1.go
+model_instance_connection_tenant.go
 model_instance_users_response.go
 model_internal_stack_create_request_v1.go
 model_items_inner.go
@@ -327,6 +341,12 @@ model_sets_inner.go
 model_stack_check_readiness_v1.go
 model_stack_check_request_v1.go
 model_stack_check_v1.go
+model_stack_connection_app_platform_v1.go
+model_stack_connection_otlp_v1.go
+model_stack_connection_pdc_v1.go
+model_stack_connection_services_v1.go
+model_stack_connection_tenant_v1.go
+model_stack_connections_v1.go
 model_stack_create_request_v1.go
 model_stack_region_v1.go
 model_stack_update_request_v1.go

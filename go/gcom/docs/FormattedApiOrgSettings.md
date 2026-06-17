@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **MaxTokenExpirationDays** | Pointer to **NullableFloat32** |  | [optional] 
 **MfaAdminRecoveryOnly** | Pointer to **NullableBool** |  | [optional] 
 **MfaRequired** | Pointer to **NullableBool** |  | [optional] 
+**AllowedInviteDomains** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -204,6 +205,41 @@ HasMfaRequired returns a boolean if a field has been set.
 `func (o *FormattedApiOrgSettings) UnsetMfaRequired()`
 
 UnsetMfaRequired ensures that no value is present for MfaRequired, not even an explicit nil
+### GetAllowedInviteDomains
+
+`func (o *FormattedApiOrgSettings) GetAllowedInviteDomains() []string`
+
+GetAllowedInviteDomains returns the AllowedInviteDomains field if non-nil, zero value otherwise.
+
+### GetAllowedInviteDomainsOk
+
+`func (o *FormattedApiOrgSettings) GetAllowedInviteDomainsOk() (*[]string, bool)`
+
+GetAllowedInviteDomainsOk returns a tuple with the AllowedInviteDomains field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedInviteDomains
+
+`func (o *FormattedApiOrgSettings) SetAllowedInviteDomains(v []string)`
+
+SetAllowedInviteDomains sets AllowedInviteDomains field to given value.
+
+### HasAllowedInviteDomains
+
+`func (o *FormattedApiOrgSettings) HasAllowedInviteDomains() bool`
+
+HasAllowedInviteDomains returns a boolean if a field has been set.
+
+### SetAllowedInviteDomainsNil
+
+`func (o *FormattedApiOrgSettings) SetAllowedInviteDomainsNil(b bool)`
+
+ SetAllowedInviteDomainsNil sets the value for AllowedInviteDomains to be an explicit nil
+
+### UnsetAllowedInviteDomains
+`func (o *FormattedApiOrgSettings) UnsetAllowedInviteDomains()`
+
+UnsetAllowedInviteDomains ensures that no value is present for AllowedInviteDomains, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

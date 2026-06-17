@@ -24,6 +24,7 @@ type FormattedApiOrgSettings struct {
 	MaxTokenExpirationDays       NullableFloat32 `json:"maxTokenExpirationDays,omitempty"`
 	MfaAdminRecoveryOnly         NullableBool    `json:"mfaAdminRecoveryOnly,omitempty"`
 	MfaRequired                  NullableBool    `json:"mfaRequired,omitempty"`
+	AllowedInviteDomains         []string        `json:"allowedInviteDomains,omitempty"`
 	AdditionalProperties         map[string]interface{}
 }
 
@@ -261,6 +262,39 @@ func (o *FormattedApiOrgSettings) UnsetMfaRequired() {
 	o.MfaRequired.Unset()
 }
 
+// GetAllowedInviteDomains returns the AllowedInviteDomains field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FormattedApiOrgSettings) GetAllowedInviteDomains() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.AllowedInviteDomains
+}
+
+// GetAllowedInviteDomainsOk returns a tuple with the AllowedInviteDomains field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiOrgSettings) GetAllowedInviteDomainsOk() ([]string, bool) {
+	if o == nil || IsNil(o.AllowedInviteDomains) {
+		return nil, false
+	}
+	return o.AllowedInviteDomains, true
+}
+
+// HasAllowedInviteDomains returns a boolean if a field has been set.
+func (o *FormattedApiOrgSettings) HasAllowedInviteDomains() bool {
+	if o != nil && !IsNil(o.AllowedInviteDomains) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowedInviteDomains gets a reference to the given []string and assigns it to the AllowedInviteDomains field.
+func (o *FormattedApiOrgSettings) SetAllowedInviteDomains(v []string) {
+	o.AllowedInviteDomains = v
+}
+
 func (o FormattedApiOrgSettings) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -285,6 +319,9 @@ func (o FormattedApiOrgSettings) ToMap() (map[string]interface{}, error) {
 	}
 	if o.MfaRequired.IsSet() {
 		toSerialize["mfaRequired"] = o.MfaRequired.Get()
+	}
+	if o.AllowedInviteDomains != nil {
+		toSerialize["allowedInviteDomains"] = o.AllowedInviteDomains
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -313,6 +350,7 @@ func (o *FormattedApiOrgSettings) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "maxTokenExpirationDays")
 		delete(additionalProperties, "mfaAdminRecoveryOnly")
 		delete(additionalProperties, "mfaRequired")
+		delete(additionalProperties, "allowedInviteDomains")
 		o.AdditionalProperties = additionalProperties
 	}
 

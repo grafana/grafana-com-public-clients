@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: e7e9408
-  x-generated-at: 2026-05-12T20:44:26.233Z
+  x-commit-sha: c15eadf
+  x-generated-at: 2026-06-17T07:50:41.429Z
 servers:
 - description: Main API server
   url: /api
@@ -3506,6 +3506,34 @@ paths:
           description: Error
       tags:
       - stacks
+  /v1/stacks/{idOrSlug}/connections:
+    get:
+      operationId: getStackConnectionsV1
+      parameters:
+      - description: id or slug of the stack
+        explode: false
+        in: path
+        name: idOrSlug
+        required: true
+        schema:
+          description: id or slug of the stack
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StackConnectionsV1'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      tags:
+      - stacks
   /v1/stacks/{idOrSlug}/readiness:
     get:
       operationId: checkStackReadinessV1
@@ -3795,6 +3823,113 @@ components:
       - scopes
       - sets
       type: object
+    FormattedApiInstanceConnections:
+      example:
+        otlpHttpUrl: otlpHttpUrl
+        influxUrl: influxUrl
+        oncallApiUrl: oncallApiUrl
+        appPlatform:
+          url: url
+          caData: caData
+        syntheticMonitoringApiUrl: syntheticMonitoringApiUrl
+        otlpMultiAZ: true
+        privateConnectivityInfo:
+          tenants:
+          - ipAllowListCNAME: ipAllowListCNAME
+            id: 0.8008281904610115
+            type: type
+            info:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
+              regions:
+              - regions
+              - regions
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
+              privateDNS: privateDNS
+              serviceName: serviceName
+          - ipAllowListCNAME: ipAllowListCNAME
+            id: 0.8008281904610115
+            type: type
+            info:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
+              regions:
+              - regions
+              - regions
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
+              privateDNS: privateDNS
+              serviceName: serviceName
+          otlp:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            privateDNS: privateDNS
+            serviceName: serviceName
+          pdc:
+            api:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
+              regions:
+              - regions
+              - regions
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
+              privateDNS: privateDNS
+              serviceName: serviceName
+            gateway:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
+              regions:
+              - regions
+              - regions
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
+              privateDNS: privateDNS
+              serviceName: serviceName
+      properties:
+        privateConnectivityInfo:
+          $ref: '#/components/schemas/privateConnectivityInfo'
+        appPlatform:
+          $ref: '#/components/schemas/appPlatform'
+        influxUrl:
+          nullable: true
+          title: influxUrl
+          type: string
+        otlpHttpUrl:
+          nullable: true
+          title: otlpHttpUrl
+          type: string
+        otlpMultiAZ:
+          title: otlpMultiAZ
+          type: boolean
+        oncallApiUrl:
+          nullable: true
+          title: oncallApiUrl
+          type: string
+        syntheticMonitoringApiUrl:
+          nullable: true
+          title: syntheticMonitoringApiUrl
+          type: string
+      required:
+      - otlpMultiAZ
+      - privateConnectivityInfo
+      type: object
     FormattedApiInstancePlugin:
       example:
         createdAt: createdAt
@@ -4038,6 +4173,7 @@ components:
         hmInstancePromClusterId: 6.438423552598547
         hlInstanceStatus: active
         labels: "{}"
+        orgCreatedAt: orgCreatedAt
         amInstanceStatus: active
         clusterSlug: clusterSlug
         htInstanceUrl: htInstanceUrl
@@ -4407,6 +4543,9 @@ components:
         orgSlug:
           title: orgSlug
           type: string
+        orgCreatedAt:
+          title: orgCreatedAt
+          type: string
         plan:
           enum:
           - advanced
@@ -4663,6 +4802,7 @@ components:
       - machineLearning
       - machineLearningLogsToken
       - name
+      - orgCreatedAt
       - orgId
       - orgName
       - orgSlug
@@ -4736,108 +4876,6 @@ components:
           type: array
       required:
       - items
-      type: object
-    FormattedApiInstanceConnections:
-      example:
-        otlpHttpUrl: otlpHttpUrl
-        influxUrl: influxUrl
-        oncallApiUrl: oncallApiUrl
-        appPlatform:
-          url: url
-          caData: caData
-        otlpMultiAZ: true
-        privateConnectivityInfo:
-          tenants:
-          - ipAllowListCNAME: ipAllowListCNAME
-            id: 0.8008281904610115
-            type: type
-            info:
-              availabilityZoneIds:
-              - availabilityZoneIds
-              - availabilityZoneIds
-              regions:
-              - regions
-              - regions
-              availabilityZones:
-              - availabilityZones
-              - availabilityZones
-              privateDNS: privateDNS
-              serviceName: serviceName
-          - ipAllowListCNAME: ipAllowListCNAME
-            id: 0.8008281904610115
-            type: type
-            info:
-              availabilityZoneIds:
-              - availabilityZoneIds
-              - availabilityZoneIds
-              regions:
-              - regions
-              - regions
-              availabilityZones:
-              - availabilityZones
-              - availabilityZones
-              privateDNS: privateDNS
-              serviceName: serviceName
-          otlp:
-            availabilityZoneIds:
-            - availabilityZoneIds
-            - availabilityZoneIds
-            regions:
-            - regions
-            - regions
-            availabilityZones:
-            - availabilityZones
-            - availabilityZones
-            privateDNS: privateDNS
-            serviceName: serviceName
-          pdc:
-            api:
-              availabilityZoneIds:
-              - availabilityZoneIds
-              - availabilityZoneIds
-              regions:
-              - regions
-              - regions
-              availabilityZones:
-              - availabilityZones
-              - availabilityZones
-              privateDNS: privateDNS
-              serviceName: serviceName
-            gateway:
-              availabilityZoneIds:
-              - availabilityZoneIds
-              - availabilityZoneIds
-              regions:
-              - regions
-              - regions
-              availabilityZones:
-              - availabilityZones
-              - availabilityZones
-              privateDNS: privateDNS
-              serviceName: serviceName
-      properties:
-        privateConnectivityInfo:
-          $ref: '#/components/schemas/privateConnectivityInfo'
-        appPlatform:
-          $ref: '#/components/schemas/appPlatform'
-        influxUrl:
-          nullable: true
-          title: influxUrl
-          type: string
-        otlpHttpUrl:
-          nullable: true
-          title: otlpHttpUrl
-          type: string
-        otlpMultiAZ:
-          title: otlpMultiAZ
-          type: boolean
-        oncallApiUrl:
-          nullable: true
-          title: oncallApiUrl
-          type: string
-      required:
-      - otlpMultiAZ
-      - privateConnectivityInfo
       type: object
     OrgMemberListResponse:
       example:
@@ -5229,6 +5267,9 @@ components:
       example:
         aiDataSharingOptOut: true
         mfaAdminRecoveryOnly: true
+        allowedInviteDomains:
+        - allowedInviteDomains
+        - allowedInviteDomains
         maxTokenExpirationDays: 0.8008281904610115
         disableTokenExpirationEmails: true
         mfaRequired: true
@@ -5253,6 +5294,42 @@ components:
           nullable: true
           title: mfaRequired
           type: boolean
+        allowedInviteDomains:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    FormattedApiOrgStackRegion:
+      example:
+        createdAt: createdAt
+        id: 0.8008281904610115
+        orgId: 1.4658129805029452
+        stackRegionId: 6.027456183070403
+        updatedAt: updatedAt
+      properties:
+        id:
+          title: id
+          type: number
+        stackRegionId:
+          title: stackRegionId
+          type: number
+        orgId:
+          title: orgId
+          type: number
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+      required:
+      - createdAt
+      - id
+      - orgId
+      - stackRegionId
+      - updatedAt
       type: object
     FormattedApiOrgPublic:
       example:
@@ -6109,37 +6186,6 @@ components:
       - versionSignedByOrgName
       - versionStatus
       type: object
-    FormattedApiOrgStackRegion:
-      example:
-        createdAt: createdAt
-        id: 0.8008281904610115
-        orgId: 1.4658129805029452
-        stackRegionId: 6.027456183070403
-        updatedAt: updatedAt
-      properties:
-        id:
-          title: id
-          type: number
-        stackRegionId:
-          title: stackRegionId
-          type: number
-        orgId:
-          title: orgId
-          type: number
-        createdAt:
-          title: createdAt
-          type: string
-        updatedAt:
-          nullable: true
-          title: updatedAt
-          type: string
-      required:
-      - createdAt
-      - id
-      - orgId
-      - stackRegionId
-      - updatedAt
-      type: object
     FormattedApiStackRegion:
       anyOf:
       - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf'
@@ -6458,6 +6504,55 @@ components:
       required:
       - items
       type: object
+    BasicPrivateConnectivityInfo:
+      additionalProperties: false
+      example:
+        availabilityZoneIds:
+        - availabilityZoneIds
+        - availabilityZoneIds
+        regions:
+        - regions
+        - regions
+        serviceAttachment: serviceAttachment
+        endpointName: endpointName
+        availabilityZones:
+        - availabilityZones
+        - availabilityZones
+        domainNames:
+        - domainNames
+        - domainNames
+        privateDNS: privateDNS
+        serviceName: serviceName
+      properties:
+        availabilityZoneIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        availabilityZones:
+          items:
+            type: string
+          nullable: true
+          type: array
+        domainNames:
+          items:
+            type: string
+          nullable: true
+          type: array
+        endpointName:
+          type: string
+        privateDNS:
+          type: string
+        regions:
+          items:
+            type: string
+          nullable: true
+          type: array
+        serviceAttachment:
+          type: string
+        serviceName:
+          type: string
+      type: object
     ErrorPayload:
       additionalProperties: false
       example:
@@ -6480,6 +6575,65 @@ components:
       - message
       - requestId
       - statusCode
+      type: object
+    FormattedApiInstanceConnections1:
+      additionalProperties: false
+      properties:
+        appPlatform:
+          $ref: '#/components/schemas/StackConnectionAppPlatformV1'
+        influxUrl:
+          type: string
+        oncallApiUrl:
+          type: string
+        otlpHttpUrl:
+          nullable: true
+          type: string
+        otlpMultiAZ:
+          type: boolean
+        privateConnectivityInfo:
+          $ref: '#/components/schemas/FormattedApiInstancePrivateConnectivityInfo'
+        syntheticMonitoringApiUrl:
+          type: string
+      required:
+      - otlpHttpUrl
+      - otlpMultiAZ
+      - privateConnectivityInfo
+      type: object
+    FormattedApiInstancePrivateConnectivityInfo:
+      additionalProperties: false
+      properties:
+        otlp:
+          $ref: '#/components/schemas/BasicPrivateConnectivityInfo'
+        pdc:
+          $ref: '#/components/schemas/StackConnectionPdcV1'
+        tenants:
+          items:
+            $ref: '#/components/schemas/InstanceConnectionTenant'
+          nullable: true
+          type: array
+      required:
+      - tenants
+      type: object
+    InstanceConnectionTenant:
+      additionalProperties: false
+      properties:
+        id:
+          description: tenant id
+          format: int64
+          type: integer
+        info:
+          $ref: '#/components/schemas/BasicPrivateConnectivityInfo'
+        ipAllowListCNAME:
+          description: IP allow list CNAME
+          nullable: true
+          type: string
+        type:
+          description: tenant type
+          type: string
+      required:
+      - id
+      - ipAllowListCNAME
+      - type
       type: object
     InternalStackCreateRequestV1:
       additionalProperties: false
@@ -6632,6 +6786,281 @@ components:
       - slug
       - url
       type: object
+    StackConnectionAppPlatformV1:
+      additionalProperties: false
+      example:
+        url: url
+        caData: caData
+      properties:
+        caData:
+          type: string
+        url:
+          type: string
+      required:
+      - url
+      type: object
+    StackConnectionOtlpV1:
+      additionalProperties: false
+      example:
+        multiAZ: true
+        privateConnectivityInfo:
+          availabilityZoneIds:
+          - availabilityZoneIds
+          - availabilityZoneIds
+          regions:
+          - regions
+          - regions
+          serviceAttachment: serviceAttachment
+          endpointName: endpointName
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
+          domainNames:
+          - domainNames
+          - domainNames
+          privateDNS: privateDNS
+          serviceName: serviceName
+        url: url
+      properties:
+        multiAZ:
+          description: whether OTLP is multi-AZ
+          type: boolean
+        privateConnectivityInfo:
+          $ref: '#/components/schemas/BasicPrivateConnectivityInfo'
+        url:
+          description: OTLP HTTP endpoint URL
+          type: string
+      required:
+      - multiAZ
+      type: object
+    StackConnectionPdcV1:
+      additionalProperties: false
+      example:
+        api:
+          availabilityZoneIds:
+          - availabilityZoneIds
+          - availabilityZoneIds
+          regions:
+          - regions
+          - regions
+          serviceAttachment: serviceAttachment
+          endpointName: endpointName
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
+          domainNames:
+          - domainNames
+          - domainNames
+          privateDNS: privateDNS
+          serviceName: serviceName
+        gateway:
+          availabilityZoneIds:
+          - availabilityZoneIds
+          - availabilityZoneIds
+          regions:
+          - regions
+          - regions
+          serviceAttachment: serviceAttachment
+          endpointName: endpointName
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
+          domainNames:
+          - domainNames
+          - domainNames
+          privateDNS: privateDNS
+          serviceName: serviceName
+      properties:
+        api:
+          $ref: '#/components/schemas/BasicPrivateConnectivityInfo'
+        gateway:
+          $ref: '#/components/schemas/BasicPrivateConnectivityInfo'
+      required:
+      - api
+      - gateway
+      type: object
+    StackConnectionServicesV1:
+      additionalProperties: false
+      example:
+        influxUrl: influxUrl
+        oncallApiUrl: oncallApiUrl
+        syntheticMonitoringApiUrl: syntheticMonitoringApiUrl
+      properties:
+        influxUrl:
+          type: string
+        oncallApiUrl:
+          type: string
+        syntheticMonitoringApiUrl:
+          type: string
+      type: object
+    StackConnectionTenantV1:
+      additionalProperties: false
+      example:
+        ipAllowListCNAME: ipAllowListCNAME
+        id: 0
+        privateConnectivityInfo:
+          availabilityZoneIds:
+          - availabilityZoneIds
+          - availabilityZoneIds
+          regions:
+          - regions
+          - regions
+          serviceAttachment: serviceAttachment
+          endpointName: endpointName
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
+          domainNames:
+          - domainNames
+          - domainNames
+          privateDNS: privateDNS
+          serviceName: serviceName
+        type: type
+        url: url
+      properties:
+        id:
+          description: tenant id
+          format: int64
+          type: integer
+        ipAllowListCNAME:
+          type: string
+        privateConnectivityInfo:
+          $ref: '#/components/schemas/BasicPrivateConnectivityInfo'
+        type:
+          description: tenant type
+          type: string
+        url:
+          description: URL for the tenant
+          type: string
+      required:
+      - id
+      - type
+      type: object
+    StackConnectionsV1:
+      additionalProperties: false
+      example:
+        tenants:
+        - ipAllowListCNAME: ipAllowListCNAME
+          id: 0
+          privateConnectivityInfo:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            serviceAttachment: serviceAttachment
+            endpointName: endpointName
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            domainNames:
+            - domainNames
+            - domainNames
+            privateDNS: privateDNS
+            serviceName: serviceName
+          type: type
+          url: url
+        - ipAllowListCNAME: ipAllowListCNAME
+          id: 0
+          privateConnectivityInfo:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            serviceAttachment: serviceAttachment
+            endpointName: endpointName
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            domainNames:
+            - domainNames
+            - domainNames
+            privateDNS: privateDNS
+            serviceName: serviceName
+          type: type
+          url: url
+        appPlatform:
+          url: url
+          caData: caData
+        services:
+          influxUrl: influxUrl
+          oncallApiUrl: oncallApiUrl
+          syntheticMonitoringApiUrl: syntheticMonitoringApiUrl
+        otlp:
+          multiAZ: true
+          privateConnectivityInfo:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            serviceAttachment: serviceAttachment
+            endpointName: endpointName
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            domainNames:
+            - domainNames
+            - domainNames
+            privateDNS: privateDNS
+            serviceName: serviceName
+          url: url
+        pdc:
+          api:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            serviceAttachment: serviceAttachment
+            endpointName: endpointName
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            domainNames:
+            - domainNames
+            - domainNames
+            privateDNS: privateDNS
+            serviceName: serviceName
+          gateway:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            serviceAttachment: serviceAttachment
+            endpointName: endpointName
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            domainNames:
+            - domainNames
+            - domainNames
+            privateDNS: privateDNS
+            serviceName: serviceName
+      properties:
+        appPlatform:
+          $ref: '#/components/schemas/StackConnectionAppPlatformV1'
+        otlp:
+          $ref: '#/components/schemas/StackConnectionOtlpV1'
+        pdc:
+          $ref: '#/components/schemas/StackConnectionPdcV1'
+        services:
+          $ref: '#/components/schemas/StackConnectionServicesV1'
+        tenants:
+          items:
+            $ref: '#/components/schemas/StackConnectionTenantV1'
+          nullable: true
+          type: array
+      required:
+      - tenants
+      type: object
     StackCreateRequestV1:
       additionalProperties: false
       example:
@@ -6704,15 +7133,26 @@ components:
           type: string
         provider:
           type: string
+        publicName:
+          nullable: true
+          type: string
         slug:
           description: slug of the region
+          type: string
+        visibility:
+          enum:
+          - public
+          - private
+          - customer-restricted
           type: string
       required:
       - description
       - id
       - name
       - provider
+      - publicName
       - slug
+      - visibility
       type: object
     StackUpdateRequestV1:
       additionalProperties: false
@@ -6857,6 +7297,7 @@ components:
           hmInstancePromClusterId: 6.438423552598547
           hlInstanceStatus: active
           labels: "{}"
+          orgCreatedAt: orgCreatedAt
           amInstanceStatus: active
           clusterSlug: clusterSlug
           htInstanceUrl: htInstanceUrl
@@ -6982,6 +7423,7 @@ components:
           hmInstancePromClusterId: 6.438423552598547
           hlInstanceStatus: active
           labels: "{}"
+          orgCreatedAt: orgCreatedAt
           amInstanceStatus: active
           clusterSlug: clusterSlug
           htInstanceUrl: htInstanceUrl
@@ -7631,6 +8073,9 @@ components:
         aiDataSharingOptOut:
           nullable: true
           type: boolean
+        allowedInviteDomains:
+          nullable: true
+          type: string
         disableTokenExpirationEmails:
           nullable: true
           type: boolean
@@ -8216,101 +8661,6 @@ components:
       required:
       - name
       type: object
-    links_inner:
-      example:
-        rel: self
-        href: href
-      properties:
-        rel:
-          default: self
-          title: rel
-          type: string
-        href:
-          title: href
-          type: string
-      required:
-      - href
-      - rel
-      type: object
-    serviceAccounts_inner:
-      example:
-        name: name
-        id: 6.027456183070403
-      properties:
-        id:
-          title: id
-          type: number
-        name:
-          title: name
-          type: string
-      required:
-      - id
-      - name
-      type: object
-    links_inner_1:
-      example:
-        rel: rel
-        href: href
-      properties:
-        rel:
-          title: rel
-          type: string
-        href:
-          title: href
-          type: string
-      required:
-      - href
-      - rel
-      type: object
-    items_inner:
-      example:
-        lastSeenAt: lastSeenAt
-        createdAt: createdAt
-        role: role
-        name: name
-        id: 0.8008281904610115
-        login: login
-        email: email
-        updatedAt: updatedAt
-        isServiceAccount: true
-      properties:
-        lastSeenAt:
-          title: lastSeenAt
-          type: string
-        createdAt:
-          title: createdAt
-          type: string
-        updatedAt:
-          title: updatedAt
-          type: string
-        email:
-          title: email
-          type: string
-        login:
-          title: login
-          type: string
-        name:
-          title: name
-          type: string
-        role:
-          title: role
-          type: string
-        id:
-          title: id
-          type: number
-        isServiceAccount:
-          title: isServiceAccount
-          type: boolean
-      required:
-      - createdAt
-      - email
-      - id
-      - isServiceAccount
-      - login
-      - name
-      - role
-      - updatedAt
-      type: object
     info_anyOf:
       example:
         availabilityZoneIds:
@@ -8553,6 +8903,101 @@ components:
       required:
       - url
       title: appPlatform
+      type: object
+    links_inner:
+      example:
+        rel: self
+        href: href
+      properties:
+        rel:
+          default: self
+          title: rel
+          type: string
+        href:
+          title: href
+          type: string
+      required:
+      - href
+      - rel
+      type: object
+    serviceAccounts_inner:
+      example:
+        name: name
+        id: 6.027456183070403
+      properties:
+        id:
+          title: id
+          type: number
+        name:
+          title: name
+          type: string
+      required:
+      - id
+      - name
+      type: object
+    links_inner_1:
+      example:
+        rel: rel
+        href: href
+      properties:
+        rel:
+          title: rel
+          type: string
+        href:
+          title: href
+          type: string
+      required:
+      - href
+      - rel
+      type: object
+    items_inner:
+      example:
+        lastSeenAt: lastSeenAt
+        createdAt: createdAt
+        role: role
+        name: name
+        id: 0.8008281904610115
+        login: login
+        email: email
+        updatedAt: updatedAt
+        isServiceAccount: true
+      properties:
+        lastSeenAt:
+          title: lastSeenAt
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          title: updatedAt
+          type: string
+        email:
+          title: email
+          type: string
+        login:
+          title: login
+          type: string
+        name:
+          title: name
+          type: string
+        role:
+          title: role
+          type: string
+        id:
+          title: id
+          type: number
+        isServiceAccount:
+          title: isServiceAccount
+          type: boolean
+      required:
+      - createdAt
+      - email
+      - id
+      - isServiceAccount
+      - login
+      - name
+      - role
+      - updatedAt
       type: object
     current:
       example:

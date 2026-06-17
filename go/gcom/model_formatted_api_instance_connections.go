@@ -19,13 +19,14 @@ var _ MappedNullable = &FormattedApiInstanceConnections{}
 
 // FormattedApiInstanceConnections struct for FormattedApiInstanceConnections
 type FormattedApiInstanceConnections struct {
-	PrivateConnectivityInfo PrivateConnectivityInfo `json:"privateConnectivityInfo"`
-	AppPlatform             *AppPlatform            `json:"appPlatform,omitempty"`
-	InfluxUrl               NullableString          `json:"influxUrl,omitempty"`
-	OtlpHttpUrl             NullableString          `json:"otlpHttpUrl,omitempty"`
-	OtlpMultiAZ             bool                    `json:"otlpMultiAZ"`
-	OncallApiUrl            NullableString          `json:"oncallApiUrl,omitempty"`
-	AdditionalProperties    map[string]interface{}
+	PrivateConnectivityInfo   PrivateConnectivityInfo `json:"privateConnectivityInfo"`
+	AppPlatform               *AppPlatform            `json:"appPlatform,omitempty"`
+	InfluxUrl                 NullableString          `json:"influxUrl,omitempty"`
+	OtlpHttpUrl               NullableString          `json:"otlpHttpUrl,omitempty"`
+	OtlpMultiAZ               bool                    `json:"otlpMultiAZ"`
+	OncallApiUrl              NullableString          `json:"oncallApiUrl,omitempty"`
+	SyntheticMonitoringApiUrl NullableString          `json:"syntheticMonitoringApiUrl,omitempty"`
+	AdditionalProperties      map[string]interface{}
 }
 
 type _FormattedApiInstanceConnections FormattedApiInstanceConnections
@@ -258,6 +259,49 @@ func (o *FormattedApiInstanceConnections) UnsetOncallApiUrl() {
 	o.OncallApiUrl.Unset()
 }
 
+// GetSyntheticMonitoringApiUrl returns the SyntheticMonitoringApiUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FormattedApiInstanceConnections) GetSyntheticMonitoringApiUrl() string {
+	if o == nil || IsNil(o.SyntheticMonitoringApiUrl.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SyntheticMonitoringApiUrl.Get()
+}
+
+// GetSyntheticMonitoringApiUrlOk returns a tuple with the SyntheticMonitoringApiUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiInstanceConnections) GetSyntheticMonitoringApiUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SyntheticMonitoringApiUrl.Get(), o.SyntheticMonitoringApiUrl.IsSet()
+}
+
+// HasSyntheticMonitoringApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstanceConnections) HasSyntheticMonitoringApiUrl() bool {
+	if o != nil && o.SyntheticMonitoringApiUrl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSyntheticMonitoringApiUrl gets a reference to the given NullableString and assigns it to the SyntheticMonitoringApiUrl field.
+func (o *FormattedApiInstanceConnections) SetSyntheticMonitoringApiUrl(v string) {
+	o.SyntheticMonitoringApiUrl.Set(&v)
+}
+
+// SetSyntheticMonitoringApiUrlNil sets the value for SyntheticMonitoringApiUrl to be an explicit nil
+func (o *FormattedApiInstanceConnections) SetSyntheticMonitoringApiUrlNil() {
+	o.SyntheticMonitoringApiUrl.Set(nil)
+}
+
+// UnsetSyntheticMonitoringApiUrl ensures that no value is present for SyntheticMonitoringApiUrl, not even an explicit nil
+func (o *FormattedApiInstanceConnections) UnsetSyntheticMonitoringApiUrl() {
+	o.SyntheticMonitoringApiUrl.Unset()
+}
+
 func (o FormattedApiInstanceConnections) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -281,6 +325,9 @@ func (o FormattedApiInstanceConnections) ToMap() (map[string]interface{}, error)
 	toSerialize["otlpMultiAZ"] = o.OtlpMultiAZ
 	if o.OncallApiUrl.IsSet() {
 		toSerialize["oncallApiUrl"] = o.OncallApiUrl.Get()
+	}
+	if o.SyntheticMonitoringApiUrl.IsSet() {
+		toSerialize["syntheticMonitoringApiUrl"] = o.SyntheticMonitoringApiUrl.Get()
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -318,6 +365,7 @@ func (o *FormattedApiInstanceConnections) UnmarshalJSON(data []byte) (err error)
 		delete(additionalProperties, "otlpHttpUrl")
 		delete(additionalProperties, "otlpMultiAZ")
 		delete(additionalProperties, "oncallApiUrl")
+		delete(additionalProperties, "syntheticMonitoringApiUrl")
 		o.AdditionalProperties = additionalProperties
 	}
 
