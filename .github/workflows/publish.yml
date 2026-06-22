@@ -41,7 +41,3 @@ jobs:
         if: github.event_name == 'pull_request'
         with:
           commit_message: "Updating generated clients after openapi change"
-          commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
-
