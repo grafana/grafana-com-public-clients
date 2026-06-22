@@ -29,44 +29,5 @@
         '* * * * 1',
       ],
     },
-    {
-      matchDatasources: [
-        'custom.grafana-com-openapi',
-      ],
-      matchFileNames: [
-        'openapi.json',
-      ],
-      automerge: true,
-      branchPrefix: 'auto-merge/grafanarenovatebot/',
-      versioning: 'loose',
-      minimumReleaseAge: null,
-    },
   ],
-  customDatasources: {
-    'grafana-com-openapi': {
-      defaultRegistryUrlTemplate: 'https://grafana.com/api/openapi.json',
-      format: 'json',
-      transformTemplates: [
-        '{"tags": {"latestVersion": $$.(info."x-generated-at")}, "releases":[{"version": $$.(info."x-generated-at"),"sourceUrl":"https://grafana.com/api/openapi.json","releaseTimestamp":$$.(info."x-generated-at"),"digest": $$.(info."x-commit-sha")}]}',
-      ],
-    },
-  },
-  customManagers: [
-    {
-      customType: 'regex',
-      description: 'Update openapi.json file',
-      managerFilePatterns: [
-        '/^openapi.json$/',
-      ],
-      matchStrings: [
-        '"(?<depName>x-generated-at)": "(?<currentValue>[^"]+)"',
-      ],
-      datasourceTemplate: 'custom.grafana-com-openapi',
-    },
-  ],
-  postUpgradeTasks: {
-    commands: [
-      'curl https://grafana.com/api/openapi.json -o openapi.json',
-    ],
-  },
 }
