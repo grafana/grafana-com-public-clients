@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AllowlistUrl** | Pointer to **string** | Allowlist API endpoint | [optional] 
 **Id** | **int64** | tenant id | 
 **Info** | Pointer to [**BasicPrivateConnectivityInfo**](BasicPrivateConnectivityInfo.md) |  | [optional] 
 **IpAllowListCNAME** | **NullableString** | IP allow list CNAME | 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewInstanceConnectionTenantWithDefaults instantiates a new InstanceConnectionTenant object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAllowlistUrl
+
+`func (o *InstanceConnectionTenant) GetAllowlistUrl() string`
+
+GetAllowlistUrl returns the AllowlistUrl field if non-nil, zero value otherwise.
+
+### GetAllowlistUrlOk
+
+`func (o *InstanceConnectionTenant) GetAllowlistUrlOk() (*string, bool)`
+
+GetAllowlistUrlOk returns a tuple with the AllowlistUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowlistUrl
+
+`func (o *InstanceConnectionTenant) SetAllowlistUrl(v string)`
+
+SetAllowlistUrl sets AllowlistUrl field to given value.
+
+### HasAllowlistUrl
+
+`func (o *InstanceConnectionTenant) HasAllowlistUrl() bool`
+
+HasAllowlistUrl returns a boolean if a field has been set.
 
 ### GetId
 

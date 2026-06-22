@@ -23,6 +23,7 @@ type TenantsInner struct {
 	Id                   float32        `json:"id"`
 	Info                 *Info          `json:"info,omitempty"`
 	IpAllowListCNAME     NullableString `json:"ipAllowListCNAME,omitempty"`
+	AllowlistUrl         NullableString `json:"allowlistUrl,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -170,6 +171,49 @@ func (o *TenantsInner) UnsetIpAllowListCNAME() {
 	o.IpAllowListCNAME.Unset()
 }
 
+// GetAllowlistUrl returns the AllowlistUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TenantsInner) GetAllowlistUrl() string {
+	if o == nil || IsNil(o.AllowlistUrl.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.AllowlistUrl.Get()
+}
+
+// GetAllowlistUrlOk returns a tuple with the AllowlistUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TenantsInner) GetAllowlistUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AllowlistUrl.Get(), o.AllowlistUrl.IsSet()
+}
+
+// HasAllowlistUrl returns a boolean if a field has been set.
+func (o *TenantsInner) HasAllowlistUrl() bool {
+	if o != nil && o.AllowlistUrl.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowlistUrl gets a reference to the given NullableString and assigns it to the AllowlistUrl field.
+func (o *TenantsInner) SetAllowlistUrl(v string) {
+	o.AllowlistUrl.Set(&v)
+}
+
+// SetAllowlistUrlNil sets the value for AllowlistUrl to be an explicit nil
+func (o *TenantsInner) SetAllowlistUrlNil() {
+	o.AllowlistUrl.Set(nil)
+}
+
+// UnsetAllowlistUrl ensures that no value is present for AllowlistUrl, not even an explicit nil
+func (o *TenantsInner) UnsetAllowlistUrl() {
+	o.AllowlistUrl.Unset()
+}
+
 func (o TenantsInner) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -187,6 +231,9 @@ func (o TenantsInner) ToMap() (map[string]interface{}, error) {
 	}
 	if o.IpAllowListCNAME.IsSet() {
 		toSerialize["ipAllowListCNAME"] = o.IpAllowListCNAME.Get()
+	}
+	if o.AllowlistUrl.IsSet() {
+		toSerialize["allowlistUrl"] = o.AllowlistUrl.Get()
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -222,6 +269,7 @@ func (o *TenantsInner) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "id")
 		delete(additionalProperties, "info")
 		delete(additionalProperties, "ipAllowListCNAME")
+		delete(additionalProperties, "allowlistUrl")
 		o.AdditionalProperties = additionalProperties
 	}
 

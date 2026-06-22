@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: c15eadf
-  x-generated-at: 2026-06-17T07:50:41.429Z
+  x-commit-sha: 48f0d62
+  x-generated-at: 2026-06-22T07:01:45.528Z
 servers:
 - description: Main API server
   url: /api
@@ -3850,6 +3850,7 @@ components:
               - availabilityZones
               privateDNS: privateDNS
               serviceName: serviceName
+            allowlistUrl: allowlistUrl
           - ipAllowListCNAME: ipAllowListCNAME
             id: 0.8008281904610115
             type: type
@@ -3865,6 +3866,7 @@ components:
               - availabilityZones
               privateDNS: privateDNS
               serviceName: serviceName
+            allowlistUrl: allowlistUrl
           otlp:
             availabilityZoneIds:
             - availabilityZoneIds
@@ -6617,6 +6619,9 @@ components:
     InstanceConnectionTenant:
       additionalProperties: false
       properties:
+        allowlistUrl:
+          description: Allowlist API endpoint
+          type: string
         id:
           description: tenant id
           format: int64
@@ -6896,7 +6901,6 @@ components:
     StackConnectionTenantV1:
       additionalProperties: false
       example:
-        ipAllowListCNAME: ipAllowListCNAME
         id: 0
         privateConnectivityInfo:
           availabilityZoneIds:
@@ -6917,13 +6921,15 @@ components:
           serviceName: serviceName
         type: type
         url: url
+        allowlistUrl: allowlistUrl
       properties:
+        allowlistUrl:
+          description: Allowlist API endpoint
+          type: string
         id:
           description: tenant id
           format: int64
           type: integer
-        ipAllowListCNAME:
-          type: string
         privateConnectivityInfo:
           $ref: '#/components/schemas/BasicPrivateConnectivityInfo'
         type:
@@ -6940,8 +6946,7 @@ components:
       additionalProperties: false
       example:
         tenants:
-        - ipAllowListCNAME: ipAllowListCNAME
-          id: 0
+        - id: 0
           privateConnectivityInfo:
             availabilityZoneIds:
             - availabilityZoneIds
@@ -6961,8 +6966,8 @@ components:
             serviceName: serviceName
           type: type
           url: url
-        - ipAllowListCNAME: ipAllowListCNAME
-          id: 0
+          allowlistUrl: allowlistUrl
+        - id: 0
           privateConnectivityInfo:
             availabilityZoneIds:
             - availabilityZoneIds
@@ -6982,6 +6987,7 @@ components:
             serviceName: serviceName
           type: type
           url: url
+          allowlistUrl: allowlistUrl
         appPlatform:
           url: url
           caData: caData
@@ -8736,6 +8742,7 @@ components:
           - availabilityZones
           privateDNS: privateDNS
           serviceName: serviceName
+        allowlistUrl: allowlistUrl
       properties:
         type:
           title: type
@@ -8748,6 +8755,10 @@ components:
         ipAllowListCNAME:
           nullable: true
           title: ipAllowListCNAME
+          type: string
+        allowlistUrl:
+          nullable: true
+          title: allowlistUrl
           type: string
       required:
       - id
@@ -8822,6 +8833,7 @@ components:
             - availabilityZones
             privateDNS: privateDNS
             serviceName: serviceName
+          allowlistUrl: allowlistUrl
         - ipAllowListCNAME: ipAllowListCNAME
           id: 0.8008281904610115
           type: type
@@ -8837,6 +8849,7 @@ components:
             - availabilityZones
             privateDNS: privateDNS
             serviceName: serviceName
+          allowlistUrl: allowlistUrl
         otlp:
           availabilityZoneIds:
           - availabilityZoneIds

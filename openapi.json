@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "c15eadf",
-    "x-generated-at": "2026-06-17T07:50:41.429Z"
+    "x-commit-sha": "48f0d62",
+    "x-generated-at": "2026-06-22T07:01:45.528Z"
   },
   "servers": [
     {
@@ -6467,6 +6467,11 @@
                       "type": "string",
                       "title": "ipAllowListCNAME",
                       "nullable": true
+                    },
+                    "allowlistUrl": {
+                      "type": "string",
+                      "title": "allowlistUrl",
+                      "nullable": true
                     }
                   },
                   "required": [
@@ -12857,6 +12862,10 @@
       "InstanceConnectionTenant": {
         "additionalProperties": false,
         "properties": {
+          "allowlistUrl": {
+            "description": "Allowlist API endpoint",
+            "type": "string"
+          },
           "id": {
             "description": "tenant id",
             "format": "int64",
@@ -13104,13 +13113,14 @@
       "StackConnectionTenantV1": {
         "additionalProperties": false,
         "properties": {
+          "allowlistUrl": {
+            "description": "Allowlist API endpoint",
+            "type": "string"
+          },
           "id": {
             "description": "tenant id",
             "format": "int64",
             "type": "integer"
-          },
-          "ipAllowListCNAME": {
-            "type": "string"
           },
           "privateConnectivityInfo": {
             "$ref": "#/components/schemas/BasicPrivateConnectivityInfo"
