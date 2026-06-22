@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Id** | **float32** |  | 
 **Info** | Pointer to [**Info**](Info.md) |  | [optional] 
 **IpAllowListCNAME** | Pointer to **NullableString** |  | [optional] 
+**AllowlistUrl** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -128,6 +129,41 @@ HasIpAllowListCNAME returns a boolean if a field has been set.
 `func (o *TenantsInner) UnsetIpAllowListCNAME()`
 
 UnsetIpAllowListCNAME ensures that no value is present for IpAllowListCNAME, not even an explicit nil
+### GetAllowlistUrl
+
+`func (o *TenantsInner) GetAllowlistUrl() string`
+
+GetAllowlistUrl returns the AllowlistUrl field if non-nil, zero value otherwise.
+
+### GetAllowlistUrlOk
+
+`func (o *TenantsInner) GetAllowlistUrlOk() (*string, bool)`
+
+GetAllowlistUrlOk returns a tuple with the AllowlistUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowlistUrl
+
+`func (o *TenantsInner) SetAllowlistUrl(v string)`
+
+SetAllowlistUrl sets AllowlistUrl field to given value.
+
+### HasAllowlistUrl
+
+`func (o *TenantsInner) HasAllowlistUrl() bool`
+
+HasAllowlistUrl returns a boolean if a field has been set.
+
+### SetAllowlistUrlNil
+
+`func (o *TenantsInner) SetAllowlistUrlNil(b bool)`
+
+ SetAllowlistUrlNil sets the value for AllowlistUrl to be an explicit nil
+
+### UnsetAllowlistUrl
+`func (o *TenantsInner) UnsetAllowlistUrl()`
+
+UnsetAllowlistUrl ensures that no value is present for AllowlistUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

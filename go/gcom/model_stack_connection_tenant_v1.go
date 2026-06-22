@@ -20,9 +20,10 @@ var _ MappedNullable = &StackConnectionTenantV1{}
 
 // StackConnectionTenantV1 struct for StackConnectionTenantV1
 type StackConnectionTenantV1 struct {
+	// Allowlist API endpoint
+	AllowlistUrl *string `json:"allowlistUrl,omitempty"`
 	// tenant id
 	Id                      int64                         `json:"id"`
-	IpAllowListCNAME        *string                       `json:"ipAllowListCNAME,omitempty"`
 	PrivateConnectivityInfo *BasicPrivateConnectivityInfo `json:"privateConnectivityInfo,omitempty"`
 	// tenant type
 	Type string `json:"type"`
@@ -51,6 +52,38 @@ func NewStackConnectionTenantV1WithDefaults() *StackConnectionTenantV1 {
 	return &this
 }
 
+// GetAllowlistUrl returns the AllowlistUrl field value if set, zero value otherwise.
+func (o *StackConnectionTenantV1) GetAllowlistUrl() string {
+	if o == nil || IsNil(o.AllowlistUrl) {
+		var ret string
+		return ret
+	}
+	return *o.AllowlistUrl
+}
+
+// GetAllowlistUrlOk returns a tuple with the AllowlistUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StackConnectionTenantV1) GetAllowlistUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.AllowlistUrl) {
+		return nil, false
+	}
+	return o.AllowlistUrl, true
+}
+
+// HasAllowlistUrl returns a boolean if a field has been set.
+func (o *StackConnectionTenantV1) HasAllowlistUrl() bool {
+	if o != nil && !IsNil(o.AllowlistUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowlistUrl gets a reference to the given string and assigns it to the AllowlistUrl field.
+func (o *StackConnectionTenantV1) SetAllowlistUrl(v string) {
+	o.AllowlistUrl = &v
+}
+
 // GetId returns the Id field value
 func (o *StackConnectionTenantV1) GetId() int64 {
 	if o == nil {
@@ -73,38 +106,6 @@ func (o *StackConnectionTenantV1) GetIdOk() (*int64, bool) {
 // SetId sets field value
 func (o *StackConnectionTenantV1) SetId(v int64) {
 	o.Id = v
-}
-
-// GetIpAllowListCNAME returns the IpAllowListCNAME field value if set, zero value otherwise.
-func (o *StackConnectionTenantV1) GetIpAllowListCNAME() string {
-	if o == nil || IsNil(o.IpAllowListCNAME) {
-		var ret string
-		return ret
-	}
-	return *o.IpAllowListCNAME
-}
-
-// GetIpAllowListCNAMEOk returns a tuple with the IpAllowListCNAME field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *StackConnectionTenantV1) GetIpAllowListCNAMEOk() (*string, bool) {
-	if o == nil || IsNil(o.IpAllowListCNAME) {
-		return nil, false
-	}
-	return o.IpAllowListCNAME, true
-}
-
-// HasIpAllowListCNAME returns a boolean if a field has been set.
-func (o *StackConnectionTenantV1) HasIpAllowListCNAME() bool {
-	if o != nil && !IsNil(o.IpAllowListCNAME) {
-		return true
-	}
-
-	return false
-}
-
-// SetIpAllowListCNAME gets a reference to the given string and assigns it to the IpAllowListCNAME field.
-func (o *StackConnectionTenantV1) SetIpAllowListCNAME(v string) {
-	o.IpAllowListCNAME = &v
 }
 
 // GetPrivateConnectivityInfo returns the PrivateConnectivityInfo field value if set, zero value otherwise.
@@ -205,10 +206,10 @@ func (o StackConnectionTenantV1) MarshalJSON() ([]byte, error) {
 
 func (o StackConnectionTenantV1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	if !IsNil(o.IpAllowListCNAME) {
-		toSerialize["ipAllowListCNAME"] = o.IpAllowListCNAME
+	if !IsNil(o.AllowlistUrl) {
+		toSerialize["allowlistUrl"] = o.AllowlistUrl
 	}
+	toSerialize["id"] = o.Id
 	if !IsNil(o.PrivateConnectivityInfo) {
 		toSerialize["privateConnectivityInfo"] = o.PrivateConnectivityInfo
 	}

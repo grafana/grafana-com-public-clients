@@ -20,6 +20,8 @@ var _ MappedNullable = &InstanceConnectionTenant{}
 
 // InstanceConnectionTenant struct for InstanceConnectionTenant
 type InstanceConnectionTenant struct {
+	// Allowlist API endpoint
+	AllowlistUrl *string `json:"allowlistUrl,omitempty"`
 	// tenant id
 	Id   int64                         `json:"id"`
 	Info *BasicPrivateConnectivityInfo `json:"info,omitempty"`
@@ -49,6 +51,38 @@ func NewInstanceConnectionTenant(id int64, ipAllowListCNAME NullableString, type
 func NewInstanceConnectionTenantWithDefaults() *InstanceConnectionTenant {
 	this := InstanceConnectionTenant{}
 	return &this
+}
+
+// GetAllowlistUrl returns the AllowlistUrl field value if set, zero value otherwise.
+func (o *InstanceConnectionTenant) GetAllowlistUrl() string {
+	if o == nil || IsNil(o.AllowlistUrl) {
+		var ret string
+		return ret
+	}
+	return *o.AllowlistUrl
+}
+
+// GetAllowlistUrlOk returns a tuple with the AllowlistUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *InstanceConnectionTenant) GetAllowlistUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.AllowlistUrl) {
+		return nil, false
+	}
+	return o.AllowlistUrl, true
+}
+
+// HasAllowlistUrl returns a boolean if a field has been set.
+func (o *InstanceConnectionTenant) HasAllowlistUrl() bool {
+	if o != nil && !IsNil(o.AllowlistUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllowlistUrl gets a reference to the given string and assigns it to the AllowlistUrl field.
+func (o *InstanceConnectionTenant) SetAllowlistUrl(v string) {
+	o.AllowlistUrl = &v
 }
 
 // GetId returns the Id field value
@@ -167,6 +201,9 @@ func (o InstanceConnectionTenant) MarshalJSON() ([]byte, error) {
 
 func (o InstanceConnectionTenant) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.AllowlistUrl) {
+		toSerialize["allowlistUrl"] = o.AllowlistUrl
+	}
 	toSerialize["id"] = o.Id
 	if !IsNil(o.Info) {
 		toSerialize["info"] = o.Info

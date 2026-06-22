@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AllowlistUrl** | Pointer to **string** | Allowlist API endpoint | [optional] 
 **Id** | **int64** | tenant id | 
-**IpAllowListCNAME** | Pointer to **string** |  | [optional] 
 **PrivateConnectivityInfo** | Pointer to [**BasicPrivateConnectivityInfo**](BasicPrivateConnectivityInfo.md) |  | [optional] 
 **Type** | **string** | tenant type | 
 **Url** | Pointer to **string** | URL for the tenant | [optional] 
@@ -29,6 +29,31 @@ NewStackConnectionTenantV1WithDefaults instantiates a new StackConnectionTenantV
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetAllowlistUrl
+
+`func (o *StackConnectionTenantV1) GetAllowlistUrl() string`
+
+GetAllowlistUrl returns the AllowlistUrl field if non-nil, zero value otherwise.
+
+### GetAllowlistUrlOk
+
+`func (o *StackConnectionTenantV1) GetAllowlistUrlOk() (*string, bool)`
+
+GetAllowlistUrlOk returns a tuple with the AllowlistUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowlistUrl
+
+`func (o *StackConnectionTenantV1) SetAllowlistUrl(v string)`
+
+SetAllowlistUrl sets AllowlistUrl field to given value.
+
+### HasAllowlistUrl
+
+`func (o *StackConnectionTenantV1) HasAllowlistUrl() bool`
+
+HasAllowlistUrl returns a boolean if a field has been set.
+
 ### GetId
 
 `func (o *StackConnectionTenantV1) GetId() int64`
@@ -48,31 +73,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-
-### GetIpAllowListCNAME
-
-`func (o *StackConnectionTenantV1) GetIpAllowListCNAME() string`
-
-GetIpAllowListCNAME returns the IpAllowListCNAME field if non-nil, zero value otherwise.
-
-### GetIpAllowListCNAMEOk
-
-`func (o *StackConnectionTenantV1) GetIpAllowListCNAMEOk() (*string, bool)`
-
-GetIpAllowListCNAMEOk returns a tuple with the IpAllowListCNAME field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIpAllowListCNAME
-
-`func (o *StackConnectionTenantV1) SetIpAllowListCNAME(v string)`
-
-SetIpAllowListCNAME sets IpAllowListCNAME field to given value.
-
-### HasIpAllowListCNAME
-
-`func (o *StackConnectionTenantV1) HasIpAllowListCNAME() bool`
-
-HasIpAllowListCNAME returns a boolean if a field has been set.
 
 ### GetPrivateConnectivityInfo
 
