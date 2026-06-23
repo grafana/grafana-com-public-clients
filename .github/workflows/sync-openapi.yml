@@ -1,0 +1,39 @@
+name: Sync OpenAPI spec
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-openapi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Check for OpenAPI drift
+        id: drift
+        run: bash .github/workflows/check-openapi-drift.sh
+
+      - name: Create or update pull request
+        if: steps.drift.outputs.drift == 'true'
+        uses: peter-evans/create-pull-request@d4f3be6ce6f4083b7ac7490ab98b48a62db1ee41 # v7.0.10
+        with:
+          branch: sync/openapi
+          base: main
+          title: Update GCOM OpenAPI spec
+          commit-message: Update openapi.json from grafana.com API
+          body: |
+            Sync `openapi.json` with the latest [GCOM OpenAPI spec](https://grafana.com/api/openapi.json).
+
+            The `Generate Clients` workflow will regenerate the Go client on this pull request.
+          add-paths: |
+            openapi.json
+          labels: |
+            automated
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
