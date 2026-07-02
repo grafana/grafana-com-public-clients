@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Mimir** | [**Mimir**](Mimir.md) |  | 
 **Graphite** | Pointer to [**Graphite**](Graphite.md) |  | [optional] 
-**Otlp** | Pointer to [**Otlp1**](Otlp1.md) |  | [optional] 
+**Otlp** | Pointer to [**Otlp**](Otlp.md) |  | [optional] 
 
 ## Methods
 
@@ -74,20 +74,20 @@ HasGraphite returns a boolean if a field has been set.
 
 ### GetOtlp
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlp() Otlp1`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlp() Otlp`
 
 GetOtlp returns the Otlp field if non-nil, zero value otherwise.
 
 ### GetOtlpOk
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlpOk() (*Otlp1, bool)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlpOk() (*Otlp, bool)`
 
 GetOtlpOk returns a tuple with the Otlp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOtlp
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) SetOtlp(v Otlp1)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) SetOtlp(v Otlp)`
 
 SetOtlp sets Otlp field to given value.
 

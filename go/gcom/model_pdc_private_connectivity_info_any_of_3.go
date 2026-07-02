@@ -21,7 +21,7 @@ var _ MappedNullable = &PdcPrivateConnectivityInfoAnyOf3{}
 type PdcPrivateConnectivityInfoAnyOf3 struct {
 	Mimir                Mimir     `json:"mimir"`
 	Graphite             *Graphite `json:"graphite,omitempty"`
-	Otlp                 *Otlp1    `json:"otlp,omitempty"`
+	Otlp                 *Otlp     `json:"otlp,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -102,9 +102,9 @@ func (o *PdcPrivateConnectivityInfoAnyOf3) SetGraphite(v Graphite) {
 }
 
 // GetOtlp returns the Otlp field value if set, zero value otherwise.
-func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlp() Otlp1 {
+func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlp() Otlp {
 	if o == nil || IsNil(o.Otlp) {
-		var ret Otlp1
+		var ret Otlp
 		return ret
 	}
 	return *o.Otlp
@@ -112,7 +112,7 @@ func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlp() Otlp1 {
 
 // GetOtlpOk returns a tuple with the Otlp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlpOk() (*Otlp1, bool) {
+func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlpOk() (*Otlp, bool) {
 	if o == nil || IsNil(o.Otlp) {
 		return nil, false
 	}
@@ -128,8 +128,8 @@ func (o *PdcPrivateConnectivityInfoAnyOf3) HasOtlp() bool {
 	return false
 }
 
-// SetOtlp gets a reference to the given Otlp1 and assigns it to the Otlp field.
-func (o *PdcPrivateConnectivityInfoAnyOf3) SetOtlp(v Otlp1) {
+// SetOtlp gets a reference to the given Otlp and assigns it to the Otlp field.
+func (o *PdcPrivateConnectivityInfoAnyOf3) SetOtlp(v Otlp) {
 	o.Otlp = &v
 }
 

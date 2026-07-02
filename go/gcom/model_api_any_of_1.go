@@ -14,39 +14,41 @@ import (
 	"encoding/json"
 )
 
-// checks if the InfoAnyOf1 type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &InfoAnyOf1{}
+// checks if the ApiAnyOf1 type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApiAnyOf1{}
 
-// InfoAnyOf1 struct for InfoAnyOf1
-type InfoAnyOf1 struct {
+// ApiAnyOf1 struct for ApiAnyOf1
+type ApiAnyOf1 struct {
 	ServiceAttachment    string   `json:"serviceAttachment"`
 	DomainNames          []string `json:"domainNames"`
+	EndpointName         string   `json:"endpointName"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _InfoAnyOf1 InfoAnyOf1
+type _ApiAnyOf1 ApiAnyOf1
 
-// NewInfoAnyOf1 instantiates a new InfoAnyOf1 object
+// NewApiAnyOf1 instantiates a new ApiAnyOf1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInfoAnyOf1(serviceAttachment string, domainNames []string) *InfoAnyOf1 {
-	this := InfoAnyOf1{}
+func NewApiAnyOf1(serviceAttachment string, domainNames []string, endpointName string) *ApiAnyOf1 {
+	this := ApiAnyOf1{}
 	this.ServiceAttachment = serviceAttachment
 	this.DomainNames = domainNames
+	this.EndpointName = endpointName
 	return &this
 }
 
-// NewInfoAnyOf1WithDefaults instantiates a new InfoAnyOf1 object
+// NewApiAnyOf1WithDefaults instantiates a new ApiAnyOf1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInfoAnyOf1WithDefaults() *InfoAnyOf1 {
-	this := InfoAnyOf1{}
+func NewApiAnyOf1WithDefaults() *ApiAnyOf1 {
+	this := ApiAnyOf1{}
 	return &this
 }
 
 // GetServiceAttachment returns the ServiceAttachment field value
-func (o *InfoAnyOf1) GetServiceAttachment() string {
+func (o *ApiAnyOf1) GetServiceAttachment() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -57,7 +59,7 @@ func (o *InfoAnyOf1) GetServiceAttachment() string {
 
 // GetServiceAttachmentOk returns a tuple with the ServiceAttachment field value
 // and a boolean to check if the value has been set.
-func (o *InfoAnyOf1) GetServiceAttachmentOk() (*string, bool) {
+func (o *ApiAnyOf1) GetServiceAttachmentOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,12 +67,12 @@ func (o *InfoAnyOf1) GetServiceAttachmentOk() (*string, bool) {
 }
 
 // SetServiceAttachment sets field value
-func (o *InfoAnyOf1) SetServiceAttachment(v string) {
+func (o *ApiAnyOf1) SetServiceAttachment(v string) {
 	o.ServiceAttachment = v
 }
 
 // GetDomainNames returns the DomainNames field value
-func (o *InfoAnyOf1) GetDomainNames() []string {
+func (o *ApiAnyOf1) GetDomainNames() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -81,7 +83,7 @@ func (o *InfoAnyOf1) GetDomainNames() []string {
 
 // GetDomainNamesOk returns a tuple with the DomainNames field value
 // and a boolean to check if the value has been set.
-func (o *InfoAnyOf1) GetDomainNamesOk() ([]string, bool) {
+func (o *ApiAnyOf1) GetDomainNamesOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -89,11 +91,35 @@ func (o *InfoAnyOf1) GetDomainNamesOk() ([]string, bool) {
 }
 
 // SetDomainNames sets field value
-func (o *InfoAnyOf1) SetDomainNames(v []string) {
+func (o *ApiAnyOf1) SetDomainNames(v []string) {
 	o.DomainNames = v
 }
 
-func (o InfoAnyOf1) MarshalJSON() ([]byte, error) {
+// GetEndpointName returns the EndpointName field value
+func (o *ApiAnyOf1) GetEndpointName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.EndpointName
+}
+
+// GetEndpointNameOk returns a tuple with the EndpointName field value
+// and a boolean to check if the value has been set.
+func (o *ApiAnyOf1) GetEndpointNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EndpointName, true
+}
+
+// SetEndpointName sets field value
+func (o *ApiAnyOf1) SetEndpointName(v string) {
+	o.EndpointName = v
+}
+
+func (o ApiAnyOf1) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -101,10 +127,11 @@ func (o InfoAnyOf1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o InfoAnyOf1) ToMap() (map[string]interface{}, error) {
+func (o ApiAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["serviceAttachment"] = o.ServiceAttachment
 	toSerialize["domainNames"] = o.DomainNames
+	toSerialize["endpointName"] = o.EndpointName
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -113,7 +140,7 @@ func (o InfoAnyOf1) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *InfoAnyOf1) UnmarshalJSON(data []byte) (err error) {
+func (o *ApiAnyOf1) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -122,59 +149,60 @@ func (o *InfoAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		return err
 	}
 
-	varInfoAnyOf1 := _InfoAnyOf1{}
+	varApiAnyOf1 := _ApiAnyOf1{}
 
-	err = json.Unmarshal(data, &varInfoAnyOf1)
+	err = json.Unmarshal(data, &varApiAnyOf1)
 
 	if err != nil {
 		return err
 	}
 
-	*o = InfoAnyOf1(varInfoAnyOf1)
+	*o = ApiAnyOf1(varApiAnyOf1)
 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "serviceAttachment")
 		delete(additionalProperties, "domainNames")
+		delete(additionalProperties, "endpointName")
 		o.AdditionalProperties = additionalProperties
 	}
 
 	return err
 }
 
-type NullableInfoAnyOf1 struct {
-	value *InfoAnyOf1
+type NullableApiAnyOf1 struct {
+	value *ApiAnyOf1
 	isSet bool
 }
 
-func (v NullableInfoAnyOf1) Get() *InfoAnyOf1 {
+func (v NullableApiAnyOf1) Get() *ApiAnyOf1 {
 	return v.value
 }
 
-func (v *NullableInfoAnyOf1) Set(val *InfoAnyOf1) {
+func (v *NullableApiAnyOf1) Set(val *ApiAnyOf1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInfoAnyOf1) IsSet() bool {
+func (v NullableApiAnyOf1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInfoAnyOf1) Unset() {
+func (v *NullableApiAnyOf1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInfoAnyOf1(val *InfoAnyOf1) *NullableInfoAnyOf1 {
-	return &NullableInfoAnyOf1{value: val, isSet: true}
+func NewNullableApiAnyOf1(val *ApiAnyOf1) *NullableApiAnyOf1 {
+	return &NullableApiAnyOf1{value: val, isSet: true}
 }
 
-func (v NullableInfoAnyOf1) MarshalJSON() ([]byte, error) {
+func (v NullableApiAnyOf1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInfoAnyOf1) UnmarshalJSON(src []byte) error {
+func (v *NullableApiAnyOf1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

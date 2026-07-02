@@ -17,37 +17,37 @@ import (
 
 // Mimir struct for Mimir
 type Mimir struct {
-	Api1AnyOf  *Api1AnyOf
-	Api1AnyOf1 *Api1AnyOf1
+	ApiAnyOf  *ApiAnyOf
+	ApiAnyOf1 *ApiAnyOf1
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *Mimir) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into Api1AnyOf
-	err = json.Unmarshal(data, &dst.Api1AnyOf)
+	// try to unmarshal JSON data into ApiAnyOf
+	err = json.Unmarshal(data, &dst.ApiAnyOf)
 	if err == nil {
-		jsonApi1AnyOf, _ := json.Marshal(dst.Api1AnyOf)
-		if string(jsonApi1AnyOf) == "{}" { // empty struct
-			dst.Api1AnyOf = nil
+		jsonApiAnyOf, _ := json.Marshal(dst.ApiAnyOf)
+		if string(jsonApiAnyOf) == "{}" { // empty struct
+			dst.ApiAnyOf = nil
 		} else {
-			return nil // data stored in dst.Api1AnyOf, return on the first match
+			return nil // data stored in dst.ApiAnyOf, return on the first match
 		}
 	} else {
-		dst.Api1AnyOf = nil
+		dst.ApiAnyOf = nil
 	}
 
-	// try to unmarshal JSON data into Api1AnyOf1
-	err = json.Unmarshal(data, &dst.Api1AnyOf1)
+	// try to unmarshal JSON data into ApiAnyOf1
+	err = json.Unmarshal(data, &dst.ApiAnyOf1)
 	if err == nil {
-		jsonApi1AnyOf1, _ := json.Marshal(dst.Api1AnyOf1)
-		if string(jsonApi1AnyOf1) == "{}" { // empty struct
-			dst.Api1AnyOf1 = nil
+		jsonApiAnyOf1, _ := json.Marshal(dst.ApiAnyOf1)
+		if string(jsonApiAnyOf1) == "{}" { // empty struct
+			dst.ApiAnyOf1 = nil
 		} else {
-			return nil // data stored in dst.Api1AnyOf1, return on the first match
+			return nil // data stored in dst.ApiAnyOf1, return on the first match
 		}
 	} else {
-		dst.Api1AnyOf1 = nil
+		dst.ApiAnyOf1 = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(Mimir)")
@@ -55,12 +55,12 @@ func (dst *Mimir) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src *Mimir) MarshalJSON() ([]byte, error) {
-	if src.Api1AnyOf != nil {
-		return json.Marshal(&src.Api1AnyOf)
+	if src.ApiAnyOf != nil {
+		return json.Marshal(&src.ApiAnyOf)
 	}
 
-	if src.Api1AnyOf1 != nil {
-		return json.Marshal(&src.Api1AnyOf1)
+	if src.ApiAnyOf1 != nil {
+		return json.Marshal(&src.ApiAnyOf1)
 	}
 
 	return nil, nil // no data in anyOf schemas

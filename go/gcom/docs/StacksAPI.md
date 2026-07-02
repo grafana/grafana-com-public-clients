@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**CheckStackSlugV1**](StacksAPI.md#CheckStackSlugV1) | **Post** /v1/stacks/checkUrl | 
 [**CreateStackV1**](StacksAPI.md#CreateStackV1) | **Post** /v1/stacks | 
 [**DeleteStackV1**](StacksAPI.md#DeleteStackV1) | **Delete** /v1/stacks/{idOrSlug} | 
+[**GetConnections**](StacksAPI.md#GetConnections) | **Get** /instances/{instanceId}/connections | Gets an instance&#39;s connectivity information (InfluxDB, OTEL, AWS private link, etc.)
 [**GetStackConnectionsV1**](StacksAPI.md#GetStackConnectionsV1) | **Get** /v1/stacks/{idOrSlug}/connections | 
 [**GetStackV1**](StacksAPI.md#GetStackV1) | **Get** /v1/stacks/{idOrSlug} | 
 [**ListStacksV1**](StacksAPI.md#ListStacksV1) | **Get** /v1/stacks | 
@@ -264,6 +265,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StackV1**](StackV1.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetConnections
+
+> FormattedApiInstanceConnections GetConnections(ctx, instanceId).Execute()
+
+Gets an instance's connectivity information (InfluxDB, OTEL, AWS private link, etc.)
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
+)
+
+func main() {
+	instanceId := "instanceId_example" // string | id or slug of the instance
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StacksAPI.GetConnections(context.Background(), instanceId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StacksAPI.GetConnections``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetConnections`: FormattedApiInstanceConnections
+	fmt.Fprintf(os.Stdout, "Response from `StacksAPI.GetConnections`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceId** | **string** | id or slug of the instance | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetConnectionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**FormattedApiInstanceConnections**](FormattedApiInstanceConnections.md)
 
 ### Authorization
 

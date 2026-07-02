@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique name of the plugin. If the plugin is published on grafana.com, then the plugin &#x60;id&#x60; has to follow the naming conventions. | 
 **Type** | **string** | Plugin type. | 
-**Info** | [**Info1**](Info1.md) |  | 
+**Info** | [**Info**](Info.md) |  | 
 **Name** | **string** | Human-readable name of the plugin that is shown to the user in the UI. | 
 **Dependencies** | [**Dependencies**](Dependencies.md) |  | 
 **Schema** | Pointer to **string** | Schema definition for the plugin.json file. Used primarily for schema validation. | [optional] 
@@ -17,13 +17,15 @@ Name | Type | Description | Notes
 **BuildMode** | Pointer to **string** | The build mode of the plugin. This field is set automatically at build time, so it should not be provided manually. | [optional] 
 **BuiltIn** | Pointer to **bool** | [internal only] Indicates whether the plugin is developed and shipped as part of Grafana. Also known as a &#39;core plugin&#39;. | [optional] 
 **Category** | Pointer to **string** | Plugin category used on the Add new connection page. Can be one from the list: \&quot;tsdb\&quot;, \&quot;logging\&quot;, \&quot;cloud\&quot;, \&quot;tracing\&quot;, \&quot;profiling\&quot;, \&quot;sql\&quot;, \&quot;enterprise\&quot;, \&quot;iot\&quot;, \&quot;other\&quot;, empty string or custom string | [optional] 
+**DocsPath** | Pointer to **string** | Path to the directory containing plugin documentation. | [optional] 
 **EnterpriseFeatures** | Pointer to [**EnterpriseFeatures**](EnterpriseFeatures.md) |  | [optional] 
 **Executable** | Pointer to **string** | The first part of the file name of the backend component executable. There can be multiple executables built for different operating system and architecture. Grafana will check for executables named &#x60;&lt;executable&gt;_&lt;$GOOS&gt;_&lt;lower case $GOARCH&gt;&lt;.exe for Windows&gt;&#x60;, e.g. &#x60;plugin_linux_amd64&#x60;. Combination of $GOOS and $GOARCH can be found here: https://golang.org/doc/install/source#environment. | [optional] 
 **HideFromList** | Pointer to **bool** | [internal only] Excludes the plugin from listings in Grafana&#39;s UI. Only allowed for &#x60;builtIn&#x60; plugins. | [optional] 
 **Includes** | Pointer to [**[]IncludesInner**](IncludesInner.md) | Resources to include in plugin. | [optional] 
 **Logs** | Pointer to **bool** | For data source plugins, if the plugin supports logs. It may be used to filter logs only features. | [optional] 
 **Metrics** | Pointer to **bool** | For data source plugins, if the plugin supports metric queries. Used to enable the plugin in the panel editor. | [optional] 
-**MultiValueFilterOperators** | Pointer to **bool** | For data source plugins, if the plugin supports multi value operators in adhoc filters. | [optional] 
+**Mixed** | Pointer to **bool** | [internal only] For data source plugins, marks the plugin as a &#39;mixed&#39; data source — one whose queries each carry their own &#x60;datasource&#x60; reference and are delegated to other data sources. When &#x60;true&#x60;, Grafana preserves the per-query &#x60;datasource&#x60; field instead of overwriting it with the plugin&#39;s own ref. Used by the built-in &#x60;-- Mixed --&#x60; data source. Setting this on a regular data source plugin will break query routing. | [optional] 
+**MultiValueFilterOperators** | Pointer to **bool** | For data source plugins, if the plugin supports multi value operators in filters. | [optional] 
 **PascalName** | Pointer to **string** | [internal only] The PascalCase name for the plugin. Used for creating machine-friendly identifiers, typically in code generation. If not provided, defaults to name, but title-cased and sanitized (only alphabetical characters allowed). | [optional] 
 **Preload** | Pointer to **bool** | Initialize plugin on startup. By default, the plugin initializes on first use, but when preload is set to true the plugin loads when the Grafana web app loads the first time. Only applicable to app plugins. When setting to &#x60;true&#x60;, implement [frontend code splitting](https://grafana.com/developers/plugin-tools/get-started/best-practices#app-plugins) to minimise performance implications. | [optional] 
 **Suggestions** | Pointer to **bool** | For panel plugins. If set to true, the plugin&#39;s suggestions supplier will be invoked and any suggestions returned will be included in the Suggestions pane in the Panel Editor. | [optional] 
@@ -42,7 +44,7 @@ Name | Type | Description | Notes
 
 ### NewJson
 
-`func NewJson(id string, type_ string, info Info1, name string, dependencies Dependencies, ) *Json`
+`func NewJson(id string, type_ string, info Info, name string, dependencies Dependencies, ) *Json`
 
 NewJson instantiates a new Json object
 This constructor will assign default values to properties that have it defined,
@@ -99,20 +101,20 @@ SetType sets Type field to given value.
 
 ### GetInfo
 
-`func (o *Json) GetInfo() Info1`
+`func (o *Json) GetInfo() Info`
 
 GetInfo returns the Info field if non-nil, zero value otherwise.
 
 ### GetInfoOk
 
-`func (o *Json) GetInfoOk() (*Info1, bool)`
+`func (o *Json) GetInfoOk() (*Info, bool)`
 
 GetInfoOk returns a tuple with the Info field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInfo
 
-`func (o *Json) SetInfo(v Info1)`
+`func (o *Json) SetInfo(v Info)`
 
 SetInfo sets Info field to given value.
 
@@ -357,6 +359,31 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
+### GetDocsPath
+
+`func (o *Json) GetDocsPath() string`
+
+GetDocsPath returns the DocsPath field if non-nil, zero value otherwise.
+
+### GetDocsPathOk
+
+`func (o *Json) GetDocsPathOk() (*string, bool)`
+
+GetDocsPathOk returns a tuple with the DocsPath field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDocsPath
+
+`func (o *Json) SetDocsPath(v string)`
+
+SetDocsPath sets DocsPath field to given value.
+
+### HasDocsPath
+
+`func (o *Json) HasDocsPath() bool`
+
+HasDocsPath returns a boolean if a field has been set.
+
 ### GetEnterpriseFeatures
 
 `func (o *Json) GetEnterpriseFeatures() EnterpriseFeatures`
@@ -506,6 +533,31 @@ SetMetrics sets Metrics field to given value.
 `func (o *Json) HasMetrics() bool`
 
 HasMetrics returns a boolean if a field has been set.
+
+### GetMixed
+
+`func (o *Json) GetMixed() bool`
+
+GetMixed returns the Mixed field if non-nil, zero value otherwise.
+
+### GetMixedOk
+
+`func (o *Json) GetMixedOk() (*bool, bool)`
+
+GetMixedOk returns a tuple with the Mixed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMixed
+
+`func (o *Json) SetMixed(v bool)`
+
+SetMixed sets Mixed field to given value.
+
+### HasMixed
+
+`func (o *Json) HasMixed() bool`
+
+HasMixed returns a boolean if a field has been set.
 
 ### GetMultiValueFilterOperators
 

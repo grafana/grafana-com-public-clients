@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ServiceName** | **string** |  | 
 **PrivateDNS** | **string** |  | 
+**ServiceName** | **string** |  | 
 **Regions** | Pointer to **[]string** |  | [optional] 
+**EndpointName** | **string** |  | 
+**ServiceId** | Pointer to **string** |  | [optional] 
 **AvailabilityZones** | Pointer to **[]string** |  | [optional] 
 **AvailabilityZoneIds** | Pointer to **[]string** |  | [optional] 
 **ServiceAttachment** | **string** |  | 
@@ -16,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewGateway
 
-`func NewGateway(serviceName string, privateDNS string, serviceAttachment string, domainNames []string, ) *Gateway`
+`func NewGateway(privateDNS string, serviceName string, endpointName string, serviceAttachment string, domainNames []string, ) *Gateway`
 
 NewGateway instantiates a new Gateway object
 This constructor will assign default values to properties that have it defined,
@@ -30,26 +32,6 @@ will change when the set of required properties is changed
 NewGatewayWithDefaults instantiates a new Gateway object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetServiceName
-
-`func (o *Gateway) GetServiceName() string`
-
-GetServiceName returns the ServiceName field if non-nil, zero value otherwise.
-
-### GetServiceNameOk
-
-`func (o *Gateway) GetServiceNameOk() (*string, bool)`
-
-GetServiceNameOk returns a tuple with the ServiceName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceName
-
-`func (o *Gateway) SetServiceName(v string)`
-
-SetServiceName sets ServiceName field to given value.
-
 
 ### GetPrivateDNS
 
@@ -69,6 +51,26 @@ and a boolean to check if the value has been set.
 `func (o *Gateway) SetPrivateDNS(v string)`
 
 SetPrivateDNS sets PrivateDNS field to given value.
+
+
+### GetServiceName
+
+`func (o *Gateway) GetServiceName() string`
+
+GetServiceName returns the ServiceName field if non-nil, zero value otherwise.
+
+### GetServiceNameOk
+
+`func (o *Gateway) GetServiceNameOk() (*string, bool)`
+
+GetServiceNameOk returns a tuple with the ServiceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceName
+
+`func (o *Gateway) SetServiceName(v string)`
+
+SetServiceName sets ServiceName field to given value.
 
 
 ### GetRegions
@@ -95,6 +97,51 @@ SetRegions sets Regions field to given value.
 `func (o *Gateway) HasRegions() bool`
 
 HasRegions returns a boolean if a field has been set.
+
+### GetEndpointName
+
+`func (o *Gateway) GetEndpointName() string`
+
+GetEndpointName returns the EndpointName field if non-nil, zero value otherwise.
+
+### GetEndpointNameOk
+
+`func (o *Gateway) GetEndpointNameOk() (*string, bool)`
+
+GetEndpointNameOk returns a tuple with the EndpointName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndpointName
+
+`func (o *Gateway) SetEndpointName(v string)`
+
+SetEndpointName sets EndpointName field to given value.
+
+
+### GetServiceId
+
+`func (o *Gateway) GetServiceId() string`
+
+GetServiceId returns the ServiceId field if non-nil, zero value otherwise.
+
+### GetServiceIdOk
+
+`func (o *Gateway) GetServiceIdOk() (*string, bool)`
+
+GetServiceIdOk returns a tuple with the ServiceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceId
+
+`func (o *Gateway) SetServiceId(v string)`
+
+SetServiceId sets ServiceId field to given value.
+
+### HasServiceId
+
+`func (o *Gateway) HasServiceId() bool`
+
+HasServiceId returns a boolean if a field has been set.
 
 ### GetAvailabilityZones
 

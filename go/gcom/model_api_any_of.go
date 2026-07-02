@@ -14,66 +14,44 @@ import (
 	"encoding/json"
 )
 
-// checks if the InfoAnyOf type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &InfoAnyOf{}
+// checks if the ApiAnyOf type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApiAnyOf{}
 
-// InfoAnyOf struct for InfoAnyOf
-type InfoAnyOf struct {
-	ServiceName          string   `json:"serviceName"`
+// ApiAnyOf struct for ApiAnyOf
+type ApiAnyOf struct {
 	PrivateDNS           string   `json:"privateDNS"`
+	ServiceName          string   `json:"serviceName"`
 	Regions              []string `json:"regions,omitempty"`
+	EndpointName         *string  `json:"endpointName,omitempty"`
+	ServiceId            *string  `json:"serviceId,omitempty"`
 	AvailabilityZones    []string `json:"availabilityZones,omitempty"`
 	AvailabilityZoneIds  []string `json:"availabilityZoneIds,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _InfoAnyOf InfoAnyOf
+type _ApiAnyOf ApiAnyOf
 
-// NewInfoAnyOf instantiates a new InfoAnyOf object
+// NewApiAnyOf instantiates a new ApiAnyOf object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInfoAnyOf(serviceName string, privateDNS string) *InfoAnyOf {
-	this := InfoAnyOf{}
-	this.ServiceName = serviceName
+func NewApiAnyOf(privateDNS string, serviceName string) *ApiAnyOf {
+	this := ApiAnyOf{}
 	this.PrivateDNS = privateDNS
+	this.ServiceName = serviceName
 	return &this
 }
 
-// NewInfoAnyOfWithDefaults instantiates a new InfoAnyOf object
+// NewApiAnyOfWithDefaults instantiates a new ApiAnyOf object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewInfoAnyOfWithDefaults() *InfoAnyOf {
-	this := InfoAnyOf{}
+func NewApiAnyOfWithDefaults() *ApiAnyOf {
+	this := ApiAnyOf{}
 	return &this
-}
-
-// GetServiceName returns the ServiceName field value
-func (o *InfoAnyOf) GetServiceName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ServiceName
-}
-
-// GetServiceNameOk returns a tuple with the ServiceName field value
-// and a boolean to check if the value has been set.
-func (o *InfoAnyOf) GetServiceNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ServiceName, true
-}
-
-// SetServiceName sets field value
-func (o *InfoAnyOf) SetServiceName(v string) {
-	o.ServiceName = v
 }
 
 // GetPrivateDNS returns the PrivateDNS field value
-func (o *InfoAnyOf) GetPrivateDNS() string {
+func (o *ApiAnyOf) GetPrivateDNS() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -84,7 +62,7 @@ func (o *InfoAnyOf) GetPrivateDNS() string {
 
 // GetPrivateDNSOk returns a tuple with the PrivateDNS field value
 // and a boolean to check if the value has been set.
-func (o *InfoAnyOf) GetPrivateDNSOk() (*string, bool) {
+func (o *ApiAnyOf) GetPrivateDNSOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -92,12 +70,36 @@ func (o *InfoAnyOf) GetPrivateDNSOk() (*string, bool) {
 }
 
 // SetPrivateDNS sets field value
-func (o *InfoAnyOf) SetPrivateDNS(v string) {
+func (o *ApiAnyOf) SetPrivateDNS(v string) {
 	o.PrivateDNS = v
 }
 
+// GetServiceName returns the ServiceName field value
+func (o *ApiAnyOf) GetServiceName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ServiceName
+}
+
+// GetServiceNameOk returns a tuple with the ServiceName field value
+// and a boolean to check if the value has been set.
+func (o *ApiAnyOf) GetServiceNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ServiceName, true
+}
+
+// SetServiceName sets field value
+func (o *ApiAnyOf) SetServiceName(v string) {
+	o.ServiceName = v
+}
+
 // GetRegions returns the Regions field value if set, zero value otherwise.
-func (o *InfoAnyOf) GetRegions() []string {
+func (o *ApiAnyOf) GetRegions() []string {
 	if o == nil || IsNil(o.Regions) {
 		var ret []string
 		return ret
@@ -107,7 +109,7 @@ func (o *InfoAnyOf) GetRegions() []string {
 
 // GetRegionsOk returns a tuple with the Regions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InfoAnyOf) GetRegionsOk() ([]string, bool) {
+func (o *ApiAnyOf) GetRegionsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Regions) {
 		return nil, false
 	}
@@ -115,7 +117,7 @@ func (o *InfoAnyOf) GetRegionsOk() ([]string, bool) {
 }
 
 // HasRegions returns a boolean if a field has been set.
-func (o *InfoAnyOf) HasRegions() bool {
+func (o *ApiAnyOf) HasRegions() bool {
 	if o != nil && !IsNil(o.Regions) {
 		return true
 	}
@@ -124,12 +126,76 @@ func (o *InfoAnyOf) HasRegions() bool {
 }
 
 // SetRegions gets a reference to the given []string and assigns it to the Regions field.
-func (o *InfoAnyOf) SetRegions(v []string) {
+func (o *ApiAnyOf) SetRegions(v []string) {
 	o.Regions = v
 }
 
+// GetEndpointName returns the EndpointName field value if set, zero value otherwise.
+func (o *ApiAnyOf) GetEndpointName() string {
+	if o == nil || IsNil(o.EndpointName) {
+		var ret string
+		return ret
+	}
+	return *o.EndpointName
+}
+
+// GetEndpointNameOk returns a tuple with the EndpointName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiAnyOf) GetEndpointNameOk() (*string, bool) {
+	if o == nil || IsNil(o.EndpointName) {
+		return nil, false
+	}
+	return o.EndpointName, true
+}
+
+// HasEndpointName returns a boolean if a field has been set.
+func (o *ApiAnyOf) HasEndpointName() bool {
+	if o != nil && !IsNil(o.EndpointName) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndpointName gets a reference to the given string and assigns it to the EndpointName field.
+func (o *ApiAnyOf) SetEndpointName(v string) {
+	o.EndpointName = &v
+}
+
+// GetServiceId returns the ServiceId field value if set, zero value otherwise.
+func (o *ApiAnyOf) GetServiceId() string {
+	if o == nil || IsNil(o.ServiceId) {
+		var ret string
+		return ret
+	}
+	return *o.ServiceId
+}
+
+// GetServiceIdOk returns a tuple with the ServiceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApiAnyOf) GetServiceIdOk() (*string, bool) {
+	if o == nil || IsNil(o.ServiceId) {
+		return nil, false
+	}
+	return o.ServiceId, true
+}
+
+// HasServiceId returns a boolean if a field has been set.
+func (o *ApiAnyOf) HasServiceId() bool {
+	if o != nil && !IsNil(o.ServiceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceId gets a reference to the given string and assigns it to the ServiceId field.
+func (o *ApiAnyOf) SetServiceId(v string) {
+	o.ServiceId = &v
+}
+
 // GetAvailabilityZones returns the AvailabilityZones field value if set, zero value otherwise.
-func (o *InfoAnyOf) GetAvailabilityZones() []string {
+func (o *ApiAnyOf) GetAvailabilityZones() []string {
 	if o == nil || IsNil(o.AvailabilityZones) {
 		var ret []string
 		return ret
@@ -139,7 +205,7 @@ func (o *InfoAnyOf) GetAvailabilityZones() []string {
 
 // GetAvailabilityZonesOk returns a tuple with the AvailabilityZones field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InfoAnyOf) GetAvailabilityZonesOk() ([]string, bool) {
+func (o *ApiAnyOf) GetAvailabilityZonesOk() ([]string, bool) {
 	if o == nil || IsNil(o.AvailabilityZones) {
 		return nil, false
 	}
@@ -147,7 +213,7 @@ func (o *InfoAnyOf) GetAvailabilityZonesOk() ([]string, bool) {
 }
 
 // HasAvailabilityZones returns a boolean if a field has been set.
-func (o *InfoAnyOf) HasAvailabilityZones() bool {
+func (o *ApiAnyOf) HasAvailabilityZones() bool {
 	if o != nil && !IsNil(o.AvailabilityZones) {
 		return true
 	}
@@ -156,12 +222,12 @@ func (o *InfoAnyOf) HasAvailabilityZones() bool {
 }
 
 // SetAvailabilityZones gets a reference to the given []string and assigns it to the AvailabilityZones field.
-func (o *InfoAnyOf) SetAvailabilityZones(v []string) {
+func (o *ApiAnyOf) SetAvailabilityZones(v []string) {
 	o.AvailabilityZones = v
 }
 
 // GetAvailabilityZoneIds returns the AvailabilityZoneIds field value if set, zero value otherwise.
-func (o *InfoAnyOf) GetAvailabilityZoneIds() []string {
+func (o *ApiAnyOf) GetAvailabilityZoneIds() []string {
 	if o == nil || IsNil(o.AvailabilityZoneIds) {
 		var ret []string
 		return ret
@@ -171,7 +237,7 @@ func (o *InfoAnyOf) GetAvailabilityZoneIds() []string {
 
 // GetAvailabilityZoneIdsOk returns a tuple with the AvailabilityZoneIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InfoAnyOf) GetAvailabilityZoneIdsOk() ([]string, bool) {
+func (o *ApiAnyOf) GetAvailabilityZoneIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.AvailabilityZoneIds) {
 		return nil, false
 	}
@@ -179,7 +245,7 @@ func (o *InfoAnyOf) GetAvailabilityZoneIdsOk() ([]string, bool) {
 }
 
 // HasAvailabilityZoneIds returns a boolean if a field has been set.
-func (o *InfoAnyOf) HasAvailabilityZoneIds() bool {
+func (o *ApiAnyOf) HasAvailabilityZoneIds() bool {
 	if o != nil && !IsNil(o.AvailabilityZoneIds) {
 		return true
 	}
@@ -188,11 +254,11 @@ func (o *InfoAnyOf) HasAvailabilityZoneIds() bool {
 }
 
 // SetAvailabilityZoneIds gets a reference to the given []string and assigns it to the AvailabilityZoneIds field.
-func (o *InfoAnyOf) SetAvailabilityZoneIds(v []string) {
+func (o *ApiAnyOf) SetAvailabilityZoneIds(v []string) {
 	o.AvailabilityZoneIds = v
 }
 
-func (o InfoAnyOf) MarshalJSON() ([]byte, error) {
+func (o ApiAnyOf) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -200,12 +266,18 @@ func (o InfoAnyOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o InfoAnyOf) ToMap() (map[string]interface{}, error) {
+func (o ApiAnyOf) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["serviceName"] = o.ServiceName
 	toSerialize["privateDNS"] = o.PrivateDNS
+	toSerialize["serviceName"] = o.ServiceName
 	if !IsNil(o.Regions) {
 		toSerialize["regions"] = o.Regions
+	}
+	if !IsNil(o.EndpointName) {
+		toSerialize["endpointName"] = o.EndpointName
+	}
+	if !IsNil(o.ServiceId) {
+		toSerialize["serviceId"] = o.ServiceId
 	}
 	if !IsNil(o.AvailabilityZones) {
 		toSerialize["availabilityZones"] = o.AvailabilityZones
@@ -221,7 +293,7 @@ func (o InfoAnyOf) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *InfoAnyOf) UnmarshalJSON(data []byte) (err error) {
+func (o *ApiAnyOf) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -230,22 +302,24 @@ func (o *InfoAnyOf) UnmarshalJSON(data []byte) (err error) {
 		return err
 	}
 
-	varInfoAnyOf := _InfoAnyOf{}
+	varApiAnyOf := _ApiAnyOf{}
 
-	err = json.Unmarshal(data, &varInfoAnyOf)
+	err = json.Unmarshal(data, &varApiAnyOf)
 
 	if err != nil {
 		return err
 	}
 
-	*o = InfoAnyOf(varInfoAnyOf)
+	*o = ApiAnyOf(varApiAnyOf)
 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "privateDNS")
+		delete(additionalProperties, "serviceName")
 		delete(additionalProperties, "regions")
+		delete(additionalProperties, "endpointName")
+		delete(additionalProperties, "serviceId")
 		delete(additionalProperties, "availabilityZones")
 		delete(additionalProperties, "availabilityZoneIds")
 		o.AdditionalProperties = additionalProperties
@@ -254,38 +328,38 @@ func (o *InfoAnyOf) UnmarshalJSON(data []byte) (err error) {
 	return err
 }
 
-type NullableInfoAnyOf struct {
-	value *InfoAnyOf
+type NullableApiAnyOf struct {
+	value *ApiAnyOf
 	isSet bool
 }
 
-func (v NullableInfoAnyOf) Get() *InfoAnyOf {
+func (v NullableApiAnyOf) Get() *ApiAnyOf {
 	return v.value
 }
 
-func (v *NullableInfoAnyOf) Set(val *InfoAnyOf) {
+func (v *NullableApiAnyOf) Set(val *ApiAnyOf) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableInfoAnyOf) IsSet() bool {
+func (v NullableApiAnyOf) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableInfoAnyOf) Unset() {
+func (v *NullableApiAnyOf) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableInfoAnyOf(val *InfoAnyOf) *NullableInfoAnyOf {
-	return &NullableInfoAnyOf{value: val, isSet: true}
+func NewNullableApiAnyOf(val *ApiAnyOf) *NullableApiAnyOf {
+	return &NullableApiAnyOf{value: val, isSet: true}
 }
 
-func (v NullableInfoAnyOf) MarshalJSON() ([]byte, error) {
+func (v NullableApiAnyOf) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableInfoAnyOf) UnmarshalJSON(src []byte) error {
+func (v *NullableApiAnyOf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

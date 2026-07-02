@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 48f0d62
-  x-generated-at: 2026-06-22T07:01:45.528Z
+  x-commit-sha: f5f7485
+  x-generated-at: 2026-07-02T05:42:02.963Z
 servers:
 - description: Main API server
   url: /api
@@ -320,6 +320,9 @@ paths:
       summary: Get a list of instances
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stacks:read
     post:
       operationId: postInstances
       parameters:
@@ -370,6 +373,9 @@ paths:
       summary: Create a new instance
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stacks:write
   /instances/{instanceId}:
     delete:
       operationId: deleteInstance
@@ -428,6 +434,9 @@ paths:
       summary: Deletes an instance
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stacks:delete
     get:
       operationId: getInstance
       parameters:
@@ -479,6 +488,10 @@ paths:
       summary: Gets an instance
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stacks:read
+      - stack-config:read
     post:
       operationId: postInstance
       parameters:
@@ -542,6 +555,9 @@ paths:
       summary: Updates an instance
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stacks:write
   /instances/{instanceId}/api/serviceaccounts:
     post:
       operationId: postInstanceServiceAccounts
@@ -606,6 +622,9 @@ paths:
       summary: Creates a service account on a Grafana instance
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
   /instances/{instanceId}/api/serviceaccounts/search:
     get:
       operationId: getInstanceServiceAccountsSearch
@@ -672,6 +691,9 @@ paths:
       summary: Search service accounts on a Grafana instance with paging
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
   /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}:
     delete:
       operationId: deleteInstanceServiceAccount
@@ -733,6 +755,9 @@ paths:
       summary: Delete a service account on a Grafana instance
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
     get:
       operationId: getInstanceServiceAccount
       parameters:
@@ -784,6 +809,9 @@ paths:
       summary: Gets a service account on a Grafana instance
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
   /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens:
     get:
       operationId: getInstanceServiceAccountTokens
@@ -838,6 +866,9 @@ paths:
       summary: Get a service account's tokens on a Grafana instance
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
     post:
       operationId: postInstanceServiceAccountTokens
       parameters:
@@ -908,6 +939,9 @@ paths:
       summary: Creates a service account token on a Grafana instance
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
   /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId}:
     delete:
       operationId: deleteInstanceServiceAccountToken
@@ -976,59 +1010,9 @@ paths:
       summary: Delete a service account token on a Grafana instance
       tags:
       - instances
-  /instances/{instanceId}/connections:
-    get:
-      operationId: getConnections
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: config
-        required: false
-        schema:
-          type: boolean
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FormattedApiInstanceConnections'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-      summary: "Gets an instance's connectivity information (InfluxDB, OTEL, AWS private\
-        \ link, etc.)"
-      tags:
-      - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
   /instances/{instanceId}/plugins:
     get:
       operationId: getInstancePlugins
@@ -1095,6 +1079,9 @@ paths:
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-plugins:read
     post:
       operationId: postInstancePlugins
       parameters:
@@ -1157,6 +1144,9 @@ paths:
           description: Service is currently unavailable
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-plugins:write
   /instances/{instanceId}/plugins/{pluginSlugOrId}:
     delete:
       operationId: deleteInstancePlugin
@@ -1228,6 +1218,9 @@ paths:
           description: Service is currently unavailable
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-plugins:delete
     get:
       operationId: getInstancePlugin
       parameters:
@@ -1278,6 +1271,9 @@ paths:
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-plugins:read
     post:
       operationId: postInstancePlugin
       parameters:
@@ -1347,6 +1343,9 @@ paths:
           description: Service is currently unavailable
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-plugins:write
   /instances/{instanceId}/readiness:
     get:
       operationId: getInstanceReadiness
@@ -1392,6 +1391,9 @@ paths:
       summary: Gets an instance's readiness status
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stacks:read
   /instances/{instanceId}/users:
     get:
       operationId: getInstanceUsers
@@ -1459,6 +1461,9 @@ paths:
       summary: Gets instance active users
       tags:
       - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-users:read
   /org-stack-regions:
     get:
       operationId: getOrgStackRegions
@@ -1504,6 +1509,9 @@ paths:
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - org-stack-regions
+      x-auth-required: true
+      x-permissions:
+      - stack-regions:read
   /orgs/{orgSlugOrId}/billed-usage:
     get:
       operationId: getOrgBilledUsage
@@ -1572,6 +1580,10 @@ paths:
       summary: Retrieve an org's billed usage for a specific month
       tags:
       - orgs
+      x-auth-required: true
+      x-permissions:
+      - orgs:read
+      - org-billing-info:read
   /orgs/{orgSlugOrId}/billed-usage-history:
     get:
       operationId: getOrgBilledUsageHistory
@@ -1617,6 +1629,9 @@ paths:
       summary: Retrieve an org's billed usage items for the last 12 months
       tags:
       - orgs
+      x-auth-required: true
+      x-permissions:
+      - orgs:read
   /orgs/{orgSlug}/instances:
     get:
       operationId: getOrgInstances
@@ -1818,6 +1833,9 @@ paths:
       summary: Get the list of instances belonging to the org
       tags:
       - orgs
+      x-auth-required: true
+      x-permissions:
+      - stacks:read
   /orgs/{slugOrId}:
     get:
       operationId: getOrg
@@ -1850,6 +1868,8 @@ paths:
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - orgs
+      x-permissions:
+      - orgs:read
   /orgs/{slugOrId}/check-visibility:
     get:
       description: Check visibility of the org
@@ -1958,6 +1978,10 @@ paths:
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - orgs
+      x-auth-required: true
+      x-permissions:
+      - org-members:read
+      - org-members:write
     post:
       operationId: postOrgMembers
       parameters:
@@ -2020,6 +2044,9 @@ paths:
           description: Service is currently unavailable
       tags:
       - orgs
+      x-auth-required: true
+      x-permissions:
+      - org-members:write
   /orgs/{slugOrId}/members/{usernameOrId}:
     delete:
       operationId: deleteOrgMember
@@ -2080,6 +2107,9 @@ paths:
           description: Service is currently unavailable
       tags:
       - orgs
+      x-auth-required: true
+      x-permissions:
+      - org-members:delete
     get:
       operationId: getOrgMember
       parameters:
@@ -2130,6 +2160,9 @@ paths:
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - orgs
+      x-auth-required: true
+      x-permissions:
+      - org-members:read
     post:
       operationId: postOrgMember
       parameters:
@@ -2199,6 +2232,11 @@ paths:
           description: Service is currently unavailable
       tags:
       - orgs
+      x-auth-required: true
+      x-permissions:
+      - staff-org-members:write
+      - org-members:write
+      - org-members:read
   /orgs/{slugOrId}/settings:
     get:
       operationId: getOrgSettings
@@ -2244,6 +2282,9 @@ paths:
       summary: Get org settings
       tags:
       - orgs
+      x-auth-required: true
+      x-permissions:
+      - orgs:read
     post:
       operationId: updateOrgSettings
       parameters:
@@ -2307,6 +2348,9 @@ paths:
       summary: Update org settings
       tags:
       - orgs
+      x-auth-required: true
+      x-permissions:
+      - orgs:write
   /plugins/{slug}:
     get:
       operationId: getPlugin
@@ -2474,6 +2518,7 @@ paths:
           description: "Invalid arguments: wrong or missing parameters"
       tags:
       - stack-regions
+      x-auth-required: true
   /stack-regions/closest:
     get:
       operationId: getClosestStackRegion
@@ -2504,18 +2549,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/FormattedApiStackRegion'
           description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
         "409":
           content:
             application/json:
@@ -2612,6 +2645,9 @@ paths:
       summary: Get a list of access policies
       tags:
       - accesspolicies
+      x-auth-required: true
+      x-permissions:
+      - accesspolicies:read
     post:
       operationId: postAccessPolicies
       parameters:
@@ -2676,6 +2712,9 @@ paths:
       summary: Create a new access policy
       tags:
       - accesspolicies
+      x-auth-required: true
+      x-permissions:
+      - accesspolicies:write
   /v1/accesspolicies/config:
     get:
       operationId: getConfig
@@ -2785,6 +2824,9 @@ paths:
       summary: Delete an access policy
       tags:
       - accesspolicies
+      x-auth-required: true
+      x-permissions:
+      - accesspolicies:delete
     get:
       operationId: getAccessPolicy
       parameters:
@@ -2843,6 +2885,9 @@ paths:
       summary: Get an access policy
       tags:
       - accesspolicies
+      x-auth-required: true
+      x-permissions:
+      - accesspolicies:read
     post:
       operationId: postAccessPolicy
       parameters:
@@ -2920,6 +2965,9 @@ paths:
       summary: Update an access policy
       tags:
       - accesspolicies
+      x-auth-required: true
+      x-permissions:
+      - accesspolicies:write
   /v1/tokens:
     get:
       operationId: getTokens
@@ -3050,6 +3098,9 @@ paths:
       summary: Get a list of tokens
       tags:
       - tokens
+      x-auth-required: true
+      x-permissions:
+      - accesspolicies:read
     post:
       operationId: postTokens
       parameters:
@@ -3114,6 +3165,9 @@ paths:
       summary: Create a new token
       tags:
       - tokens
+      x-auth-required: true
+      x-permissions:
+      - accesspolicies:write
   /v1/tokens/{id}:
     delete:
       operationId: deleteToken
@@ -3186,6 +3240,9 @@ paths:
       summary: Delete a token
       tags:
       - tokens
+      x-auth-required: true
+      x-permissions:
+      - accesspolicies:delete
     get:
       operationId: getToken
       parameters:
@@ -3244,6 +3301,9 @@ paths:
       summary: Get info for a specific token
       tags:
       - tokens
+      x-auth-required: true
+      x-permissions:
+      - accesspolicies:read
     post:
       operationId: postToken
       parameters:
@@ -3321,6 +3381,43 @@ paths:
       summary: Update a token
       tags:
       - tokens
+      x-auth-required: true
+      x-permissions:
+      - accesspolicies:write
+  /instances/{instanceId}/connections:
+    get:
+      deprecated: true
+      operationId: getConnections
+      parameters:
+      - description: id or slug of the instance
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: id or slug of the instance
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormattedApiInstanceConnections'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      summary: "Gets an instance's connectivity information (InfluxDB, OTEL, AWS private\
+        \ link, etc.)"
+      tags:
+      - stacks
+      x-auth-required: true
+      x-permissions:
+      - stacks:read
   /v1/stacks:
     get:
       operationId: listStacksV1
@@ -3371,6 +3468,7 @@ paths:
           description: Error
       tags:
       - stacks
+      x-auth-required: true
     post:
       operationId: createStackV1
       requestBody:
@@ -3394,6 +3492,7 @@ paths:
           description: Error
       tags:
       - stacks
+      x-auth-required: true
   /v1/stacks/checkUrl:
     post:
       operationId: checkStackSlugV1
@@ -3418,6 +3517,7 @@ paths:
           description: Error
       tags:
       - stacks
+      x-auth-required: true
   /v1/stacks/{idOrSlug}:
     delete:
       operationId: deleteStackV1
@@ -3446,6 +3546,7 @@ paths:
           description: Error
       tags:
       - stacks
+      x-auth-required: true
     get:
       operationId: getStackV1
       parameters:
@@ -3473,6 +3574,7 @@ paths:
           description: Error
       tags:
       - stacks
+      x-auth-required: true
     post:
       operationId: updateStackV1
       parameters:
@@ -3506,6 +3608,7 @@ paths:
           description: Error
       tags:
       - stacks
+      x-auth-required: true
   /v1/stacks/{idOrSlug}/connections:
     get:
       operationId: getStackConnectionsV1
@@ -3534,6 +3637,9 @@ paths:
           description: Error
       tags:
       - stacks
+      x-auth-required: true
+      x-permissions:
+      - stacks:read
   /v1/stacks/{idOrSlug}/readiness:
     get:
       operationId: checkStackReadinessV1
@@ -3562,72 +3668,52 @@ paths:
           description: Error
       tags:
       - stacks
+      x-auth-required: true
 components:
   schemas:
-    ErrorServiceUnavailable:
+    AccessPoliciesConfig:
       example:
-        code: ServiceUnavailable
-        message: Service is currently unavailable
+        realms:
+        - identifier: identifier
+          type: org
+        - identifier: identifier
+          type: org
+        sets:
+        - name: name
+          scopes:
+          - scopes
+          - scopes
+        - name: name
+          scopes:
+          - scopes
+          - scopes
+        scopes:
+        - requiresRealmType: requiresRealmType
+          name: name
+          description: description
+        - requiresRealmType: requiresRealmType
+          name: name
+          description: description
       properties:
-        message:
-          example: Service is currently unavailable
-          type: string
-        code:
-          enum:
-          - ServiceUnavailable
-          type: string
-      type: object
-    ErrorConflict:
-      example:
-        code: Conflict
-        message: "Invalid arguments: wrong or missing parameters"
-      properties:
-        message:
-          example: "Invalid arguments: wrong or missing parameters"
-          type: string
-        code:
-          enum:
-          - Conflict
-          type: string
-      type: object
-    ErrorNotFound:
-      example:
-        code: NotFound
-        message: Element not found
-      properties:
-        message:
-          example: Element not found
-          type: string
-        code:
-          enum:
-          - NotFound
-          type: string
-      type: object
-    ErrorForbidden:
-      example:
-        code: Forbidden
-        message: Forbidden
-      properties:
-        message:
-          example: Forbidden
-          type: string
-        code:
-          enum:
-          - Forbidden
-          type: string
-      type: object
-    ErrorInvalidCredentials:
-      example:
-        code: InvalidCredentials
-        message: Login Required or invalid credentials
-      properties:
-        message:
-          example: Login Required or invalid credentials
-          type: string
-        code:
-          enum:
-          - InvalidCredentials
-          type: string
+        realms:
+          items:
+            $ref: '#/components/schemas/realms_inner'
+          title: realms
+          type: array
+        scopes:
+          items:
+            $ref: '#/components/schemas/scopes_inner'
+          title: scopes
+          type: array
+        sets:
+          items:
+            $ref: '#/components/schemas/sets_inner'
+          title: sets
+          type: array
+      required:
+      - realms
+      - scopes
+      - sets
       type: object
     AccessPolicyListResponse:
       example:
@@ -3779,373 +3865,352 @@ components:
       - realms
       - scopes
       type: object
-    AccessPoliciesConfig:
+    AuthToken:
       example:
-        realms:
-        - identifier: identifier
-          type: org
-        - identifier: identifier
-          type: org
-        sets:
-        - name: name
-          scopes:
-          - scopes
-          - scopes
-        - name: name
-          scopes:
-          - scopes
-          - scopes
-        scopes:
-        - requiresRealmType: requiresRealmType
-          name: name
-          description: description
-        - requiresRealmType: requiresRealmType
-          name: name
-          description: description
-      properties:
-        realms:
-          items:
-            $ref: '#/components/schemas/realms_inner'
-          title: realms
-          type: array
-        scopes:
-          items:
-            $ref: '#/components/schemas/scopes_inner'
-          title: scopes
-          type: array
-        sets:
-          items:
-            $ref: '#/components/schemas/sets_inner'
-          title: sets
-          type: array
-      required:
-      - realms
-      - scopes
-      - sets
-      type: object
-    FormattedApiInstanceConnections:
-      example:
-        otlpHttpUrl: otlpHttpUrl
-        influxUrl: influxUrl
-        oncallApiUrl: oncallApiUrl
-        appPlatform:
-          url: url
-          caData: caData
-        syntheticMonitoringApiUrl: syntheticMonitoringApiUrl
-        otlpMultiAZ: true
-        privateConnectivityInfo:
-          tenants:
-          - ipAllowListCNAME: ipAllowListCNAME
-            id: 0.8008281904610115
-            type: type
-            info:
-              availabilityZoneIds:
-              - availabilityZoneIds
-              - availabilityZoneIds
-              regions:
-              - regions
-              - regions
-              availabilityZones:
-              - availabilityZones
-              - availabilityZones
-              privateDNS: privateDNS
-              serviceName: serviceName
-            allowlistUrl: allowlistUrl
-          - ipAllowListCNAME: ipAllowListCNAME
-            id: 0.8008281904610115
-            type: type
-            info:
-              availabilityZoneIds:
-              - availabilityZoneIds
-              - availabilityZoneIds
-              regions:
-              - regions
-              - regions
-              availabilityZones:
-              - availabilityZones
-              - availabilityZones
-              privateDNS: privateDNS
-              serviceName: serviceName
-            allowlistUrl: allowlistUrl
-          otlp:
-            availabilityZoneIds:
-            - availabilityZoneIds
-            - availabilityZoneIds
-            regions:
-            - regions
-            - regions
-            availabilityZones:
-            - availabilityZones
-            - availabilityZones
-            privateDNS: privateDNS
-            serviceName: serviceName
-          pdc:
-            api:
-              availabilityZoneIds:
-              - availabilityZoneIds
-              - availabilityZoneIds
-              regions:
-              - regions
-              - regions
-              availabilityZones:
-              - availabilityZones
-              - availabilityZones
-              privateDNS: privateDNS
-              serviceName: serviceName
-            gateway:
-              availabilityZoneIds:
-              - availabilityZoneIds
-              - availabilityZoneIds
-              regions:
-              - regions
-              - regions
-              availabilityZones:
-              - availabilityZones
-              - availabilityZones
-              privateDNS: privateDNS
-              serviceName: serviceName
-      properties:
-        privateConnectivityInfo:
-          $ref: '#/components/schemas/privateConnectivityInfo'
-        appPlatform:
-          $ref: '#/components/schemas/appPlatform'
-        influxUrl:
-          nullable: true
-          title: influxUrl
-          type: string
-        otlpHttpUrl:
-          nullable: true
-          title: otlpHttpUrl
-          type: string
-        otlpMultiAZ:
-          title: otlpMultiAZ
-          type: boolean
-        oncallApiUrl:
-          nullable: true
-          title: oncallApiUrl
-          type: string
-        syntheticMonitoringApiUrl:
-          nullable: true
-          title: syntheticMonitoringApiUrl
-          type: string
-      required:
-      - otlpMultiAZ
-      - privateConnectivityInfo
-      type: object
-    FormattedApiInstancePlugin:
-      example:
-        createdAt: createdAt
-        instanceId: 6.027456183070403
-        pluginSlug: pluginSlug
-        pluginName: pluginName
-        latestVersion: latestVersion
-        pluginId: 1.4658129805029452
-        instanceSlug: instanceSlug
-        links:
-        - rel: self
-          href: href
-        - rel: self
-          href: href
-        id: 0.8008281904610115
-        version: version
-        instanceUrl: instanceUrl
+        accessPolicyId: c45485b6-8321-4cf2-bcec-12006df755ff
+        firstUsedAt: 2000-01-23T04:56:07.000+00:00
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        lastUsedAt: 2000-01-23T04:56:07.000+00:00
+        displayName: My Token
+        name: mytoken
+        id: c45485b6-8321-4cf2-bcec-12006df755ff
+        expiresAt: 2000-01-23T04:56:07.000+00:00
+        orgId: "1"
         updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          example: c45485b6-8321-4cf2-bcec-12006df755ff
+          format: string
+          readOnly: true
+          type: string
+        accessPolicyId:
+          example: c45485b6-8321-4cf2-bcec-12006df755ff
+          format: string
+          type: string
+        name:
+          example: mytoken
+          type: string
+        displayName:
+          description: Will be set to `name` if not provided.
+          example: My Token
+          type: string
+        expiresAt:
+          description: Token does not expire if not provided.
+          format: date-time
+          type: string
+        firstUsedAt:
+          format: date-time
+          readOnly: true
+          type: string
+        lastUsedAt:
+          format: date-time
+          readOnly: true
+          type: string
+        createdAt:
+          format: date-time
+          readOnly: true
+          type: string
+        updatedAt:
+          format: date-time
+          readOnly: true
+          type: string
+        orgId:
+          example: "1"
+          readOnly: true
+          type: string
+      required:
+      - accessPolicyId
+      - name
+      type: object
+    AuthTokenWithSecret:
+      allOf:
+      - properties:
+          id:
+            example: c45485b6-8321-4cf2-bcec-12006df755ff
+            format: string
+            readOnly: true
+            type: string
+          accessPolicyId:
+            example: c45485b6-8321-4cf2-bcec-12006df755ff
+            format: string
+            type: string
+          name:
+            example: mytoken
+            type: string
+          displayName:
+            description: Will be set to `name` if not provided.
+            example: My Token
+            type: string
+          expiresAt:
+            description: Token does not expire if not provided.
+            format: date-time
+            type: string
+          firstUsedAt:
+            format: date-time
+            readOnly: true
+            type: string
+          lastUsedAt:
+            format: date-time
+            readOnly: true
+            type: string
+          createdAt:
+            format: date-time
+            readOnly: true
+            type: string
+          updatedAt:
+            format: date-time
+            readOnly: true
+            type: string
+          orgId:
+            example: "1"
+            readOnly: true
+            type: string
+        required:
+        - accessPolicyId
+        - name
+        type: object
+      - properties:
+          token:
+            description: This token is auto generated and will be shown only once.
+            example: glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9
+            format: password
+            type: string
+      example:
+        accessPolicyId: c45485b6-8321-4cf2-bcec-12006df755ff
+        firstUsedAt: 2000-01-23T04:56:07.000+00:00
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        lastUsedAt: 2000-01-23T04:56:07.000+00:00
+        displayName: My Token
+        name: mytoken
+        id: c45485b6-8321-4cf2-bcec-12006df755ff
+        expiresAt: 2000-01-23T04:56:07.000+00:00
+        orgId: "1"
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+        token: glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9
+    BilledUsage:
+      example:
+        notes: notes
+        description: description
+        dimensionName: dimensionName
+        amountDue: 5.962133916683182
+        unit: unit
+        orgRates: ""
+        dimensionId: ai-tokens
+        totalUsage: 5.637376656633329
+        id: 0.8008281904610115
+        usages:
+        - dpm: 1.2315135367772556
+          ingestUsage: 7.457744773683766
+          onCallUsage: 1.1730742509559433
+          stackId: 9.965781217890562
+          stackName: stackName
+          activeUsers: 7.061401241503109
+          protocolUsage: 4.965218492984954
+          anonymousUsers: 9.301444243932576
+          attributedUsage: 2.027123023002322
+          grafanaUsage: 1.0246457001441578
+          browserUsage: 4.145608029883936
+          stackLabels: "{}"
+          attributedCost: 3.616076749251911
+          credits:
+          - amount: 7.386281948385884
+            dimensionId: dimensionId
+            dimensionName: dimensionName
+          - amount: 7.386281948385884
+            dimensionId: dimensionId
+            dimensionName: dimensionName
+          queryUsage: 5.025004791520295
+          incidentUsage: 6.84685269835264
+          totalUsage: 9.369310271410669
+          id: 1.4894159098541704
+          activeSeries: 2.3021358869347655
+          periodStart: periodStart
+          isProrated: true
+          periodEnd: periodEnd
+        - dpm: 1.2315135367772556
+          ingestUsage: 7.457744773683766
+          onCallUsage: 1.1730742509559433
+          stackId: 9.965781217890562
+          stackName: stackName
+          activeUsers: 7.061401241503109
+          protocolUsage: 4.965218492984954
+          anonymousUsers: 9.301444243932576
+          attributedUsage: 2.027123023002322
+          grafanaUsage: 1.0246457001441578
+          browserUsage: 4.145608029883936
+          stackLabels: "{}"
+          attributedCost: 3.616076749251911
+          credits:
+          - amount: 7.386281948385884
+            dimensionId: dimensionId
+            dimensionName: dimensionName
+          - amount: 7.386281948385884
+            dimensionId: dimensionId
+            dimensionName: dimensionName
+          queryUsage: 5.025004791520295
+          incidentUsage: 6.84685269835264
+          totalUsage: 9.369310271410669
+          id: 1.4894159098541704
+          activeSeries: 2.3021358869347655
+          periodStart: periodStart
+          isProrated: true
+          periodEnd: periodEnd
+        includedUsage: 1.4658129805029452
+        periodStart: periodStart
+        overage: 6.027456183070403
+        periodEnd: periodEnd
       properties:
         id:
           title: id
           type: number
-        instanceId:
-          title: instanceId
+        description:
+          title: description
+          type: string
+        overage:
+          title: overage
           type: number
-        instanceUrl:
-          title: instanceUrl
+        notes:
+          title: notes
           type: string
-        instanceSlug:
-          title: instanceSlug
+        unit:
+          title: unit
           type: string
-        pluginId:
-          title: pluginId
+        includedUsage:
+          title: includedUsage
           type: number
-        pluginSlug:
-          title: pluginSlug
+        dimensionId:
+          enum:
+          - ai-tokens
+          - app-o11y
+          - assistant
+          - db-o11y-hosts
+          - fe-o11y
+          - ge-instances
+          - ge-users
+          - hg
+          - hg-plugin-users
+          - hl
+          - hl-process
+          - hl-retention
+          - hm
+          - hm-graphite
+          - hp
+          - hp-process
+          - hp-retention
+          - ht
+          - ht-process
+          - ht-retention
+          - infra-o11y-containers
+          - infra-o11y-hosts
+          - irm
+          - k6-ip
+          - k6-vuh
+          - sm
+          - sm-browser
+          title: dimensionId
           type: string
-        pluginName:
-          title: pluginName
+        amountDue:
+          title: amountDue
+          type: number
+        dimensionName:
+          title: dimensionName
           type: string
-        version:
-          title: version
+        orgRates:
+          title: orgRates
+        periodEnd:
+          title: periodEnd
           type: string
-        latestVersion:
-          title: latestVersion
+        periodStart:
+          title: periodStart
           type: string
-        createdAt:
-          title: createdAt
-          type: string
-        updatedAt:
-          format: date-time
-          title: updatedAt
-          type: string
-        links:
+        totalUsage:
+          title: totalUsage
+          type: number
+        usages:
           items:
-            $ref: '#/components/schemas/links_inner'
-          title: links
+            $ref: '#/components/schemas/usages_inner'
+          title: usages
           type: array
       required:
-      - createdAt
+      - amountDue
+      - description
+      - dimensionId
+      - dimensionName
       - id
-      - instanceId
-      - instanceSlug
-      - instanceUrl
-      - latestVersion
-      - links
-      - pluginId
-      - pluginName
-      - pluginSlug
-      - version
+      - includedUsage
+      - notes
+      - orgRates
+      - overage
+      - periodEnd
+      - periodStart
+      - totalUsage
+      - unit
+      - usages
       type: object
-    GrafanaServiceAccountDTO:
-      description: "swagger: model"
+    ErrorConflict:
       example:
-        accessControl:
-          serviceaccounts:delete: true
-          serviceaccounts:read: true
-          serviceaccounts:write: true
-        role: Viewer
-        isExternal: false
-        avatarUrl: /avatar/85ec38023d90823d3e5b43ef35646af9
-        name: grafana
-        tokens: 0
-        id: 0
-        isDisabled: false
-        login: sa-grafana
-        orgId: 1
+        code: Conflict
+        message: "Invalid arguments: wrong or missing parameters"
       properties:
-        accessControl:
-          additionalProperties:
-            type: boolean
-          example:
-            serviceaccounts:delete: true
-            serviceaccounts:read: true
-            serviceaccounts:write: true
-          type: object
-        avatarUrl:
-          example: /avatar/85ec38023d90823d3e5b43ef35646af9
+        message:
+          example: "Invalid arguments: wrong or missing parameters"
           type: string
-        id:
-          format: int64
-          type: integer
-        isDisabled:
-          example: false
-          type: boolean
-        isExternal:
-          example: false
-          type: boolean
-        login:
-          example: sa-grafana
-          type: string
-        name:
-          example: grafana
-          type: string
-        orgId:
-          example: 1
-          format: int64
-          type: integer
-        role:
-          example: Viewer
-          type: string
-        tokens:
-          example: 0
-          format: int64
-          type: integer
-      type: object
-    ServiceAccountSearchResponse:
-      example:
-        serviceAccounts:
-        - name: name
-          id: 6.027456183070403
-        - name: name
-          id: 6.027456183070403
-        perPage: 5.962133916683182
-        page: 1.4658129805029452
-        totalCount: 0.8008281904610115
-      properties:
-        totalCount:
-          title: totalCount
-          type: number
-        serviceAccounts:
-          items:
-            $ref: '#/components/schemas/serviceAccounts_inner'
-          title: serviceAccounts
-          type: array
-        page:
-          title: page
-          type: number
-        perPage:
-          title: perPage
-          type: number
-      required:
-      - page
-      - perPage
-      - serviceAccounts
-      - totalCount
-      type: object
-    GrafanaNewApiKeyResult:
-      example:
-        name: grafana
-        id: 1
-        key: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
-      properties:
-        id:
-          example: 1
-          format: int64
-          type: integer
-        key:
-          example: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
-          type: string
-        name:
-          example: grafana
+        code:
+          enum:
+          - Conflict
           type: string
       type: object
-    GrafanaTokenDTO:
+    ErrorForbidden:
       example:
-        isRevoked: false
-        hasExpired: false
-        lastUsedAt: 2022-03-23T10:31:02Z
-        created: 2022-03-23T10:31:02Z
-        name: grafana
-        secondsUntilExpiration: 0
-        expiration: 2022-03-23T10:31:02Z
-        id: 1
+        code: Forbidden
+        message: Forbidden
       properties:
-        created:
-          example: 2022-03-23T10:31:02Z
-          format: date-time
+        message:
+          example: Forbidden
           type: string
-        expiration:
-          example: 2022-03-23T10:31:02Z
-          format: date-time
+        code:
+          enum:
+          - Forbidden
           type: string
-        hasExpired:
-          example: false
-          type: boolean
-        id:
-          example: 1
-          format: int64
-          type: integer
-        isRevoked:
-          example: false
-          type: boolean
-        lastUsedAt:
-          example: 2022-03-23T10:31:02Z
-          format: date-time
+      type: object
+    ErrorInvalidCredentials:
+      example:
+        code: InvalidCredentials
+        message: Login Required or invalid credentials
+      properties:
+        message:
+          example: Login Required or invalid credentials
           type: string
-        name:
-          example: grafana
+        code:
+          enum:
+          - InvalidCredentials
           type: string
-        secondsUntilExpiration:
-          example: 0
-          format: double
-          type: number
+      type: object
+    ErrorNotFound:
+      example:
+        code: NotFound
+        message: Element not found
+      properties:
+        message:
+          example: Element not found
+          type: string
+        code:
+          enum:
+          - NotFound
+          type: string
+      type: object
+    ErrorServiceUnavailable:
+      example:
+        code: ServiceUnavailable
+        message: Service is currently unavailable
+      properties:
+        message:
+          example: Service is currently unavailable
+          type: string
+        code:
+          enum:
+          - ServiceUnavailable
+          type: string
       type: object
     FormattedApiInstance:
       example:
@@ -4713,7 +4778,7 @@ components:
           type: string
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: '#/components/schemas/links_inner'
           title: links
           type: array
         deleteProtection:
@@ -4839,6 +4904,77 @@ components:
       - userQuota
       - version
       type: object
+    FormattedApiInstancePlugin:
+      example:
+        createdAt: createdAt
+        instanceId: 6.027456183070403
+        pluginSlug: pluginSlug
+        pluginName: pluginName
+        latestVersion: latestVersion
+        pluginId: 1.4658129805029452
+        instanceSlug: instanceSlug
+        links:
+        - rel: self
+          href: href
+        - rel: self
+          href: href
+        id: 0.8008281904610115
+        version: version
+        instanceUrl: instanceUrl
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: number
+        instanceId:
+          title: instanceId
+          type: number
+        instanceUrl:
+          title: instanceUrl
+          type: string
+        instanceSlug:
+          title: instanceSlug
+          type: string
+        pluginId:
+          title: pluginId
+          type: number
+        pluginSlug:
+          title: pluginSlug
+          type: string
+        pluginName:
+          title: pluginName
+          type: string
+        version:
+          title: version
+          type: string
+        latestVersion:
+          title: latestVersion
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner_1'
+          title: links
+          type: array
+      required:
+      - createdAt
+      - id
+      - instanceId
+      - instanceSlug
+      - instanceUrl
+      - latestVersion
+      - links
+      - pluginId
+      - pluginName
+      - pluginSlug
+      - version
+      type: object
     FormattedApiInstanceReadiness:
       example:
         ready: true
@@ -4848,490 +4984,6 @@ components:
           type: boolean
       required:
       - ready
-      type: object
-    InstanceUsersResponse:
-      example:
-        items:
-        - lastSeenAt: lastSeenAt
-          createdAt: createdAt
-          role: role
-          name: name
-          id: 0.8008281904610115
-          login: login
-          email: email
-          updatedAt: updatedAt
-          isServiceAccount: true
-        - lastSeenAt: lastSeenAt
-          createdAt: createdAt
-          role: role
-          name: name
-          id: 0.8008281904610115
-          login: login
-          email: email
-          updatedAt: updatedAt
-          isServiceAccount: true
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/items_inner'
-          title: items
-          type: array
-      required:
-      - items
-      type: object
-    OrgMemberListResponse:
-      example:
-        cursor: 9.369310271410669
-        nextCursor: 6.683562403749608
-        total: 7.457744773683766
-        pages: 1.1730742509559433
-        perPage: 5.025004791520295
-        orderBy: orderBy
-        links:
-        - rel: rel
-          href: href
-        - rel: rel
-          href: href
-        page: 4.965218492984954
-        totalCount: 9.965781217890562
-        items:
-        - grafanaCloud: 3.616076749251911
-          orgSlug: orgSlug
-          subscriptions:
-            next: ""
-            current:
-              product: ""
-              endDate: ""
-              payload: "{}"
-              publicName: ""
-              planBillingCycle: ""
-              enterprisePluginsAdded: true
-              isTrial: true
-              plan: ""
-              startDate: ""
-          role: Admin
-          userStatus: 1.4894159098541704
-          hmCurrentPrometheusUsage: 1.0246457001441578
-          privacy: 2.3021358869347655
-          grafanaStaffAccess:
-            publicReason: publicReason
-            accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-            ticketId: 6.84685269835264
-          hlUsage: 7.386281948385884
-          orgUrl: orgUrl
-          orgId: 6.027456183070403
-          billing: 7.061401241503109
-          defaultOrg: 5.637376656633329
-          createdAt: createdAt
-          security: 9.301444243932576
-          hgDatasourceCnts: hgDatasourceCnts
-          userLastName: userLastName
-          userEmail: userEmail
-          mfaEnabled: true
-          id: 0.8008281904610115
-          extraPermissions:
-          - accesspolicies:write
-          - accesspolicies:write
-          updatedAt: updatedAt
-          userUsername: userUsername
-          updatedBy: updatedBy
-          orgName: orgName
-          userFirstName: userFirstName
-          userName: userName
-          userId: 1.4658129805029452
-          contractTypeId: 4.145608029883936
-          resellerId: 2.027123023002322
-          hmCurrentGraphiteUsage: 1.2315135367772556
-          createdBy: createdBy
-          allowGCloudTrial: true
-          marketplaceSubscription:
-            isLegacy: true
-            provider: aws
-          status: 5.962133916683182
-        - grafanaCloud: 3.616076749251911
-          orgSlug: orgSlug
-          subscriptions:
-            next: ""
-            current:
-              product: ""
-              endDate: ""
-              payload: "{}"
-              publicName: ""
-              planBillingCycle: ""
-              enterprisePluginsAdded: true
-              isTrial: true
-              plan: ""
-              startDate: ""
-          role: Admin
-          userStatus: 1.4894159098541704
-          hmCurrentPrometheusUsage: 1.0246457001441578
-          privacy: 2.3021358869347655
-          grafanaStaffAccess:
-            publicReason: publicReason
-            accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-            ticketId: 6.84685269835264
-          hlUsage: 7.386281948385884
-          orgUrl: orgUrl
-          orgId: 6.027456183070403
-          billing: 7.061401241503109
-          defaultOrg: 5.637376656633329
-          createdAt: createdAt
-          security: 9.301444243932576
-          hgDatasourceCnts: hgDatasourceCnts
-          userLastName: userLastName
-          userEmail: userEmail
-          mfaEnabled: true
-          id: 0.8008281904610115
-          extraPermissions:
-          - accesspolicies:write
-          - accesspolicies:write
-          updatedAt: updatedAt
-          userUsername: userUsername
-          updatedBy: updatedBy
-          orgName: orgName
-          userFirstName: userFirstName
-          userName: userName
-          userId: 1.4658129805029452
-          contractTypeId: 4.145608029883936
-          resellerId: 2.027123023002322
-          hmCurrentGraphiteUsage: 1.2315135367772556
-          createdBy: createdBy
-          allowGCloudTrial: true
-          marketplaceSubscription:
-            isLegacy: true
-            provider: aws
-          status: 5.962133916683182
-        direction: direction
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/items_inner_1'
-          title: items
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/links_inner_1'
-          title: links
-          type: array
-        total:
-          title: total
-          type: number
-        pages:
-          title: pages
-          type: number
-        page:
-          title: page
-          type: number
-        perPage:
-          title: perPage
-          type: number
-        totalCount:
-          title: totalCount
-          type: number
-        orderBy:
-          title: orderBy
-          type: string
-        direction:
-          title: direction
-          type: string
-        cursor:
-          title: cursor
-          type: number
-        nextCursor:
-          title: nextCursor
-          type: number
-      required:
-      - items
-      - links
-      type: object
-    FormattedOrgMembership:
-      example:
-        grafanaCloud: 3.616076749251911
-        orgSlug: orgSlug
-        subscriptions:
-          next: ""
-          current:
-            product: ""
-            endDate: ""
-            payload: "{}"
-            publicName: ""
-            planBillingCycle: ""
-            enterprisePluginsAdded: true
-            isTrial: true
-            plan: ""
-            startDate: ""
-        role: Admin
-        userStatus: 1.4894159098541704
-        hmCurrentPrometheusUsage: 1.0246457001441578
-        privacy: 2.3021358869347655
-        grafanaStaffAccess:
-          publicReason: publicReason
-          accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-          ticketId: 6.84685269835264
-        hlUsage: 7.386281948385884
-        orgUrl: orgUrl
-        orgId: 6.027456183070403
-        billing: 7.061401241503109
-        defaultOrg: 5.637376656633329
-        createdAt: createdAt
-        security: 9.301444243932576
-        hgDatasourceCnts: hgDatasourceCnts
-        userLastName: userLastName
-        userEmail: userEmail
-        mfaEnabled: true
-        id: 0.8008281904610115
-        extraPermissions:
-        - accesspolicies:write
-        - accesspolicies:write
-        updatedAt: updatedAt
-        userUsername: userUsername
-        updatedBy: updatedBy
-        orgName: orgName
-        userFirstName: userFirstName
-        userName: userName
-        userId: 1.4658129805029452
-        contractTypeId: 4.145608029883936
-        resellerId: 2.027123023002322
-        hmCurrentGraphiteUsage: 1.2315135367772556
-        createdBy: createdBy
-        allowGCloudTrial: true
-        marketplaceSubscription:
-          isLegacy: true
-          provider: aws
-        status: 5.962133916683182
-      properties:
-        id:
-          title: id
-          type: number
-        orgId:
-          title: orgId
-          type: number
-        userId:
-          title: userId
-          type: number
-        status:
-          title: status
-          type: number
-        createdAt:
-          title: createdAt
-          type: string
-        updatedAt:
-          nullable: true
-          title: updatedAt
-          type: string
-        defaultOrg:
-          title: defaultOrg
-          type: number
-        role:
-          enum:
-          - Admin
-          - Editor
-          - None
-          - SSO Access
-          - Viewer
-          title: role
-          type: string
-        privacy:
-          title: privacy
-          type: number
-        billing:
-          title: billing
-          type: number
-        security:
-          title: security
-          type: number
-        createdBy:
-          title: createdBy
-          type: string
-        updatedBy:
-          title: updatedBy
-          type: string
-        orgName:
-          title: orgName
-          type: string
-        orgSlug:
-          title: orgSlug
-          type: string
-        orgUrl:
-          title: orgUrl
-          type: string
-        grafanaCloud:
-          enum:
-          - 0
-          - 1
-          - 11
-          - 2
-          - 31
-          - 4
-          - 41
-          - 6
-          - 9
-          title: grafanaCloud
-          type: number
-        resellerId:
-          nullable: true
-          title: resellerId
-          type: number
-        contractTypeId:
-          enum:
-          - 0
-          - 1
-          - 2
-          title: contractTypeId
-          type: number
-        allowGCloudTrial:
-          $ref: '#/components/schemas/FormattedOrgMembership_allowGCloudTrial'
-        hlUsage:
-          title: hlUsage
-          type: number
-        hmCurrentGraphiteUsage:
-          title: hmCurrentGraphiteUsage
-          type: number
-        hmCurrentPrometheusUsage:
-          title: hmCurrentPrometheusUsage
-          type: number
-        hgDatasourceCnts:
-          title: hgDatasourceCnts
-          type: string
-        userFirstName:
-          title: userFirstName
-          type: string
-        userLastName:
-          title: userLastName
-          type: string
-        userUsername:
-          title: userUsername
-          type: string
-        userStatus:
-          title: userStatus
-          type: number
-        userEmail:
-          title: userEmail
-          type: string
-        userName:
-          title: userName
-          type: string
-        subscriptions:
-          $ref: '#/components/schemas/subscriptions'
-        marketplaceSubscription:
-          $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
-        mfaEnabled:
-          title: mfaEnabled
-          type: boolean
-        extraPermissions:
-          items:
-            enum:
-            - accesspolicies:write
-            - orgs:read
-            - support-ticket-comments:write
-            - support-tickets:read
-            - support-tickets:write
-            type: string
-          title: extraPermissions
-          type: array
-        grafanaStaffAccess:
-          $ref: '#/components/schemas/items_inner_1_grafanaStaffAccess'
-      required:
-      - allowGCloudTrial
-      - billing
-      - contractTypeId
-      - createdAt
-      - createdBy
-      - defaultOrg
-      - grafanaCloud
-      - hgDatasourceCnts
-      - hlUsage
-      - hmCurrentGraphiteUsage
-      - hmCurrentPrometheusUsage
-      - id
-      - marketplaceSubscription
-      - orgId
-      - orgName
-      - orgSlug
-      - orgUrl
-      - privacy
-      - resellerId
-      - role
-      - security
-      - status
-      - subscriptions
-      - updatedAt
-      - updatedBy
-      - userEmail
-      - userFirstName
-      - userId
-      - userLastName
-      - userName
-      - userStatus
-      - userUsername
-      type: object
-    FormattedApiOrgSettings:
-      example:
-        aiDataSharingOptOut: true
-        mfaAdminRecoveryOnly: true
-        allowedInviteDomains:
-        - allowedInviteDomains
-        - allowedInviteDomains
-        maxTokenExpirationDays: 0.8008281904610115
-        disableTokenExpirationEmails: true
-        mfaRequired: true
-      properties:
-        aiDataSharingOptOut:
-          nullable: true
-          title: aiDataSharingOptOut
-          type: boolean
-        disableTokenExpirationEmails:
-          nullable: true
-          title: disableTokenExpirationEmails
-          type: boolean
-        maxTokenExpirationDays:
-          nullable: true
-          title: maxTokenExpirationDays
-          type: number
-        mfaAdminRecoveryOnly:
-          nullable: true
-          title: mfaAdminRecoveryOnly
-          type: boolean
-        mfaRequired:
-          nullable: true
-          title: mfaRequired
-          type: boolean
-        allowedInviteDomains:
-          items:
-            type: string
-          nullable: true
-          type: array
-      type: object
-    FormattedApiOrgStackRegion:
-      example:
-        createdAt: createdAt
-        id: 0.8008281904610115
-        orgId: 1.4658129805029452
-        stackRegionId: 6.027456183070403
-        updatedAt: updatedAt
-      properties:
-        id:
-          title: id
-          type: number
-        stackRegionId:
-          title: stackRegionId
-          type: number
-        orgId:
-          title: orgId
-          type: number
-        createdAt:
-          title: createdAt
-          type: string
-        updatedAt:
-          nullable: true
-          title: updatedAt
-          type: string
-      required:
-      - createdAt
-      - id
-      - orgId
-      - stackRegionId
-      - updatedAt
       type: object
     FormattedApiOrgPublic:
       example:
@@ -5633,7 +5285,7 @@ components:
           title: retainedStackId
           type: number
         allowGCloudTrial:
-          $ref: '#/components/schemas/FormattedOrgMembership_allowGCloudTrial'
+          $ref: '#/components/schemas/FormattedApiOrgPublic_allowGCloudTrial'
         pluginSignatureType:
           title: pluginSignatureType
           type: string
@@ -5667,7 +5319,7 @@ components:
           type: boolean
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: '#/components/schemas/links_inner'
           title: links
           type: array
         subscriptions:
@@ -5744,6 +5396,74 @@ components:
       - userQuota
       - wpPlan
       type: object
+    FormattedApiOrgSettings:
+      example:
+        aiDataSharingOptOut: true
+        mfaAdminRecoveryOnly: true
+        allowedInviteDomains:
+        - allowedInviteDomains
+        - allowedInviteDomains
+        maxTokenExpirationDays: 0.8008281904610115
+        disableTokenExpirationEmails: true
+        mfaRequired: true
+      properties:
+        aiDataSharingOptOut:
+          nullable: true
+          title: aiDataSharingOptOut
+          type: boolean
+        disableTokenExpirationEmails:
+          nullable: true
+          title: disableTokenExpirationEmails
+          type: boolean
+        maxTokenExpirationDays:
+          nullable: true
+          title: maxTokenExpirationDays
+          type: number
+        mfaAdminRecoveryOnly:
+          nullable: true
+          title: mfaAdminRecoveryOnly
+          type: boolean
+        mfaRequired:
+          nullable: true
+          title: mfaRequired
+          type: boolean
+        allowedInviteDomains:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    FormattedApiOrgStackRegion:
+      example:
+        createdAt: createdAt
+        id: 0.8008281904610115
+        orgId: 1.4658129805029452
+        stackRegionId: 6.027456183070403
+        updatedAt: updatedAt
+      properties:
+        id:
+          title: id
+          type: number
+        stackRegionId:
+          title: stackRegionId
+          type: number
+        orgId:
+          title: orgId
+          type: number
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+      required:
+      - createdAt
+      - id
+      - orgId
+      - stackRegionId
+      - updatedAt
+      type: object
     FormattedApiPlugin:
       example:
         orgSlug: orgSlug
@@ -5797,6 +5517,7 @@ components:
               description: description
           annotations: true
           buildMode: buildMode
+          mixed: true
           pascalName: pascalName
           type: app
           preload: true
@@ -6010,6 +5731,7 @@ components:
             - description: description
               id: id
               title: title
+          docsPath: docsPath
           autoEnabled: true
           multiValueFilterOperators: true
           name: name
@@ -6132,7 +5854,7 @@ components:
           type: object
         links:
           items:
-            $ref: '#/components/schemas/links_inner_1'
+            $ref: '#/components/schemas/links_inner'
           title: links
           type: array
         angularDetected:
@@ -6192,287 +5914,369 @@ components:
       anyOf:
       - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf'
       - $ref: '#/components/schemas/FormattedApiStackRegion_anyOf_1'
-    AuthTokenWithSecret:
-      allOf:
-      - properties:
-          id:
-            example: c45485b6-8321-4cf2-bcec-12006df755ff
-            format: string
-            readOnly: true
-            type: string
-          accessPolicyId:
-            example: c45485b6-8321-4cf2-bcec-12006df755ff
-            format: string
-            type: string
-          name:
-            example: mytoken
-            type: string
-          displayName:
-            description: Will be set to `name` if not provided.
-            example: My Token
-            type: string
-          expiresAt:
-            description: Token does not expire if not provided.
-            format: date-time
-            type: string
-          firstUsedAt:
-            format: date-time
-            readOnly: true
-            type: string
-          lastUsedAt:
-            format: date-time
-            readOnly: true
-            type: string
-          createdAt:
-            format: date-time
-            readOnly: true
-            type: string
-          updatedAt:
-            format: date-time
-            readOnly: true
-            type: string
-          orgId:
-            example: "1"
-            readOnly: true
-            type: string
-        required:
-        - accessPolicyId
-        - name
-        type: object
-      - properties:
-          token:
-            description: This token is auto generated and will be shown only once.
-            example: glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9
-            format: password
-            type: string
+    FormattedOrgMembership:
       example:
-        accessPolicyId: c45485b6-8321-4cf2-bcec-12006df755ff
-        firstUsedAt: 2000-01-23T04:56:07.000+00:00
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        lastUsedAt: 2000-01-23T04:56:07.000+00:00
-        displayName: My Token
-        name: mytoken
-        id: c45485b6-8321-4cf2-bcec-12006df755ff
-        expiresAt: 2000-01-23T04:56:07.000+00:00
-        orgId: "1"
-        updatedAt: 2000-01-23T04:56:07.000+00:00
-        token: glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9
-    AuthToken:
-      example:
-        accessPolicyId: c45485b6-8321-4cf2-bcec-12006df755ff
-        firstUsedAt: 2000-01-23T04:56:07.000+00:00
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        lastUsedAt: 2000-01-23T04:56:07.000+00:00
-        displayName: My Token
-        name: mytoken
-        id: c45485b6-8321-4cf2-bcec-12006df755ff
-        expiresAt: 2000-01-23T04:56:07.000+00:00
-        orgId: "1"
-        updatedAt: 2000-01-23T04:56:07.000+00:00
-      properties:
-        id:
-          example: c45485b6-8321-4cf2-bcec-12006df755ff
-          format: string
-          readOnly: true
-          type: string
-        accessPolicyId:
-          example: c45485b6-8321-4cf2-bcec-12006df755ff
-          format: string
-          type: string
-        name:
-          example: mytoken
-          type: string
-        displayName:
-          description: Will be set to `name` if not provided.
-          example: My Token
-          type: string
-        expiresAt:
-          description: Token does not expire if not provided.
-          format: date-time
-          type: string
-        firstUsedAt:
-          format: date-time
-          readOnly: true
-          type: string
-        lastUsedAt:
-          format: date-time
-          readOnly: true
-          type: string
-        createdAt:
-          format: date-time
-          readOnly: true
-          type: string
-        updatedAt:
-          format: date-time
-          readOnly: true
-          type: string
-        orgId:
-          example: "1"
-          readOnly: true
-          type: string
-      required:
-      - accessPolicyId
-      - name
-      type: object
-    BilledUsage:
-      example:
-        notes: notes
-        description: description
-        dimensionName: dimensionName
-        amountDue: 5.962133916683182
-        unit: unit
-        orgRates: ""
-        dimensionId: ai-tokens
-        totalUsage: 5.637376656633329
+        grafanaCloud: 3.616076749251911
+        orgSlug: orgSlug
+        subscriptions:
+          next: ""
+          current:
+            product: ""
+            endDate: ""
+            payload: "{}"
+            publicName: ""
+            planBillingCycle: ""
+            enterprisePluginsAdded: true
+            isTrial: true
+            plan: ""
+            startDate: ""
+        role: Admin
+        userStatus: 1.4894159098541704
+        hmCurrentPrometheusUsage: 1.0246457001441578
+        privacy: 2.3021358869347655
+        grafanaStaffAccess:
+          publicReason: publicReason
+          accessExpiresAt: 2000-01-23T04:56:07.000+00:00
+          ticketId: 6.84685269835264
+        hlUsage: 7.386281948385884
+        orgUrl: orgUrl
+        orgId: 6.027456183070403
+        billing: 7.061401241503109
+        defaultOrg: 5.637376656633329
+        createdAt: createdAt
+        security: 9.301444243932576
+        hgDatasourceCnts: hgDatasourceCnts
+        userLastName: userLastName
+        userEmail: userEmail
+        mfaEnabled: true
         id: 0.8008281904610115
-        usages:
-        - dpm: 1.2315135367772556
-          ingestUsage: 7.457744773683766
-          onCallUsage: 1.1730742509559433
-          stackId: 9.965781217890562
-          stackName: stackName
-          activeUsers: 7.061401241503109
-          protocolUsage: 4.965218492984954
-          anonymousUsers: 9.301444243932576
-          attributedUsage: 2.027123023002322
-          grafanaUsage: 1.0246457001441578
-          browserUsage: 4.145608029883936
-          stackLabels: "{}"
-          attributedCost: 3.616076749251911
-          credits:
-          - amount: 7.386281948385884
-            dimensionId: dimensionId
-            dimensionName: dimensionName
-          - amount: 7.386281948385884
-            dimensionId: dimensionId
-            dimensionName: dimensionName
-          queryUsage: 5.025004791520295
-          incidentUsage: 6.84685269835264
-          totalUsage: 9.369310271410669
-          id: 1.4894159098541704
-          activeSeries: 2.3021358869347655
-          periodStart: periodStart
-          isProrated: true
-          periodEnd: periodEnd
-        - dpm: 1.2315135367772556
-          ingestUsage: 7.457744773683766
-          onCallUsage: 1.1730742509559433
-          stackId: 9.965781217890562
-          stackName: stackName
-          activeUsers: 7.061401241503109
-          protocolUsage: 4.965218492984954
-          anonymousUsers: 9.301444243932576
-          attributedUsage: 2.027123023002322
-          grafanaUsage: 1.0246457001441578
-          browserUsage: 4.145608029883936
-          stackLabels: "{}"
-          attributedCost: 3.616076749251911
-          credits:
-          - amount: 7.386281948385884
-            dimensionId: dimensionId
-            dimensionName: dimensionName
-          - amount: 7.386281948385884
-            dimensionId: dimensionId
-            dimensionName: dimensionName
-          queryUsage: 5.025004791520295
-          incidentUsage: 6.84685269835264
-          totalUsage: 9.369310271410669
-          id: 1.4894159098541704
-          activeSeries: 2.3021358869347655
-          periodStart: periodStart
-          isProrated: true
-          periodEnd: periodEnd
-        includedUsage: 1.4658129805029452
-        periodStart: periodStart
-        overage: 6.027456183070403
-        periodEnd: periodEnd
+        extraPermissions:
+        - accesspolicies:write
+        - accesspolicies:write
+        updatedAt: updatedAt
+        userUsername: userUsername
+        updatedBy: updatedBy
+        orgName: orgName
+        userFirstName: userFirstName
+        userName: userName
+        userId: 1.4658129805029452
+        contractTypeId: 4.145608029883936
+        resellerId: 2.027123023002322
+        hmCurrentGraphiteUsage: 1.2315135367772556
+        createdBy: createdBy
+        allowGCloudTrial: true
+        marketplaceSubscription:
+          isLegacy: true
+          provider: aws
+        status: 5.962133916683182
       properties:
         id:
           title: id
           type: number
-        description:
-          title: description
-          type: string
-        overage:
-          title: overage
+        orgId:
+          title: orgId
           type: number
-        notes:
-          title: notes
-          type: string
-        unit:
-          title: unit
-          type: string
-        includedUsage:
-          title: includedUsage
+        userId:
+          title: userId
           type: number
-        dimensionId:
+        status:
+          title: status
+          type: number
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+        defaultOrg:
+          title: defaultOrg
+          type: number
+        role:
           enum:
-          - ai-tokens
-          - app-o11y
-          - assistant
-          - db-o11y-hosts
-          - fe-o11y
-          - ge-instances
-          - ge-users
-          - hg
-          - hg-plugin-users
-          - hl
-          - hl-process
-          - hl-retention
-          - hm
-          - hm-graphite
-          - hp
-          - hp-process
-          - hp-retention
-          - ht
-          - ht-process
-          - ht-retention
-          - infra-o11y-containers
-          - infra-o11y-hosts
-          - irm
-          - k6-ip
-          - k6-vuh
-          - sm
-          - sm-browser
-          title: dimensionId
+          - Admin
+          - Editor
+          - None
+          - SSO Access
+          - Viewer
+          title: role
           type: string
-        amountDue:
-          title: amountDue
+        privacy:
+          title: privacy
           type: number
-        dimensionName:
-          title: dimensionName
-          type: string
-        orgRates:
-          title: orgRates
-        periodEnd:
-          title: periodEnd
-          type: string
-        periodStart:
-          title: periodStart
-          type: string
-        totalUsage:
-          title: totalUsage
+        billing:
+          title: billing
           type: number
-        usages:
+        security:
+          title: security
+          type: number
+        createdBy:
+          title: createdBy
+          type: string
+        updatedBy:
+          title: updatedBy
+          type: string
+        orgName:
+          title: orgName
+          type: string
+        orgSlug:
+          title: orgSlug
+          type: string
+        orgUrl:
+          title: orgUrl
+          type: string
+        grafanaCloud:
+          enum:
+          - 0
+          - 1
+          - 11
+          - 2
+          - 31
+          - 4
+          - 41
+          - 6
+          - 9
+          title: grafanaCloud
+          type: number
+        resellerId:
+          nullable: true
+          title: resellerId
+          type: number
+        contractTypeId:
+          enum:
+          - 0
+          - 1
+          - 2
+          title: contractTypeId
+          type: number
+        allowGCloudTrial:
+          $ref: '#/components/schemas/FormattedApiOrgPublic_allowGCloudTrial'
+        hlUsage:
+          title: hlUsage
+          type: number
+        hmCurrentGraphiteUsage:
+          title: hmCurrentGraphiteUsage
+          type: number
+        hmCurrentPrometheusUsage:
+          title: hmCurrentPrometheusUsage
+          type: number
+        hgDatasourceCnts:
+          title: hgDatasourceCnts
+          type: string
+        userFirstName:
+          title: userFirstName
+          type: string
+        userLastName:
+          title: userLastName
+          type: string
+        userUsername:
+          title: userUsername
+          type: string
+        userStatus:
+          title: userStatus
+          type: number
+        userEmail:
+          title: userEmail
+          type: string
+        userName:
+          title: userName
+          type: string
+        subscriptions:
+          $ref: '#/components/schemas/subscriptions'
+        marketplaceSubscription:
+          $ref: '#/components/schemas/FormattedOrgMembership_marketplaceSubscription'
+        mfaEnabled:
+          title: mfaEnabled
+          type: boolean
+        extraPermissions:
           items:
-            $ref: '#/components/schemas/usages_inner'
-          title: usages
+            enum:
+            - accesspolicies:write
+            - orgs:read
+            - support-ticket-comments:write
+            - support-tickets:read
+            - support-tickets:write
+            type: string
+          title: extraPermissions
+          type: array
+        grafanaStaffAccess:
+          $ref: '#/components/schemas/FormattedOrgMembership_grafanaStaffAccess'
+      required:
+      - allowGCloudTrial
+      - billing
+      - contractTypeId
+      - createdAt
+      - createdBy
+      - defaultOrg
+      - grafanaCloud
+      - hgDatasourceCnts
+      - hlUsage
+      - hmCurrentGraphiteUsage
+      - hmCurrentPrometheusUsage
+      - id
+      - marketplaceSubscription
+      - orgId
+      - orgName
+      - orgSlug
+      - orgUrl
+      - privacy
+      - resellerId
+      - role
+      - security
+      - status
+      - subscriptions
+      - updatedAt
+      - updatedBy
+      - userEmail
+      - userFirstName
+      - userId
+      - userLastName
+      - userName
+      - userStatus
+      - userUsername
+      type: object
+    GrafanaNewApiKeyResult:
+      example:
+        name: grafana
+        id: 1
+        key: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
+      properties:
+        id:
+          example: 1
+          format: int64
+          type: integer
+        key:
+          example: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
+          type: string
+        name:
+          example: grafana
+          type: string
+      type: object
+    GrafanaServiceAccountDTO:
+      description: "swagger: model"
+      example:
+        accessControl:
+          serviceaccounts:delete: true
+          serviceaccounts:read: true
+          serviceaccounts:write: true
+        role: Viewer
+        isExternal: false
+        avatarUrl: /avatar/85ec38023d90823d3e5b43ef35646af9
+        name: grafana
+        tokens: 0
+        id: 0
+        isDisabled: false
+        login: sa-grafana
+        orgId: 1
+      properties:
+        accessControl:
+          additionalProperties:
+            type: boolean
+          example:
+            serviceaccounts:delete: true
+            serviceaccounts:read: true
+            serviceaccounts:write: true
+          type: object
+        avatarUrl:
+          example: /avatar/85ec38023d90823d3e5b43ef35646af9
+          type: string
+        id:
+          format: int64
+          type: integer
+        isDisabled:
+          example: false
+          type: boolean
+        isExternal:
+          example: false
+          type: boolean
+        login:
+          example: sa-grafana
+          type: string
+        name:
+          example: grafana
+          type: string
+        orgId:
+          example: 1
+          format: int64
+          type: integer
+        role:
+          example: Viewer
+          type: string
+        tokens:
+          example: 0
+          format: int64
+          type: integer
+      type: object
+    GrafanaTokenDTO:
+      example:
+        isRevoked: false
+        hasExpired: false
+        lastUsedAt: 2022-03-23T10:31:02Z
+        created: 2022-03-23T10:31:02Z
+        name: grafana
+        secondsUntilExpiration: 0
+        expiration: 2022-03-23T10:31:02Z
+        id: 1
+      properties:
+        created:
+          example: 2022-03-23T10:31:02Z
+          format: date-time
+          type: string
+        expiration:
+          example: 2022-03-23T10:31:02Z
+          format: date-time
+          type: string
+        hasExpired:
+          example: false
+          type: boolean
+        id:
+          example: 1
+          format: int64
+          type: integer
+        isRevoked:
+          example: false
+          type: boolean
+        lastUsedAt:
+          example: 2022-03-23T10:31:02Z
+          format: date-time
+          type: string
+        name:
+          example: grafana
+          type: string
+        secondsUntilExpiration:
+          example: 0
+          format: double
+          type: number
+      type: object
+    InstanceUsersResponse:
+      example:
+        items:
+        - lastSeenAt: lastSeenAt
+          createdAt: createdAt
+          role: role
+          name: name
+          id: 0.8008281904610115
+          login: login
+          email: email
+          updatedAt: updatedAt
+          isServiceAccount: true
+        - lastSeenAt: lastSeenAt
+          createdAt: createdAt
+          role: role
+          name: name
+          id: 0.8008281904610115
+          login: login
+          email: email
+          updatedAt: updatedAt
+          isServiceAccount: true
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/items_inner'
+          title: items
           type: array
       required:
-      - amountDue
-      - description
-      - dimensionId
-      - dimensionName
-      - id
-      - includedUsage
-      - notes
-      - orgRates
-      - overage
-      - periodEnd
-      - periodStart
-      - totalUsage
-      - unit
-      - usages
+      - items
       type: object
     OrgBilledUsageHistory:
       example:
@@ -6489,11 +6293,207 @@ components:
           type: string
         items:
           items:
-            $ref: '#/components/schemas/items_inner_2'
+            $ref: '#/components/schemas/items_inner_1'
           title: items
           type: array
       required:
       - items
+      type: object
+    OrgMemberListResponse:
+      example:
+        cursor: 9.369310271410669
+        nextCursor: 6.683562403749608
+        total: 7.457744773683766
+        pages: 1.1730742509559433
+        perPage: 5.025004791520295
+        orderBy: orderBy
+        links:
+        - rel: rel
+          href: href
+        - rel: rel
+          href: href
+        page: 4.965218492984954
+        totalCount: 9.965781217890562
+        items:
+        - grafanaCloud: 3.616076749251911
+          orgSlug: orgSlug
+          subscriptions:
+            next: ""
+            current:
+              product: ""
+              endDate: ""
+              payload: "{}"
+              publicName: ""
+              planBillingCycle: ""
+              enterprisePluginsAdded: true
+              isTrial: true
+              plan: ""
+              startDate: ""
+          role: Admin
+          userStatus: 1.4894159098541704
+          hmCurrentPrometheusUsage: 1.0246457001441578
+          privacy: 2.3021358869347655
+          grafanaStaffAccess:
+            publicReason: publicReason
+            accessExpiresAt: 2000-01-23T04:56:07.000+00:00
+            ticketId: 6.84685269835264
+          hlUsage: 7.386281948385884
+          orgUrl: orgUrl
+          orgId: 6.027456183070403
+          billing: 7.061401241503109
+          defaultOrg: 5.637376656633329
+          createdAt: createdAt
+          security: 9.301444243932576
+          hgDatasourceCnts: hgDatasourceCnts
+          userLastName: userLastName
+          userEmail: userEmail
+          mfaEnabled: true
+          id: 0.8008281904610115
+          extraPermissions:
+          - accesspolicies:write
+          - accesspolicies:write
+          updatedAt: updatedAt
+          userUsername: userUsername
+          updatedBy: updatedBy
+          orgName: orgName
+          userFirstName: userFirstName
+          userName: userName
+          userId: 1.4658129805029452
+          contractTypeId: 4.145608029883936
+          resellerId: 2.027123023002322
+          hmCurrentGraphiteUsage: 1.2315135367772556
+          createdBy: createdBy
+          allowGCloudTrial: true
+          marketplaceSubscription:
+            isLegacy: true
+            provider: aws
+          status: 5.962133916683182
+        - grafanaCloud: 3.616076749251911
+          orgSlug: orgSlug
+          subscriptions:
+            next: ""
+            current:
+              product: ""
+              endDate: ""
+              payload: "{}"
+              publicName: ""
+              planBillingCycle: ""
+              enterprisePluginsAdded: true
+              isTrial: true
+              plan: ""
+              startDate: ""
+          role: Admin
+          userStatus: 1.4894159098541704
+          hmCurrentPrometheusUsage: 1.0246457001441578
+          privacy: 2.3021358869347655
+          grafanaStaffAccess:
+            publicReason: publicReason
+            accessExpiresAt: 2000-01-23T04:56:07.000+00:00
+            ticketId: 6.84685269835264
+          hlUsage: 7.386281948385884
+          orgUrl: orgUrl
+          orgId: 6.027456183070403
+          billing: 7.061401241503109
+          defaultOrg: 5.637376656633329
+          createdAt: createdAt
+          security: 9.301444243932576
+          hgDatasourceCnts: hgDatasourceCnts
+          userLastName: userLastName
+          userEmail: userEmail
+          mfaEnabled: true
+          id: 0.8008281904610115
+          extraPermissions:
+          - accesspolicies:write
+          - accesspolicies:write
+          updatedAt: updatedAt
+          userUsername: userUsername
+          updatedBy: updatedBy
+          orgName: orgName
+          userFirstName: userFirstName
+          userName: userName
+          userId: 1.4658129805029452
+          contractTypeId: 4.145608029883936
+          resellerId: 2.027123023002322
+          hmCurrentGraphiteUsage: 1.2315135367772556
+          createdBy: createdBy
+          allowGCloudTrial: true
+          marketplaceSubscription:
+            isLegacy: true
+            provider: aws
+          status: 5.962133916683182
+        direction: direction
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/items_inner_2'
+          title: items
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner'
+          title: links
+          type: array
+        total:
+          title: total
+          type: number
+        pages:
+          title: pages
+          type: number
+        page:
+          title: page
+          type: number
+        perPage:
+          title: perPage
+          type: number
+        totalCount:
+          title: totalCount
+          type: number
+        orderBy:
+          title: orderBy
+          type: string
+        direction:
+          title: direction
+          type: string
+        cursor:
+          title: cursor
+          type: number
+        nextCursor:
+          title: nextCursor
+          type: number
+      required:
+      - items
+      - links
+      type: object
+    ServiceAccountSearchResponse:
+      example:
+        serviceAccounts:
+        - name: name
+          id: 6.027456183070403
+        - name: name
+          id: 6.027456183070403
+        perPage: 5.962133916683182
+        page: 1.4658129805029452
+        totalCount: 0.8008281904610115
+      properties:
+        totalCount:
+          title: totalCount
+          type: number
+        serviceAccounts:
+          items:
+            $ref: '#/components/schemas/serviceAccounts_inner'
+          title: serviceAccounts
+          type: array
+        page:
+          title: page
+          type: number
+        perPage:
+          title: perPage
+          type: number
+      required:
+      - page
+      - perPage
+      - serviceAccounts
+      - totalCount
       type: object
     APIListResponseStackRegionV1:
       additionalProperties: false
@@ -6561,7 +6561,7 @@ components:
         code: code
         requestId: requestId
         message: message
-        statusCode: 7
+        statusCode: 6
       properties:
         code:
           type: string
@@ -6578,8 +6578,113 @@ components:
       - requestId
       - statusCode
       type: object
-    FormattedApiInstanceConnections1:
+    FormattedApiInstanceConnections:
       additionalProperties: false
+      example:
+        otlpHttpUrl: otlpHttpUrl
+        influxUrl: influxUrl
+        oncallApiUrl: oncallApiUrl
+        appPlatform:
+          url: url
+          caData: caData
+        syntheticMonitoringApiUrl: syntheticMonitoringApiUrl
+        otlpMultiAZ: true
+        privateConnectivityInfo:
+          tenants:
+          - ipAllowListCNAME: ipAllowListCNAME
+            id: 0
+            type: type
+            allowlistUrl: allowlistUrl
+            info:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
+              regions:
+              - regions
+              - regions
+              serviceAttachment: serviceAttachment
+              endpointName: endpointName
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
+              domainNames:
+              - domainNames
+              - domainNames
+              privateDNS: privateDNS
+              serviceName: serviceName
+          - ipAllowListCNAME: ipAllowListCNAME
+            id: 0
+            type: type
+            allowlistUrl: allowlistUrl
+            info:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
+              regions:
+              - regions
+              - regions
+              serviceAttachment: serviceAttachment
+              endpointName: endpointName
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
+              domainNames:
+              - domainNames
+              - domainNames
+              privateDNS: privateDNS
+              serviceName: serviceName
+          otlp:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            serviceAttachment: serviceAttachment
+            endpointName: endpointName
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            domainNames:
+            - domainNames
+            - domainNames
+            privateDNS: privateDNS
+            serviceName: serviceName
+          pdc:
+            api:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
+              regions:
+              - regions
+              - regions
+              serviceAttachment: serviceAttachment
+              endpointName: endpointName
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
+              domainNames:
+              - domainNames
+              - domainNames
+              privateDNS: privateDNS
+              serviceName: serviceName
+            gateway:
+              availabilityZoneIds:
+              - availabilityZoneIds
+              - availabilityZoneIds
+              regions:
+              - regions
+              - regions
+              serviceAttachment: serviceAttachment
+              endpointName: endpointName
+              availabilityZones:
+              - availabilityZones
+              - availabilityZones
+              domainNames:
+              - domainNames
+              - domainNames
+              privateDNS: privateDNS
+              serviceName: serviceName
       properties:
         appPlatform:
           $ref: '#/components/schemas/StackConnectionAppPlatformV1'
@@ -6603,6 +6708,102 @@ components:
       type: object
     FormattedApiInstancePrivateConnectivityInfo:
       additionalProperties: false
+      example:
+        tenants:
+        - ipAllowListCNAME: ipAllowListCNAME
+          id: 0
+          type: type
+          allowlistUrl: allowlistUrl
+          info:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            serviceAttachment: serviceAttachment
+            endpointName: endpointName
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            domainNames:
+            - domainNames
+            - domainNames
+            privateDNS: privateDNS
+            serviceName: serviceName
+        - ipAllowListCNAME: ipAllowListCNAME
+          id: 0
+          type: type
+          allowlistUrl: allowlistUrl
+          info:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            serviceAttachment: serviceAttachment
+            endpointName: endpointName
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            domainNames:
+            - domainNames
+            - domainNames
+            privateDNS: privateDNS
+            serviceName: serviceName
+        otlp:
+          availabilityZoneIds:
+          - availabilityZoneIds
+          - availabilityZoneIds
+          regions:
+          - regions
+          - regions
+          serviceAttachment: serviceAttachment
+          endpointName: endpointName
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
+          domainNames:
+          - domainNames
+          - domainNames
+          privateDNS: privateDNS
+          serviceName: serviceName
+        pdc:
+          api:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            serviceAttachment: serviceAttachment
+            endpointName: endpointName
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            domainNames:
+            - domainNames
+            - domainNames
+            privateDNS: privateDNS
+            serviceName: serviceName
+          gateway:
+            availabilityZoneIds:
+            - availabilityZoneIds
+            - availabilityZoneIds
+            regions:
+            - regions
+            - regions
+            serviceAttachment: serviceAttachment
+            endpointName: endpointName
+            availabilityZones:
+            - availabilityZones
+            - availabilityZones
+            domainNames:
+            - domainNames
+            - domainNames
+            privateDNS: privateDNS
+            serviceName: serviceName
       properties:
         otlp:
           $ref: '#/components/schemas/BasicPrivateConnectivityInfo'
@@ -6618,6 +6819,28 @@ components:
       type: object
     InstanceConnectionTenant:
       additionalProperties: false
+      example:
+        ipAllowListCNAME: ipAllowListCNAME
+        id: 0
+        type: type
+        allowlistUrl: allowlistUrl
+        info:
+          availabilityZoneIds:
+          - availabilityZoneIds
+          - availabilityZoneIds
+          regions:
+          - regions
+          - regions
+          serviceAttachment: serviceAttachment
+          endpointName: endpointName
+          availabilityZones:
+          - availabilityZones
+          - availabilityZones
+          domainNames:
+          - domainNames
+          - domainNames
+          privateDNS: privateDNS
+          serviceName: serviceName
       properties:
         allowlistUrl:
           description: Allowlist API endpoint
@@ -8411,6 +8634,78 @@ components:
           nullable: true
           type: string
       type: object
+    realms_inner_anyOf:
+      example:
+        identifier: identifier
+        type: org
+      properties:
+        type:
+          enum:
+          - org
+          title: type
+          type: string
+        identifier:
+          title: identifier
+          type: string
+      required:
+      - identifier
+      - type
+      type: object
+    realms_inner_anyOf_1:
+      properties:
+        type:
+          enum:
+          - stack
+          title: type
+          type: string
+        identifier:
+          title: identifier
+          type: string
+      required:
+      - identifier
+      - type
+      type: object
+    realms_inner:
+      anyOf:
+      - $ref: '#/components/schemas/realms_inner_anyOf'
+      - $ref: '#/components/schemas/realms_inner_anyOf_1'
+    scopes_inner:
+      example:
+        requiresRealmType: requiresRealmType
+        name: name
+        description: description
+      properties:
+        name:
+          title: name
+          type: string
+        description:
+          title: description
+          type: string
+        requiresRealmType:
+          title: requiresRealmType
+          type: string
+      required:
+      - description
+      - name
+      type: object
+    sets_inner:
+      example:
+        name: name
+        scopes:
+        - scopes
+        - scopes
+      properties:
+        name:
+          title: name
+          type: string
+        scopes:
+          items:
+            type: string
+          title: scopes
+          type: array
+      required:
+      - name
+      type: object
     pagination:
       example:
         nextPage: nextPage
@@ -8595,329 +8890,151 @@ components:
             type: string
           type: array
       type: object
-    realms_inner_anyOf:
+    credits_inner:
       example:
-        identifier: identifier
-        type: org
+        amount: 7.386281948385884
+        dimensionId: dimensionId
+        dimensionName: dimensionName
       properties:
-        type:
-          enum:
-          - org
-          title: type
+        amount:
+          title: amount
+          type: number
+        dimensionId:
+          title: dimensionId
           type: string
-        identifier:
-          title: identifier
+        dimensionName:
+          title: dimensionName
           type: string
       required:
-      - identifier
-      - type
+      - amount
+      - dimensionId
+      - dimensionName
       type: object
-    realms_inner_anyOf_1:
-      properties:
-        type:
-          enum:
-          - stack
-          title: type
-          type: string
-        identifier:
-          title: identifier
-          type: string
-      required:
-      - identifier
-      - type
-      type: object
-    realms_inner:
-      anyOf:
-      - $ref: '#/components/schemas/realms_inner_anyOf'
-      - $ref: '#/components/schemas/realms_inner_anyOf_1'
-    scopes_inner:
+    usages_inner:
       example:
-        requiresRealmType: requiresRealmType
-        name: name
-        description: description
+        dpm: 1.2315135367772556
+        ingestUsage: 7.457744773683766
+        onCallUsage: 1.1730742509559433
+        stackId: 9.965781217890562
+        stackName: stackName
+        activeUsers: 7.061401241503109
+        protocolUsage: 4.965218492984954
+        anonymousUsers: 9.301444243932576
+        attributedUsage: 2.027123023002322
+        grafanaUsage: 1.0246457001441578
+        browserUsage: 4.145608029883936
+        stackLabels: "{}"
+        attributedCost: 3.616076749251911
+        credits:
+        - amount: 7.386281948385884
+          dimensionId: dimensionId
+          dimensionName: dimensionName
+        - amount: 7.386281948385884
+          dimensionId: dimensionId
+          dimensionName: dimensionName
+        queryUsage: 5.025004791520295
+        incidentUsage: 6.84685269835264
+        totalUsage: 9.369310271410669
+        id: 1.4894159098541704
+        activeSeries: 2.3021358869347655
+        periodStart: periodStart
+        isProrated: true
+        periodEnd: periodEnd
       properties:
-        name:
-          title: name
-          type: string
-        description:
-          title: description
-          type: string
-        requiresRealmType:
-          title: requiresRealmType
-          type: string
-      required:
-      - description
-      - name
-      type: object
-    sets_inner:
-      example:
-        name: name
-        scopes:
-        - scopes
-        - scopes
-      properties:
-        name:
-          title: name
-          type: string
-        scopes:
+        activeSeries:
+          title: activeSeries
+          type: number
+        activeUsers:
+          title: activeUsers
+          type: number
+        anonymousUsers:
+          title: anonymousUsers
+          type: number
+        attributedCost:
+          title: attributedCost
+          type: number
+        attributedUsage:
+          title: attributedUsage
+          type: number
+        browserUsage:
+          title: browserUsage
+          type: number
+        credits:
           items:
-            type: string
-          title: scopes
+            $ref: '#/components/schemas/credits_inner'
+          title: credits
           type: array
-      required:
-      - name
-      type: object
-    info_anyOf:
-      example:
-        availabilityZoneIds:
-        - availabilityZoneIds
-        - availabilityZoneIds
-        regions:
-        - regions
-        - regions
-        availabilityZones:
-        - availabilityZones
-        - availabilityZones
-        privateDNS: privateDNS
-        serviceName: serviceName
-      properties:
-        serviceName:
-          title: serviceName
-          type: string
-        privateDNS:
-          title: privateDNS
-          type: string
-        regions:
-          items:
-            type: string
-          title: regions
-          type: array
-        availabilityZones:
-          items:
-            type: string
-          title: availabilityZones
-          type: array
-        availabilityZoneIds:
-          items:
-            type: string
-          title: availabilityZoneIds
-          type: array
-      required:
-      - privateDNS
-      - serviceName
-      type: object
-    info_anyOf_1:
-      properties:
-        serviceAttachment:
-          title: serviceAttachment
-          type: string
-        domainNames:
-          items:
-            type: string
-          title: domainNames
-          type: array
-      required:
-      - domainNames
-      - serviceAttachment
-      type: object
-    info:
-      anyOf:
-      - $ref: '#/components/schemas/info_anyOf'
-      - $ref: '#/components/schemas/info_anyOf_1'
-      title: info
-    tenants_inner:
-      example:
-        ipAllowListCNAME: ipAllowListCNAME
-        id: 0.8008281904610115
-        type: type
-        info:
-          availabilityZoneIds:
-          - availabilityZoneIds
-          - availabilityZoneIds
-          regions:
-          - regions
-          - regions
-          availabilityZones:
-          - availabilityZones
-          - availabilityZones
-          privateDNS: privateDNS
-          serviceName: serviceName
-        allowlistUrl: allowlistUrl
-      properties:
-        type:
-          title: type
-          type: string
+        dpm:
+          title: dpm
+          type: number
+        grafanaUsage:
+          title: grafanaUsage
+          type: number
         id:
           title: id
           type: number
-        info:
-          $ref: '#/components/schemas/info'
-        ipAllowListCNAME:
-          nullable: true
-          title: ipAllowListCNAME
+        incidentUsage:
+          title: incidentUsage
+          type: number
+        ingestUsage:
+          title: ingestUsage
+          type: number
+        isProrated:
+          title: isProrated
+          type: boolean
+        onCallUsage:
+          title: onCallUsage
+          type: number
+        periodEnd:
+          title: periodEnd
           type: string
-        allowlistUrl:
-          nullable: true
-          title: allowlistUrl
+        periodStart:
+          title: periodStart
           type: string
+        protocolUsage:
+          title: protocolUsage
+          type: number
+        queryUsage:
+          title: queryUsage
+          type: number
+        stackId:
+          title: stackId
+          type: number
+        totalUsage:
+          title: totalUsage
+          type: number
+        stackName:
+          title: stackName
+          type: string
+        stackLabels:
+          title: stackLabels
+          type: object
       required:
       - id
-      - type
-      type: object
-    otlp:
-      anyOf:
-      - $ref: '#/components/schemas/info_anyOf'
-      - $ref: '#/components/schemas/info_anyOf_1'
-      title: otlp
-    api:
-      anyOf:
-      - $ref: '#/components/schemas/info_anyOf'
-      - $ref: '#/components/schemas/info_anyOf_1'
-      title: api
-    gateway:
-      anyOf:
-      - $ref: '#/components/schemas/info_anyOf'
-      - $ref: '#/components/schemas/info_anyOf_1'
-      title: gateway
-    pdc:
-      example:
-        api:
-          availabilityZoneIds:
-          - availabilityZoneIds
-          - availabilityZoneIds
-          regions:
-          - regions
-          - regions
-          availabilityZones:
-          - availabilityZones
-          - availabilityZones
-          privateDNS: privateDNS
-          serviceName: serviceName
-        gateway:
-          availabilityZoneIds:
-          - availabilityZoneIds
-          - availabilityZoneIds
-          regions:
-          - regions
-          - regions
-          availabilityZones:
-          - availabilityZones
-          - availabilityZones
-          privateDNS: privateDNS
-          serviceName: serviceName
-      properties:
-        api:
-          $ref: '#/components/schemas/api'
-        gateway:
-          $ref: '#/components/schemas/gateway'
-      required:
-      - api
-      - gateway
-      title: pdc
-      type: object
-    privateConnectivityInfo:
-      example:
-        tenants:
-        - ipAllowListCNAME: ipAllowListCNAME
-          id: 0.8008281904610115
-          type: type
-          info:
-            availabilityZoneIds:
-            - availabilityZoneIds
-            - availabilityZoneIds
-            regions:
-            - regions
-            - regions
-            availabilityZones:
-            - availabilityZones
-            - availabilityZones
-            privateDNS: privateDNS
-            serviceName: serviceName
-          allowlistUrl: allowlistUrl
-        - ipAllowListCNAME: ipAllowListCNAME
-          id: 0.8008281904610115
-          type: type
-          info:
-            availabilityZoneIds:
-            - availabilityZoneIds
-            - availabilityZoneIds
-            regions:
-            - regions
-            - regions
-            availabilityZones:
-            - availabilityZones
-            - availabilityZones
-            privateDNS: privateDNS
-            serviceName: serviceName
-          allowlistUrl: allowlistUrl
-        otlp:
-          availabilityZoneIds:
-          - availabilityZoneIds
-          - availabilityZoneIds
-          regions:
-          - regions
-          - regions
-          availabilityZones:
-          - availabilityZones
-          - availabilityZones
-          privateDNS: privateDNS
-          serviceName: serviceName
-        pdc:
-          api:
-            availabilityZoneIds:
-            - availabilityZoneIds
-            - availabilityZoneIds
-            regions:
-            - regions
-            - regions
-            availabilityZones:
-            - availabilityZones
-            - availabilityZones
-            privateDNS: privateDNS
-            serviceName: serviceName
-          gateway:
-            availabilityZoneIds:
-            - availabilityZoneIds
-            - availabilityZoneIds
-            regions:
-            - regions
-            - regions
-            availabilityZones:
-            - availabilityZones
-            - availabilityZones
-            privateDNS: privateDNS
-            serviceName: serviceName
-      properties:
-        tenants:
-          items:
-            $ref: '#/components/schemas/tenants_inner'
-          title: tenants
-          type: array
-        otlp:
-          $ref: '#/components/schemas/otlp'
-        pdc:
-          $ref: '#/components/schemas/pdc'
-      required:
-      - tenants
-      title: privateConnectivityInfo
-      type: object
-    appPlatform:
-      example:
-        url: url
-        caData: caData
-      properties:
-        url:
-          title: url
-          type: string
-        caData:
-          nullable: true
-          title: caData
-          type: string
-      required:
-      - url
-      title: appPlatform
+      - isProrated
+      - periodEnd
+      - periodStart
+      - stackId
+      - stackLabels
+      - stackName
+      - totalUsage
       type: object
     links_inner:
+      example:
+        rel: rel
+        href: href
+      properties:
+        rel:
+          title: rel
+          type: string
+        href:
+          title: href
+          type: string
+      required:
+      - href
+      - rel
+      type: object
+    links_inner_1:
       example:
         rel: self
         href: href
@@ -8933,85 +9050,10 @@ components:
       - href
       - rel
       type: object
-    serviceAccounts_inner:
-      example:
-        name: name
-        id: 6.027456183070403
-      properties:
-        id:
-          title: id
-          type: number
-        name:
-          title: name
-          type: string
-      required:
-      - id
-      - name
-      type: object
-    links_inner_1:
-      example:
-        rel: rel
-        href: href
-      properties:
-        rel:
-          title: rel
-          type: string
-        href:
-          title: href
-          type: string
-      required:
-      - href
-      - rel
-      type: object
-    items_inner:
-      example:
-        lastSeenAt: lastSeenAt
-        createdAt: createdAt
-        role: role
-        name: name
-        id: 0.8008281904610115
-        login: login
-        email: email
-        updatedAt: updatedAt
-        isServiceAccount: true
-      properties:
-        lastSeenAt:
-          title: lastSeenAt
-          type: string
-        createdAt:
-          title: createdAt
-          type: string
-        updatedAt:
-          title: updatedAt
-          type: string
-        email:
-          title: email
-          type: string
-        login:
-          title: login
-          type: string
-        name:
-          title: name
-          type: string
-        role:
-          title: role
-          type: string
-        id:
-          title: id
-          type: number
-        isServiceAccount:
-          title: isServiceAccount
-          type: boolean
-      required:
-      - createdAt
-      - email
-      - id
-      - isServiceAccount
-      - login
-      - name
-      - role
-      - updatedAt
-      type: object
+    FormattedApiOrgPublic_allowGCloudTrial:
+      anyOf:
+      - type: boolean
+      - type: number
     current:
       example:
         product: ""
@@ -9256,274 +9298,6 @@ components:
       - $ref: '#/components/schemas/subscriptions_anyOf_1'
       - $ref: '#/components/schemas/subscriptions_anyOf_2'
       title: subscriptions
-    items_inner_1_marketplaceSubscription:
-      example:
-        isLegacy: true
-        provider: aws
-      nullable: true
-      properties:
-        provider:
-          enum:
-          - aws
-          - azure
-          - gcp
-          title: provider
-          type: string
-        isLegacy:
-          title: isLegacy
-          type: boolean
-      required:
-      - isLegacy
-      - provider
-      type: object
-    items_inner_1_grafanaStaffAccess:
-      example:
-        publicReason: publicReason
-        accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-        ticketId: 6.84685269835264
-      nullable: true
-      properties:
-        accessExpiresAt:
-          format: date-time
-          title: accessExpiresAt
-          type: string
-        ticketId:
-          nullable: true
-          title: ticketId
-          type: number
-        publicReason:
-          nullable: true
-          title: publicReason
-          type: string
-      required:
-      - accessExpiresAt
-      type: object
-    items_inner_1:
-      example:
-        grafanaCloud: 3.616076749251911
-        orgSlug: orgSlug
-        subscriptions:
-          next: ""
-          current:
-            product: ""
-            endDate: ""
-            payload: "{}"
-            publicName: ""
-            planBillingCycle: ""
-            enterprisePluginsAdded: true
-            isTrial: true
-            plan: ""
-            startDate: ""
-        role: Admin
-        userStatus: 1.4894159098541704
-        hmCurrentPrometheusUsage: 1.0246457001441578
-        privacy: 2.3021358869347655
-        grafanaStaffAccess:
-          publicReason: publicReason
-          accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-          ticketId: 6.84685269835264
-        hlUsage: 7.386281948385884
-        orgUrl: orgUrl
-        orgId: 6.027456183070403
-        billing: 7.061401241503109
-        defaultOrg: 5.637376656633329
-        createdAt: createdAt
-        security: 9.301444243932576
-        hgDatasourceCnts: hgDatasourceCnts
-        userLastName: userLastName
-        userEmail: userEmail
-        mfaEnabled: true
-        id: 0.8008281904610115
-        extraPermissions:
-        - accesspolicies:write
-        - accesspolicies:write
-        updatedAt: updatedAt
-        userUsername: userUsername
-        updatedBy: updatedBy
-        orgName: orgName
-        userFirstName: userFirstName
-        userName: userName
-        userId: 1.4658129805029452
-        contractTypeId: 4.145608029883936
-        resellerId: 2.027123023002322
-        hmCurrentGraphiteUsage: 1.2315135367772556
-        createdBy: createdBy
-        allowGCloudTrial: true
-        marketplaceSubscription:
-          isLegacy: true
-          provider: aws
-        status: 5.962133916683182
-      properties:
-        id:
-          title: id
-          type: number
-        orgId:
-          title: orgId
-          type: number
-        userId:
-          title: userId
-          type: number
-        status:
-          title: status
-          type: number
-        createdAt:
-          title: createdAt
-          type: string
-        updatedAt:
-          nullable: true
-          title: updatedAt
-          type: string
-        defaultOrg:
-          title: defaultOrg
-          type: number
-        role:
-          enum:
-          - Admin
-          - Editor
-          - None
-          - SSO Access
-          - Viewer
-          title: role
-          type: string
-        privacy:
-          title: privacy
-          type: number
-        billing:
-          title: billing
-          type: number
-        security:
-          title: security
-          type: number
-        createdBy:
-          title: createdBy
-          type: string
-        updatedBy:
-          title: updatedBy
-          type: string
-        orgName:
-          title: orgName
-          type: string
-        orgSlug:
-          title: orgSlug
-          type: string
-        orgUrl:
-          title: orgUrl
-          type: string
-        grafanaCloud:
-          enum:
-          - 0
-          - 1
-          - 11
-          - 2
-          - 31
-          - 4
-          - 41
-          - 6
-          - 9
-          title: grafanaCloud
-          type: number
-        resellerId:
-          nullable: true
-          title: resellerId
-          type: number
-        contractTypeId:
-          enum:
-          - 0
-          - 1
-          - 2
-          title: contractTypeId
-          type: number
-        allowGCloudTrial:
-          title: allowGCloudTrial
-          type: boolean
-        hlUsage:
-          title: hlUsage
-          type: number
-        hmCurrentGraphiteUsage:
-          title: hmCurrentGraphiteUsage
-          type: number
-        hmCurrentPrometheusUsage:
-          title: hmCurrentPrometheusUsage
-          type: number
-        hgDatasourceCnts:
-          title: hgDatasourceCnts
-          type: string
-        userFirstName:
-          title: userFirstName
-          type: string
-        userLastName:
-          title: userLastName
-          type: string
-        userUsername:
-          title: userUsername
-          type: string
-        userStatus:
-          title: userStatus
-          type: number
-        userEmail:
-          title: userEmail
-          type: string
-        userName:
-          title: userName
-          type: string
-        subscriptions:
-          $ref: '#/components/schemas/subscriptions'
-        marketplaceSubscription:
-          $ref: '#/components/schemas/items_inner_1_marketplaceSubscription'
-        mfaEnabled:
-          title: mfaEnabled
-          type: boolean
-        extraPermissions:
-          items:
-            enum:
-            - accesspolicies:write
-            - orgs:read
-            - support-ticket-comments:write
-            - support-tickets:read
-            - support-tickets:write
-            type: string
-          title: extraPermissions
-          type: array
-        grafanaStaffAccess:
-          $ref: '#/components/schemas/items_inner_1_grafanaStaffAccess'
-      required:
-      - allowGCloudTrial
-      - billing
-      - contractTypeId
-      - createdAt
-      - createdBy
-      - defaultOrg
-      - grafanaCloud
-      - hgDatasourceCnts
-      - hlUsage
-      - hmCurrentGraphiteUsage
-      - hmCurrentPrometheusUsage
-      - id
-      - marketplaceSubscription
-      - orgId
-      - orgName
-      - orgSlug
-      - orgUrl
-      - privacy
-      - resellerId
-      - role
-      - security
-      - status
-      - subscriptions
-      - updatedAt
-      - updatedBy
-      - userEmail
-      - userFirstName
-      - userId
-      - userLastName
-      - userName
-      - userStatus
-      - userUsername
-      type: object
-    FormattedOrgMembership_allowGCloudTrial:
-      anyOf:
-      - type: boolean
-      - type: number
     author:
       description: Information about the plugin author.
       example:
@@ -9647,7 +9421,7 @@ components:
           title: path
           type: string
       type: object
-    info_1:
+    info:
       description: Metadata for the plugin. Some fields are used on the plugins page
         in Grafana and others on grafana.com if the plugin is published.
       example:
@@ -10502,6 +10276,7 @@ components:
             description: description
         annotations: true
         buildMode: buildMode
+        mixed: true
         pascalName: pascalName
         type: app
         preload: true
@@ -10715,6 +10490,7 @@ components:
           - description: description
             id: id
             title: title
+        docsPath: docsPath
         autoEnabled: true
         multiValueFilterOperators: true
         name: name
@@ -10737,7 +10513,7 @@ components:
           title: type
           type: string
         info:
-          $ref: '#/components/schemas/info_1'
+          $ref: '#/components/schemas/info'
         name:
           description: Human-readable name of the plugin that is shown to the user
             in the UI.
@@ -10786,6 +10562,10 @@ components:
             \ or custom string"
           title: category
           type: string
+        docsPath:
+          description: Path to the directory containing plugin documentation.
+          title: docsPath
+          type: string
         enterpriseFeatures:
           $ref: '#/components/schemas/enterpriseFeatures'
         executable:
@@ -10817,9 +10597,18 @@ components:
             \ Used to enable the plugin in the panel editor."
           title: metrics
           type: boolean
+        mixed:
+          description: "[internal only] For data source plugins, marks the plugin\
+            \ as a 'mixed' data source — one whose queries each carry their own `datasource`\
+            \ reference and are delegated to other data sources. When `true`, Grafana\
+            \ preserves the per-query `datasource` field instead of overwriting it\
+            \ with the plugin's own ref. Used by the built-in `-- Mixed --` data source.\
+            \ Setting this on a regular data source plugin will break query routing."
+          title: mixed
+          type: boolean
         multiValueFilterOperators:
           description: "For data source plugins, if the plugin supports multi value\
-            \ operators in adhoc filters."
+            \ operators in filters."
           title: multiValueFilterOperators
           type: boolean
         pascalName:
@@ -11038,7 +10827,7 @@ components:
       - endpointName
       - serviceAttachment
       type: object
-    api_1_anyOf:
+    api_anyOf:
       properties:
         privateDNS:
           title: privateDNS
@@ -11071,7 +10860,7 @@ components:
       - privateDNS
       - serviceName
       type: object
-    api_1_anyOf_1:
+    api_anyOf_1:
       properties:
         serviceAttachment:
           title: serviceAttachment
@@ -11089,38 +10878,38 @@ components:
       - endpointName
       - serviceAttachment
       type: object
-    api_1:
+    api:
       anyOf:
-      - $ref: '#/components/schemas/api_1_anyOf'
-      - $ref: '#/components/schemas/api_1_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf'
+      - $ref: '#/components/schemas/api_anyOf_1'
       title: api
-    gateway_1:
+    gateway:
       anyOf:
-      - $ref: '#/components/schemas/api_1_anyOf'
-      - $ref: '#/components/schemas/api_1_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf'
+      - $ref: '#/components/schemas/api_anyOf_1'
       title: gateway
     pdcPrivateConnectivityInfo_anyOf_2:
       nullable: true
       properties:
         api:
-          $ref: '#/components/schemas/api_1'
+          $ref: '#/components/schemas/api'
         gateway:
-          $ref: '#/components/schemas/gateway_1'
+          $ref: '#/components/schemas/gateway'
       required:
       - api
       - gateway
       type: object
     mimir:
       anyOf:
-      - $ref: '#/components/schemas/api_1_anyOf'
-      - $ref: '#/components/schemas/api_1_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf'
+      - $ref: '#/components/schemas/api_anyOf_1'
       title: mimir
     graphite:
       anyOf:
-      - $ref: '#/components/schemas/api_1_anyOf'
-      - $ref: '#/components/schemas/api_1_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf'
+      - $ref: '#/components/schemas/api_anyOf_1'
       title: graphite
-    otlp_1:
+    otlp:
       anyOf:
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
@@ -11133,7 +10922,7 @@ components:
         graphite:
           $ref: '#/components/schemas/graphite'
         otlp:
-          $ref: '#/components/schemas/otlp_1'
+          $ref: '#/components/schemas/otlp'
       required:
       - mimir
       type: object
@@ -11455,136 +11244,98 @@ components:
       - visibility
       - workflowEngineUrl
       type: object
-    credits_inner:
+    FormattedOrgMembership_marketplaceSubscription:
       example:
-        amount: 7.386281948385884
-        dimensionId: dimensionId
-        dimensionName: dimensionName
+        isLegacy: true
+        provider: aws
+      nullable: true
       properties:
-        amount:
-          title: amount
-          type: number
-        dimensionId:
-          title: dimensionId
+        provider:
+          enum:
+          - aws
+          - azure
+          - gcp
+          title: provider
           type: string
-        dimensionName:
-          title: dimensionName
+        isLegacy:
+          title: isLegacy
+          type: boolean
+      required:
+      - isLegacy
+      - provider
+      type: object
+    FormattedOrgMembership_grafanaStaffAccess:
+      example:
+        publicReason: publicReason
+        accessExpiresAt: 2000-01-23T04:56:07.000+00:00
+        ticketId: 6.84685269835264
+      nullable: true
+      properties:
+        accessExpiresAt:
+          format: date-time
+          title: accessExpiresAt
+          type: string
+        ticketId:
+          nullable: true
+          title: ticketId
+          type: number
+        publicReason:
+          nullable: true
+          title: publicReason
           type: string
       required:
-      - amount
-      - dimensionId
-      - dimensionName
+      - accessExpiresAt
       type: object
-    usages_inner:
+    items_inner:
       example:
-        dpm: 1.2315135367772556
-        ingestUsage: 7.457744773683766
-        onCallUsage: 1.1730742509559433
-        stackId: 9.965781217890562
-        stackName: stackName
-        activeUsers: 7.061401241503109
-        protocolUsage: 4.965218492984954
-        anonymousUsers: 9.301444243932576
-        attributedUsage: 2.027123023002322
-        grafanaUsage: 1.0246457001441578
-        browserUsage: 4.145608029883936
-        stackLabels: "{}"
-        attributedCost: 3.616076749251911
-        credits:
-        - amount: 7.386281948385884
-          dimensionId: dimensionId
-          dimensionName: dimensionName
-        - amount: 7.386281948385884
-          dimensionId: dimensionId
-          dimensionName: dimensionName
-        queryUsage: 5.025004791520295
-        incidentUsage: 6.84685269835264
-        totalUsage: 9.369310271410669
-        id: 1.4894159098541704
-        activeSeries: 2.3021358869347655
-        periodStart: periodStart
-        isProrated: true
-        periodEnd: periodEnd
+        lastSeenAt: lastSeenAt
+        createdAt: createdAt
+        role: role
+        name: name
+        id: 0.8008281904610115
+        login: login
+        email: email
+        updatedAt: updatedAt
+        isServiceAccount: true
       properties:
-        activeSeries:
-          title: activeSeries
-          type: number
-        activeUsers:
-          title: activeUsers
-          type: number
-        anonymousUsers:
-          title: anonymousUsers
-          type: number
-        attributedCost:
-          title: attributedCost
-          type: number
-        attributedUsage:
-          title: attributedUsage
-          type: number
-        browserUsage:
-          title: browserUsage
-          type: number
-        credits:
-          items:
-            $ref: '#/components/schemas/credits_inner'
-          title: credits
-          type: array
-        dpm:
-          title: dpm
-          type: number
-        grafanaUsage:
-          title: grafanaUsage
-          type: number
+        lastSeenAt:
+          title: lastSeenAt
+          type: string
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          title: updatedAt
+          type: string
+        email:
+          title: email
+          type: string
+        login:
+          title: login
+          type: string
+        name:
+          title: name
+          type: string
+        role:
+          title: role
+          type: string
         id:
           title: id
           type: number
-        incidentUsage:
-          title: incidentUsage
-          type: number
-        ingestUsage:
-          title: ingestUsage
-          type: number
-        isProrated:
-          title: isProrated
+        isServiceAccount:
+          title: isServiceAccount
           type: boolean
-        onCallUsage:
-          title: onCallUsage
-          type: number
-        periodEnd:
-          title: periodEnd
-          type: string
-        periodStart:
-          title: periodStart
-          type: string
-        protocolUsage:
-          title: protocolUsage
-          type: number
-        queryUsage:
-          title: queryUsage
-          type: number
-        stackId:
-          title: stackId
-          type: number
-        totalUsage:
-          title: totalUsage
-          type: number
-        stackName:
-          title: stackName
-          type: string
-        stackLabels:
-          title: stackLabels
-          type: object
       required:
+      - createdAt
+      - email
       - id
-      - isProrated
-      - periodEnd
-      - periodStart
-      - stackId
-      - stackLabels
-      - stackName
-      - totalUsage
+      - isServiceAccount
+      - login
+      - name
+      - role
+      - updatedAt
       type: object
-    items_inner_2:
+    items_inner_1:
       example:
         month: 0.8008281904610115
         year: 6.027456183070403
@@ -11598,6 +11349,243 @@ components:
       required:
       - month
       - year
+      type: object
+    items_inner_2:
+      example:
+        grafanaCloud: 3.616076749251911
+        orgSlug: orgSlug
+        subscriptions:
+          next: ""
+          current:
+            product: ""
+            endDate: ""
+            payload: "{}"
+            publicName: ""
+            planBillingCycle: ""
+            enterprisePluginsAdded: true
+            isTrial: true
+            plan: ""
+            startDate: ""
+        role: Admin
+        userStatus: 1.4894159098541704
+        hmCurrentPrometheusUsage: 1.0246457001441578
+        privacy: 2.3021358869347655
+        grafanaStaffAccess:
+          publicReason: publicReason
+          accessExpiresAt: 2000-01-23T04:56:07.000+00:00
+          ticketId: 6.84685269835264
+        hlUsage: 7.386281948385884
+        orgUrl: orgUrl
+        orgId: 6.027456183070403
+        billing: 7.061401241503109
+        defaultOrg: 5.637376656633329
+        createdAt: createdAt
+        security: 9.301444243932576
+        hgDatasourceCnts: hgDatasourceCnts
+        userLastName: userLastName
+        userEmail: userEmail
+        mfaEnabled: true
+        id: 0.8008281904610115
+        extraPermissions:
+        - accesspolicies:write
+        - accesspolicies:write
+        updatedAt: updatedAt
+        userUsername: userUsername
+        updatedBy: updatedBy
+        orgName: orgName
+        userFirstName: userFirstName
+        userName: userName
+        userId: 1.4658129805029452
+        contractTypeId: 4.145608029883936
+        resellerId: 2.027123023002322
+        hmCurrentGraphiteUsage: 1.2315135367772556
+        createdBy: createdBy
+        allowGCloudTrial: true
+        marketplaceSubscription:
+          isLegacy: true
+          provider: aws
+        status: 5.962133916683182
+      properties:
+        id:
+          title: id
+          type: number
+        orgId:
+          title: orgId
+          type: number
+        userId:
+          title: userId
+          type: number
+        status:
+          title: status
+          type: number
+        createdAt:
+          title: createdAt
+          type: string
+        updatedAt:
+          nullable: true
+          title: updatedAt
+          type: string
+        defaultOrg:
+          title: defaultOrg
+          type: number
+        role:
+          enum:
+          - Admin
+          - Editor
+          - None
+          - SSO Access
+          - Viewer
+          title: role
+          type: string
+        privacy:
+          title: privacy
+          type: number
+        billing:
+          title: billing
+          type: number
+        security:
+          title: security
+          type: number
+        createdBy:
+          title: createdBy
+          type: string
+        updatedBy:
+          title: updatedBy
+          type: string
+        orgName:
+          title: orgName
+          type: string
+        orgSlug:
+          title: orgSlug
+          type: string
+        orgUrl:
+          title: orgUrl
+          type: string
+        grafanaCloud:
+          enum:
+          - 0
+          - 1
+          - 11
+          - 2
+          - 31
+          - 4
+          - 41
+          - 6
+          - 9
+          title: grafanaCloud
+          type: number
+        resellerId:
+          nullable: true
+          title: resellerId
+          type: number
+        contractTypeId:
+          enum:
+          - 0
+          - 1
+          - 2
+          title: contractTypeId
+          type: number
+        allowGCloudTrial:
+          title: allowGCloudTrial
+          type: boolean
+        hlUsage:
+          title: hlUsage
+          type: number
+        hmCurrentGraphiteUsage:
+          title: hmCurrentGraphiteUsage
+          type: number
+        hmCurrentPrometheusUsage:
+          title: hmCurrentPrometheusUsage
+          type: number
+        hgDatasourceCnts:
+          title: hgDatasourceCnts
+          type: string
+        userFirstName:
+          title: userFirstName
+          type: string
+        userLastName:
+          title: userLastName
+          type: string
+        userUsername:
+          title: userUsername
+          type: string
+        userStatus:
+          title: userStatus
+          type: number
+        userEmail:
+          title: userEmail
+          type: string
+        userName:
+          title: userName
+          type: string
+        subscriptions:
+          $ref: '#/components/schemas/subscriptions'
+        marketplaceSubscription:
+          $ref: '#/components/schemas/FormattedOrgMembership_marketplaceSubscription'
+        mfaEnabled:
+          title: mfaEnabled
+          type: boolean
+        extraPermissions:
+          items:
+            enum:
+            - accesspolicies:write
+            - orgs:read
+            - support-ticket-comments:write
+            - support-tickets:read
+            - support-tickets:write
+            type: string
+          title: extraPermissions
+          type: array
+        grafanaStaffAccess:
+          $ref: '#/components/schemas/FormattedOrgMembership_grafanaStaffAccess'
+      required:
+      - allowGCloudTrial
+      - billing
+      - contractTypeId
+      - createdAt
+      - createdBy
+      - defaultOrg
+      - grafanaCloud
+      - hgDatasourceCnts
+      - hlUsage
+      - hmCurrentGraphiteUsage
+      - hmCurrentPrometheusUsage
+      - id
+      - marketplaceSubscription
+      - orgId
+      - orgName
+      - orgSlug
+      - orgUrl
+      - privacy
+      - resellerId
+      - role
+      - security
+      - status
+      - subscriptions
+      - updatedAt
+      - updatedBy
+      - userEmail
+      - userFirstName
+      - userId
+      - userLastName
+      - userName
+      - userStatus
+      - userUsername
+      type: object
+    serviceAccounts_inner:
+      example:
+        name: name
+        id: 6.027456183070403
+      properties:
+        id:
+          title: id
+          type: number
+        name:
+          title: name
+          type: string
+      required:
+      - id
+      - name
       type: object
     FormattedApiApiKey_id:
       anyOf:

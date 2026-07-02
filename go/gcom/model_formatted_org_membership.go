@@ -19,41 +19,41 @@ var _ MappedNullable = &FormattedOrgMembership{}
 
 // FormattedOrgMembership struct for FormattedOrgMembership
 type FormattedOrgMembership struct {
-	Id                       float32                                    `json:"id"`
-	OrgId                    float32                                    `json:"orgId"`
-	UserId                   float32                                    `json:"userId"`
-	Status                   float32                                    `json:"status"`
-	CreatedAt                string                                     `json:"createdAt"`
-	UpdatedAt                NullableString                             `json:"updatedAt"`
-	DefaultOrg               float32                                    `json:"defaultOrg"`
-	Role                     string                                     `json:"role"`
-	Privacy                  float32                                    `json:"privacy"`
-	Billing                  float32                                    `json:"billing"`
-	Security                 float32                                    `json:"security"`
-	CreatedBy                string                                     `json:"createdBy"`
-	UpdatedBy                string                                     `json:"updatedBy"`
-	OrgName                  string                                     `json:"orgName"`
-	OrgSlug                  string                                     `json:"orgSlug"`
-	OrgUrl                   string                                     `json:"orgUrl"`
-	GrafanaCloud             float32                                    `json:"grafanaCloud"`
-	ResellerId               NullableFloat32                            `json:"resellerId"`
-	ContractTypeId           float32                                    `json:"contractTypeId"`
-	AllowGCloudTrial         FormattedOrgMembershipAllowGCloudTrial     `json:"allowGCloudTrial"`
-	HlUsage                  float32                                    `json:"hlUsage"`
-	HmCurrentGraphiteUsage   float32                                    `json:"hmCurrentGraphiteUsage"`
-	HmCurrentPrometheusUsage float32                                    `json:"hmCurrentPrometheusUsage"`
-	HgDatasourceCnts         string                                     `json:"hgDatasourceCnts"`
-	UserFirstName            string                                     `json:"userFirstName"`
-	UserLastName             string                                     `json:"userLastName"`
-	UserUsername             string                                     `json:"userUsername"`
-	UserStatus               float32                                    `json:"userStatus"`
-	UserEmail                string                                     `json:"userEmail"`
-	UserName                 string                                     `json:"userName"`
-	Subscriptions            Subscriptions                              `json:"subscriptions"`
-	MarketplaceSubscription  NullableItemsInner1MarketplaceSubscription `json:"marketplaceSubscription"`
-	MfaEnabled               *bool                                      `json:"mfaEnabled,omitempty"`
-	ExtraPermissions         []string                                   `json:"extraPermissions,omitempty"`
-	GrafanaStaffAccess       NullableItemsInner1GrafanaStaffAccess      `json:"grafanaStaffAccess,omitempty"`
+	Id                       float32                                               `json:"id"`
+	OrgId                    float32                                               `json:"orgId"`
+	UserId                   float32                                               `json:"userId"`
+	Status                   float32                                               `json:"status"`
+	CreatedAt                string                                                `json:"createdAt"`
+	UpdatedAt                NullableString                                        `json:"updatedAt"`
+	DefaultOrg               float32                                               `json:"defaultOrg"`
+	Role                     string                                                `json:"role"`
+	Privacy                  float32                                               `json:"privacy"`
+	Billing                  float32                                               `json:"billing"`
+	Security                 float32                                               `json:"security"`
+	CreatedBy                string                                                `json:"createdBy"`
+	UpdatedBy                string                                                `json:"updatedBy"`
+	OrgName                  string                                                `json:"orgName"`
+	OrgSlug                  string                                                `json:"orgSlug"`
+	OrgUrl                   string                                                `json:"orgUrl"`
+	GrafanaCloud             float32                                               `json:"grafanaCloud"`
+	ResellerId               NullableFloat32                                       `json:"resellerId"`
+	ContractTypeId           float32                                               `json:"contractTypeId"`
+	AllowGCloudTrial         FormattedApiOrgPublicAllowGCloudTrial                 `json:"allowGCloudTrial"`
+	HlUsage                  float32                                               `json:"hlUsage"`
+	HmCurrentGraphiteUsage   float32                                               `json:"hmCurrentGraphiteUsage"`
+	HmCurrentPrometheusUsage float32                                               `json:"hmCurrentPrometheusUsage"`
+	HgDatasourceCnts         string                                                `json:"hgDatasourceCnts"`
+	UserFirstName            string                                                `json:"userFirstName"`
+	UserLastName             string                                                `json:"userLastName"`
+	UserUsername             string                                                `json:"userUsername"`
+	UserStatus               float32                                               `json:"userStatus"`
+	UserEmail                string                                                `json:"userEmail"`
+	UserName                 string                                                `json:"userName"`
+	Subscriptions            Subscriptions                                         `json:"subscriptions"`
+	MarketplaceSubscription  NullableFormattedOrgMembershipMarketplaceSubscription `json:"marketplaceSubscription"`
+	MfaEnabled               *bool                                                 `json:"mfaEnabled,omitempty"`
+	ExtraPermissions         []string                                              `json:"extraPermissions,omitempty"`
+	GrafanaStaffAccess       NullableFormattedOrgMembershipGrafanaStaffAccess      `json:"grafanaStaffAccess,omitempty"`
 	AdditionalProperties     map[string]interface{}
 }
 
@@ -63,7 +63,7 @@ type _FormattedOrgMembership FormattedOrgMembership
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, security float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableItemsInner1MarketplaceSubscription) *FormattedOrgMembership {
+func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, security float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableFormattedOrgMembershipMarketplaceSubscription) *FormattedOrgMembership {
 	this := FormattedOrgMembership{}
 	this.Id = id
 	this.OrgId = orgId
@@ -569,9 +569,9 @@ func (o *FormattedOrgMembership) SetContractTypeId(v float32) {
 }
 
 // GetAllowGCloudTrial returns the AllowGCloudTrial field value
-func (o *FormattedOrgMembership) GetAllowGCloudTrial() FormattedOrgMembershipAllowGCloudTrial {
+func (o *FormattedOrgMembership) GetAllowGCloudTrial() FormattedApiOrgPublicAllowGCloudTrial {
 	if o == nil {
-		var ret FormattedOrgMembershipAllowGCloudTrial
+		var ret FormattedApiOrgPublicAllowGCloudTrial
 		return ret
 	}
 
@@ -580,7 +580,7 @@ func (o *FormattedOrgMembership) GetAllowGCloudTrial() FormattedOrgMembershipAll
 
 // GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value
 // and a boolean to check if the value has been set.
-func (o *FormattedOrgMembership) GetAllowGCloudTrialOk() (*FormattedOrgMembershipAllowGCloudTrial, bool) {
+func (o *FormattedOrgMembership) GetAllowGCloudTrialOk() (*FormattedApiOrgPublicAllowGCloudTrial, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -588,7 +588,7 @@ func (o *FormattedOrgMembership) GetAllowGCloudTrialOk() (*FormattedOrgMembershi
 }
 
 // SetAllowGCloudTrial sets field value
-func (o *FormattedOrgMembership) SetAllowGCloudTrial(v FormattedOrgMembershipAllowGCloudTrial) {
+func (o *FormattedOrgMembership) SetAllowGCloudTrial(v FormattedApiOrgPublicAllowGCloudTrial) {
 	o.AllowGCloudTrial = v
 }
 
@@ -857,10 +857,10 @@ func (o *FormattedOrgMembership) SetSubscriptions(v Subscriptions) {
 }
 
 // GetMarketplaceSubscription returns the MarketplaceSubscription field value
-// If the value is explicit nil, the zero value for ItemsInner1MarketplaceSubscription will be returned
-func (o *FormattedOrgMembership) GetMarketplaceSubscription() ItemsInner1MarketplaceSubscription {
+// If the value is explicit nil, the zero value for FormattedOrgMembershipMarketplaceSubscription will be returned
+func (o *FormattedOrgMembership) GetMarketplaceSubscription() FormattedOrgMembershipMarketplaceSubscription {
 	if o == nil || o.MarketplaceSubscription.Get() == nil {
-		var ret ItemsInner1MarketplaceSubscription
+		var ret FormattedOrgMembershipMarketplaceSubscription
 		return ret
 	}
 
@@ -870,7 +870,7 @@ func (o *FormattedOrgMembership) GetMarketplaceSubscription() ItemsInner1Marketp
 // GetMarketplaceSubscriptionOk returns a tuple with the MarketplaceSubscription field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*ItemsInner1MarketplaceSubscription, bool) {
+func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*FormattedOrgMembershipMarketplaceSubscription, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -878,7 +878,7 @@ func (o *FormattedOrgMembership) GetMarketplaceSubscriptionOk() (*ItemsInner1Mar
 }
 
 // SetMarketplaceSubscription sets field value
-func (o *FormattedOrgMembership) SetMarketplaceSubscription(v ItemsInner1MarketplaceSubscription) {
+func (o *FormattedOrgMembership) SetMarketplaceSubscription(v FormattedOrgMembershipMarketplaceSubscription) {
 	o.MarketplaceSubscription.Set(&v)
 }
 
@@ -947,9 +947,9 @@ func (o *FormattedOrgMembership) SetExtraPermissions(v []string) {
 }
 
 // GetGrafanaStaffAccess returns the GrafanaStaffAccess field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FormattedOrgMembership) GetGrafanaStaffAccess() ItemsInner1GrafanaStaffAccess {
+func (o *FormattedOrgMembership) GetGrafanaStaffAccess() FormattedOrgMembershipGrafanaStaffAccess {
 	if o == nil || IsNil(o.GrafanaStaffAccess.Get()) {
-		var ret ItemsInner1GrafanaStaffAccess
+		var ret FormattedOrgMembershipGrafanaStaffAccess
 		return ret
 	}
 	return *o.GrafanaStaffAccess.Get()
@@ -958,7 +958,7 @@ func (o *FormattedOrgMembership) GetGrafanaStaffAccess() ItemsInner1GrafanaStaff
 // GetGrafanaStaffAccessOk returns a tuple with the GrafanaStaffAccess field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FormattedOrgMembership) GetGrafanaStaffAccessOk() (*ItemsInner1GrafanaStaffAccess, bool) {
+func (o *FormattedOrgMembership) GetGrafanaStaffAccessOk() (*FormattedOrgMembershipGrafanaStaffAccess, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -974,8 +974,8 @@ func (o *FormattedOrgMembership) HasGrafanaStaffAccess() bool {
 	return false
 }
 
-// SetGrafanaStaffAccess gets a reference to the given NullableItemsInner1GrafanaStaffAccess and assigns it to the GrafanaStaffAccess field.
-func (o *FormattedOrgMembership) SetGrafanaStaffAccess(v ItemsInner1GrafanaStaffAccess) {
+// SetGrafanaStaffAccess gets a reference to the given NullableFormattedOrgMembershipGrafanaStaffAccess and assigns it to the GrafanaStaffAccess field.
+func (o *FormattedOrgMembership) SetGrafanaStaffAccess(v FormattedOrgMembershipGrafanaStaffAccess) {
 	o.GrafanaStaffAccess.Set(&v)
 }
 

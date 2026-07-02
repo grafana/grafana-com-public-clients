@@ -17,37 +17,37 @@ import (
 
 // Otlp struct for Otlp
 type Otlp struct {
-	InfoAnyOf  *InfoAnyOf
-	InfoAnyOf1 *InfoAnyOf1
+	PdcPrivateConnectivityInfoAnyOf  *PdcPrivateConnectivityInfoAnyOf
+	PdcPrivateConnectivityInfoAnyOf1 *PdcPrivateConnectivityInfoAnyOf1
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *Otlp) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into InfoAnyOf
-	err = json.Unmarshal(data, &dst.InfoAnyOf)
+	// try to unmarshal JSON data into PdcPrivateConnectivityInfoAnyOf
+	err = json.Unmarshal(data, &dst.PdcPrivateConnectivityInfoAnyOf)
 	if err == nil {
-		jsonInfoAnyOf, _ := json.Marshal(dst.InfoAnyOf)
-		if string(jsonInfoAnyOf) == "{}" { // empty struct
-			dst.InfoAnyOf = nil
+		jsonPdcPrivateConnectivityInfoAnyOf, _ := json.Marshal(dst.PdcPrivateConnectivityInfoAnyOf)
+		if string(jsonPdcPrivateConnectivityInfoAnyOf) == "{}" { // empty struct
+			dst.PdcPrivateConnectivityInfoAnyOf = nil
 		} else {
-			return nil // data stored in dst.InfoAnyOf, return on the first match
+			return nil // data stored in dst.PdcPrivateConnectivityInfoAnyOf, return on the first match
 		}
 	} else {
-		dst.InfoAnyOf = nil
+		dst.PdcPrivateConnectivityInfoAnyOf = nil
 	}
 
-	// try to unmarshal JSON data into InfoAnyOf1
-	err = json.Unmarshal(data, &dst.InfoAnyOf1)
+	// try to unmarshal JSON data into PdcPrivateConnectivityInfoAnyOf1
+	err = json.Unmarshal(data, &dst.PdcPrivateConnectivityInfoAnyOf1)
 	if err == nil {
-		jsonInfoAnyOf1, _ := json.Marshal(dst.InfoAnyOf1)
-		if string(jsonInfoAnyOf1) == "{}" { // empty struct
-			dst.InfoAnyOf1 = nil
+		jsonPdcPrivateConnectivityInfoAnyOf1, _ := json.Marshal(dst.PdcPrivateConnectivityInfoAnyOf1)
+		if string(jsonPdcPrivateConnectivityInfoAnyOf1) == "{}" { // empty struct
+			dst.PdcPrivateConnectivityInfoAnyOf1 = nil
 		} else {
-			return nil // data stored in dst.InfoAnyOf1, return on the first match
+			return nil // data stored in dst.PdcPrivateConnectivityInfoAnyOf1, return on the first match
 		}
 	} else {
-		dst.InfoAnyOf1 = nil
+		dst.PdcPrivateConnectivityInfoAnyOf1 = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(Otlp)")
@@ -55,12 +55,12 @@ func (dst *Otlp) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src *Otlp) MarshalJSON() ([]byte, error) {
-	if src.InfoAnyOf != nil {
-		return json.Marshal(&src.InfoAnyOf)
+	if src.PdcPrivateConnectivityInfoAnyOf != nil {
+		return json.Marshal(&src.PdcPrivateConnectivityInfoAnyOf)
 	}
 
-	if src.InfoAnyOf1 != nil {
-		return json.Marshal(&src.InfoAnyOf1)
+	if src.PdcPrivateConnectivityInfoAnyOf1 != nil {
+		return json.Marshal(&src.PdcPrivateConnectivityInfoAnyOf1)
 	}
 
 	return nil, nil // no data in anyOf schemas

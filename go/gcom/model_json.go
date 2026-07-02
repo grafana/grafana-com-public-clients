@@ -23,7 +23,7 @@ type Json struct {
 	Id string `json:"id"`
 	// Plugin type.
 	Type string `json:"type"`
-	Info Info1  `json:"info"`
+	Info Info   `json:"info"`
 	// Human-readable name of the plugin that is shown to the user in the UI.
 	Name         string       `json:"name"`
 	Dependencies Dependencies `json:"dependencies"`
@@ -42,7 +42,9 @@ type Json struct {
 	// [internal only] Indicates whether the plugin is developed and shipped as part of Grafana. Also known as a 'core plugin'.
 	BuiltIn *bool `json:"builtIn,omitempty"`
 	// Plugin category used on the Add new connection page. Can be one from the list: \"tsdb\", \"logging\", \"cloud\", \"tracing\", \"profiling\", \"sql\", \"enterprise\", \"iot\", \"other\", empty string or custom string
-	Category           *string             `json:"category,omitempty"`
+	Category *string `json:"category,omitempty"`
+	// Path to the directory containing plugin documentation.
+	DocsPath           *string             `json:"docsPath,omitempty"`
 	EnterpriseFeatures *EnterpriseFeatures `json:"enterpriseFeatures,omitempty"`
 	// The first part of the file name of the backend component executable. There can be multiple executables built for different operating system and architecture. Grafana will check for executables named `<executable>_<$GOOS>_<lower case $GOARCH><.exe for Windows>`, e.g. `plugin_linux_amd64`. Combination of $GOOS and $GOARCH can be found here: https://golang.org/doc/install/source#environment.
 	Executable *string `json:"executable,omitempty"`
@@ -54,7 +56,9 @@ type Json struct {
 	Logs *bool `json:"logs,omitempty"`
 	// For data source plugins, if the plugin supports metric queries. Used to enable the plugin in the panel editor.
 	Metrics *bool `json:"metrics,omitempty"`
-	// For data source plugins, if the plugin supports multi value operators in adhoc filters.
+	// [internal only] For data source plugins, marks the plugin as a 'mixed' data source — one whose queries each carry their own `datasource` reference and are delegated to other data sources. When `true`, Grafana preserves the per-query `datasource` field instead of overwriting it with the plugin's own ref. Used by the built-in `-- Mixed --` data source. Setting this on a regular data source plugin will break query routing.
+	Mixed *bool `json:"mixed,omitempty"`
+	// For data source plugins, if the plugin supports multi value operators in filters.
 	MultiValueFilterOperators *bool `json:"multiValueFilterOperators,omitempty"`
 	// [internal only] The PascalCase name for the plugin. Used for creating machine-friendly identifiers, typically in code generation. If not provided, defaults to name, but title-cased and sanitized (only alphabetical characters allowed).
 	PascalName *string `json:"pascalName,omitempty"`
@@ -88,7 +92,7 @@ type _Json Json
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewJson(id string, type_ string, info Info1, name string, dependencies Dependencies) *Json {
+func NewJson(id string, type_ string, info Info, name string, dependencies Dependencies) *Json {
 	this := Json{}
 	this.Id = id
 	this.Type = type_
@@ -155,9 +159,9 @@ func (o *Json) SetType(v string) {
 }
 
 // GetInfo returns the Info field value
-func (o *Json) GetInfo() Info1 {
+func (o *Json) GetInfo() Info {
 	if o == nil {
-		var ret Info1
+		var ret Info
 		return ret
 	}
 
@@ -166,7 +170,7 @@ func (o *Json) GetInfo() Info1 {
 
 // GetInfoOk returns a tuple with the Info field value
 // and a boolean to check if the value has been set.
-func (o *Json) GetInfoOk() (*Info1, bool) {
+func (o *Json) GetInfoOk() (*Info, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -174,7 +178,7 @@ func (o *Json) GetInfoOk() (*Info1, bool) {
 }
 
 // SetInfo sets field value
-func (o *Json) SetInfo(v Info1) {
+func (o *Json) SetInfo(v Info) {
 	o.Info = v
 }
 
@@ -482,6 +486,38 @@ func (o *Json) SetCategory(v string) {
 	o.Category = &v
 }
 
+// GetDocsPath returns the DocsPath field value if set, zero value otherwise.
+func (o *Json) GetDocsPath() string {
+	if o == nil || IsNil(o.DocsPath) {
+		var ret string
+		return ret
+	}
+	return *o.DocsPath
+}
+
+// GetDocsPathOk returns a tuple with the DocsPath field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Json) GetDocsPathOk() (*string, bool) {
+	if o == nil || IsNil(o.DocsPath) {
+		return nil, false
+	}
+	return o.DocsPath, true
+}
+
+// HasDocsPath returns a boolean if a field has been set.
+func (o *Json) HasDocsPath() bool {
+	if o != nil && !IsNil(o.DocsPath) {
+		return true
+	}
+
+	return false
+}
+
+// SetDocsPath gets a reference to the given string and assigns it to the DocsPath field.
+func (o *Json) SetDocsPath(v string) {
+	o.DocsPath = &v
+}
+
 // GetEnterpriseFeatures returns the EnterpriseFeatures field value if set, zero value otherwise.
 func (o *Json) GetEnterpriseFeatures() EnterpriseFeatures {
 	if o == nil || IsNil(o.EnterpriseFeatures) {
@@ -672,6 +708,38 @@ func (o *Json) HasMetrics() bool {
 // SetMetrics gets a reference to the given bool and assigns it to the Metrics field.
 func (o *Json) SetMetrics(v bool) {
 	o.Metrics = &v
+}
+
+// GetMixed returns the Mixed field value if set, zero value otherwise.
+func (o *Json) GetMixed() bool {
+	if o == nil || IsNil(o.Mixed) {
+		var ret bool
+		return ret
+	}
+	return *o.Mixed
+}
+
+// GetMixedOk returns a tuple with the Mixed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Json) GetMixedOk() (*bool, bool) {
+	if o == nil || IsNil(o.Mixed) {
+		return nil, false
+	}
+	return o.Mixed, true
+}
+
+// HasMixed returns a boolean if a field has been set.
+func (o *Json) HasMixed() bool {
+	if o != nil && !IsNil(o.Mixed) {
+		return true
+	}
+
+	return false
+}
+
+// SetMixed gets a reference to the given bool and assigns it to the Mixed field.
+func (o *Json) SetMixed(v bool) {
+	o.Mixed = &v
 }
 
 // GetMultiValueFilterOperators returns the MultiValueFilterOperators field value if set, zero value otherwise.
@@ -1161,6 +1229,9 @@ func (o Json) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Category) {
 		toSerialize["category"] = o.Category
 	}
+	if !IsNil(o.DocsPath) {
+		toSerialize["docsPath"] = o.DocsPath
+	}
 	if !IsNil(o.EnterpriseFeatures) {
 		toSerialize["enterpriseFeatures"] = o.EnterpriseFeatures
 	}
@@ -1178,6 +1249,9 @@ func (o Json) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Metrics) {
 		toSerialize["metrics"] = o.Metrics
+	}
+	if !IsNil(o.Mixed) {
+		toSerialize["mixed"] = o.Mixed
 	}
 	if !IsNil(o.MultiValueFilterOperators) {
 		toSerialize["multiValueFilterOperators"] = o.MultiValueFilterOperators
@@ -1264,12 +1338,14 @@ func (o *Json) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "buildMode")
 		delete(additionalProperties, "builtIn")
 		delete(additionalProperties, "category")
+		delete(additionalProperties, "docsPath")
 		delete(additionalProperties, "enterpriseFeatures")
 		delete(additionalProperties, "executable")
 		delete(additionalProperties, "hideFromList")
 		delete(additionalProperties, "includes")
 		delete(additionalProperties, "logs")
 		delete(additionalProperties, "metrics")
+		delete(additionalProperties, "mixed")
 		delete(additionalProperties, "multiValueFilterOperators")
 		delete(additionalProperties, "pascalName")
 		delete(additionalProperties, "preload")
