@@ -17,6 +17,5 @@ if [ "$(normalize "${SPEC_PATH}")" = "$(normalize "${FRESH_SPEC}")" ]; then
   exit 0
 fi
 
-cp "${FRESH_SPEC}" "${SPEC_PATH}"
-echo "OpenAPI drift detected; updated ${SPEC_PATH}."
+echo "OpenAPI drift detected."
 echo "drift=true" >> "${GITHUB_OUTPUT}"

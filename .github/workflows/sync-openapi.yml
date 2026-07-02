@@ -32,6 +32,14 @@ jobs:
               -f sha="$(git rev-parse HEAD)"
           fi
 
+      - name: Prepare sync branch
+        if: steps.drift.outputs.drift == 'true'
+        run: |
+          branch=sync/openapi
+          git fetch origin "${branch}:${branch}"
+          git checkout "${branch}"
+          cp /tmp/openapi-fresh.json openapi.json
+
       - name: Commit OpenAPI changes
         if: steps.drift.outputs.drift == 'true'
         uses: planetscale/ghcommit-action@a6b150b81dca5dd027baa898604418eec9e11465 # v0.2.22
