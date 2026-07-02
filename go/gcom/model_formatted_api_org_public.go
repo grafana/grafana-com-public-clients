@@ -19,78 +19,78 @@ var _ MappedNullable = &FormattedApiOrgPublic{}
 
 // FormattedApiOrgPublic struct for FormattedApiOrgPublic
 type FormattedApiOrgPublic struct {
-	Id                           float32                                `json:"id"`
-	Slug                         string                                 `json:"slug"`
-	Name                         string                                 `json:"name"`
-	Url                          string                                 `json:"url"`
-	CreatedAt                    string                                 `json:"createdAt"`
-	CreatedBy                    NullableString                         `json:"createdBy"`
-	UpdatedAt                    NullableString                         `json:"updatedAt"`
-	UpdatedBy                    NullableString                         `json:"updatedBy"`
-	Avatar                       NullableString                         `json:"avatar"`
-	Isource                      NullableString                         `json:"isource"`
-	Osource                      NullableString                         `json:"osource"`
-	IsStaff                      bool                                   `json:"isStaff"`
-	ChecksPerMonth               float32                                `json:"checksPerMonth"`
-	WpPlan                       string                                 `json:"wpPlan"`
-	HgInstanceLimit              float32                                `json:"hgInstanceLimit"`
-	HmInstanceLimit              float32                                `json:"hmInstanceLimit"`
-	HlInstanceLimit              float32                                `json:"hlInstanceLimit"`
-	UserQuota                    float32                                `json:"userQuota"`
-	SupportPlan                  string                                 `json:"supportPlan"`
-	CreditApproved               float32                                `json:"creditApproved"`
-	MsaSignedAt                  NullableString                         `json:"msaSignedAt"`
-	MsaSignedBy                  NullableString                         `json:"msaSignedBy"`
-	EnterprisePlugins            float32                                `json:"enterprisePlugins"`
-	LicenseProducts              []string                               `json:"licenseProducts"`
-	GrafanaCloud                 float32                                `json:"grafanaCloud"`
-	Privacy                      string                                 `json:"privacy"`
-	Reseller                     string                                 `json:"reseller"`
-	ResellerId                   NullableFloat32                        `json:"resellerId"`
-	ResellerName                 NullableString                         `json:"resellerName"`
-	EmergencySupport             bool                                   `json:"emergencySupport"`
-	GcloudMonthlyCost            float32                                `json:"gcloudMonthlyCost"`
-	HgUsage                      float32                                `json:"hgUsage"`
-	HgCurrentActiveUsers         float32                                `json:"hgCurrentActiveUsers"`
-	HgGrafanaUsage               float32                                `json:"hgGrafanaUsage"`
-	HgOnCallUsage                float32                                `json:"hgOnCallUsage"`
-	HmUsage                      float32                                `json:"hmUsage"`
-	HmCurrentUsage               float32                                `json:"hmCurrentUsage"`
-	HmGraphiteUsage              float32                                `json:"hmGraphiteUsage"`
-	HlUsage                      float32                                `json:"hlUsage"`
-	HlRetentionUsage             float32                                `json:"hlRetentionUsage"`
-	HtUsage                      float32                                `json:"htUsage"`
-	HpUsage                      float32                                `json:"hpUsage"`
-	IrmUsage                     float32                                `json:"irmUsage"`
-	K6VuhUsage                   float32                                `json:"k6VuhUsage"`
-	K6IPUsage                    float32                                `json:"k6IPUsage"`
-	FeO11YUsage                  float32                                `json:"feO11YUsage"`
-	AppO11YUsage                 float32                                `json:"appO11YUsage"`
-	SmUsage                      float32                                `json:"smUsage"`
-	InfraO11YHostsUsage          float32                                `json:"infraO11YHostsUsage"`
-	InfraO11YContainersUsage     float32                                `json:"infraO11YContainersUsage"`
-	GeUsersUsage                 float32                                `json:"geUsersUsage"`
-	GeInstancesUsage             float32                                `json:"geInstancesUsage"`
-	SmBrowserUsage               float32                                `json:"smBrowserUsage"`
-	AwsMarketplaceSupport        float32                                `json:"awsMarketplaceSupport"`
-	TrialStartDate               NullableString                         `json:"trialStartDate"`
-	TrialEndDate                 NullableString                         `json:"trialEndDate"`
-	TrialLengthDays              NullableFloat32                        `json:"trialLengthDays"`
-	TrialNoticeDate              NullableString                         `json:"trialNoticeDate"`
-	CancellationDate             NullableString                         `json:"cancellationDate"`
-	RetainedStackId              float32                                `json:"retainedStackId"`
-	AllowGCloudTrial             FormattedOrgMembershipAllowGCloudTrial `json:"allowGCloudTrial"`
-	PluginSignatureType          string                                 `json:"pluginSignatureType"`
-	ContractType                 string                                 `json:"contractType"`
-	ContractTypeId               float32                                `json:"contractTypeId"`
-	LiveChatEnabled              bool                                   `json:"liveChatEnabled"`
-	KapaDeflectorEnabled         bool                                   `json:"kapaDeflectorEnabled"`
-	DisableTokenExpirationEmails bool                                   `json:"disableTokenExpirationEmails"`
-	MaxTokenExpirationDays       float32                                `json:"maxTokenExpirationDays"`
-	MfaRequired                  *bool                                  `json:"mfaRequired,omitempty"`
-	MfaAdminRecoveryOnly         *bool                                  `json:"mfaAdminRecoveryOnly,omitempty"`
-	Links                        []LinksInner1                          `json:"links"`
-	Subscriptions                Subscriptions                          `json:"subscriptions"`
+	Id                           float32                               `json:"id"`
+	Slug                         string                                `json:"slug"`
+	Name                         string                                `json:"name"`
+	Url                          string                                `json:"url"`
+	CreatedAt                    string                                `json:"createdAt"`
+	CreatedBy                    NullableString                        `json:"createdBy"`
+	UpdatedAt                    NullableString                        `json:"updatedAt"`
+	UpdatedBy                    NullableString                        `json:"updatedBy"`
+	Avatar                       NullableString                        `json:"avatar"`
+	Isource                      NullableString                        `json:"isource"`
+	Osource                      NullableString                        `json:"osource"`
+	IsStaff                      bool                                  `json:"isStaff"`
+	ChecksPerMonth               float32                               `json:"checksPerMonth"`
+	WpPlan                       string                                `json:"wpPlan"`
+	HgInstanceLimit              float32                               `json:"hgInstanceLimit"`
+	HmInstanceLimit              float32                               `json:"hmInstanceLimit"`
+	HlInstanceLimit              float32                               `json:"hlInstanceLimit"`
+	UserQuota                    float32                               `json:"userQuota"`
+	SupportPlan                  string                                `json:"supportPlan"`
+	CreditApproved               float32                               `json:"creditApproved"`
+	MsaSignedAt                  NullableString                        `json:"msaSignedAt"`
+	MsaSignedBy                  NullableString                        `json:"msaSignedBy"`
+	EnterprisePlugins            float32                               `json:"enterprisePlugins"`
+	LicenseProducts              []string                              `json:"licenseProducts"`
+	GrafanaCloud                 float32                               `json:"grafanaCloud"`
+	Privacy                      string                                `json:"privacy"`
+	Reseller                     string                                `json:"reseller"`
+	ResellerId                   NullableFloat32                       `json:"resellerId"`
+	ResellerName                 NullableString                        `json:"resellerName"`
+	EmergencySupport             bool                                  `json:"emergencySupport"`
+	GcloudMonthlyCost            float32                               `json:"gcloudMonthlyCost"`
+	HgUsage                      float32                               `json:"hgUsage"`
+	HgCurrentActiveUsers         float32                               `json:"hgCurrentActiveUsers"`
+	HgGrafanaUsage               float32                               `json:"hgGrafanaUsage"`
+	HgOnCallUsage                float32                               `json:"hgOnCallUsage"`
+	HmUsage                      float32                               `json:"hmUsage"`
+	HmCurrentUsage               float32                               `json:"hmCurrentUsage"`
+	HmGraphiteUsage              float32                               `json:"hmGraphiteUsage"`
+	HlUsage                      float32                               `json:"hlUsage"`
+	HlRetentionUsage             float32                               `json:"hlRetentionUsage"`
+	HtUsage                      float32                               `json:"htUsage"`
+	HpUsage                      float32                               `json:"hpUsage"`
+	IrmUsage                     float32                               `json:"irmUsage"`
+	K6VuhUsage                   float32                               `json:"k6VuhUsage"`
+	K6IPUsage                    float32                               `json:"k6IPUsage"`
+	FeO11YUsage                  float32                               `json:"feO11YUsage"`
+	AppO11YUsage                 float32                               `json:"appO11YUsage"`
+	SmUsage                      float32                               `json:"smUsage"`
+	InfraO11YHostsUsage          float32                               `json:"infraO11YHostsUsage"`
+	InfraO11YContainersUsage     float32                               `json:"infraO11YContainersUsage"`
+	GeUsersUsage                 float32                               `json:"geUsersUsage"`
+	GeInstancesUsage             float32                               `json:"geInstancesUsage"`
+	SmBrowserUsage               float32                               `json:"smBrowserUsage"`
+	AwsMarketplaceSupport        float32                               `json:"awsMarketplaceSupport"`
+	TrialStartDate               NullableString                        `json:"trialStartDate"`
+	TrialEndDate                 NullableString                        `json:"trialEndDate"`
+	TrialLengthDays              NullableFloat32                       `json:"trialLengthDays"`
+	TrialNoticeDate              NullableString                        `json:"trialNoticeDate"`
+	CancellationDate             NullableString                        `json:"cancellationDate"`
+	RetainedStackId              float32                               `json:"retainedStackId"`
+	AllowGCloudTrial             FormattedApiOrgPublicAllowGCloudTrial `json:"allowGCloudTrial"`
+	PluginSignatureType          string                                `json:"pluginSignatureType"`
+	ContractType                 string                                `json:"contractType"`
+	ContractTypeId               float32                               `json:"contractTypeId"`
+	LiveChatEnabled              bool                                  `json:"liveChatEnabled"`
+	KapaDeflectorEnabled         bool                                  `json:"kapaDeflectorEnabled"`
+	DisableTokenExpirationEmails bool                                  `json:"disableTokenExpirationEmails"`
+	MaxTokenExpirationDays       float32                               `json:"maxTokenExpirationDays"`
+	MfaRequired                  *bool                                 `json:"mfaRequired,omitempty"`
+	MfaAdminRecoveryOnly         *bool                                 `json:"mfaAdminRecoveryOnly,omitempty"`
+	Links                        []LinksInner                          `json:"links"`
+	Subscriptions                Subscriptions                         `json:"subscriptions"`
 	AdditionalProperties         map[string]interface{}
 }
 
@@ -100,7 +100,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isource NullableString, osource NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedOrgMembershipAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, kapaDeflectorEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner1, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isource NullableString, osource NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, kapaDeflectorEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -1654,9 +1654,9 @@ func (o *FormattedApiOrgPublic) SetRetainedStackId(v float32) {
 }
 
 // GetAllowGCloudTrial returns the AllowGCloudTrial field value
-func (o *FormattedApiOrgPublic) GetAllowGCloudTrial() FormattedOrgMembershipAllowGCloudTrial {
+func (o *FormattedApiOrgPublic) GetAllowGCloudTrial() FormattedApiOrgPublicAllowGCloudTrial {
 	if o == nil {
-		var ret FormattedOrgMembershipAllowGCloudTrial
+		var ret FormattedApiOrgPublicAllowGCloudTrial
 		return ret
 	}
 
@@ -1665,7 +1665,7 @@ func (o *FormattedApiOrgPublic) GetAllowGCloudTrial() FormattedOrgMembershipAllo
 
 // GetAllowGCloudTrialOk returns a tuple with the AllowGCloudTrial field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetAllowGCloudTrialOk() (*FormattedOrgMembershipAllowGCloudTrial, bool) {
+func (o *FormattedApiOrgPublic) GetAllowGCloudTrialOk() (*FormattedApiOrgPublicAllowGCloudTrial, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1673,7 +1673,7 @@ func (o *FormattedApiOrgPublic) GetAllowGCloudTrialOk() (*FormattedOrgMembership
 }
 
 // SetAllowGCloudTrial sets field value
-func (o *FormattedApiOrgPublic) SetAllowGCloudTrial(v FormattedOrgMembershipAllowGCloudTrial) {
+func (o *FormattedApiOrgPublic) SetAllowGCloudTrial(v FormattedApiOrgPublicAllowGCloudTrial) {
 	o.AllowGCloudTrial = v
 }
 
@@ -1910,9 +1910,9 @@ func (o *FormattedApiOrgPublic) SetMfaAdminRecoveryOnly(v bool) {
 }
 
 // GetLinks returns the Links field value
-func (o *FormattedApiOrgPublic) GetLinks() []LinksInner1 {
+func (o *FormattedApiOrgPublic) GetLinks() []LinksInner {
 	if o == nil {
-		var ret []LinksInner1
+		var ret []LinksInner
 		return ret
 	}
 
@@ -1921,7 +1921,7 @@ func (o *FormattedApiOrgPublic) GetLinks() []LinksInner1 {
 
 // GetLinksOk returns a tuple with the Links field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetLinksOk() ([]LinksInner1, bool) {
+func (o *FormattedApiOrgPublic) GetLinksOk() ([]LinksInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1929,7 +1929,7 @@ func (o *FormattedApiOrgPublic) GetLinksOk() ([]LinksInner1, bool) {
 }
 
 // SetLinks sets field value
-func (o *FormattedApiOrgPublic) SetLinks(v []LinksInner1) {
+func (o *FormattedApiOrgPublic) SetLinks(v []LinksInner) {
 	o.Links = v
 }
 

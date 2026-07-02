@@ -11,6 +11,7 @@ API version: public
 package gcom
 
 import (
+	"bytes"
 	"encoding/json"
 )
 
@@ -19,14 +20,13 @@ var _ MappedNullable = &FormattedApiInstanceConnections{}
 
 // FormattedApiInstanceConnections struct for FormattedApiInstanceConnections
 type FormattedApiInstanceConnections struct {
-	PrivateConnectivityInfo   PrivateConnectivityInfo `json:"privateConnectivityInfo"`
-	AppPlatform               *AppPlatform            `json:"appPlatform,omitempty"`
-	InfluxUrl                 NullableString          `json:"influxUrl,omitempty"`
-	OtlpHttpUrl               NullableString          `json:"otlpHttpUrl,omitempty"`
-	OtlpMultiAZ               bool                    `json:"otlpMultiAZ"`
-	OncallApiUrl              NullableString          `json:"oncallApiUrl,omitempty"`
-	SyntheticMonitoringApiUrl NullableString          `json:"syntheticMonitoringApiUrl,omitempty"`
-	AdditionalProperties      map[string]interface{}
+	AppPlatform               *StackConnectionAppPlatformV1               `json:"appPlatform,omitempty"`
+	InfluxUrl                 *string                                     `json:"influxUrl,omitempty"`
+	OncallApiUrl              *string                                     `json:"oncallApiUrl,omitempty"`
+	OtlpHttpUrl               NullableString                              `json:"otlpHttpUrl"`
+	OtlpMultiAZ               bool                                        `json:"otlpMultiAZ"`
+	PrivateConnectivityInfo   FormattedApiInstancePrivateConnectivityInfo `json:"privateConnectivityInfo"`
+	SyntheticMonitoringApiUrl *string                                     `json:"syntheticMonitoringApiUrl,omitempty"`
 }
 
 type _FormattedApiInstanceConnections FormattedApiInstanceConnections
@@ -35,10 +35,11 @@ type _FormattedApiInstanceConnections FormattedApiInstanceConnections
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiInstanceConnections(privateConnectivityInfo PrivateConnectivityInfo, otlpMultiAZ bool) *FormattedApiInstanceConnections {
+func NewFormattedApiInstanceConnections(otlpHttpUrl NullableString, otlpMultiAZ bool, privateConnectivityInfo FormattedApiInstancePrivateConnectivityInfo) *FormattedApiInstanceConnections {
 	this := FormattedApiInstanceConnections{}
-	this.PrivateConnectivityInfo = privateConnectivityInfo
+	this.OtlpHttpUrl = otlpHttpUrl
 	this.OtlpMultiAZ = otlpMultiAZ
+	this.PrivateConnectivityInfo = privateConnectivityInfo
 	return &this
 }
 
@@ -50,34 +51,10 @@ func NewFormattedApiInstanceConnectionsWithDefaults() *FormattedApiInstanceConne
 	return &this
 }
 
-// GetPrivateConnectivityInfo returns the PrivateConnectivityInfo field value
-func (o *FormattedApiInstanceConnections) GetPrivateConnectivityInfo() PrivateConnectivityInfo {
-	if o == nil {
-		var ret PrivateConnectivityInfo
-		return ret
-	}
-
-	return o.PrivateConnectivityInfo
-}
-
-// GetPrivateConnectivityInfoOk returns a tuple with the PrivateConnectivityInfo field value
-// and a boolean to check if the value has been set.
-func (o *FormattedApiInstanceConnections) GetPrivateConnectivityInfoOk() (*PrivateConnectivityInfo, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PrivateConnectivityInfo, true
-}
-
-// SetPrivateConnectivityInfo sets field value
-func (o *FormattedApiInstanceConnections) SetPrivateConnectivityInfo(v PrivateConnectivityInfo) {
-	o.PrivateConnectivityInfo = v
-}
-
 // GetAppPlatform returns the AppPlatform field value if set, zero value otherwise.
-func (o *FormattedApiInstanceConnections) GetAppPlatform() AppPlatform {
+func (o *FormattedApiInstanceConnections) GetAppPlatform() StackConnectionAppPlatformV1 {
 	if o == nil || IsNil(o.AppPlatform) {
-		var ret AppPlatform
+		var ret StackConnectionAppPlatformV1
 		return ret
 	}
 	return *o.AppPlatform
@@ -85,7 +62,7 @@ func (o *FormattedApiInstanceConnections) GetAppPlatform() AppPlatform {
 
 // GetAppPlatformOk returns a tuple with the AppPlatform field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FormattedApiInstanceConnections) GetAppPlatformOk() (*AppPlatform, bool) {
+func (o *FormattedApiInstanceConnections) GetAppPlatformOk() (*StackConnectionAppPlatformV1, bool) {
 	if o == nil || IsNil(o.AppPlatform) {
 		return nil, false
 	}
@@ -101,64 +78,87 @@ func (o *FormattedApiInstanceConnections) HasAppPlatform() bool {
 	return false
 }
 
-// SetAppPlatform gets a reference to the given AppPlatform and assigns it to the AppPlatform field.
-func (o *FormattedApiInstanceConnections) SetAppPlatform(v AppPlatform) {
+// SetAppPlatform gets a reference to the given StackConnectionAppPlatformV1 and assigns it to the AppPlatform field.
+func (o *FormattedApiInstanceConnections) SetAppPlatform(v StackConnectionAppPlatformV1) {
 	o.AppPlatform = &v
 }
 
-// GetInfluxUrl returns the InfluxUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInfluxUrl returns the InfluxUrl field value if set, zero value otherwise.
 func (o *FormattedApiInstanceConnections) GetInfluxUrl() string {
-	if o == nil || IsNil(o.InfluxUrl.Get()) {
+	if o == nil || IsNil(o.InfluxUrl) {
 		var ret string
 		return ret
 	}
-	return *o.InfluxUrl.Get()
+	return *o.InfluxUrl
 }
 
 // GetInfluxUrlOk returns a tuple with the InfluxUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiInstanceConnections) GetInfluxUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InfluxUrl) {
 		return nil, false
 	}
-	return o.InfluxUrl.Get(), o.InfluxUrl.IsSet()
+	return o.InfluxUrl, true
 }
 
 // HasInfluxUrl returns a boolean if a field has been set.
 func (o *FormattedApiInstanceConnections) HasInfluxUrl() bool {
-	if o != nil && o.InfluxUrl.IsSet() {
+	if o != nil && !IsNil(o.InfluxUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetInfluxUrl gets a reference to the given NullableString and assigns it to the InfluxUrl field.
+// SetInfluxUrl gets a reference to the given string and assigns it to the InfluxUrl field.
 func (o *FormattedApiInstanceConnections) SetInfluxUrl(v string) {
-	o.InfluxUrl.Set(&v)
+	o.InfluxUrl = &v
 }
 
-// SetInfluxUrlNil sets the value for InfluxUrl to be an explicit nil
-func (o *FormattedApiInstanceConnections) SetInfluxUrlNil() {
-	o.InfluxUrl.Set(nil)
-}
-
-// UnsetInfluxUrl ensures that no value is present for InfluxUrl, not even an explicit nil
-func (o *FormattedApiInstanceConnections) UnsetInfluxUrl() {
-	o.InfluxUrl.Unset()
-}
-
-// GetOtlpHttpUrl returns the OtlpHttpUrl field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FormattedApiInstanceConnections) GetOtlpHttpUrl() string {
-	if o == nil || IsNil(o.OtlpHttpUrl.Get()) {
+// GetOncallApiUrl returns the OncallApiUrl field value if set, zero value otherwise.
+func (o *FormattedApiInstanceConnections) GetOncallApiUrl() string {
+	if o == nil || IsNil(o.OncallApiUrl) {
 		var ret string
 		return ret
 	}
+	return *o.OncallApiUrl
+}
+
+// GetOncallApiUrlOk returns a tuple with the OncallApiUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstanceConnections) GetOncallApiUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.OncallApiUrl) {
+		return nil, false
+	}
+	return o.OncallApiUrl, true
+}
+
+// HasOncallApiUrl returns a boolean if a field has been set.
+func (o *FormattedApiInstanceConnections) HasOncallApiUrl() bool {
+	if o != nil && !IsNil(o.OncallApiUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetOncallApiUrl gets a reference to the given string and assigns it to the OncallApiUrl field.
+func (o *FormattedApiInstanceConnections) SetOncallApiUrl(v string) {
+	o.OncallApiUrl = &v
+}
+
+// GetOtlpHttpUrl returns the OtlpHttpUrl field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *FormattedApiInstanceConnections) GetOtlpHttpUrl() string {
+	if o == nil || o.OtlpHttpUrl.Get() == nil {
+		var ret string
+		return ret
+	}
+
 	return *o.OtlpHttpUrl.Get()
 }
 
-// GetOtlpHttpUrlOk returns a tuple with the OtlpHttpUrl field value if set, nil otherwise
+// GetOtlpHttpUrlOk returns a tuple with the OtlpHttpUrl field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiInstanceConnections) GetOtlpHttpUrlOk() (*string, bool) {
@@ -168,28 +168,9 @@ func (o *FormattedApiInstanceConnections) GetOtlpHttpUrlOk() (*string, bool) {
 	return o.OtlpHttpUrl.Get(), o.OtlpHttpUrl.IsSet()
 }
 
-// HasOtlpHttpUrl returns a boolean if a field has been set.
-func (o *FormattedApiInstanceConnections) HasOtlpHttpUrl() bool {
-	if o != nil && o.OtlpHttpUrl.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetOtlpHttpUrl gets a reference to the given NullableString and assigns it to the OtlpHttpUrl field.
+// SetOtlpHttpUrl sets field value
 func (o *FormattedApiInstanceConnections) SetOtlpHttpUrl(v string) {
 	o.OtlpHttpUrl.Set(&v)
-}
-
-// SetOtlpHttpUrlNil sets the value for OtlpHttpUrl to be an explicit nil
-func (o *FormattedApiInstanceConnections) SetOtlpHttpUrlNil() {
-	o.OtlpHttpUrl.Set(nil)
-}
-
-// UnsetOtlpHttpUrl ensures that no value is present for OtlpHttpUrl, not even an explicit nil
-func (o *FormattedApiInstanceConnections) UnsetOtlpHttpUrl() {
-	o.OtlpHttpUrl.Unset()
 }
 
 // GetOtlpMultiAZ returns the OtlpMultiAZ field value
@@ -216,90 +197,60 @@ func (o *FormattedApiInstanceConnections) SetOtlpMultiAZ(v bool) {
 	o.OtlpMultiAZ = v
 }
 
-// GetOncallApiUrl returns the OncallApiUrl field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FormattedApiInstanceConnections) GetOncallApiUrl() string {
-	if o == nil || IsNil(o.OncallApiUrl.Get()) {
-		var ret string
+// GetPrivateConnectivityInfo returns the PrivateConnectivityInfo field value
+func (o *FormattedApiInstanceConnections) GetPrivateConnectivityInfo() FormattedApiInstancePrivateConnectivityInfo {
+	if o == nil {
+		var ret FormattedApiInstancePrivateConnectivityInfo
 		return ret
 	}
-	return *o.OncallApiUrl.Get()
+
+	return o.PrivateConnectivityInfo
 }
 
-// GetOncallApiUrlOk returns a tuple with the OncallApiUrl field value if set, nil otherwise
+// GetPrivateConnectivityInfoOk returns a tuple with the PrivateConnectivityInfo field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FormattedApiInstanceConnections) GetOncallApiUrlOk() (*string, bool) {
+func (o *FormattedApiInstanceConnections) GetPrivateConnectivityInfoOk() (*FormattedApiInstancePrivateConnectivityInfo, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.OncallApiUrl.Get(), o.OncallApiUrl.IsSet()
+	return &o.PrivateConnectivityInfo, true
 }
 
-// HasOncallApiUrl returns a boolean if a field has been set.
-func (o *FormattedApiInstanceConnections) HasOncallApiUrl() bool {
-	if o != nil && o.OncallApiUrl.IsSet() {
-		return true
-	}
-
-	return false
+// SetPrivateConnectivityInfo sets field value
+func (o *FormattedApiInstanceConnections) SetPrivateConnectivityInfo(v FormattedApiInstancePrivateConnectivityInfo) {
+	o.PrivateConnectivityInfo = v
 }
 
-// SetOncallApiUrl gets a reference to the given NullableString and assigns it to the OncallApiUrl field.
-func (o *FormattedApiInstanceConnections) SetOncallApiUrl(v string) {
-	o.OncallApiUrl.Set(&v)
-}
-
-// SetOncallApiUrlNil sets the value for OncallApiUrl to be an explicit nil
-func (o *FormattedApiInstanceConnections) SetOncallApiUrlNil() {
-	o.OncallApiUrl.Set(nil)
-}
-
-// UnsetOncallApiUrl ensures that no value is present for OncallApiUrl, not even an explicit nil
-func (o *FormattedApiInstanceConnections) UnsetOncallApiUrl() {
-	o.OncallApiUrl.Unset()
-}
-
-// GetSyntheticMonitoringApiUrl returns the SyntheticMonitoringApiUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSyntheticMonitoringApiUrl returns the SyntheticMonitoringApiUrl field value if set, zero value otherwise.
 func (o *FormattedApiInstanceConnections) GetSyntheticMonitoringApiUrl() string {
-	if o == nil || IsNil(o.SyntheticMonitoringApiUrl.Get()) {
+	if o == nil || IsNil(o.SyntheticMonitoringApiUrl) {
 		var ret string
 		return ret
 	}
-	return *o.SyntheticMonitoringApiUrl.Get()
+	return *o.SyntheticMonitoringApiUrl
 }
 
 // GetSyntheticMonitoringApiUrlOk returns a tuple with the SyntheticMonitoringApiUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FormattedApiInstanceConnections) GetSyntheticMonitoringApiUrlOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SyntheticMonitoringApiUrl) {
 		return nil, false
 	}
-	return o.SyntheticMonitoringApiUrl.Get(), o.SyntheticMonitoringApiUrl.IsSet()
+	return o.SyntheticMonitoringApiUrl, true
 }
 
 // HasSyntheticMonitoringApiUrl returns a boolean if a field has been set.
 func (o *FormattedApiInstanceConnections) HasSyntheticMonitoringApiUrl() bool {
-	if o != nil && o.SyntheticMonitoringApiUrl.IsSet() {
+	if o != nil && !IsNil(o.SyntheticMonitoringApiUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetSyntheticMonitoringApiUrl gets a reference to the given NullableString and assigns it to the SyntheticMonitoringApiUrl field.
+// SetSyntheticMonitoringApiUrl gets a reference to the given string and assigns it to the SyntheticMonitoringApiUrl field.
 func (o *FormattedApiInstanceConnections) SetSyntheticMonitoringApiUrl(v string) {
-	o.SyntheticMonitoringApiUrl.Set(&v)
-}
-
-// SetSyntheticMonitoringApiUrlNil sets the value for SyntheticMonitoringApiUrl to be an explicit nil
-func (o *FormattedApiInstanceConnections) SetSyntheticMonitoringApiUrlNil() {
-	o.SyntheticMonitoringApiUrl.Set(nil)
-}
-
-// UnsetSyntheticMonitoringApiUrl ensures that no value is present for SyntheticMonitoringApiUrl, not even an explicit nil
-func (o *FormattedApiInstanceConnections) UnsetSyntheticMonitoringApiUrl() {
-	o.SyntheticMonitoringApiUrl.Unset()
+	o.SyntheticMonitoringApiUrl = &v
 }
 
 func (o FormattedApiInstanceConnections) MarshalJSON() ([]byte, error) {
@@ -312,28 +263,21 @@ func (o FormattedApiInstanceConnections) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiInstanceConnections) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["privateConnectivityInfo"] = o.PrivateConnectivityInfo
 	if !IsNil(o.AppPlatform) {
 		toSerialize["appPlatform"] = o.AppPlatform
 	}
-	if o.InfluxUrl.IsSet() {
-		toSerialize["influxUrl"] = o.InfluxUrl.Get()
+	if !IsNil(o.InfluxUrl) {
+		toSerialize["influxUrl"] = o.InfluxUrl
 	}
-	if o.OtlpHttpUrl.IsSet() {
-		toSerialize["otlpHttpUrl"] = o.OtlpHttpUrl.Get()
+	if !IsNil(o.OncallApiUrl) {
+		toSerialize["oncallApiUrl"] = o.OncallApiUrl
 	}
+	toSerialize["otlpHttpUrl"] = o.OtlpHttpUrl.Get()
 	toSerialize["otlpMultiAZ"] = o.OtlpMultiAZ
-	if o.OncallApiUrl.IsSet() {
-		toSerialize["oncallApiUrl"] = o.OncallApiUrl.Get()
+	toSerialize["privateConnectivityInfo"] = o.PrivateConnectivityInfo
+	if !IsNil(o.SyntheticMonitoringApiUrl) {
+		toSerialize["syntheticMonitoringApiUrl"] = o.SyntheticMonitoringApiUrl
 	}
-	if o.SyntheticMonitoringApiUrl.IsSet() {
-		toSerialize["syntheticMonitoringApiUrl"] = o.SyntheticMonitoringApiUrl.Get()
-	}
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -348,26 +292,14 @@ func (o *FormattedApiInstanceConnections) UnmarshalJSON(data []byte) (err error)
 
 	varFormattedApiInstanceConnections := _FormattedApiInstanceConnections{}
 
-	err = json.Unmarshal(data, &varFormattedApiInstanceConnections)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	err = decoder.Decode(&varFormattedApiInstanceConnections)
 
 	if err != nil {
 		return err
 	}
 
 	*o = FormattedApiInstanceConnections(varFormattedApiInstanceConnections)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "privateConnectivityInfo")
-		delete(additionalProperties, "appPlatform")
-		delete(additionalProperties, "influxUrl")
-		delete(additionalProperties, "otlpHttpUrl")
-		delete(additionalProperties, "otlpMultiAZ")
-		delete(additionalProperties, "oncallApiUrl")
-		delete(additionalProperties, "syntheticMonitoringApiUrl")
-		o.AdditionalProperties = additionalProperties
-	}
 
 	return err
 }

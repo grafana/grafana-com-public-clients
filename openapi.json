@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "48f0d62",
-    "x-generated-at": "2026-06-22T07:01:45.528Z"
+    "x-commit-sha": "f5f7485",
+    "x-generated-at": "2026-07-02T05:42:02.963Z"
   },
   "servers": [
     {
@@ -340,6 +340,10 @@
           }
         ],
         "summary": "Get a list of instances",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stacks:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -554,6 +558,10 @@
           }
         },
         "summary": "Create a new instance",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stacks:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -633,6 +641,11 @@
           }
         ],
         "summary": "Gets an instance",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stacks:read",
+          "stack-config:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -786,6 +799,10 @@
           }
         },
         "summary": "Updates an instance",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stacks:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -873,6 +890,10 @@
           }
         ],
         "summary": "Deletes an instance",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stacks:delete"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -987,6 +1008,10 @@
           }
         },
         "summary": "Creates a service account on a Grafana instance",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1092,6 +1117,10 @@
           }
         ],
         "summary": "Search service accounts on a Grafana instance with paging",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1171,6 +1200,10 @@
           }
         ],
         "summary": "Gets a service account on a Grafana instance",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1256,6 +1289,10 @@
           }
         ],
         "summary": "Delete a service account on a Grafana instance",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -1367,6 +1404,10 @@
           }
         },
         "summary": "Creates a service account token on a Grafana instance",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1454,6 +1495,10 @@
           }
         ],
         "summary": "Get a service account's tokens on a Grafana instance",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1552,6 +1597,10 @@
           }
         ],
         "summary": "Delete a service account token on a Grafana instance",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -1609,85 +1658,6 @@
         }
       }
     },
-    "/instances/{instanceId}/connections": {
-      "get": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "getConnections",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "config",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          }
-        ],
-        "summary": "Gets an instance's connectivity information (InfluxDB, OTEL, AWS private link, etc.)",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FormattedApiInstanceConnections"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/instances/{instanceId}/plugins": {
       "get": {
         "tags": [
@@ -1729,6 +1699,10 @@
             },
             "required": false
           }
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-plugins:read"
         ],
         "responses": {
           "200": {
@@ -1876,6 +1850,10 @@
             }
           }
         },
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-plugins:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1963,6 +1941,10 @@
             },
             "required": true
           }
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-plugins:read"
         ],
         "responses": {
           "200": {
@@ -2066,6 +2048,10 @@
             }
           }
         },
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-plugins:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2168,6 +2154,10 @@
             "required": true
           }
         ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-plugins:delete"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2249,6 +2239,10 @@
           }
         ],
         "summary": "Gets an instance's readiness status",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stacks:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2345,6 +2339,10 @@
           }
         ],
         "summary": "Gets instance active users",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-users:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2422,6 +2420,10 @@
             },
             "required": false
           }
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-regions:read"
         ],
         "responses": {
           "200": {
@@ -2557,6 +2559,11 @@
           }
         ],
         "summary": "Retrieve an org's billed usage for a specific month",
+        "x-auth-required": true,
+        "x-permissions": [
+          "orgs:read",
+          "org-billing-info:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2674,6 +2681,10 @@
           }
         ],
         "summary": "Retrieve an org's billed usage items for the last 12 months",
+        "x-auth-required": true,
+        "x-permissions": [
+          "orgs:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2924,6 +2935,10 @@
           }
         ],
         "summary": "Get the list of instances belonging to the org",
+        "x-auth-required": true,
+        "x-permissions": [
+          "stacks:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3039,6 +3054,9 @@
             },
             "required": true
           }
+        ],
+        "x-permissions": [
+          "orgs:read"
         ],
         "responses": {
           "200": {
@@ -3174,6 +3192,11 @@
             "required": false
           }
         ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "org-members:read",
+          "org-members:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3280,6 +3303,10 @@
             }
           }
         },
+        "x-auth-required": true,
+        "x-permissions": [
+          "org-members:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3367,6 +3394,10 @@
             },
             "required": true
           }
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "org-members:read"
         ],
         "responses": {
           "200": {
@@ -3479,6 +3510,12 @@
             }
           }
         },
+        "x-auth-required": true,
+        "x-permissions": [
+          "staff-org-members:write",
+          "org-members:write",
+          "org-members:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3572,6 +3609,10 @@
             },
             "required": true
           }
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "org-members:delete"
         ],
         "responses": {
           "200": {
@@ -3691,6 +3732,10 @@
           }
         },
         "summary": "Update org settings",
+        "x-auth-required": true,
+        "x-permissions": [
+          "orgs:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3770,6 +3815,10 @@
           }
         ],
         "summary": "Get org settings",
+        "x-auth-required": true,
+        "x-permissions": [
+          "orgs:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -4004,6 +4053,7 @@
             "required": false
           }
         ],
+        "x-auth-required": true,
         "responses": {
           "200": {
             "description": "OK",
@@ -4135,26 +4185,6 @@
               }
             }
           },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
           "409": {
             "description": "Invalid arguments: wrong or missing parameters",
             "content": {
@@ -4240,6 +4270,10 @@
           }
         ],
         "summary": "Get a list of access policies",
+        "x-auth-required": true,
+        "x-permissions": [
+          "accesspolicies:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -4452,6 +4486,10 @@
           }
         },
         "summary": "Create a new access policy",
+        "x-auth-required": true,
+        "x-permissions": [
+          "accesspolicies:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -4595,6 +4633,10 @@
           }
         ],
         "summary": "Get an access policy",
+        "x-auth-required": true,
+        "x-permissions": [
+          "accesspolicies:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -4820,6 +4862,10 @@
           }
         },
         "summary": "Update an access policy",
+        "x-auth-required": true,
+        "x-permissions": [
+          "accesspolicies:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -4922,6 +4968,10 @@
           }
         ],
         "summary": "Delete an access policy",
+        "x-auth-required": true,
+        "x-permissions": [
+          "accesspolicies:delete"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -5099,6 +5149,10 @@
           }
         ],
         "summary": "Get a list of tokens",
+        "x-auth-required": true,
+        "x-permissions": [
+          "accesspolicies:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5202,6 +5256,10 @@
           }
         },
         "summary": "Create a new token",
+        "x-auth-required": true,
+        "x-permissions": [
+          "accesspolicies:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5288,6 +5346,10 @@
           }
         ],
         "summary": "Get info for a specific token",
+        "x-auth-required": true,
+        "x-permissions": [
+          "accesspolicies:read"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5400,6 +5462,10 @@
           }
         },
         "summary": "Update a token",
+        "x-auth-required": true,
+        "x-permissions": [
+          "accesspolicies:write"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5502,6 +5568,10 @@
           }
         ],
         "summary": "Delete a token",
+        "x-auth-required": true,
+        "x-permissions": [
+          "accesspolicies:delete"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5564,6 +5634,54 @@
             }
           }
         }
+      }
+    },
+    "/instances/{instanceId}/connections": {
+      "get": {
+        "deprecated": true,
+        "operationId": "getConnections",
+        "parameters": [
+          {
+            "description": "id or slug of the instance",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the instance",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormattedApiInstanceConnections"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "summary": "Gets an instance's connectivity information (InfluxDB, OTEL, AWS private link, etc.)",
+        "tags": [
+          "stacks"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stacks:read"
+        ]
       }
     },
     "/v1/stacks": {
@@ -5632,7 +5750,8 @@
         },
         "tags": [
           "stacks"
-        ]
+        ],
+        "x-auth-required": true
       },
       "post": {
         "operationId": "createStackV1",
@@ -5670,7 +5789,8 @@
         },
         "tags": [
           "stacks"
-        ]
+        ],
+        "x-auth-required": true
       }
     },
     "/v1/stacks/checkUrl": {
@@ -5710,7 +5830,8 @@
         },
         "tags": [
           "stacks"
-        ]
+        ],
+        "x-auth-required": true
       }
     },
     "/v1/stacks/{idOrSlug}": {
@@ -5752,7 +5873,8 @@
         },
         "tags": [
           "stacks"
-        ]
+        ],
+        "x-auth-required": true
       },
       "get": {
         "operationId": "getStackV1",
@@ -5792,7 +5914,8 @@
         },
         "tags": [
           "stacks"
-        ]
+        ],
+        "x-auth-required": true
       },
       "post": {
         "operationId": "updateStackV1",
@@ -5842,7 +5965,8 @@
         },
         "tags": [
           "stacks"
-        ]
+        ],
+        "x-auth-required": true
       }
     },
     "/v1/stacks/{idOrSlug}/connections": {
@@ -5884,6 +6008,10 @@
         },
         "tags": [
           "stacks"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stacks:read"
         ]
       }
     },
@@ -5926,86 +6054,118 @@
         },
         "tags": [
           "stacks"
-        ]
+        ],
+        "x-auth-required": true
       }
     }
   },
   "components": {
     "schemas": {
-      "ErrorServiceUnavailable": {
+      "AccessPoliciesConfig": {
         "type": "object",
         "properties": {
-          "message": {
-            "type": "string",
-            "example": "Service is currently unavailable"
+          "realms": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "org"
+                      ],
+                      "title": "type"
+                    },
+                    "identifier": {
+                      "type": "string",
+                      "title": "identifier"
+                    }
+                  },
+                  "required": [
+                    "identifier",
+                    "type"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "stack"
+                      ],
+                      "title": "type"
+                    },
+                    "identifier": {
+                      "type": "string",
+                      "title": "identifier"
+                    }
+                  },
+                  "required": [
+                    "identifier",
+                    "type"
+                  ]
+                }
+              ]
+            },
+            "title": "realms"
           },
-          "code": {
-            "type": "string",
-            "enum": [
-              "ServiceUnavailable"
-            ]
-          }
-        }
-      },
-      "ErrorConflict": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "example": "Invalid arguments: wrong or missing parameters"
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "name"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "description"
+                },
+                "requiresRealmType": {
+                  "type": "string",
+                  "title": "requiresRealmType"
+                }
+              },
+              "required": [
+                "description",
+                "name"
+              ]
+            },
+            "title": "scopes"
           },
-          "code": {
-            "type": "string",
-            "enum": [
-              "Conflict"
-            ]
+          "sets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "name"
+                },
+                "scopes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "scopes"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            },
+            "title": "sets"
           }
-        }
-      },
-      "ErrorNotFound": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "example": "Element not found"
-          },
-          "code": {
-            "type": "string",
-            "enum": [
-              "NotFound"
-            ]
-          }
-        }
-      },
-      "ErrorForbidden": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "example": "Forbidden"
-          },
-          "code": {
-            "type": "string",
-            "enum": [
-              "Forbidden"
-            ]
-          }
-        }
-      },
-      "ErrorInvalidCredentials": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "example": "Login Required or invalid credentials"
-          },
-          "code": {
-            "type": "string",
-            "enum": [
-              "InvalidCredentials"
-            ]
-          }
-        }
+        },
+        "required": [
+          "realms",
+          "scopes",
+          "sets"
+        ]
       },
       "AccessPolicyListResponse": {
         "type": "object",
@@ -6275,708 +6435,442 @@
           "realms"
         ]
       },
-      "AccessPoliciesConfig": {
+      "AuthToken": {
         "type": "object",
         "properties": {
-          "realms": {
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "org"
-                      ],
-                      "title": "type"
-                    },
-                    "identifier": {
-                      "type": "string",
-                      "title": "identifier"
-                    }
-                  },
-                  "required": [
-                    "identifier",
-                    "type"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "stack"
-                      ],
-                      "title": "type"
-                    },
-                    "identifier": {
-                      "type": "string",
-                      "title": "identifier"
-                    }
-                  },
-                  "required": [
-                    "identifier",
-                    "type"
-                  ]
-                }
-              ]
-            },
-            "title": "realms"
+          "id": {
+            "type": "string",
+            "format": "string",
+            "example": "c45485b6-8321-4cf2-bcec-12006df755ff",
+            "readOnly": true
           },
-          "scopes": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "title": "name"
-                },
-                "description": {
-                  "type": "string",
-                  "title": "description"
-                },
-                "requiresRealmType": {
-                  "type": "string",
-                  "title": "requiresRealmType"
-                }
-              },
-              "required": [
-                "description",
-                "name"
-              ]
-            },
-            "title": "scopes"
+          "accessPolicyId": {
+            "type": "string",
+            "format": "string",
+            "example": "c45485b6-8321-4cf2-bcec-12006df755ff"
           },
-          "sets": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "title": "name"
-                },
-                "scopes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "title": "scopes"
-                }
-              },
-              "required": [
-                "name"
-              ]
-            },
-            "title": "sets"
+          "name": {
+            "type": "string",
+            "example": "mytoken"
+          },
+          "displayName": {
+            "type": "string",
+            "example": "My Token",
+            "description": "Will be set to `name` if not provided."
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Token does not expire if not provided."
+          },
+          "firstUsedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "lastUsedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "orgId": {
+            "type": "string",
+            "example": "1",
+            "readOnly": true
           }
         },
         "required": [
-          "realms",
-          "scopes",
-          "sets"
+          "accessPolicyId",
+          "name"
         ]
       },
-      "FormattedApiInstanceConnections": {
-        "type": "object",
-        "properties": {
-          "privateConnectivityInfo": {
+      "AuthTokenWithSecret": {
+        "allOf": [
+          {
             "type": "object",
             "properties": {
-              "tenants": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "title": "type"
-                    },
-                    "id": {
-                      "type": "number",
-                      "title": "id"
-                    },
-                    "info": {
-                      "anyOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "serviceName": {
-                              "type": "string",
-                              "title": "serviceName"
-                            },
-                            "privateDNS": {
-                              "type": "string",
-                              "title": "privateDNS"
-                            },
-                            "regions": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "title": "regions"
-                            },
-                            "availabilityZones": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "title": "availabilityZones"
-                            },
-                            "availabilityZoneIds": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "title": "availabilityZoneIds"
-                            }
-                          },
-                          "required": [
-                            "privateDNS",
-                            "serviceName"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "serviceAttachment": {
-                              "type": "string",
-                              "title": "serviceAttachment"
-                            },
-                            "domainNames": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "title": "domainNames"
-                            }
-                          },
-                          "required": [
-                            "domainNames",
-                            "serviceAttachment"
-                          ]
-                        }
-                      ],
-                      "title": "info"
-                    },
-                    "ipAllowListCNAME": {
-                      "type": "string",
-                      "title": "ipAllowListCNAME",
-                      "nullable": true
-                    },
-                    "allowlistUrl": {
-                      "type": "string",
-                      "title": "allowlistUrl",
-                      "nullable": true
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "type"
-                  ]
-                },
-                "title": "tenants"
+              "id": {
+                "type": "string",
+                "format": "string",
+                "example": "c45485b6-8321-4cf2-bcec-12006df755ff",
+                "readOnly": true
               },
-              "otlp": {
-                "anyOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "serviceName": {
-                        "type": "string",
-                        "title": "serviceName"
-                      },
-                      "privateDNS": {
-                        "type": "string",
-                        "title": "privateDNS"
-                      },
-                      "regions": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "title": "regions"
-                      },
-                      "availabilityZones": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "title": "availabilityZones"
-                      },
-                      "availabilityZoneIds": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "title": "availabilityZoneIds"
-                      }
-                    },
-                    "required": [
-                      "privateDNS",
-                      "serviceName"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "serviceAttachment": {
-                        "type": "string",
-                        "title": "serviceAttachment"
-                      },
-                      "domainNames": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "title": "domainNames"
-                      }
-                    },
-                    "required": [
-                      "domainNames",
-                      "serviceAttachment"
-                    ]
-                  }
-                ],
-                "title": "otlp"
+              "accessPolicyId": {
+                "type": "string",
+                "format": "string",
+                "example": "c45485b6-8321-4cf2-bcec-12006df755ff"
               },
-              "pdc": {
-                "type": "object",
-                "properties": {
-                  "api": {
-                    "anyOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "regions"
-                          },
-                          "availabilityZones": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "availabilityZones"
-                          },
-                          "availabilityZoneIds": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "availabilityZoneIds"
-                          }
-                        },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
-                        ]
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "serviceAttachment": {
-                            "type": "string",
-                            "title": "serviceAttachment"
-                          },
-                          "domainNames": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "domainNames"
-                          }
-                        },
-                        "required": [
-                          "domainNames",
-                          "serviceAttachment"
-                        ]
-                      }
-                    ],
-                    "title": "api"
-                  },
-                  "gateway": {
-                    "anyOf": [
-                      {
-                        "type": "object",
-                        "properties": {
-                          "serviceName": {
-                            "type": "string",
-                            "title": "serviceName"
-                          },
-                          "privateDNS": {
-                            "type": "string",
-                            "title": "privateDNS"
-                          },
-                          "regions": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "regions"
-                          },
-                          "availabilityZones": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "availabilityZones"
-                          },
-                          "availabilityZoneIds": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "availabilityZoneIds"
-                          }
-                        },
-                        "required": [
-                          "privateDNS",
-                          "serviceName"
-                        ]
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "serviceAttachment": {
-                            "type": "string",
-                            "title": "serviceAttachment"
-                          },
-                          "domainNames": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "domainNames"
-                          }
-                        },
-                        "required": [
-                          "domainNames",
-                          "serviceAttachment"
-                        ]
-                      }
-                    ],
-                    "title": "gateway"
-                  }
-                },
-                "required": [
-                  "api",
-                  "gateway"
-                ],
-                "title": "pdc"
+              "name": {
+                "type": "string",
+                "example": "mytoken"
+              },
+              "displayName": {
+                "type": "string",
+                "example": "My Token",
+                "description": "Will be set to `name` if not provided."
+              },
+              "expiresAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Token does not expire if not provided."
+              },
+              "firstUsedAt": {
+                "type": "string",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "lastUsedAt": {
+                "type": "string",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time",
+                "readOnly": true
+              },
+              "orgId": {
+                "type": "string",
+                "example": "1",
+                "readOnly": true
               }
             },
             "required": [
-              "tenants"
-            ],
-            "title": "privateConnectivityInfo"
+              "accessPolicyId",
+              "name"
+            ]
           },
-          "appPlatform": {
-            "type": "object",
+          {
             "properties": {
-              "url": {
+              "token": {
                 "type": "string",
-                "title": "url"
-              },
-              "caData": {
-                "type": "string",
-                "title": "caData",
-                "nullable": true
+                "format": "password",
+                "description": "This token is auto generated and will be shown only once.",
+                "example": "glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9"
               }
-            },
-            "required": [
-              "url"
-            ],
-            "title": "appPlatform"
-          },
-          "influxUrl": {
-            "type": "string",
-            "title": "influxUrl",
-            "nullable": true
-          },
-          "otlpHttpUrl": {
-            "type": "string",
-            "title": "otlpHttpUrl",
-            "nullable": true
-          },
-          "otlpMultiAZ": {
-            "type": "boolean",
-            "title": "otlpMultiAZ"
-          },
-          "oncallApiUrl": {
-            "type": "string",
-            "title": "oncallApiUrl",
-            "nullable": true
-          },
-          "syntheticMonitoringApiUrl": {
-            "type": "string",
-            "title": "syntheticMonitoringApiUrl",
-            "nullable": true
+            }
           }
-        },
-        "required": [
-          "otlpMultiAZ",
-          "privateConnectivityInfo"
         ]
       },
-      "FormattedApiInstancePlugin": {
+      "BilledUsage": {
         "type": "object",
         "properties": {
           "id": {
             "type": "number",
             "title": "id"
           },
-          "instanceId": {
+          "description": {
+            "type": "string",
+            "title": "description"
+          },
+          "overage": {
             "type": "number",
-            "title": "instanceId"
+            "title": "overage"
           },
-          "instanceUrl": {
+          "notes": {
             "type": "string",
-            "title": "instanceUrl"
+            "title": "notes"
           },
-          "instanceSlug": {
+          "unit": {
             "type": "string",
-            "title": "instanceSlug"
+            "title": "unit"
           },
-          "pluginId": {
+          "includedUsage": {
             "type": "number",
-            "title": "pluginId"
+            "title": "includedUsage"
           },
-          "pluginSlug": {
+          "dimensionId": {
+            "enum": [
+              "ai-tokens",
+              "app-o11y",
+              "assistant",
+              "db-o11y-hosts",
+              "fe-o11y",
+              "ge-instances",
+              "ge-users",
+              "hg",
+              "hg-plugin-users",
+              "hl",
+              "hl-process",
+              "hl-retention",
+              "hm",
+              "hm-graphite",
+              "hp",
+              "hp-process",
+              "hp-retention",
+              "ht",
+              "ht-process",
+              "ht-retention",
+              "infra-o11y-containers",
+              "infra-o11y-hosts",
+              "irm",
+              "k6-ip",
+              "k6-vuh",
+              "sm",
+              "sm-browser"
+            ],
             "type": "string",
-            "title": "pluginSlug"
+            "title": "dimensionId"
           },
-          "pluginName": {
+          "amountDue": {
+            "type": "number",
+            "title": "amountDue"
+          },
+          "dimensionName": {
             "type": "string",
-            "title": "pluginName"
+            "title": "dimensionName"
           },
-          "version": {
+          "orgRates": {
+            "title": "orgRates"
+          },
+          "periodEnd": {
             "type": "string",
-            "title": "version"
+            "title": "periodEnd"
           },
-          "latestVersion": {
+          "periodStart": {
             "type": "string",
-            "title": "latestVersion"
+            "title": "periodStart"
           },
-          "createdAt": {
-            "type": "string",
-            "title": "createdAt"
+          "totalUsage": {
+            "type": "number",
+            "title": "totalUsage"
           },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "title": "updatedAt"
-          },
-          "links": {
+          "usages": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "rel": {
-                  "type": "string",
-                  "title": "rel",
-                  "default": "self"
+                "activeSeries": {
+                  "type": "number",
+                  "title": "activeSeries"
                 },
-                "href": {
-                  "type": "string",
-                  "title": "href"
-                }
-              },
-              "required": [
-                "href",
-                "rel"
-              ]
-            },
-            "title": "links"
-          }
-        },
-        "required": [
-          "createdAt",
-          "id",
-          "instanceId",
-          "instanceSlug",
-          "instanceUrl",
-          "latestVersion",
-          "links",
-          "pluginId",
-          "pluginName",
-          "pluginSlug",
-          "version"
-        ]
-      },
-      "GrafanaServiceAccountDTO": {
-        "description": "swagger: model",
-        "properties": {
-          "accessControl": {
-            "additionalProperties": {
-              "type": "boolean"
-            },
-            "example": {
-              "serviceaccounts:delete": true,
-              "serviceaccounts:read": true,
-              "serviceaccounts:write": true
-            },
-            "type": "object"
-          },
-          "avatarUrl": {
-            "example": "/avatar/85ec38023d90823d3e5b43ef35646af9",
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "isDisabled": {
-            "example": false,
-            "type": "boolean"
-          },
-          "isExternal": {
-            "example": false,
-            "type": "boolean"
-          },
-          "login": {
-            "example": "sa-grafana",
-            "type": "string"
-          },
-          "name": {
-            "example": "grafana",
-            "type": "string"
-          },
-          "orgId": {
-            "example": 1,
-            "format": "int64",
-            "type": "integer"
-          },
-          "role": {
-            "example": "Viewer",
-            "type": "string"
-          },
-          "tokens": {
-            "example": 0,
-            "format": "int64",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "ServiceAccountSearchResponse": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "number",
-            "title": "totalCount"
-          },
-          "serviceAccounts": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
+                "activeUsers": {
+                  "type": "number",
+                  "title": "activeUsers"
+                },
+                "anonymousUsers": {
+                  "type": "number",
+                  "title": "anonymousUsers"
+                },
+                "attributedCost": {
+                  "type": "number",
+                  "title": "attributedCost"
+                },
+                "attributedUsage": {
+                  "type": "number",
+                  "title": "attributedUsage"
+                },
+                "browserUsage": {
+                  "type": "number",
+                  "title": "browserUsage"
+                },
+                "credits": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "number",
+                        "title": "amount"
+                      },
+                      "dimensionId": {
+                        "type": "string",
+                        "title": "dimensionId"
+                      },
+                      "dimensionName": {
+                        "type": "string",
+                        "title": "dimensionName"
+                      }
+                    },
+                    "required": [
+                      "amount",
+                      "dimensionId",
+                      "dimensionName"
+                    ]
+                  },
+                  "title": "credits"
+                },
+                "dpm": {
+                  "type": "number",
+                  "title": "dpm"
+                },
+                "grafanaUsage": {
+                  "type": "number",
+                  "title": "grafanaUsage"
+                },
                 "id": {
                   "type": "number",
                   "title": "id"
                 },
-                "name": {
+                "incidentUsage": {
+                  "type": "number",
+                  "title": "incidentUsage"
+                },
+                "ingestUsage": {
+                  "type": "number",
+                  "title": "ingestUsage"
+                },
+                "isProrated": {
+                  "type": "boolean",
+                  "title": "isProrated"
+                },
+                "onCallUsage": {
+                  "type": "number",
+                  "title": "onCallUsage"
+                },
+                "periodEnd": {
                   "type": "string",
-                  "title": "name"
+                  "title": "periodEnd"
+                },
+                "periodStart": {
+                  "type": "string",
+                  "title": "periodStart"
+                },
+                "protocolUsage": {
+                  "type": "number",
+                  "title": "protocolUsage"
+                },
+                "queryUsage": {
+                  "type": "number",
+                  "title": "queryUsage"
+                },
+                "stackId": {
+                  "type": "number",
+                  "title": "stackId"
+                },
+                "totalUsage": {
+                  "type": "number",
+                  "title": "totalUsage"
+                },
+                "stackName": {
+                  "type": "string",
+                  "title": "stackName"
+                },
+                "stackLabels": {
+                  "type": "object",
+                  "title": "stackLabels"
                 }
               },
               "required": [
                 "id",
-                "name"
+                "isProrated",
+                "periodEnd",
+                "periodStart",
+                "stackId",
+                "stackLabels",
+                "stackName",
+                "totalUsage"
               ]
             },
-            "title": "serviceAccounts"
-          },
-          "page": {
-            "type": "number",
-            "title": "page"
-          },
-          "perPage": {
-            "type": "number",
-            "title": "perPage"
+            "title": "usages"
           }
         },
         "required": [
-          "page",
-          "perPage",
-          "serviceAccounts",
-          "totalCount"
+          "amountDue",
+          "description",
+          "dimensionId",
+          "dimensionName",
+          "id",
+          "includedUsage",
+          "notes",
+          "orgRates",
+          "overage",
+          "periodEnd",
+          "periodStart",
+          "totalUsage",
+          "unit",
+          "usages"
         ]
       },
-      "GrafanaNewApiKeyResult": {
+      "ErrorConflict": {
+        "type": "object",
         "properties": {
-          "id": {
-            "example": 1,
-            "format": "int64",
-            "type": "integer"
+          "message": {
+            "type": "string",
+            "example": "Invalid arguments: wrong or missing parameters"
           },
-          "key": {
-            "example": "glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a",
-            "type": "string"
-          },
-          "name": {
-            "example": "grafana",
-            "type": "string"
+          "code": {
+            "type": "string",
+            "enum": [
+              "Conflict"
+            ]
           }
-        },
-        "type": "object"
+        }
       },
-      "GrafanaTokenDTO": {
+      "ErrorForbidden": {
+        "type": "object",
         "properties": {
-          "created": {
-            "example": "2022-03-23T10:31:02Z",
-            "format": "date-time",
-            "type": "string"
+          "message": {
+            "type": "string",
+            "example": "Forbidden"
           },
-          "expiration": {
-            "example": "2022-03-23T10:31:02Z",
-            "format": "date-time",
-            "type": "string"
-          },
-          "hasExpired": {
-            "example": false,
-            "type": "boolean"
-          },
-          "id": {
-            "example": 1,
-            "format": "int64",
-            "type": "integer"
-          },
-          "isRevoked": {
-            "example": false,
-            "type": "boolean"
-          },
-          "lastUsedAt": {
-            "example": "2022-03-23T10:31:02Z",
-            "format": "date-time",
-            "type": "string"
-          },
-          "name": {
-            "example": "grafana",
-            "type": "string"
-          },
-          "secondsUntilExpiration": {
-            "example": 0,
-            "format": "double",
-            "type": "number"
+          "code": {
+            "type": "string",
+            "enum": [
+              "Forbidden"
+            ]
           }
-        },
-        "type": "object"
+        }
+      },
+      "ErrorInvalidCredentials": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Login Required or invalid credentials"
+          },
+          "code": {
+            "type": "string",
+            "enum": [
+              "InvalidCredentials"
+            ]
+          }
+        }
+      },
+      "ErrorNotFound": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Element not found"
+          },
+          "code": {
+            "type": "string",
+            "enum": [
+              "NotFound"
+            ]
+          }
+        }
+      },
+      "ErrorServiceUnavailable": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Service is currently unavailable"
+          },
+          "code": {
+            "type": "string",
+            "enum": [
+              "ServiceUnavailable"
+            ]
+          }
+        }
       },
       "FormattedApiInstance": {
         "type": "object",
@@ -7693,663 +7587,53 @@
           "version"
         ]
       },
-      "FormattedApiInstanceReadiness": {
+      "FormattedApiInstancePlugin": {
         "type": "object",
         "properties": {
-          "ready": {
-            "type": "boolean",
-            "title": "ready"
-          }
-        },
-        "required": [
-          "ready"
-        ]
-      },
-      "InstanceUsersResponse": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "lastSeenAt": {
-                  "type": "string",
-                  "title": "lastSeenAt"
-                },
-                "createdAt": {
-                  "type": "string",
-                  "title": "createdAt"
-                },
-                "updatedAt": {
-                  "type": "string",
-                  "title": "updatedAt"
-                },
-                "email": {
-                  "type": "string",
-                  "title": "email"
-                },
-                "login": {
-                  "type": "string",
-                  "title": "login"
-                },
-                "name": {
-                  "type": "string",
-                  "title": "name"
-                },
-                "role": {
-                  "type": "string",
-                  "title": "role"
-                },
-                "id": {
-                  "type": "number",
-                  "title": "id"
-                },
-                "isServiceAccount": {
-                  "type": "boolean",
-                  "title": "isServiceAccount"
-                }
-              },
-              "required": [
-                "createdAt",
-                "email",
-                "id",
-                "isServiceAccount",
-                "login",
-                "name",
-                "role",
-                "updatedAt"
-              ]
-            },
-            "title": "items"
-          }
-        },
-        "required": [
-          "items"
-        ]
-      },
-      "OrgMemberListResponse": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "number",
-                  "title": "id"
-                },
-                "orgId": {
-                  "type": "number",
-                  "title": "orgId"
-                },
-                "userId": {
-                  "type": "number",
-                  "title": "userId"
-                },
-                "status": {
-                  "type": "number",
-                  "title": "status"
-                },
-                "createdAt": {
-                  "type": "string",
-                  "title": "createdAt"
-                },
-                "updatedAt": {
-                  "type": "string",
-                  "title": "updatedAt",
-                  "nullable": true
-                },
-                "defaultOrg": {
-                  "type": "number",
-                  "title": "defaultOrg"
-                },
-                "role": {
-                  "enum": [
-                    "Admin",
-                    "Editor",
-                    "None",
-                    "SSO Access",
-                    "Viewer"
-                  ],
-                  "type": "string",
-                  "title": "role"
-                },
-                "privacy": {
-                  "type": "number",
-                  "title": "privacy"
-                },
-                "billing": {
-                  "type": "number",
-                  "title": "billing"
-                },
-                "security": {
-                  "type": "number",
-                  "title": "security"
-                },
-                "createdBy": {
-                  "type": "string",
-                  "title": "createdBy"
-                },
-                "updatedBy": {
-                  "type": "string",
-                  "title": "updatedBy"
-                },
-                "orgName": {
-                  "type": "string",
-                  "title": "orgName"
-                },
-                "orgSlug": {
-                  "type": "string",
-                  "title": "orgSlug"
-                },
-                "orgUrl": {
-                  "type": "string",
-                  "title": "orgUrl"
-                },
-                "grafanaCloud": {
-                  "enum": [
-                    0,
-                    1,
-                    11,
-                    2,
-                    31,
-                    4,
-                    41,
-                    6,
-                    9
-                  ],
-                  "type": "number",
-                  "title": "grafanaCloud"
-                },
-                "resellerId": {
-                  "type": "number",
-                  "title": "resellerId",
-                  "nullable": true
-                },
-                "contractTypeId": {
-                  "enum": [
-                    0,
-                    1,
-                    2
-                  ],
-                  "type": "number",
-                  "title": "contractTypeId"
-                },
-                "allowGCloudTrial": {
-                  "type": "boolean",
-                  "title": "allowGCloudTrial"
-                },
-                "hlUsage": {
-                  "type": "number",
-                  "title": "hlUsage"
-                },
-                "hmCurrentGraphiteUsage": {
-                  "type": "number",
-                  "title": "hmCurrentGraphiteUsage"
-                },
-                "hmCurrentPrometheusUsage": {
-                  "type": "number",
-                  "title": "hmCurrentPrometheusUsage"
-                },
-                "hgDatasourceCnts": {
-                  "type": "string",
-                  "title": "hgDatasourceCnts"
-                },
-                "userFirstName": {
-                  "type": "string",
-                  "title": "userFirstName"
-                },
-                "userLastName": {
-                  "type": "string",
-                  "title": "userLastName"
-                },
-                "userUsername": {
-                  "type": "string",
-                  "title": "userUsername"
-                },
-                "userStatus": {
-                  "type": "number",
-                  "title": "userStatus"
-                },
-                "userEmail": {
-                  "type": "string",
-                  "title": "userEmail"
-                },
-                "userName": {
-                  "type": "string",
-                  "title": "userName"
-                },
-                "subscriptions": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "current": {
-                          "type": "object",
-                          "properties": {
-                            "product": {
-                              "title": "product",
-                              "nullable": true
-                            },
-                            "isTrial": {
-                              "type": "boolean",
-                              "enum": [
-                                false
-                              ],
-                              "title": "isTrial"
-                            },
-                            "startDate": {
-                              "title": "startDate",
-                              "nullable": true
-                            },
-                            "endDate": {
-                              "title": "endDate",
-                              "nullable": true
-                            },
-                            "payload": {
-                              "type": "object",
-                              "title": "payload"
-                            },
-                            "plan": {
-                              "title": "plan",
-                              "nullable": true
-                            },
-                            "publicName": {
-                              "title": "publicName",
-                              "nullable": true
-                            },
-                            "enterprisePluginsAdded": {
-                              "type": "boolean",
-                              "enum": [
-                                false
-                              ],
-                              "title": "enterprisePluginsAdded"
-                            },
-                            "planBillingCycle": {
-                              "title": "planBillingCycle",
-                              "nullable": true
-                            }
-                          },
-                          "required": [
-                            "endDate",
-                            "enterprisePluginsAdded",
-                            "isTrial",
-                            "payload",
-                            "plan",
-                            "planBillingCycle",
-                            "product",
-                            "publicName",
-                            "startDate"
-                          ],
-                          "title": "current"
-                        },
-                        "next": {
-                          "title": "next",
-                          "nullable": true
-                        }
-                      },
-                      "required": [
-                        "current",
-                        "next"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "current": {
-                          "type": "object",
-                          "properties": {
-                            "product": {
-                              "enum": [
-                                "grafana-cloud-advanced",
-                                "grafana-cloud-fedramp",
-                                "grafana-cloud-free",
-                                "grafana-cloud-pro",
-                                "grafana-cloud-ss-advanced"
-                              ],
-                              "type": "string",
-                              "title": "product"
-                            },
-                            "isTrial": {
-                              "type": "boolean",
-                              "title": "isTrial"
-                            },
-                            "startDate": {
-                              "type": "string",
-                              "format": "date-time",
-                              "title": "startDate"
-                            },
-                            "endDate": {
-                              "type": "string",
-                              "format": "date-time",
-                              "title": "endDate"
-                            },
-                            "payload": {
-                              "type": "object",
-                              "additionalProperties": {},
-                              "properties": {
-                                "withAddons": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string"
-                                  },
-                                  "title": "withAddons"
-                                },
-                                "licenseAllPlugins": {
-                                  "type": "boolean",
-                                  "title": "licenseAllPlugins"
-                                },
-                                "caseId": {
-                                  "type": "string",
-                                  "title": "caseId"
-                                }
-                              },
-                              "title": "payload"
-                            },
-                            "plan": {
-                              "type": "string",
-                              "title": "plan",
-                              "nullable": true
-                            },
-                            "publicName": {
-                              "type": "string",
-                              "title": "publicName",
-                              "nullable": true
-                            },
-                            "enterprisePluginsAdded": {
-                              "type": "boolean",
-                              "title": "enterprisePluginsAdded"
-                            },
-                            "planBillingCycle": {
-                              "type": "string",
-                              "title": "planBillingCycle"
-                            }
-                          },
-                          "required": [
-                            "endDate",
-                            "enterprisePluginsAdded",
-                            "isTrial",
-                            "payload",
-                            "plan",
-                            "planBillingCycle",
-                            "product",
-                            "publicName",
-                            "startDate"
-                          ],
-                          "title": "current"
-                        },
-                        "next": {
-                          "type": "object",
-                          "properties": {
-                            "product": {
-                              "enum": [
-                                "grafana-cloud-advanced",
-                                "grafana-cloud-fedramp",
-                                "grafana-cloud-free",
-                                "grafana-cloud-pro",
-                                "grafana-cloud-ss-advanced"
-                              ],
-                              "type": "string",
-                              "title": "product"
-                            },
-                            "payload": {
-                              "type": "object",
-                              "additionalProperties": {},
-                              "properties": {
-                                "withAddons": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string"
-                                  },
-                                  "title": "withAddons"
-                                },
-                                "licenseAllPlugins": {
-                                  "type": "boolean",
-                                  "title": "licenseAllPlugins"
-                                },
-                                "caseId": {
-                                  "type": "string",
-                                  "title": "caseId"
-                                }
-                              },
-                              "title": "payload"
-                            },
-                            "plan": {
-                              "type": "string",
-                              "title": "plan",
-                              "nullable": true
-                            },
-                            "publicName": {
-                              "type": "string",
-                              "title": "publicName",
-                              "nullable": true
-                            }
-                          },
-                          "required": [
-                            "payload",
-                            "plan",
-                            "product",
-                            "publicName"
-                          ],
-                          "title": "next"
-                        }
-                      },
-                      "required": [
-                        "current",
-                        "next"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "current": {
-                          "type": "object",
-                          "properties": {
-                            "product": {
-                              "enum": [
-                                "grafana-cloud-advanced",
-                                "grafana-cloud-fedramp",
-                                "grafana-cloud-free",
-                                "grafana-cloud-pro",
-                                "grafana-cloud-ss-advanced"
-                              ],
-                              "type": "string",
-                              "title": "product"
-                            },
-                            "isTrial": {
-                              "type": "boolean",
-                              "title": "isTrial"
-                            },
-                            "startDate": {
-                              "type": "string",
-                              "format": "date-time",
-                              "title": "startDate"
-                            },
-                            "endDate": {
-                              "title": "endDate",
-                              "nullable": true
-                            },
-                            "payload": {
-                              "type": "object",
-                              "additionalProperties": {},
-                              "properties": {
-                                "withAddons": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string"
-                                  },
-                                  "title": "withAddons"
-                                },
-                                "licenseAllPlugins": {
-                                  "type": "boolean",
-                                  "title": "licenseAllPlugins"
-                                },
-                                "caseId": {
-                                  "type": "string",
-                                  "title": "caseId"
-                                }
-                              },
-                              "title": "payload"
-                            },
-                            "plan": {
-                              "type": "string",
-                              "title": "plan",
-                              "nullable": true
-                            },
-                            "publicName": {
-                              "type": "string",
-                              "title": "publicName",
-                              "nullable": true
-                            },
-                            "enterprisePluginsAdded": {
-                              "type": "boolean",
-                              "title": "enterprisePluginsAdded"
-                            },
-                            "planBillingCycle": {
-                              "type": "string",
-                              "title": "planBillingCycle"
-                            }
-                          },
-                          "required": [
-                            "endDate",
-                            "enterprisePluginsAdded",
-                            "isTrial",
-                            "payload",
-                            "plan",
-                            "planBillingCycle",
-                            "product",
-                            "publicName",
-                            "startDate"
-                          ],
-                          "title": "current"
-                        },
-                        "next": {
-                          "title": "next",
-                          "nullable": true
-                        }
-                      },
-                      "required": [
-                        "current",
-                        "next"
-                      ]
-                    }
-                  ],
-                  "title": "subscriptions"
-                },
-                "marketplaceSubscription": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "provider": {
-                          "type": "string",
-                          "enum": [
-                            "aws",
-                            "azure",
-                            "gcp"
-                          ],
-                          "title": "provider"
-                        },
-                        "isLegacy": {
-                          "type": "boolean",
-                          "title": "isLegacy"
-                        }
-                      },
-                      "required": [
-                        "isLegacy",
-                        "provider"
-                      ],
-                      "nullable": true
-                    }
-                  ],
-                  "title": "marketplaceSubscription"
-                },
-                "mfaEnabled": {
-                  "type": "boolean",
-                  "title": "mfaEnabled"
-                },
-                "extraPermissions": {
-                  "type": "array",
-                  "items": {
-                    "enum": [
-                      "accesspolicies:write",
-                      "orgs:read",
-                      "support-ticket-comments:write",
-                      "support-tickets:read",
-                      "support-tickets:write"
-                    ],
-                    "type": "string"
-                  },
-                  "title": "extraPermissions"
-                },
-                "grafanaStaffAccess": {
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "accessExpiresAt": {
-                          "type": "string",
-                          "format": "date-time",
-                          "title": "accessExpiresAt"
-                        },
-                        "ticketId": {
-                          "type": "number",
-                          "title": "ticketId",
-                          "nullable": true
-                        },
-                        "publicReason": {
-                          "type": "string",
-                          "title": "publicReason",
-                          "nullable": true
-                        }
-                      },
-                      "required": [
-                        "accessExpiresAt"
-                      ],
-                      "nullable": true
-                    }
-                  ],
-                  "title": "grafanaStaffAccess"
-                }
-              },
-              "required": [
-                "allowGCloudTrial",
-                "billing",
-                "contractTypeId",
-                "createdAt",
-                "createdBy",
-                "defaultOrg",
-                "grafanaCloud",
-                "hgDatasourceCnts",
-                "hlUsage",
-                "hmCurrentGraphiteUsage",
-                "hmCurrentPrometheusUsage",
-                "id",
-                "marketplaceSubscription",
-                "orgId",
-                "orgName",
-                "orgSlug",
-                "orgUrl",
-                "privacy",
-                "resellerId",
-                "role",
-                "security",
-                "status",
-                "subscriptions",
-                "updatedAt",
-                "updatedBy",
-                "userEmail",
-                "userFirstName",
-                "userId",
-                "userLastName",
-                "userName",
-                "userStatus",
-                "userUsername"
-              ]
-            },
-            "title": "items"
+          "id": {
+            "type": "number",
+            "title": "id"
+          },
+          "instanceId": {
+            "type": "number",
+            "title": "instanceId"
+          },
+          "instanceUrl": {
+            "type": "string",
+            "title": "instanceUrl"
+          },
+          "instanceSlug": {
+            "type": "string",
+            "title": "instanceSlug"
+          },
+          "pluginId": {
+            "type": "number",
+            "title": "pluginId"
+          },
+          "pluginSlug": {
+            "type": "string",
+            "title": "pluginSlug"
+          },
+          "pluginName": {
+            "type": "string",
+            "title": "pluginName"
+          },
+          "version": {
+            "type": "string",
+            "title": "version"
+          },
+          "latestVersion": {
+            "type": "string",
+            "title": "latestVersion"
+          },
+          "createdAt": {
+            "type": "string",
+            "title": "createdAt"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "title": "updatedAt"
           },
           "links": {
             "type": "array",
@@ -8358,7 +7642,8 @@
               "properties": {
                 "rel": {
                   "type": "string",
-                  "title": "rel"
+                  "title": "rel",
+                  "default": "self"
                 },
                 "href": {
                   "type": "string",
@@ -8371,698 +7656,32 @@
               ]
             },
             "title": "links"
-          },
-          "total": {
-            "type": "number",
-            "title": "total"
-          },
-          "pages": {
-            "type": "number",
-            "title": "pages"
-          },
-          "page": {
-            "type": "number",
-            "title": "page"
-          },
-          "perPage": {
-            "type": "number",
-            "title": "perPage"
-          },
-          "totalCount": {
-            "type": "number",
-            "title": "totalCount"
-          },
-          "orderBy": {
-            "type": "string",
-            "title": "orderBy"
-          },
-          "direction": {
-            "type": "string",
-            "title": "direction"
-          },
-          "cursor": {
-            "type": "number",
-            "title": "cursor"
-          },
-          "nextCursor": {
-            "type": "number",
-            "title": "nextCursor"
-          }
-        },
-        "required": [
-          "items",
-          "links"
-        ]
-      },
-      "FormattedOrgMembership": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "title": "id"
-          },
-          "orgId": {
-            "type": "number",
-            "title": "orgId"
-          },
-          "userId": {
-            "type": "number",
-            "title": "userId"
-          },
-          "status": {
-            "type": "number",
-            "title": "status"
-          },
-          "createdAt": {
-            "type": "string",
-            "title": "createdAt"
-          },
-          "updatedAt": {
-            "type": "string",
-            "title": "updatedAt",
-            "nullable": true
-          },
-          "defaultOrg": {
-            "type": "number",
-            "title": "defaultOrg"
-          },
-          "role": {
-            "enum": [
-              "Admin",
-              "Editor",
-              "None",
-              "SSO Access",
-              "Viewer"
-            ],
-            "type": "string",
-            "title": "role"
-          },
-          "privacy": {
-            "type": "number",
-            "title": "privacy"
-          },
-          "billing": {
-            "type": "number",
-            "title": "billing"
-          },
-          "security": {
-            "type": "number",
-            "title": "security"
-          },
-          "createdBy": {
-            "type": "string",
-            "title": "createdBy"
-          },
-          "updatedBy": {
-            "type": "string",
-            "title": "updatedBy"
-          },
-          "orgName": {
-            "type": "string",
-            "title": "orgName"
-          },
-          "orgSlug": {
-            "type": "string",
-            "title": "orgSlug"
-          },
-          "orgUrl": {
-            "type": "string",
-            "title": "orgUrl"
-          },
-          "grafanaCloud": {
-            "enum": [
-              0,
-              1,
-              11,
-              2,
-              31,
-              4,
-              41,
-              6,
-              9
-            ],
-            "type": "number",
-            "title": "grafanaCloud"
-          },
-          "resellerId": {
-            "type": "number",
-            "title": "resellerId",
-            "nullable": true
-          },
-          "contractTypeId": {
-            "enum": [
-              0,
-              1,
-              2
-            ],
-            "type": "number",
-            "title": "contractTypeId"
-          },
-          "allowGCloudTrial": {
-            "type": "boolean",
-            "title": "allowGCloudTrial"
-          },
-          "hlUsage": {
-            "type": "number",
-            "title": "hlUsage"
-          },
-          "hmCurrentGraphiteUsage": {
-            "type": "number",
-            "title": "hmCurrentGraphiteUsage"
-          },
-          "hmCurrentPrometheusUsage": {
-            "type": "number",
-            "title": "hmCurrentPrometheusUsage"
-          },
-          "hgDatasourceCnts": {
-            "type": "string",
-            "title": "hgDatasourceCnts"
-          },
-          "userFirstName": {
-            "type": "string",
-            "title": "userFirstName"
-          },
-          "userLastName": {
-            "type": "string",
-            "title": "userLastName"
-          },
-          "userUsername": {
-            "type": "string",
-            "title": "userUsername"
-          },
-          "userStatus": {
-            "type": "number",
-            "title": "userStatus"
-          },
-          "userEmail": {
-            "type": "string",
-            "title": "userEmail"
-          },
-          "userName": {
-            "type": "string",
-            "title": "userName"
-          },
-          "subscriptions": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "current": {
-                    "type": "object",
-                    "properties": {
-                      "product": {
-                        "title": "product",
-                        "nullable": true
-                      },
-                      "isTrial": {
-                        "type": "boolean",
-                        "enum": [
-                          false
-                        ],
-                        "title": "isTrial"
-                      },
-                      "startDate": {
-                        "title": "startDate",
-                        "nullable": true
-                      },
-                      "endDate": {
-                        "title": "endDate",
-                        "nullable": true
-                      },
-                      "payload": {
-                        "type": "object",
-                        "title": "payload"
-                      },
-                      "plan": {
-                        "title": "plan",
-                        "nullable": true
-                      },
-                      "publicName": {
-                        "title": "publicName",
-                        "nullable": true
-                      },
-                      "enterprisePluginsAdded": {
-                        "type": "boolean",
-                        "enum": [
-                          false
-                        ],
-                        "title": "enterprisePluginsAdded"
-                      },
-                      "planBillingCycle": {
-                        "title": "planBillingCycle",
-                        "nullable": true
-                      }
-                    },
-                    "required": [
-                      "endDate",
-                      "enterprisePluginsAdded",
-                      "isTrial",
-                      "payload",
-                      "plan",
-                      "planBillingCycle",
-                      "product",
-                      "publicName",
-                      "startDate"
-                    ],
-                    "title": "current"
-                  },
-                  "next": {
-                    "title": "next",
-                    "nullable": true
-                  }
-                },
-                "required": [
-                  "current",
-                  "next"
-                ]
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "current": {
-                    "type": "object",
-                    "properties": {
-                      "product": {
-                        "enum": [
-                          "grafana-cloud-advanced",
-                          "grafana-cloud-fedramp",
-                          "grafana-cloud-free",
-                          "grafana-cloud-pro",
-                          "grafana-cloud-ss-advanced"
-                        ],
-                        "type": "string",
-                        "title": "product"
-                      },
-                      "isTrial": {
-                        "type": "boolean",
-                        "title": "isTrial"
-                      },
-                      "startDate": {
-                        "type": "string",
-                        "format": "date-time",
-                        "title": "startDate"
-                      },
-                      "endDate": {
-                        "type": "string",
-                        "format": "date-time",
-                        "title": "endDate"
-                      },
-                      "payload": {
-                        "type": "object",
-                        "additionalProperties": {},
-                        "properties": {
-                          "withAddons": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "withAddons"
-                          },
-                          "licenseAllPlugins": {
-                            "type": "boolean",
-                            "title": "licenseAllPlugins"
-                          },
-                          "caseId": {
-                            "type": "string",
-                            "title": "caseId"
-                          }
-                        },
-                        "title": "payload"
-                      },
-                      "plan": {
-                        "type": "string",
-                        "title": "plan",
-                        "nullable": true
-                      },
-                      "publicName": {
-                        "type": "string",
-                        "title": "publicName",
-                        "nullable": true
-                      },
-                      "enterprisePluginsAdded": {
-                        "type": "boolean",
-                        "title": "enterprisePluginsAdded"
-                      },
-                      "planBillingCycle": {
-                        "type": "string",
-                        "title": "planBillingCycle"
-                      }
-                    },
-                    "required": [
-                      "endDate",
-                      "enterprisePluginsAdded",
-                      "isTrial",
-                      "payload",
-                      "plan",
-                      "planBillingCycle",
-                      "product",
-                      "publicName",
-                      "startDate"
-                    ],
-                    "title": "current"
-                  },
-                  "next": {
-                    "type": "object",
-                    "properties": {
-                      "product": {
-                        "enum": [
-                          "grafana-cloud-advanced",
-                          "grafana-cloud-fedramp",
-                          "grafana-cloud-free",
-                          "grafana-cloud-pro",
-                          "grafana-cloud-ss-advanced"
-                        ],
-                        "type": "string",
-                        "title": "product"
-                      },
-                      "payload": {
-                        "type": "object",
-                        "additionalProperties": {},
-                        "properties": {
-                          "withAddons": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "withAddons"
-                          },
-                          "licenseAllPlugins": {
-                            "type": "boolean",
-                            "title": "licenseAllPlugins"
-                          },
-                          "caseId": {
-                            "type": "string",
-                            "title": "caseId"
-                          }
-                        },
-                        "title": "payload"
-                      },
-                      "plan": {
-                        "type": "string",
-                        "title": "plan",
-                        "nullable": true
-                      },
-                      "publicName": {
-                        "type": "string",
-                        "title": "publicName",
-                        "nullable": true
-                      }
-                    },
-                    "required": [
-                      "payload",
-                      "plan",
-                      "product",
-                      "publicName"
-                    ],
-                    "title": "next"
-                  }
-                },
-                "required": [
-                  "current",
-                  "next"
-                ]
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "current": {
-                    "type": "object",
-                    "properties": {
-                      "product": {
-                        "enum": [
-                          "grafana-cloud-advanced",
-                          "grafana-cloud-fedramp",
-                          "grafana-cloud-free",
-                          "grafana-cloud-pro",
-                          "grafana-cloud-ss-advanced"
-                        ],
-                        "type": "string",
-                        "title": "product"
-                      },
-                      "isTrial": {
-                        "type": "boolean",
-                        "title": "isTrial"
-                      },
-                      "startDate": {
-                        "type": "string",
-                        "format": "date-time",
-                        "title": "startDate"
-                      },
-                      "endDate": {
-                        "title": "endDate",
-                        "nullable": true
-                      },
-                      "payload": {
-                        "type": "object",
-                        "additionalProperties": {},
-                        "properties": {
-                          "withAddons": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "title": "withAddons"
-                          },
-                          "licenseAllPlugins": {
-                            "type": "boolean",
-                            "title": "licenseAllPlugins"
-                          },
-                          "caseId": {
-                            "type": "string",
-                            "title": "caseId"
-                          }
-                        },
-                        "title": "payload"
-                      },
-                      "plan": {
-                        "type": "string",
-                        "title": "plan",
-                        "nullable": true
-                      },
-                      "publicName": {
-                        "type": "string",
-                        "title": "publicName",
-                        "nullable": true
-                      },
-                      "enterprisePluginsAdded": {
-                        "type": "boolean",
-                        "title": "enterprisePluginsAdded"
-                      },
-                      "planBillingCycle": {
-                        "type": "string",
-                        "title": "planBillingCycle"
-                      }
-                    },
-                    "required": [
-                      "endDate",
-                      "enterprisePluginsAdded",
-                      "isTrial",
-                      "payload",
-                      "plan",
-                      "planBillingCycle",
-                      "product",
-                      "publicName",
-                      "startDate"
-                    ],
-                    "title": "current"
-                  },
-                  "next": {
-                    "title": "next",
-                    "nullable": true
-                  }
-                },
-                "required": [
-                  "current",
-                  "next"
-                ]
-              }
-            ],
-            "title": "subscriptions"
-          },
-          "marketplaceSubscription": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "provider": {
-                    "type": "string",
-                    "enum": [
-                      "aws",
-                      "azure",
-                      "gcp"
-                    ],
-                    "title": "provider"
-                  },
-                  "isLegacy": {
-                    "type": "boolean",
-                    "title": "isLegacy"
-                  }
-                },
-                "required": [
-                  "isLegacy",
-                  "provider"
-                ],
-                "nullable": true
-              }
-            ],
-            "title": "marketplaceSubscription"
-          },
-          "mfaEnabled": {
-            "type": "boolean",
-            "title": "mfaEnabled"
-          },
-          "extraPermissions": {
-            "type": "array",
-            "items": {
-              "enum": [
-                "accesspolicies:write",
-                "orgs:read",
-                "support-ticket-comments:write",
-                "support-tickets:read",
-                "support-tickets:write"
-              ],
-              "type": "string"
-            },
-            "title": "extraPermissions"
-          },
-          "grafanaStaffAccess": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "accessExpiresAt": {
-                    "type": "string",
-                    "format": "date-time",
-                    "title": "accessExpiresAt"
-                  },
-                  "ticketId": {
-                    "type": "number",
-                    "title": "ticketId",
-                    "nullable": true
-                  },
-                  "publicReason": {
-                    "type": "string",
-                    "title": "publicReason",
-                    "nullable": true
-                  }
-                },
-                "required": [
-                  "accessExpiresAt"
-                ],
-                "nullable": true
-              }
-            ],
-            "title": "grafanaStaffAccess"
-          }
-        },
-        "required": [
-          "allowGCloudTrial",
-          "billing",
-          "contractTypeId",
-          "createdAt",
-          "createdBy",
-          "defaultOrg",
-          "grafanaCloud",
-          "hgDatasourceCnts",
-          "hlUsage",
-          "hmCurrentGraphiteUsage",
-          "hmCurrentPrometheusUsage",
-          "id",
-          "marketplaceSubscription",
-          "orgId",
-          "orgName",
-          "orgSlug",
-          "orgUrl",
-          "privacy",
-          "resellerId",
-          "role",
-          "security",
-          "status",
-          "subscriptions",
-          "updatedAt",
-          "updatedBy",
-          "userEmail",
-          "userFirstName",
-          "userId",
-          "userLastName",
-          "userName",
-          "userStatus",
-          "userUsername"
-        ]
-      },
-      "FormattedApiOrgSettings": {
-        "type": "object",
-        "properties": {
-          "aiDataSharingOptOut": {
-            "type": "boolean",
-            "title": "aiDataSharingOptOut",
-            "nullable": true
-          },
-          "disableTokenExpirationEmails": {
-            "type": "boolean",
-            "title": "disableTokenExpirationEmails",
-            "nullable": true
-          },
-          "maxTokenExpirationDays": {
-            "type": "number",
-            "title": "maxTokenExpirationDays",
-            "nullable": true
-          },
-          "mfaAdminRecoveryOnly": {
-            "type": "boolean",
-            "title": "mfaAdminRecoveryOnly",
-            "nullable": true
-          },
-          "mfaRequired": {
-            "type": "boolean",
-            "title": "mfaRequired",
-            "nullable": true
-          },
-          "allowedInviteDomains": {
-            "anyOf": [
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "nullable": true
-              }
-            ],
-            "title": "allowedInviteDomains"
-          }
-        }
-      },
-      "FormattedApiOrgStackRegion": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "title": "id"
-          },
-          "stackRegionId": {
-            "type": "number",
-            "title": "stackRegionId"
-          },
-          "orgId": {
-            "type": "number",
-            "title": "orgId"
-          },
-          "createdAt": {
-            "type": "string",
-            "title": "createdAt"
-          },
-          "updatedAt": {
-            "type": "string",
-            "title": "updatedAt",
-            "nullable": true
           }
         },
         "required": [
           "createdAt",
           "id",
-          "orgId",
-          "stackRegionId",
-          "updatedAt"
+          "instanceId",
+          "instanceSlug",
+          "instanceUrl",
+          "latestVersion",
+          "links",
+          "pluginId",
+          "pluginName",
+          "pluginSlug",
+          "version"
+        ]
+      },
+      "FormattedApiInstanceReadiness": {
+        "type": "object",
+        "properties": {
+          "ready": {
+            "type": "boolean",
+            "title": "ready"
+          }
+        },
+        "required": [
+          "ready"
         ]
       },
       "FormattedApiOrgPublic": {
@@ -9794,6 +8413,81 @@
           "wpPlan"
         ]
       },
+      "FormattedApiOrgSettings": {
+        "type": "object",
+        "properties": {
+          "aiDataSharingOptOut": {
+            "type": "boolean",
+            "title": "aiDataSharingOptOut",
+            "nullable": true
+          },
+          "disableTokenExpirationEmails": {
+            "type": "boolean",
+            "title": "disableTokenExpirationEmails",
+            "nullable": true
+          },
+          "maxTokenExpirationDays": {
+            "type": "number",
+            "title": "maxTokenExpirationDays",
+            "nullable": true
+          },
+          "mfaAdminRecoveryOnly": {
+            "type": "boolean",
+            "title": "mfaAdminRecoveryOnly",
+            "nullable": true
+          },
+          "mfaRequired": {
+            "type": "boolean",
+            "title": "mfaRequired",
+            "nullable": true
+          },
+          "allowedInviteDomains": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            ],
+            "title": "allowedInviteDomains"
+          }
+        }
+      },
+      "FormattedApiOrgStackRegion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "title": "id"
+          },
+          "stackRegionId": {
+            "type": "number",
+            "title": "stackRegionId"
+          },
+          "orgId": {
+            "type": "number",
+            "title": "orgId"
+          },
+          "createdAt": {
+            "type": "string",
+            "title": "createdAt"
+          },
+          "updatedAt": {
+            "type": "string",
+            "title": "updatedAt",
+            "nullable": true
+          }
+        },
+        "required": [
+          "createdAt",
+          "id",
+          "orgId",
+          "stackRegionId",
+          "updatedAt"
+        ]
+      },
       "FormattedApiPlugin": {
         "type": "object",
         "properties": {
@@ -10253,6 +8947,11 @@
                 "type": "string",
                 "title": "category"
               },
+              "docsPath": {
+                "description": "Path to the directory containing plugin documentation.",
+                "type": "string",
+                "title": "docsPath"
+              },
               "enterpriseFeatures": {
                 "description": "Grafana Enterprise specific features",
                 "type": "object",
@@ -10359,8 +9058,13 @@
                 "type": "boolean",
                 "title": "metrics"
               },
+              "mixed": {
+                "description": "[internal only] For data source plugins, marks the plugin as a 'mixed' data source — one whose queries each carry their own `datasource` reference and are delegated to other data sources. When `true`, Grafana preserves the per-query `datasource` field instead of overwriting it with the plugin's own ref. Used by the built-in `-- Mixed --` data source. Setting this on a regular data source plugin will break query routing.",
+                "type": "boolean",
+                "title": "mixed"
+              },
               "multiValueFilterOperators": {
-                "description": "For data source plugins, if the plugin supports multi value operators in adhoc filters.",
+                "description": "For data source plugins, if the plugin supports multi value operators in filters.",
                 "type": "boolean",
                 "title": "multiValueFilterOperators"
               },
@@ -12321,366 +11025,758 @@
           }
         ]
       },
-      "AuthTokenWithSecret": {
-        "allOf": [
-          {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string",
-                "format": "string",
-                "example": "c45485b6-8321-4cf2-bcec-12006df755ff",
-                "readOnly": true
-              },
-              "accessPolicyId": {
-                "type": "string",
-                "format": "string",
-                "example": "c45485b6-8321-4cf2-bcec-12006df755ff"
-              },
-              "name": {
-                "type": "string",
-                "example": "mytoken"
-              },
-              "displayName": {
-                "type": "string",
-                "example": "My Token",
-                "description": "Will be set to `name` if not provided."
-              },
-              "expiresAt": {
-                "type": "string",
-                "format": "date-time",
-                "description": "Token does not expire if not provided."
-              },
-              "firstUsedAt": {
-                "type": "string",
-                "format": "date-time",
-                "readOnly": true
-              },
-              "lastUsedAt": {
-                "type": "string",
-                "format": "date-time",
-                "readOnly": true
-              },
-              "createdAt": {
-                "type": "string",
-                "format": "date-time",
-                "readOnly": true
-              },
-              "updatedAt": {
-                "type": "string",
-                "format": "date-time",
-                "readOnly": true
-              },
-              "orgId": {
-                "type": "string",
-                "example": "1",
-                "readOnly": true
-              }
-            },
-            "required": [
-              "accessPolicyId",
-              "name"
-            ]
-          },
-          {
-            "properties": {
-              "token": {
-                "type": "string",
-                "format": "password",
-                "description": "This token is auto generated and will be shown only once.",
-                "example": "glc_eyJrIjoiZjI0YzZkNGEwZDBmZmZjMmUzNTU2ODcxMmY0ZWZlNTQ1NTljMDFjOCIsIm4iOiJteXRva2VuIiwiaWQiOjF9"
-              }
-            }
-          }
-        ]
-      },
-      "AuthToken": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "string",
-            "example": "c45485b6-8321-4cf2-bcec-12006df755ff",
-            "readOnly": true
-          },
-          "accessPolicyId": {
-            "type": "string",
-            "format": "string",
-            "example": "c45485b6-8321-4cf2-bcec-12006df755ff"
-          },
-          "name": {
-            "type": "string",
-            "example": "mytoken"
-          },
-          "displayName": {
-            "type": "string",
-            "example": "My Token",
-            "description": "Will be set to `name` if not provided."
-          },
-          "expiresAt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Token does not expire if not provided."
-          },
-          "firstUsedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "lastUsedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          },
-          "orgId": {
-            "type": "string",
-            "example": "1",
-            "readOnly": true
-          }
-        },
-        "required": [
-          "accessPolicyId",
-          "name"
-        ]
-      },
-      "BilledUsage": {
+      "FormattedOrgMembership": {
         "type": "object",
         "properties": {
           "id": {
             "type": "number",
             "title": "id"
           },
-          "description": {
-            "type": "string",
-            "title": "description"
-          },
-          "overage": {
+          "orgId": {
             "type": "number",
-            "title": "overage"
+            "title": "orgId"
           },
-          "notes": {
-            "type": "string",
-            "title": "notes"
-          },
-          "unit": {
-            "type": "string",
-            "title": "unit"
-          },
-          "includedUsage": {
+          "userId": {
             "type": "number",
-            "title": "includedUsage"
+            "title": "userId"
           },
-          "dimensionId": {
+          "status": {
+            "type": "number",
+            "title": "status"
+          },
+          "createdAt": {
+            "type": "string",
+            "title": "createdAt"
+          },
+          "updatedAt": {
+            "type": "string",
+            "title": "updatedAt",
+            "nullable": true
+          },
+          "defaultOrg": {
+            "type": "number",
+            "title": "defaultOrg"
+          },
+          "role": {
             "enum": [
-              "ai-tokens",
-              "app-o11y",
-              "assistant",
-              "db-o11y-hosts",
-              "fe-o11y",
-              "ge-instances",
-              "ge-users",
-              "hg",
-              "hg-plugin-users",
-              "hl",
-              "hl-process",
-              "hl-retention",
-              "hm",
-              "hm-graphite",
-              "hp",
-              "hp-process",
-              "hp-retention",
-              "ht",
-              "ht-process",
-              "ht-retention",
-              "infra-o11y-containers",
-              "infra-o11y-hosts",
-              "irm",
-              "k6-ip",
-              "k6-vuh",
-              "sm",
-              "sm-browser"
+              "Admin",
+              "Editor",
+              "None",
+              "SSO Access",
+              "Viewer"
             ],
             "type": "string",
-            "title": "dimensionId"
+            "title": "role"
           },
-          "amountDue": {
+          "privacy": {
             "type": "number",
-            "title": "amountDue"
+            "title": "privacy"
           },
-          "dimensionName": {
-            "type": "string",
-            "title": "dimensionName"
-          },
-          "orgRates": {
-            "title": "orgRates"
-          },
-          "periodEnd": {
-            "type": "string",
-            "title": "periodEnd"
-          },
-          "periodStart": {
-            "type": "string",
-            "title": "periodStart"
-          },
-          "totalUsage": {
+          "billing": {
             "type": "number",
-            "title": "totalUsage"
+            "title": "billing"
           },
-          "usages": {
+          "security": {
+            "type": "number",
+            "title": "security"
+          },
+          "createdBy": {
+            "type": "string",
+            "title": "createdBy"
+          },
+          "updatedBy": {
+            "type": "string",
+            "title": "updatedBy"
+          },
+          "orgName": {
+            "type": "string",
+            "title": "orgName"
+          },
+          "orgSlug": {
+            "type": "string",
+            "title": "orgSlug"
+          },
+          "orgUrl": {
+            "type": "string",
+            "title": "orgUrl"
+          },
+          "grafanaCloud": {
+            "enum": [
+              0,
+              1,
+              11,
+              2,
+              31,
+              4,
+              41,
+              6,
+              9
+            ],
+            "type": "number",
+            "title": "grafanaCloud"
+          },
+          "resellerId": {
+            "type": "number",
+            "title": "resellerId",
+            "nullable": true
+          },
+          "contractTypeId": {
+            "enum": [
+              0,
+              1,
+              2
+            ],
+            "type": "number",
+            "title": "contractTypeId"
+          },
+          "allowGCloudTrial": {
+            "type": "boolean",
+            "title": "allowGCloudTrial"
+          },
+          "hlUsage": {
+            "type": "number",
+            "title": "hlUsage"
+          },
+          "hmCurrentGraphiteUsage": {
+            "type": "number",
+            "title": "hmCurrentGraphiteUsage"
+          },
+          "hmCurrentPrometheusUsage": {
+            "type": "number",
+            "title": "hmCurrentPrometheusUsage"
+          },
+          "hgDatasourceCnts": {
+            "type": "string",
+            "title": "hgDatasourceCnts"
+          },
+          "userFirstName": {
+            "type": "string",
+            "title": "userFirstName"
+          },
+          "userLastName": {
+            "type": "string",
+            "title": "userLastName"
+          },
+          "userUsername": {
+            "type": "string",
+            "title": "userUsername"
+          },
+          "userStatus": {
+            "type": "number",
+            "title": "userStatus"
+          },
+          "userEmail": {
+            "type": "string",
+            "title": "userEmail"
+          },
+          "userName": {
+            "type": "string",
+            "title": "userName"
+          },
+          "subscriptions": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "title": "product",
+                        "nullable": true
+                      },
+                      "isTrial": {
+                        "type": "boolean",
+                        "enum": [
+                          false
+                        ],
+                        "title": "isTrial"
+                      },
+                      "startDate": {
+                        "title": "startDate",
+                        "nullable": true
+                      },
+                      "endDate": {
+                        "title": "endDate",
+                        "nullable": true
+                      },
+                      "payload": {
+                        "type": "object",
+                        "title": "payload"
+                      },
+                      "plan": {
+                        "title": "plan",
+                        "nullable": true
+                      },
+                      "publicName": {
+                        "title": "publicName",
+                        "nullable": true
+                      },
+                      "enterprisePluginsAdded": {
+                        "type": "boolean",
+                        "enum": [
+                          false
+                        ],
+                        "title": "enterprisePluginsAdded"
+                      },
+                      "planBillingCycle": {
+                        "title": "planBillingCycle",
+                        "nullable": true
+                      }
+                    },
+                    "required": [
+                      "endDate",
+                      "enterprisePluginsAdded",
+                      "isTrial",
+                      "payload",
+                      "plan",
+                      "planBillingCycle",
+                      "product",
+                      "publicName",
+                      "startDate"
+                    ],
+                    "title": "current"
+                  },
+                  "next": {
+                    "title": "next",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "current",
+                  "next"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "enum": [
+                          "grafana-cloud-advanced",
+                          "grafana-cloud-fedramp",
+                          "grafana-cloud-free",
+                          "grafana-cloud-pro",
+                          "grafana-cloud-ss-advanced"
+                        ],
+                        "type": "string",
+                        "title": "product"
+                      },
+                      "isTrial": {
+                        "type": "boolean",
+                        "title": "isTrial"
+                      },
+                      "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "startDate"
+                      },
+                      "endDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "endDate"
+                      },
+                      "payload": {
+                        "type": "object",
+                        "additionalProperties": {},
+                        "properties": {
+                          "withAddons": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "withAddons"
+                          },
+                          "licenseAllPlugins": {
+                            "type": "boolean",
+                            "title": "licenseAllPlugins"
+                          },
+                          "caseId": {
+                            "type": "string",
+                            "title": "caseId"
+                          }
+                        },
+                        "title": "payload"
+                      },
+                      "plan": {
+                        "type": "string",
+                        "title": "plan",
+                        "nullable": true
+                      },
+                      "publicName": {
+                        "type": "string",
+                        "title": "publicName",
+                        "nullable": true
+                      },
+                      "enterprisePluginsAdded": {
+                        "type": "boolean",
+                        "title": "enterprisePluginsAdded"
+                      },
+                      "planBillingCycle": {
+                        "type": "string",
+                        "title": "planBillingCycle"
+                      }
+                    },
+                    "required": [
+                      "endDate",
+                      "enterprisePluginsAdded",
+                      "isTrial",
+                      "payload",
+                      "plan",
+                      "planBillingCycle",
+                      "product",
+                      "publicName",
+                      "startDate"
+                    ],
+                    "title": "current"
+                  },
+                  "next": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "enum": [
+                          "grafana-cloud-advanced",
+                          "grafana-cloud-fedramp",
+                          "grafana-cloud-free",
+                          "grafana-cloud-pro",
+                          "grafana-cloud-ss-advanced"
+                        ],
+                        "type": "string",
+                        "title": "product"
+                      },
+                      "payload": {
+                        "type": "object",
+                        "additionalProperties": {},
+                        "properties": {
+                          "withAddons": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "withAddons"
+                          },
+                          "licenseAllPlugins": {
+                            "type": "boolean",
+                            "title": "licenseAllPlugins"
+                          },
+                          "caseId": {
+                            "type": "string",
+                            "title": "caseId"
+                          }
+                        },
+                        "title": "payload"
+                      },
+                      "plan": {
+                        "type": "string",
+                        "title": "plan",
+                        "nullable": true
+                      },
+                      "publicName": {
+                        "type": "string",
+                        "title": "publicName",
+                        "nullable": true
+                      }
+                    },
+                    "required": [
+                      "payload",
+                      "plan",
+                      "product",
+                      "publicName"
+                    ],
+                    "title": "next"
+                  }
+                },
+                "required": [
+                  "current",
+                  "next"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "enum": [
+                          "grafana-cloud-advanced",
+                          "grafana-cloud-fedramp",
+                          "grafana-cloud-free",
+                          "grafana-cloud-pro",
+                          "grafana-cloud-ss-advanced"
+                        ],
+                        "type": "string",
+                        "title": "product"
+                      },
+                      "isTrial": {
+                        "type": "boolean",
+                        "title": "isTrial"
+                      },
+                      "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "startDate"
+                      },
+                      "endDate": {
+                        "title": "endDate",
+                        "nullable": true
+                      },
+                      "payload": {
+                        "type": "object",
+                        "additionalProperties": {},
+                        "properties": {
+                          "withAddons": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "withAddons"
+                          },
+                          "licenseAllPlugins": {
+                            "type": "boolean",
+                            "title": "licenseAllPlugins"
+                          },
+                          "caseId": {
+                            "type": "string",
+                            "title": "caseId"
+                          }
+                        },
+                        "title": "payload"
+                      },
+                      "plan": {
+                        "type": "string",
+                        "title": "plan",
+                        "nullable": true
+                      },
+                      "publicName": {
+                        "type": "string",
+                        "title": "publicName",
+                        "nullable": true
+                      },
+                      "enterprisePluginsAdded": {
+                        "type": "boolean",
+                        "title": "enterprisePluginsAdded"
+                      },
+                      "planBillingCycle": {
+                        "type": "string",
+                        "title": "planBillingCycle"
+                      }
+                    },
+                    "required": [
+                      "endDate",
+                      "enterprisePluginsAdded",
+                      "isTrial",
+                      "payload",
+                      "plan",
+                      "planBillingCycle",
+                      "product",
+                      "publicName",
+                      "startDate"
+                    ],
+                    "title": "current"
+                  },
+                  "next": {
+                    "title": "next",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "current",
+                  "next"
+                ]
+              }
+            ],
+            "title": "subscriptions"
+          },
+          "marketplaceSubscription": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "enum": [
+                      "aws",
+                      "azure",
+                      "gcp"
+                    ],
+                    "title": "provider"
+                  },
+                  "isLegacy": {
+                    "type": "boolean",
+                    "title": "isLegacy"
+                  }
+                },
+                "required": [
+                  "isLegacy",
+                  "provider"
+                ],
+                "nullable": true
+              }
+            ],
+            "title": "marketplaceSubscription"
+          },
+          "mfaEnabled": {
+            "type": "boolean",
+            "title": "mfaEnabled"
+          },
+          "extraPermissions": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "accesspolicies:write",
+                "orgs:read",
+                "support-ticket-comments:write",
+                "support-tickets:read",
+                "support-tickets:write"
+              ],
+              "type": "string"
+            },
+            "title": "extraPermissions"
+          },
+          "grafanaStaffAccess": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "accessExpiresAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "title": "accessExpiresAt"
+                  },
+                  "ticketId": {
+                    "type": "number",
+                    "title": "ticketId",
+                    "nullable": true
+                  },
+                  "publicReason": {
+                    "type": "string",
+                    "title": "publicReason",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "accessExpiresAt"
+                ],
+                "nullable": true
+              }
+            ],
+            "title": "grafanaStaffAccess"
+          }
+        },
+        "required": [
+          "allowGCloudTrial",
+          "billing",
+          "contractTypeId",
+          "createdAt",
+          "createdBy",
+          "defaultOrg",
+          "grafanaCloud",
+          "hgDatasourceCnts",
+          "hlUsage",
+          "hmCurrentGraphiteUsage",
+          "hmCurrentPrometheusUsage",
+          "id",
+          "marketplaceSubscription",
+          "orgId",
+          "orgName",
+          "orgSlug",
+          "orgUrl",
+          "privacy",
+          "resellerId",
+          "role",
+          "security",
+          "status",
+          "subscriptions",
+          "updatedAt",
+          "updatedBy",
+          "userEmail",
+          "userFirstName",
+          "userId",
+          "userLastName",
+          "userName",
+          "userStatus",
+          "userUsername"
+        ]
+      },
+      "GrafanaNewApiKeyResult": {
+        "properties": {
+          "id": {
+            "example": 1,
+            "format": "int64",
+            "type": "integer"
+          },
+          "key": {
+            "example": "glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a",
+            "type": "string"
+          },
+          "name": {
+            "example": "grafana",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "GrafanaServiceAccountDTO": {
+        "description": "swagger: model",
+        "properties": {
+          "accessControl": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "example": {
+              "serviceaccounts:delete": true,
+              "serviceaccounts:read": true,
+              "serviceaccounts:write": true
+            },
+            "type": "object"
+          },
+          "avatarUrl": {
+            "example": "/avatar/85ec38023d90823d3e5b43ef35646af9",
+            "type": "string"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "isDisabled": {
+            "example": false,
+            "type": "boolean"
+          },
+          "isExternal": {
+            "example": false,
+            "type": "boolean"
+          },
+          "login": {
+            "example": "sa-grafana",
+            "type": "string"
+          },
+          "name": {
+            "example": "grafana",
+            "type": "string"
+          },
+          "orgId": {
+            "example": 1,
+            "format": "int64",
+            "type": "integer"
+          },
+          "role": {
+            "example": "Viewer",
+            "type": "string"
+          },
+          "tokens": {
+            "example": 0,
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "GrafanaTokenDTO": {
+        "properties": {
+          "created": {
+            "example": "2022-03-23T10:31:02Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "expiration": {
+            "example": "2022-03-23T10:31:02Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "hasExpired": {
+            "example": false,
+            "type": "boolean"
+          },
+          "id": {
+            "example": 1,
+            "format": "int64",
+            "type": "integer"
+          },
+          "isRevoked": {
+            "example": false,
+            "type": "boolean"
+          },
+          "lastUsedAt": {
+            "example": "2022-03-23T10:31:02Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "name": {
+            "example": "grafana",
+            "type": "string"
+          },
+          "secondsUntilExpiration": {
+            "example": 0,
+            "format": "double",
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "InstanceUsersResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "activeSeries": {
-                  "type": "number",
-                  "title": "activeSeries"
+                "lastSeenAt": {
+                  "type": "string",
+                  "title": "lastSeenAt"
                 },
-                "activeUsers": {
-                  "type": "number",
-                  "title": "activeUsers"
+                "createdAt": {
+                  "type": "string",
+                  "title": "createdAt"
                 },
-                "anonymousUsers": {
-                  "type": "number",
-                  "title": "anonymousUsers"
+                "updatedAt": {
+                  "type": "string",
+                  "title": "updatedAt"
                 },
-                "attributedCost": {
-                  "type": "number",
-                  "title": "attributedCost"
+                "email": {
+                  "type": "string",
+                  "title": "email"
                 },
-                "attributedUsage": {
-                  "type": "number",
-                  "title": "attributedUsage"
+                "login": {
+                  "type": "string",
+                  "title": "login"
                 },
-                "browserUsage": {
-                  "type": "number",
-                  "title": "browserUsage"
+                "name": {
+                  "type": "string",
+                  "title": "name"
                 },
-                "credits": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "amount": {
-                        "type": "number",
-                        "title": "amount"
-                      },
-                      "dimensionId": {
-                        "type": "string",
-                        "title": "dimensionId"
-                      },
-                      "dimensionName": {
-                        "type": "string",
-                        "title": "dimensionName"
-                      }
-                    },
-                    "required": [
-                      "amount",
-                      "dimensionId",
-                      "dimensionName"
-                    ]
-                  },
-                  "title": "credits"
-                },
-                "dpm": {
-                  "type": "number",
-                  "title": "dpm"
-                },
-                "grafanaUsage": {
-                  "type": "number",
-                  "title": "grafanaUsage"
+                "role": {
+                  "type": "string",
+                  "title": "role"
                 },
                 "id": {
                   "type": "number",
                   "title": "id"
                 },
-                "incidentUsage": {
-                  "type": "number",
-                  "title": "incidentUsage"
-                },
-                "ingestUsage": {
-                  "type": "number",
-                  "title": "ingestUsage"
-                },
-                "isProrated": {
+                "isServiceAccount": {
                   "type": "boolean",
-                  "title": "isProrated"
-                },
-                "onCallUsage": {
-                  "type": "number",
-                  "title": "onCallUsage"
-                },
-                "periodEnd": {
-                  "type": "string",
-                  "title": "periodEnd"
-                },
-                "periodStart": {
-                  "type": "string",
-                  "title": "periodStart"
-                },
-                "protocolUsage": {
-                  "type": "number",
-                  "title": "protocolUsage"
-                },
-                "queryUsage": {
-                  "type": "number",
-                  "title": "queryUsage"
-                },
-                "stackId": {
-                  "type": "number",
-                  "title": "stackId"
-                },
-                "totalUsage": {
-                  "type": "number",
-                  "title": "totalUsage"
-                },
-                "stackName": {
-                  "type": "string",
-                  "title": "stackName"
-                },
-                "stackLabels": {
-                  "type": "object",
-                  "title": "stackLabels"
+                  "title": "isServiceAccount"
                 }
               },
               "required": [
+                "createdAt",
+                "email",
                 "id",
-                "isProrated",
-                "periodEnd",
-                "periodStart",
-                "stackId",
-                "stackLabels",
-                "stackName",
-                "totalUsage"
+                "isServiceAccount",
+                "login",
+                "name",
+                "role",
+                "updatedAt"
               ]
             },
-            "title": "usages"
+            "title": "items"
           }
         },
         "required": [
-          "amountDue",
-          "description",
-          "dimensionId",
-          "dimensionName",
-          "id",
-          "includedUsage",
-          "notes",
-          "orgRates",
-          "overage",
-          "periodEnd",
-          "periodStart",
-          "totalUsage",
-          "unit",
-          "usages"
+          "items"
         ]
       },
       "OrgBilledUsageHistory": {
@@ -12715,6 +11811,696 @@
         },
         "required": [
           "items"
+        ]
+      },
+      "OrgMemberListResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "title": "id"
+                },
+                "orgId": {
+                  "type": "number",
+                  "title": "orgId"
+                },
+                "userId": {
+                  "type": "number",
+                  "title": "userId"
+                },
+                "status": {
+                  "type": "number",
+                  "title": "status"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "title": "createdAt"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "title": "updatedAt",
+                  "nullable": true
+                },
+                "defaultOrg": {
+                  "type": "number",
+                  "title": "defaultOrg"
+                },
+                "role": {
+                  "enum": [
+                    "Admin",
+                    "Editor",
+                    "None",
+                    "SSO Access",
+                    "Viewer"
+                  ],
+                  "type": "string",
+                  "title": "role"
+                },
+                "privacy": {
+                  "type": "number",
+                  "title": "privacy"
+                },
+                "billing": {
+                  "type": "number",
+                  "title": "billing"
+                },
+                "security": {
+                  "type": "number",
+                  "title": "security"
+                },
+                "createdBy": {
+                  "type": "string",
+                  "title": "createdBy"
+                },
+                "updatedBy": {
+                  "type": "string",
+                  "title": "updatedBy"
+                },
+                "orgName": {
+                  "type": "string",
+                  "title": "orgName"
+                },
+                "orgSlug": {
+                  "type": "string",
+                  "title": "orgSlug"
+                },
+                "orgUrl": {
+                  "type": "string",
+                  "title": "orgUrl"
+                },
+                "grafanaCloud": {
+                  "enum": [
+                    0,
+                    1,
+                    11,
+                    2,
+                    31,
+                    4,
+                    41,
+                    6,
+                    9
+                  ],
+                  "type": "number",
+                  "title": "grafanaCloud"
+                },
+                "resellerId": {
+                  "type": "number",
+                  "title": "resellerId",
+                  "nullable": true
+                },
+                "contractTypeId": {
+                  "enum": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "type": "number",
+                  "title": "contractTypeId"
+                },
+                "allowGCloudTrial": {
+                  "type": "boolean",
+                  "title": "allowGCloudTrial"
+                },
+                "hlUsage": {
+                  "type": "number",
+                  "title": "hlUsage"
+                },
+                "hmCurrentGraphiteUsage": {
+                  "type": "number",
+                  "title": "hmCurrentGraphiteUsage"
+                },
+                "hmCurrentPrometheusUsage": {
+                  "type": "number",
+                  "title": "hmCurrentPrometheusUsage"
+                },
+                "hgDatasourceCnts": {
+                  "type": "string",
+                  "title": "hgDatasourceCnts"
+                },
+                "userFirstName": {
+                  "type": "string",
+                  "title": "userFirstName"
+                },
+                "userLastName": {
+                  "type": "string",
+                  "title": "userLastName"
+                },
+                "userUsername": {
+                  "type": "string",
+                  "title": "userUsername"
+                },
+                "userStatus": {
+                  "type": "number",
+                  "title": "userStatus"
+                },
+                "userEmail": {
+                  "type": "string",
+                  "title": "userEmail"
+                },
+                "userName": {
+                  "type": "string",
+                  "title": "userName"
+                },
+                "subscriptions": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "current": {
+                          "type": "object",
+                          "properties": {
+                            "product": {
+                              "title": "product",
+                              "nullable": true
+                            },
+                            "isTrial": {
+                              "type": "boolean",
+                              "enum": [
+                                false
+                              ],
+                              "title": "isTrial"
+                            },
+                            "startDate": {
+                              "title": "startDate",
+                              "nullable": true
+                            },
+                            "endDate": {
+                              "title": "endDate",
+                              "nullable": true
+                            },
+                            "payload": {
+                              "type": "object",
+                              "title": "payload"
+                            },
+                            "plan": {
+                              "title": "plan",
+                              "nullable": true
+                            },
+                            "publicName": {
+                              "title": "publicName",
+                              "nullable": true
+                            },
+                            "enterprisePluginsAdded": {
+                              "type": "boolean",
+                              "enum": [
+                                false
+                              ],
+                              "title": "enterprisePluginsAdded"
+                            },
+                            "planBillingCycle": {
+                              "title": "planBillingCycle",
+                              "nullable": true
+                            }
+                          },
+                          "required": [
+                            "endDate",
+                            "enterprisePluginsAdded",
+                            "isTrial",
+                            "payload",
+                            "plan",
+                            "planBillingCycle",
+                            "product",
+                            "publicName",
+                            "startDate"
+                          ],
+                          "title": "current"
+                        },
+                        "next": {
+                          "title": "next",
+                          "nullable": true
+                        }
+                      },
+                      "required": [
+                        "current",
+                        "next"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "current": {
+                          "type": "object",
+                          "properties": {
+                            "product": {
+                              "enum": [
+                                "grafana-cloud-advanced",
+                                "grafana-cloud-fedramp",
+                                "grafana-cloud-free",
+                                "grafana-cloud-pro",
+                                "grafana-cloud-ss-advanced"
+                              ],
+                              "type": "string",
+                              "title": "product"
+                            },
+                            "isTrial": {
+                              "type": "boolean",
+                              "title": "isTrial"
+                            },
+                            "startDate": {
+                              "type": "string",
+                              "format": "date-time",
+                              "title": "startDate"
+                            },
+                            "endDate": {
+                              "type": "string",
+                              "format": "date-time",
+                              "title": "endDate"
+                            },
+                            "payload": {
+                              "type": "object",
+                              "additionalProperties": {},
+                              "properties": {
+                                "withAddons": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "title": "withAddons"
+                                },
+                                "licenseAllPlugins": {
+                                  "type": "boolean",
+                                  "title": "licenseAllPlugins"
+                                },
+                                "caseId": {
+                                  "type": "string",
+                                  "title": "caseId"
+                                }
+                              },
+                              "title": "payload"
+                            },
+                            "plan": {
+                              "type": "string",
+                              "title": "plan",
+                              "nullable": true
+                            },
+                            "publicName": {
+                              "type": "string",
+                              "title": "publicName",
+                              "nullable": true
+                            },
+                            "enterprisePluginsAdded": {
+                              "type": "boolean",
+                              "title": "enterprisePluginsAdded"
+                            },
+                            "planBillingCycle": {
+                              "type": "string",
+                              "title": "planBillingCycle"
+                            }
+                          },
+                          "required": [
+                            "endDate",
+                            "enterprisePluginsAdded",
+                            "isTrial",
+                            "payload",
+                            "plan",
+                            "planBillingCycle",
+                            "product",
+                            "publicName",
+                            "startDate"
+                          ],
+                          "title": "current"
+                        },
+                        "next": {
+                          "type": "object",
+                          "properties": {
+                            "product": {
+                              "enum": [
+                                "grafana-cloud-advanced",
+                                "grafana-cloud-fedramp",
+                                "grafana-cloud-free",
+                                "grafana-cloud-pro",
+                                "grafana-cloud-ss-advanced"
+                              ],
+                              "type": "string",
+                              "title": "product"
+                            },
+                            "payload": {
+                              "type": "object",
+                              "additionalProperties": {},
+                              "properties": {
+                                "withAddons": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "title": "withAddons"
+                                },
+                                "licenseAllPlugins": {
+                                  "type": "boolean",
+                                  "title": "licenseAllPlugins"
+                                },
+                                "caseId": {
+                                  "type": "string",
+                                  "title": "caseId"
+                                }
+                              },
+                              "title": "payload"
+                            },
+                            "plan": {
+                              "type": "string",
+                              "title": "plan",
+                              "nullable": true
+                            },
+                            "publicName": {
+                              "type": "string",
+                              "title": "publicName",
+                              "nullable": true
+                            }
+                          },
+                          "required": [
+                            "payload",
+                            "plan",
+                            "product",
+                            "publicName"
+                          ],
+                          "title": "next"
+                        }
+                      },
+                      "required": [
+                        "current",
+                        "next"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "current": {
+                          "type": "object",
+                          "properties": {
+                            "product": {
+                              "enum": [
+                                "grafana-cloud-advanced",
+                                "grafana-cloud-fedramp",
+                                "grafana-cloud-free",
+                                "grafana-cloud-pro",
+                                "grafana-cloud-ss-advanced"
+                              ],
+                              "type": "string",
+                              "title": "product"
+                            },
+                            "isTrial": {
+                              "type": "boolean",
+                              "title": "isTrial"
+                            },
+                            "startDate": {
+                              "type": "string",
+                              "format": "date-time",
+                              "title": "startDate"
+                            },
+                            "endDate": {
+                              "title": "endDate",
+                              "nullable": true
+                            },
+                            "payload": {
+                              "type": "object",
+                              "additionalProperties": {},
+                              "properties": {
+                                "withAddons": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "title": "withAddons"
+                                },
+                                "licenseAllPlugins": {
+                                  "type": "boolean",
+                                  "title": "licenseAllPlugins"
+                                },
+                                "caseId": {
+                                  "type": "string",
+                                  "title": "caseId"
+                                }
+                              },
+                              "title": "payload"
+                            },
+                            "plan": {
+                              "type": "string",
+                              "title": "plan",
+                              "nullable": true
+                            },
+                            "publicName": {
+                              "type": "string",
+                              "title": "publicName",
+                              "nullable": true
+                            },
+                            "enterprisePluginsAdded": {
+                              "type": "boolean",
+                              "title": "enterprisePluginsAdded"
+                            },
+                            "planBillingCycle": {
+                              "type": "string",
+                              "title": "planBillingCycle"
+                            }
+                          },
+                          "required": [
+                            "endDate",
+                            "enterprisePluginsAdded",
+                            "isTrial",
+                            "payload",
+                            "plan",
+                            "planBillingCycle",
+                            "product",
+                            "publicName",
+                            "startDate"
+                          ],
+                          "title": "current"
+                        },
+                        "next": {
+                          "title": "next",
+                          "nullable": true
+                        }
+                      },
+                      "required": [
+                        "current",
+                        "next"
+                      ]
+                    }
+                  ],
+                  "title": "subscriptions"
+                },
+                "marketplaceSubscription": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "provider": {
+                          "type": "string",
+                          "enum": [
+                            "aws",
+                            "azure",
+                            "gcp"
+                          ],
+                          "title": "provider"
+                        },
+                        "isLegacy": {
+                          "type": "boolean",
+                          "title": "isLegacy"
+                        }
+                      },
+                      "required": [
+                        "isLegacy",
+                        "provider"
+                      ],
+                      "nullable": true
+                    }
+                  ],
+                  "title": "marketplaceSubscription"
+                },
+                "mfaEnabled": {
+                  "type": "boolean",
+                  "title": "mfaEnabled"
+                },
+                "extraPermissions": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "accesspolicies:write",
+                      "orgs:read",
+                      "support-ticket-comments:write",
+                      "support-tickets:read",
+                      "support-tickets:write"
+                    ],
+                    "type": "string"
+                  },
+                  "title": "extraPermissions"
+                },
+                "grafanaStaffAccess": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "accessExpiresAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "title": "accessExpiresAt"
+                        },
+                        "ticketId": {
+                          "type": "number",
+                          "title": "ticketId",
+                          "nullable": true
+                        },
+                        "publicReason": {
+                          "type": "string",
+                          "title": "publicReason",
+                          "nullable": true
+                        }
+                      },
+                      "required": [
+                        "accessExpiresAt"
+                      ],
+                      "nullable": true
+                    }
+                  ],
+                  "title": "grafanaStaffAccess"
+                }
+              },
+              "required": [
+                "allowGCloudTrial",
+                "billing",
+                "contractTypeId",
+                "createdAt",
+                "createdBy",
+                "defaultOrg",
+                "grafanaCloud",
+                "hgDatasourceCnts",
+                "hlUsage",
+                "hmCurrentGraphiteUsage",
+                "hmCurrentPrometheusUsage",
+                "id",
+                "marketplaceSubscription",
+                "orgId",
+                "orgName",
+                "orgSlug",
+                "orgUrl",
+                "privacy",
+                "resellerId",
+                "role",
+                "security",
+                "status",
+                "subscriptions",
+                "updatedAt",
+                "updatedBy",
+                "userEmail",
+                "userFirstName",
+                "userId",
+                "userLastName",
+                "userName",
+                "userStatus",
+                "userUsername"
+              ]
+            },
+            "title": "items"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "rel": {
+                  "type": "string",
+                  "title": "rel"
+                },
+                "href": {
+                  "type": "string",
+                  "title": "href"
+                }
+              },
+              "required": [
+                "href",
+                "rel"
+              ]
+            },
+            "title": "links"
+          },
+          "total": {
+            "type": "number",
+            "title": "total"
+          },
+          "pages": {
+            "type": "number",
+            "title": "pages"
+          },
+          "page": {
+            "type": "number",
+            "title": "page"
+          },
+          "perPage": {
+            "type": "number",
+            "title": "perPage"
+          },
+          "totalCount": {
+            "type": "number",
+            "title": "totalCount"
+          },
+          "orderBy": {
+            "type": "string",
+            "title": "orderBy"
+          },
+          "direction": {
+            "type": "string",
+            "title": "direction"
+          },
+          "cursor": {
+            "type": "number",
+            "title": "cursor"
+          },
+          "nextCursor": {
+            "type": "number",
+            "title": "nextCursor"
+          }
+        },
+        "required": [
+          "items",
+          "links"
+        ]
+      },
+      "ServiceAccountSearchResponse": {
+        "type": "object",
+        "properties": {
+          "totalCount": {
+            "type": "number",
+            "title": "totalCount"
+          },
+          "serviceAccounts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "title": "id"
+                },
+                "name": {
+                  "type": "string",
+                  "title": "name"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            },
+            "title": "serviceAccounts"
+          },
+          "page": {
+            "type": "number",
+            "title": "page"
+          },
+          "perPage": {
+            "type": "number",
+            "title": "perPage"
+          }
+        },
+        "required": [
+          "page",
+          "perPage",
+          "serviceAccounts",
+          "totalCount"
         ]
       },
       "APIListResponseStackRegionV1": {
@@ -12804,7 +12590,7 @@
         ],
         "type": "object"
       },
-      "FormattedApiInstanceConnections1": {
+      "FormattedApiInstanceConnections": {
         "additionalProperties": false,
         "properties": {
           "appPlatform": {

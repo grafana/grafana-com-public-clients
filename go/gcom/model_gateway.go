@@ -17,37 +17,37 @@ import (
 
 // Gateway struct for Gateway
 type Gateway struct {
-	InfoAnyOf  *InfoAnyOf
-	InfoAnyOf1 *InfoAnyOf1
+	ApiAnyOf  *ApiAnyOf
+	ApiAnyOf1 *ApiAnyOf1
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *Gateway) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into InfoAnyOf
-	err = json.Unmarshal(data, &dst.InfoAnyOf)
+	// try to unmarshal JSON data into ApiAnyOf
+	err = json.Unmarshal(data, &dst.ApiAnyOf)
 	if err == nil {
-		jsonInfoAnyOf, _ := json.Marshal(dst.InfoAnyOf)
-		if string(jsonInfoAnyOf) == "{}" { // empty struct
-			dst.InfoAnyOf = nil
+		jsonApiAnyOf, _ := json.Marshal(dst.ApiAnyOf)
+		if string(jsonApiAnyOf) == "{}" { // empty struct
+			dst.ApiAnyOf = nil
 		} else {
-			return nil // data stored in dst.InfoAnyOf, return on the first match
+			return nil // data stored in dst.ApiAnyOf, return on the first match
 		}
 	} else {
-		dst.InfoAnyOf = nil
+		dst.ApiAnyOf = nil
 	}
 
-	// try to unmarshal JSON data into InfoAnyOf1
-	err = json.Unmarshal(data, &dst.InfoAnyOf1)
+	// try to unmarshal JSON data into ApiAnyOf1
+	err = json.Unmarshal(data, &dst.ApiAnyOf1)
 	if err == nil {
-		jsonInfoAnyOf1, _ := json.Marshal(dst.InfoAnyOf1)
-		if string(jsonInfoAnyOf1) == "{}" { // empty struct
-			dst.InfoAnyOf1 = nil
+		jsonApiAnyOf1, _ := json.Marshal(dst.ApiAnyOf1)
+		if string(jsonApiAnyOf1) == "{}" { // empty struct
+			dst.ApiAnyOf1 = nil
 		} else {
-			return nil // data stored in dst.InfoAnyOf1, return on the first match
+			return nil // data stored in dst.ApiAnyOf1, return on the first match
 		}
 	} else {
-		dst.InfoAnyOf1 = nil
+		dst.ApiAnyOf1 = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(Gateway)")
@@ -55,12 +55,12 @@ func (dst *Gateway) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src *Gateway) MarshalJSON() ([]byte, error) {
-	if src.InfoAnyOf != nil {
-		return json.Marshal(&src.InfoAnyOf)
+	if src.ApiAnyOf != nil {
+		return json.Marshal(&src.ApiAnyOf)
 	}
 
-	if src.InfoAnyOf1 != nil {
-		return json.Marshal(&src.InfoAnyOf1)
+	if src.ApiAnyOf1 != nil {
+		return json.Marshal(&src.ApiAnyOf1)
 	}
 
 	return nil, nil // no data in anyOf schemas

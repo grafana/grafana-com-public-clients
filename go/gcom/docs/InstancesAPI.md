@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**DeleteInstancePlugin**](InstancesAPI.md#DeleteInstancePlugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 [**DeleteInstanceServiceAccount**](InstancesAPI.md#DeleteInstanceServiceAccount) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Delete a service account on a Grafana instance
 [**DeleteInstanceServiceAccountToken**](InstancesAPI.md#DeleteInstanceServiceAccountToken) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId} | Delete a service account token on a Grafana instance
-[**GetConnections**](InstancesAPI.md#GetConnections) | **Get** /instances/{instanceId}/connections | Gets an instance&#39;s connectivity information (InfluxDB, OTEL, AWS private link, etc.)
 [**GetInstance**](InstancesAPI.md#GetInstance) | **Get** /instances/{instanceId} | Gets an instance
 [**GetInstancePlugin**](InstancesAPI.md#GetInstancePlugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 [**GetInstancePlugins**](InstancesAPI.md#GetInstancePlugins) | **Get** /instances/{instanceId}/plugins | 
@@ -302,76 +301,6 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetConnections
-
-> FormattedApiInstanceConnections GetConnections(ctx, instanceId).Config(config).Execute()
-
-Gets an instance's connectivity information (InfluxDB, OTEL, AWS private link, etc.)
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
-)
-
-func main() {
-	instanceId := "instanceId_example" // string | 
-	config := true // bool |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.GetConnections(context.Background(), instanceId).Config(config).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetConnections``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetConnections`: FormattedApiInstanceConnections
-	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.GetConnections`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetConnectionsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **config** | **bool** |  | 
-
-### Return type
-
-[**FormattedApiInstanceConnections**](FormattedApiInstanceConnections.md)
 
 ### Authorization
 

@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PrivateConnectivityInfo** | [**PrivateConnectivityInfo**](PrivateConnectivityInfo.md) |  | 
-**AppPlatform** | Pointer to [**AppPlatform**](AppPlatform.md) |  | [optional] 
-**InfluxUrl** | Pointer to **NullableString** |  | [optional] 
-**OtlpHttpUrl** | Pointer to **NullableString** |  | [optional] 
+**AppPlatform** | Pointer to [**StackConnectionAppPlatformV1**](StackConnectionAppPlatformV1.md) |  | [optional] 
+**InfluxUrl** | Pointer to **string** |  | [optional] 
+**OncallApiUrl** | Pointer to **string** |  | [optional] 
+**OtlpHttpUrl** | **NullableString** |  | 
 **OtlpMultiAZ** | **bool** |  | 
-**OncallApiUrl** | Pointer to **NullableString** |  | [optional] 
-**SyntheticMonitoringApiUrl** | Pointer to **NullableString** |  | [optional] 
+**PrivateConnectivityInfo** | [**FormattedApiInstancePrivateConnectivityInfo**](FormattedApiInstancePrivateConnectivityInfo.md) |  | 
+**SyntheticMonitoringApiUrl** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewFormattedApiInstanceConnections
 
-`func NewFormattedApiInstanceConnections(privateConnectivityInfo PrivateConnectivityInfo, otlpMultiAZ bool, ) *FormattedApiInstanceConnections`
+`func NewFormattedApiInstanceConnections(otlpHttpUrl NullableString, otlpMultiAZ bool, privateConnectivityInfo FormattedApiInstancePrivateConnectivityInfo, ) *FormattedApiInstanceConnections`
 
 NewFormattedApiInstanceConnections instantiates a new FormattedApiInstanceConnections object
 This constructor will assign default values to properties that have it defined,
@@ -31,42 +31,22 @@ NewFormattedApiInstanceConnectionsWithDefaults instantiates a new FormattedApiIn
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetPrivateConnectivityInfo
-
-`func (o *FormattedApiInstanceConnections) GetPrivateConnectivityInfo() PrivateConnectivityInfo`
-
-GetPrivateConnectivityInfo returns the PrivateConnectivityInfo field if non-nil, zero value otherwise.
-
-### GetPrivateConnectivityInfoOk
-
-`func (o *FormattedApiInstanceConnections) GetPrivateConnectivityInfoOk() (*PrivateConnectivityInfo, bool)`
-
-GetPrivateConnectivityInfoOk returns a tuple with the PrivateConnectivityInfo field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPrivateConnectivityInfo
-
-`func (o *FormattedApiInstanceConnections) SetPrivateConnectivityInfo(v PrivateConnectivityInfo)`
-
-SetPrivateConnectivityInfo sets PrivateConnectivityInfo field to given value.
-
-
 ### GetAppPlatform
 
-`func (o *FormattedApiInstanceConnections) GetAppPlatform() AppPlatform`
+`func (o *FormattedApiInstanceConnections) GetAppPlatform() StackConnectionAppPlatformV1`
 
 GetAppPlatform returns the AppPlatform field if non-nil, zero value otherwise.
 
 ### GetAppPlatformOk
 
-`func (o *FormattedApiInstanceConnections) GetAppPlatformOk() (*AppPlatform, bool)`
+`func (o *FormattedApiInstanceConnections) GetAppPlatformOk() (*StackConnectionAppPlatformV1, bool)`
 
 GetAppPlatformOk returns a tuple with the AppPlatform field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppPlatform
 
-`func (o *FormattedApiInstanceConnections) SetAppPlatform(v AppPlatform)`
+`func (o *FormattedApiInstanceConnections) SetAppPlatform(v StackConnectionAppPlatformV1)`
 
 SetAppPlatform sets AppPlatform field to given value.
 
@@ -101,16 +81,31 @@ SetInfluxUrl sets InfluxUrl field to given value.
 
 HasInfluxUrl returns a boolean if a field has been set.
 
-### SetInfluxUrlNil
+### GetOncallApiUrl
 
-`func (o *FormattedApiInstanceConnections) SetInfluxUrlNil(b bool)`
+`func (o *FormattedApiInstanceConnections) GetOncallApiUrl() string`
 
- SetInfluxUrlNil sets the value for InfluxUrl to be an explicit nil
+GetOncallApiUrl returns the OncallApiUrl field if non-nil, zero value otherwise.
 
-### UnsetInfluxUrl
-`func (o *FormattedApiInstanceConnections) UnsetInfluxUrl()`
+### GetOncallApiUrlOk
 
-UnsetInfluxUrl ensures that no value is present for InfluxUrl, not even an explicit nil
+`func (o *FormattedApiInstanceConnections) GetOncallApiUrlOk() (*string, bool)`
+
+GetOncallApiUrlOk returns a tuple with the OncallApiUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOncallApiUrl
+
+`func (o *FormattedApiInstanceConnections) SetOncallApiUrl(v string)`
+
+SetOncallApiUrl sets OncallApiUrl field to given value.
+
+### HasOncallApiUrl
+
+`func (o *FormattedApiInstanceConnections) HasOncallApiUrl() bool`
+
+HasOncallApiUrl returns a boolean if a field has been set.
+
 ### GetOtlpHttpUrl
 
 `func (o *FormattedApiInstanceConnections) GetOtlpHttpUrl() string`
@@ -130,11 +125,6 @@ and a boolean to check if the value has been set.
 
 SetOtlpHttpUrl sets OtlpHttpUrl field to given value.
 
-### HasOtlpHttpUrl
-
-`func (o *FormattedApiInstanceConnections) HasOtlpHttpUrl() bool`
-
-HasOtlpHttpUrl returns a boolean if a field has been set.
 
 ### SetOtlpHttpUrlNil
 
@@ -166,41 +156,26 @@ and a boolean to check if the value has been set.
 SetOtlpMultiAZ sets OtlpMultiAZ field to given value.
 
 
-### GetOncallApiUrl
+### GetPrivateConnectivityInfo
 
-`func (o *FormattedApiInstanceConnections) GetOncallApiUrl() string`
+`func (o *FormattedApiInstanceConnections) GetPrivateConnectivityInfo() FormattedApiInstancePrivateConnectivityInfo`
 
-GetOncallApiUrl returns the OncallApiUrl field if non-nil, zero value otherwise.
+GetPrivateConnectivityInfo returns the PrivateConnectivityInfo field if non-nil, zero value otherwise.
 
-### GetOncallApiUrlOk
+### GetPrivateConnectivityInfoOk
 
-`func (o *FormattedApiInstanceConnections) GetOncallApiUrlOk() (*string, bool)`
+`func (o *FormattedApiInstanceConnections) GetPrivateConnectivityInfoOk() (*FormattedApiInstancePrivateConnectivityInfo, bool)`
 
-GetOncallApiUrlOk returns a tuple with the OncallApiUrl field if it's non-nil, zero value otherwise
+GetPrivateConnectivityInfoOk returns a tuple with the PrivateConnectivityInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOncallApiUrl
+### SetPrivateConnectivityInfo
 
-`func (o *FormattedApiInstanceConnections) SetOncallApiUrl(v string)`
+`func (o *FormattedApiInstanceConnections) SetPrivateConnectivityInfo(v FormattedApiInstancePrivateConnectivityInfo)`
 
-SetOncallApiUrl sets OncallApiUrl field to given value.
+SetPrivateConnectivityInfo sets PrivateConnectivityInfo field to given value.
 
-### HasOncallApiUrl
 
-`func (o *FormattedApiInstanceConnections) HasOncallApiUrl() bool`
-
-HasOncallApiUrl returns a boolean if a field has been set.
-
-### SetOncallApiUrlNil
-
-`func (o *FormattedApiInstanceConnections) SetOncallApiUrlNil(b bool)`
-
- SetOncallApiUrlNil sets the value for OncallApiUrl to be an explicit nil
-
-### UnsetOncallApiUrl
-`func (o *FormattedApiInstanceConnections) UnsetOncallApiUrl()`
-
-UnsetOncallApiUrl ensures that no value is present for OncallApiUrl, not even an explicit nil
 ### GetSyntheticMonitoringApiUrl
 
 `func (o *FormattedApiInstanceConnections) GetSyntheticMonitoringApiUrl() string`
@@ -226,16 +201,6 @@ SetSyntheticMonitoringApiUrl sets SyntheticMonitoringApiUrl field to given value
 
 HasSyntheticMonitoringApiUrl returns a boolean if a field has been set.
 
-### SetSyntheticMonitoringApiUrlNil
-
-`func (o *FormattedApiInstanceConnections) SetSyntheticMonitoringApiUrlNil(b bool)`
-
- SetSyntheticMonitoringApiUrlNil sets the value for SyntheticMonitoringApiUrl to be an explicit nil
-
-### UnsetSyntheticMonitoringApiUrl
-`func (o *FormattedApiInstanceConnections) UnsetSyntheticMonitoringApiUrl()`
-
-UnsetSyntheticMonitoringApiUrl ensures that no value is present for SyntheticMonitoringApiUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

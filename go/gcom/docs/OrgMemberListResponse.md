@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]ItemsInner1**](ItemsInner1.md) |  | 
-**Links** | [**[]LinksInner1**](LinksInner1.md) |  | 
+**Items** | [**[]ItemsInner2**](ItemsInner2.md) |  | 
+**Links** | [**[]LinksInner**](LinksInner.md) |  | 
 **Total** | Pointer to **float32** |  | [optional] 
 **Pages** | Pointer to **float32** |  | [optional] 
 **Page** | Pointer to **float32** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewOrgMemberListResponse
 
-`func NewOrgMemberListResponse(items []ItemsInner1, links []LinksInner1, ) *OrgMemberListResponse`
+`func NewOrgMemberListResponse(items []ItemsInner2, links []LinksInner, ) *OrgMemberListResponse`
 
 NewOrgMemberListResponse instantiates a new OrgMemberListResponse object
 This constructor will assign default values to properties that have it defined,
@@ -37,40 +37,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetItems
 
-`func (o *OrgMemberListResponse) GetItems() []ItemsInner1`
+`func (o *OrgMemberListResponse) GetItems() []ItemsInner2`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *OrgMemberListResponse) GetItemsOk() (*[]ItemsInner1, bool)`
+`func (o *OrgMemberListResponse) GetItemsOk() (*[]ItemsInner2, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *OrgMemberListResponse) SetItems(v []ItemsInner1)`
+`func (o *OrgMemberListResponse) SetItems(v []ItemsInner2)`
 
 SetItems sets Items field to given value.
 
 
 ### GetLinks
 
-`func (o *OrgMemberListResponse) GetLinks() []LinksInner1`
+`func (o *OrgMemberListResponse) GetLinks() []LinksInner`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *OrgMemberListResponse) GetLinksOk() (*[]LinksInner1, bool)`
+`func (o *OrgMemberListResponse) GetLinksOk() (*[]LinksInner, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *OrgMemberListResponse) SetLinks(v []LinksInner1)`
+`func (o *OrgMemberListResponse) SetLinks(v []LinksInner)`
 
 SetLinks sets Links field to given value.
 

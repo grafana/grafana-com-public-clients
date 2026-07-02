@@ -12,58 +12,382 @@ package gcom
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
-// Info struct for Info
+// checks if the Info type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Info{}
+
+// Info Metadata for the plugin. Some fields are used on the plugins page in Grafana and others on grafana.com if the plugin is published.
 type Info struct {
-	InfoAnyOf  *InfoAnyOf
-	InfoAnyOf1 *InfoAnyOf1
+	Author *Author `json:"author,omitempty"`
+	Build  *Build  `json:"build,omitempty"`
+	// Description of plugin. Used on the plugins page in Grafana and for search on grafana.com.
+	Description *string `json:"description,omitempty"`
+	// Array of plugin keywords. Used for search on grafana.com.
+	Keywords []string `json:"keywords"`
+	// An array of link objects to be displayed on this plugin's project page in the form `{name: 'foo', url: 'http://example.com'}`
+	Links []LinksInner2 `json:"links,omitempty"`
+	Logos Logos         `json:"logos"`
+	// An array of screenshot objects in the form `{name: 'bar', path: 'img/screenshot.png'}`
+	Screenshots []ScreenshotsInner `json:"screenshots,omitempty"`
+	// Date when this plugin was built.
+	Updated string `json:"updated"`
+	// [SemVer](https://semver.org/) version of this commit, e.g. `6.7.1`.
+	Version              string `json:"version"`
+	AdditionalProperties map[string]interface{}
 }
 
-// Unmarshal JSON data into any of the pointers in the struct
-func (dst *Info) UnmarshalJSON(data []byte) error {
-	var err error
-	// try to unmarshal JSON data into InfoAnyOf
-	err = json.Unmarshal(data, &dst.InfoAnyOf)
-	if err == nil {
-		jsonInfoAnyOf, _ := json.Marshal(dst.InfoAnyOf)
-		if string(jsonInfoAnyOf) == "{}" { // empty struct
-			dst.InfoAnyOf = nil
-		} else {
-			return nil // data stored in dst.InfoAnyOf, return on the first match
-		}
-	} else {
-		dst.InfoAnyOf = nil
-	}
+type _Info Info
 
-	// try to unmarshal JSON data into InfoAnyOf1
-	err = json.Unmarshal(data, &dst.InfoAnyOf1)
-	if err == nil {
-		jsonInfoAnyOf1, _ := json.Marshal(dst.InfoAnyOf1)
-		if string(jsonInfoAnyOf1) == "{}" { // empty struct
-			dst.InfoAnyOf1 = nil
-		} else {
-			return nil // data stored in dst.InfoAnyOf1, return on the first match
-		}
-	} else {
-		dst.InfoAnyOf1 = nil
-	}
-
-	return fmt.Errorf("data failed to match schemas in anyOf(Info)")
+// NewInfo instantiates a new Info object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewInfo(keywords []string, logos Logos, updated string, version string) *Info {
+	this := Info{}
+	this.Keywords = keywords
+	this.Logos = logos
+	this.Updated = updated
+	this.Version = version
+	return &this
 }
 
-// Marshal data from the first non-nil pointers in the struct to JSON
-func (src *Info) MarshalJSON() ([]byte, error) {
-	if src.InfoAnyOf != nil {
-		return json.Marshal(&src.InfoAnyOf)
+// NewInfoWithDefaults instantiates a new Info object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewInfoWithDefaults() *Info {
+	this := Info{}
+	return &this
+}
+
+// GetAuthor returns the Author field value if set, zero value otherwise.
+func (o *Info) GetAuthor() Author {
+	if o == nil || IsNil(o.Author) {
+		var ret Author
+		return ret
+	}
+	return *o.Author
+}
+
+// GetAuthorOk returns a tuple with the Author field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Info) GetAuthorOk() (*Author, bool) {
+	if o == nil || IsNil(o.Author) {
+		return nil, false
+	}
+	return o.Author, true
+}
+
+// HasAuthor returns a boolean if a field has been set.
+func (o *Info) HasAuthor() bool {
+	if o != nil && !IsNil(o.Author) {
+		return true
 	}
 
-	if src.InfoAnyOf1 != nil {
-		return json.Marshal(&src.InfoAnyOf1)
+	return false
+}
+
+// SetAuthor gets a reference to the given Author and assigns it to the Author field.
+func (o *Info) SetAuthor(v Author) {
+	o.Author = &v
+}
+
+// GetBuild returns the Build field value if set, zero value otherwise.
+func (o *Info) GetBuild() Build {
+	if o == nil || IsNil(o.Build) {
+		var ret Build
+		return ret
+	}
+	return *o.Build
+}
+
+// GetBuildOk returns a tuple with the Build field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Info) GetBuildOk() (*Build, bool) {
+	if o == nil || IsNil(o.Build) {
+		return nil, false
+	}
+	return o.Build, true
+}
+
+// HasBuild returns a boolean if a field has been set.
+func (o *Info) HasBuild() bool {
+	if o != nil && !IsNil(o.Build) {
+		return true
 	}
 
-	return nil, nil // no data in anyOf schemas
+	return false
+}
+
+// SetBuild gets a reference to the given Build and assigns it to the Build field.
+func (o *Info) SetBuild(v Build) {
+	o.Build = &v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *Info) GetDescription() string {
+	if o == nil || IsNil(o.Description) {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Info) GetDescriptionOk() (*string, bool) {
+	if o == nil || IsNil(o.Description) {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *Info) HasDescription() bool {
+	if o != nil && !IsNil(o.Description) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *Info) SetDescription(v string) {
+	o.Description = &v
+}
+
+// GetKeywords returns the Keywords field value
+func (o *Info) GetKeywords() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Keywords
+}
+
+// GetKeywordsOk returns a tuple with the Keywords field value
+// and a boolean to check if the value has been set.
+func (o *Info) GetKeywordsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Keywords, true
+}
+
+// SetKeywords sets field value
+func (o *Info) SetKeywords(v []string) {
+	o.Keywords = v
+}
+
+// GetLinks returns the Links field value if set, zero value otherwise.
+func (o *Info) GetLinks() []LinksInner2 {
+	if o == nil || IsNil(o.Links) {
+		var ret []LinksInner2
+		return ret
+	}
+	return o.Links
+}
+
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Info) GetLinksOk() ([]LinksInner2, bool) {
+	if o == nil || IsNil(o.Links) {
+		return nil, false
+	}
+	return o.Links, true
+}
+
+// HasLinks returns a boolean if a field has been set.
+func (o *Info) HasLinks() bool {
+	if o != nil && !IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given []LinksInner2 and assigns it to the Links field.
+func (o *Info) SetLinks(v []LinksInner2) {
+	o.Links = v
+}
+
+// GetLogos returns the Logos field value
+func (o *Info) GetLogos() Logos {
+	if o == nil {
+		var ret Logos
+		return ret
+	}
+
+	return o.Logos
+}
+
+// GetLogosOk returns a tuple with the Logos field value
+// and a boolean to check if the value has been set.
+func (o *Info) GetLogosOk() (*Logos, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Logos, true
+}
+
+// SetLogos sets field value
+func (o *Info) SetLogos(v Logos) {
+	o.Logos = v
+}
+
+// GetScreenshots returns the Screenshots field value if set, zero value otherwise.
+func (o *Info) GetScreenshots() []ScreenshotsInner {
+	if o == nil || IsNil(o.Screenshots) {
+		var ret []ScreenshotsInner
+		return ret
+	}
+	return o.Screenshots
+}
+
+// GetScreenshotsOk returns a tuple with the Screenshots field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Info) GetScreenshotsOk() ([]ScreenshotsInner, bool) {
+	if o == nil || IsNil(o.Screenshots) {
+		return nil, false
+	}
+	return o.Screenshots, true
+}
+
+// HasScreenshots returns a boolean if a field has been set.
+func (o *Info) HasScreenshots() bool {
+	if o != nil && !IsNil(o.Screenshots) {
+		return true
+	}
+
+	return false
+}
+
+// SetScreenshots gets a reference to the given []ScreenshotsInner and assigns it to the Screenshots field.
+func (o *Info) SetScreenshots(v []ScreenshotsInner) {
+	o.Screenshots = v
+}
+
+// GetUpdated returns the Updated field value
+func (o *Info) GetUpdated() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Updated
+}
+
+// GetUpdatedOk returns a tuple with the Updated field value
+// and a boolean to check if the value has been set.
+func (o *Info) GetUpdatedOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Updated, true
+}
+
+// SetUpdated sets field value
+func (o *Info) SetUpdated(v string) {
+	o.Updated = v
+}
+
+// GetVersion returns the Version field value
+func (o *Info) GetVersion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Version
+}
+
+// GetVersionOk returns a tuple with the Version field value
+// and a boolean to check if the value has been set.
+func (o *Info) GetVersionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Version, true
+}
+
+// SetVersion sets field value
+func (o *Info) SetVersion(v string) {
+	o.Version = v
+}
+
+func (o Info) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Info) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Author) {
+		toSerialize["author"] = o.Author
+	}
+	if !IsNil(o.Build) {
+		toSerialize["build"] = o.Build
+	}
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
+	}
+	toSerialize["keywords"] = o.Keywords
+	if !IsNil(o.Links) {
+		toSerialize["links"] = o.Links
+	}
+	toSerialize["logos"] = o.Logos
+	if !IsNil(o.Screenshots) {
+		toSerialize["screenshots"] = o.Screenshots
+	}
+	toSerialize["updated"] = o.Updated
+	toSerialize["version"] = o.Version
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
+	return toSerialize, nil
+}
+
+func (o *Info) UnmarshalJSON(data []byte) (err error) {
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err
+	}
+
+	varInfo := _Info{}
+
+	err = json.Unmarshal(data, &varInfo)
+
+	if err != nil {
+		return err
+	}
+
+	*o = Info(varInfo)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "author")
+		delete(additionalProperties, "build")
+		delete(additionalProperties, "description")
+		delete(additionalProperties, "keywords")
+		delete(additionalProperties, "links")
+		delete(additionalProperties, "logos")
+		delete(additionalProperties, "screenshots")
+		delete(additionalProperties, "updated")
+		delete(additionalProperties, "version")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableInfo struct {

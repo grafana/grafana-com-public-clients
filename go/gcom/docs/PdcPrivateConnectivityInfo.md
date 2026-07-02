@@ -13,17 +13,17 @@ Name | Type | Description | Notes
 **AvailabilityZoneIds** | Pointer to **[]string** |  | [optional] 
 **ServiceAttachment** | **string** |  | 
 **DomainNames** | **[]string** |  | 
-**Api** | [**Api1**](Api1.md) |  | 
-**Gateway** | [**Gateway1**](Gateway1.md) |  | 
+**Api** | [**Api**](Api.md) |  | 
+**Gateway** | [**Gateway**](Gateway.md) |  | 
 **Mimir** | [**Mimir**](Mimir.md) |  | 
 **Graphite** | Pointer to [**Graphite**](Graphite.md) |  | [optional] 
-**Otlp** | Pointer to [**Otlp1**](Otlp1.md) |  | [optional] 
+**Otlp** | Pointer to [**Otlp**](Otlp.md) |  | [optional] 
 
 ## Methods
 
 ### NewPdcPrivateConnectivityInfo
 
-`func NewPdcPrivateConnectivityInfo(privateDNS string, serviceName string, endpointName string, serviceAttachment string, domainNames []string, api Api1, gateway Gateway1, mimir Mimir, ) *PdcPrivateConnectivityInfo`
+`func NewPdcPrivateConnectivityInfo(privateDNS string, serviceName string, endpointName string, serviceAttachment string, domainNames []string, api Api, gateway Gateway, mimir Mimir, ) *PdcPrivateConnectivityInfo`
 
 NewPdcPrivateConnectivityInfo instantiates a new PdcPrivateConnectivityInfo object
 This constructor will assign default values to properties that have it defined,
@@ -240,40 +240,40 @@ SetDomainNames sets DomainNames field to given value.
 
 ### GetApi
 
-`func (o *PdcPrivateConnectivityInfo) GetApi() Api1`
+`func (o *PdcPrivateConnectivityInfo) GetApi() Api`
 
 GetApi returns the Api field if non-nil, zero value otherwise.
 
 ### GetApiOk
 
-`func (o *PdcPrivateConnectivityInfo) GetApiOk() (*Api1, bool)`
+`func (o *PdcPrivateConnectivityInfo) GetApiOk() (*Api, bool)`
 
 GetApiOk returns a tuple with the Api field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApi
 
-`func (o *PdcPrivateConnectivityInfo) SetApi(v Api1)`
+`func (o *PdcPrivateConnectivityInfo) SetApi(v Api)`
 
 SetApi sets Api field to given value.
 
 
 ### GetGateway
 
-`func (o *PdcPrivateConnectivityInfo) GetGateway() Gateway1`
+`func (o *PdcPrivateConnectivityInfo) GetGateway() Gateway`
 
 GetGateway returns the Gateway field if non-nil, zero value otherwise.
 
 ### GetGatewayOk
 
-`func (o *PdcPrivateConnectivityInfo) GetGatewayOk() (*Gateway1, bool)`
+`func (o *PdcPrivateConnectivityInfo) GetGatewayOk() (*Gateway, bool)`
 
 GetGatewayOk returns a tuple with the Gateway field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGateway
 
-`func (o *PdcPrivateConnectivityInfo) SetGateway(v Gateway1)`
+`func (o *PdcPrivateConnectivityInfo) SetGateway(v Gateway)`
 
 SetGateway sets Gateway field to given value.
 
@@ -325,20 +325,20 @@ HasGraphite returns a boolean if a field has been set.
 
 ### GetOtlp
 
-`func (o *PdcPrivateConnectivityInfo) GetOtlp() Otlp1`
+`func (o *PdcPrivateConnectivityInfo) GetOtlp() Otlp`
 
 GetOtlp returns the Otlp field if non-nil, zero value otherwise.
 
 ### GetOtlpOk
 
-`func (o *PdcPrivateConnectivityInfo) GetOtlpOk() (*Otlp1, bool)`
+`func (o *PdcPrivateConnectivityInfo) GetOtlpOk() (*Otlp, bool)`
 
 GetOtlpOk returns a tuple with the Otlp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOtlp
 
-`func (o *PdcPrivateConnectivityInfo) SetOtlp(v Otlp1)`
+`func (o *PdcPrivateConnectivityInfo) SetOtlp(v Otlp)`
 
 SetOtlp sets Otlp field to given value.
 

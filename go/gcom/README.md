@@ -97,7 +97,6 @@ Class | Method | HTTP request | Description
 *InstancesAPI* | [**DeleteInstancePlugin**](docs/InstancesAPI.md#deleteinstanceplugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 *InstancesAPI* | [**DeleteInstanceServiceAccount**](docs/InstancesAPI.md#deleteinstanceserviceaccount) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Delete a service account on a Grafana instance
 *InstancesAPI* | [**DeleteInstanceServiceAccountToken**](docs/InstancesAPI.md#deleteinstanceserviceaccounttoken) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId} | Delete a service account token on a Grafana instance
-*InstancesAPI* | [**GetConnections**](docs/InstancesAPI.md#getconnections) | **Get** /instances/{instanceId}/connections | Gets an instance&#39;s connectivity information (InfluxDB, OTEL, AWS private link, etc.)
 *InstancesAPI* | [**GetInstance**](docs/InstancesAPI.md#getinstance) | **Get** /instances/{instanceId} | Gets an instance
 *InstancesAPI* | [**GetInstancePlugin**](docs/InstancesAPI.md#getinstanceplugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
 *InstancesAPI* | [**GetInstancePlugins**](docs/InstancesAPI.md#getinstanceplugins) | **Get** /instances/{instanceId}/plugins | 
@@ -133,6 +132,7 @@ Class | Method | HTTP request | Description
 *StacksAPI* | [**CheckStackSlugV1**](docs/StacksAPI.md#checkstackslugv1) | **Post** /v1/stacks/checkUrl | 
 *StacksAPI* | [**CreateStackV1**](docs/StacksAPI.md#createstackv1) | **Post** /v1/stacks | 
 *StacksAPI* | [**DeleteStackV1**](docs/StacksAPI.md#deletestackv1) | **Delete** /v1/stacks/{idOrSlug} | 
+*StacksAPI* | [**GetConnections**](docs/StacksAPI.md#getconnections) | **Get** /instances/{instanceId}/connections | Gets an instance&#39;s connectivity information (InfluxDB, OTEL, AWS private link, etc.)
 *StacksAPI* | [**GetStackConnectionsV1**](docs/StacksAPI.md#getstackconnectionsv1) | **Get** /v1/stacks/{idOrSlug}/connections | 
 *StacksAPI* | [**GetStackV1**](docs/StacksAPI.md#getstackv1) | **Get** /v1/stacks/{idOrSlug} | 
 *StacksAPI* | [**ListStacksV1**](docs/StacksAPI.md#liststacksv1) | **Get** /v1/stacks | 
@@ -153,10 +153,8 @@ Class | Method | HTTP request | Description
  - [AddedFunctionsInner](docs/AddedFunctionsInner.md)
  - [AddedLinksInner](docs/AddedLinksInner.md)
  - [Api](docs/Api.md)
- - [Api1](docs/Api1.md)
- - [Api1AnyOf](docs/Api1AnyOf.md)
- - [Api1AnyOf1](docs/Api1AnyOf1.md)
- - [AppPlatform](docs/AppPlatform.md)
+ - [ApiAnyOf](docs/ApiAnyOf.md)
+ - [ApiAnyOf1](docs/ApiAnyOf1.md)
  - [AuthAccessPolicy](docs/AuthAccessPolicy.md)
  - [AuthAccessPolicyAttributes](docs/AuthAccessPolicyAttributes.md)
  - [AuthAccessPolicyAttributesLokiQueryPolicy](docs/AuthAccessPolicyAttributesLokiQueryPolicy.md)
@@ -193,11 +191,11 @@ Class | Method | HTTP request | Description
  - [FormattedApiApiKeyListResponseItemsInner](docs/FormattedApiApiKeyListResponseItemsInner.md)
  - [FormattedApiInstance](docs/FormattedApiInstance.md)
  - [FormattedApiInstanceConnections](docs/FormattedApiInstanceConnections.md)
- - [FormattedApiInstanceConnections1](docs/FormattedApiInstanceConnections1.md)
  - [FormattedApiInstancePlugin](docs/FormattedApiInstancePlugin.md)
  - [FormattedApiInstancePrivateConnectivityInfo](docs/FormattedApiInstancePrivateConnectivityInfo.md)
  - [FormattedApiInstanceReadiness](docs/FormattedApiInstanceReadiness.md)
  - [FormattedApiOrgPublic](docs/FormattedApiOrgPublic.md)
+ - [FormattedApiOrgPublicAllowGCloudTrial](docs/FormattedApiOrgPublicAllowGCloudTrial.md)
  - [FormattedApiOrgSettings](docs/FormattedApiOrgSettings.md)
  - [FormattedApiOrgStackRegion](docs/FormattedApiOrgStackRegion.md)
  - [FormattedApiPlugin](docs/FormattedApiPlugin.md)
@@ -205,9 +203,9 @@ Class | Method | HTTP request | Description
  - [FormattedApiStackRegionAnyOf](docs/FormattedApiStackRegionAnyOf.md)
  - [FormattedApiStackRegionAnyOf1](docs/FormattedApiStackRegionAnyOf1.md)
  - [FormattedOrgMembership](docs/FormattedOrgMembership.md)
- - [FormattedOrgMembershipAllowGCloudTrial](docs/FormattedOrgMembershipAllowGCloudTrial.md)
+ - [FormattedOrgMembershipGrafanaStaffAccess](docs/FormattedOrgMembershipGrafanaStaffAccess.md)
+ - [FormattedOrgMembershipMarketplaceSubscription](docs/FormattedOrgMembershipMarketplaceSubscription.md)
  - [Gateway](docs/Gateway.md)
- - [Gateway1](docs/Gateway1.md)
  - [GetAccessPolicies200Response](docs/GetAccessPolicies200Response.md)
  - [GetInstancePlugins200Response](docs/GetInstancePlugins200Response.md)
  - [GetInstances200Response](docs/GetInstances200Response.md)
@@ -221,16 +219,11 @@ Class | Method | HTTP request | Description
  - [Iam](docs/Iam.md)
  - [IncludesInner](docs/IncludesInner.md)
  - [Info](docs/Info.md)
- - [Info1](docs/Info1.md)
- - [InfoAnyOf](docs/InfoAnyOf.md)
- - [InfoAnyOf1](docs/InfoAnyOf1.md)
  - [InstanceConnectionTenant](docs/InstanceConnectionTenant.md)
  - [InstanceUsersResponse](docs/InstanceUsersResponse.md)
  - [InternalStackCreateRequestV1](docs/InternalStackCreateRequestV1.md)
  - [ItemsInner](docs/ItemsInner.md)
  - [ItemsInner1](docs/ItemsInner1.md)
- - [ItemsInner1GrafanaStaffAccess](docs/ItemsInner1GrafanaStaffAccess.md)
- - [ItemsInner1MarketplaceSubscription](docs/ItemsInner1MarketplaceSubscription.md)
  - [ItemsInner2](docs/ItemsInner2.md)
  - [Json](docs/Json.md)
  - [JwtTokenAuth](docs/JwtTokenAuth.md)
@@ -245,14 +238,12 @@ Class | Method | HTTP request | Description
  - [OrgBilledUsageHistory](docs/OrgBilledUsageHistory.md)
  - [OrgMemberListResponse](docs/OrgMemberListResponse.md)
  - [Otlp](docs/Otlp.md)
- - [Otlp1](docs/Otlp1.md)
  - [OtlpPrivateConnectivityInfo](docs/OtlpPrivateConnectivityInfo.md)
  - [PaginatedResponseStackV1](docs/PaginatedResponseStackV1.md)
  - [Pagination](docs/Pagination.md)
  - [Params](docs/Params.md)
  - [Params1](docs/Params1.md)
  - [Payload](docs/Payload.md)
- - [Pdc](docs/Pdc.md)
  - [PdcPrivateConnectivityInfo](docs/PdcPrivateConnectivityInfo.md)
  - [PdcPrivateConnectivityInfoAnyOf](docs/PdcPrivateConnectivityInfoAnyOf.md)
  - [PdcPrivateConnectivityInfoAnyOf1](docs/PdcPrivateConnectivityInfoAnyOf1.md)
@@ -279,7 +270,6 @@ Class | Method | HTTP request | Description
  - [PostOrgMembersRequest](docs/PostOrgMembersRequest.md)
  - [PostTokenRequest](docs/PostTokenRequest.md)
  - [PostTokensRequest](docs/PostTokensRequest.md)
- - [PrivateConnectivityInfo](docs/PrivateConnectivityInfo.md)
  - [QueryOptions](docs/QueryOptions.md)
  - [RealmsInner](docs/RealmsInner.md)
  - [RealmsInnerAnyOf](docs/RealmsInnerAnyOf.md)
@@ -309,7 +299,6 @@ Class | Method | HTTP request | Description
  - [SubscriptionsAnyOf](docs/SubscriptionsAnyOf.md)
  - [SubscriptionsAnyOf1](docs/SubscriptionsAnyOf1.md)
  - [SubscriptionsAnyOf2](docs/SubscriptionsAnyOf2.md)
- - [TenantsInner](docs/TenantsInner.md)
  - [TokenAuth](docs/TokenAuth.md)
  - [UpdateOrgSettingsRequest](docs/UpdateOrgSettingsRequest.md)
  - [UrlParamsInner](docs/UrlParamsInner.md)

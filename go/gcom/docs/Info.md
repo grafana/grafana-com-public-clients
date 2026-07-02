@@ -4,19 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ServiceName** | **string** |  | 
-**PrivateDNS** | **string** |  | 
-**Regions** | Pointer to **[]string** |  | [optional] 
-**AvailabilityZones** | Pointer to **[]string** |  | [optional] 
-**AvailabilityZoneIds** | Pointer to **[]string** |  | [optional] 
-**ServiceAttachment** | **string** |  | 
-**DomainNames** | **[]string** |  | 
+**Author** | Pointer to [**Author**](Author.md) |  | [optional] 
+**Build** | Pointer to [**Build**](Build.md) |  | [optional] 
+**Description** | Pointer to **string** | Description of plugin. Used on the plugins page in Grafana and for search on grafana.com. | [optional] 
+**Keywords** | **[]string** | Array of plugin keywords. Used for search on grafana.com. | 
+**Links** | Pointer to [**[]LinksInner2**](LinksInner2.md) | An array of link objects to be displayed on this plugin&#39;s project page in the form &#x60;{name: &#39;foo&#39;, url: &#39;http://example.com&#39;}&#x60; | [optional] 
+**Logos** | [**Logos**](Logos.md) |  | 
+**Screenshots** | Pointer to [**[]ScreenshotsInner**](ScreenshotsInner.md) | An array of screenshot objects in the form &#x60;{name: &#39;bar&#39;, path: &#39;img/screenshot.png&#39;}&#x60; | [optional] 
+**Updated** | **string** | Date when this plugin was built. | 
+**Version** | **string** | [SemVer](https://semver.org/) version of this commit, e.g. &#x60;6.7.1&#x60;. | 
 
 ## Methods
 
 ### NewInfo
 
-`func NewInfo(serviceName string, privateDNS string, serviceAttachment string, domainNames []string, ) *Info`
+`func NewInfo(keywords []string, logos Logos, updated string, version string, ) *Info`
 
 NewInfo instantiates a new Info object
 This constructor will assign default values to properties that have it defined,
@@ -31,159 +33,209 @@ NewInfoWithDefaults instantiates a new Info object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetServiceName
+### GetAuthor
 
-`func (o *Info) GetServiceName() string`
+`func (o *Info) GetAuthor() Author`
 
-GetServiceName returns the ServiceName field if non-nil, zero value otherwise.
+GetAuthor returns the Author field if non-nil, zero value otherwise.
 
-### GetServiceNameOk
+### GetAuthorOk
 
-`func (o *Info) GetServiceNameOk() (*string, bool)`
+`func (o *Info) GetAuthorOk() (*Author, bool)`
 
-GetServiceNameOk returns a tuple with the ServiceName field if it's non-nil, zero value otherwise
+GetAuthorOk returns a tuple with the Author field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetServiceName
+### SetAuthor
 
-`func (o *Info) SetServiceName(v string)`
+`func (o *Info) SetAuthor(v Author)`
 
-SetServiceName sets ServiceName field to given value.
+SetAuthor sets Author field to given value.
 
+### HasAuthor
 
-### GetPrivateDNS
+`func (o *Info) HasAuthor() bool`
 
-`func (o *Info) GetPrivateDNS() string`
+HasAuthor returns a boolean if a field has been set.
 
-GetPrivateDNS returns the PrivateDNS field if non-nil, zero value otherwise.
+### GetBuild
 
-### GetPrivateDNSOk
+`func (o *Info) GetBuild() Build`
 
-`func (o *Info) GetPrivateDNSOk() (*string, bool)`
+GetBuild returns the Build field if non-nil, zero value otherwise.
 
-GetPrivateDNSOk returns a tuple with the PrivateDNS field if it's non-nil, zero value otherwise
+### GetBuildOk
+
+`func (o *Info) GetBuildOk() (*Build, bool)`
+
+GetBuildOk returns a tuple with the Build field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPrivateDNS
+### SetBuild
 
-`func (o *Info) SetPrivateDNS(v string)`
+`func (o *Info) SetBuild(v Build)`
 
-SetPrivateDNS sets PrivateDNS field to given value.
+SetBuild sets Build field to given value.
 
+### HasBuild
 
-### GetRegions
+`func (o *Info) HasBuild() bool`
 
-`func (o *Info) GetRegions() []string`
+HasBuild returns a boolean if a field has been set.
 
-GetRegions returns the Regions field if non-nil, zero value otherwise.
+### GetDescription
 
-### GetRegionsOk
+`func (o *Info) GetDescription() string`
 
-`func (o *Info) GetRegionsOk() (*[]string, bool)`
+GetDescription returns the Description field if non-nil, zero value otherwise.
 
-GetRegionsOk returns a tuple with the Regions field if it's non-nil, zero value otherwise
+### GetDescriptionOk
+
+`func (o *Info) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRegions
+### SetDescription
 
-`func (o *Info) SetRegions(v []string)`
+`func (o *Info) SetDescription(v string)`
 
-SetRegions sets Regions field to given value.
+SetDescription sets Description field to given value.
 
-### HasRegions
+### HasDescription
 
-`func (o *Info) HasRegions() bool`
+`func (o *Info) HasDescription() bool`
 
-HasRegions returns a boolean if a field has been set.
+HasDescription returns a boolean if a field has been set.
 
-### GetAvailabilityZones
+### GetKeywords
 
-`func (o *Info) GetAvailabilityZones() []string`
+`func (o *Info) GetKeywords() []string`
 
-GetAvailabilityZones returns the AvailabilityZones field if non-nil, zero value otherwise.
+GetKeywords returns the Keywords field if non-nil, zero value otherwise.
 
-### GetAvailabilityZonesOk
+### GetKeywordsOk
 
-`func (o *Info) GetAvailabilityZonesOk() (*[]string, bool)`
+`func (o *Info) GetKeywordsOk() (*[]string, bool)`
 
-GetAvailabilityZonesOk returns a tuple with the AvailabilityZones field if it's non-nil, zero value otherwise
+GetKeywordsOk returns a tuple with the Keywords field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAvailabilityZones
+### SetKeywords
 
-`func (o *Info) SetAvailabilityZones(v []string)`
+`func (o *Info) SetKeywords(v []string)`
 
-SetAvailabilityZones sets AvailabilityZones field to given value.
+SetKeywords sets Keywords field to given value.
 
-### HasAvailabilityZones
 
-`func (o *Info) HasAvailabilityZones() bool`
+### GetLinks
 
-HasAvailabilityZones returns a boolean if a field has been set.
+`func (o *Info) GetLinks() []LinksInner2`
 
-### GetAvailabilityZoneIds
+GetLinks returns the Links field if non-nil, zero value otherwise.
 
-`func (o *Info) GetAvailabilityZoneIds() []string`
+### GetLinksOk
 
-GetAvailabilityZoneIds returns the AvailabilityZoneIds field if non-nil, zero value otherwise.
+`func (o *Info) GetLinksOk() (*[]LinksInner2, bool)`
 
-### GetAvailabilityZoneIdsOk
-
-`func (o *Info) GetAvailabilityZoneIdsOk() (*[]string, bool)`
-
-GetAvailabilityZoneIdsOk returns a tuple with the AvailabilityZoneIds field if it's non-nil, zero value otherwise
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAvailabilityZoneIds
+### SetLinks
 
-`func (o *Info) SetAvailabilityZoneIds(v []string)`
+`func (o *Info) SetLinks(v []LinksInner2)`
 
-SetAvailabilityZoneIds sets AvailabilityZoneIds field to given value.
+SetLinks sets Links field to given value.
 
-### HasAvailabilityZoneIds
+### HasLinks
 
-`func (o *Info) HasAvailabilityZoneIds() bool`
+`func (o *Info) HasLinks() bool`
 
-HasAvailabilityZoneIds returns a boolean if a field has been set.
+HasLinks returns a boolean if a field has been set.
 
-### GetServiceAttachment
+### GetLogos
 
-`func (o *Info) GetServiceAttachment() string`
+`func (o *Info) GetLogos() Logos`
 
-GetServiceAttachment returns the ServiceAttachment field if non-nil, zero value otherwise.
+GetLogos returns the Logos field if non-nil, zero value otherwise.
 
-### GetServiceAttachmentOk
+### GetLogosOk
 
-`func (o *Info) GetServiceAttachmentOk() (*string, bool)`
+`func (o *Info) GetLogosOk() (*Logos, bool)`
 
-GetServiceAttachmentOk returns a tuple with the ServiceAttachment field if it's non-nil, zero value otherwise
+GetLogosOk returns a tuple with the Logos field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetServiceAttachment
+### SetLogos
 
-`func (o *Info) SetServiceAttachment(v string)`
+`func (o *Info) SetLogos(v Logos)`
 
-SetServiceAttachment sets ServiceAttachment field to given value.
+SetLogos sets Logos field to given value.
 
 
-### GetDomainNames
+### GetScreenshots
 
-`func (o *Info) GetDomainNames() []string`
+`func (o *Info) GetScreenshots() []ScreenshotsInner`
 
-GetDomainNames returns the DomainNames field if non-nil, zero value otherwise.
+GetScreenshots returns the Screenshots field if non-nil, zero value otherwise.
 
-### GetDomainNamesOk
+### GetScreenshotsOk
 
-`func (o *Info) GetDomainNamesOk() (*[]string, bool)`
+`func (o *Info) GetScreenshotsOk() (*[]ScreenshotsInner, bool)`
 
-GetDomainNamesOk returns a tuple with the DomainNames field if it's non-nil, zero value otherwise
+GetScreenshotsOk returns a tuple with the Screenshots field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDomainNames
+### SetScreenshots
 
-`func (o *Info) SetDomainNames(v []string)`
+`func (o *Info) SetScreenshots(v []ScreenshotsInner)`
 
-SetDomainNames sets DomainNames field to given value.
+SetScreenshots sets Screenshots field to given value.
+
+### HasScreenshots
+
+`func (o *Info) HasScreenshots() bool`
+
+HasScreenshots returns a boolean if a field has been set.
+
+### GetUpdated
+
+`func (o *Info) GetUpdated() string`
+
+GetUpdated returns the Updated field if non-nil, zero value otherwise.
+
+### GetUpdatedOk
+
+`func (o *Info) GetUpdatedOk() (*string, bool)`
+
+GetUpdatedOk returns a tuple with the Updated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdated
+
+`func (o *Info) SetUpdated(v string)`
+
+SetUpdated sets Updated field to given value.
+
+
+### GetVersion
+
+`func (o *Info) GetVersion() string`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *Info) GetVersionOk() (*string, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *Info) SetVersion(v string)`
+
+SetVersion sets Version field to given value.
 
 
 
