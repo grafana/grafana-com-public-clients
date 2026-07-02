@@ -12,6 +12,9 @@ permissions:
 jobs:
   sync-openapi:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
@@ -21,8 +24,6 @@ jobs:
 
       - name: Ensure sync branch exists
         if: steps.drift.outputs.drift == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           branch=sync/openapi
           if ! gh api "repos/${{ github.repository }}/git/ref/heads/${branch}" &>/dev/null; then
@@ -39,13 +40,9 @@ jobs:
           repo: ${{ github.repository }}
           branch: sync/openapi
           file_pattern: openapi.json
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create pull request
         if: steps.drift.outputs.drift == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           if [ "$(gh pr list --head sync/openapi --base main --state open --json number --jq length)" -eq 0 ]; then
             gh pr create \
