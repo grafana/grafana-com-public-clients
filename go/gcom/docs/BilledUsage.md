@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **Unit** | **string** |  | 
 **IncludedUsage** | **float32** |  | 
 **DimensionId** | **string** |  | 
+**OrgRates** | **interface{}** |  | 
 **AmountDue** | **float32** |  | 
 **DimensionName** | **string** |  | 
-**OrgRates** | **interface{}** |  | 
 **PeriodEnd** | **string** |  | 
 **PeriodStart** | **string** |  | 
 **TotalUsage** | **float32** |  | 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewBilledUsage
 
-`func NewBilledUsage(id float32, description string, overage float32, notes string, unit string, includedUsage float32, dimensionId string, amountDue float32, dimensionName string, orgRates interface{}, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner, ) *BilledUsage`
+`func NewBilledUsage(id float32, description string, overage float32, notes string, unit string, includedUsage float32, dimensionId string, orgRates interface{}, amountDue float32, dimensionName string, periodEnd string, periodStart string, totalUsage float32, usages []UsagesInner, ) *BilledUsage`
 
 NewBilledUsage instantiates a new BilledUsage object
 This constructor will assign default values to properties that have it defined,
@@ -178,6 +178,36 @@ and a boolean to check if the value has been set.
 SetDimensionId sets DimensionId field to given value.
 
 
+### GetOrgRates
+
+`func (o *BilledUsage) GetOrgRates() interface{}`
+
+GetOrgRates returns the OrgRates field if non-nil, zero value otherwise.
+
+### GetOrgRatesOk
+
+`func (o *BilledUsage) GetOrgRatesOk() (*interface{}, bool)`
+
+GetOrgRatesOk returns a tuple with the OrgRates field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrgRates
+
+`func (o *BilledUsage) SetOrgRates(v interface{})`
+
+SetOrgRates sets OrgRates field to given value.
+
+
+### SetOrgRatesNil
+
+`func (o *BilledUsage) SetOrgRatesNil(b bool)`
+
+ SetOrgRatesNil sets the value for OrgRates to be an explicit nil
+
+### UnsetOrgRates
+`func (o *BilledUsage) UnsetOrgRates()`
+
+UnsetOrgRates ensures that no value is present for OrgRates, not even an explicit nil
 ### GetAmountDue
 
 `func (o *BilledUsage) GetAmountDue() float32`
@@ -218,36 +248,6 @@ and a boolean to check if the value has been set.
 SetDimensionName sets DimensionName field to given value.
 
 
-### GetOrgRates
-
-`func (o *BilledUsage) GetOrgRates() interface{}`
-
-GetOrgRates returns the OrgRates field if non-nil, zero value otherwise.
-
-### GetOrgRatesOk
-
-`func (o *BilledUsage) GetOrgRatesOk() (*interface{}, bool)`
-
-GetOrgRatesOk returns a tuple with the OrgRates field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOrgRates
-
-`func (o *BilledUsage) SetOrgRates(v interface{})`
-
-SetOrgRates sets OrgRates field to given value.
-
-
-### SetOrgRatesNil
-
-`func (o *BilledUsage) SetOrgRatesNil(b bool)`
-
- SetOrgRatesNil sets the value for OrgRates to be an explicit nil
-
-### UnsetOrgRates
-`func (o *BilledUsage) UnsetOrgRates()`
-
-UnsetOrgRates ensures that no value is present for OrgRates, not even an explicit nil
 ### GetPeriodEnd
 
 `func (o *BilledUsage) GetPeriodEnd() string`

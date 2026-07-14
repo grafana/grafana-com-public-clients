@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: f5f7485
-  x-generated-at: 2026-07-02T05:42:02.963Z
+  x-commit-sha: "2141434"
+  x-generated-at: 2026-07-13T19:37:32.313Z
 servers:
 - description: Main API server
   url: /api
@@ -4109,14 +4109,14 @@ components:
           - sm-browser
           title: dimensionId
           type: string
+        orgRates:
+          title: orgRates
         amountDue:
           title: amountDue
           type: number
         dimensionName:
           title: dimensionName
           type: string
-        orgRates:
-          title: orgRates
         periodEnd:
           title: periodEnd
           type: string
