@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "2141434",
-    "x-generated-at": "2026-07-13T19:37:32.313Z"
+    "x-commit-sha": "1149689",
+    "x-generated-at": "2026-07-15T16:00:04.222Z"
   },
   "servers": [
     {
@@ -9731,6 +9731,10 @@
                 "type": "string",
                 "title": "workflowEngineUrl"
               },
+              "mobileGatewayUrl": {
+                "type": "string",
+                "title": "mobileGatewayUrl"
+              },
               "incidentApiUrl": {
                 "type": "string",
                 "title": "incidentApiUrl"
@@ -11001,6 +11005,7 @@
               "isStub",
               "llmGatewayUrl",
               "machineLearningApiUrl",
+              "mobileGatewayUrl",
               "name",
               "oncallApiUrl",
               "otlpHttpUrl",
@@ -12565,6 +12570,130 @@
         },
         "type": "object"
       },
+      "Datasource": {
+        "additionalProperties": false,
+        "properties": {
+          "access": {
+            "type": "string"
+          },
+          "basicAuth": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "basicAuthPassword": {
+            "type": "string"
+          },
+          "basicAuthUser": {
+            "type": "string"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "database": {
+            "type": "string"
+          },
+          "delete": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "editable": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "grafanaOrgId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "id": {
+            "format": "int32",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "instanceId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "isDefault": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "jsonData": {},
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "secureJsonData": {
+            "additionalProperties": {},
+            "type": "object"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "nullable": true,
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "version": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "withCredentials": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "instanceId",
+          "name",
+          "type",
+          "access",
+          "grafanaOrgId",
+          "url",
+          "password",
+          "user",
+          "database",
+          "basicAuth",
+          "basicAuthUser",
+          "basicAuthPassword",
+          "withCredentials",
+          "isDefault",
+          "jsonData",
+          "secureJsonData",
+          "version",
+          "editable",
+          "delete",
+          "createdAt",
+          "updatedAt"
+        ],
+        "type": "object"
+      },
+      "Datasources": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/Datasource"
+            },
+            "nullable": true,
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
       "ErrorPayload": {
         "additionalProperties": false,
         "properties": {
@@ -12620,6 +12749,61 @@
           "privateConnectivityInfo",
           "otlpHttpUrl",
           "otlpMultiAZ"
+        ],
+        "type": "object"
+      },
+      "FormattedApiInstanceDashboard": {
+        "additionalProperties": false,
+        "properties": {
+          "dashboardJson": {
+            "description": "the dashboard definition"
+          },
+          "disableDelete": {
+            "description": "whether the dashboard is protected from deletion",
+            "type": "boolean"
+          },
+          "folder": {
+            "description": "dashboard folder",
+            "type": "string"
+          },
+          "id": {
+            "description": "dashboard id",
+            "format": "int64",
+            "type": "integer"
+          },
+          "name": {
+            "description": "dashboard name",
+            "type": "string"
+          },
+          "slug": {
+            "description": "dashboard slug",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "slug",
+          "folder",
+          "disableDelete",
+          "dashboardJson"
+        ],
+        "type": "object"
+      },
+      "FormattedApiInstanceDashboards": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "description": "the dashboards for the instance",
+            "items": {
+              "$ref": "#/components/schemas/FormattedApiInstanceDashboard"
+            },
+            "nullable": true,
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
         ],
         "type": "object"
       },

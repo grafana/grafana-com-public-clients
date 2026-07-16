@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: "2141434"
-  x-generated-at: 2026-07-13T19:37:32.313Z
+  x-commit-sha: "1149689"
+  x-generated-at: 2026-07-15T16:00:04.222Z
 servers:
 - description: Main API server
   url: /api
@@ -6555,6 +6555,101 @@ components:
         serviceName:
           type: string
       type: object
+    Datasource:
+      additionalProperties: false
+      properties:
+        access:
+          type: string
+        basicAuth:
+          format: int32
+          type: integer
+        basicAuthPassword:
+          type: string
+        basicAuthUser:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        database:
+          type: string
+        delete:
+          format: int32
+          type: integer
+        editable:
+          format: int32
+          type: integer
+        grafanaOrgId:
+          format: int32
+          type: integer
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        instanceId:
+          format: int32
+          type: integer
+        isDefault:
+          format: int32
+          type: integer
+        jsonData: {}
+        name:
+          type: string
+        password:
+          type: string
+        secureJsonData:
+          additionalProperties: {}
+          type: object
+        type:
+          type: string
+        updatedAt:
+          format: date-time
+          nullable: true
+          type: string
+        url:
+          type: string
+        user:
+          type: string
+        version:
+          format: int32
+          type: integer
+        withCredentials:
+          format: int32
+          type: integer
+      required:
+      - access
+      - basicAuth
+      - basicAuthPassword
+      - basicAuthUser
+      - createdAt
+      - database
+      - delete
+      - editable
+      - grafanaOrgId
+      - id
+      - instanceId
+      - isDefault
+      - jsonData
+      - name
+      - password
+      - secureJsonData
+      - type
+      - updatedAt
+      - url
+      - user
+      - version
+      - withCredentials
+      type: object
+    Datasources:
+      additionalProperties: false
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Datasource'
+          nullable: true
+          type: array
+      required:
+      - items
+      type: object
     ErrorPayload:
       additionalProperties: false
       example:
@@ -6705,6 +6800,47 @@ components:
       - otlpHttpUrl
       - otlpMultiAZ
       - privateConnectivityInfo
+      type: object
+    FormattedApiInstanceDashboard:
+      additionalProperties: false
+      properties:
+        dashboardJson:
+          description: the dashboard definition
+        disableDelete:
+          description: whether the dashboard is protected from deletion
+          type: boolean
+        folder:
+          description: dashboard folder
+          type: string
+        id:
+          description: dashboard id
+          format: int64
+          type: integer
+        name:
+          description: dashboard name
+          type: string
+        slug:
+          description: dashboard slug
+          type: string
+      required:
+      - dashboardJson
+      - disableDelete
+      - folder
+      - id
+      - name
+      - slug
+      type: object
+    FormattedApiInstanceDashboards:
+      additionalProperties: false
+      properties:
+        items:
+          description: the dashboards for the instance
+          items:
+            $ref: '#/components/schemas/FormattedApiInstanceDashboard'
+          nullable: true
+          type: array
+      required:
+      - items
       type: object
     FormattedApiInstancePrivateConnectivityInfo:
       additionalProperties: false
@@ -10972,6 +11108,9 @@ components:
         workflowEngineUrl:
           title: workflowEngineUrl
           type: string
+        mobileGatewayUrl:
+          title: mobileGatewayUrl
+          type: string
         incidentApiUrl:
           title: incidentApiUrl
           type: string
@@ -11223,6 +11362,7 @@ components:
       - isStub
       - llmGatewayUrl
       - machineLearningApiUrl
+      - mobileGatewayUrl
       - name
       - oncallApiUrl
       - otlpHttpUrl

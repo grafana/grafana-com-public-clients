@@ -41,6 +41,8 @@ docs/CreditsInner.md
 docs/Current.md
 docs/Current1.md
 docs/Current2.md
+docs/Datasource.md
+docs/Datasources.md
 docs/Dependencies.md
 docs/EnterpriseFeatures.md
 docs/ErrorConflict.md
@@ -59,6 +61,8 @@ docs/FormattedApiApiKeyListResponse.md
 docs/FormattedApiApiKeyListResponseItemsInner.md
 docs/FormattedApiInstance.md
 docs/FormattedApiInstanceConnections.md
+docs/FormattedApiInstanceDashboard.md
+docs/FormattedApiInstanceDashboards.md
 docs/FormattedApiInstancePlugin.md
 docs/FormattedApiInstancePrivateConnectivityInfo.md
 docs/FormattedApiInstanceReadiness.md
@@ -208,6 +212,8 @@ model_credits_inner.go
 model_current.go
 model_current_1.go
 model_current_2.go
+model_datasource.go
+model_datasources.go
 model_dependencies.go
 model_enterprise_features.go
 model_error_conflict.go
@@ -226,6 +232,8 @@ model_formatted_api_api_key_list_response.go
 model_formatted_api_api_key_list_response_items_inner.go
 model_formatted_api_instance.go
 model_formatted_api_instance_connections.go
+model_formatted_api_instance_dashboard.go
+model_formatted_api_instance_dashboards.go
 model_formatted_api_instance_plugin.go
 model_formatted_api_instance_private_connectivity_info.go
 model_formatted_api_instance_readiness.go
