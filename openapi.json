@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "0520fcc",
-    "x-generated-at": "2026-07-16T19:39:53.633Z"
+    "x-commit-sha": "0f022ac",
+    "x-generated-at": "2026-07-17T10:22:08.924Z"
   },
   "servers": [
     {
@@ -11821,6 +11821,42 @@
       "OrgMemberListResponse": {
         "type": "object",
         "properties": {
+          "total": {
+            "type": "number",
+            "title": "total"
+          },
+          "pages": {
+            "type": "number",
+            "title": "pages"
+          },
+          "page": {
+            "type": "number",
+            "title": "page"
+          },
+          "perPage": {
+            "type": "number",
+            "title": "perPage"
+          },
+          "totalCount": {
+            "type": "number",
+            "title": "totalCount"
+          },
+          "orderBy": {
+            "type": "string",
+            "title": "orderBy"
+          },
+          "direction": {
+            "type": "string",
+            "title": "direction"
+          },
+          "cursor": {
+            "type": "number",
+            "title": "cursor"
+          },
+          "nextCursor": {
+            "type": "number",
+            "title": "nextCursor"
+          },
           "items": {
             "type": "array",
             "items": {
@@ -12421,42 +12457,6 @@
               ]
             },
             "title": "links"
-          },
-          "total": {
-            "type": "number",
-            "title": "total"
-          },
-          "pages": {
-            "type": "number",
-            "title": "pages"
-          },
-          "page": {
-            "type": "number",
-            "title": "page"
-          },
-          "perPage": {
-            "type": "number",
-            "title": "perPage"
-          },
-          "totalCount": {
-            "type": "number",
-            "title": "totalCount"
-          },
-          "orderBy": {
-            "type": "string",
-            "title": "orderBy"
-          },
-          "direction": {
-            "type": "string",
-            "title": "direction"
-          },
-          "cursor": {
-            "type": "number",
-            "title": "cursor"
-          },
-          "nextCursor": {
-            "type": "number",
-            "title": "nextCursor"
           }
         },
         "required": [
