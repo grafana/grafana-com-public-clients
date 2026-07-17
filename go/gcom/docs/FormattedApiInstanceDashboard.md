@@ -4,18 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CreatedAt** | **time.Time** | when the dashboard was created | 
 **DashboardJson** | **interface{}** | the dashboard definition | 
 **DisableDelete** | **bool** | whether the dashboard is protected from deletion | 
 **Folder** | **string** | dashboard folder | 
+**GrafanaOrgId** | **int32** | grafana org id | 
 **Id** | **int64** | dashboard id | 
+**InstanceId** | **int32** | hosted grafana instance id | 
 **Name** | **string** | dashboard name | 
-**Slug** | **string** | dashboard slug | 
+**UpdatedAt** | **NullableTime** | when the dashboard was last updated | 
 
 ## Methods
 
 ### NewFormattedApiInstanceDashboard
 
-`func NewFormattedApiInstanceDashboard(dashboardJson interface{}, disableDelete bool, folder string, id int64, name string, slug string, ) *FormattedApiInstanceDashboard`
+`func NewFormattedApiInstanceDashboard(createdAt time.Time, dashboardJson interface{}, disableDelete bool, folder string, grafanaOrgId int32, id int64, instanceId int32, name string, updatedAt NullableTime, ) *FormattedApiInstanceDashboard`
 
 NewFormattedApiInstanceDashboard instantiates a new FormattedApiInstanceDashboard object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +32,26 @@ will change when the set of required properties is changed
 NewFormattedApiInstanceDashboardWithDefaults instantiates a new FormattedApiInstanceDashboard object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCreatedAt
+
+`func (o *FormattedApiInstanceDashboard) GetCreatedAt() time.Time`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *FormattedApiInstanceDashboard) GetCreatedAtOk() (*time.Time, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedAt
+
+`func (o *FormattedApiInstanceDashboard) SetCreatedAt(v time.Time)`
+
+SetCreatedAt sets CreatedAt field to given value.
+
 
 ### GetDashboardJson
 
@@ -100,6 +123,26 @@ and a boolean to check if the value has been set.
 SetFolder sets Folder field to given value.
 
 
+### GetGrafanaOrgId
+
+`func (o *FormattedApiInstanceDashboard) GetGrafanaOrgId() int32`
+
+GetGrafanaOrgId returns the GrafanaOrgId field if non-nil, zero value otherwise.
+
+### GetGrafanaOrgIdOk
+
+`func (o *FormattedApiInstanceDashboard) GetGrafanaOrgIdOk() (*int32, bool)`
+
+GetGrafanaOrgIdOk returns a tuple with the GrafanaOrgId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGrafanaOrgId
+
+`func (o *FormattedApiInstanceDashboard) SetGrafanaOrgId(v int32)`
+
+SetGrafanaOrgId sets GrafanaOrgId field to given value.
+
+
 ### GetId
 
 `func (o *FormattedApiInstanceDashboard) GetId() int64`
@@ -118,6 +161,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiInstanceDashboard) SetId(v int64)`
 
 SetId sets Id field to given value.
+
+
+### GetInstanceId
+
+`func (o *FormattedApiInstanceDashboard) GetInstanceId() int32`
+
+GetInstanceId returns the InstanceId field if non-nil, zero value otherwise.
+
+### GetInstanceIdOk
+
+`func (o *FormattedApiInstanceDashboard) GetInstanceIdOk() (*int32, bool)`
+
+GetInstanceIdOk returns a tuple with the InstanceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstanceId
+
+`func (o *FormattedApiInstanceDashboard) SetInstanceId(v int32)`
+
+SetInstanceId sets InstanceId field to given value.
 
 
 ### GetName
@@ -140,26 +203,36 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetSlug
+### GetUpdatedAt
 
-`func (o *FormattedApiInstanceDashboard) GetSlug() string`
+`func (o *FormattedApiInstanceDashboard) GetUpdatedAt() time.Time`
 
-GetSlug returns the Slug field if non-nil, zero value otherwise.
+GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
 
-### GetSlugOk
+### GetUpdatedAtOk
 
-`func (o *FormattedApiInstanceDashboard) GetSlugOk() (*string, bool)`
+`func (o *FormattedApiInstanceDashboard) GetUpdatedAtOk() (*time.Time, bool)`
 
-GetSlugOk returns a tuple with the Slug field if it's non-nil, zero value otherwise
+GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSlug
+### SetUpdatedAt
 
-`func (o *FormattedApiInstanceDashboard) SetSlug(v string)`
+`func (o *FormattedApiInstanceDashboard) SetUpdatedAt(v time.Time)`
 
-SetSlug sets Slug field to given value.
+SetUpdatedAt sets UpdatedAt field to given value.
 
 
+### SetUpdatedAtNil
+
+`func (o *FormattedApiInstanceDashboard) SetUpdatedAtNil(b bool)`
+
+ SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
+
+### UnsetUpdatedAt
+`func (o *FormattedApiInstanceDashboard) UnsetUpdatedAt()`
+
+UnsetUpdatedAt ensures that no value is present for UpdatedAt, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

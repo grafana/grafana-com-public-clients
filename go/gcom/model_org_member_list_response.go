@@ -19,8 +19,6 @@ var _ MappedNullable = &OrgMemberListResponse{}
 
 // OrgMemberListResponse struct for OrgMemberListResponse
 type OrgMemberListResponse struct {
-	Items                []ItemsInner2 `json:"items"`
-	Links                []LinksInner  `json:"links"`
 	Total                *float32      `json:"total,omitempty"`
 	Pages                *float32      `json:"pages,omitempty"`
 	Page                 *float32      `json:"page,omitempty"`
@@ -30,6 +28,8 @@ type OrgMemberListResponse struct {
 	Direction            *string       `json:"direction,omitempty"`
 	Cursor               *float32      `json:"cursor,omitempty"`
 	NextCursor           *float32      `json:"nextCursor,omitempty"`
+	Items                []ItemsInner2 `json:"items"`
+	Links                []LinksInner  `json:"links"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -52,54 +52,6 @@ func NewOrgMemberListResponse(items []ItemsInner2, links []LinksInner) *OrgMembe
 func NewOrgMemberListResponseWithDefaults() *OrgMemberListResponse {
 	this := OrgMemberListResponse{}
 	return &this
-}
-
-// GetItems returns the Items field value
-func (o *OrgMemberListResponse) GetItems() []ItemsInner2 {
-	if o == nil {
-		var ret []ItemsInner2
-		return ret
-	}
-
-	return o.Items
-}
-
-// GetItemsOk returns a tuple with the Items field value
-// and a boolean to check if the value has been set.
-func (o *OrgMemberListResponse) GetItemsOk() ([]ItemsInner2, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Items, true
-}
-
-// SetItems sets field value
-func (o *OrgMemberListResponse) SetItems(v []ItemsInner2) {
-	o.Items = v
-}
-
-// GetLinks returns the Links field value
-func (o *OrgMemberListResponse) GetLinks() []LinksInner {
-	if o == nil {
-		var ret []LinksInner
-		return ret
-	}
-
-	return o.Links
-}
-
-// GetLinksOk returns a tuple with the Links field value
-// and a boolean to check if the value has been set.
-func (o *OrgMemberListResponse) GetLinksOk() ([]LinksInner, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Links, true
-}
-
-// SetLinks sets field value
-func (o *OrgMemberListResponse) SetLinks(v []LinksInner) {
-	o.Links = v
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
@@ -390,6 +342,54 @@ func (o *OrgMemberListResponse) SetNextCursor(v float32) {
 	o.NextCursor = &v
 }
 
+// GetItems returns the Items field value
+func (o *OrgMemberListResponse) GetItems() []ItemsInner2 {
+	if o == nil {
+		var ret []ItemsInner2
+		return ret
+	}
+
+	return o.Items
+}
+
+// GetItemsOk returns a tuple with the Items field value
+// and a boolean to check if the value has been set.
+func (o *OrgMemberListResponse) GetItemsOk() ([]ItemsInner2, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Items, true
+}
+
+// SetItems sets field value
+func (o *OrgMemberListResponse) SetItems(v []ItemsInner2) {
+	o.Items = v
+}
+
+// GetLinks returns the Links field value
+func (o *OrgMemberListResponse) GetLinks() []LinksInner {
+	if o == nil {
+		var ret []LinksInner
+		return ret
+	}
+
+	return o.Links
+}
+
+// GetLinksOk returns a tuple with the Links field value
+// and a boolean to check if the value has been set.
+func (o *OrgMemberListResponse) GetLinksOk() ([]LinksInner, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Links, true
+}
+
+// SetLinks sets field value
+func (o *OrgMemberListResponse) SetLinks(v []LinksInner) {
+	o.Links = v
+}
+
 func (o OrgMemberListResponse) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -400,8 +400,6 @@ func (o OrgMemberListResponse) MarshalJSON() ([]byte, error) {
 
 func (o OrgMemberListResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["items"] = o.Items
-	toSerialize["links"] = o.Links
 	if !IsNil(o.Total) {
 		toSerialize["total"] = o.Total
 	}
@@ -429,6 +427,8 @@ func (o OrgMemberListResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.NextCursor) {
 		toSerialize["nextCursor"] = o.NextCursor
 	}
+	toSerialize["items"] = o.Items
+	toSerialize["links"] = o.Links
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -459,8 +459,6 @@ func (o *OrgMemberListResponse) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "items")
-		delete(additionalProperties, "links")
 		delete(additionalProperties, "total")
 		delete(additionalProperties, "pages")
 		delete(additionalProperties, "page")
@@ -470,6 +468,8 @@ func (o *OrgMemberListResponse) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "direction")
 		delete(additionalProperties, "cursor")
 		delete(additionalProperties, "nextCursor")
+		delete(additionalProperties, "items")
+		delete(additionalProperties, "links")
 		o.AdditionalProperties = additionalProperties
 	}
 
