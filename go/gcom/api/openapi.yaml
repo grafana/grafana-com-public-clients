@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: "1149689"
-  x-generated-at: 2026-07-15T16:00:04.222Z
+  x-commit-sha: 0f022ac
+  x-generated-at: 2026-07-17T10:22:08.924Z
 servers:
 - description: Main API server
   url: /api
@@ -5937,7 +5937,7 @@ components:
         grafanaStaffAccess:
           publicReason: publicReason
           accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-          ticketId: 6.84685269835264
+          ticketId: 6.683562403749608
         hlUsage: 7.386281948385884
         orgUrl: orgUrl
         orgId: 6.027456183070403
@@ -6301,21 +6301,21 @@ components:
       type: object
     OrgMemberListResponse:
       example:
-        cursor: 9.369310271410669
-        nextCursor: 6.683562403749608
-        total: 7.457744773683766
-        pages: 1.1730742509559433
-        perPage: 5.025004791520295
+        cursor: 2.3021358869347655
+        nextCursor: 7.061401241503109
+        total: 0.8008281904610115
+        pages: 6.027456183070403
+        perPage: 5.962133916683182
         orderBy: orderBy
         links:
         - rel: rel
           href: href
         - rel: rel
           href: href
-        page: 4.965218492984954
-        totalCount: 9.965781217890562
+        page: 1.4658129805029452
+        totalCount: 5.637376656633329
         items:
-        - grafanaCloud: 3.616076749251911
+        - grafanaCloud: 6.84685269835264
           orgSlug: orgSlug
           subscriptions:
             next: ""
@@ -6330,25 +6330,25 @@ components:
               plan: ""
               startDate: ""
           role: Admin
-          userStatus: 1.4894159098541704
-          hmCurrentPrometheusUsage: 1.0246457001441578
-          privacy: 2.3021358869347655
+          userStatus: 9.369310271410669
+          hmCurrentPrometheusUsage: 9.965781217890562
+          privacy: 1.2315135367772556
           grafanaStaffAccess:
             publicReason: publicReason
             accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-            ticketId: 6.84685269835264
-          hlUsage: 7.386281948385884
+            ticketId: 6.683562403749608
+          hlUsage: 4.965218492984954
           orgUrl: orgUrl
-          orgId: 6.027456183070403
-          billing: 7.061401241503109
-          defaultOrg: 5.637376656633329
+          orgId: 3.616076749251911
+          billing: 1.0246457001441578
+          defaultOrg: 7.386281948385884
           createdAt: createdAt
-          security: 9.301444243932576
+          security: 1.4894159098541704
           hgDatasourceCnts: hgDatasourceCnts
           userLastName: userLastName
           userEmail: userEmail
           mfaEnabled: true
-          id: 0.8008281904610115
+          id: 9.301444243932576
           extraPermissions:
           - accesspolicies:write
           - accesspolicies:write
@@ -6358,17 +6358,17 @@ components:
           orgName: orgName
           userFirstName: userFirstName
           userName: userName
-          userId: 1.4658129805029452
-          contractTypeId: 4.145608029883936
-          resellerId: 2.027123023002322
-          hmCurrentGraphiteUsage: 1.2315135367772556
+          userId: 2.027123023002322
+          contractTypeId: 1.1730742509559433
+          resellerId: 7.457744773683766
+          hmCurrentGraphiteUsage: 5.025004791520295
           createdBy: createdBy
           allowGCloudTrial: true
           marketplaceSubscription:
             isLegacy: true
             provider: aws
-          status: 5.962133916683182
-        - grafanaCloud: 3.616076749251911
+          status: 4.145608029883936
+        - grafanaCloud: 6.84685269835264
           orgSlug: orgSlug
           subscriptions:
             next: ""
@@ -6383,25 +6383,25 @@ components:
               plan: ""
               startDate: ""
           role: Admin
-          userStatus: 1.4894159098541704
-          hmCurrentPrometheusUsage: 1.0246457001441578
-          privacy: 2.3021358869347655
+          userStatus: 9.369310271410669
+          hmCurrentPrometheusUsage: 9.965781217890562
+          privacy: 1.2315135367772556
           grafanaStaffAccess:
             publicReason: publicReason
             accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-            ticketId: 6.84685269835264
-          hlUsage: 7.386281948385884
+            ticketId: 6.683562403749608
+          hlUsage: 4.965218492984954
           orgUrl: orgUrl
-          orgId: 6.027456183070403
-          billing: 7.061401241503109
-          defaultOrg: 5.637376656633329
+          orgId: 3.616076749251911
+          billing: 1.0246457001441578
+          defaultOrg: 7.386281948385884
           createdAt: createdAt
-          security: 9.301444243932576
+          security: 1.4894159098541704
           hgDatasourceCnts: hgDatasourceCnts
           userLastName: userLastName
           userEmail: userEmail
           mfaEnabled: true
-          id: 0.8008281904610115
+          id: 9.301444243932576
           extraPermissions:
           - accesspolicies:write
           - accesspolicies:write
@@ -6411,28 +6411,18 @@ components:
           orgName: orgName
           userFirstName: userFirstName
           userName: userName
-          userId: 1.4658129805029452
-          contractTypeId: 4.145608029883936
-          resellerId: 2.027123023002322
-          hmCurrentGraphiteUsage: 1.2315135367772556
+          userId: 2.027123023002322
+          contractTypeId: 1.1730742509559433
+          resellerId: 7.457744773683766
+          hmCurrentGraphiteUsage: 5.025004791520295
           createdBy: createdBy
           allowGCloudTrial: true
           marketplaceSubscription:
             isLegacy: true
             provider: aws
-          status: 5.962133916683182
+          status: 4.145608029883936
         direction: direction
       properties:
-        items:
-          items:
-            $ref: '#/components/schemas/items_inner_2'
-          title: items
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/links_inner'
-          title: links
-          type: array
         total:
           title: total
           type: number
@@ -6460,6 +6450,16 @@ components:
         nextCursor:
           title: nextCursor
           type: number
+        items:
+          items:
+            $ref: '#/components/schemas/items_inner_2'
+          title: items
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/links_inner'
+          title: links
+          type: array
       required:
       - items
       - links
@@ -6554,6 +6554,58 @@ components:
           type: string
         serviceName:
           type: string
+      type: object
+    CreateDatasourceRequestBody:
+      additionalProperties: false
+      properties:
+        access:
+          description: datasource access mode
+          type: string
+        basicAuth:
+          format: int32
+          type: integer
+        basicAuthPassword:
+          type: string
+        basicAuthUser:
+          type: string
+        database:
+          type: string
+        editable:
+          format: int32
+          type: integer
+        grafanaOrgId:
+          default: 1
+          description: grafana org id
+          format: int32
+          type: integer
+        isDefault:
+          format: int32
+          type: integer
+        jsonData:
+          additionalProperties: {}
+          type: object
+        name:
+          description: datasource name
+          type: string
+        password:
+          type: string
+        secureJsonData:
+          additionalProperties: {}
+          type: object
+        type:
+          description: datasource type
+          type: string
+        url:
+          type: string
+        user:
+          type: string
+        withCredentials:
+          format: int32
+          type: integer
+      required:
+      - access
+      - name
+      - type
       type: object
     Datasource:
       additionalProperties: false
@@ -6804,6 +6856,10 @@ components:
     FormattedApiInstanceDashboard:
       additionalProperties: false
       properties:
+        createdAt:
+          description: when the dashboard was created
+          format: date-time
+          type: string
         dashboardJson:
           description: the dashboard definition
         disableDelete:
@@ -6812,23 +6868,36 @@ components:
         folder:
           description: dashboard folder
           type: string
+        grafanaOrgId:
+          description: grafana org id
+          format: int32
+          type: integer
         id:
           description: dashboard id
           format: int64
           type: integer
+        instanceId:
+          description: hosted grafana instance id
+          format: int32
+          type: integer
         name:
           description: dashboard name
           type: string
-        slug:
-          description: dashboard slug
+        updatedAt:
+          description: when the dashboard was last updated
+          format: date-time
+          nullable: true
           type: string
       required:
+      - createdAt
       - dashboardJson
       - disableDelete
       - folder
+      - grafanaOrgId
       - id
+      - instanceId
       - name
-      - slug
+      - updatedAt
       type: object
     FormattedApiInstanceDashboards:
       additionalProperties: false
@@ -6953,6 +7022,80 @@ components:
       required:
       - tenants
       type: object
+    FormattedDatasource:
+      additionalProperties: false
+      properties:
+        access:
+          type: string
+        basicAuth:
+          format: int32
+          type: integer
+        basicAuthUser:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        database:
+          type: string
+        delete:
+          format: int32
+          type: integer
+        editable:
+          format: int32
+          type: integer
+        grafanaOrgId:
+          format: int32
+          type: integer
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        instanceId:
+          format: int32
+          type: integer
+        isDefault:
+          format: int32
+          type: integer
+        jsonData: {}
+        name:
+          type: string
+        type:
+          type: string
+        updatedAt:
+          format: date-time
+          nullable: true
+          type: string
+        url:
+          type: string
+        user:
+          type: string
+        version:
+          format: int32
+          type: integer
+        withCredentials:
+          format: int32
+          type: integer
+      required:
+      - access
+      - basicAuth
+      - basicAuthUser
+      - createdAt
+      - database
+      - delete
+      - editable
+      - grafanaOrgId
+      - id
+      - instanceId
+      - isDefault
+      - jsonData
+      - name
+      - type
+      - updatedAt
+      - url
+      - user
+      - version
+      - withCredentials
+      type: object
     InstanceConnectionTenant:
       additionalProperties: false
       example:
@@ -6998,6 +7141,42 @@ components:
       - id
       - ipAllowListCNAME
       - type
+      type: object
+    InstanceDashboardCreateBody:
+      additionalProperties: false
+      properties:
+        dashboardJson:
+          description: the dashboard definition
+        disableDelete:
+          description: whether the dashboard is protected from deletion
+          type: boolean
+        folder:
+          description: folder to place the dashboard in
+          type: string
+        grafanaOrgId:
+          default: 1
+          description: grafana org id to create the dashboard in
+          format: int64
+          type: integer
+        name:
+          description: dashboard name
+          type: string
+      required:
+      - dashboardJson
+      - disableDelete
+      - name
+      type: object
+    InstanceDashboardUpdateBody:
+      additionalProperties: false
+      properties:
+        dashboardJson:
+          description: the dashboard definition
+        disableDelete:
+          description: whether the dashboard is protected from deletion
+          type: boolean
+        folder:
+          description: folder to place the dashboard in
+          type: string
       type: object
     InternalStackCreateRequestV1:
       additionalProperties: false
@@ -7617,6 +7796,42 @@ components:
       - region
       - slug
       - url
+      type: object
+    UpdateDatasourceBody:
+      additionalProperties: false
+      properties:
+        access:
+          type: string
+        aliases:
+          items:
+            type: string
+          type: array
+        basicAuth:
+          $ref: '#/components/schemas/UpdateDatasourceBody_basicAuth'
+        basicAuthPassword:
+          type: string
+        basicAuthUser:
+          type: string
+        database:
+          type: string
+        editable:
+          $ref: '#/components/schemas/UpdateDatasourceBody_basicAuth'
+        isDefault:
+          $ref: '#/components/schemas/UpdateDatasourceBody_basicAuth'
+        jsonData:
+          additionalProperties: {}
+          type: object
+        password:
+          type: string
+        secureJsonData:
+          additionalProperties: {}
+          type: object
+        url:
+          type: string
+        user:
+          type: string
+        withCredentials:
+          $ref: '#/components/schemas/UpdateDatasourceBody_basicAuth'
       type: object
     FormattedApiApiKey:
       properties:
@@ -11408,7 +11623,7 @@ components:
       example:
         publicReason: publicReason
         accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-        ticketId: 6.84685269835264
+        ticketId: 6.683562403749608
       nullable: true
       properties:
         accessExpiresAt:
@@ -11492,7 +11707,7 @@ components:
       type: object
     items_inner_2:
       example:
-        grafanaCloud: 3.616076749251911
+        grafanaCloud: 6.84685269835264
         orgSlug: orgSlug
         subscriptions:
           next: ""
@@ -11507,25 +11722,25 @@ components:
             plan: ""
             startDate: ""
         role: Admin
-        userStatus: 1.4894159098541704
-        hmCurrentPrometheusUsage: 1.0246457001441578
-        privacy: 2.3021358869347655
+        userStatus: 9.369310271410669
+        hmCurrentPrometheusUsage: 9.965781217890562
+        privacy: 1.2315135367772556
         grafanaStaffAccess:
           publicReason: publicReason
           accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-          ticketId: 6.84685269835264
-        hlUsage: 7.386281948385884
+          ticketId: 6.683562403749608
+        hlUsage: 4.965218492984954
         orgUrl: orgUrl
-        orgId: 6.027456183070403
-        billing: 7.061401241503109
-        defaultOrg: 5.637376656633329
+        orgId: 3.616076749251911
+        billing: 1.0246457001441578
+        defaultOrg: 7.386281948385884
         createdAt: createdAt
-        security: 9.301444243932576
+        security: 1.4894159098541704
         hgDatasourceCnts: hgDatasourceCnts
         userLastName: userLastName
         userEmail: userEmail
         mfaEnabled: true
-        id: 0.8008281904610115
+        id: 9.301444243932576
         extraPermissions:
         - accesspolicies:write
         - accesspolicies:write
@@ -11535,16 +11750,16 @@ components:
         orgName: orgName
         userFirstName: userFirstName
         userName: userName
-        userId: 1.4658129805029452
-        contractTypeId: 4.145608029883936
-        resellerId: 2.027123023002322
-        hmCurrentGraphiteUsage: 1.2315135367772556
+        userId: 2.027123023002322
+        contractTypeId: 1.1730742509559433
+        resellerId: 7.457744773683766
+        hmCurrentGraphiteUsage: 5.025004791520295
         createdBy: createdBy
         allowGCloudTrial: true
         marketplaceSubscription:
           isLegacy: true
           provider: aws
-        status: 5.962133916683182
+        status: 4.145608029883936
       properties:
         id:
           title: id
@@ -11727,6 +11942,10 @@ components:
       - id
       - name
       type: object
+    UpdateDatasourceBody_basicAuth:
+      oneOf:
+      - type: boolean
+      - type: integer
     FormattedApiApiKey_id:
       anyOf:
       - type: string

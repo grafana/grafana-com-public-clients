@@ -13,6 +13,7 @@ package gcom
 import (
 	"bytes"
 	"encoding/json"
+	"time"
 )
 
 // checks if the FormattedApiInstanceDashboard type satisfies the MappedNullable interface at compile time
@@ -20,18 +21,24 @@ var _ MappedNullable = &FormattedApiInstanceDashboard{}
 
 // FormattedApiInstanceDashboard struct for FormattedApiInstanceDashboard
 type FormattedApiInstanceDashboard struct {
+	// when the dashboard was created
+	CreatedAt time.Time `json:"createdAt"`
 	// the dashboard definition
 	DashboardJson interface{} `json:"dashboardJson"`
 	// whether the dashboard is protected from deletion
 	DisableDelete bool `json:"disableDelete"`
 	// dashboard folder
 	Folder string `json:"folder"`
+	// grafana org id
+	GrafanaOrgId int32 `json:"grafanaOrgId"`
 	// dashboard id
 	Id int64 `json:"id"`
+	// hosted grafana instance id
+	InstanceId int32 `json:"instanceId"`
 	// dashboard name
 	Name string `json:"name"`
-	// dashboard slug
-	Slug string `json:"slug"`
+	// when the dashboard was last updated
+	UpdatedAt NullableTime `json:"updatedAt"`
 }
 
 type _FormattedApiInstanceDashboard FormattedApiInstanceDashboard
@@ -40,14 +47,17 @@ type _FormattedApiInstanceDashboard FormattedApiInstanceDashboard
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiInstanceDashboard(dashboardJson interface{}, disableDelete bool, folder string, id int64, name string, slug string) *FormattedApiInstanceDashboard {
+func NewFormattedApiInstanceDashboard(createdAt time.Time, dashboardJson interface{}, disableDelete bool, folder string, grafanaOrgId int32, id int64, instanceId int32, name string, updatedAt NullableTime) *FormattedApiInstanceDashboard {
 	this := FormattedApiInstanceDashboard{}
+	this.CreatedAt = createdAt
 	this.DashboardJson = dashboardJson
 	this.DisableDelete = disableDelete
 	this.Folder = folder
+	this.GrafanaOrgId = grafanaOrgId
 	this.Id = id
+	this.InstanceId = instanceId
 	this.Name = name
-	this.Slug = slug
+	this.UpdatedAt = updatedAt
 	return &this
 }
 
@@ -57,6 +67,30 @@ func NewFormattedApiInstanceDashboard(dashboardJson interface{}, disableDelete b
 func NewFormattedApiInstanceDashboardWithDefaults() *FormattedApiInstanceDashboard {
 	this := FormattedApiInstanceDashboard{}
 	return &this
+}
+
+// GetCreatedAt returns the CreatedAt field value
+func (o *FormattedApiInstanceDashboard) GetCreatedAt() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.CreatedAt
+}
+
+// GetCreatedAtOk returns a tuple with the CreatedAt field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstanceDashboard) GetCreatedAtOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedAt, true
+}
+
+// SetCreatedAt sets field value
+func (o *FormattedApiInstanceDashboard) SetCreatedAt(v time.Time) {
+	o.CreatedAt = v
 }
 
 // GetDashboardJson returns the DashboardJson field value
@@ -133,6 +167,30 @@ func (o *FormattedApiInstanceDashboard) SetFolder(v string) {
 	o.Folder = v
 }
 
+// GetGrafanaOrgId returns the GrafanaOrgId field value
+func (o *FormattedApiInstanceDashboard) GetGrafanaOrgId() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.GrafanaOrgId
+}
+
+// GetGrafanaOrgIdOk returns a tuple with the GrafanaOrgId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstanceDashboard) GetGrafanaOrgIdOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GrafanaOrgId, true
+}
+
+// SetGrafanaOrgId sets field value
+func (o *FormattedApiInstanceDashboard) SetGrafanaOrgId(v int32) {
+	o.GrafanaOrgId = v
+}
+
 // GetId returns the Id field value
 func (o *FormattedApiInstanceDashboard) GetId() int64 {
 	if o == nil {
@@ -155,6 +213,30 @@ func (o *FormattedApiInstanceDashboard) GetIdOk() (*int64, bool) {
 // SetId sets field value
 func (o *FormattedApiInstanceDashboard) SetId(v int64) {
 	o.Id = v
+}
+
+// GetInstanceId returns the InstanceId field value
+func (o *FormattedApiInstanceDashboard) GetInstanceId() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.InstanceId
+}
+
+// GetInstanceIdOk returns a tuple with the InstanceId field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstanceDashboard) GetInstanceIdOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.InstanceId, true
+}
+
+// SetInstanceId sets field value
+func (o *FormattedApiInstanceDashboard) SetInstanceId(v int32) {
+	o.InstanceId = v
 }
 
 // GetName returns the Name field value
@@ -181,28 +263,30 @@ func (o *FormattedApiInstanceDashboard) SetName(v string) {
 	o.Name = v
 }
 
-// GetSlug returns the Slug field value
-func (o *FormattedApiInstanceDashboard) GetSlug() string {
-	if o == nil {
-		var ret string
+// GetUpdatedAt returns the UpdatedAt field value
+// If the value is explicit nil, the zero value for time.Time will be returned
+func (o *FormattedApiInstanceDashboard) GetUpdatedAt() time.Time {
+	if o == nil || o.UpdatedAt.Get() == nil {
+		var ret time.Time
 		return ret
 	}
 
-	return o.Slug
+	return *o.UpdatedAt.Get()
 }
 
-// GetSlugOk returns a tuple with the Slug field value
+// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiInstanceDashboard) GetSlugOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiInstanceDashboard) GetUpdatedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Slug, true
+	return o.UpdatedAt.Get(), o.UpdatedAt.IsSet()
 }
 
-// SetSlug sets field value
-func (o *FormattedApiInstanceDashboard) SetSlug(v string) {
-	o.Slug = v
+// SetUpdatedAt sets field value
+func (o *FormattedApiInstanceDashboard) SetUpdatedAt(v time.Time) {
+	o.UpdatedAt.Set(&v)
 }
 
 func (o FormattedApiInstanceDashboard) MarshalJSON() ([]byte, error) {
@@ -215,14 +299,17 @@ func (o FormattedApiInstanceDashboard) MarshalJSON() ([]byte, error) {
 
 func (o FormattedApiInstanceDashboard) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["createdAt"] = o.CreatedAt
 	if o.DashboardJson != nil {
 		toSerialize["dashboardJson"] = o.DashboardJson
 	}
 	toSerialize["disableDelete"] = o.DisableDelete
 	toSerialize["folder"] = o.Folder
+	toSerialize["grafanaOrgId"] = o.GrafanaOrgId
 	toSerialize["id"] = o.Id
+	toSerialize["instanceId"] = o.InstanceId
 	toSerialize["name"] = o.Name
-	toSerialize["slug"] = o.Slug
+	toSerialize["updatedAt"] = o.UpdatedAt.Get()
 	return toSerialize, nil
 }
 

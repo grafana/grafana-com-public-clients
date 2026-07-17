@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]ItemsInner2**](ItemsInner2.md) |  | 
-**Links** | [**[]LinksInner**](LinksInner.md) |  | 
 **Total** | Pointer to **float32** |  | [optional] 
 **Pages** | Pointer to **float32** |  | [optional] 
 **Page** | Pointer to **float32** |  | [optional] 
@@ -15,6 +13,8 @@ Name | Type | Description | Notes
 **Direction** | Pointer to **string** |  | [optional] 
 **Cursor** | Pointer to **float32** |  | [optional] 
 **NextCursor** | Pointer to **float32** |  | [optional] 
+**Items** | [**[]ItemsInner2**](ItemsInner2.md) |  | 
+**Links** | [**[]LinksInner**](LinksInner.md) |  | 
 
 ## Methods
 
@@ -34,46 +34,6 @@ will change when the set of required properties is changed
 NewOrgMemberListResponseWithDefaults instantiates a new OrgMemberListResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetItems
-
-`func (o *OrgMemberListResponse) GetItems() []ItemsInner2`
-
-GetItems returns the Items field if non-nil, zero value otherwise.
-
-### GetItemsOk
-
-`func (o *OrgMemberListResponse) GetItemsOk() (*[]ItemsInner2, bool)`
-
-GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetItems
-
-`func (o *OrgMemberListResponse) SetItems(v []ItemsInner2)`
-
-SetItems sets Items field to given value.
-
-
-### GetLinks
-
-`func (o *OrgMemberListResponse) GetLinks() []LinksInner`
-
-GetLinks returns the Links field if non-nil, zero value otherwise.
-
-### GetLinksOk
-
-`func (o *OrgMemberListResponse) GetLinksOk() (*[]LinksInner, bool)`
-
-GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLinks
-
-`func (o *OrgMemberListResponse) SetLinks(v []LinksInner)`
-
-SetLinks sets Links field to given value.
-
 
 ### GetTotal
 
@@ -299,6 +259,46 @@ SetNextCursor sets NextCursor field to given value.
 `func (o *OrgMemberListResponse) HasNextCursor() bool`
 
 HasNextCursor returns a boolean if a field has been set.
+
+### GetItems
+
+`func (o *OrgMemberListResponse) GetItems() []ItemsInner2`
+
+GetItems returns the Items field if non-nil, zero value otherwise.
+
+### GetItemsOk
+
+`func (o *OrgMemberListResponse) GetItemsOk() (*[]ItemsInner2, bool)`
+
+GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItems
+
+`func (o *OrgMemberListResponse) SetItems(v []ItemsInner2)`
+
+SetItems sets Items field to given value.
+
+
+### GetLinks
+
+`func (o *OrgMemberListResponse) GetLinks() []LinksInner`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *OrgMemberListResponse) GetLinksOk() (*[]LinksInner, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *OrgMemberListResponse) SetLinks(v []LinksInner)`
+
+SetLinks sets Links field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

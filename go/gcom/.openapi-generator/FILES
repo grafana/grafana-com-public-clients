@@ -37,6 +37,7 @@ docs/Author.md
 docs/BasicPrivateConnectivityInfo.md
 docs/BilledUsage.md
 docs/Build.md
+docs/CreateDatasourceRequestBody.md
 docs/CreditsInner.md
 docs/Current.md
 docs/Current1.md
@@ -74,6 +75,7 @@ docs/FormattedApiPlugin.md
 docs/FormattedApiStackRegion.md
 docs/FormattedApiStackRegionAnyOf.md
 docs/FormattedApiStackRegionAnyOf1.md
+docs/FormattedDatasource.md
 docs/FormattedOrgMembership.md
 docs/FormattedOrgMembershipGrafanaStaffAccess.md
 docs/FormattedOrgMembershipMarketplaceSubscription.md
@@ -92,6 +94,8 @@ docs/Iam.md
 docs/IncludesInner.md
 docs/Info.md
 docs/InstanceConnectionTenant.md
+docs/InstanceDashboardCreateBody.md
+docs/InstanceDashboardUpdateBody.md
 docs/InstanceUsersResponse.md
 docs/InstancesAPI.md
 docs/InternalStackCreateRequestV1.md
@@ -179,6 +183,8 @@ docs/SubscriptionsAnyOf1.md
 docs/SubscriptionsAnyOf2.md
 docs/TokenAuth.md
 docs/TokensAPI.md
+docs/UpdateDatasourceBody.md
+docs/UpdateDatasourceBodyBasicAuth.md
 docs/UpdateOrgSettingsRequest.md
 docs/UrlParamsInner.md
 docs/UsagesInner.md
@@ -208,6 +214,7 @@ model_author.go
 model_basic_private_connectivity_info.go
 model_billed_usage.go
 model_build.go
+model_create_datasource_request_body.go
 model_credits_inner.go
 model_current.go
 model_current_1.go
@@ -245,6 +252,7 @@ model_formatted_api_plugin.go
 model_formatted_api_stack_region.go
 model_formatted_api_stack_region_any_of.go
 model_formatted_api_stack_region_any_of_1.go
+model_formatted_datasource.go
 model_formatted_org_membership.go
 model_formatted_org_membership_grafana_staff_access.go
 model_formatted_org_membership_marketplace_subscription.go
@@ -263,6 +271,8 @@ model_iam.go
 model_includes_inner.go
 model_info.go
 model_instance_connection_tenant.go
+model_instance_dashboard_create_body.go
+model_instance_dashboard_update_body.go
 model_instance_users_response.go
 model_internal_stack_create_request_v1.go
 model_items_inner.go
@@ -343,6 +353,8 @@ model_subscriptions_any_of.go
 model_subscriptions_any_of_1.go
 model_subscriptions_any_of_2.go
 model_token_auth.go
+model_update_datasource_body.go
+model_update_datasource_body_basic_auth.go
 model_update_org_settings_request.go
 model_url_params_inner.go
 model_usages_inner.go
