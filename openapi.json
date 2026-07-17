@@ -4,8 +4,8 @@
     "title": "GCOM API",
     "version": "public",
     "description": "Grafana.com API (public).\n\nLooking for GCOM API client packages? You can find them at [grafana-com-public-clients](https://github.com/grafana/grafana-com-public-clients) repository.\n\nIf you have any questions, please contact support in the Grafana Cloud UI.\n\nThis spec is in *Beta* stage, so use it with caution:\n- Not all endpoint responses are properly typed for the time being.\n- Some request parameter types may not be precise\n",
-    "x-commit-sha": "88783e0",
-    "x-generated-at": "2026-07-16T10:49:53.137Z"
+    "x-commit-sha": "0520fcc",
+    "x-generated-at": "2026-07-16T19:39:53.633Z"
   },
   "servers": [
     {
@@ -12570,6 +12570,77 @@
         },
         "type": "object"
       },
+      "CreateDatasourceRequestBody": {
+        "additionalProperties": false,
+        "properties": {
+          "access": {
+            "description": "datasource access mode",
+            "type": "string"
+          },
+          "basicAuth": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "basicAuthPassword": {
+            "type": "string"
+          },
+          "basicAuthUser": {
+            "type": "string"
+          },
+          "database": {
+            "type": "string"
+          },
+          "editable": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "grafanaOrgId": {
+            "default": 1,
+            "description": "grafana org id",
+            "format": "int32",
+            "type": "integer"
+          },
+          "isDefault": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "jsonData": {
+            "additionalProperties": {},
+            "type": "object"
+          },
+          "name": {
+            "description": "datasource name",
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "secureJsonData": {
+            "additionalProperties": {},
+            "type": "object"
+          },
+          "type": {
+            "description": "datasource type",
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "withCredentials": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "access"
+        ],
+        "type": "object"
+      },
       "Datasource": {
         "additionalProperties": false,
         "properties": {
@@ -12755,6 +12826,11 @@
       "FormattedApiInstanceDashboard": {
         "additionalProperties": false,
         "properties": {
+          "createdAt": {
+            "description": "when the dashboard was created",
+            "format": "date-time",
+            "type": "string"
+          },
           "dashboardJson": {
             "description": "the dashboard definition"
           },
@@ -12766,27 +12842,42 @@
             "description": "dashboard folder",
             "type": "string"
           },
+          "grafanaOrgId": {
+            "description": "grafana org id",
+            "format": "int32",
+            "type": "integer"
+          },
           "id": {
             "description": "dashboard id",
             "format": "int64",
+            "type": "integer"
+          },
+          "instanceId": {
+            "description": "hosted grafana instance id",
+            "format": "int32",
             "type": "integer"
           },
           "name": {
             "description": "dashboard name",
             "type": "string"
           },
-          "slug": {
-            "description": "dashboard slug",
+          "updatedAt": {
+            "description": "when the dashboard was last updated",
+            "format": "date-time",
+            "nullable": true,
             "type": "string"
           }
         },
         "required": [
           "id",
+          "instanceId",
           "name",
-          "slug",
+          "grafanaOrgId",
           "folder",
           "disableDelete",
-          "dashboardJson"
+          "dashboardJson",
+          "createdAt",
+          "updatedAt"
         ],
         "type": "object"
       },
@@ -12829,6 +12920,101 @@
         ],
         "type": "object"
       },
+      "FormattedDatasource": {
+        "additionalProperties": false,
+        "properties": {
+          "access": {
+            "type": "string"
+          },
+          "basicAuth": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "basicAuthUser": {
+            "type": "string"
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "database": {
+            "type": "string"
+          },
+          "delete": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "editable": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "grafanaOrgId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "id": {
+            "format": "int32",
+            "minimum": 0,
+            "type": "integer"
+          },
+          "instanceId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "isDefault": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "jsonData": {},
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "nullable": true,
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "version": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "withCredentials": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "instanceId",
+          "name",
+          "type",
+          "access",
+          "grafanaOrgId",
+          "url",
+          "user",
+          "database",
+          "basicAuth",
+          "basicAuthUser",
+          "withCredentials",
+          "isDefault",
+          "jsonData",
+          "version",
+          "editable",
+          "delete",
+          "createdAt",
+          "updatedAt"
+        ],
+        "type": "object"
+      },
       "InstanceConnectionTenant": {
         "additionalProperties": false,
         "properties": {
@@ -12858,6 +13044,38 @@
           "type",
           "id",
           "ipAllowListCNAME"
+        ],
+        "type": "object"
+      },
+      "InstanceDashboardCreateBody": {
+        "additionalProperties": false,
+        "properties": {
+          "dashboardJson": {
+            "description": "the dashboard definition"
+          },
+          "disableDelete": {
+            "description": "whether the dashboard is protected from deletion",
+            "type": "boolean"
+          },
+          "folder": {
+            "description": "folder to place the dashboard in",
+            "type": "string"
+          },
+          "grafanaOrgId": {
+            "default": 1,
+            "description": "grafana org id to create the dashboard in",
+            "format": "int64",
+            "type": "integer"
+          },
+          "name": {
+            "description": "dashboard name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "disableDelete",
+          "dashboardJson"
         ],
         "type": "object"
       },
@@ -13360,6 +13578,87 @@
           "deleteProtection",
           "labels"
         ],
+        "type": "object"
+      },
+      "UpdateDatasourceBody": {
+        "additionalProperties": false,
+        "properties": {
+          "access": {
+            "type": "string"
+          },
+          "aliases": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "basicAuth": {
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          },
+          "basicAuthPassword": {
+            "type": "string"
+          },
+          "basicAuthUser": {
+            "type": "string"
+          },
+          "database": {
+            "type": "string"
+          },
+          "editable": {
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          },
+          "isDefault": {
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          },
+          "jsonData": {
+            "additionalProperties": {},
+            "type": "object"
+          },
+          "password": {
+            "type": "string"
+          },
+          "secureJsonData": {
+            "additionalProperties": {},
+            "type": "object"
+          },
+          "url": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "withCredentials": {
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          }
+        },
         "type": "object"
       }
     },
