@@ -12,8 +12,8 @@ info:
     - Some request parameter types may not be precise
   title: GCOM API
   version: public
-  x-commit-sha: 0f022ac
-  x-generated-at: 2026-07-17T10:22:08.924Z
+  x-commit-sha: 62520bf
+  x-generated-at: 2026-07-17T18:43:56.737Z
 servers:
 - description: Main API server
   url: /api
@@ -8159,6 +8159,8 @@ components:
           type: integer
         hosted:
           type: boolean
+        issueLink:
+          type: string
         k6OrgId:
           type: integer
         labels:
@@ -8197,6 +8199,15 @@ components:
           type: boolean
         publicInstance:
           type: boolean
+        reasonType:
+          enum:
+          - bug
+          - securityVulnerability
+          - customerUpgradeShy
+          - customerBreaksUseCase
+          - customerRequest
+          - other
+          type: string
         region:
           type: string
         slug:
@@ -8225,6 +8236,8 @@ components:
           type: boolean
         hlInstanceId:
           type: integer
+        issueLink:
+          type: string
         k6OrgId:
           nullable: true
           type: integer
@@ -8256,9 +8269,20 @@ components:
           type: string
         prometheus:
           type: boolean
+        reasonType:
+          enum:
+          - bug
+          - securityVulnerability
+          - customerUpgradeShy
+          - customerBreaksUseCase
+          - customerRequest
+          - other
+          type: string
         slug:
           type: string
         url:
+          type: string
+        version:
           type: string
         waitForReadiness:
           default: true

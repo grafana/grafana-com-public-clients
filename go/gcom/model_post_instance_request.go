@@ -24,14 +24,17 @@ type PostInstanceRequest struct {
 	Description          *string            `json:"description,omitempty"`
 	Graphite             *bool              `json:"graphite,omitempty"`
 	HlInstanceId         *int32             `json:"hlInstanceId,omitempty"`
+	IssueLink            *string            `json:"issueLink,omitempty"`
 	K6OrgId              NullableInt32      `json:"k6OrgId,omitempty"`
 	Labels               *map[string]string `json:"labels,omitempty"`
 	Logs                 *bool              `json:"logs,omitempty"`
 	Name                 *string            `json:"name,omitempty"`
 	Plan                 *string            `json:"plan,omitempty"`
 	Prometheus           *bool              `json:"prometheus,omitempty"`
+	ReasonType           *string            `json:"reasonType,omitempty"`
 	Slug                 *string            `json:"slug,omitempty"`
 	Url                  *string            `json:"url,omitempty"`
+	Version              *string            `json:"version,omitempty"`
 	WaitForReadiness     *bool              `json:"waitForReadiness,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -217,6 +220,38 @@ func (o *PostInstanceRequest) HasHlInstanceId() bool {
 // SetHlInstanceId gets a reference to the given int32 and assigns it to the HlInstanceId field.
 func (o *PostInstanceRequest) SetHlInstanceId(v int32) {
 	o.HlInstanceId = &v
+}
+
+// GetIssueLink returns the IssueLink field value if set, zero value otherwise.
+func (o *PostInstanceRequest) GetIssueLink() string {
+	if o == nil || IsNil(o.IssueLink) {
+		var ret string
+		return ret
+	}
+	return *o.IssueLink
+}
+
+// GetIssueLinkOk returns a tuple with the IssueLink field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstanceRequest) GetIssueLinkOk() (*string, bool) {
+	if o == nil || IsNil(o.IssueLink) {
+		return nil, false
+	}
+	return o.IssueLink, true
+}
+
+// HasIssueLink returns a boolean if a field has been set.
+func (o *PostInstanceRequest) HasIssueLink() bool {
+	if o != nil && !IsNil(o.IssueLink) {
+		return true
+	}
+
+	return false
+}
+
+// SetIssueLink gets a reference to the given string and assigns it to the IssueLink field.
+func (o *PostInstanceRequest) SetIssueLink(v string) {
+	o.IssueLink = &v
 }
 
 // GetK6OrgId returns the K6OrgId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -422,6 +457,38 @@ func (o *PostInstanceRequest) SetPrometheus(v bool) {
 	o.Prometheus = &v
 }
 
+// GetReasonType returns the ReasonType field value if set, zero value otherwise.
+func (o *PostInstanceRequest) GetReasonType() string {
+	if o == nil || IsNil(o.ReasonType) {
+		var ret string
+		return ret
+	}
+	return *o.ReasonType
+}
+
+// GetReasonTypeOk returns a tuple with the ReasonType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstanceRequest) GetReasonTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.ReasonType) {
+		return nil, false
+	}
+	return o.ReasonType, true
+}
+
+// HasReasonType returns a boolean if a field has been set.
+func (o *PostInstanceRequest) HasReasonType() bool {
+	if o != nil && !IsNil(o.ReasonType) {
+		return true
+	}
+
+	return false
+}
+
+// SetReasonType gets a reference to the given string and assigns it to the ReasonType field.
+func (o *PostInstanceRequest) SetReasonType(v string) {
+	o.ReasonType = &v
+}
+
 // GetSlug returns the Slug field value if set, zero value otherwise.
 func (o *PostInstanceRequest) GetSlug() string {
 	if o == nil || IsNil(o.Slug) {
@@ -486,6 +553,38 @@ func (o *PostInstanceRequest) SetUrl(v string) {
 	o.Url = &v
 }
 
+// GetVersion returns the Version field value if set, zero value otherwise.
+func (o *PostInstanceRequest) GetVersion() string {
+	if o == nil || IsNil(o.Version) {
+		var ret string
+		return ret
+	}
+	return *o.Version
+}
+
+// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstanceRequest) GetVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.Version) {
+		return nil, false
+	}
+	return o.Version, true
+}
+
+// HasVersion returns a boolean if a field has been set.
+func (o *PostInstanceRequest) HasVersion() bool {
+	if o != nil && !IsNil(o.Version) {
+		return true
+	}
+
+	return false
+}
+
+// SetVersion gets a reference to the given string and assigns it to the Version field.
+func (o *PostInstanceRequest) SetVersion(v string) {
+	o.Version = &v
+}
+
 // GetWaitForReadiness returns the WaitForReadiness field value if set, zero value otherwise.
 func (o *PostInstanceRequest) GetWaitForReadiness() bool {
 	if o == nil || IsNil(o.WaitForReadiness) {
@@ -543,6 +642,9 @@ func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.HlInstanceId) {
 		toSerialize["hlInstanceId"] = o.HlInstanceId
 	}
+	if !IsNil(o.IssueLink) {
+		toSerialize["issueLink"] = o.IssueLink
+	}
 	if o.K6OrgId.IsSet() {
 		toSerialize["k6OrgId"] = o.K6OrgId.Get()
 	}
@@ -561,11 +663,17 @@ func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Prometheus) {
 		toSerialize["prometheus"] = o.Prometheus
 	}
+	if !IsNil(o.ReasonType) {
+		toSerialize["reasonType"] = o.ReasonType
+	}
 	if !IsNil(o.Slug) {
 		toSerialize["slug"] = o.Slug
 	}
 	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.Version) {
+		toSerialize["version"] = o.Version
 	}
 	if !IsNil(o.WaitForReadiness) {
 		toSerialize["waitForReadiness"] = o.WaitForReadiness
@@ -597,14 +705,17 @@ func (o *PostInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "graphite")
 		delete(additionalProperties, "hlInstanceId")
+		delete(additionalProperties, "issueLink")
 		delete(additionalProperties, "k6OrgId")
 		delete(additionalProperties, "labels")
 		delete(additionalProperties, "logs")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "plan")
 		delete(additionalProperties, "prometheus")
+		delete(additionalProperties, "reasonType")
 		delete(additionalProperties, "slug")
 		delete(additionalProperties, "url")
+		delete(additionalProperties, "version")
 		delete(additionalProperties, "waitForReadiness")
 		o.AdditionalProperties = additionalProperties
 	}
