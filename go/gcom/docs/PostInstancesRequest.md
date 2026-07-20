@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Graphite** | Pointer to **bool** |  | [optional] 
 **HlInstanceId** | Pointer to **int32** |  | [optional] 
 **Hosted** | Pointer to **bool** |  | [optional] 
+**IssueLink** | Pointer to **string** |  | [optional] 
 **K6OrgId** | Pointer to **int32** |  | [optional] 
 **Labels** | Pointer to **map[string]string** |  | [optional] 
 **Logs** | Pointer to **bool** |  | [optional] 
@@ -21,6 +22,7 @@ Name | Type | Description | Notes
 **Plugins** | Pointer to **[]string** |  | [optional] 
 **Prometheus** | Pointer to **bool** |  | [optional] 
 **PublicInstance** | Pointer to **bool** |  | [optional] 
+**ReasonType** | Pointer to **string** |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
 **Slug** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
@@ -247,6 +249,31 @@ SetHosted sets Hosted field to given value.
 
 HasHosted returns a boolean if a field has been set.
 
+### GetIssueLink
+
+`func (o *PostInstancesRequest) GetIssueLink() string`
+
+GetIssueLink returns the IssueLink field if non-nil, zero value otherwise.
+
+### GetIssueLinkOk
+
+`func (o *PostInstancesRequest) GetIssueLinkOk() (*string, bool)`
+
+GetIssueLinkOk returns a tuple with the IssueLink field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIssueLink
+
+`func (o *PostInstancesRequest) SetIssueLink(v string)`
+
+SetIssueLink sets IssueLink field to given value.
+
+### HasIssueLink
+
+`func (o *PostInstancesRequest) HasIssueLink() bool`
+
+HasIssueLink returns a boolean if a field has been set.
+
 ### GetK6OrgId
 
 `func (o *PostInstancesRequest) GetK6OrgId() int32`
@@ -466,6 +493,31 @@ SetPublicInstance sets PublicInstance field to given value.
 `func (o *PostInstancesRequest) HasPublicInstance() bool`
 
 HasPublicInstance returns a boolean if a field has been set.
+
+### GetReasonType
+
+`func (o *PostInstancesRequest) GetReasonType() string`
+
+GetReasonType returns the ReasonType field if non-nil, zero value otherwise.
+
+### GetReasonTypeOk
+
+`func (o *PostInstancesRequest) GetReasonTypeOk() (*string, bool)`
+
+GetReasonTypeOk returns a tuple with the ReasonType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReasonType
+
+`func (o *PostInstancesRequest) SetReasonType(v string)`
+
+SetReasonType sets ReasonType field to given value.
+
+### HasReasonType
+
+`func (o *PostInstancesRequest) HasReasonType() bool`
+
+HasReasonType returns a boolean if a field has been set.
 
 ### GetRegion
 

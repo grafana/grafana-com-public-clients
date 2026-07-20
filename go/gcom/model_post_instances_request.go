@@ -27,6 +27,7 @@ type PostInstancesRequest struct {
 	Graphite             *bool              `json:"graphite,omitempty"`
 	HlInstanceId         *int32             `json:"hlInstanceId,omitempty"`
 	Hosted               *bool              `json:"hosted,omitempty"`
+	IssueLink            *string            `json:"issueLink,omitempty"`
 	K6OrgId              *int32             `json:"k6OrgId,omitempty"`
 	Labels               *map[string]string `json:"labels,omitempty"`
 	Logs                 *bool              `json:"logs,omitempty"`
@@ -36,6 +37,7 @@ type PostInstancesRequest struct {
 	Plugins              []string           `json:"plugins,omitempty"`
 	Prometheus           *bool              `json:"prometheus,omitempty"`
 	PublicInstance       *bool              `json:"publicInstance,omitempty"`
+	ReasonType           *string            `json:"reasonType,omitempty"`
 	Region               *string            `json:"region,omitempty"`
 	Slug                 *string            `json:"slug,omitempty"`
 	Url                  *string            `json:"url,omitempty"`
@@ -329,6 +331,38 @@ func (o *PostInstancesRequest) SetHosted(v bool) {
 	o.Hosted = &v
 }
 
+// GetIssueLink returns the IssueLink field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetIssueLink() string {
+	if o == nil || IsNil(o.IssueLink) {
+		var ret string
+		return ret
+	}
+	return *o.IssueLink
+}
+
+// GetIssueLinkOk returns a tuple with the IssueLink field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetIssueLinkOk() (*string, bool) {
+	if o == nil || IsNil(o.IssueLink) {
+		return nil, false
+	}
+	return o.IssueLink, true
+}
+
+// HasIssueLink returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasIssueLink() bool {
+	if o != nil && !IsNil(o.IssueLink) {
+		return true
+	}
+
+	return false
+}
+
+// SetIssueLink gets a reference to the given string and assigns it to the IssueLink field.
+func (o *PostInstancesRequest) SetIssueLink(v string) {
+	o.IssueLink = &v
+}
+
 // GetK6OrgId returns the K6OrgId field value if set, zero value otherwise.
 func (o *PostInstancesRequest) GetK6OrgId() int32 {
 	if o == nil || IsNil(o.K6OrgId) {
@@ -609,6 +643,38 @@ func (o *PostInstancesRequest) SetPublicInstance(v bool) {
 	o.PublicInstance = &v
 }
 
+// GetReasonType returns the ReasonType field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetReasonType() string {
+	if o == nil || IsNil(o.ReasonType) {
+		var ret string
+		return ret
+	}
+	return *o.ReasonType
+}
+
+// GetReasonTypeOk returns a tuple with the ReasonType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetReasonTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.ReasonType) {
+		return nil, false
+	}
+	return o.ReasonType, true
+}
+
+// HasReasonType returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasReasonType() bool {
+	if o != nil && !IsNil(o.ReasonType) {
+		return true
+	}
+
+	return false
+}
+
+// SetReasonType gets a reference to the given string and assigns it to the ReasonType field.
+func (o *PostInstancesRequest) SetReasonType(v string) {
+	o.ReasonType = &v
+}
+
 // GetRegion returns the Region field value if set, zero value otherwise.
 func (o *PostInstancesRequest) GetRegion() string {
 	if o == nil || IsNil(o.Region) {
@@ -835,6 +901,9 @@ func (o PostInstancesRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Hosted) {
 		toSerialize["hosted"] = o.Hosted
 	}
+	if !IsNil(o.IssueLink) {
+		toSerialize["issueLink"] = o.IssueLink
+	}
 	if !IsNil(o.K6OrgId) {
 		toSerialize["k6OrgId"] = o.K6OrgId
 	}
@@ -859,6 +928,9 @@ func (o PostInstancesRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PublicInstance) {
 		toSerialize["publicInstance"] = o.PublicInstance
+	}
+	if !IsNil(o.ReasonType) {
+		toSerialize["reasonType"] = o.ReasonType
 	}
 	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
@@ -916,6 +988,7 @@ func (o *PostInstancesRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "graphite")
 		delete(additionalProperties, "hlInstanceId")
 		delete(additionalProperties, "hosted")
+		delete(additionalProperties, "issueLink")
 		delete(additionalProperties, "k6OrgId")
 		delete(additionalProperties, "labels")
 		delete(additionalProperties, "logs")
@@ -925,6 +998,7 @@ func (o *PostInstancesRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "plugins")
 		delete(additionalProperties, "prometheus")
 		delete(additionalProperties, "publicInstance")
+		delete(additionalProperties, "reasonType")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "slug")
 		delete(additionalProperties, "url")
