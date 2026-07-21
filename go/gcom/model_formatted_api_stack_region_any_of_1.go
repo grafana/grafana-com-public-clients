@@ -28,6 +28,7 @@ type FormattedApiStackRegionAnyOf1 struct {
 	LlmGatewayUrl               string                      `json:"llmGatewayUrl"`
 	AssistantUrl                string                      `json:"assistantUrl"`
 	SigilUrl                    string                      `json:"sigilUrl"`
+	AgentO11YUrl                string                      `json:"agentO11YUrl"`
 	WorkflowEngineUrl           string                      `json:"workflowEngineUrl"`
 	MobileGatewayUrl            string                      `json:"mobileGatewayUrl"`
 	IncidentApiUrl              string                      `json:"incidentApiUrl"`
@@ -103,7 +104,7 @@ type _FormattedApiStackRegionAnyOf1 FormattedApiStackRegionAnyOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, assistantUrl string, sigilUrl string, workflowEngineUrl string, mobileGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcHostname string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, complete bool, readyForStacks bool, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
+func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, assistantUrl string, sigilUrl string, agentO11YUrl string, workflowEngineUrl string, mobileGatewayUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcHostname string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, complete bool, readyForStacks bool, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32) *FormattedApiStackRegionAnyOf1 {
 	this := FormattedApiStackRegionAnyOf1{}
 	this.StackStateServiceUrl = stackStateServiceUrl
 	this.SyntheticMonitoringApiUrl = syntheticMonitoringApiUrl
@@ -114,6 +115,7 @@ func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMoni
 	this.LlmGatewayUrl = llmGatewayUrl
 	this.AssistantUrl = assistantUrl
 	this.SigilUrl = sigilUrl
+	this.AgentO11YUrl = agentO11YUrl
 	this.WorkflowEngineUrl = workflowEngineUrl
 	this.MobileGatewayUrl = mobileGatewayUrl
 	this.IncidentApiUrl = incidentApiUrl
@@ -401,6 +403,30 @@ func (o *FormattedApiStackRegionAnyOf1) GetSigilUrlOk() (*string, bool) {
 // SetSigilUrl sets field value
 func (o *FormattedApiStackRegionAnyOf1) SetSigilUrl(v string) {
 	o.SigilUrl = v
+}
+
+// GetAgentO11YUrl returns the AgentO11YUrl field value
+func (o *FormattedApiStackRegionAnyOf1) GetAgentO11YUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AgentO11YUrl
+}
+
+// GetAgentO11YUrlOk returns a tuple with the AgentO11YUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiStackRegionAnyOf1) GetAgentO11YUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AgentO11YUrl, true
+}
+
+// SetAgentO11YUrl sets field value
+func (o *FormattedApiStackRegionAnyOf1) SetAgentO11YUrl(v string) {
+	o.AgentO11YUrl = v
 }
 
 // GetWorkflowEngineUrl returns the WorkflowEngineUrl field value
@@ -2053,6 +2079,7 @@ func (o FormattedApiStackRegionAnyOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize["llmGatewayUrl"] = o.LlmGatewayUrl
 	toSerialize["assistantUrl"] = o.AssistantUrl
 	toSerialize["sigilUrl"] = o.SigilUrl
+	toSerialize["agentO11YUrl"] = o.AgentO11YUrl
 	toSerialize["workflowEngineUrl"] = o.WorkflowEngineUrl
 	toSerialize["mobileGatewayUrl"] = o.MobileGatewayUrl
 	toSerialize["incidentApiUrl"] = o.IncidentApiUrl
@@ -2166,6 +2193,7 @@ func (o *FormattedApiStackRegionAnyOf1) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "llmGatewayUrl")
 		delete(additionalProperties, "assistantUrl")
 		delete(additionalProperties, "sigilUrl")
+		delete(additionalProperties, "agentO11YUrl")
 		delete(additionalProperties, "workflowEngineUrl")
 		delete(additionalProperties, "mobileGatewayUrl")
 		delete(additionalProperties, "incidentApiUrl")

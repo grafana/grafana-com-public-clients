@@ -9756,6 +9756,10 @@
                 "type": "string",
                 "title": "sigilUrl"
               },
+              "agentO11YUrl": {
+                "type": "string",
+                "title": "agentO11YUrl"
+              },
               "workflowEngineUrl": {
                 "type": "string",
                 "title": "workflowEngineUrl"
@@ -10984,6 +10988,7 @@
               }
             },
             "required": [
+              "agentO11YUrl",
               "agmClusterId",
               "agmClusterName",
               "agmClusterSlug",
