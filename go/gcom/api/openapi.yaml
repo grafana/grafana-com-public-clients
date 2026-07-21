@@ -10991,6 +10991,9 @@ components:
         sigilUrl:
           title: sigilUrl
           type: string
+        agentO11YUrl:
+          title: agentO11YUrl
+          type: string
         workflowEngineUrl:
           title: workflowEngineUrl
           type: string
@@ -11198,6 +11201,7 @@ components:
           title: sortOrder
           type: number
       required:
+      - agentO11YUrl
       - agmClusterId
       - agmClusterName
       - agmClusterSlug
