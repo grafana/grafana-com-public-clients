@@ -90,7 +90,6 @@ docs/Info.md
 docs/InstanceConnectionTenant.md
 docs/InstanceUsersResponse.md
 docs/InstancesAPI.md
-docs/InternalStackCreateRequestV1.md
 docs/ItemsInner.md
 docs/ItemsInner1.md
 docs/ItemsInner2.md
@@ -256,7 +255,6 @@ model_includes_inner.go
 model_info.go
 model_instance_connection_tenant.go
 model_instance_users_response.go
-model_internal_stack_create_request_v1.go
 model_items_inner.go
 model_items_inner_1.go
 model_items_inner_2.go
