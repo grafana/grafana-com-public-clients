@@ -6623,6 +6623,14 @@
             "type": "number",
             "title": "includedUsage"
           },
+          "periodStart": {
+            "type": "string",
+            "title": "periodStart"
+          },
+          "periodEnd": {
+            "type": "string",
+            "title": "periodEnd"
+          },
           "dimensionId": {
             "enum": [
               "ai-tokens",
@@ -6636,6 +6644,7 @@
               "hg-plugin-users",
               "hl",
               "hl-process",
+              "hl-query",
               "hl-retention",
               "hm",
               "hm-graphite",
@@ -6666,14 +6675,6 @@
           "dimensionName": {
             "type": "string",
             "title": "dimensionName"
-          },
-          "periodEnd": {
-            "type": "string",
-            "title": "periodEnd"
-          },
-          "periodStart": {
-            "type": "string",
-            "title": "periodStart"
           },
           "totalUsage": {
             "type": "number",
