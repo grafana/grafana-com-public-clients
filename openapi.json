@@ -9769,6 +9769,10 @@
                 "type": "string",
                 "title": "mobileGatewayUrl"
               },
+              "slackServiceUrl": {
+                "type": "string",
+                "title": "slackServiceUrl"
+              },
               "incidentApiUrl": {
                 "type": "string",
                 "title": "incidentApiUrl"
@@ -11053,6 +11057,7 @@
               "publicName",
               "readyForStacks",
               "sigilUrl",
+              "slackServiceUrl",
               "slug",
               "sortOrder",
               "stackStateServiceUrl",
