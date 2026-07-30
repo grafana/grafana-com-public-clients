@@ -4076,6 +4076,12 @@ components:
         includedUsage:
           title: includedUsage
           type: number
+        periodStart:
+          title: periodStart
+          type: string
+        periodEnd:
+          title: periodEnd
+          type: string
         dimensionId:
           enum:
           - ai-tokens
@@ -4089,6 +4095,7 @@ components:
           - hg-plugin-users
           - hl
           - hl-process
+          - hl-query
           - hl-retention
           - hm
           - hm-graphite
@@ -4114,12 +4121,6 @@ components:
           type: number
         dimensionName:
           title: dimensionName
-          type: string
-        periodEnd:
-          title: periodEnd
-          type: string
-        periodStart:
-          title: periodStart
           type: string
         totalUsage:
           title: totalUsage
@@ -10951,6 +10952,9 @@ components:
         mobileGatewayUrl:
           title: mobileGatewayUrl
           type: string
+        slackServiceUrl:
+          title: slackServiceUrl
+          type: string
         incidentApiUrl:
           title: incidentApiUrl
           type: string
@@ -11216,6 +11220,7 @@ components:
       - publicName
       - readyForStacks
       - sigilUrl
+      - slackServiceUrl
       - slug
       - sortOrder
       - stackStateServiceUrl
