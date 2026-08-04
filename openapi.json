@@ -9871,6 +9871,23 @@
                   {
                     "type": "object",
                     "properties": {
+                      "alias": {
+                        "type": "string",
+                        "title": "alias"
+                      },
+                      "endpointName": {
+                        "type": "string",
+                        "title": "endpointName"
+                      }
+                    },
+                    "required": [
+                      "alias"
+                    ],
+                    "nullable": true
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
                       "api": {
                         "anyOf": [
                           {
@@ -9942,6 +9959,22 @@
                               "domainNames",
                               "endpointName",
                               "serviceAttachment"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string",
+                                "title": "alias"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "alias"
                             ]
                           }
                         ],
@@ -10018,6 +10051,22 @@
                               "domainNames",
                               "endpointName",
                               "serviceAttachment"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string",
+                                "title": "alias"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "alias"
                             ]
                           }
                         ],
@@ -10105,6 +10154,22 @@
                               "endpointName",
                               "serviceAttachment"
                             ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string",
+                                "title": "alias"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "alias"
+                            ]
                           }
                         ],
                         "title": "mimir"
@@ -10180,6 +10245,22 @@
                               "domainNames",
                               "endpointName",
                               "serviceAttachment"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string",
+                                "title": "alias"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "alias"
                             ]
                           }
                         ],
@@ -10257,6 +10338,23 @@
                               "domainNames",
                               "endpointName",
                               "serviceAttachment"
+                            ],
+                            "nullable": true
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string",
+                                "title": "alias"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "alias"
                             ],
                             "nullable": true
                           }
@@ -10355,6 +10453,23 @@
                   {
                     "type": "object",
                     "properties": {
+                      "alias": {
+                        "type": "string",
+                        "title": "alias"
+                      },
+                      "endpointName": {
+                        "type": "string",
+                        "title": "endpointName"
+                      }
+                    },
+                    "required": [
+                      "alias"
+                    ],
+                    "nullable": true
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
                       "api": {
                         "anyOf": [
                           {
@@ -10426,6 +10541,22 @@
                               "domainNames",
                               "endpointName",
                               "serviceAttachment"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string",
+                                "title": "alias"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "alias"
                             ]
                           }
                         ],
@@ -10502,6 +10633,22 @@
                               "domainNames",
                               "endpointName",
                               "serviceAttachment"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string",
+                                "title": "alias"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "alias"
                             ]
                           }
                         ],
@@ -10589,6 +10736,22 @@
                               "endpointName",
                               "serviceAttachment"
                             ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string",
+                                "title": "alias"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "alias"
+                            ]
                           }
                         ],
                         "title": "mimir"
@@ -10664,6 +10827,22 @@
                               "domainNames",
                               "endpointName",
                               "serviceAttachment"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string",
+                                "title": "alias"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "alias"
                             ]
                           }
                         ],
@@ -10741,6 +10920,23 @@
                               "domainNames",
                               "endpointName",
                               "serviceAttachment"
+                            ],
+                            "nullable": true
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "alias": {
+                                "type": "string",
+                                "title": "alias"
+                              },
+                              "endpointName": {
+                                "type": "string",
+                                "title": "endpointName"
+                              }
+                            },
+                            "required": [
+                              "alias"
                             ],
                             "nullable": true
                           }
