@@ -12763,6 +12763,9 @@
       "BasicPrivateConnectivityInfo": {
         "additionalProperties": false,
         "properties": {
+          "alias": {
+            "type": "string"
+          },
           "availabilityZoneIds": {
             "items": {
               "type": "string"
