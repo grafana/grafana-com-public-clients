@@ -10801,6 +10801,18 @@ components:
       - endpointName
       - serviceAttachment
       type: object
+    pdcPrivateConnectivityInfo_anyOf_2:
+      nullable: true
+      properties:
+        alias:
+          title: alias
+          type: string
+        endpointName:
+          title: endpointName
+          type: string
+      required:
+      - alias
+      type: object
     api_anyOf:
       properties:
         privateDNS:
@@ -10852,17 +10864,30 @@ components:
       - endpointName
       - serviceAttachment
       type: object
+    api_anyOf_2:
+      properties:
+        alias:
+          title: alias
+          type: string
+        endpointName:
+          title: endpointName
+          type: string
+      required:
+      - alias
+      type: object
     api:
       anyOf:
       - $ref: '#/components/schemas/api_anyOf'
       - $ref: '#/components/schemas/api_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf_2'
       title: api
     gateway:
       anyOf:
       - $ref: '#/components/schemas/api_anyOf'
       - $ref: '#/components/schemas/api_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf_2'
       title: gateway
-    pdcPrivateConnectivityInfo_anyOf_2:
+    pdcPrivateConnectivityInfo_anyOf_3:
       nullable: true
       properties:
         api:
@@ -10877,18 +10902,21 @@ components:
       anyOf:
       - $ref: '#/components/schemas/api_anyOf'
       - $ref: '#/components/schemas/api_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf_2'
       title: mimir
     graphite:
       anyOf:
       - $ref: '#/components/schemas/api_anyOf'
       - $ref: '#/components/schemas/api_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf_2'
       title: graphite
     otlp:
       anyOf:
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
+      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2'
       title: otlp
-    pdcPrivateConnectivityInfo_anyOf_3:
+    pdcPrivateConnectivityInfo_anyOf_4:
       nullable: true
       properties:
         mimir:
@@ -10906,6 +10934,7 @@ components:
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_3'
+      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_4'
       title: pdcPrivateConnectivityInfo
     otlpPrivateConnectivityInfo:
       anyOf:
@@ -10913,6 +10942,7 @@ components:
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_3'
+      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_4'
       title: otlpPrivateConnectivityInfo
     FormattedApiStackRegion_anyOf_1:
       properties:

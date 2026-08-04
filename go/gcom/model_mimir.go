@@ -19,6 +19,7 @@ import (
 type Mimir struct {
 	ApiAnyOf  *ApiAnyOf
 	ApiAnyOf1 *ApiAnyOf1
+	ApiAnyOf2 *ApiAnyOf2
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
@@ -50,6 +51,19 @@ func (dst *Mimir) UnmarshalJSON(data []byte) error {
 		dst.ApiAnyOf1 = nil
 	}
 
+	// try to unmarshal JSON data into ApiAnyOf2
+	err = json.Unmarshal(data, &dst.ApiAnyOf2)
+	if err == nil {
+		jsonApiAnyOf2, _ := json.Marshal(dst.ApiAnyOf2)
+		if string(jsonApiAnyOf2) == "{}" { // empty struct
+			dst.ApiAnyOf2 = nil
+		} else {
+			return nil // data stored in dst.ApiAnyOf2, return on the first match
+		}
+	} else {
+		dst.ApiAnyOf2 = nil
+	}
+
 	return fmt.Errorf("data failed to match schemas in anyOf(Mimir)")
 }
 
@@ -61,6 +75,10 @@ func (src *Mimir) MarshalJSON() ([]byte, error) {
 
 	if src.ApiAnyOf1 != nil {
 		return json.Marshal(&src.ApiAnyOf1)
+	}
+
+	if src.ApiAnyOf2 != nil {
+		return json.Marshal(&src.ApiAnyOf2)
 	}
 
 	return nil, nil // no data in anyOf schemas

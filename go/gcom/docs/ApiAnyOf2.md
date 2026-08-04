@@ -1,4 +1,4 @@
-# PdcPrivateConnectivityInfoAnyOf2
+# ApiAnyOf2
 
 ## Properties
 
@@ -9,65 +9,65 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewPdcPrivateConnectivityInfoAnyOf2
+### NewApiAnyOf2
 
-`func NewPdcPrivateConnectivityInfoAnyOf2(alias string, ) *PdcPrivateConnectivityInfoAnyOf2`
+`func NewApiAnyOf2(alias string, ) *ApiAnyOf2`
 
-NewPdcPrivateConnectivityInfoAnyOf2 instantiates a new PdcPrivateConnectivityInfoAnyOf2 object
+NewApiAnyOf2 instantiates a new ApiAnyOf2 object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewPdcPrivateConnectivityInfoAnyOf2WithDefaults
+### NewApiAnyOf2WithDefaults
 
-`func NewPdcPrivateConnectivityInfoAnyOf2WithDefaults() *PdcPrivateConnectivityInfoAnyOf2`
+`func NewApiAnyOf2WithDefaults() *ApiAnyOf2`
 
-NewPdcPrivateConnectivityInfoAnyOf2WithDefaults instantiates a new PdcPrivateConnectivityInfoAnyOf2 object
+NewApiAnyOf2WithDefaults instantiates a new ApiAnyOf2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetAlias
 
-`func (o *PdcPrivateConnectivityInfoAnyOf2) GetAlias() string`
+`func (o *ApiAnyOf2) GetAlias() string`
 
 GetAlias returns the Alias field if non-nil, zero value otherwise.
 
 ### GetAliasOk
 
-`func (o *PdcPrivateConnectivityInfoAnyOf2) GetAliasOk() (*string, bool)`
+`func (o *ApiAnyOf2) GetAliasOk() (*string, bool)`
 
 GetAliasOk returns a tuple with the Alias field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAlias
 
-`func (o *PdcPrivateConnectivityInfoAnyOf2) SetAlias(v string)`
+`func (o *ApiAnyOf2) SetAlias(v string)`
 
 SetAlias sets Alias field to given value.
 
 
 ### GetEndpointName
 
-`func (o *PdcPrivateConnectivityInfoAnyOf2) GetEndpointName() string`
+`func (o *ApiAnyOf2) GetEndpointName() string`
 
 GetEndpointName returns the EndpointName field if non-nil, zero value otherwise.
 
 ### GetEndpointNameOk
 
-`func (o *PdcPrivateConnectivityInfoAnyOf2) GetEndpointNameOk() (*string, bool)`
+`func (o *ApiAnyOf2) GetEndpointNameOk() (*string, bool)`
 
 GetEndpointNameOk returns a tuple with the EndpointName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEndpointName
 
-`func (o *PdcPrivateConnectivityInfoAnyOf2) SetEndpointName(v string)`
+`func (o *ApiAnyOf2) SetEndpointName(v string)`
 
 SetEndpointName sets EndpointName field to given value.
 
 ### HasEndpointName
 
-`func (o *PdcPrivateConnectivityInfoAnyOf2) HasEndpointName() bool`
+`func (o *ApiAnyOf2) HasEndpointName() bool`
 
 HasEndpointName returns a boolean if a field has been set.
 

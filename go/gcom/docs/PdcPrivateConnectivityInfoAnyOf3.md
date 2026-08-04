@@ -4,15 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Mimir** | [**Mimir**](Mimir.md) |  | 
-**Graphite** | Pointer to [**Graphite**](Graphite.md) |  | [optional] 
-**Otlp** | Pointer to [**Otlp**](Otlp.md) |  | [optional] 
+**Api** | [**Api**](Api.md) |  | 
+**Gateway** | [**Gateway**](Gateway.md) |  | 
 
 ## Methods
 
 ### NewPdcPrivateConnectivityInfoAnyOf3
 
-`func NewPdcPrivateConnectivityInfoAnyOf3(mimir Mimir, ) *PdcPrivateConnectivityInfoAnyOf3`
+`func NewPdcPrivateConnectivityInfoAnyOf3(api Api, gateway Gateway, ) *PdcPrivateConnectivityInfoAnyOf3`
 
 NewPdcPrivateConnectivityInfoAnyOf3 instantiates a new PdcPrivateConnectivityInfoAnyOf3 object
 This constructor will assign default values to properties that have it defined,
@@ -27,75 +26,45 @@ NewPdcPrivateConnectivityInfoAnyOf3WithDefaults instantiates a new PdcPrivateCon
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetMimir
+### GetApi
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetMimir() Mimir`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetApi() Api`
 
-GetMimir returns the Mimir field if non-nil, zero value otherwise.
+GetApi returns the Api field if non-nil, zero value otherwise.
 
-### GetMimirOk
+### GetApiOk
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetMimirOk() (*Mimir, bool)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetApiOk() (*Api, bool)`
 
-GetMimirOk returns a tuple with the Mimir field if it's non-nil, zero value otherwise
+GetApiOk returns a tuple with the Api field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMimir
+### SetApi
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) SetMimir(v Mimir)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) SetApi(v Api)`
 
-SetMimir sets Mimir field to given value.
+SetApi sets Api field to given value.
 
 
-### GetGraphite
+### GetGateway
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetGraphite() Graphite`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetGateway() Gateway`
 
-GetGraphite returns the Graphite field if non-nil, zero value otherwise.
+GetGateway returns the Gateway field if non-nil, zero value otherwise.
 
-### GetGraphiteOk
+### GetGatewayOk
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetGraphiteOk() (*Graphite, bool)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) GetGatewayOk() (*Gateway, bool)`
 
-GetGraphiteOk returns a tuple with the Graphite field if it's non-nil, zero value otherwise
+GetGatewayOk returns a tuple with the Gateway field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetGraphite
+### SetGateway
 
-`func (o *PdcPrivateConnectivityInfoAnyOf3) SetGraphite(v Graphite)`
+`func (o *PdcPrivateConnectivityInfoAnyOf3) SetGateway(v Gateway)`
 
-SetGraphite sets Graphite field to given value.
+SetGateway sets Gateway field to given value.
 
-### HasGraphite
-
-`func (o *PdcPrivateConnectivityInfoAnyOf3) HasGraphite() bool`
-
-HasGraphite returns a boolean if a field has been set.
-
-### GetOtlp
-
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlp() Otlp`
-
-GetOtlp returns the Otlp field if non-nil, zero value otherwise.
-
-### GetOtlpOk
-
-`func (o *PdcPrivateConnectivityInfoAnyOf3) GetOtlpOk() (*Otlp, bool)`
-
-GetOtlpOk returns a tuple with the Otlp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOtlp
-
-`func (o *PdcPrivateConnectivityInfoAnyOf3) SetOtlp(v Otlp)`
-
-SetOtlp sets Otlp field to given value.
-
-### HasOtlp
-
-`func (o *PdcPrivateConnectivityInfoAnyOf3) HasOtlp() bool`
-
-HasOtlp returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
