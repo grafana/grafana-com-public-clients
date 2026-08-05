@@ -7470,6 +7470,10 @@
             "type": "string",
             "title": "regionSigilUrl"
           },
+          "regionAgentO11YUrl": {
+            "type": "string",
+            "title": "regionAgentO11YUrl"
+          },
           "links": {
             "type": "array",
             "items": {
@@ -7589,6 +7593,7 @@
           "planName",
           "provider",
           "providerRegion",
+          "regionAgentO11YUrl",
           "regionAssistantUrl",
           "regionHostedExportersApiUrl",
           "regionId",
