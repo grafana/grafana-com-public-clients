@@ -548,6 +548,10 @@
                   "slug": {
                     "type": "string"
                   },
+                  "stackType": {
+                    "default": "cloud",
+                    "type": "string"
+                  },
                   "url": {
                     "type": "string"
                   },
@@ -7421,6 +7425,10 @@
             ],
             "title": "type"
           },
+          "stackType": {
+            "type": "string",
+            "title": "stackType"
+          },
           "k6OrgId": {
             "type": "number",
             "title": "k6OrgId",
@@ -7609,6 +7617,7 @@
           "runningVersion",
           "slug",
           "ssl",
+          "stackType",
           "status",
           "support",
           "trial",
