@@ -19,6 +19,7 @@ var _ MappedNullable = &BasicPrivateConnectivityInfo{}
 
 // BasicPrivateConnectivityInfo struct for BasicPrivateConnectivityInfo
 type BasicPrivateConnectivityInfo struct {
+	Alias               *string  `json:"alias,omitempty"`
 	AvailabilityZoneIds []string `json:"availabilityZoneIds,omitempty"`
 	AvailabilityZones   []string `json:"availabilityZones,omitempty"`
 	DomainNames         []string `json:"domainNames,omitempty"`
@@ -44,6 +45,38 @@ func NewBasicPrivateConnectivityInfo() *BasicPrivateConnectivityInfo {
 func NewBasicPrivateConnectivityInfoWithDefaults() *BasicPrivateConnectivityInfo {
 	this := BasicPrivateConnectivityInfo{}
 	return &this
+}
+
+// GetAlias returns the Alias field value if set, zero value otherwise.
+func (o *BasicPrivateConnectivityInfo) GetAlias() string {
+	if o == nil || IsNil(o.Alias) {
+		var ret string
+		return ret
+	}
+	return *o.Alias
+}
+
+// GetAliasOk returns a tuple with the Alias field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BasicPrivateConnectivityInfo) GetAliasOk() (*string, bool) {
+	if o == nil || IsNil(o.Alias) {
+		return nil, false
+	}
+	return o.Alias, true
+}
+
+// HasAlias returns a boolean if a field has been set.
+func (o *BasicPrivateConnectivityInfo) HasAlias() bool {
+	if o != nil && !IsNil(o.Alias) {
+		return true
+	}
+
+	return false
+}
+
+// SetAlias gets a reference to the given string and assigns it to the Alias field.
+func (o *BasicPrivateConnectivityInfo) SetAlias(v string) {
+	o.Alias = &v
 }
 
 // GetAvailabilityZoneIds returns the AvailabilityZoneIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -316,6 +349,9 @@ func (o BasicPrivateConnectivityInfo) MarshalJSON() ([]byte, error) {
 
 func (o BasicPrivateConnectivityInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Alias) {
+		toSerialize["alias"] = o.Alias
+	}
 	if o.AvailabilityZoneIds != nil {
 		toSerialize["availabilityZoneIds"] = o.AvailabilityZoneIds
 	}
