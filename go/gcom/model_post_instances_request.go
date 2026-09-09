@@ -40,6 +40,7 @@ type PostInstancesRequest struct {
 	ReasonType           *string            `json:"reasonType,omitempty"`
 	Region               *string            `json:"region,omitempty"`
 	Slug                 *string            `json:"slug,omitempty"`
+	StackType            *string            `json:"stackType,omitempty"`
 	Url                  *string            `json:"url,omitempty"`
 	UsernameOrEmail      *string            `json:"usernameOrEmail,omitempty"`
 	Version              *string            `json:"version,omitempty"`
@@ -58,6 +59,8 @@ func NewPostInstancesRequest(name string) *PostInstancesRequest {
 	var deleteProtection bool = false
 	this.DeleteProtection = &deleteProtection
 	this.Name = name
+	var stackType string = "cloud"
+	this.StackType = &stackType
 	var waitForReadiness bool = true
 	this.WaitForReadiness = &waitForReadiness
 	return &this
@@ -70,6 +73,8 @@ func NewPostInstancesRequestWithDefaults() *PostInstancesRequest {
 	this := PostInstancesRequest{}
 	var deleteProtection bool = false
 	this.DeleteProtection = &deleteProtection
+	var stackType string = "cloud"
+	this.StackType = &stackType
 	var waitForReadiness bool = true
 	this.WaitForReadiness = &waitForReadiness
 	return &this
@@ -739,6 +744,38 @@ func (o *PostInstancesRequest) SetSlug(v string) {
 	o.Slug = &v
 }
 
+// GetStackType returns the StackType field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetStackType() string {
+	if o == nil || IsNil(o.StackType) {
+		var ret string
+		return ret
+	}
+	return *o.StackType
+}
+
+// GetStackTypeOk returns a tuple with the StackType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetStackTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.StackType) {
+		return nil, false
+	}
+	return o.StackType, true
+}
+
+// HasStackType returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasStackType() bool {
+	if o != nil && !IsNil(o.StackType) {
+		return true
+	}
+
+	return false
+}
+
+// SetStackType gets a reference to the given string and assigns it to the StackType field.
+func (o *PostInstancesRequest) SetStackType(v string) {
+	o.StackType = &v
+}
+
 // GetUrl returns the Url field value if set, zero value otherwise.
 func (o *PostInstancesRequest) GetUrl() string {
 	if o == nil || IsNil(o.Url) {
@@ -938,6 +975,9 @@ func (o PostInstancesRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Slug) {
 		toSerialize["slug"] = o.Slug
 	}
+	if !IsNil(o.StackType) {
+		toSerialize["stackType"] = o.StackType
+	}
 	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
 	}
@@ -1001,6 +1041,7 @@ func (o *PostInstancesRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "reasonType")
 		delete(additionalProperties, "region")
 		delete(additionalProperties, "slug")
+		delete(additionalProperties, "stackType")
 		delete(additionalProperties, "url")
 		delete(additionalProperties, "usernameOrEmail")
 		delete(additionalProperties, "version")

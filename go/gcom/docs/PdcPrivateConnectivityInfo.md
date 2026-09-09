@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **AvailabilityZoneIds** | Pointer to **[]string** |  | [optional] 
 **ServiceAttachment** | **string** |  | 
 **DomainNames** | **[]string** |  | 
+**Alias** | **string** |  | 
 **Api** | [**Api**](Api.md) |  | 
 **Gateway** | [**Gateway**](Gateway.md) |  | 
 **Mimir** | [**Mimir**](Mimir.md) |  | 
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewPdcPrivateConnectivityInfo
 
-`func NewPdcPrivateConnectivityInfo(privateDNS string, serviceName string, endpointName string, serviceAttachment string, domainNames []string, api Api, gateway Gateway, mimir Mimir, ) *PdcPrivateConnectivityInfo`
+`func NewPdcPrivateConnectivityInfo(privateDNS string, serviceName string, endpointName string, serviceAttachment string, domainNames []string, alias string, api Api, gateway Gateway, mimir Mimir, ) *PdcPrivateConnectivityInfo`
 
 NewPdcPrivateConnectivityInfo instantiates a new PdcPrivateConnectivityInfo object
 This constructor will assign default values to properties that have it defined,
@@ -236,6 +237,26 @@ and a boolean to check if the value has been set.
 `func (o *PdcPrivateConnectivityInfo) SetDomainNames(v []string)`
 
 SetDomainNames sets DomainNames field to given value.
+
+
+### GetAlias
+
+`func (o *PdcPrivateConnectivityInfo) GetAlias() string`
+
+GetAlias returns the Alias field if non-nil, zero value otherwise.
+
+### GetAliasOk
+
+`func (o *PdcPrivateConnectivityInfo) GetAliasOk() (*string, bool)`
+
+GetAliasOk returns a tuple with the Alias field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAlias
+
+`func (o *PdcPrivateConnectivityInfo) SetAlias(v string)`
+
+SetAlias sets Alias field to given value.
 
 
 ### GetApi

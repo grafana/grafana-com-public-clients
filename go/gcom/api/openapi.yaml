@@ -4227,6 +4227,7 @@ components:
         ssl: true
         userQuota: 3.0576100241049344
         id: 6.519180951018382
+        stackType: stackType
         plan: advanced
         hlInstanceBillingUsage: 5.025004791520295
         agentManagementInstanceStatus: active
@@ -4324,6 +4325,7 @@ components:
         provider: provider
         hmInstancePromBillingUsage: 1.284659006116532
         currentActiveAdminUsers: 3.616076749251911
+        regionAgentO11YUrl: regionAgentO11YUrl
         htInstanceId: 6.878052220127876
         regionSlug: regionSlug
         dashboardCnt: 7.457744773683766
@@ -4738,6 +4740,9 @@ components:
           - grafana
           title: type
           type: string
+        stackType:
+          title: stackType
+          type: string
         k6OrgId:
           nullable: true
           title: k6OrgId
@@ -4774,6 +4779,9 @@ components:
           type: string
         regionSigilUrl:
           title: regionSigilUrl
+          type: string
+        regionAgentO11YUrl:
+          title: regionAgentO11YUrl
           type: string
         links:
           items:
@@ -4876,6 +4884,7 @@ components:
       - planName
       - provider
       - providerRegion
+      - regionAgentO11YUrl
       - regionAssistantUrl
       - regionHostedExportersApiUrl
       - regionId
@@ -4891,6 +4900,7 @@ components:
       - runningVersion
       - slug
       - ssl
+      - stackType
       - status
       - support
       - trial
@@ -5743,6 +5753,7 @@ components:
         - rel: rel
           href: href
         id: 0.8008281904610115
+        prices: "{}"
         slug: slug
         updatedAt: updatedAt
         orgName: orgName
@@ -5875,6 +5886,9 @@ components:
         hasDocumentation:
           title: hasDocumentation
           type: boolean
+        prices:
+          title: prices
+          type: object
       required:
       - angularDetected
       - createdAt
@@ -6515,6 +6529,7 @@ components:
         - regions
         - regions
         serviceAttachment: serviceAttachment
+        alias: alias
         endpointName: endpointName
         availabilityZones:
         - availabilityZones
@@ -6525,6 +6540,8 @@ components:
         privateDNS: privateDNS
         serviceName: serviceName
       properties:
+        alias:
+          type: string
         availabilityZoneIds:
           items:
             type: string
@@ -6602,6 +6619,7 @@ components:
               - regions
               - regions
               serviceAttachment: serviceAttachment
+              alias: alias
               endpointName: endpointName
               availabilityZones:
               - availabilityZones
@@ -6623,6 +6641,7 @@ components:
               - regions
               - regions
               serviceAttachment: serviceAttachment
+              alias: alias
               endpointName: endpointName
               availabilityZones:
               - availabilityZones
@@ -6640,6 +6659,7 @@ components:
             - regions
             - regions
             serviceAttachment: serviceAttachment
+            alias: alias
             endpointName: endpointName
             availabilityZones:
             - availabilityZones
@@ -6658,6 +6678,7 @@ components:
               - regions
               - regions
               serviceAttachment: serviceAttachment
+              alias: alias
               endpointName: endpointName
               availabilityZones:
               - availabilityZones
@@ -6675,6 +6696,7 @@ components:
               - regions
               - regions
               serviceAttachment: serviceAttachment
+              alias: alias
               endpointName: endpointName
               availabilityZones:
               - availabilityZones
@@ -6721,6 +6743,7 @@ components:
             - regions
             - regions
             serviceAttachment: serviceAttachment
+            alias: alias
             endpointName: endpointName
             availabilityZones:
             - availabilityZones
@@ -6742,6 +6765,7 @@ components:
             - regions
             - regions
             serviceAttachment: serviceAttachment
+            alias: alias
             endpointName: endpointName
             availabilityZones:
             - availabilityZones
@@ -6759,6 +6783,7 @@ components:
           - regions
           - regions
           serviceAttachment: serviceAttachment
+          alias: alias
           endpointName: endpointName
           availabilityZones:
           - availabilityZones
@@ -6777,6 +6802,7 @@ components:
             - regions
             - regions
             serviceAttachment: serviceAttachment
+            alias: alias
             endpointName: endpointName
             availabilityZones:
             - availabilityZones
@@ -6794,6 +6820,7 @@ components:
             - regions
             - regions
             serviceAttachment: serviceAttachment
+            alias: alias
             endpointName: endpointName
             availabilityZones:
             - availabilityZones
@@ -6831,6 +6858,7 @@ components:
           - regions
           - regions
           serviceAttachment: serviceAttachment
+          alias: alias
           endpointName: endpointName
           availabilityZones:
           - availabilityZones
@@ -6989,6 +7017,7 @@ components:
           - regions
           - regions
           serviceAttachment: serviceAttachment
+          alias: alias
           endpointName: endpointName
           availabilityZones:
           - availabilityZones
@@ -7022,6 +7051,7 @@ components:
           - regions
           - regions
           serviceAttachment: serviceAttachment
+          alias: alias
           endpointName: endpointName
           availabilityZones:
           - availabilityZones
@@ -7039,6 +7069,7 @@ components:
           - regions
           - regions
           serviceAttachment: serviceAttachment
+          alias: alias
           endpointName: endpointName
           availabilityZones:
           - availabilityZones
@@ -7083,6 +7114,7 @@ components:
           - regions
           - regions
           serviceAttachment: serviceAttachment
+          alias: alias
           endpointName: endpointName
           availabilityZones:
           - availabilityZones
@@ -7128,6 +7160,7 @@ components:
             - regions
             - regions
             serviceAttachment: serviceAttachment
+            alias: alias
             endpointName: endpointName
             availabilityZones:
             - availabilityZones
@@ -7149,6 +7182,7 @@ components:
             - regions
             - regions
             serviceAttachment: serviceAttachment
+            alias: alias
             endpointName: endpointName
             availabilityZones:
             - availabilityZones
@@ -7178,6 +7212,7 @@ components:
             - regions
             - regions
             serviceAttachment: serviceAttachment
+            alias: alias
             endpointName: endpointName
             availabilityZones:
             - availabilityZones
@@ -7197,6 +7232,7 @@ components:
             - regions
             - regions
             serviceAttachment: serviceAttachment
+            alias: alias
             endpointName: endpointName
             availabilityZones:
             - availabilityZones
@@ -7214,6 +7250,7 @@ components:
             - regions
             - regions
             serviceAttachment: serviceAttachment
+            alias: alias
             endpointName: endpointName
             availabilityZones:
             - availabilityZones
@@ -7464,6 +7501,7 @@ components:
           ssl: true
           userQuota: 3.0576100241049344
           id: 6.519180951018382
+          stackType: stackType
           plan: advanced
           hlInstanceBillingUsage: 5.025004791520295
           agentManagementInstanceStatus: active
@@ -7561,6 +7599,7 @@ components:
           provider: provider
           hmInstancePromBillingUsage: 1.284659006116532
           currentActiveAdminUsers: 3.616076749251911
+          regionAgentO11YUrl: regionAgentO11YUrl
           htInstanceId: 6.878052220127876
           regionSlug: regionSlug
           dashboardCnt: 7.457744773683766
@@ -7590,6 +7629,7 @@ components:
           ssl: true
           userQuota: 3.0576100241049344
           id: 6.519180951018382
+          stackType: stackType
           plan: advanced
           hlInstanceBillingUsage: 5.025004791520295
           agentManagementInstanceStatus: active
@@ -7687,6 +7727,7 @@ components:
           provider: provider
           hmInstancePromBillingUsage: 1.284659006116532
           currentActiveAdminUsers: 3.616076749251911
+          regionAgentO11YUrl: regionAgentO11YUrl
           htInstanceId: 6.878052220127876
           regionSlug: regionSlug
           dashboardCnt: 7.457744773683766
@@ -7810,6 +7851,9 @@ components:
         region:
           type: string
         slug:
+          type: string
+        stackType:
+          default: cloud
           type: string
         url:
           type: string
@@ -10801,6 +10845,18 @@ components:
       - endpointName
       - serviceAttachment
       type: object
+    pdcPrivateConnectivityInfo_anyOf_2:
+      nullable: true
+      properties:
+        alias:
+          title: alias
+          type: string
+        endpointName:
+          title: endpointName
+          type: string
+      required:
+      - alias
+      type: object
     api_anyOf:
       properties:
         privateDNS:
@@ -10852,17 +10908,30 @@ components:
       - endpointName
       - serviceAttachment
       type: object
+    api_anyOf_2:
+      properties:
+        alias:
+          title: alias
+          type: string
+        endpointName:
+          title: endpointName
+          type: string
+      required:
+      - alias
+      type: object
     api:
       anyOf:
       - $ref: '#/components/schemas/api_anyOf'
       - $ref: '#/components/schemas/api_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf_2'
       title: api
     gateway:
       anyOf:
       - $ref: '#/components/schemas/api_anyOf'
       - $ref: '#/components/schemas/api_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf_2'
       title: gateway
-    pdcPrivateConnectivityInfo_anyOf_2:
+    pdcPrivateConnectivityInfo_anyOf_3:
       nullable: true
       properties:
         api:
@@ -10877,18 +10946,21 @@ components:
       anyOf:
       - $ref: '#/components/schemas/api_anyOf'
       - $ref: '#/components/schemas/api_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf_2'
       title: mimir
     graphite:
       anyOf:
       - $ref: '#/components/schemas/api_anyOf'
       - $ref: '#/components/schemas/api_anyOf_1'
+      - $ref: '#/components/schemas/api_anyOf_2'
       title: graphite
     otlp:
       anyOf:
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
+      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2'
       title: otlp
-    pdcPrivateConnectivityInfo_anyOf_3:
+    pdcPrivateConnectivityInfo_anyOf_4:
       nullable: true
       properties:
         mimir:
@@ -10906,6 +10978,7 @@ components:
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_3'
+      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_4'
       title: pdcPrivateConnectivityInfo
     otlpPrivateConnectivityInfo:
       anyOf:
@@ -10913,6 +10986,7 @@ components:
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_1'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_2'
       - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_3'
+      - $ref: '#/components/schemas/pdcPrivateConnectivityInfo_anyOf_4'
       title: otlpPrivateConnectivityInfo
     FormattedApiStackRegion_anyOf_1:
       properties:

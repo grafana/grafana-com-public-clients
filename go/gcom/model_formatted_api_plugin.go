@@ -57,6 +57,7 @@ type FormattedApiPlugin struct {
 	Category                *string                `json:"category,omitempty"`
 	Managed                 *Managed               `json:"managed,omitempty"`
 	HasDocumentation        *bool                  `json:"hasDocumentation,omitempty"`
+	Prices                  map[string]interface{} `json:"prices,omitempty"`
 	AdditionalProperties    map[string]interface{}
 }
 
@@ -1071,6 +1072,38 @@ func (o *FormattedApiPlugin) SetHasDocumentation(v bool) {
 	o.HasDocumentation = &v
 }
 
+// GetPrices returns the Prices field value if set, zero value otherwise.
+func (o *FormattedApiPlugin) GetPrices() map[string]interface{} {
+	if o == nil || IsNil(o.Prices) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Prices
+}
+
+// GetPricesOk returns a tuple with the Prices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiPlugin) GetPricesOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Prices) {
+		return map[string]interface{}{}, false
+	}
+	return o.Prices, true
+}
+
+// HasPrices returns a boolean if a field has been set.
+func (o *FormattedApiPlugin) HasPrices() bool {
+	if o != nil && !IsNil(o.Prices) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrices gets a reference to the given map[string]interface{} and assigns it to the Prices field.
+func (o *FormattedApiPlugin) SetPrices(v map[string]interface{}) {
+	o.Prices = v
+}
+
 func (o FormattedApiPlugin) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -1130,6 +1163,9 @@ func (o FormattedApiPlugin) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.HasDocumentation) {
 		toSerialize["hasDocumentation"] = o.HasDocumentation
+	}
+	if !IsNil(o.Prices) {
+		toSerialize["prices"] = o.Prices
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -1199,6 +1235,7 @@ func (o *FormattedApiPlugin) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "category")
 		delete(additionalProperties, "managed")
 		delete(additionalProperties, "hasDocumentation")
+		delete(additionalProperties, "prices")
 		o.AdditionalProperties = additionalProperties
 	}
 

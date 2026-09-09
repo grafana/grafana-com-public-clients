@@ -127,6 +127,7 @@ type FormattedApiInstance struct {
 	AgentManagementInstanceClusterId  float32                `json:"agentManagementInstanceClusterId"`
 	Config                            map[string]interface{} `json:"config,omitempty"`
 	Type                              string                 `json:"type"`
+	StackType                         string                 `json:"stackType"`
 	K6OrgId                           NullableFloat32        `json:"k6OrgId"`
 	MachineLearningLogsToken          string                 `json:"machineLearningLogsToken"`
 	UsageStatsId                      string                 `json:"usageStatsId"`
@@ -139,6 +140,7 @@ type FormattedApiInstance struct {
 	RegionLLMGatewayUrl               string                 `json:"regionLLMGatewayUrl"`
 	RegionAssistantUrl                string                 `json:"regionAssistantUrl"`
 	RegionSigilUrl                    string                 `json:"regionSigilUrl"`
+	RegionAgentO11YUrl                string                 `json:"regionAgentO11YUrl"`
 	Links                             []LinksInner           `json:"links"`
 	DeleteProtection                  bool                   `json:"deleteProtection"`
 	AdditionalProperties              map[string]interface{}
@@ -150,7 +152,7 @@ type _FormattedApiInstance FormattedApiInstance
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, amInstanceClusterId float32, billingActiveUsers float32, billingEndDate NullableString, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceBillingUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hlInstanceClusterId float32, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteBillingUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromClusterId float32, hmInstancePromCurrentActiveSeries NullableFloat32, hmInstancePromCurrentUsage float32, hmInstancePromBillingUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, hmInstanceGraphiteClusterId float32, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, htInstanceClusterId float32, htInstanceCurrentUsage float32, htInstanceBillingUsage float32, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, hpInstanceClusterId float32, hpInstanceCurrentUsage float32, hpInstanceBillingUsage float32, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, orgCreatedAt string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, agentManagementInstanceUrl string, agentManagementInstanceName string, agentManagementInstanceStatus string, agentManagementInstanceClusterId float32, type_ string, k6OrgId NullableFloat32, machineLearningLogsToken string, usageStatsId string, regionStackStateServiceUrl string, regionSyntheticMonitoringApiUrl string, regionInsightsApiUrl string, regionIntegrationsApiUrl string, regionHostedExportersApiUrl string, regionMachineLearningApiUrl string, regionLLMGatewayUrl string, regionAssistantUrl string, regionSigilUrl string, links []LinksInner, deleteProtection bool) *FormattedApiInstance {
+func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGeneratorUrl string, amInstanceGeneratorUrlDatasource string, amInstanceId float32, amInstanceName string, amInstanceStatus string, amInstanceUrl string, amInstanceClusterId float32, billingActiveUsers float32, billingEndDate NullableString, billingGrafanaActiveUsers float32, billingOnCallActiveUsers float32, billingStartDate string, clusterId float32, clusterName string, clusterSlug string, createdAt string, createdBy string, currentActiveAdminUsers float32, currentActiveEditorUsers float32, currentActiveUsers float32, currentActiveViewerUsers float32, customAuth bool, customDomain bool, dailyAdminCnt float32, dailyEditorCnt float32, dailyUserCnt float32, dailyViewerCnt float32, dashboardCnt float32, dashboardQuota float32, datasourceCnts map[string]interface{}, description string, gateway string, hlInstanceCurrentUsage float32, hlInstanceBillingUsage float32, hlInstanceId float32, hlInstanceName string, hlInstanceStatus string, hlInstanceUrl string, hlInstanceClusterId float32, hmInstanceGraphiteCurrentUsage float32, hmInstanceGraphiteBillingUsage float32, hmInstanceGraphiteId float32, hmInstanceGraphiteName string, hmInstanceGraphiteStatus string, hmInstanceGraphiteType string, hmInstanceGraphiteUrl string, hmInstancePromClusterId float32, hmInstancePromCurrentActiveSeries NullableFloat32, hmInstancePromCurrentUsage float32, hmInstancePromBillingUsage float32, hmInstancePromId float32, hmInstancePromName string, hmInstancePromStatus string, hmInstancePromUrl string, hmInstanceGraphiteClusterId float32, htInstanceId float32, htInstanceName string, htInstanceStatus string, htInstanceUrl string, htInstanceClusterId float32, htInstanceCurrentUsage float32, htInstanceBillingUsage float32, hpInstanceId float32, hpInstanceName string, hpInstanceStatus string, hpInstanceUrl string, hpInstanceClusterId float32, hpInstanceCurrentUsage float32, hpInstanceBillingUsage float32, id float32, incident float32, machineLearning float32, name string, orgId float32, orgName string, orgSlug string, orgCreatedAt string, plan string, planName string, regionId float32, regionSlug string, regionPublicName string, provider string, providerRegion string, runningVersion string, slug string, ssl bool, status string, support bool, trial float32, trialExpiresAt NullableString, updatedAt NullableString, updatedBy NullableString, url string, userQuota float32, version string, agentManagementInstanceId float32, agentManagementInstanceUrl string, agentManagementInstanceName string, agentManagementInstanceStatus string, agentManagementInstanceClusterId float32, type_ string, stackType string, k6OrgId NullableFloat32, machineLearningLogsToken string, usageStatsId string, regionStackStateServiceUrl string, regionSyntheticMonitoringApiUrl string, regionInsightsApiUrl string, regionIntegrationsApiUrl string, regionHostedExportersApiUrl string, regionMachineLearningApiUrl string, regionLLMGatewayUrl string, regionAssistantUrl string, regionSigilUrl string, regionAgentO11YUrl string, links []LinksInner, deleteProtection bool) *FormattedApiInstance {
 	this := FormattedApiInstance{}
 	this.AlertCnt = alertCnt
 	this.AlertQuota = alertQuota
@@ -256,6 +258,7 @@ func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGen
 	this.AgentManagementInstanceStatus = agentManagementInstanceStatus
 	this.AgentManagementInstanceClusterId = agentManagementInstanceClusterId
 	this.Type = type_
+	this.StackType = stackType
 	this.K6OrgId = k6OrgId
 	this.MachineLearningLogsToken = machineLearningLogsToken
 	this.UsageStatsId = usageStatsId
@@ -268,6 +271,7 @@ func NewFormattedApiInstance(alertCnt float32, alertQuota float32, amInstanceGen
 	this.RegionLLMGatewayUrl = regionLLMGatewayUrl
 	this.RegionAssistantUrl = regionAssistantUrl
 	this.RegionSigilUrl = regionSigilUrl
+	this.RegionAgentO11YUrl = regionAgentO11YUrl
 	this.Links = links
 	this.DeleteProtection = deleteProtection
 	return &this
@@ -2926,6 +2930,30 @@ func (o *FormattedApiInstance) SetType(v string) {
 	o.Type = v
 }
 
+// GetStackType returns the StackType field value
+func (o *FormattedApiInstance) GetStackType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.StackType
+}
+
+// GetStackTypeOk returns a tuple with the StackType field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetStackTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StackType, true
+}
+
+// SetStackType sets field value
+func (o *FormattedApiInstance) SetStackType(v string) {
+	o.StackType = v
+}
+
 // GetK6OrgId returns the K6OrgId field value
 // If the value is explicit nil, the zero value for float32 will be returned
 func (o *FormattedApiInstance) GetK6OrgId() float32 {
@@ -3216,6 +3244,30 @@ func (o *FormattedApiInstance) SetRegionSigilUrl(v string) {
 	o.RegionSigilUrl = v
 }
 
+// GetRegionAgentO11YUrl returns the RegionAgentO11YUrl field value
+func (o *FormattedApiInstance) GetRegionAgentO11YUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.RegionAgentO11YUrl
+}
+
+// GetRegionAgentO11YUrlOk returns a tuple with the RegionAgentO11YUrl field value
+// and a boolean to check if the value has been set.
+func (o *FormattedApiInstance) GetRegionAgentO11YUrlOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RegionAgentO11YUrl, true
+}
+
+// SetRegionAgentO11YUrl sets field value
+func (o *FormattedApiInstance) SetRegionAgentO11YUrl(v string) {
+	o.RegionAgentO11YUrl = v
+}
+
 // GetLinks returns the Links field value
 func (o *FormattedApiInstance) GetLinks() []LinksInner {
 	if o == nil {
@@ -3390,6 +3442,7 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 		toSerialize["config"] = o.Config
 	}
 	toSerialize["type"] = o.Type
+	toSerialize["stackType"] = o.StackType
 	toSerialize["k6OrgId"] = o.K6OrgId.Get()
 	toSerialize["machineLearningLogsToken"] = o.MachineLearningLogsToken
 	toSerialize["usageStatsId"] = o.UsageStatsId
@@ -3402,6 +3455,7 @@ func (o FormattedApiInstance) ToMap() (map[string]interface{}, error) {
 	toSerialize["regionLLMGatewayUrl"] = o.RegionLLMGatewayUrl
 	toSerialize["regionAssistantUrl"] = o.RegionAssistantUrl
 	toSerialize["regionSigilUrl"] = o.RegionSigilUrl
+	toSerialize["regionAgentO11YUrl"] = o.RegionAgentO11YUrl
 	toSerialize["links"] = o.Links
 	toSerialize["deleteProtection"] = o.DeleteProtection
 
@@ -3542,6 +3596,7 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "agentManagementInstanceClusterId")
 		delete(additionalProperties, "config")
 		delete(additionalProperties, "type")
+		delete(additionalProperties, "stackType")
 		delete(additionalProperties, "k6OrgId")
 		delete(additionalProperties, "machineLearningLogsToken")
 		delete(additionalProperties, "usageStatsId")
@@ -3554,6 +3609,7 @@ func (o *FormattedApiInstance) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "regionLLMGatewayUrl")
 		delete(additionalProperties, "regionAssistantUrl")
 		delete(additionalProperties, "regionSigilUrl")
+		delete(additionalProperties, "regionAgentO11YUrl")
 		delete(additionalProperties, "links")
 		delete(additionalProperties, "deleteProtection")
 		o.AdditionalProperties = additionalProperties

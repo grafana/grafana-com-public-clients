@@ -13,12 +13,13 @@ Name | Type | Description | Notes
 **AvailabilityZoneIds** | Pointer to **[]string** |  | [optional] 
 **ServiceAttachment** | **string** |  | 
 **DomainNames** | **[]string** |  | 
+**Alias** | **string** |  | 
 
 ## Methods
 
 ### NewApi
 
-`func NewApi(privateDNS string, serviceName string, endpointName string, serviceAttachment string, domainNames []string, ) *Api`
+`func NewApi(privateDNS string, serviceName string, endpointName string, serviceAttachment string, domainNames []string, alias string, ) *Api`
 
 NewApi instantiates a new Api object
 This constructor will assign default values to properties that have it defined,
@@ -231,6 +232,26 @@ and a boolean to check if the value has been set.
 `func (o *Api) SetDomainNames(v []string)`
 
 SetDomainNames sets DomainNames field to given value.
+
+
+### GetAlias
+
+`func (o *Api) GetAlias() string`
+
+GetAlias returns the Alias field if non-nil, zero value otherwise.
+
+### GetAliasOk
+
+`func (o *Api) GetAliasOk() (*string, bool)`
+
+GetAliasOk returns a tuple with the Alias field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAlias
+
+`func (o *Api) SetAlias(v string)`
+
+SetAlias sets Alias field to given value.
 
 
 

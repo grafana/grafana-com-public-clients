@@ -14,38 +14,38 @@ import (
 	"encoding/json"
 )
 
-// checks if the PdcPrivateConnectivityInfoAnyOf2 type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &PdcPrivateConnectivityInfoAnyOf2{}
+// checks if the ApiAnyOf2 type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ApiAnyOf2{}
 
-// PdcPrivateConnectivityInfoAnyOf2 struct for PdcPrivateConnectivityInfoAnyOf2
-type PdcPrivateConnectivityInfoAnyOf2 struct {
+// ApiAnyOf2 struct for ApiAnyOf2
+type ApiAnyOf2 struct {
 	Alias                string  `json:"alias"`
 	EndpointName         *string `json:"endpointName,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _PdcPrivateConnectivityInfoAnyOf2 PdcPrivateConnectivityInfoAnyOf2
+type _ApiAnyOf2 ApiAnyOf2
 
-// NewPdcPrivateConnectivityInfoAnyOf2 instantiates a new PdcPrivateConnectivityInfoAnyOf2 object
+// NewApiAnyOf2 instantiates a new ApiAnyOf2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPdcPrivateConnectivityInfoAnyOf2(alias string) *PdcPrivateConnectivityInfoAnyOf2 {
-	this := PdcPrivateConnectivityInfoAnyOf2{}
+func NewApiAnyOf2(alias string) *ApiAnyOf2 {
+	this := ApiAnyOf2{}
 	this.Alias = alias
 	return &this
 }
 
-// NewPdcPrivateConnectivityInfoAnyOf2WithDefaults instantiates a new PdcPrivateConnectivityInfoAnyOf2 object
+// NewApiAnyOf2WithDefaults instantiates a new ApiAnyOf2 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPdcPrivateConnectivityInfoAnyOf2WithDefaults() *PdcPrivateConnectivityInfoAnyOf2 {
-	this := PdcPrivateConnectivityInfoAnyOf2{}
+func NewApiAnyOf2WithDefaults() *ApiAnyOf2 {
+	this := ApiAnyOf2{}
 	return &this
 }
 
 // GetAlias returns the Alias field value
-func (o *PdcPrivateConnectivityInfoAnyOf2) GetAlias() string {
+func (o *ApiAnyOf2) GetAlias() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -56,7 +56,7 @@ func (o *PdcPrivateConnectivityInfoAnyOf2) GetAlias() string {
 
 // GetAliasOk returns a tuple with the Alias field value
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf2) GetAliasOk() (*string, bool) {
+func (o *ApiAnyOf2) GetAliasOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -64,12 +64,12 @@ func (o *PdcPrivateConnectivityInfoAnyOf2) GetAliasOk() (*string, bool) {
 }
 
 // SetAlias sets field value
-func (o *PdcPrivateConnectivityInfoAnyOf2) SetAlias(v string) {
+func (o *ApiAnyOf2) SetAlias(v string) {
 	o.Alias = v
 }
 
 // GetEndpointName returns the EndpointName field value if set, zero value otherwise.
-func (o *PdcPrivateConnectivityInfoAnyOf2) GetEndpointName() string {
+func (o *ApiAnyOf2) GetEndpointName() string {
 	if o == nil || IsNil(o.EndpointName) {
 		var ret string
 		return ret
@@ -79,7 +79,7 @@ func (o *PdcPrivateConnectivityInfoAnyOf2) GetEndpointName() string {
 
 // GetEndpointNameOk returns a tuple with the EndpointName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf2) GetEndpointNameOk() (*string, bool) {
+func (o *ApiAnyOf2) GetEndpointNameOk() (*string, bool) {
 	if o == nil || IsNil(o.EndpointName) {
 		return nil, false
 	}
@@ -87,7 +87,7 @@ func (o *PdcPrivateConnectivityInfoAnyOf2) GetEndpointNameOk() (*string, bool) {
 }
 
 // HasEndpointName returns a boolean if a field has been set.
-func (o *PdcPrivateConnectivityInfoAnyOf2) HasEndpointName() bool {
+func (o *ApiAnyOf2) HasEndpointName() bool {
 	if o != nil && !IsNil(o.EndpointName) {
 		return true
 	}
@@ -96,11 +96,11 @@ func (o *PdcPrivateConnectivityInfoAnyOf2) HasEndpointName() bool {
 }
 
 // SetEndpointName gets a reference to the given string and assigns it to the EndpointName field.
-func (o *PdcPrivateConnectivityInfoAnyOf2) SetEndpointName(v string) {
+func (o *ApiAnyOf2) SetEndpointName(v string) {
 	o.EndpointName = &v
 }
 
-func (o PdcPrivateConnectivityInfoAnyOf2) MarshalJSON() ([]byte, error) {
+func (o ApiAnyOf2) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -108,7 +108,7 @@ func (o PdcPrivateConnectivityInfoAnyOf2) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o PdcPrivateConnectivityInfoAnyOf2) ToMap() (map[string]interface{}, error) {
+func (o ApiAnyOf2) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["alias"] = o.Alias
 	if !IsNil(o.EndpointName) {
@@ -122,7 +122,7 @@ func (o PdcPrivateConnectivityInfoAnyOf2) ToMap() (map[string]interface{}, error
 	return toSerialize, nil
 }
 
-func (o *PdcPrivateConnectivityInfoAnyOf2) UnmarshalJSON(data []byte) (err error) {
+func (o *ApiAnyOf2) UnmarshalJSON(data []byte) (err error) {
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -131,15 +131,15 @@ func (o *PdcPrivateConnectivityInfoAnyOf2) UnmarshalJSON(data []byte) (err error
 		return err
 	}
 
-	varPdcPrivateConnectivityInfoAnyOf2 := _PdcPrivateConnectivityInfoAnyOf2{}
+	varApiAnyOf2 := _ApiAnyOf2{}
 
-	err = json.Unmarshal(data, &varPdcPrivateConnectivityInfoAnyOf2)
+	err = json.Unmarshal(data, &varApiAnyOf2)
 
 	if err != nil {
 		return err
 	}
 
-	*o = PdcPrivateConnectivityInfoAnyOf2(varPdcPrivateConnectivityInfoAnyOf2)
+	*o = ApiAnyOf2(varApiAnyOf2)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -152,38 +152,38 @@ func (o *PdcPrivateConnectivityInfoAnyOf2) UnmarshalJSON(data []byte) (err error
 	return err
 }
 
-type NullablePdcPrivateConnectivityInfoAnyOf2 struct {
-	value *PdcPrivateConnectivityInfoAnyOf2
+type NullableApiAnyOf2 struct {
+	value *ApiAnyOf2
 	isSet bool
 }
 
-func (v NullablePdcPrivateConnectivityInfoAnyOf2) Get() *PdcPrivateConnectivityInfoAnyOf2 {
+func (v NullableApiAnyOf2) Get() *ApiAnyOf2 {
 	return v.value
 }
 
-func (v *NullablePdcPrivateConnectivityInfoAnyOf2) Set(val *PdcPrivateConnectivityInfoAnyOf2) {
+func (v *NullableApiAnyOf2) Set(val *ApiAnyOf2) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePdcPrivateConnectivityInfoAnyOf2) IsSet() bool {
+func (v NullableApiAnyOf2) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePdcPrivateConnectivityInfoAnyOf2) Unset() {
+func (v *NullableApiAnyOf2) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePdcPrivateConnectivityInfoAnyOf2(val *PdcPrivateConnectivityInfoAnyOf2) *NullablePdcPrivateConnectivityInfoAnyOf2 {
-	return &NullablePdcPrivateConnectivityInfoAnyOf2{value: val, isSet: true}
+func NewNullableApiAnyOf2(val *ApiAnyOf2) *NullableApiAnyOf2 {
+	return &NullableApiAnyOf2{value: val, isSet: true}
 }
 
-func (v NullablePdcPrivateConnectivityInfoAnyOf2) MarshalJSON() ([]byte, error) {
+func (v NullableApiAnyOf2) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePdcPrivateConnectivityInfoAnyOf2) UnmarshalJSON(src []byte) error {
+func (v *NullableApiAnyOf2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

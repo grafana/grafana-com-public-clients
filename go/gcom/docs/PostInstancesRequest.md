@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **ReasonType** | Pointer to **string** |  | [optional] 
 **Region** | Pointer to **string** |  | [optional] 
 **Slug** | Pointer to **string** |  | [optional] 
+**StackType** | Pointer to **string** |  | [optional] [default to "cloud"]
 **Url** | Pointer to **string** |  | [optional] 
 **UsernameOrEmail** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
@@ -568,6 +569,31 @@ SetSlug sets Slug field to given value.
 `func (o *PostInstancesRequest) HasSlug() bool`
 
 HasSlug returns a boolean if a field has been set.
+
+### GetStackType
+
+`func (o *PostInstancesRequest) GetStackType() string`
+
+GetStackType returns the StackType field if non-nil, zero value otherwise.
+
+### GetStackTypeOk
+
+`func (o *PostInstancesRequest) GetStackTypeOk() (*string, bool)`
+
+GetStackTypeOk returns a tuple with the StackType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStackType
+
+`func (o *PostInstancesRequest) SetStackType(v string)`
+
+SetStackType sets StackType field to given value.
+
+### HasStackType
+
+`func (o *PostInstancesRequest) HasStackType() bool`
+
+HasStackType returns a boolean if a field has been set.
 
 ### GetUrl
 

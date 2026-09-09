@@ -23,6 +23,7 @@ docs/AddedLinksInner.md
 docs/Api.md
 docs/ApiAnyOf.md
 docs/ApiAnyOf1.md
+docs/ApiAnyOf2.md
 docs/AuthAccessPolicy.md
 docs/AuthAccessPolicyAttributes.md
 docs/AuthAccessPolicyAttributesLokiQueryPolicy.md
@@ -119,6 +120,7 @@ docs/PdcPrivateConnectivityInfoAnyOf.md
 docs/PdcPrivateConnectivityInfoAnyOf1.md
 docs/PdcPrivateConnectivityInfoAnyOf2.md
 docs/PdcPrivateConnectivityInfoAnyOf3.md
+docs/PdcPrivateConnectivityInfoAnyOf4.md
 docs/PermissionsInner.md
 docs/PermissionsInner1.md
 docs/PluginsAPI.md
@@ -188,6 +190,7 @@ model_added_links_inner.go
 model_api.go
 model_api_any_of.go
 model_api_any_of_1.go
+model_api_any_of_2.go
 model_api_list_response_stack_region_v1.go
 model_auth_access_policy.go
 model_auth_access_policy_attributes.go
@@ -282,6 +285,7 @@ model_pdc_private_connectivity_info_any_of.go
 model_pdc_private_connectivity_info_any_of_1.go
 model_pdc_private_connectivity_info_any_of_2.go
 model_pdc_private_connectivity_info_any_of_3.go
+model_pdc_private_connectivity_info_any_of_4.go
 model_permissions_inner.go
 model_permissions_inner_1.go
 model_plugins_inner.go
