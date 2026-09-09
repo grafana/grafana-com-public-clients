@@ -9624,6 +9624,10 @@
           "hasDocumentation": {
             "type": "boolean",
             "title": "hasDocumentation"
+          },
+          "prices": {
+            "type": "object",
+            "title": "prices"
           }
         },
         "required": [
