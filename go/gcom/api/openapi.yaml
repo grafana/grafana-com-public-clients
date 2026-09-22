@@ -3993,7 +3993,7 @@ components:
         amountDue: 5.962133916683182
         unit: unit
         orgRates: ""
-        dimensionId: ai-tokens
+        dimensionId: agent-generations
         totalUsage: 5.637376656633329
         id: 0.8008281904610115
         usages:
@@ -4061,12 +4061,12 @@ components:
         id:
           title: id
           type: number
-        description:
-          title: description
-          type: string
         overage:
           title: overage
           type: number
+        description:
+          title: description
+          type: string
         notes:
           title: notes
           type: string
@@ -4084,6 +4084,7 @@ components:
           type: string
         dimensionId:
           enum:
+          - agent-generations
           - ai-tokens
           - app-o11y
           - assistant
@@ -8116,7 +8117,7 @@ components:
           amountDue: 5.962133916683182
           unit: unit
           orgRates: ""
-          dimensionId: ai-tokens
+          dimensionId: agent-generations
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
@@ -8186,7 +8187,7 @@ components:
           amountDue: 5.962133916683182
           unit: unit
           orgRates: ""
-          dimensionId: ai-tokens
+          dimensionId: agent-generations
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
           usages:
