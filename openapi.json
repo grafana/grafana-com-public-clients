@@ -6607,13 +6607,13 @@
             "type": "number",
             "title": "id"
           },
-          "description": {
-            "type": "string",
-            "title": "description"
-          },
           "overage": {
             "type": "number",
             "title": "overage"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
           },
           "notes": {
             "type": "string",
@@ -6637,6 +6637,7 @@
           },
           "dimensionId": {
             "enum": [
+              "agent-generations",
               "ai-tokens",
               "app-o11y",
               "assistant",
