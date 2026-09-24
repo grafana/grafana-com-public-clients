@@ -6635,6 +6635,10 @@
             "type": "string",
             "title": "periodEnd"
           },
+          "amountDue": {
+            "type": "number",
+            "title": "amountDue"
+          },
           "dimensionId": {
             "enum": [
               "agent-generations",
@@ -6672,10 +6676,6 @@
           },
           "orgRates": {
             "title": "orgRates"
-          },
-          "amountDue": {
-            "type": "number",
-            "title": "amountDue"
           },
           "dimensionName": {
             "type": "string",
@@ -6927,7 +6927,7 @@
             "title": "amInstanceGeneratorUrlDatasource"
           },
           "amInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "amInstanceId"
           },
           "amInstanceName": {
@@ -6949,7 +6949,7 @@
             "title": "amInstanceUrl"
           },
           "amInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "amInstanceClusterId"
           },
           "billingActiveUsers": {
@@ -6974,7 +6974,7 @@
             "title": "billingStartDate"
           },
           "clusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "clusterId"
           },
           "clusterName": {
@@ -7062,7 +7062,7 @@
             "title": "hlInstanceBillingUsage"
           },
           "hlInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "hlInstanceId"
           },
           "hlInstanceName": {
@@ -7084,7 +7084,7 @@
             "title": "hlInstanceUrl"
           },
           "hlInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hlInstanceClusterId"
           },
           "hmInstanceGraphiteCurrentUsage": {
@@ -7096,7 +7096,7 @@
             "title": "hmInstanceGraphiteBillingUsage"
           },
           "hmInstanceGraphiteId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstanceGraphiteId"
           },
           "hmInstanceGraphiteName": {
@@ -7122,7 +7122,7 @@
             "title": "hmInstanceGraphiteUrl"
           },
           "hmInstancePromClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstancePromClusterId"
           },
           "hmInstancePromCurrentActiveSeries": {
@@ -7139,7 +7139,7 @@
             "title": "hmInstancePromBillingUsage"
           },
           "hmInstancePromId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstancePromId"
           },
           "hmInstancePromName": {
@@ -7161,11 +7161,11 @@
             "title": "hmInstancePromUrl"
           },
           "hmInstanceGraphiteClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstanceGraphiteClusterId"
           },
           "htInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "htInstanceId"
           },
           "htInstanceName": {
@@ -7187,7 +7187,7 @@
             "title": "htInstanceUrl"
           },
           "htInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "htInstanceClusterId"
           },
           "htInstanceCurrentUsage": {
@@ -7199,7 +7199,7 @@
             "title": "htInstanceBillingUsage"
           },
           "hpInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "hpInstanceId"
           },
           "hpInstanceName": {
@@ -7221,7 +7221,7 @@
             "title": "hpInstanceUrl"
           },
           "hpInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hpInstanceClusterId"
           },
           "hpInstanceCurrentUsage": {
@@ -7233,7 +7233,7 @@
             "title": "hpInstanceBillingUsage"
           },
           "id": {
-            "type": "number",
+            "type": "integer",
             "title": "id"
           },
           "incident": {
@@ -7253,7 +7253,7 @@
             "title": "name"
           },
           "orgId": {
-            "type": "number",
+            "type": "integer",
             "title": "orgId"
           },
           "orgName": {
@@ -7294,7 +7294,7 @@
             "title": "planName"
           },
           "regionId": {
-            "type": "number",
+            "type": "integer",
             "title": "regionId"
           },
           "regionSlug": {
@@ -7390,7 +7390,7 @@
             "title": "versionIssueLink"
           },
           "agentManagementInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "agentManagementInstanceId"
           },
           "agentManagementInstanceUrl": {
@@ -7412,7 +7412,7 @@
             "title": "agentManagementInstanceStatus"
           },
           "agentManagementInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "agentManagementInstanceClusterId"
           },
           "config": {
@@ -7431,7 +7431,7 @@
             "title": "stackType"
           },
           "k6OrgId": {
-            "type": "number",
+            "type": "integer",
             "title": "k6OrgId",
             "nullable": true
           },
@@ -7733,7 +7733,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
+            "type": "integer",
             "title": "id"
           },
           "slug": {
@@ -7998,7 +7998,7 @@
             "nullable": true
           },
           "retainedStackId": {
-            "type": "number",
+            "type": "integer",
             "title": "retainedStackId"
           },
           "allowGCloudTrial": {
@@ -11289,15 +11289,15 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
+            "type": "integer",
             "title": "id"
           },
           "orgId": {
-            "type": "number",
+            "type": "integer",
             "title": "orgId"
           },
           "userId": {
-            "type": "number",
+            "type": "integer",
             "title": "userId"
           },
           "status": {
@@ -11422,7 +11422,13 @@
             "title": "userUsername"
           },
           "userStatus": {
-            "type": "number",
+            "enum": [
+              "active",
+              "deleted",
+              "pending",
+              "unknown"
+            ],
+            "type": "string",
             "title": "userStatus"
           },
           "userEmail": {
@@ -11857,7 +11863,6 @@
           "userId",
           "userLastName",
           "userName",
-          "userStatus",
           "userUsername"
         ]
       },
@@ -12013,7 +12018,7 @@
                   "title": "role"
                 },
                 "id": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "id"
                 },
                 "isServiceAccount": {
@@ -12118,15 +12123,15 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "id"
                 },
                 "orgId": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "orgId"
                 },
                 "userId": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "userId"
                 },
                 "status": {
@@ -12251,7 +12256,13 @@
                   "title": "userUsername"
                 },
                 "userStatus": {
-                  "type": "number",
+                  "enum": [
+                    "active",
+                    "deleted",
+                    "pending",
+                    "unknown"
+                  ],
+                  "type": "string",
                   "title": "userStatus"
                 },
                 "userEmail": {
@@ -12686,7 +12697,6 @@
                 "userId",
                 "userLastName",
                 "userName",
-                "userStatus",
                 "userUsername"
               ]
             },
@@ -12732,7 +12742,7 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "id"
                 },
                 "name": {
