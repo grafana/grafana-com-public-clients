@@ -6635,6 +6635,10 @@
             "type": "string",
             "title": "periodEnd"
           },
+          "amountDue": {
+            "type": "number",
+            "title": "amountDue"
+          },
           "dimensionId": {
             "enum": [
               "agent-generations",
@@ -6672,10 +6676,6 @@
           },
           "orgRates": {
             "title": "orgRates"
-          },
-          "amountDue": {
-            "type": "number",
-            "title": "amountDue"
           },
           "dimensionName": {
             "type": "string",
