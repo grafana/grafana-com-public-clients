@@ -3906,6 +3906,80 @@
         }
       }
     },
+    "/plugins-marketplace/licenses/renew": {
+      "post": {
+        "tags": [
+          "plugins-marketplace"
+        ],
+        "operationId": "renewMarketplaceLicense",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "maxLength": 16384
+                  }
+                },
+                "required": [
+                  "token"
+                ]
+              }
+            }
+          }
+        },
+        "summary": "Renew a marketplace license token.",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceLicenseRenewalResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Marketplace license token not found."
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is currently unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/plugins/{slug}": {
       "get": {
         "tags": [
@@ -12043,6 +12117,18 @@
         },
         "required": [
           "items"
+        ]
+      },
+      "MarketplaceLicenseRenewalResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "title": "token"
+          }
+        },
+        "required": [
+          "token"
         ]
       },
       "OrgBilledUsageHistory": {
