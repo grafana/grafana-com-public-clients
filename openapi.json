@@ -6693,26 +6693,6 @@
             "type": "string",
             "title": "notes"
           },
-          "unit": {
-            "type": "string",
-            "title": "unit"
-          },
-          "includedUsage": {
-            "type": "number",
-            "title": "includedUsage"
-          },
-          "periodStart": {
-            "type": "string",
-            "title": "periodStart"
-          },
-          "periodEnd": {
-            "type": "string",
-            "title": "periodEnd"
-          },
-          "amountDue": {
-            "type": "number",
-            "title": "amountDue"
-          },
           "dimensionId": {
             "enum": [
               "agent-generations",
@@ -6752,13 +6732,33 @@
           "orgRates": {
             "title": "orgRates"
           },
+          "amountDue": {
+            "type": "number",
+            "title": "amountDue"
+          },
           "dimensionName": {
             "type": "string",
             "title": "dimensionName"
           },
+          "includedUsage": {
+            "type": "number",
+            "title": "includedUsage"
+          },
+          "periodEnd": {
+            "type": "string",
+            "title": "periodEnd"
+          },
+          "periodStart": {
+            "type": "string",
+            "title": "periodStart"
+          },
           "totalUsage": {
             "type": "number",
             "title": "totalUsage"
+          },
+          "unit": {
+            "type": "string",
+            "title": "unit"
           },
           "usages": {
             "type": "array",
