@@ -8699,6 +8699,10 @@
             "type": "string",
             "title": "updatedAt"
           },
+          "releaseCountLastYear": {
+            "type": "number",
+            "title": "releaseCountLastYear"
+          },
           "downloads": {
             "type": "number",
             "title": "downloads"
