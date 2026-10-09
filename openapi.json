@@ -8703,6 +8703,11 @@
             "type": "number",
             "title": "releaseCountLastYear"
           },
+          "activeInstances": {
+            "type": "number",
+            "title": "activeInstances",
+            "nullable": true
+          },
           "downloads": {
             "type": "number",
             "title": "downloads"
@@ -8726,6 +8731,11 @@
           "popularity": {
             "type": "number",
             "title": "popularity"
+          },
+          "datasourceQueryCount": {
+            "type": "number",
+            "title": "datasourceQueryCount",
+            "nullable": true
           },
           "signatureType": {
             "type": "string",
