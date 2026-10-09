@@ -3906,6 +3906,80 @@
         }
       }
     },
+    "/plugins-marketplace/licenses/renew": {
+      "post": {
+        "tags": [
+          "plugins-marketplace"
+        ],
+        "operationId": "renewMarketplaceLicense",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "maxLength": 16384
+                  }
+                },
+                "required": [
+                  "token"
+                ]
+              }
+            }
+          }
+        },
+        "summary": "Renew a marketplace license token.",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceLicenseRenewalResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Marketplace license token not found."
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is currently unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/plugins/{slug}": {
       "get": {
         "tags": [
@@ -6619,22 +6693,6 @@
             "type": "string",
             "title": "notes"
           },
-          "unit": {
-            "type": "string",
-            "title": "unit"
-          },
-          "includedUsage": {
-            "type": "number",
-            "title": "includedUsage"
-          },
-          "periodStart": {
-            "type": "string",
-            "title": "periodStart"
-          },
-          "periodEnd": {
-            "type": "string",
-            "title": "periodEnd"
-          },
           "dimensionId": {
             "enum": [
               "agent-generations",
@@ -6664,6 +6722,7 @@
               "irm",
               "k6-ip",
               "k6-vuh",
+              "marketplace-plugin-users",
               "sm",
               "sm-browser"
             ],
@@ -6681,9 +6740,25 @@
             "type": "string",
             "title": "dimensionName"
           },
+          "includedUsage": {
+            "type": "number",
+            "title": "includedUsage"
+          },
+          "periodEnd": {
+            "type": "string",
+            "title": "periodEnd"
+          },
+          "periodStart": {
+            "type": "string",
+            "title": "periodStart"
+          },
           "totalUsage": {
             "type": "number",
             "title": "totalUsage"
+          },
+          "unit": {
+            "type": "string",
+            "title": "unit"
           },
           "usages": {
             "type": "array",
@@ -6927,7 +7002,7 @@
             "title": "amInstanceGeneratorUrlDatasource"
           },
           "amInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "amInstanceId"
           },
           "amInstanceName": {
@@ -6949,7 +7024,7 @@
             "title": "amInstanceUrl"
           },
           "amInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "amInstanceClusterId"
           },
           "billingActiveUsers": {
@@ -6974,7 +7049,7 @@
             "title": "billingStartDate"
           },
           "clusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "clusterId"
           },
           "clusterName": {
@@ -7062,7 +7137,7 @@
             "title": "hlInstanceBillingUsage"
           },
           "hlInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "hlInstanceId"
           },
           "hlInstanceName": {
@@ -7084,7 +7159,7 @@
             "title": "hlInstanceUrl"
           },
           "hlInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hlInstanceClusterId"
           },
           "hmInstanceGraphiteCurrentUsage": {
@@ -7096,7 +7171,7 @@
             "title": "hmInstanceGraphiteBillingUsage"
           },
           "hmInstanceGraphiteId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstanceGraphiteId"
           },
           "hmInstanceGraphiteName": {
@@ -7122,7 +7197,7 @@
             "title": "hmInstanceGraphiteUrl"
           },
           "hmInstancePromClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstancePromClusterId"
           },
           "hmInstancePromCurrentActiveSeries": {
@@ -7139,7 +7214,7 @@
             "title": "hmInstancePromBillingUsage"
           },
           "hmInstancePromId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstancePromId"
           },
           "hmInstancePromName": {
@@ -7161,11 +7236,11 @@
             "title": "hmInstancePromUrl"
           },
           "hmInstanceGraphiteClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstanceGraphiteClusterId"
           },
           "htInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "htInstanceId"
           },
           "htInstanceName": {
@@ -7187,7 +7262,7 @@
             "title": "htInstanceUrl"
           },
           "htInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "htInstanceClusterId"
           },
           "htInstanceCurrentUsage": {
@@ -7199,7 +7274,7 @@
             "title": "htInstanceBillingUsage"
           },
           "hpInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "hpInstanceId"
           },
           "hpInstanceName": {
@@ -7221,7 +7296,7 @@
             "title": "hpInstanceUrl"
           },
           "hpInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hpInstanceClusterId"
           },
           "hpInstanceCurrentUsage": {
@@ -7233,7 +7308,7 @@
             "title": "hpInstanceBillingUsage"
           },
           "id": {
-            "type": "number",
+            "type": "integer",
             "title": "id"
           },
           "incident": {
@@ -7253,7 +7328,7 @@
             "title": "name"
           },
           "orgId": {
-            "type": "number",
+            "type": "integer",
             "title": "orgId"
           },
           "orgName": {
@@ -7294,7 +7369,7 @@
             "title": "planName"
           },
           "regionId": {
-            "type": "number",
+            "type": "integer",
             "title": "regionId"
           },
           "regionSlug": {
@@ -7390,7 +7465,7 @@
             "title": "versionIssueLink"
           },
           "agentManagementInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "agentManagementInstanceId"
           },
           "agentManagementInstanceUrl": {
@@ -7412,7 +7487,7 @@
             "title": "agentManagementInstanceStatus"
           },
           "agentManagementInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "agentManagementInstanceClusterId"
           },
           "config": {
@@ -7431,7 +7506,7 @@
             "title": "stackType"
           },
           "k6OrgId": {
-            "type": "number",
+            "type": "integer",
             "title": "k6OrgId",
             "nullable": true
           },
@@ -7733,7 +7808,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
+            "type": "integer",
             "title": "id"
           },
           "slug": {
@@ -7998,7 +8073,7 @@
             "nullable": true
           },
           "retainedStackId": {
-            "type": "number",
+            "type": "integer",
             "title": "retainedStackId"
           },
           "allowGCloudTrial": {
@@ -8624,6 +8699,15 @@
             "type": "string",
             "title": "updatedAt"
           },
+          "releaseCountLastYear": {
+            "type": "number",
+            "title": "releaseCountLastYear"
+          },
+          "activeInstances": {
+            "type": "number",
+            "title": "activeInstances",
+            "nullable": true
+          },
           "downloads": {
             "type": "number",
             "title": "downloads"
@@ -8647,6 +8731,11 @@
           "popularity": {
             "type": "number",
             "title": "popularity"
+          },
+          "datasourceQueryCount": {
+            "type": "number",
+            "title": "datasourceQueryCount",
+            "nullable": true
           },
           "signatureType": {
             "type": "string",
@@ -11289,15 +11378,15 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
+            "type": "integer",
             "title": "id"
           },
           "orgId": {
-            "type": "number",
+            "type": "integer",
             "title": "orgId"
           },
           "userId": {
-            "type": "number",
+            "type": "integer",
             "title": "userId"
           },
           "status": {
@@ -11422,7 +11511,13 @@
             "title": "userUsername"
           },
           "userStatus": {
-            "type": "number",
+            "enum": [
+              "active",
+              "deleted",
+              "pending",
+              "unknown"
+            ],
+            "type": "string",
             "title": "userStatus"
           },
           "userEmail": {
@@ -11857,7 +11952,6 @@
           "userId",
           "userLastName",
           "userName",
-          "userStatus",
           "userUsername"
         ]
       },
@@ -12013,7 +12107,7 @@
                   "title": "role"
                 },
                 "id": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "id"
                 },
                 "isServiceAccount": {
@@ -12037,6 +12131,18 @@
         },
         "required": [
           "items"
+        ]
+      },
+      "MarketplaceLicenseRenewalResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "title": "token"
+          }
+        },
+        "required": [
+          "token"
         ]
       },
       "OrgBilledUsageHistory": {
@@ -12118,15 +12224,15 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "id"
                 },
                 "orgId": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "orgId"
                 },
                 "userId": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "userId"
                 },
                 "status": {
@@ -12251,7 +12357,13 @@
                   "title": "userUsername"
                 },
                 "userStatus": {
-                  "type": "number",
+                  "enum": [
+                    "active",
+                    "deleted",
+                    "pending",
+                    "unknown"
+                  ],
+                  "type": "string",
                   "title": "userStatus"
                 },
                 "userEmail": {
@@ -12686,7 +12798,6 @@
                 "userId",
                 "userLastName",
                 "userName",
-                "userStatus",
                 "userUsername"
               ]
             },
@@ -12732,7 +12843,7 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "id"
                 },
                 "name": {
