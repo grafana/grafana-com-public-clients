@@ -6711,6 +6711,7 @@
               "hl-retention",
               "hm",
               "hm-graphite",
+              "hm-query",
               "hp",
               "hp-process",
               "hp-retention",
