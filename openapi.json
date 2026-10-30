@@ -9882,6 +9882,10 @@
                 "type": "string",
                 "title": "slackServiceUrl"
               },
+              "sensitiveDataUrl": {
+                "type": "string",
+                "title": "sensitiveDataUrl"
+              },
               "incidentApiUrl": {
                 "type": "string",
                 "title": "incidentApiUrl"
@@ -11361,6 +11365,7 @@
               "providerRegion",
               "publicName",
               "readyForStacks",
+              "sensitiveDataUrl",
               "sigilUrl",
               "slackServiceUrl",
               "slug",
