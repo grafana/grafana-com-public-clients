@@ -58,6 +58,8 @@ type APIClient struct {
 
 	PluginsAPI *PluginsAPIService
 
+	PluginsMarketplaceAPI *PluginsMarketplaceAPIService
+
 	StackRegionsAPI *StackRegionsAPIService
 
 	StacksAPI *StacksAPIService
@@ -86,6 +88,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.OrgStackRegionsAPI = (*OrgStackRegionsAPIService)(&c.common)
 	c.OrgsAPI = (*OrgsAPIService)(&c.common)
 	c.PluginsAPI = (*PluginsAPIService)(&c.common)
+	c.PluginsMarketplaceAPI = (*PluginsMarketplaceAPIService)(&c.common)
 	c.StackRegionsAPI = (*StackRegionsAPIService)(&c.common)
 	c.StacksAPI = (*StacksAPIService)(&c.common)
 	c.TokensAPI = (*TokensAPIService)(&c.common)

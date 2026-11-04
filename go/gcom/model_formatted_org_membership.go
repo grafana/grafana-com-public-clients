@@ -19,9 +19,9 @@ var _ MappedNullable = &FormattedOrgMembership{}
 
 // FormattedOrgMembership struct for FormattedOrgMembership
 type FormattedOrgMembership struct {
-	Id                       float32                                               `json:"id"`
-	OrgId                    float32                                               `json:"orgId"`
-	UserId                   float32                                               `json:"userId"`
+	Id                       int32                                                 `json:"id"`
+	OrgId                    int32                                                 `json:"orgId"`
+	UserId                   int32                                                 `json:"userId"`
 	Status                   float32                                               `json:"status"`
 	CreatedAt                string                                                `json:"createdAt"`
 	UpdatedAt                NullableString                                        `json:"updatedAt"`
@@ -46,7 +46,7 @@ type FormattedOrgMembership struct {
 	UserFirstName            string                                                `json:"userFirstName"`
 	UserLastName             string                                                `json:"userLastName"`
 	UserUsername             string                                                `json:"userUsername"`
-	UserStatus               float32                                               `json:"userStatus"`
+	UserStatus               *string                                               `json:"userStatus,omitempty"`
 	UserEmail                string                                                `json:"userEmail"`
 	UserName                 string                                                `json:"userName"`
 	Subscriptions            Subscriptions                                         `json:"subscriptions"`
@@ -63,7 +63,7 @@ type _FormattedOrgMembership FormattedOrgMembership
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, security float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableFormattedOrgMembershipMarketplaceSubscription) *FormattedOrgMembership {
+func NewFormattedOrgMembership(id int32, orgId int32, userId int32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, security float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableFormattedOrgMembershipMarketplaceSubscription) *FormattedOrgMembership {
 	this := FormattedOrgMembership{}
 	this.Id = id
 	this.OrgId = orgId
@@ -92,7 +92,6 @@ func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status
 	this.UserFirstName = userFirstName
 	this.UserLastName = userLastName
 	this.UserUsername = userUsername
-	this.UserStatus = userStatus
 	this.UserEmail = userEmail
 	this.UserName = userName
 	this.Subscriptions = subscriptions
@@ -109,9 +108,9 @@ func NewFormattedOrgMembershipWithDefaults() *FormattedOrgMembership {
 }
 
 // GetId returns the Id field value
-func (o *FormattedOrgMembership) GetId() float32 {
+func (o *FormattedOrgMembership) GetId() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -120,7 +119,7 @@ func (o *FormattedOrgMembership) GetId() float32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *FormattedOrgMembership) GetIdOk() (*float32, bool) {
+func (o *FormattedOrgMembership) GetIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -128,14 +127,14 @@ func (o *FormattedOrgMembership) GetIdOk() (*float32, bool) {
 }
 
 // SetId sets field value
-func (o *FormattedOrgMembership) SetId(v float32) {
+func (o *FormattedOrgMembership) SetId(v int32) {
 	o.Id = v
 }
 
 // GetOrgId returns the OrgId field value
-func (o *FormattedOrgMembership) GetOrgId() float32 {
+func (o *FormattedOrgMembership) GetOrgId() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -144,7 +143,7 @@ func (o *FormattedOrgMembership) GetOrgId() float32 {
 
 // GetOrgIdOk returns a tuple with the OrgId field value
 // and a boolean to check if the value has been set.
-func (o *FormattedOrgMembership) GetOrgIdOk() (*float32, bool) {
+func (o *FormattedOrgMembership) GetOrgIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -152,14 +151,14 @@ func (o *FormattedOrgMembership) GetOrgIdOk() (*float32, bool) {
 }
 
 // SetOrgId sets field value
-func (o *FormattedOrgMembership) SetOrgId(v float32) {
+func (o *FormattedOrgMembership) SetOrgId(v int32) {
 	o.OrgId = v
 }
 
 // GetUserId returns the UserId field value
-func (o *FormattedOrgMembership) GetUserId() float32 {
+func (o *FormattedOrgMembership) GetUserId() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -168,7 +167,7 @@ func (o *FormattedOrgMembership) GetUserId() float32 {
 
 // GetUserIdOk returns a tuple with the UserId field value
 // and a boolean to check if the value has been set.
-func (o *FormattedOrgMembership) GetUserIdOk() (*float32, bool) {
+func (o *FormattedOrgMembership) GetUserIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -176,7 +175,7 @@ func (o *FormattedOrgMembership) GetUserIdOk() (*float32, bool) {
 }
 
 // SetUserId sets field value
-func (o *FormattedOrgMembership) SetUserId(v float32) {
+func (o *FormattedOrgMembership) SetUserId(v int32) {
 	o.UserId = v
 }
 
@@ -760,28 +759,36 @@ func (o *FormattedOrgMembership) SetUserUsername(v string) {
 	o.UserUsername = v
 }
 
-// GetUserStatus returns the UserStatus field value
-func (o *FormattedOrgMembership) GetUserStatus() float32 {
-	if o == nil {
-		var ret float32
+// GetUserStatus returns the UserStatus field value if set, zero value otherwise.
+func (o *FormattedOrgMembership) GetUserStatus() string {
+	if o == nil || IsNil(o.UserStatus) {
+		var ret string
 		return ret
 	}
-
-	return o.UserStatus
+	return *o.UserStatus
 }
 
-// GetUserStatusOk returns a tuple with the UserStatus field value
+// GetUserStatusOk returns a tuple with the UserStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FormattedOrgMembership) GetUserStatusOk() (*float32, bool) {
-	if o == nil {
+func (o *FormattedOrgMembership) GetUserStatusOk() (*string, bool) {
+	if o == nil || IsNil(o.UserStatus) {
 		return nil, false
 	}
-	return &o.UserStatus, true
+	return o.UserStatus, true
 }
 
-// SetUserStatus sets field value
-func (o *FormattedOrgMembership) SetUserStatus(v float32) {
-	o.UserStatus = v
+// HasUserStatus returns a boolean if a field has been set.
+func (o *FormattedOrgMembership) HasUserStatus() bool {
+	if o != nil && !IsNil(o.UserStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetUserStatus gets a reference to the given string and assigns it to the UserStatus field.
+func (o *FormattedOrgMembership) SetUserStatus(v string) {
+	o.UserStatus = &v
 }
 
 // GetUserEmail returns the UserEmail field value
@@ -1026,7 +1033,9 @@ func (o FormattedOrgMembership) ToMap() (map[string]interface{}, error) {
 	toSerialize["userFirstName"] = o.UserFirstName
 	toSerialize["userLastName"] = o.UserLastName
 	toSerialize["userUsername"] = o.UserUsername
-	toSerialize["userStatus"] = o.UserStatus
+	if !IsNil(o.UserStatus) {
+		toSerialize["userStatus"] = o.UserStatus
+	}
 	toSerialize["userEmail"] = o.UserEmail
 	toSerialize["userName"] = o.UserName
 	toSerialize["subscriptions"] = o.Subscriptions

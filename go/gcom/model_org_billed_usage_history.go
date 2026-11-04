@@ -20,8 +20,8 @@ var _ MappedNullable = &OrgBilledUsageHistory{}
 // OrgBilledUsageHistory struct for OrgBilledUsageHistory
 type OrgBilledUsageHistory struct {
 	// A URL to the JSON Schema for this object.
-	Schema               *string       `json:"$schema,omitempty"`
-	Items                []ItemsInner1 `json:"items"`
+	Schema               *string      `json:"$schema,omitempty"`
+	Items                []ItemsInner `json:"items"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -31,7 +31,7 @@ type _OrgBilledUsageHistory OrgBilledUsageHistory
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrgBilledUsageHistory(items []ItemsInner1) *OrgBilledUsageHistory {
+func NewOrgBilledUsageHistory(items []ItemsInner) *OrgBilledUsageHistory {
 	this := OrgBilledUsageHistory{}
 	this.Items = items
 	return &this
@@ -78,9 +78,9 @@ func (o *OrgBilledUsageHistory) SetSchema(v string) {
 }
 
 // GetItems returns the Items field value
-func (o *OrgBilledUsageHistory) GetItems() []ItemsInner1 {
+func (o *OrgBilledUsageHistory) GetItems() []ItemsInner {
 	if o == nil {
-		var ret []ItemsInner1
+		var ret []ItemsInner
 		return ret
 	}
 
@@ -89,7 +89,7 @@ func (o *OrgBilledUsageHistory) GetItems() []ItemsInner1 {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *OrgBilledUsageHistory) GetItemsOk() ([]ItemsInner1, bool) {
+func (o *OrgBilledUsageHistory) GetItemsOk() ([]ItemsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -97,7 +97,7 @@ func (o *OrgBilledUsageHistory) GetItemsOk() ([]ItemsInner1, bool) {
 }
 
 // SetItems sets field value
-func (o *OrgBilledUsageHistory) SetItems(v []ItemsInner1) {
+func (o *OrgBilledUsageHistory) SetItems(v []ItemsInner) {
 	o.Items = v
 }
 

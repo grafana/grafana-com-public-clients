@@ -19,7 +19,7 @@ var _ MappedNullable = &FormattedApiOrgPublic{}
 
 // FormattedApiOrgPublic struct for FormattedApiOrgPublic
 type FormattedApiOrgPublic struct {
-	Id                           float32                               `json:"id"`
+	Id                           int32                                 `json:"id"`
 	Slug                         string                                `json:"slug"`
 	Name                         string                                `json:"name"`
 	Url                          string                                `json:"url"`
@@ -78,7 +78,7 @@ type FormattedApiOrgPublic struct {
 	TrialLengthDays              NullableFloat32                       `json:"trialLengthDays"`
 	TrialNoticeDate              NullableString                        `json:"trialNoticeDate"`
 	CancellationDate             NullableString                        `json:"cancellationDate"`
-	RetainedStackId              float32                               `json:"retainedStackId"`
+	RetainedStackId              int32                                 `json:"retainedStackId"`
 	AllowGCloudTrial             FormattedApiOrgPublicAllowGCloudTrial `json:"allowGCloudTrial"`
 	PluginSignatureType          string                                `json:"pluginSignatureType"`
 	ContractType                 string                                `json:"contractType"`
@@ -100,7 +100,7 @@ type _FormattedApiOrgPublic FormattedApiOrgPublic
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isource NullableString, osource NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, kapaDeflectorEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner, subscriptions Subscriptions) *FormattedApiOrgPublic {
+func NewFormattedApiOrgPublic(id int32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isource NullableString, osource NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId int32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, kapaDeflectorEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner, subscriptions Subscriptions) *FormattedApiOrgPublic {
 	this := FormattedApiOrgPublic{}
 	this.Id = id
 	this.Slug = slug
@@ -184,9 +184,9 @@ func NewFormattedApiOrgPublicWithDefaults() *FormattedApiOrgPublic {
 }
 
 // GetId returns the Id field value
-func (o *FormattedApiOrgPublic) GetId() float32 {
+func (o *FormattedApiOrgPublic) GetId() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -195,7 +195,7 @@ func (o *FormattedApiOrgPublic) GetId() float32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetIdOk() (*float32, bool) {
+func (o *FormattedApiOrgPublic) GetIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -203,7 +203,7 @@ func (o *FormattedApiOrgPublic) GetIdOk() (*float32, bool) {
 }
 
 // SetId sets field value
-func (o *FormattedApiOrgPublic) SetId(v float32) {
+func (o *FormattedApiOrgPublic) SetId(v int32) {
 	o.Id = v
 }
 
@@ -1630,9 +1630,9 @@ func (o *FormattedApiOrgPublic) SetCancellationDate(v string) {
 }
 
 // GetRetainedStackId returns the RetainedStackId field value
-func (o *FormattedApiOrgPublic) GetRetainedStackId() float32 {
+func (o *FormattedApiOrgPublic) GetRetainedStackId() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -1641,7 +1641,7 @@ func (o *FormattedApiOrgPublic) GetRetainedStackId() float32 {
 
 // GetRetainedStackIdOk returns a tuple with the RetainedStackId field value
 // and a boolean to check if the value has been set.
-func (o *FormattedApiOrgPublic) GetRetainedStackIdOk() (*float32, bool) {
+func (o *FormattedApiOrgPublic) GetRetainedStackIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -1649,7 +1649,7 @@ func (o *FormattedApiOrgPublic) GetRetainedStackIdOk() (*float32, bool) {
 }
 
 // SetRetainedStackId sets field value
-func (o *FormattedApiOrgPublic) SetRetainedStackId(v float32) {
+func (o *FormattedApiOrgPublic) SetRetainedStackId(v int32) {
 	o.RetainedStackId = v
 }
 

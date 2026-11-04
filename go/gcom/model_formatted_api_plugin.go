@@ -41,12 +41,15 @@ type FormattedApiPlugin struct {
 	Url                     string                 `json:"url"`
 	CreatedAt               string                 `json:"createdAt"`
 	UpdatedAt               string                 `json:"updatedAt"`
+	ReleaseCountLastYear    *float32               `json:"releaseCountLastYear,omitempty"`
+	ActiveInstances         NullableFloat32        `json:"activeInstances,omitempty"`
 	Downloads               float32                `json:"downloads"`
 	Verified                bool                   `json:"verified"`
 	Featured                float32                `json:"featured"`
 	Internal                bool                   `json:"internal"`
 	DownloadSlug            string                 `json:"downloadSlug"`
 	Popularity              float32                `json:"popularity"`
+	DatasourceQueryCount    NullableFloat32        `json:"datasourceQueryCount,omitempty"`
 	SignatureType           string                 `json:"signatureType"`
 	Packages                map[string]interface{} `json:"packages"`
 	Links                   []LinksInner           `json:"links"`
@@ -640,6 +643,81 @@ func (o *FormattedApiPlugin) SetUpdatedAt(v string) {
 	o.UpdatedAt = v
 }
 
+// GetReleaseCountLastYear returns the ReleaseCountLastYear field value if set, zero value otherwise.
+func (o *FormattedApiPlugin) GetReleaseCountLastYear() float32 {
+	if o == nil || IsNil(o.ReleaseCountLastYear) {
+		var ret float32
+		return ret
+	}
+	return *o.ReleaseCountLastYear
+}
+
+// GetReleaseCountLastYearOk returns a tuple with the ReleaseCountLastYear field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *FormattedApiPlugin) GetReleaseCountLastYearOk() (*float32, bool) {
+	if o == nil || IsNil(o.ReleaseCountLastYear) {
+		return nil, false
+	}
+	return o.ReleaseCountLastYear, true
+}
+
+// HasReleaseCountLastYear returns a boolean if a field has been set.
+func (o *FormattedApiPlugin) HasReleaseCountLastYear() bool {
+	if o != nil && !IsNil(o.ReleaseCountLastYear) {
+		return true
+	}
+
+	return false
+}
+
+// SetReleaseCountLastYear gets a reference to the given float32 and assigns it to the ReleaseCountLastYear field.
+func (o *FormattedApiPlugin) SetReleaseCountLastYear(v float32) {
+	o.ReleaseCountLastYear = &v
+}
+
+// GetActiveInstances returns the ActiveInstances field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FormattedApiPlugin) GetActiveInstances() float32 {
+	if o == nil || IsNil(o.ActiveInstances.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.ActiveInstances.Get()
+}
+
+// GetActiveInstancesOk returns a tuple with the ActiveInstances field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiPlugin) GetActiveInstancesOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ActiveInstances.Get(), o.ActiveInstances.IsSet()
+}
+
+// HasActiveInstances returns a boolean if a field has been set.
+func (o *FormattedApiPlugin) HasActiveInstances() bool {
+	if o != nil && o.ActiveInstances.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveInstances gets a reference to the given NullableFloat32 and assigns it to the ActiveInstances field.
+func (o *FormattedApiPlugin) SetActiveInstances(v float32) {
+	o.ActiveInstances.Set(&v)
+}
+
+// SetActiveInstancesNil sets the value for ActiveInstances to be an explicit nil
+func (o *FormattedApiPlugin) SetActiveInstancesNil() {
+	o.ActiveInstances.Set(nil)
+}
+
+// UnsetActiveInstances ensures that no value is present for ActiveInstances, not even an explicit nil
+func (o *FormattedApiPlugin) UnsetActiveInstances() {
+	o.ActiveInstances.Unset()
+}
+
 // GetDownloads returns the Downloads field value
 func (o *FormattedApiPlugin) GetDownloads() float32 {
 	if o == nil {
@@ -782,6 +860,49 @@ func (o *FormattedApiPlugin) GetPopularityOk() (*float32, bool) {
 // SetPopularity sets field value
 func (o *FormattedApiPlugin) SetPopularity(v float32) {
 	o.Popularity = v
+}
+
+// GetDatasourceQueryCount returns the DatasourceQueryCount field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FormattedApiPlugin) GetDatasourceQueryCount() float32 {
+	if o == nil || IsNil(o.DatasourceQueryCount.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.DatasourceQueryCount.Get()
+}
+
+// GetDatasourceQueryCountOk returns a tuple with the DatasourceQueryCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FormattedApiPlugin) GetDatasourceQueryCountOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DatasourceQueryCount.Get(), o.DatasourceQueryCount.IsSet()
+}
+
+// HasDatasourceQueryCount returns a boolean if a field has been set.
+func (o *FormattedApiPlugin) HasDatasourceQueryCount() bool {
+	if o != nil && o.DatasourceQueryCount.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDatasourceQueryCount gets a reference to the given NullableFloat32 and assigns it to the DatasourceQueryCount field.
+func (o *FormattedApiPlugin) SetDatasourceQueryCount(v float32) {
+	o.DatasourceQueryCount.Set(&v)
+}
+
+// SetDatasourceQueryCountNil sets the value for DatasourceQueryCount to be an explicit nil
+func (o *FormattedApiPlugin) SetDatasourceQueryCountNil() {
+	o.DatasourceQueryCount.Set(nil)
+}
+
+// UnsetDatasourceQueryCount ensures that no value is present for DatasourceQueryCount, not even an explicit nil
+func (o *FormattedApiPlugin) UnsetDatasourceQueryCount() {
+	o.DatasourceQueryCount.Unset()
 }
 
 // GetSignatureType returns the SignatureType field value
@@ -1136,12 +1257,21 @@ func (o FormattedApiPlugin) ToMap() (map[string]interface{}, error) {
 	toSerialize["url"] = o.Url
 	toSerialize["createdAt"] = o.CreatedAt
 	toSerialize["updatedAt"] = o.UpdatedAt
+	if !IsNil(o.ReleaseCountLastYear) {
+		toSerialize["releaseCountLastYear"] = o.ReleaseCountLastYear
+	}
+	if o.ActiveInstances.IsSet() {
+		toSerialize["activeInstances"] = o.ActiveInstances.Get()
+	}
 	toSerialize["downloads"] = o.Downloads
 	toSerialize["verified"] = o.Verified
 	toSerialize["featured"] = o.Featured
 	toSerialize["internal"] = o.Internal
 	toSerialize["downloadSlug"] = o.DownloadSlug
 	toSerialize["popularity"] = o.Popularity
+	if o.DatasourceQueryCount.IsSet() {
+		toSerialize["datasourceQueryCount"] = o.DatasourceQueryCount.Get()
+	}
 	toSerialize["signatureType"] = o.SignatureType
 	toSerialize["packages"] = o.Packages
 	toSerialize["links"] = o.Links
@@ -1219,12 +1349,15 @@ func (o *FormattedApiPlugin) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "url")
 		delete(additionalProperties, "createdAt")
 		delete(additionalProperties, "updatedAt")
+		delete(additionalProperties, "releaseCountLastYear")
+		delete(additionalProperties, "activeInstances")
 		delete(additionalProperties, "downloads")
 		delete(additionalProperties, "verified")
 		delete(additionalProperties, "featured")
 		delete(additionalProperties, "internal")
 		delete(additionalProperties, "downloadSlug")
 		delete(additionalProperties, "popularity")
+		delete(additionalProperties, "datasourceQueryCount")
 		delete(additionalProperties, "signatureType")
 		delete(additionalProperties, "packages")
 		delete(additionalProperties, "links")

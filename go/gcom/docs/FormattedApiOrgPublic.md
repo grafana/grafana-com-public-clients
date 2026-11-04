@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
+**Id** | **int32** |  | 
 **Slug** | **string** |  | 
 **Name** | **string** |  | 
 **Url** | **string** |  | 
@@ -63,7 +63,7 @@ Name | Type | Description | Notes
 **TrialLengthDays** | **NullableFloat32** |  | 
 **TrialNoticeDate** | **NullableString** |  | 
 **CancellationDate** | **NullableString** |  | 
-**RetainedStackId** | **float32** |  | 
+**RetainedStackId** | **int32** |  | 
 **AllowGCloudTrial** | [**FormattedApiOrgPublicAllowGCloudTrial**](FormattedApiOrgPublicAllowGCloudTrial.md) |  | 
 **PluginSignatureType** | **string** |  | 
 **ContractType** | **string** |  | 
@@ -81,7 +81,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiOrgPublic
 
-`func NewFormattedApiOrgPublic(id float32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isource NullableString, osource NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, kapaDeflectorEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
+`func NewFormattedApiOrgPublic(id int32, slug string, name string, url string, createdAt string, createdBy NullableString, updatedAt NullableString, updatedBy NullableString, avatar NullableString, isource NullableString, osource NullableString, isStaff bool, checksPerMonth float32, wpPlan string, hgInstanceLimit float32, hmInstanceLimit float32, hlInstanceLimit float32, userQuota float32, supportPlan string, creditApproved float32, msaSignedAt NullableString, msaSignedBy NullableString, enterprisePlugins float32, licenseProducts []string, grafanaCloud float32, privacy string, reseller string, resellerId NullableFloat32, resellerName NullableString, emergencySupport bool, gcloudMonthlyCost float32, hgUsage float32, hgCurrentActiveUsers float32, hgGrafanaUsage float32, hgOnCallUsage float32, hmUsage float32, hmCurrentUsage float32, hmGraphiteUsage float32, hlUsage float32, hlRetentionUsage float32, htUsage float32, hpUsage float32, irmUsage float32, k6VuhUsage float32, k6IPUsage float32, feO11YUsage float32, appO11YUsage float32, smUsage float32, infraO11YHostsUsage float32, infraO11YContainersUsage float32, geUsersUsage float32, geInstancesUsage float32, smBrowserUsage float32, awsMarketplaceSupport float32, trialStartDate NullableString, trialEndDate NullableString, trialLengthDays NullableFloat32, trialNoticeDate NullableString, cancellationDate NullableString, retainedStackId int32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, pluginSignatureType string, contractType string, contractTypeId float32, liveChatEnabled bool, kapaDeflectorEnabled bool, disableTokenExpirationEmails bool, maxTokenExpirationDays float32, links []LinksInner, subscriptions Subscriptions, ) *FormattedApiOrgPublic`
 
 NewFormattedApiOrgPublic instantiates a new FormattedApiOrgPublic object
 This constructor will assign default values to properties that have it defined,
@@ -98,20 +98,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *FormattedApiOrgPublic) GetId() float32`
+`func (o *FormattedApiOrgPublic) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *FormattedApiOrgPublic) GetIdOk() (*float32, bool)`
+`func (o *FormattedApiOrgPublic) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *FormattedApiOrgPublic) SetId(v float32)`
+`func (o *FormattedApiOrgPublic) SetId(v int32)`
 
 SetId sets Id field to given value.
 
@@ -1428,20 +1428,20 @@ SetCancellationDate sets CancellationDate field to given value.
 UnsetCancellationDate ensures that no value is present for CancellationDate, not even an explicit nil
 ### GetRetainedStackId
 
-`func (o *FormattedApiOrgPublic) GetRetainedStackId() float32`
+`func (o *FormattedApiOrgPublic) GetRetainedStackId() int32`
 
 GetRetainedStackId returns the RetainedStackId field if non-nil, zero value otherwise.
 
 ### GetRetainedStackIdOk
 
-`func (o *FormattedApiOrgPublic) GetRetainedStackIdOk() (*float32, bool)`
+`func (o *FormattedApiOrgPublic) GetRetainedStackIdOk() (*int32, bool)`
 
 GetRetainedStackIdOk returns a tuple with the RetainedStackId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRetainedStackId
 
-`func (o *FormattedApiOrgPublic) SetRetainedStackId(v float32)`
+`func (o *FormattedApiOrgPublic) SetRetainedStackId(v int32)`
 
 SetRetainedStackId sets RetainedStackId field to given value.
 

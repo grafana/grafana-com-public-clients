@@ -36,6 +36,8 @@ type StackCreateRequestV1 struct {
 	Region string `json:"region"`
 	// slug of the stack
 	Slug string `json:"slug"`
+	// type of the stack
+	StackType *string `json:"stackType,omitempty"`
 	// url for the stack
 	Url NullableString `json:"url,omitempty"`
 }
@@ -54,6 +56,8 @@ func NewStackCreateRequestV1(name string, org string, region string, slug string
 	this.Org = org
 	this.Region = region
 	this.Slug = slug
+	var stackType string = "cloud"
+	this.StackType = &stackType
 	return &this
 }
 
@@ -64,6 +68,8 @@ func NewStackCreateRequestV1WithDefaults() *StackCreateRequestV1 {
 	this := StackCreateRequestV1{}
 	var deleteProtection bool = true
 	this.DeleteProtection = *NewNullableBool(&deleteProtection)
+	var stackType string = "cloud"
+	this.StackType = &stackType
 	return &this
 }
 
@@ -314,6 +320,38 @@ func (o *StackCreateRequestV1) SetSlug(v string) {
 	o.Slug = v
 }
 
+// GetStackType returns the StackType field value if set, zero value otherwise.
+func (o *StackCreateRequestV1) GetStackType() string {
+	if o == nil || IsNil(o.StackType) {
+		var ret string
+		return ret
+	}
+	return *o.StackType
+}
+
+// GetStackTypeOk returns a tuple with the StackType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *StackCreateRequestV1) GetStackTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.StackType) {
+		return nil, false
+	}
+	return o.StackType, true
+}
+
+// HasStackType returns a boolean if a field has been set.
+func (o *StackCreateRequestV1) HasStackType() bool {
+	if o != nil && !IsNil(o.StackType) {
+		return true
+	}
+
+	return false
+}
+
+// SetStackType gets a reference to the given string and assigns it to the StackType field.
+func (o *StackCreateRequestV1) SetStackType(v string) {
+	o.StackType = &v
+}
+
 // GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StackCreateRequestV1) GetUrl() string {
 	if o == nil || IsNil(o.Url.Get()) {
@@ -383,6 +421,9 @@ func (o StackCreateRequestV1) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["region"] = o.Region
 	toSerialize["slug"] = o.Slug
+	if !IsNil(o.StackType) {
+		toSerialize["stackType"] = o.StackType
+	}
 	if o.Url.IsSet() {
 		toSerialize["url"] = o.Url.Get()
 	}

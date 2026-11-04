@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
-**OrgId** | **float32** |  | 
-**UserId** | **float32** |  | 
+**Id** | **int32** |  | 
+**OrgId** | **int32** |  | 
+**UserId** | **int32** |  | 
 **Status** | **float32** |  | 
 **CreatedAt** | **string** |  | 
 **UpdatedAt** | **NullableString** |  | 
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **UserFirstName** | **string** |  | 
 **UserLastName** | **string** |  | 
 **UserUsername** | **string** |  | 
-**UserStatus** | **float32** |  | 
+**UserStatus** | Pointer to **string** |  | [optional] 
 **UserEmail** | **string** |  | 
 **UserName** | **string** |  | 
 **Subscriptions** | [**Subscriptions**](Subscriptions.md) |  | 
@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedOrgMembership
 
-`func NewFormattedOrgMembership(id float32, orgId float32, userId float32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, security float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userStatus float32, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableFormattedOrgMembershipMarketplaceSubscription, ) *FormattedOrgMembership`
+`func NewFormattedOrgMembership(id int32, orgId int32, userId int32, status float32, createdAt string, updatedAt NullableString, defaultOrg float32, role string, privacy float32, billing float32, security float32, createdBy string, updatedBy string, orgName string, orgSlug string, orgUrl string, grafanaCloud float32, resellerId NullableFloat32, contractTypeId float32, allowGCloudTrial FormattedApiOrgPublicAllowGCloudTrial, hlUsage float32, hmCurrentGraphiteUsage float32, hmCurrentPrometheusUsage float32, hgDatasourceCnts string, userFirstName string, userLastName string, userUsername string, userEmail string, userName string, subscriptions Subscriptions, marketplaceSubscription NullableFormattedOrgMembershipMarketplaceSubscription, ) *FormattedOrgMembership`
 
 NewFormattedOrgMembership instantiates a new FormattedOrgMembership object
 This constructor will assign default values to properties that have it defined,
@@ -61,60 +61,60 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *FormattedOrgMembership) GetId() float32`
+`func (o *FormattedOrgMembership) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *FormattedOrgMembership) GetIdOk() (*float32, bool)`
+`func (o *FormattedOrgMembership) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *FormattedOrgMembership) SetId(v float32)`
+`func (o *FormattedOrgMembership) SetId(v int32)`
 
 SetId sets Id field to given value.
 
 
 ### GetOrgId
 
-`func (o *FormattedOrgMembership) GetOrgId() float32`
+`func (o *FormattedOrgMembership) GetOrgId() int32`
 
 GetOrgId returns the OrgId field if non-nil, zero value otherwise.
 
 ### GetOrgIdOk
 
-`func (o *FormattedOrgMembership) GetOrgIdOk() (*float32, bool)`
+`func (o *FormattedOrgMembership) GetOrgIdOk() (*int32, bool)`
 
 GetOrgIdOk returns a tuple with the OrgId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrgId
 
-`func (o *FormattedOrgMembership) SetOrgId(v float32)`
+`func (o *FormattedOrgMembership) SetOrgId(v int32)`
 
 SetOrgId sets OrgId field to given value.
 
 
 ### GetUserId
 
-`func (o *FormattedOrgMembership) GetUserId() float32`
+`func (o *FormattedOrgMembership) GetUserId() int32`
 
 GetUserId returns the UserId field if non-nil, zero value otherwise.
 
 ### GetUserIdOk
 
-`func (o *FormattedOrgMembership) GetUserIdOk() (*float32, bool)`
+`func (o *FormattedOrgMembership) GetUserIdOk() (*int32, bool)`
 
 GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserId
 
-`func (o *FormattedOrgMembership) SetUserId(v float32)`
+`func (o *FormattedOrgMembership) SetUserId(v int32)`
 
 SetUserId sets UserId field to given value.
 
@@ -621,23 +621,28 @@ SetUserUsername sets UserUsername field to given value.
 
 ### GetUserStatus
 
-`func (o *FormattedOrgMembership) GetUserStatus() float32`
+`func (o *FormattedOrgMembership) GetUserStatus() string`
 
 GetUserStatus returns the UserStatus field if non-nil, zero value otherwise.
 
 ### GetUserStatusOk
 
-`func (o *FormattedOrgMembership) GetUserStatusOk() (*float32, bool)`
+`func (o *FormattedOrgMembership) GetUserStatusOk() (*string, bool)`
 
 GetUserStatusOk returns a tuple with the UserStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserStatus
 
-`func (o *FormattedOrgMembership) SetUserStatus(v float32)`
+`func (o *FormattedOrgMembership) SetUserStatus(v string)`
 
 SetUserStatus sets UserStatus field to given value.
 
+### HasUserStatus
+
+`func (o *FormattedOrgMembership) HasUserStatus() bool`
+
+HasUserStatus returns a boolean if a field has been set.
 
 ### GetUserEmail
 

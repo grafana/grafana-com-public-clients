@@ -828,15 +828,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "time"
 	openapiclient "github.com/grafana/grafana-com-public-clients/go/gcom"
 )
 
 func main() {
-	instanceId := "instanceId_example" // string | 
-	active := true // bool |  (optional)
-	activeSince := time.Now() // time.Time |  (optional)
-	includeInternal := true // bool |  (optional)
+	instanceId := "instanceId_example" // string | id or slug of the instance
+	active := "active_example" // string | only return users seen in the last month, ignored when activeSince is set (optional)
+	activeSince := "activeSince_example" // string | only return users seen since this timestamp (optional)
+	includeInternal := "includeInternal_example" // string | include Grafana Labs internal users (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -856,7 +855,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceId** | **string** |  | 
+**instanceId** | **string** | id or slug of the instance | 
 
 ### Other Parameters
 
@@ -866,9 +865,9 @@ Other parameters are passed through a pointer to a apiGetInstanceUsersRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **active** | **bool** |  | 
- **activeSince** | **time.Time** |  | 
- **includeInternal** | **bool** |  | 
+ **active** | **string** | only return users seen in the last month, ignored when activeSince is set | 
+ **activeSince** | **string** | only return users seen since this timestamp | 
+ **includeInternal** | **string** | include Grafana Labs internal users | 
 
 ### Return type
 

@@ -28,7 +28,7 @@ type OrgMemberListResponse struct {
 	Direction            *string       `json:"direction,omitempty"`
 	Cursor               *float32      `json:"cursor,omitempty"`
 	NextCursor           *float32      `json:"nextCursor,omitempty"`
-	Items                []ItemsInner2 `json:"items"`
+	Items                []ItemsInner1 `json:"items"`
 	Links                []LinksInner  `json:"links"`
 	AdditionalProperties map[string]interface{}
 }
@@ -39,7 +39,7 @@ type _OrgMemberListResponse OrgMemberListResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrgMemberListResponse(items []ItemsInner2, links []LinksInner) *OrgMemberListResponse {
+func NewOrgMemberListResponse(items []ItemsInner1, links []LinksInner) *OrgMemberListResponse {
 	this := OrgMemberListResponse{}
 	this.Items = items
 	this.Links = links
@@ -343,9 +343,9 @@ func (o *OrgMemberListResponse) SetNextCursor(v float32) {
 }
 
 // GetItems returns the Items field value
-func (o *OrgMemberListResponse) GetItems() []ItemsInner2 {
+func (o *OrgMemberListResponse) GetItems() []ItemsInner1 {
 	if o == nil {
-		var ret []ItemsInner2
+		var ret []ItemsInner1
 		return ret
 	}
 
@@ -354,7 +354,7 @@ func (o *OrgMemberListResponse) GetItems() []ItemsInner2 {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *OrgMemberListResponse) GetItemsOk() ([]ItemsInner2, bool) {
+func (o *OrgMemberListResponse) GetItemsOk() ([]ItemsInner1, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -362,7 +362,7 @@ func (o *OrgMemberListResponse) GetItemsOk() ([]ItemsInner2, bool) {
 }
 
 // SetItems sets field value
-func (o *OrgMemberListResponse) SetItems(v []ItemsInner2) {
+func (o *OrgMemberListResponse) SetItems(v []ItemsInner1) {
 	o.Items = v
 }
 

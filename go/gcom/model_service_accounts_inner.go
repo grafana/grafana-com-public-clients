@@ -19,8 +19,8 @@ var _ MappedNullable = &ServiceAccountsInner{}
 
 // ServiceAccountsInner struct for ServiceAccountsInner
 type ServiceAccountsInner struct {
-	Id                   float32 `json:"id"`
-	Name                 string  `json:"name"`
+	Id                   int32  `json:"id"`
+	Name                 string `json:"name"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -30,7 +30,7 @@ type _ServiceAccountsInner ServiceAccountsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceAccountsInner(id float32, name string) *ServiceAccountsInner {
+func NewServiceAccountsInner(id int32, name string) *ServiceAccountsInner {
 	this := ServiceAccountsInner{}
 	this.Id = id
 	this.Name = name
@@ -46,9 +46,9 @@ func NewServiceAccountsInnerWithDefaults() *ServiceAccountsInner {
 }
 
 // GetId returns the Id field value
-func (o *ServiceAccountsInner) GetId() float32 {
+func (o *ServiceAccountsInner) GetId() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *ServiceAccountsInner) GetId() float32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *ServiceAccountsInner) GetIdOk() (*float32, bool) {
+func (o *ServiceAccountsInner) GetIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *ServiceAccountsInner) GetIdOk() (*float32, bool) {
 }
 
 // SetId sets field value
-func (o *ServiceAccountsInner) SetId(v float32) {
+func (o *ServiceAccountsInner) SetId(v int32) {
 	o.Id = v
 }
 

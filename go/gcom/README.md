@@ -126,6 +126,7 @@ Class | Method | HTTP request | Description
 *OrgsAPI* | [**PostOrgMembers**](docs/OrgsAPI.md#postorgmembers) | **Post** /orgs/{slugOrId}/members | 
 *OrgsAPI* | [**UpdateOrgSettings**](docs/OrgsAPI.md#updateorgsettings) | **Post** /orgs/{slugOrId}/settings | Update org settings
 *PluginsAPI* | [**GetPlugin**](docs/PluginsAPI.md#getplugin) | **Get** /plugins/{slug} | Fetches a plugin by slug or id
+*PluginsMarketplaceAPI* | [**RenewMarketplaceLicense**](docs/PluginsMarketplaceAPI.md#renewmarketplacelicense) | **Post** /plugins-marketplace/licenses/renew | Renew a marketplace license token.
 *StackRegionsAPI* | [**GetClosestStackRegion**](docs/StackRegionsAPI.md#getcloseststackregion) | **Get** /stack-regions/closest | 
 *StackRegionsAPI* | [**GetStackRegions**](docs/StackRegionsAPI.md#getstackregions) | **Get** /stack-regions | 
 *StacksAPI* | [**CheckStackReadinessV1**](docs/StacksAPI.md#checkstackreadinessv1) | **Get** /v1/stacks/{idOrSlug}/readiness | 
@@ -221,10 +222,10 @@ Class | Method | HTTP request | Description
  - [IncludesInner](docs/IncludesInner.md)
  - [Info](docs/Info.md)
  - [InstanceConnectionTenant](docs/InstanceConnectionTenant.md)
+ - [InstanceUser](docs/InstanceUser.md)
  - [InstanceUsersResponse](docs/InstanceUsersResponse.md)
  - [ItemsInner](docs/ItemsInner.md)
  - [ItemsInner1](docs/ItemsInner1.md)
- - [ItemsInner2](docs/ItemsInner2.md)
  - [Json](docs/Json.md)
  - [JwtTokenAuth](docs/JwtTokenAuth.md)
  - [LinksInner](docs/LinksInner.md)
@@ -232,6 +233,7 @@ Class | Method | HTTP request | Description
  - [LinksInner2](docs/LinksInner2.md)
  - [Logos](docs/Logos.md)
  - [Managed](docs/Managed.md)
+ - [MarketplaceLicenseRenewalResponse](docs/MarketplaceLicenseRenewalResponse.md)
  - [Metadata](docs/Metadata.md)
  - [Mimir](docs/Mimir.md)
  - [Next](docs/Next.md)
@@ -275,6 +277,7 @@ Class | Method | HTTP request | Description
  - [RealmsInner](docs/RealmsInner.md)
  - [RealmsInnerAnyOf](docs/RealmsInnerAnyOf.md)
  - [RealmsInnerAnyOf1](docs/RealmsInnerAnyOf1.md)
+ - [RenewMarketplaceLicenseRequest](docs/RenewMarketplaceLicenseRequest.md)
  - [Role](docs/Role.md)
  - [RolesInner](docs/RolesInner.md)
  - [RoutesInner](docs/RoutesInner.md)

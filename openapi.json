@@ -2330,106 +2330,6 @@
         }
       }
     },
-    "/instances/{instanceId}/users": {
-      "get": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "getInstanceUsers",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "active",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "activeSince",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "includeInternal",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          }
-        ],
-        "summary": "Gets instance active users",
-        "x-auth-required": true,
-        "x-permissions": [
-          "stack-users:read"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InstanceUsersResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/org-stack-regions": {
       "get": {
         "tags": [
@@ -3899,6 +3799,80 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorConflict"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/plugins-marketplace/licenses/renew": {
+      "post": {
+        "tags": [
+          "plugins-marketplace"
+        ],
+        "operationId": "renewMarketplaceLicense",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "maxLength": 16384
+                  }
+                },
+                "required": [
+                  "token"
+                ]
+              }
+            }
+          }
+        },
+        "summary": "Renew a marketplace license token.",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceLicenseRenewalResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Marketplace license token not found."
+          },
+          "409": {
+            "description": "Invalid arguments: wrong or missing parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorConflict"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is currently unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
                 }
               }
             }
@@ -6090,6 +6064,83 @@
         ],
         "x-auth-required": true
       }
+    },
+    "/instances/{instanceId}/users": {
+      "get": {
+        "operationId": "getInstanceUsers",
+        "parameters": [
+          {
+            "description": "id or slug of the instance",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the instance",
+              "type": "string"
+            }
+          },
+          {
+            "description": "only return users seen in the last month, ignored when activeSince is set",
+            "explode": false,
+            "in": "query",
+            "name": "active",
+            "schema": {
+              "description": "only return users seen in the last month, ignored when activeSince is set",
+              "type": "string"
+            }
+          },
+          {
+            "description": "only return users seen since this timestamp",
+            "explode": false,
+            "in": "query",
+            "name": "activeSince",
+            "schema": {
+              "description": "only return users seen since this timestamp",
+              "type": "string"
+            }
+          },
+          {
+            "description": "include Grafana Labs internal users",
+            "explode": false,
+            "in": "query",
+            "name": "includeInternal",
+            "schema": {
+              "description": "include Grafana Labs internal users",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceUsersResponse"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "summary": "Gets instance active users",
+        "tags": [
+          "instances"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-users:read"
+        ]
+      }
     }
   },
   "components": {
@@ -6619,22 +6670,6 @@
             "type": "string",
             "title": "notes"
           },
-          "unit": {
-            "type": "string",
-            "title": "unit"
-          },
-          "includedUsage": {
-            "type": "number",
-            "title": "includedUsage"
-          },
-          "periodStart": {
-            "type": "string",
-            "title": "periodStart"
-          },
-          "periodEnd": {
-            "type": "string",
-            "title": "periodEnd"
-          },
           "dimensionId": {
             "enum": [
               "agent-generations",
@@ -6653,6 +6688,7 @@
               "hl-retention",
               "hm",
               "hm-graphite",
+              "hm-query",
               "hp",
               "hp-process",
               "hp-retention",
@@ -6664,6 +6700,7 @@
               "irm",
               "k6-ip",
               "k6-vuh",
+              "marketplace-plugin-users",
               "sm",
               "sm-browser"
             ],
@@ -6681,9 +6718,25 @@
             "type": "string",
             "title": "dimensionName"
           },
+          "includedUsage": {
+            "type": "number",
+            "title": "includedUsage"
+          },
+          "periodEnd": {
+            "type": "string",
+            "title": "periodEnd"
+          },
+          "periodStart": {
+            "type": "string",
+            "title": "periodStart"
+          },
           "totalUsage": {
             "type": "number",
             "title": "totalUsage"
+          },
+          "unit": {
+            "type": "string",
+            "title": "unit"
           },
           "usages": {
             "type": "array",
@@ -6927,7 +6980,7 @@
             "title": "amInstanceGeneratorUrlDatasource"
           },
           "amInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "amInstanceId"
           },
           "amInstanceName": {
@@ -6949,7 +7002,7 @@
             "title": "amInstanceUrl"
           },
           "amInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "amInstanceClusterId"
           },
           "billingActiveUsers": {
@@ -6974,7 +7027,7 @@
             "title": "billingStartDate"
           },
           "clusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "clusterId"
           },
           "clusterName": {
@@ -7062,7 +7115,7 @@
             "title": "hlInstanceBillingUsage"
           },
           "hlInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "hlInstanceId"
           },
           "hlInstanceName": {
@@ -7084,7 +7137,7 @@
             "title": "hlInstanceUrl"
           },
           "hlInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hlInstanceClusterId"
           },
           "hmInstanceGraphiteCurrentUsage": {
@@ -7096,7 +7149,7 @@
             "title": "hmInstanceGraphiteBillingUsage"
           },
           "hmInstanceGraphiteId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstanceGraphiteId"
           },
           "hmInstanceGraphiteName": {
@@ -7122,7 +7175,7 @@
             "title": "hmInstanceGraphiteUrl"
           },
           "hmInstancePromClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstancePromClusterId"
           },
           "hmInstancePromCurrentActiveSeries": {
@@ -7139,7 +7192,7 @@
             "title": "hmInstancePromBillingUsage"
           },
           "hmInstancePromId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstancePromId"
           },
           "hmInstancePromName": {
@@ -7161,11 +7214,11 @@
             "title": "hmInstancePromUrl"
           },
           "hmInstanceGraphiteClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hmInstanceGraphiteClusterId"
           },
           "htInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "htInstanceId"
           },
           "htInstanceName": {
@@ -7187,7 +7240,7 @@
             "title": "htInstanceUrl"
           },
           "htInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "htInstanceClusterId"
           },
           "htInstanceCurrentUsage": {
@@ -7199,7 +7252,7 @@
             "title": "htInstanceBillingUsage"
           },
           "hpInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "hpInstanceId"
           },
           "hpInstanceName": {
@@ -7221,7 +7274,7 @@
             "title": "hpInstanceUrl"
           },
           "hpInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "hpInstanceClusterId"
           },
           "hpInstanceCurrentUsage": {
@@ -7233,7 +7286,7 @@
             "title": "hpInstanceBillingUsage"
           },
           "id": {
-            "type": "number",
+            "type": "integer",
             "title": "id"
           },
           "incident": {
@@ -7253,7 +7306,7 @@
             "title": "name"
           },
           "orgId": {
-            "type": "number",
+            "type": "integer",
             "title": "orgId"
           },
           "orgName": {
@@ -7294,7 +7347,7 @@
             "title": "planName"
           },
           "regionId": {
-            "type": "number",
+            "type": "integer",
             "title": "regionId"
           },
           "regionSlug": {
@@ -7390,7 +7443,7 @@
             "title": "versionIssueLink"
           },
           "agentManagementInstanceId": {
-            "type": "number",
+            "type": "integer",
             "title": "agentManagementInstanceId"
           },
           "agentManagementInstanceUrl": {
@@ -7412,7 +7465,7 @@
             "title": "agentManagementInstanceStatus"
           },
           "agentManagementInstanceClusterId": {
-            "type": "number",
+            "type": "integer",
             "title": "agentManagementInstanceClusterId"
           },
           "config": {
@@ -7431,7 +7484,7 @@
             "title": "stackType"
           },
           "k6OrgId": {
-            "type": "number",
+            "type": "integer",
             "title": "k6OrgId",
             "nullable": true
           },
@@ -7733,7 +7786,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
+            "type": "integer",
             "title": "id"
           },
           "slug": {
@@ -7998,7 +8051,7 @@
             "nullable": true
           },
           "retainedStackId": {
-            "type": "number",
+            "type": "integer",
             "title": "retainedStackId"
           },
           "allowGCloudTrial": {
@@ -8624,6 +8677,15 @@
             "type": "string",
             "title": "updatedAt"
           },
+          "releaseCountLastYear": {
+            "type": "number",
+            "title": "releaseCountLastYear"
+          },
+          "activeInstances": {
+            "type": "number",
+            "title": "activeInstances",
+            "nullable": true
+          },
           "downloads": {
             "type": "number",
             "title": "downloads"
@@ -8647,6 +8709,11 @@
           "popularity": {
             "type": "number",
             "title": "popularity"
+          },
+          "datasourceQueryCount": {
+            "type": "number",
+            "title": "datasourceQueryCount",
+            "nullable": true
           },
           "signatureType": {
             "type": "string",
@@ -9791,6 +9858,10 @@
               "slackServiceUrl": {
                 "type": "string",
                 "title": "slackServiceUrl"
+              },
+              "sensitiveDataUrl": {
+                "type": "string",
+                "title": "sensitiveDataUrl"
               },
               "incidentApiUrl": {
                 "type": "string",
@@ -11271,6 +11342,7 @@
               "providerRegion",
               "publicName",
               "readyForStacks",
+              "sensitiveDataUrl",
               "sigilUrl",
               "slackServiceUrl",
               "slug",
@@ -11289,15 +11361,15 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
+            "type": "integer",
             "title": "id"
           },
           "orgId": {
-            "type": "number",
+            "type": "integer",
             "title": "orgId"
           },
           "userId": {
-            "type": "number",
+            "type": "integer",
             "title": "userId"
           },
           "status": {
@@ -11422,7 +11494,13 @@
             "title": "userUsername"
           },
           "userStatus": {
-            "type": "number",
+            "enum": [
+              "active",
+              "deleted",
+              "pending",
+              "unknown"
+            ],
+            "type": "string",
             "title": "userStatus"
           },
           "userEmail": {
@@ -11857,7 +11935,6 @@
           "userId",
           "userLastName",
           "userName",
-          "userStatus",
           "userUsername"
         ]
       },
@@ -11976,67 +12053,16 @@
         },
         "type": "object"
       },
-      "InstanceUsersResponse": {
+      "MarketplaceLicenseRenewalResponse": {
         "type": "object",
         "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "lastSeenAt": {
-                  "type": "string",
-                  "title": "lastSeenAt"
-                },
-                "createdAt": {
-                  "type": "string",
-                  "title": "createdAt"
-                },
-                "updatedAt": {
-                  "type": "string",
-                  "title": "updatedAt"
-                },
-                "email": {
-                  "type": "string",
-                  "title": "email"
-                },
-                "login": {
-                  "type": "string",
-                  "title": "login"
-                },
-                "name": {
-                  "type": "string",
-                  "title": "name"
-                },
-                "role": {
-                  "type": "string",
-                  "title": "role"
-                },
-                "id": {
-                  "type": "number",
-                  "title": "id"
-                },
-                "isServiceAccount": {
-                  "type": "boolean",
-                  "title": "isServiceAccount"
-                }
-              },
-              "required": [
-                "createdAt",
-                "email",
-                "id",
-                "isServiceAccount",
-                "login",
-                "name",
-                "role",
-                "updatedAt"
-              ]
-            },
-            "title": "items"
+          "token": {
+            "type": "string",
+            "title": "token"
           }
         },
         "required": [
-          "items"
+          "token"
         ]
       },
       "OrgBilledUsageHistory": {
@@ -12118,15 +12144,15 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "id"
                 },
                 "orgId": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "orgId"
                 },
                 "userId": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "userId"
                 },
                 "status": {
@@ -12251,7 +12277,13 @@
                   "title": "userUsername"
                 },
                 "userStatus": {
-                  "type": "number",
+                  "enum": [
+                    "active",
+                    "deleted",
+                    "pending",
+                    "unknown"
+                  ],
+                  "type": "string",
                   "title": "userStatus"
                 },
                 "userEmail": {
@@ -12686,7 +12718,6 @@
                 "userId",
                 "userLastName",
                 "userName",
-                "userStatus",
                 "userUsername"
               ]
             },
@@ -12732,7 +12763,7 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "number",
+                  "type": "integer",
                   "title": "id"
                 },
                 "name": {
@@ -12937,6 +12968,78 @@
           "type",
           "id",
           "ipAllowListCNAME"
+        ],
+        "type": "object"
+      },
+      "InstanceUser": {
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "description": "when the user was created",
+            "type": "string"
+          },
+          "email": {
+            "description": "email of the user",
+            "type": "string"
+          },
+          "id": {
+            "description": "id of the user",
+            "format": "int64",
+            "type": "integer"
+          },
+          "isServiceAccount": {
+            "description": "whether the user is a service account",
+            "type": "boolean"
+          },
+          "lastSeenAt": {
+            "description": "when the user was last seen, null if never",
+            "nullable": true,
+            "type": "string"
+          },
+          "login": {
+            "description": "login/username of the user",
+            "type": "string"
+          },
+          "name": {
+            "description": "full name of the user",
+            "type": "string"
+          },
+          "role": {
+            "description": "role of the user on the instance",
+            "type": "string"
+          },
+          "updatedAt": {
+            "description": "when the user was last updated",
+            "type": "string"
+          }
+        },
+        "required": [
+          "lastSeenAt",
+          "createdAt",
+          "updatedAt",
+          "email",
+          "login",
+          "name",
+          "role",
+          "id",
+          "isServiceAccount"
+        ],
+        "type": "object"
+      },
+      "InstanceUsersResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "description": "the instance's users",
+            "items": {
+              "$ref": "#/components/schemas/InstanceUser"
+            },
+            "nullable": true,
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
         ],
         "type": "object"
       },
@@ -13196,6 +13299,11 @@
           },
           "slug": {
             "description": "slug of the stack",
+            "type": "string"
+          },
+          "stackType": {
+            "default": "cloud",
+            "description": "type of the stack",
             "type": "string"
           },
           "url": {

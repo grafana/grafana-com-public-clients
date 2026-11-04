@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
+**Id** | **int32** |  | 
 **Name** | **string** |  | 
 
 ## Methods
 
 ### NewServiceAccountsInner
 
-`func NewServiceAccountsInner(id float32, name string, ) *ServiceAccountsInner`
+`func NewServiceAccountsInner(id int32, name string, ) *ServiceAccountsInner`
 
 NewServiceAccountsInner instantiates a new ServiceAccountsInner object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *ServiceAccountsInner) GetId() float32`
+`func (o *ServiceAccountsInner) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *ServiceAccountsInner) GetIdOk() (*float32, bool)`
+`func (o *ServiceAccountsInner) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *ServiceAccountsInner) SetId(v float32)`
+`func (o *ServiceAccountsInner) SetId(v int32)`
 
 SetId sets Id field to given value.
 

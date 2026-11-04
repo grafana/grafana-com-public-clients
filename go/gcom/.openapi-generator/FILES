@@ -8,6 +8,7 @@ api_instances.go
 api_org_stack_regions.go
 api_orgs.go
 api_plugins.go
+api_plugins_marketplace.go
 api_stack_regions.go
 api_stacks.go
 api_tokens.go
@@ -89,11 +90,11 @@ docs/Iam.md
 docs/IncludesInner.md
 docs/Info.md
 docs/InstanceConnectionTenant.md
+docs/InstanceUser.md
 docs/InstanceUsersResponse.md
 docs/InstancesAPI.md
 docs/ItemsInner.md
 docs/ItemsInner1.md
-docs/ItemsInner2.md
 docs/Json.md
 docs/JwtTokenAuth.md
 docs/LinksInner.md
@@ -101,6 +102,7 @@ docs/LinksInner1.md
 docs/LinksInner2.md
 docs/Logos.md
 docs/Managed.md
+docs/MarketplaceLicenseRenewalResponse.md
 docs/Metadata.md
 docs/Mimir.md
 docs/Next.md
@@ -125,6 +127,7 @@ docs/PermissionsInner.md
 docs/PermissionsInner1.md
 docs/PluginsAPI.md
 docs/PluginsInner.md
+docs/PluginsMarketplaceAPI.md
 docs/PostAccessPoliciesRequest.md
 docs/PostAccessPoliciesRequestAttributes.md
 docs/PostAccessPoliciesRequestAttributesLokiQueryPolicy.md
@@ -147,6 +150,7 @@ docs/QueryOptions.md
 docs/RealmsInner.md
 docs/RealmsInnerAnyOf.md
 docs/RealmsInnerAnyOf1.md
+docs/RenewMarketplaceLicenseRequest.md
 docs/Role.md
 docs/RolesInner.md
 docs/RoutesInner.md
@@ -257,10 +261,10 @@ model_iam.go
 model_includes_inner.go
 model_info.go
 model_instance_connection_tenant.go
+model_instance_user.go
 model_instance_users_response.go
 model_items_inner.go
 model_items_inner_1.go
-model_items_inner_2.go
 model_json.go
 model_jwt_token_auth.go
 model_links_inner.go
@@ -268,6 +272,7 @@ model_links_inner_1.go
 model_links_inner_2.go
 model_logos.go
 model_managed.go
+model_marketplace_license_renewal_response.go
 model_metadata.go
 model_mimir.go
 model_next.go
@@ -311,6 +316,7 @@ model_query_options.go
 model_realms_inner.go
 model_realms_inner_any_of.go
 model_realms_inner_any_of_1.go
+model_renew_marketplace_license_request.go
 model_role.go
 model_roles_inner.go
 model_routes_inner.go
@@ -345,6 +351,7 @@ test/api_accesspolicies_test.go
 test/api_instances_test.go
 test/api_org_stack_regions_test.go
 test/api_orgs_test.go
+test/api_plugins_marketplace_test.go
 test/api_plugins_test.go
 test/api_stack_regions_test.go
 test/api_stacks_test.go
