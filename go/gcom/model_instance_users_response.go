@@ -11,6 +11,7 @@ API version: public
 package gcom
 
 import (
+	"bytes"
 	"encoding/json"
 )
 
@@ -19,8 +20,8 @@ var _ MappedNullable = &InstanceUsersResponse{}
 
 // InstanceUsersResponse struct for InstanceUsersResponse
 type InstanceUsersResponse struct {
-	Items                []ItemsInner `json:"items"`
-	AdditionalProperties map[string]interface{}
+	// the instance's users
+	Items []InstanceUser `json:"items"`
 }
 
 type _InstanceUsersResponse InstanceUsersResponse
@@ -29,7 +30,7 @@ type _InstanceUsersResponse InstanceUsersResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInstanceUsersResponse(items []ItemsInner) *InstanceUsersResponse {
+func NewInstanceUsersResponse(items []InstanceUser) *InstanceUsersResponse {
 	this := InstanceUsersResponse{}
 	this.Items = items
 	return &this
@@ -44,9 +45,10 @@ func NewInstanceUsersResponseWithDefaults() *InstanceUsersResponse {
 }
 
 // GetItems returns the Items field value
-func (o *InstanceUsersResponse) GetItems() []ItemsInner {
+// If the value is explicit nil, the zero value for []InstanceUser will be returned
+func (o *InstanceUsersResponse) GetItems() []InstanceUser {
 	if o == nil {
-		var ret []ItemsInner
+		var ret []InstanceUser
 		return ret
 	}
 
@@ -55,15 +57,16 @@ func (o *InstanceUsersResponse) GetItems() []ItemsInner {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *InstanceUsersResponse) GetItemsOk() ([]ItemsInner, bool) {
-	if o == nil {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *InstanceUsersResponse) GetItemsOk() ([]InstanceUser, bool) {
+	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
 	return o.Items, true
 }
 
 // SetItems sets field value
-func (o *InstanceUsersResponse) SetItems(v []ItemsInner) {
+func (o *InstanceUsersResponse) SetItems(v []InstanceUser) {
 	o.Items = v
 }
 
@@ -77,12 +80,9 @@ func (o InstanceUsersResponse) MarshalJSON() ([]byte, error) {
 
 func (o InstanceUsersResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["items"] = o.Items
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
+	if o.Items != nil {
+		toSerialize["items"] = o.Items
 	}
-
 	return toSerialize, nil
 }
 
@@ -97,20 +97,14 @@ func (o *InstanceUsersResponse) UnmarshalJSON(data []byte) (err error) {
 
 	varInstanceUsersResponse := _InstanceUsersResponse{}
 
-	err = json.Unmarshal(data, &varInstanceUsersResponse)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	err = decoder.Decode(&varInstanceUsersResponse)
 
 	if err != nil {
 		return err
 	}
 
 	*o = InstanceUsersResponse(varInstanceUsersResponse)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "items")
-		o.AdditionalProperties = additionalProperties
-	}
 
 	return err
 }

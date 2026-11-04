@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Plugins** | Pointer to **[]string** | plugins to install to the stack | [optional] 
 **Region** | **string** | region of the stack | 
 **Slug** | **string** | slug of the stack | 
+**StackType** | Pointer to **string** | type of the stack | [optional] [default to "cloud"]
 **Url** | Pointer to **NullableString** | url for the stack | [optional] 
 
 ## Methods
@@ -242,6 +243,31 @@ and a boolean to check if the value has been set.
 
 SetSlug sets Slug field to given value.
 
+
+### GetStackType
+
+`func (o *StackCreateRequestV1) GetStackType() string`
+
+GetStackType returns the StackType field if non-nil, zero value otherwise.
+
+### GetStackTypeOk
+
+`func (o *StackCreateRequestV1) GetStackTypeOk() (*string, bool)`
+
+GetStackTypeOk returns a tuple with the StackType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStackType
+
+`func (o *StackCreateRequestV1) SetStackType(v string)`
+
+SetStackType sets StackType field to given value.
+
+### HasStackType
+
+`func (o *StackCreateRequestV1) HasStackType() bool`
+
+HasStackType returns a boolean if a field has been set.
 
 ### GetUrl
 

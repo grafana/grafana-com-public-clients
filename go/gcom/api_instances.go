@@ -1774,22 +1774,25 @@ type ApiGetInstanceUsersRequest struct {
 	ctx             context.Context
 	ApiService      *InstancesAPIService
 	instanceId      string
-	active          *bool
-	activeSince     *time.Time
-	includeInternal *bool
+	active          *string
+	activeSince     *string
+	includeInternal *string
 }
 
-func (r ApiGetInstanceUsersRequest) Active(active bool) ApiGetInstanceUsersRequest {
+// only return users seen in the last month, ignored when activeSince is set
+func (r ApiGetInstanceUsersRequest) Active(active string) ApiGetInstanceUsersRequest {
 	r.active = &active
 	return r
 }
 
-func (r ApiGetInstanceUsersRequest) ActiveSince(activeSince time.Time) ApiGetInstanceUsersRequest {
+// only return users seen since this timestamp
+func (r ApiGetInstanceUsersRequest) ActiveSince(activeSince string) ApiGetInstanceUsersRequest {
 	r.activeSince = &activeSince
 	return r
 }
 
-func (r ApiGetInstanceUsersRequest) IncludeInternal(includeInternal bool) ApiGetInstanceUsersRequest {
+// include Grafana Labs internal users
+func (r ApiGetInstanceUsersRequest) IncludeInternal(includeInternal string) ApiGetInstanceUsersRequest {
 	r.includeInternal = &includeInternal
 	return r
 }
@@ -1802,7 +1805,7 @@ func (r ApiGetInstanceUsersRequest) Execute() (*InstanceUsersResponse, *http.Res
 GetInstanceUsers Gets instance active users
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param instanceId
+	@param instanceId id or slug of the instance
 	@return ApiGetInstanceUsersRequest
 */
 func (a *InstancesAPIService) GetInstanceUsers(ctx context.Context, instanceId string) ApiGetInstanceUsersRequest {
@@ -1884,49 +1887,14 @@ func (a *InstancesAPIService) GetInstanceUsersExecute(r ApiGetInstanceUsersReque
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorInvalidCredentials
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+		var v ErrorPayload
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorForbidden
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorNotFound
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorConflict
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

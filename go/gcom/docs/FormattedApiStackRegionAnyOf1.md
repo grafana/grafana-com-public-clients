@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **WorkflowEngineUrl** | **string** |  | 
 **MobileGatewayUrl** | **string** |  | 
 **SlackServiceUrl** | **string** |  | 
+**SensitiveDataUrl** | **string** |  | 
 **IncidentApiUrl** | **string** |  | 
 **OncallApiUrl** | **string** |  | 
 **FaroEndpointUrl** | **string** |  | 
@@ -86,7 +87,7 @@ Name | Type | Description | Notes
 
 ### NewFormattedApiStackRegionAnyOf1
 
-`func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, assistantUrl string, sigilUrl string, agentO11YUrl string, workflowEngineUrl string, mobileGatewayUrl string, slackServiceUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcHostname string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, complete bool, readyForStacks bool, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, ) *FormattedApiStackRegionAnyOf1`
+`func NewFormattedApiStackRegionAnyOf1(stackStateServiceUrl string, syntheticMonitoringApiUrl string, insightsApiUrl string, integrationsApiUrl string, hostedExportersApiUrl string, machineLearningApiUrl string, llmGatewayUrl string, assistantUrl string, sigilUrl string, agentO11YUrl string, workflowEngineUrl string, mobileGatewayUrl string, slackServiceUrl string, sensitiveDataUrl string, incidentApiUrl string, oncallApiUrl string, faroEndpointUrl string, pdcClusterSlug string, pdcHostname string, pdcPrivateConnectivityInfo PdcPrivateConnectivityInfo, otlpHttpUrl NullableString, otlpPrivateConnectivityInfo OtlpPrivateConnectivityInfo, authApiUrl string, authApiTokenSet bool, hgClusterId float32, hgClusterSlug string, hgClusterName string, hgClusterUrl string, hmPromClusterId float32, hmPromClusterSlug string, hmPromClusterName string, hmPromClusterUrl string, hmGraphiteClusterId float32, hmGraphiteClusterSlug string, hmGraphiteClusterName string, hmGraphiteClusterUrl string, hlClusterId float32, hlClusterSlug string, hlClusterName string, hlClusterUrl string, amClusterId float32, amClusterSlug string, amClusterName string, amClusterUrl string, htClusterId float32, htClusterSlug string, htClusterName string, htClusterUrl string, hpClusterId float32, hpClusterSlug string, hpClusterName string, hpClusterUrl string, agmClusterId float32, agmClusterSlug string, agmClusterName string, agmClusterUrl string, assertsGraphClusterId float32, assertsGraphClusterSlug string, assertsGraphClusterName string, providerRegion string, isStub bool, complete bool, readyForStacks bool, id float32, status string, visibility string, slug string, name string, publicName string, description string, provider string, createdAt string, updatedAt NullableString, sortOrder float32, ) *FormattedApiStackRegionAnyOf1`
 
 NewFormattedApiStackRegionAnyOf1 instantiates a new FormattedApiStackRegionAnyOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -359,6 +360,26 @@ and a boolean to check if the value has been set.
 `func (o *FormattedApiStackRegionAnyOf1) SetSlackServiceUrl(v string)`
 
 SetSlackServiceUrl sets SlackServiceUrl field to given value.
+
+
+### GetSensitiveDataUrl
+
+`func (o *FormattedApiStackRegionAnyOf1) GetSensitiveDataUrl() string`
+
+GetSensitiveDataUrl returns the SensitiveDataUrl field if non-nil, zero value otherwise.
+
+### GetSensitiveDataUrlOk
+
+`func (o *FormattedApiStackRegionAnyOf1) GetSensitiveDataUrlOk() (*string, bool)`
+
+GetSensitiveDataUrlOk returns a tuple with the SensitiveDataUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSensitiveDataUrl
+
+`func (o *FormattedApiStackRegionAnyOf1) SetSensitiveDataUrl(v string)`
+
+SetSensitiveDataUrl sets SensitiveDataUrl field to given value.
 
 
 ### GetIncidentApiUrl

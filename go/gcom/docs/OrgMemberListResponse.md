@@ -13,14 +13,14 @@ Name | Type | Description | Notes
 **Direction** | Pointer to **string** |  | [optional] 
 **Cursor** | Pointer to **float32** |  | [optional] 
 **NextCursor** | Pointer to **float32** |  | [optional] 
-**Items** | [**[]ItemsInner2**](ItemsInner2.md) |  | 
+**Items** | [**[]ItemsInner1**](ItemsInner1.md) |  | 
 **Links** | [**[]LinksInner**](LinksInner.md) |  | 
 
 ## Methods
 
 ### NewOrgMemberListResponse
 
-`func NewOrgMemberListResponse(items []ItemsInner2, links []LinksInner, ) *OrgMemberListResponse`
+`func NewOrgMemberListResponse(items []ItemsInner1, links []LinksInner, ) *OrgMemberListResponse`
 
 NewOrgMemberListResponse instantiates a new OrgMemberListResponse object
 This constructor will assign default values to properties that have it defined,
@@ -262,20 +262,20 @@ HasNextCursor returns a boolean if a field has been set.
 
 ### GetItems
 
-`func (o *OrgMemberListResponse) GetItems() []ItemsInner2`
+`func (o *OrgMemberListResponse) GetItems() []ItemsInner1`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *OrgMemberListResponse) GetItemsOk() (*[]ItemsInner2, bool)`
+`func (o *OrgMemberListResponse) GetItemsOk() (*[]ItemsInner1, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *OrgMemberListResponse) SetItems(v []ItemsInner2)`
+`func (o *OrgMemberListResponse) SetItems(v []ItemsInner1)`
 
 SetItems sets Items field to given value.
 

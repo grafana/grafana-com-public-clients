@@ -26,12 +26,15 @@ Name | Type | Description | Notes
 **Url** | **string** |  | 
 **CreatedAt** | **string** |  | 
 **UpdatedAt** | **string** |  | 
+**ReleaseCountLastYear** | Pointer to **float32** |  | [optional] 
+**ActiveInstances** | Pointer to **NullableFloat32** |  | [optional] 
 **Downloads** | **float32** |  | 
 **Verified** | **bool** |  | 
 **Featured** | **float32** |  | 
 **Internal** | **bool** |  | 
 **DownloadSlug** | **string** |  | 
 **Popularity** | **float32** |  | 
+**DatasourceQueryCount** | Pointer to **NullableFloat32** |  | [optional] 
 **SignatureType** | **string** |  | 
 **Packages** | **map[string]interface{}** |  | 
 **Links** | [**[]LinksInner**](LinksInner.md) |  | 
@@ -503,6 +506,66 @@ and a boolean to check if the value has been set.
 SetUpdatedAt sets UpdatedAt field to given value.
 
 
+### GetReleaseCountLastYear
+
+`func (o *FormattedApiPlugin) GetReleaseCountLastYear() float32`
+
+GetReleaseCountLastYear returns the ReleaseCountLastYear field if non-nil, zero value otherwise.
+
+### GetReleaseCountLastYearOk
+
+`func (o *FormattedApiPlugin) GetReleaseCountLastYearOk() (*float32, bool)`
+
+GetReleaseCountLastYearOk returns a tuple with the ReleaseCountLastYear field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReleaseCountLastYear
+
+`func (o *FormattedApiPlugin) SetReleaseCountLastYear(v float32)`
+
+SetReleaseCountLastYear sets ReleaseCountLastYear field to given value.
+
+### HasReleaseCountLastYear
+
+`func (o *FormattedApiPlugin) HasReleaseCountLastYear() bool`
+
+HasReleaseCountLastYear returns a boolean if a field has been set.
+
+### GetActiveInstances
+
+`func (o *FormattedApiPlugin) GetActiveInstances() float32`
+
+GetActiveInstances returns the ActiveInstances field if non-nil, zero value otherwise.
+
+### GetActiveInstancesOk
+
+`func (o *FormattedApiPlugin) GetActiveInstancesOk() (*float32, bool)`
+
+GetActiveInstancesOk returns a tuple with the ActiveInstances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActiveInstances
+
+`func (o *FormattedApiPlugin) SetActiveInstances(v float32)`
+
+SetActiveInstances sets ActiveInstances field to given value.
+
+### HasActiveInstances
+
+`func (o *FormattedApiPlugin) HasActiveInstances() bool`
+
+HasActiveInstances returns a boolean if a field has been set.
+
+### SetActiveInstancesNil
+
+`func (o *FormattedApiPlugin) SetActiveInstancesNil(b bool)`
+
+ SetActiveInstancesNil sets the value for ActiveInstances to be an explicit nil
+
+### UnsetActiveInstances
+`func (o *FormattedApiPlugin) UnsetActiveInstances()`
+
+UnsetActiveInstances ensures that no value is present for ActiveInstances, not even an explicit nil
 ### GetDownloads
 
 `func (o *FormattedApiPlugin) GetDownloads() float32`
@@ -623,6 +686,41 @@ and a boolean to check if the value has been set.
 SetPopularity sets Popularity field to given value.
 
 
+### GetDatasourceQueryCount
+
+`func (o *FormattedApiPlugin) GetDatasourceQueryCount() float32`
+
+GetDatasourceQueryCount returns the DatasourceQueryCount field if non-nil, zero value otherwise.
+
+### GetDatasourceQueryCountOk
+
+`func (o *FormattedApiPlugin) GetDatasourceQueryCountOk() (*float32, bool)`
+
+GetDatasourceQueryCountOk returns a tuple with the DatasourceQueryCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDatasourceQueryCount
+
+`func (o *FormattedApiPlugin) SetDatasourceQueryCount(v float32)`
+
+SetDatasourceQueryCount sets DatasourceQueryCount field to given value.
+
+### HasDatasourceQueryCount
+
+`func (o *FormattedApiPlugin) HasDatasourceQueryCount() bool`
+
+HasDatasourceQueryCount returns a boolean if a field has been set.
+
+### SetDatasourceQueryCountNil
+
+`func (o *FormattedApiPlugin) SetDatasourceQueryCountNil(b bool)`
+
+ SetDatasourceQueryCountNil sets the value for DatasourceQueryCount to be an explicit nil
+
+### UnsetDatasourceQueryCount
+`func (o *FormattedApiPlugin) UnsetDatasourceQueryCount()`
+
+UnsetDatasourceQueryCount ensures that no value is present for DatasourceQueryCount, not even an explicit nil
 ### GetSignatureType
 
 `func (o *FormattedApiPlugin) GetSignatureType() string`

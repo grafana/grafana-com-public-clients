@@ -19,15 +19,8 @@ var _ MappedNullable = &ItemsInner{}
 
 // ItemsInner struct for ItemsInner
 type ItemsInner struct {
-	LastSeenAt           *string `json:"lastSeenAt,omitempty"`
-	CreatedAt            string  `json:"createdAt"`
-	UpdatedAt            string  `json:"updatedAt"`
-	Email                string  `json:"email"`
-	Login                string  `json:"login"`
-	Name                 string  `json:"name"`
-	Role                 string  `json:"role"`
-	Id                   float32 `json:"id"`
-	IsServiceAccount     bool    `json:"isServiceAccount"`
+	Month                float32 `json:"month"`
+	Year                 float32 `json:"year"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -37,16 +30,10 @@ type _ItemsInner ItemsInner
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemsInner(createdAt string, updatedAt string, email string, login string, name string, role string, id float32, isServiceAccount bool) *ItemsInner {
+func NewItemsInner(month float32, year float32) *ItemsInner {
 	this := ItemsInner{}
-	this.CreatedAt = createdAt
-	this.UpdatedAt = updatedAt
-	this.Email = email
-	this.Login = login
-	this.Name = name
-	this.Role = role
-	this.Id = id
-	this.IsServiceAccount = isServiceAccount
+	this.Month = month
+	this.Year = year
 	return &this
 }
 
@@ -58,228 +45,52 @@ func NewItemsInnerWithDefaults() *ItemsInner {
 	return &this
 }
 
-// GetLastSeenAt returns the LastSeenAt field value if set, zero value otherwise.
-func (o *ItemsInner) GetLastSeenAt() string {
-	if o == nil || IsNil(o.LastSeenAt) {
-		var ret string
-		return ret
-	}
-	return *o.LastSeenAt
-}
-
-// GetLastSeenAtOk returns a tuple with the LastSeenAt field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ItemsInner) GetLastSeenAtOk() (*string, bool) {
-	if o == nil || IsNil(o.LastSeenAt) {
-		return nil, false
-	}
-	return o.LastSeenAt, true
-}
-
-// HasLastSeenAt returns a boolean if a field has been set.
-func (o *ItemsInner) HasLastSeenAt() bool {
-	if o != nil && !IsNil(o.LastSeenAt) {
-		return true
-	}
-
-	return false
-}
-
-// SetLastSeenAt gets a reference to the given string and assigns it to the LastSeenAt field.
-func (o *ItemsInner) SetLastSeenAt(v string) {
-	o.LastSeenAt = &v
-}
-
-// GetCreatedAt returns the CreatedAt field value
-func (o *ItemsInner) GetCreatedAt() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.CreatedAt
-}
-
-// GetCreatedAtOk returns a tuple with the CreatedAt field value
-// and a boolean to check if the value has been set.
-func (o *ItemsInner) GetCreatedAtOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CreatedAt, true
-}
-
-// SetCreatedAt sets field value
-func (o *ItemsInner) SetCreatedAt(v string) {
-	o.CreatedAt = v
-}
-
-// GetUpdatedAt returns the UpdatedAt field value
-func (o *ItemsInner) GetUpdatedAt() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.UpdatedAt
-}
-
-// GetUpdatedAtOk returns a tuple with the UpdatedAt field value
-// and a boolean to check if the value has been set.
-func (o *ItemsInner) GetUpdatedAtOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.UpdatedAt, true
-}
-
-// SetUpdatedAt sets field value
-func (o *ItemsInner) SetUpdatedAt(v string) {
-	o.UpdatedAt = v
-}
-
-// GetEmail returns the Email field value
-func (o *ItemsInner) GetEmail() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Email
-}
-
-// GetEmailOk returns a tuple with the Email field value
-// and a boolean to check if the value has been set.
-func (o *ItemsInner) GetEmailOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Email, true
-}
-
-// SetEmail sets field value
-func (o *ItemsInner) SetEmail(v string) {
-	o.Email = v
-}
-
-// GetLogin returns the Login field value
-func (o *ItemsInner) GetLogin() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Login
-}
-
-// GetLoginOk returns a tuple with the Login field value
-// and a boolean to check if the value has been set.
-func (o *ItemsInner) GetLoginOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Login, true
-}
-
-// SetLogin sets field value
-func (o *ItemsInner) SetLogin(v string) {
-	o.Login = v
-}
-
-// GetName returns the Name field value
-func (o *ItemsInner) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *ItemsInner) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *ItemsInner) SetName(v string) {
-	o.Name = v
-}
-
-// GetRole returns the Role field value
-func (o *ItemsInner) GetRole() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Role
-}
-
-// GetRoleOk returns a tuple with the Role field value
-// and a boolean to check if the value has been set.
-func (o *ItemsInner) GetRoleOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Role, true
-}
-
-// SetRole sets field value
-func (o *ItemsInner) SetRole(v string) {
-	o.Role = v
-}
-
-// GetId returns the Id field value
-func (o *ItemsInner) GetId() float32 {
+// GetMonth returns the Month field value
+func (o *ItemsInner) GetMonth() float32 {
 	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return o.Id
+	return o.Month
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetMonthOk returns a tuple with the Month field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner) GetIdOk() (*float32, bool) {
+func (o *ItemsInner) GetMonthOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Id, true
+	return &o.Month, true
 }
 
-// SetId sets field value
-func (o *ItemsInner) SetId(v float32) {
-	o.Id = v
+// SetMonth sets field value
+func (o *ItemsInner) SetMonth(v float32) {
+	o.Month = v
 }
 
-// GetIsServiceAccount returns the IsServiceAccount field value
-func (o *ItemsInner) GetIsServiceAccount() bool {
+// GetYear returns the Year field value
+func (o *ItemsInner) GetYear() float32 {
 	if o == nil {
-		var ret bool
+		var ret float32
 		return ret
 	}
 
-	return o.IsServiceAccount
+	return o.Year
 }
 
-// GetIsServiceAccountOk returns a tuple with the IsServiceAccount field value
+// GetYearOk returns a tuple with the Year field value
 // and a boolean to check if the value has been set.
-func (o *ItemsInner) GetIsServiceAccountOk() (*bool, bool) {
+func (o *ItemsInner) GetYearOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.IsServiceAccount, true
+	return &o.Year, true
 }
 
-// SetIsServiceAccount sets field value
-func (o *ItemsInner) SetIsServiceAccount(v bool) {
-	o.IsServiceAccount = v
+// SetYear sets field value
+func (o *ItemsInner) SetYear(v float32) {
+	o.Year = v
 }
 
 func (o ItemsInner) MarshalJSON() ([]byte, error) {
@@ -292,17 +103,8 @@ func (o ItemsInner) MarshalJSON() ([]byte, error) {
 
 func (o ItemsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.LastSeenAt) {
-		toSerialize["lastSeenAt"] = o.LastSeenAt
-	}
-	toSerialize["createdAt"] = o.CreatedAt
-	toSerialize["updatedAt"] = o.UpdatedAt
-	toSerialize["email"] = o.Email
-	toSerialize["login"] = o.Login
-	toSerialize["name"] = o.Name
-	toSerialize["role"] = o.Role
-	toSerialize["id"] = o.Id
-	toSerialize["isServiceAccount"] = o.IsServiceAccount
+	toSerialize["month"] = o.Month
+	toSerialize["year"] = o.Year
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -333,15 +135,8 @@ func (o *ItemsInner) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "lastSeenAt")
-		delete(additionalProperties, "createdAt")
-		delete(additionalProperties, "updatedAt")
-		delete(additionalProperties, "email")
-		delete(additionalProperties, "login")
-		delete(additionalProperties, "name")
-		delete(additionalProperties, "role")
-		delete(additionalProperties, "id")
-		delete(additionalProperties, "isServiceAccount")
+		delete(additionalProperties, "month")
+		delete(additionalProperties, "year")
 		o.AdditionalProperties = additionalProperties
 	}
 

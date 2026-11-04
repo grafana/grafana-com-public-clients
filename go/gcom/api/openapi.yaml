@@ -1392,76 +1392,6 @@ paths:
       x-auth-required: true
       x-permissions:
       - stacks:read
-  /instances/{instanceId}/users:
-    get:
-      operationId: getInstanceUsers
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: active
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: activeSince
-        required: false
-        schema:
-          format: date-time
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: includeInternal
-        required: false
-        schema:
-          type: boolean
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InstanceUsersResponse'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-      summary: Gets instance active users
-      tags:
-      - instances
-      x-auth-required: true
-      x-permissions:
-      - stack-users:read
   /org-stack-regions:
     get:
       operationId: getOrgStackRegions
@@ -2349,6 +2279,48 @@ paths:
       x-auth-required: true
       x-permissions:
       - orgs:write
+  /plugins-marketplace/licenses/renew:
+    post:
+      operationId: renewMarketplaceLicense
+      parameters:
+      - explode: false
+        in: header
+        name: x-request-id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/renewMarketplaceLicense_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketplaceLicenseRenewalResponse'
+          description: OK
+        "404":
+          description: Marketplace license token not found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorConflict'
+          description: "Invalid arguments: wrong or missing parameters"
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorServiceUnavailable'
+          description: Service is currently unavailable
+      security: []
+      summary: Renew a marketplace license token.
+      tags:
+      - plugins-marketplace
   /plugins/{slug}:
     get:
       operationId: getPlugin
@@ -3667,6 +3639,67 @@ paths:
       tags:
       - stacks
       x-auth-required: true
+  /instances/{instanceId}/users:
+    get:
+      operationId: getInstanceUsers
+      parameters:
+      - description: id or slug of the instance
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: id or slug of the instance
+          type: string
+        style: simple
+      - description: "only return users seen in the last month, ignored when activeSince\
+          \ is set"
+        explode: false
+        in: query
+        name: active
+        required: false
+        schema:
+          description: "only return users seen in the last month, ignored when activeSince\
+            \ is set"
+          type: string
+        style: form
+      - description: only return users seen since this timestamp
+        explode: false
+        in: query
+        name: activeSince
+        required: false
+        schema:
+          description: only return users seen since this timestamp
+          type: string
+        style: form
+      - description: include Grafana Labs internal users
+        explode: false
+        in: query
+        name: includeInternal
+        required: false
+        schema:
+          description: include Grafana Labs internal users
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceUsersResponse'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      summary: Gets instance active users
+      tags:
+      - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-users:read
 components:
   schemas:
     AccessPoliciesConfig:
@@ -3990,9 +4023,9 @@ components:
         notes: notes
         description: description
         dimensionName: dimensionName
-        amountDue: 5.962133916683182
-        unit: unit
+        amountDue: 1.4658129805029452
         orgRates: ""
+        unit: unit
         dimensionId: agent-generations
         totalUsage: 5.637376656633329
         id: 0.8008281904610115
@@ -4053,7 +4086,7 @@ components:
           periodStart: periodStart
           isProrated: true
           periodEnd: periodEnd
-        includedUsage: 1.4658129805029452
+        includedUsage: 5.962133916683182
         periodStart: periodStart
         overage: 6.027456183070403
         periodEnd: periodEnd
@@ -4069,18 +4102,6 @@ components:
           type: string
         notes:
           title: notes
-          type: string
-        unit:
-          title: unit
-          type: string
-        includedUsage:
-          title: includedUsage
-          type: number
-        periodStart:
-          title: periodStart
-          type: string
-        periodEnd:
-          title: periodEnd
           type: string
         dimensionId:
           enum:
@@ -4100,6 +4121,7 @@ components:
           - hl-retention
           - hm
           - hm-graphite
+          - hm-query
           - hp
           - hp-process
           - hp-retention
@@ -4111,6 +4133,7 @@ components:
           - irm
           - k6-ip
           - k6-vuh
+          - marketplace-plugin-users
           - sm
           - sm-browser
           title: dimensionId
@@ -4123,9 +4146,21 @@ components:
         dimensionName:
           title: dimensionName
           type: string
+        includedUsage:
+          title: includedUsage
+          type: number
+        periodEnd:
+          title: periodEnd
+          type: string
+        periodStart:
+          title: periodStart
+          type: string
         totalUsage:
           title: totalUsage
           type: number
+        unit:
+          title: unit
+          type: string
         usages:
           items:
             $ref: '#/components/schemas/usages_inner'
@@ -4227,18 +4262,18 @@ components:
         currentActiveEditorUsers: 2.027123023002322
         ssl: true
         userQuota: 3.0576100241049344
-        id: 6.519180951018382
+        id: 6
         stackType: stackType
         plan: advanced
         hlInstanceBillingUsage: 5.025004791520295
         agentManagementInstanceStatus: active
-        htInstanceClusterId: 5.944895607614016
+        htInstanceClusterId: 5
         alertCnt: 0.8008281904610115
         datasourceCnts: "{}"
         hmInstanceGraphiteBillingUsage: 8.762042012749001
         version: version
         billingStartDate: billingStartDate
-        hmInstancePromClusterId: 6.438423552598547
+        hmInstancePromClusterId: 6
         hlInstanceStatus: active
         labels: "{}"
         orgCreatedAt: orgCreatedAt
@@ -4246,13 +4281,13 @@ components:
         clusterSlug: clusterSlug
         htInstanceUrl: htInstanceUrl
         regionIntegrationsApiUrl: regionIntegrationsApiUrl
-        hmInstancePromId: 2.8841621266687802
+        hmInstancePromId: 2
         status: active
         htInstanceCurrentUsage: 6.704019297950036
-        orgId: 8.969578798196912
-        hmInstanceGraphiteId: 9.018348186070783
+        orgId: 8
+        hmInstanceGraphiteId: 9
         clusterName: clusterName
-        k6OrgId: 3.2588565619047607
+        k6OrgId: 3
         currentActiveUsers: 4.145608029883936
         hpInstanceUrl: hpInstanceUrl
         dailyAdminCnt: 1.2315135367772556
@@ -4262,8 +4297,8 @@ components:
         machineLearningLogsToken: machineLearningLogsToken
         regionSyntheticMonitoringApiUrl: regionSyntheticMonitoringApiUrl
         regionStackStateServiceUrl: regionStackStateServiceUrl
-        hmInstanceGraphiteClusterId: 6.778324963048013
-        hpInstanceId: 3.0937452626664474
+        hmInstanceGraphiteClusterId: 6
+        hpInstanceId: 3
         config: "{}"
         usageStatsId: usageStatsId
         orgSlug: orgSlug
@@ -4273,7 +4308,7 @@ components:
         hlInstanceCurrentUsage: 4.965218492984954
         dailyViewerCnt: 6.84685269835264
         statusUpdatedAt: statusUpdatedAt
-        hlInstanceId: 9.965781217890562
+        hlInstanceId: 9
         agentManagementInstanceUrl: agentManagementInstanceUrl
         agentManagementInstanceName: agentManagementInstanceName
         regionAssistantUrl: regionAssistantUrl
@@ -4281,7 +4316,7 @@ components:
         createdAt: createdAt
         hmInstancePromCurrentActiveSeries: 3.5571952270680973
         runningVersion: runningVersion
-        amInstanceId: 1.4658129805029452
+        amInstanceId: 1
         links:
         - rel: rel
           href: href
@@ -4292,7 +4327,7 @@ components:
         slug: slug
         updatedAt: updatedAt
         htInstanceBillingUsage: 3.353193347011243
-        agentManagementInstanceId: 7.04836565559697
+        agentManagementInstanceId: 7
         orgName: orgName
         updatedBy: updatedBy
         htInstanceName: htInstanceName
@@ -4311,11 +4346,11 @@ components:
         billingEndDate: billingEndDate
         name: name
         hlInstanceUrl: hlInstanceUrl
-        hlInstanceClusterId: 9.369310271410669
+        hlInstanceClusterId: 9
         support: true
         hpInstanceBillingUsage: 7.058770351582356
         description: description
-        clusterId: 9.301444243932576
+        clusterId: 9
         dailyEditorCnt: 1.0246457001441578
         alertQuota: 6.027456183070403
         machineLearning: 4.652396432933246
@@ -4327,18 +4362,18 @@ components:
         hmInstancePromBillingUsage: 1.284659006116532
         currentActiveAdminUsers: 3.616076749251911
         regionAgentO11YUrl: regionAgentO11YUrl
-        htInstanceId: 6.878052220127876
+        htInstanceId: 6
         regionSlug: regionSlug
         dashboardCnt: 7.457744773683766
         htInstanceStatus: active
-        agentManagementInstanceClusterId: 5.533258397034986
+        agentManagementInstanceClusterId: 5
         hmInstanceGraphiteUrl: hmInstanceGraphiteUrl
         hpInstanceCurrentUsage: 0.8851374739011653
         providerRegion: providerRegion
         createdBy: createdBy
-        regionId: 7.740351818741173
-        hpInstanceClusterId: 7.143538047012306
-        amInstanceClusterId: 5.962133916683182
+        regionId: 7
+        hpInstanceClusterId: 7
+        amInstanceClusterId: 5
         hmInstancePromCurrentUsage: 6.965117697638846
         incident: 0.10263654006109402
         gateway: gateway
@@ -4357,7 +4392,7 @@ components:
           type: string
         amInstanceId:
           title: amInstanceId
-          type: number
+          type: integer
         amInstanceName:
           title: amInstanceName
           type: string
@@ -4374,7 +4409,7 @@ components:
           type: string
         amInstanceClusterId:
           title: amInstanceClusterId
-          type: number
+          type: integer
         billingActiveUsers:
           title: billingActiveUsers
           type: number
@@ -4393,7 +4428,7 @@ components:
           type: string
         clusterId:
           title: clusterId
-          type: number
+          type: integer
         clusterName:
           title: clusterName
           type: string
@@ -4459,7 +4494,7 @@ components:
           type: number
         hlInstanceId:
           title: hlInstanceId
-          type: number
+          type: integer
         hlInstanceName:
           title: hlInstanceName
           type: string
@@ -4476,7 +4511,7 @@ components:
           type: string
         hlInstanceClusterId:
           title: hlInstanceClusterId
-          type: number
+          type: integer
         hmInstanceGraphiteCurrentUsage:
           title: hmInstanceGraphiteCurrentUsage
           type: number
@@ -4485,7 +4520,7 @@ components:
           type: number
         hmInstanceGraphiteId:
           title: hmInstanceGraphiteId
-          type: number
+          type: integer
         hmInstanceGraphiteName:
           title: hmInstanceGraphiteName
           type: string
@@ -4505,7 +4540,7 @@ components:
           type: string
         hmInstancePromClusterId:
           title: hmInstancePromClusterId
-          type: number
+          type: integer
         hmInstancePromCurrentActiveSeries:
           nullable: true
           title: hmInstancePromCurrentActiveSeries
@@ -4518,7 +4553,7 @@ components:
           type: number
         hmInstancePromId:
           title: hmInstancePromId
-          type: number
+          type: integer
         hmInstancePromName:
           title: hmInstancePromName
           type: string
@@ -4535,10 +4570,10 @@ components:
           type: string
         hmInstanceGraphiteClusterId:
           title: hmInstanceGraphiteClusterId
-          type: number
+          type: integer
         htInstanceId:
           title: htInstanceId
-          type: number
+          type: integer
         htInstanceName:
           title: htInstanceName
           type: string
@@ -4555,7 +4590,7 @@ components:
           type: string
         htInstanceClusterId:
           title: htInstanceClusterId
-          type: number
+          type: integer
         htInstanceCurrentUsage:
           title: htInstanceCurrentUsage
           type: number
@@ -4564,7 +4599,7 @@ components:
           type: number
         hpInstanceId:
           title: hpInstanceId
-          type: number
+          type: integer
         hpInstanceName:
           title: hpInstanceName
           type: string
@@ -4581,7 +4616,7 @@ components:
           type: string
         hpInstanceClusterId:
           title: hpInstanceClusterId
-          type: number
+          type: integer
         hpInstanceCurrentUsage:
           title: hpInstanceCurrentUsage
           type: number
@@ -4590,7 +4625,7 @@ components:
           type: number
         id:
           title: id
-          type: number
+          type: integer
         incident:
           title: incident
           type: number
@@ -4605,7 +4640,7 @@ components:
           type: string
         orgId:
           title: orgId
-          type: number
+          type: integer
         orgName:
           title: orgName
           type: string
@@ -4639,7 +4674,7 @@ components:
           type: string
         regionId:
           title: regionId
-          type: number
+          type: integer
         regionSlug:
           title: regionSlug
           type: string
@@ -4715,7 +4750,7 @@ components:
           type: string
         agentManagementInstanceId:
           title: agentManagementInstanceId
-          type: number
+          type: integer
         agentManagementInstanceUrl:
           title: agentManagementInstanceUrl
           type: string
@@ -4732,7 +4767,7 @@ components:
           type: string
         agentManagementInstanceClusterId:
           title: agentManagementInstanceClusterId
-          type: number
+          type: integer
         config:
           title: config
           type: object
@@ -4747,7 +4782,7 @@ components:
         k6OrgId:
           nullable: true
           title: k6OrgId
-          type: number
+          type: integer
         machineLearningLogsToken:
           title: machineLearningLogsToken
           type: string
@@ -5026,7 +5061,7 @@ components:
           href: href
         - rel: rel
           href: href
-        id: 0.8008281904610115
+        id: 0
         gcloudMonthlyCost: 4.145608029883936
         slug: slug
         updatedAt: updatedAt
@@ -5076,7 +5111,7 @@ components:
         hlRetentionUsage: 5.025004791520295
         reseller: reseller
         avatar: avatar
-        retainedStackId: 3.0937452626664474
+        retainedStackId: 3
         url: url
         contractTypeId: 7.143538047012306
         hpUsage: 9.369310271410669
@@ -5089,7 +5124,7 @@ components:
       properties:
         id:
           title: id
-          type: number
+          type: integer
         slug:
           title: slug
           type: string
@@ -5293,7 +5328,7 @@ components:
           type: string
         retainedStackId:
           title: retainedStackId
-          type: number
+          type: integer
         allowGCloudTrial:
           $ref: '#/components/schemas/FormattedApiOrgPublic_allowGCloudTrial'
         pluginSignatureType:
@@ -5479,9 +5514,10 @@ components:
         orgSlug: orgSlug
         licenseUrl: licenseUrl
         documentationUrl: documentationUrl
-        featured: 2.3021358869347655
+        featured: 9.301444243932576
         internal: true
         hasDocumentation: true
+        datasourceQueryCount: 2.027123023002322
         typeName: typeName
         description: description
         versionSignedByOrgName: versionSignedByOrgName
@@ -5491,11 +5527,11 @@ components:
         orgId: 5.962133916683182
         versionSignedByOrg: versionSignedByOrg
         createdAt: createdAt
-        downloads: 5.637376656633329
+        downloads: 7.061401241503109
         managed:
           strategy: strategy
           enabled: true
-        popularity: 7.061401241503109
+        popularity: 3.616076749251911
         json:
           $schema: $schema
           hideFromList: true
@@ -5619,11 +5655,11 @@ components:
             - keywords
             - keywords
             build:
-              number: 3.616076749251911
-              pr: 2.027123023002322
-              build: 4.145608029883936
+              number: 7.386281948385884
+              pr: 1.2315135367772556
+              build: 1.0246457001441578
               repo: repo
-              time: 9.301444243932576
+              time: 4.145608029883936
               branch: branch
               hash: hash
             author:
@@ -5758,6 +5794,7 @@ components:
         slug: slug
         updatedAt: updatedAt
         orgName: orgName
+        releaseCountLastYear: 5.637376656633329
         versionDistributionType: versionDistributionType
         verified: true
         signatureType: signatureType
@@ -5766,6 +5803,7 @@ components:
         userId: 1.4658129805029452
         versionSignatureType: versionSignatureType
         url: url
+        activeInstances: 2.3021358869347655
         typeCode: typeCode
         angularDetected: true
         name: name
@@ -5839,6 +5877,13 @@ components:
         updatedAt:
           title: updatedAt
           type: string
+        releaseCountLastYear:
+          title: releaseCountLastYear
+          type: number
+        activeInstances:
+          nullable: true
+          title: activeInstances
+          type: number
         downloads:
           title: downloads
           type: number
@@ -5856,6 +5901,10 @@ components:
           type: string
         popularity:
           title: popularity
+          type: number
+        datasourceQueryCount:
+          nullable: true
+          title: datasourceQueryCount
           type: number
         signatureType:
           title: signatureType
@@ -5945,16 +5994,16 @@ components:
             plan: ""
             startDate: ""
         role: Admin
-        userStatus: 1.4894159098541704
+        userStatus: active
         hmCurrentPrometheusUsage: 1.0246457001441578
         privacy: 2.3021358869347655
         grafanaStaffAccess:
           publicReason: publicReason
           accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-          ticketId: 6.683562403749608
+          ticketId: 9.369310271410669
         hlUsage: 7.386281948385884
         orgUrl: orgUrl
-        orgId: 6.027456183070403
+        orgId: 6
         billing: 7.061401241503109
         defaultOrg: 5.637376656633329
         createdAt: createdAt
@@ -5963,7 +6012,7 @@ components:
         userLastName: userLastName
         userEmail: userEmail
         mfaEnabled: true
-        id: 0.8008281904610115
+        id: 0
         extraPermissions:
         - accesspolicies:write
         - accesspolicies:write
@@ -5973,7 +6022,7 @@ components:
         orgName: orgName
         userFirstName: userFirstName
         userName: userName
-        userId: 1.4658129805029452
+        userId: 1
         contractTypeId: 4.145608029883936
         resellerId: 2.027123023002322
         hmCurrentGraphiteUsage: 1.2315135367772556
@@ -5986,13 +6035,13 @@ components:
       properties:
         id:
           title: id
-          type: number
+          type: integer
         orgId:
           title: orgId
-          type: number
+          type: integer
         userId:
           title: userId
-          type: number
+          type: integer
         status:
           title: status
           type: number
@@ -6087,8 +6136,13 @@ components:
           title: userUsername
           type: string
         userStatus:
+          enum:
+          - active
+          - deleted
+          - pending
+          - unknown
           title: userStatus
-          type: number
+          type: string
         userEmail:
           title: userEmail
           type: string
@@ -6146,7 +6200,6 @@ components:
       - userId
       - userLastName
       - userName
-      - userStatus
       - userUsername
       type: object
     GrafanaNewApiKeyResult:
@@ -6262,35 +6315,15 @@ components:
           format: double
           type: number
       type: object
-    InstanceUsersResponse:
+    MarketplaceLicenseRenewalResponse:
       example:
-        items:
-        - lastSeenAt: lastSeenAt
-          createdAt: createdAt
-          role: role
-          name: name
-          id: 0.8008281904610115
-          login: login
-          email: email
-          updatedAt: updatedAt
-          isServiceAccount: true
-        - lastSeenAt: lastSeenAt
-          createdAt: createdAt
-          role: role
-          name: name
-          id: 0.8008281904610115
-          login: login
-          email: email
-          updatedAt: updatedAt
-          isServiceAccount: true
+        token: token
       properties:
-        items:
-          items:
-            $ref: '#/components/schemas/items_inner'
-          title: items
-          type: array
+        token:
+          title: token
+          type: string
       required:
-      - items
+      - token
       type: object
     OrgBilledUsageHistory:
       example:
@@ -6307,7 +6340,7 @@ components:
           type: string
         items:
           items:
-            $ref: '#/components/schemas/items_inner_1'
+            $ref: '#/components/schemas/items_inner'
           title: items
           type: array
       required:
@@ -6344,16 +6377,16 @@ components:
               plan: ""
               startDate: ""
           role: Admin
-          userStatus: 9.369310271410669
+          userStatus: active
           hmCurrentPrometheusUsage: 9.965781217890562
           privacy: 1.2315135367772556
           grafanaStaffAccess:
             publicReason: publicReason
             accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-            ticketId: 6.683562403749608
+            ticketId: 9.369310271410669
           hlUsage: 4.965218492984954
           orgUrl: orgUrl
-          orgId: 3.616076749251911
+          orgId: 3
           billing: 1.0246457001441578
           defaultOrg: 7.386281948385884
           createdAt: createdAt
@@ -6362,7 +6395,7 @@ components:
           userLastName: userLastName
           userEmail: userEmail
           mfaEnabled: true
-          id: 9.301444243932576
+          id: 9
           extraPermissions:
           - accesspolicies:write
           - accesspolicies:write
@@ -6372,7 +6405,7 @@ components:
           orgName: orgName
           userFirstName: userFirstName
           userName: userName
-          userId: 2.027123023002322
+          userId: 2
           contractTypeId: 1.1730742509559433
           resellerId: 7.457744773683766
           hmCurrentGraphiteUsage: 5.025004791520295
@@ -6397,16 +6430,16 @@ components:
               plan: ""
               startDate: ""
           role: Admin
-          userStatus: 9.369310271410669
+          userStatus: active
           hmCurrentPrometheusUsage: 9.965781217890562
           privacy: 1.2315135367772556
           grafanaStaffAccess:
             publicReason: publicReason
             accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-            ticketId: 6.683562403749608
+            ticketId: 9.369310271410669
           hlUsage: 4.965218492984954
           orgUrl: orgUrl
-          orgId: 3.616076749251911
+          orgId: 3
           billing: 1.0246457001441578
           defaultOrg: 7.386281948385884
           createdAt: createdAt
@@ -6415,7 +6448,7 @@ components:
           userLastName: userLastName
           userEmail: userEmail
           mfaEnabled: true
-          id: 9.301444243932576
+          id: 9
           extraPermissions:
           - accesspolicies:write
           - accesspolicies:write
@@ -6425,7 +6458,7 @@ components:
           orgName: orgName
           userFirstName: userFirstName
           userName: userName
-          userId: 2.027123023002322
+          userId: 2
           contractTypeId: 1.1730742509559433
           resellerId: 7.457744773683766
           hmCurrentGraphiteUsage: 5.025004791520295
@@ -6466,7 +6499,7 @@ components:
           type: number
         items:
           items:
-            $ref: '#/components/schemas/items_inner_2'
+            $ref: '#/components/schemas/items_inner_1'
           title: items
           type: array
         links:
@@ -6482,9 +6515,9 @@ components:
       example:
         serviceAccounts:
         - name: name
-          id: 6.027456183070403
+          id: 6
         - name: name
-          id: 6.027456183070403
+          id: 6
         perPage: 5.962133916683182
         page: 1.4658129805029452
         totalCount: 0.8008281904610115
@@ -6891,6 +6924,91 @@ components:
       - ipAllowListCNAME
       - type
       type: object
+    InstanceUser:
+      additionalProperties: false
+      example:
+        lastSeenAt: lastSeenAt
+        createdAt: createdAt
+        role: role
+        name: name
+        id: 0
+        login: login
+        email: email
+        isServiceAccount: true
+        updatedAt: updatedAt
+      properties:
+        createdAt:
+          description: when the user was created
+          type: string
+        email:
+          description: email of the user
+          type: string
+        id:
+          description: id of the user
+          format: int64
+          type: integer
+        isServiceAccount:
+          description: whether the user is a service account
+          type: boolean
+        lastSeenAt:
+          description: "when the user was last seen, null if never"
+          nullable: true
+          type: string
+        login:
+          description: login/username of the user
+          type: string
+        name:
+          description: full name of the user
+          type: string
+        role:
+          description: role of the user on the instance
+          type: string
+        updatedAt:
+          description: when the user was last updated
+          type: string
+      required:
+      - createdAt
+      - email
+      - id
+      - isServiceAccount
+      - lastSeenAt
+      - login
+      - name
+      - role
+      - updatedAt
+      type: object
+    InstanceUsersResponse:
+      additionalProperties: false
+      example:
+        items:
+        - lastSeenAt: lastSeenAt
+          createdAt: createdAt
+          role: role
+          name: name
+          id: 0
+          login: login
+          email: email
+          isServiceAccount: true
+          updatedAt: updatedAt
+        - lastSeenAt: lastSeenAt
+          createdAt: createdAt
+          role: role
+          name: name
+          id: 0
+          login: login
+          email: email
+          isServiceAccount: true
+          updatedAt: updatedAt
+      properties:
+        items:
+          description: the instance's users
+          items:
+            $ref: '#/components/schemas/InstanceUser'
+          nullable: true
+          type: array
+      required:
+      - items
+      type: object
     PaginatedResponseStackV1:
       additionalProperties: false
       example:
@@ -7289,6 +7407,7 @@ components:
         name: name
         description: description
         region: region
+        stackType: cloud
         slug: slug
         url: url
         labels:
@@ -7325,6 +7444,10 @@ components:
           type: string
         slug:
           description: slug of the stack
+          type: string
+        stackType:
+          default: cloud
+          description: type of the stack
           type: string
         url:
           description: url for the stack
@@ -7501,18 +7624,18 @@ components:
           currentActiveEditorUsers: 2.027123023002322
           ssl: true
           userQuota: 3.0576100241049344
-          id: 6.519180951018382
+          id: 6
           stackType: stackType
           plan: advanced
           hlInstanceBillingUsage: 5.025004791520295
           agentManagementInstanceStatus: active
-          htInstanceClusterId: 5.944895607614016
+          htInstanceClusterId: 5
           alertCnt: 0.8008281904610115
           datasourceCnts: "{}"
           hmInstanceGraphiteBillingUsage: 8.762042012749001
           version: version
           billingStartDate: billingStartDate
-          hmInstancePromClusterId: 6.438423552598547
+          hmInstancePromClusterId: 6
           hlInstanceStatus: active
           labels: "{}"
           orgCreatedAt: orgCreatedAt
@@ -7520,13 +7643,13 @@ components:
           clusterSlug: clusterSlug
           htInstanceUrl: htInstanceUrl
           regionIntegrationsApiUrl: regionIntegrationsApiUrl
-          hmInstancePromId: 2.8841621266687802
+          hmInstancePromId: 2
           status: active
           htInstanceCurrentUsage: 6.704019297950036
-          orgId: 8.969578798196912
-          hmInstanceGraphiteId: 9.018348186070783
+          orgId: 8
+          hmInstanceGraphiteId: 9
           clusterName: clusterName
-          k6OrgId: 3.2588565619047607
+          k6OrgId: 3
           currentActiveUsers: 4.145608029883936
           hpInstanceUrl: hpInstanceUrl
           dailyAdminCnt: 1.2315135367772556
@@ -7536,8 +7659,8 @@ components:
           machineLearningLogsToken: machineLearningLogsToken
           regionSyntheticMonitoringApiUrl: regionSyntheticMonitoringApiUrl
           regionStackStateServiceUrl: regionStackStateServiceUrl
-          hmInstanceGraphiteClusterId: 6.778324963048013
-          hpInstanceId: 3.0937452626664474
+          hmInstanceGraphiteClusterId: 6
+          hpInstanceId: 3
           config: "{}"
           usageStatsId: usageStatsId
           orgSlug: orgSlug
@@ -7547,7 +7670,7 @@ components:
           hlInstanceCurrentUsage: 4.965218492984954
           dailyViewerCnt: 6.84685269835264
           statusUpdatedAt: statusUpdatedAt
-          hlInstanceId: 9.965781217890562
+          hlInstanceId: 9
           agentManagementInstanceUrl: agentManagementInstanceUrl
           agentManagementInstanceName: agentManagementInstanceName
           regionAssistantUrl: regionAssistantUrl
@@ -7555,7 +7678,7 @@ components:
           createdAt: createdAt
           hmInstancePromCurrentActiveSeries: 3.5571952270680973
           runningVersion: runningVersion
-          amInstanceId: 1.4658129805029452
+          amInstanceId: 1
           links:
           - rel: rel
             href: href
@@ -7566,7 +7689,7 @@ components:
           slug: slug
           updatedAt: updatedAt
           htInstanceBillingUsage: 3.353193347011243
-          agentManagementInstanceId: 7.04836565559697
+          agentManagementInstanceId: 7
           orgName: orgName
           updatedBy: updatedBy
           htInstanceName: htInstanceName
@@ -7585,11 +7708,11 @@ components:
           billingEndDate: billingEndDate
           name: name
           hlInstanceUrl: hlInstanceUrl
-          hlInstanceClusterId: 9.369310271410669
+          hlInstanceClusterId: 9
           support: true
           hpInstanceBillingUsage: 7.058770351582356
           description: description
-          clusterId: 9.301444243932576
+          clusterId: 9
           dailyEditorCnt: 1.0246457001441578
           alertQuota: 6.027456183070403
           machineLearning: 4.652396432933246
@@ -7601,18 +7724,18 @@ components:
           hmInstancePromBillingUsage: 1.284659006116532
           currentActiveAdminUsers: 3.616076749251911
           regionAgentO11YUrl: regionAgentO11YUrl
-          htInstanceId: 6.878052220127876
+          htInstanceId: 6
           regionSlug: regionSlug
           dashboardCnt: 7.457744773683766
           htInstanceStatus: active
-          agentManagementInstanceClusterId: 5.533258397034986
+          agentManagementInstanceClusterId: 5
           hmInstanceGraphiteUrl: hmInstanceGraphiteUrl
           hpInstanceCurrentUsage: 0.8851374739011653
           providerRegion: providerRegion
           createdBy: createdBy
-          regionId: 7.740351818741173
-          hpInstanceClusterId: 7.143538047012306
-          amInstanceClusterId: 5.962133916683182
+          regionId: 7
+          hpInstanceClusterId: 7
+          amInstanceClusterId: 5
           hmInstancePromCurrentUsage: 6.965117697638846
           incident: 0.10263654006109402
           gateway: gateway
@@ -7629,18 +7752,18 @@ components:
           currentActiveEditorUsers: 2.027123023002322
           ssl: true
           userQuota: 3.0576100241049344
-          id: 6.519180951018382
+          id: 6
           stackType: stackType
           plan: advanced
           hlInstanceBillingUsage: 5.025004791520295
           agentManagementInstanceStatus: active
-          htInstanceClusterId: 5.944895607614016
+          htInstanceClusterId: 5
           alertCnt: 0.8008281904610115
           datasourceCnts: "{}"
           hmInstanceGraphiteBillingUsage: 8.762042012749001
           version: version
           billingStartDate: billingStartDate
-          hmInstancePromClusterId: 6.438423552598547
+          hmInstancePromClusterId: 6
           hlInstanceStatus: active
           labels: "{}"
           orgCreatedAt: orgCreatedAt
@@ -7648,13 +7771,13 @@ components:
           clusterSlug: clusterSlug
           htInstanceUrl: htInstanceUrl
           regionIntegrationsApiUrl: regionIntegrationsApiUrl
-          hmInstancePromId: 2.8841621266687802
+          hmInstancePromId: 2
           status: active
           htInstanceCurrentUsage: 6.704019297950036
-          orgId: 8.969578798196912
-          hmInstanceGraphiteId: 9.018348186070783
+          orgId: 8
+          hmInstanceGraphiteId: 9
           clusterName: clusterName
-          k6OrgId: 3.2588565619047607
+          k6OrgId: 3
           currentActiveUsers: 4.145608029883936
           hpInstanceUrl: hpInstanceUrl
           dailyAdminCnt: 1.2315135367772556
@@ -7664,8 +7787,8 @@ components:
           machineLearningLogsToken: machineLearningLogsToken
           regionSyntheticMonitoringApiUrl: regionSyntheticMonitoringApiUrl
           regionStackStateServiceUrl: regionStackStateServiceUrl
-          hmInstanceGraphiteClusterId: 6.778324963048013
-          hpInstanceId: 3.0937452626664474
+          hmInstanceGraphiteClusterId: 6
+          hpInstanceId: 3
           config: "{}"
           usageStatsId: usageStatsId
           orgSlug: orgSlug
@@ -7675,7 +7798,7 @@ components:
           hlInstanceCurrentUsage: 4.965218492984954
           dailyViewerCnt: 6.84685269835264
           statusUpdatedAt: statusUpdatedAt
-          hlInstanceId: 9.965781217890562
+          hlInstanceId: 9
           agentManagementInstanceUrl: agentManagementInstanceUrl
           agentManagementInstanceName: agentManagementInstanceName
           regionAssistantUrl: regionAssistantUrl
@@ -7683,7 +7806,7 @@ components:
           createdAt: createdAt
           hmInstancePromCurrentActiveSeries: 3.5571952270680973
           runningVersion: runningVersion
-          amInstanceId: 1.4658129805029452
+          amInstanceId: 1
           links:
           - rel: rel
             href: href
@@ -7694,7 +7817,7 @@ components:
           slug: slug
           updatedAt: updatedAt
           htInstanceBillingUsage: 3.353193347011243
-          agentManagementInstanceId: 7.04836565559697
+          agentManagementInstanceId: 7
           orgName: orgName
           updatedBy: updatedBy
           htInstanceName: htInstanceName
@@ -7713,11 +7836,11 @@ components:
           billingEndDate: billingEndDate
           name: name
           hlInstanceUrl: hlInstanceUrl
-          hlInstanceClusterId: 9.369310271410669
+          hlInstanceClusterId: 9
           support: true
           hpInstanceBillingUsage: 7.058770351582356
           description: description
-          clusterId: 9.301444243932576
+          clusterId: 9
           dailyEditorCnt: 1.0246457001441578
           alertQuota: 6.027456183070403
           machineLearning: 4.652396432933246
@@ -7729,18 +7852,18 @@ components:
           hmInstancePromBillingUsage: 1.284659006116532
           currentActiveAdminUsers: 3.616076749251911
           regionAgentO11YUrl: regionAgentO11YUrl
-          htInstanceId: 6.878052220127876
+          htInstanceId: 6
           regionSlug: regionSlug
           dashboardCnt: 7.457744773683766
           htInstanceStatus: active
-          agentManagementInstanceClusterId: 5.533258397034986
+          agentManagementInstanceClusterId: 5
           hmInstanceGraphiteUrl: hmInstanceGraphiteUrl
           hpInstanceCurrentUsage: 0.8851374739011653
           providerRegion: providerRegion
           createdBy: createdBy
-          regionId: 7.740351818741173
-          hpInstanceClusterId: 7.143538047012306
-          amInstanceClusterId: 5.962133916683182
+          regionId: 7
+          hpInstanceClusterId: 7
+          amInstanceClusterId: 5
           hmInstancePromCurrentUsage: 6.965117697638846
           incident: 0.10263654006109402
           gateway: gateway
@@ -8114,9 +8237,9 @@ components:
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 5.962133916683182
-          unit: unit
+          amountDue: 1.4658129805029452
           orgRates: ""
+          unit: unit
           dimensionId: agent-generations
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
@@ -8177,16 +8300,16 @@ components:
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          includedUsage: 1.4658129805029452
+          includedUsage: 5.962133916683182
           periodStart: periodStart
           overage: 6.027456183070403
           periodEnd: periodEnd
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 5.962133916683182
-          unit: unit
+          amountDue: 1.4658129805029452
           orgRates: ""
+          unit: unit
           dimensionId: agent-generations
           totalUsage: 5.637376656633329
           id: 0.8008281904610115
@@ -8247,7 +8370,7 @@ components:
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          includedUsage: 1.4658129805029452
+          includedUsage: 5.962133916683182
           periodStart: periodStart
           overage: 6.027456183070403
           periodEnd: periodEnd
@@ -8336,6 +8459,14 @@ components:
         mfaRequired:
           nullable: true
           type: boolean
+      type: object
+    renewMarketplaceLicense_request:
+      properties:
+        token:
+          maxLength: 16384
+          type: string
+      required:
+      - token
       type: object
     getStackRegions_200_response:
       example:
@@ -9341,11 +9472,11 @@ components:
     build:
       description: Build information
       example:
-        number: 3.616076749251911
-        pr: 2.027123023002322
-        build: 4.145608029883936
+        number: 7.386281948385884
+        pr: 1.2315135367772556
+        build: 1.0246457001441578
         repo: repo
-        time: 9.301444243932576
+        time: 4.145608029883936
         branch: branch
         hash: hash
       properties:
@@ -9448,11 +9579,11 @@ components:
         - keywords
         - keywords
         build:
-          number: 3.616076749251911
-          pr: 2.027123023002322
-          build: 4.145608029883936
+          number: 7.386281948385884
+          pr: 1.2315135367772556
+          build: 1.0246457001441578
           repo: repo
-          time: 9.301444243932576
+          time: 4.145608029883936
           branch: branch
           hash: hash
         author:
@@ -10387,11 +10518,11 @@ components:
           - keywords
           - keywords
           build:
-            number: 3.616076749251911
-            pr: 2.027123023002322
-            build: 4.145608029883936
+            number: 7.386281948385884
+            pr: 1.2315135367772556
+            build: 1.0246457001441578
             repo: repo
-            time: 9.301444243932576
+            time: 4.145608029883936
             branch: branch
             hash: hash
           author:
@@ -11030,6 +11161,9 @@ components:
         slackServiceUrl:
           title: slackServiceUrl
           type: string
+        sensitiveDataUrl:
+          title: sensitiveDataUrl
+          type: string
         incidentApiUrl:
           title: incidentApiUrl
           type: string
@@ -11294,6 +11428,7 @@ components:
       - providerRegion
       - publicName
       - readyForStacks
+      - sensitiveDataUrl
       - sigilUrl
       - slackServiceUrl
       - slug
@@ -11329,7 +11464,7 @@ components:
       example:
         publicReason: publicReason
         accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-        ticketId: 6.683562403749608
+        ticketId: 9.369310271410669
       nullable: true
       properties:
         accessExpiresAt:
@@ -11349,55 +11484,6 @@ components:
       type: object
     items_inner:
       example:
-        lastSeenAt: lastSeenAt
-        createdAt: createdAt
-        role: role
-        name: name
-        id: 0.8008281904610115
-        login: login
-        email: email
-        updatedAt: updatedAt
-        isServiceAccount: true
-      properties:
-        lastSeenAt:
-          title: lastSeenAt
-          type: string
-        createdAt:
-          title: createdAt
-          type: string
-        updatedAt:
-          title: updatedAt
-          type: string
-        email:
-          title: email
-          type: string
-        login:
-          title: login
-          type: string
-        name:
-          title: name
-          type: string
-        role:
-          title: role
-          type: string
-        id:
-          title: id
-          type: number
-        isServiceAccount:
-          title: isServiceAccount
-          type: boolean
-      required:
-      - createdAt
-      - email
-      - id
-      - isServiceAccount
-      - login
-      - name
-      - role
-      - updatedAt
-      type: object
-    items_inner_1:
-      example:
         month: 0.8008281904610115
         year: 6.027456183070403
       properties:
@@ -11411,7 +11497,7 @@ components:
       - month
       - year
       type: object
-    items_inner_2:
+    items_inner_1:
       example:
         grafanaCloud: 6.84685269835264
         orgSlug: orgSlug
@@ -11428,16 +11514,16 @@ components:
             plan: ""
             startDate: ""
         role: Admin
-        userStatus: 9.369310271410669
+        userStatus: active
         hmCurrentPrometheusUsage: 9.965781217890562
         privacy: 1.2315135367772556
         grafanaStaffAccess:
           publicReason: publicReason
           accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-          ticketId: 6.683562403749608
+          ticketId: 9.369310271410669
         hlUsage: 4.965218492984954
         orgUrl: orgUrl
-        orgId: 3.616076749251911
+        orgId: 3
         billing: 1.0246457001441578
         defaultOrg: 7.386281948385884
         createdAt: createdAt
@@ -11446,7 +11532,7 @@ components:
         userLastName: userLastName
         userEmail: userEmail
         mfaEnabled: true
-        id: 9.301444243932576
+        id: 9
         extraPermissions:
         - accesspolicies:write
         - accesspolicies:write
@@ -11456,7 +11542,7 @@ components:
         orgName: orgName
         userFirstName: userFirstName
         userName: userName
-        userId: 2.027123023002322
+        userId: 2
         contractTypeId: 1.1730742509559433
         resellerId: 7.457744773683766
         hmCurrentGraphiteUsage: 5.025004791520295
@@ -11469,13 +11555,13 @@ components:
       properties:
         id:
           title: id
-          type: number
+          type: integer
         orgId:
           title: orgId
-          type: number
+          type: integer
         userId:
           title: userId
-          type: number
+          type: integer
         status:
           title: status
           type: number
@@ -11571,8 +11657,13 @@ components:
           title: userUsername
           type: string
         userStatus:
+          enum:
+          - active
+          - deleted
+          - pending
+          - unknown
           title: userStatus
-          type: number
+          type: string
         userEmail:
           title: userEmail
           type: string
@@ -11630,17 +11721,16 @@ components:
       - userId
       - userLastName
       - userName
-      - userStatus
       - userUsername
       type: object
     serviceAccounts_inner:
       example:
         name: name
-        id: 6.027456183070403
+        id: 6
       properties:
         id:
           title: id
-          type: number
+          type: integer
         name:
           title: name
           type: string
