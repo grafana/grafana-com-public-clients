@@ -2330,106 +2330,6 @@
         }
       }
     },
-    "/instances/{instanceId}/users": {
-      "get": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "getInstanceUsers",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "active",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "activeSince",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "includeInternal",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": false
-          }
-        ],
-        "summary": "Gets instance active users",
-        "x-auth-required": true,
-        "x-permissions": [
-          "stack-users:read"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InstanceUsersResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/org-stack-regions": {
       "get": {
         "tags": [
@@ -6163,6 +6063,83 @@
           "stacks"
         ],
         "x-auth-required": true
+      }
+    },
+    "/instances/{instanceId}/users": {
+      "get": {
+        "operationId": "getInstanceUsers",
+        "parameters": [
+          {
+            "description": "id or slug of the instance",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the instance",
+              "type": "string"
+            }
+          },
+          {
+            "description": "only return users seen in the last month, ignored when activeSince is set",
+            "explode": false,
+            "in": "query",
+            "name": "active",
+            "schema": {
+              "description": "only return users seen in the last month, ignored when activeSince is set",
+              "type": "string"
+            }
+          },
+          {
+            "description": "only return users seen since this timestamp",
+            "explode": false,
+            "in": "query",
+            "name": "activeSince",
+            "schema": {
+              "description": "only return users seen since this timestamp",
+              "type": "string"
+            }
+          },
+          {
+            "description": "include Grafana Labs internal users",
+            "explode": false,
+            "in": "query",
+            "name": "includeInternal",
+            "schema": {
+              "description": "include Grafana Labs internal users",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceUsersResponse"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "summary": "Gets instance active users",
+        "tags": [
+          "instances"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-users:read"
+        ]
       }
     }
   },
@@ -12076,69 +12053,6 @@
         },
         "type": "object"
       },
-      "InstanceUsersResponse": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "lastSeenAt": {
-                  "type": "string",
-                  "title": "lastSeenAt"
-                },
-                "createdAt": {
-                  "type": "string",
-                  "title": "createdAt"
-                },
-                "updatedAt": {
-                  "type": "string",
-                  "title": "updatedAt"
-                },
-                "email": {
-                  "type": "string",
-                  "title": "email"
-                },
-                "login": {
-                  "type": "string",
-                  "title": "login"
-                },
-                "name": {
-                  "type": "string",
-                  "title": "name"
-                },
-                "role": {
-                  "type": "string",
-                  "title": "role"
-                },
-                "id": {
-                  "type": "integer",
-                  "title": "id"
-                },
-                "isServiceAccount": {
-                  "type": "boolean",
-                  "title": "isServiceAccount"
-                }
-              },
-              "required": [
-                "createdAt",
-                "email",
-                "id",
-                "isServiceAccount",
-                "login",
-                "name",
-                "role",
-                "updatedAt"
-              ]
-            },
-            "title": "items"
-          }
-        },
-        "required": [
-          "items"
-        ]
-      },
       "MarketplaceLicenseRenewalResponse": {
         "type": "object",
         "properties": {
@@ -13054,6 +12968,78 @@
           "type",
           "id",
           "ipAllowListCNAME"
+        ],
+        "type": "object"
+      },
+      "InstanceUser": {
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "description": "when the user was created",
+            "type": "string"
+          },
+          "email": {
+            "description": "email of the user",
+            "type": "string"
+          },
+          "id": {
+            "description": "id of the user",
+            "format": "int64",
+            "type": "integer"
+          },
+          "isServiceAccount": {
+            "description": "whether the user is a service account",
+            "type": "boolean"
+          },
+          "lastSeenAt": {
+            "description": "when the user was last seen, null if never",
+            "nullable": true,
+            "type": "string"
+          },
+          "login": {
+            "description": "login/username of the user",
+            "type": "string"
+          },
+          "name": {
+            "description": "full name of the user",
+            "type": "string"
+          },
+          "role": {
+            "description": "role of the user on the instance",
+            "type": "string"
+          },
+          "updatedAt": {
+            "description": "when the user was last updated",
+            "type": "string"
+          }
+        },
+        "required": [
+          "lastSeenAt",
+          "createdAt",
+          "updatedAt",
+          "email",
+          "login",
+          "name",
+          "role",
+          "id",
+          "isServiceAccount"
+        ],
+        "type": "object"
+      },
+      "InstanceUsersResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "description": "the instance's users",
+            "items": {
+              "$ref": "#/components/schemas/InstanceUser"
+            },
+            "nullable": true,
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
         ],
         "type": "object"
       },
