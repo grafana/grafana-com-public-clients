@@ -22,7 +22,7 @@ jobs:
           ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
-          go-version: 1.26.3
+          go-version: 1.27.3
       - name: Generate Client
         uses: grafana/shared-workflows/actions/generate-openapi-clients@e5b7989c92b55fe3ac6dd006d6de49082ba8c507
         with:
@@ -32,12 +32,6 @@ jobs:
           commit-changes: "false"
         env:
           REPO_NAME: grafana-com-public-clients
-      - name: Pin Go module version
-        shell: bash
-        run: |
-          cd go/gcom
-          go mod edit -go=1.26.3
-          go mod tidy
       - name: Commit changes
         if: github.event_name == 'pull_request'
         uses: planetscale/ghcommit-action@a6b150b81dca5dd027baa898604418eec9e11465 # v0.2.22
