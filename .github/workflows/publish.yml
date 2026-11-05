@@ -32,6 +32,12 @@ jobs:
           commit-changes: "false"
         env:
           REPO_NAME: grafana-com-public-clients
+      - name: Pin Go module version
+        shell: bash
+        run: |
+          cd go/gcom
+          go mod edit -go=1.27.3
+          go mod tidy
       - name: Commit changes
         if: github.event_name == 'pull_request'
         uses: planetscale/ghcommit-action@a6b150b81dca5dd027baa898604418eec9e11465 # v0.2.22
