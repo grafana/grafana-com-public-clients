@@ -456,8 +456,14 @@
                   "adminUserInstance": {
                     "type": "boolean"
                   },
+                  "agmCluster": {
+                    "type": "string"
+                  },
                   "alerts": {
                     "type": "boolean"
+                  },
+                  "amCluster": {
+                    "type": "string"
                   },
                   "cluster": {
                     "type": "string"
@@ -469,14 +475,35 @@
                   "description": {
                     "type": "string"
                   },
+                  "eventsCluster": {
+                    "type": "string"
+                  },
+                  "grafanaSqlCluster": {
+                    "type": "string"
+                  },
                   "graphite": {
                     "type": "boolean"
+                  },
+                  "hlCluster": {
+                    "type": "string"
                   },
                   "hlInstanceId": {
                     "type": "integer"
                   },
+                  "hmGraphiteCluster": {
+                    "type": "string"
+                  },
+                  "hmPromCluster": {
+                    "type": "string"
+                  },
                   "hosted": {
                     "type": "boolean"
+                  },
+                  "hpCluster": {
+                    "type": "string"
+                  },
+                  "htCluster": {
+                    "type": "string"
                   },
                   "issueLink": {
                     "type": "string"
