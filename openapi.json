@@ -1018,706 +1018,6 @@
         }
       }
     },
-    "/instances/{instanceId}/api/serviceaccounts": {
-      "post": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "postInstanceServiceAccounts",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "isDisabled": {
-                    "type": "boolean"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name",
-                  "role"
-                ]
-              }
-            }
-          }
-        },
-        "summary": "Creates a service account on a Grafana instance",
-        "x-auth-required": true,
-        "x-permissions": [
-          "stack-service-accounts:write"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GrafanaServiceAccountDTO"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/instances/{instanceId}/api/serviceaccounts/search": {
-      "get": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "getInstanceServiceAccountsSearch",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "integer"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "perpage",
-            "schema": {
-              "type": "integer"
-            },
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "query",
-            "schema": {
-              "type": "string"
-            },
-            "required": false
-          }
-        ],
-        "summary": "Search service accounts on a Grafana instance with paging",
-        "x-auth-required": true,
-        "x-permissions": [
-          "stack-service-accounts:write"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceAccountSearchResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/instances/{instanceId}/api/serviceaccounts/{serviceAccountId}": {
-      "get": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "getInstanceServiceAccount",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "serviceAccountId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "summary": "Gets a service account on a Grafana instance",
-        "x-auth-required": true,
-        "x-permissions": [
-          "stack-service-accounts:write"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GrafanaServiceAccountDTO"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "deleteInstanceServiceAccount",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "serviceAccountId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "summary": "Delete a service account on a Grafana instance",
-        "x-auth-required": true,
-        "x-permissions": [
-          "stack-service-accounts:write"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens": {
-      "post": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "postInstanceServiceAccountTokens",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "serviceAccountId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "secondsToLive": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "name"
-                ]
-              }
-            }
-          }
-        },
-        "summary": "Creates a service account token on a Grafana instance",
-        "x-auth-required": true,
-        "x-permissions": [
-          "stack-service-accounts:write"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GrafanaNewApiKeyResult"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "getInstanceServiceAccountTokens",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "serviceAccountId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "summary": "Get a service account's tokens on a Grafana instance",
-        "x-auth-required": true,
-        "x-permissions": [
-          "stack-service-accounts:write"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/GrafanaTokenDTO"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId}": {
-      "delete": {
-        "tags": [
-          "instances"
-        ],
-        "operationId": "deleteInstanceServiceAccountToken",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "instanceId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "serviceAccountId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "path",
-            "name": "tokenId",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "x-request-id",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          }
-        ],
-        "summary": "Delete a service account token on a Grafana instance",
-        "x-auth-required": true,
-        "x-permissions": [
-          "stack-service-accounts:write"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Login Required or invalid credentials",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorInvalidCredentials"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorForbidden"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Element not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorNotFound"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Invalid arguments: wrong or missing parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorConflict"
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Service is currently unavailable",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorServiceUnavailable"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/instances/{instanceId}/plugins": {
       "get": {
         "tags": [
@@ -6090,6 +5390,460 @@
           "stacks"
         ],
         "x-auth-required": true
+      }
+    },
+    "/instances/{instanceId}/api/serviceaccounts": {
+      "post": {
+        "operationId": "postInstanceServiceAccounts",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "id or slug of the instance",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the instance",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceAccountBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceAccountDTO"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "summary": "Creates a service account on a Grafana instance",
+        "tags": [
+          "instances"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ]
+      }
+    },
+    "/instances/{instanceId}/api/serviceaccounts/search": {
+      "get": {
+        "operationId": "getInstanceServiceAccountsSearch",
+        "parameters": [
+          {
+            "description": "id or slug of the instance",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the instance",
+              "type": "string"
+            }
+          },
+          {
+            "description": "number of service accounts per page",
+            "explode": false,
+            "in": "query",
+            "name": "perpage",
+            "schema": {
+              "description": "number of service accounts per page",
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "page number to return",
+            "explode": false,
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "description": "page number to return",
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "filter by service account name or login",
+            "explode": false,
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "description": "filter by service account name or login",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceAccountSearchResponse"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "summary": "Search service accounts on a Grafana instance with paging",
+        "tags": [
+          "instances"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ]
+      }
+    },
+    "/instances/{instanceId}/api/serviceaccounts/{serviceAccountId}": {
+      "delete": {
+        "operationId": "deleteInstanceServiceAccount",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "id or slug of the instance",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the instance",
+              "type": "string"
+            }
+          },
+          {
+            "description": "id of the service account",
+            "in": "path",
+            "name": "serviceAccountId",
+            "required": true,
+            "schema": {
+              "description": "id of the service account",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "summary": "Deletes a service account on a Grafana instance",
+        "tags": [
+          "instances"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ]
+      },
+      "get": {
+        "operationId": "getInstanceServiceAccount",
+        "parameters": [
+          {
+            "description": "id or slug of the instance",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the instance",
+              "type": "string"
+            }
+          },
+          {
+            "description": "id of the service account",
+            "in": "path",
+            "name": "serviceAccountId",
+            "required": true,
+            "schema": {
+              "description": "id of the service account",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceAccountProfileDTO"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "summary": "Gets a service account on a Grafana instance",
+        "tags": [
+          "instances"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ]
+      }
+    },
+    "/instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens": {
+      "get": {
+        "operationId": "getInstanceServiceAccountTokens",
+        "parameters": [
+          {
+            "description": "id or slug of the instance",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the instance",
+              "type": "string"
+            }
+          },
+          {
+            "description": "id of the service account",
+            "in": "path",
+            "name": "serviceAccountId",
+            "required": true,
+            "schema": {
+              "description": "id of the service account",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/TokenDTO"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "summary": "Get a service account's tokens on a Grafana instance",
+        "tags": [
+          "instances"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ]
+      },
+      "post": {
+        "operationId": "postInstanceServiceAccountTokens",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "id or slug of the instance",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the instance",
+              "type": "string"
+            }
+          },
+          {
+            "description": "id of the service account",
+            "in": "path",
+            "name": "serviceAccountId",
+            "required": true,
+            "schema": {
+              "description": "id of the service account",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceAccountTokenBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewApiKeyResult"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "summary": "Creates a service account token on a Grafana instance",
+        "tags": [
+          "instances"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ]
+      }
+    },
+    "/instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId}": {
+      "delete": {
+        "operationId": "deleteInstanceServiceAccountToken",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-request-id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "id or slug of the instance",
+            "in": "path",
+            "name": "instanceId",
+            "required": true,
+            "schema": {
+              "description": "id or slug of the instance",
+              "type": "string"
+            }
+          },
+          {
+            "description": "id of the service account",
+            "in": "path",
+            "name": "serviceAccountId",
+            "required": true,
+            "schema": {
+              "description": "id of the service account",
+              "type": "string"
+            }
+          },
+          {
+            "description": "id of the service account token",
+            "in": "path",
+            "name": "tokenId",
+            "required": true,
+            "schema": {
+              "description": "id of the service account token",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorPayload"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "summary": "Delete a service account token on a Grafana instance",
+        "tags": [
+          "instances"
+        ],
+        "x-auth-required": true,
+        "x-permissions": [
+          "stack-service-accounts:write"
+        ]
       }
     },
     "/instances/{instanceId}/users": {
@@ -11965,121 +11719,6 @@
           "userUsername"
         ]
       },
-      "GrafanaNewApiKeyResult": {
-        "properties": {
-          "id": {
-            "example": 1,
-            "format": "int64",
-            "type": "integer"
-          },
-          "key": {
-            "example": "glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a",
-            "type": "string"
-          },
-          "name": {
-            "example": "grafana",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "GrafanaServiceAccountDTO": {
-        "description": "swagger: model",
-        "properties": {
-          "accessControl": {
-            "additionalProperties": {
-              "type": "boolean"
-            },
-            "example": {
-              "serviceaccounts:delete": true,
-              "serviceaccounts:read": true,
-              "serviceaccounts:write": true
-            },
-            "type": "object"
-          },
-          "avatarUrl": {
-            "example": "/avatar/85ec38023d90823d3e5b43ef35646af9",
-            "type": "string"
-          },
-          "id": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "isDisabled": {
-            "example": false,
-            "type": "boolean"
-          },
-          "isExternal": {
-            "example": false,
-            "type": "boolean"
-          },
-          "login": {
-            "example": "sa-grafana",
-            "type": "string"
-          },
-          "name": {
-            "example": "grafana",
-            "type": "string"
-          },
-          "orgId": {
-            "example": 1,
-            "format": "int64",
-            "type": "integer"
-          },
-          "role": {
-            "example": "Viewer",
-            "type": "string"
-          },
-          "tokens": {
-            "example": 0,
-            "format": "int64",
-            "type": "integer"
-          }
-        },
-        "type": "object"
-      },
-      "GrafanaTokenDTO": {
-        "properties": {
-          "created": {
-            "example": "2022-03-23T10:31:02Z",
-            "format": "date-time",
-            "type": "string"
-          },
-          "expiration": {
-            "example": "2022-03-23T10:31:02Z",
-            "format": "date-time",
-            "type": "string"
-          },
-          "hasExpired": {
-            "example": false,
-            "type": "boolean"
-          },
-          "id": {
-            "example": 1,
-            "format": "int64",
-            "type": "integer"
-          },
-          "isRevoked": {
-            "example": false,
-            "type": "boolean"
-          },
-          "lastUsedAt": {
-            "example": "2022-03-23T10:31:02Z",
-            "format": "date-time",
-            "type": "string"
-          },
-          "name": {
-            "example": "grafana",
-            "type": "string"
-          },
-          "secondsUntilExpiration": {
-            "example": 0,
-            "format": "double",
-            "type": "number"
-          }
-        },
-        "type": "object"
-      },
       "MarketplaceLicenseRenewalResponse": {
         "type": "object",
         "properties": {
@@ -12777,50 +12416,6 @@
           "links"
         ]
       },
-      "ServiceAccountSearchResponse": {
-        "type": "object",
-        "properties": {
-          "totalCount": {
-            "type": "number",
-            "title": "totalCount"
-          },
-          "serviceAccounts": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "title": "id"
-                },
-                "name": {
-                  "type": "string",
-                  "title": "name"
-                }
-              },
-              "required": [
-                "id",
-                "name"
-              ]
-            },
-            "title": "serviceAccounts"
-          },
-          "page": {
-            "type": "number",
-            "title": "page"
-          },
-          "perPage": {
-            "type": "number",
-            "title": "perPage"
-          }
-        },
-        "required": [
-          "page",
-          "perPage",
-          "serviceAccounts",
-          "totalCount"
-        ]
-      },
       "APIListResponseStackRegionV1": {
         "additionalProperties": false,
         "properties": {
@@ -12884,6 +12479,56 @@
             "type": "string"
           }
         },
+        "type": "object"
+      },
+      "CreateServiceAccountBody": {
+        "additionalProperties": false,
+        "properties": {
+          "isDisabled": {
+            "description": "whether the service account is disabled",
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "name": {
+            "description": "service account name",
+            "type": "string"
+          },
+          "role": {
+            "description": "the service account's role",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "role"
+        ],
+        "type": "object"
+      },
+      "CreateServiceAccountTokenBody": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "service account token name",
+            "type": "string"
+          },
+          "secondsToLive": {
+            "description": "seconds until expiry; omit for no expiry",
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name"
+        ],
         "type": "object"
       },
       "ErrorPayload": {
@@ -13070,6 +12715,30 @@
         ],
         "type": "object"
       },
+      "NewApiKeyResult": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "service account token id",
+            "format": "int64",
+            "type": "integer"
+          },
+          "key": {
+            "description": "the generated service account token secret",
+            "type": "string"
+          },
+          "name": {
+            "description": "service account token name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "key",
+          "name"
+        ],
+        "type": "object"
+      },
       "PaginatedResponseStackV1": {
         "additionalProperties": false,
         "properties": {
@@ -13108,6 +12777,194 @@
           "page",
           "pageSize",
           "items"
+        ],
+        "type": "object"
+      },
+      "ServiceAccountDTO": {
+        "additionalProperties": false,
+        "properties": {
+          "accessControl": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "description": "resolved access control permissions",
+            "type": "object"
+          },
+          "avatarUrl": {
+            "description": "the service account's avatar url",
+            "type": "string"
+          },
+          "id": {
+            "description": "service account id",
+            "format": "int64",
+            "type": "integer"
+          },
+          "isDisabled": {
+            "description": "whether the service account is disabled",
+            "type": "boolean"
+          },
+          "isExternal": {
+            "description": "whether the service account is externally managed",
+            "type": "boolean"
+          },
+          "login": {
+            "description": "service account login",
+            "type": "string"
+          },
+          "name": {
+            "description": "service account name",
+            "type": "string"
+          },
+          "orgId": {
+            "description": "grafana org id the service account belongs to",
+            "format": "int64",
+            "type": "integer"
+          },
+          "role": {
+            "description": "the service account's role",
+            "type": "string"
+          },
+          "tokens": {
+            "description": "number of tokens on the service account",
+            "format": "int64",
+            "type": "integer"
+          },
+          "uid": {
+            "description": "service account uid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "login",
+          "orgId",
+          "isDisabled",
+          "role",
+          "tokens",
+          "avatarUrl"
+        ],
+        "type": "object"
+      },
+      "ServiceAccountProfileDTO": {
+        "additionalProperties": false,
+        "properties": {
+          "accessControl": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "description": "resolved access control permissions",
+            "type": "object"
+          },
+          "avatarUrl": {
+            "description": "the service account's avatar url",
+            "type": "string"
+          },
+          "createdAt": {
+            "description": "when the service account was created (RFC3339)",
+            "type": "string"
+          },
+          "id": {
+            "description": "service account id",
+            "format": "int64",
+            "type": "integer"
+          },
+          "isDisabled": {
+            "description": "whether the service account is disabled",
+            "type": "boolean"
+          },
+          "isExternal": {
+            "description": "whether the service account is externally managed",
+            "type": "boolean"
+          },
+          "login": {
+            "description": "service account login",
+            "type": "string"
+          },
+          "name": {
+            "description": "service account name",
+            "type": "string"
+          },
+          "orgId": {
+            "description": "grafana org id the service account belongs to",
+            "format": "int64",
+            "type": "integer"
+          },
+          "requiredBy": {
+            "description": "the external service requiring this service account",
+            "type": "string"
+          },
+          "role": {
+            "description": "the service account's role",
+            "type": "string"
+          },
+          "teams": {
+            "description": "names of the teams the service account belongs to",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "type": "array"
+          },
+          "tokens": {
+            "description": "number of tokens on the service account",
+            "format": "int64",
+            "type": "integer"
+          },
+          "uid": {
+            "description": "service account uid",
+            "type": "string"
+          },
+          "updatedAt": {
+            "description": "when the service account was last updated (RFC3339)",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "login",
+          "orgId",
+          "isDisabled",
+          "createdAt",
+          "updatedAt",
+          "avatarUrl",
+          "role",
+          "teams"
+        ],
+        "type": "object"
+      },
+      "ServiceAccountSearchResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "page": {
+            "description": "the current page number",
+            "format": "int64",
+            "type": "integer"
+          },
+          "perPage": {
+            "description": "the number of service accounts per page",
+            "format": "int64",
+            "type": "integer"
+          },
+          "serviceAccounts": {
+            "description": "service accounts on this page",
+            "items": {
+              "$ref": "#/components/schemas/ServiceAccountDTO"
+            },
+            "type": "array"
+          },
+          "totalCount": {
+            "description": "total number of service accounts matching the query",
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "totalCount",
+          "serviceAccounts",
+          "page",
+          "perPage"
         ],
         "type": "object"
       },
@@ -13492,6 +13349,64 @@
           "url",
           "deleteProtection",
           "labels"
+        ],
+        "type": "object"
+      },
+      "TokenDTO": {
+        "additionalProperties": false,
+        "properties": {
+          "created": {
+            "description": "when the token was created (RFC3339)",
+            "format": "date-time",
+            "nullable": true,
+            "type": "string"
+          },
+          "expiration": {
+            "description": "when the token expires (RFC3339)",
+            "format": "date-time",
+            "nullable": true,
+            "type": "string"
+          },
+          "hasExpired": {
+            "description": "whether the token has expired",
+            "type": "boolean"
+          },
+          "id": {
+            "description": "service account token id",
+            "format": "int64",
+            "type": "integer"
+          },
+          "isRevoked": {
+            "description": "whether the token has been revoked",
+            "nullable": true,
+            "type": "boolean"
+          },
+          "lastUsedAt": {
+            "description": "when the token was last used (RFC3339)",
+            "format": "date-time",
+            "nullable": true,
+            "type": "string"
+          },
+          "name": {
+            "description": "service account token name",
+            "type": "string"
+          },
+          "secondsUntilExpiration": {
+            "description": "seconds until the token expires",
+            "format": "double",
+            "nullable": true,
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "created",
+          "lastUsedAt",
+          "expiration",
+          "secondsUntilExpiration",
+          "hasExpired",
+          "isRevoked"
         ],
         "type": "object"
       }
