@@ -6439,6 +6439,18 @@
             "type": "number",
             "title": "id"
           },
+          "periodStart": {
+            "type": "string",
+            "title": "periodStart"
+          },
+          "periodEnd": {
+            "type": "string",
+            "title": "periodEnd"
+          },
+          "notes": {
+            "type": "string",
+            "title": "notes"
+          },
           "overage": {
             "type": "number",
             "title": "overage"
@@ -6446,10 +6458,6 @@
           "description": {
             "type": "string",
             "title": "description"
-          },
-          "notes": {
-            "type": "string",
-            "title": "notes"
           },
           "dimensionId": {
             "enum": [
@@ -6502,14 +6510,6 @@
           "includedUsage": {
             "type": "number",
             "title": "includedUsage"
-          },
-          "periodEnd": {
-            "type": "string",
-            "title": "periodEnd"
-          },
-          "periodStart": {
-            "type": "string",
-            "title": "periodStart"
           },
           "totalUsage": {
             "type": "number",
