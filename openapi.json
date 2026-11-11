@@ -3353,7 +3353,8 @@
                 "aws",
                 "gcp",
                 "azure",
-                "fedramp-palantir"
+                "fedramp-palantir",
+                "metal"
               ],
               "type": "string"
             },
@@ -3501,7 +3502,8 @@
                 "aws",
                 "gcp",
                 "azure",
-                "fedramp-palantir"
+                "fedramp-palantir",
+                "metal"
               ],
               "type": "string"
             },
@@ -9552,7 +9554,8 @@
                   "aws",
                   "azure",
                   "fedramp-palantir",
-                  "gcp"
+                  "gcp",
+                  "metal"
                 ],
                 "type": "string",
                 "title": "provider"
@@ -11040,7 +11043,8 @@
                   "aws",
                   "azure",
                   "fedramp-palantir",
-                  "gcp"
+                  "gcp",
+                  "metal"
                 ],
                 "type": "string",
                 "title": "provider"
