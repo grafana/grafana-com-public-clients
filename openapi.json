@@ -487,9 +487,6 @@
                   "hlCluster": {
                     "type": "string"
                   },
-                  "hlInstanceId": {
-                    "type": "integer"
-                  },
                   "hmGraphiteCluster": {
                     "type": "string"
                   },
@@ -783,9 +780,6 @@
                   },
                   "graphite": {
                     "type": "boolean"
-                  },
-                  "hlInstanceId": {
-                    "type": "integer"
                   },
                   "issueLink": {
                     "type": "string"
