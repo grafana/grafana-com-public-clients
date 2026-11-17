@@ -6463,6 +6463,7 @@
               "assistant",
               "db-o11y-hosts",
               "fe-o11y",
+              "fe-o11y-session-replay",
               "ge-instances",
               "ge-users",
               "hg",
@@ -11664,7 +11665,7 @@
                     "title": "accessExpiresAt"
                   },
                   "ticketId": {
-                    "type": "number",
+                    "type": "string",
                     "title": "ticketId",
                     "nullable": true
                   },
@@ -12332,7 +12333,7 @@
                           "title": "accessExpiresAt"
                         },
                         "ticketId": {
-                          "type": "number",
+                          "type": "string",
                           "title": "ticketId",
                           "nullable": true
                         },
