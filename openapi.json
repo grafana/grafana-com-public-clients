@@ -8555,7 +8555,7 @@
                 "title": "type"
               },
               "info": {
-                "description": "Metadata for the plugin. Some fields are used on the plugins page in Grafana and others on grafana.com if the plugin is published.",
+                "description": "Metadata for the plugin. **Some fields are mandatory**, since they're used on the plugins page in Grafana and/or on grafana.com if the plugin is published. Read the [info section](#info) in detail.",
                 "type": "object",
                 "properties": {
                   "author": {
@@ -8581,7 +8581,7 @@
                     "title": "author"
                   },
                   "build": {
-                    "description": "Build information",
+                    "description": "Build information.",
                     "type": "object",
                     "properties": {
                       "time": {
@@ -8635,13 +8635,13 @@
                     "title": "keywords"
                   },
                   "links": {
-                    "description": "An array of link objects to be displayed on this plugin's project page in the form `{name: 'foo', url: 'http://example.com'}`",
+                    "description": "An array of link objects to be displayed on this plugin's project page in the form `{name: 'foo', url: 'http://example.com'}`. **This field is mandatory**. If you leave this field blank, you'll be asked to submit your plugin again.",
                     "type": "array",
                     "items": {
                       "type": "object",
                       "properties": {
                         "name": {
-                          "description": "Display name of the link. Special names with predefined behavior: <br/>• `documentation` - sets Documentation link on plugins detail page<br/>• `repository` - used to determine and link to repository of the plugin<br/>• `license` - sets License link on plugins detail page<br/>• `raise issue` - sets `Raise an Issue` link on plugins detail page<br/>• `sponsorship` - sets `Sponsor this developer` link on plugins detail page to direct users to how they can support your work",
+                          "description": "Display name of the link. Special names with predefined behavior: <br/>• `documentation` - sets Documentation link on plugins detail page<br/>• `repository` - used to determine and link to repository of the plugin<br/>• `license` - sets License link on plugins detail page. **Required for marketplace plugins**<br/>• `privacy` - sets Privacy link on plugins detail page. **Required for marketplace plugins**<br/>• `raise issue` - sets `Raise an Issue` link on plugins detail page<br/>• `sponsorship` - sets `Sponsor this developer` link on plugins detail page to direct users to how they can support your work",
                           "type": "string",
                           "title": "name"
                         },
@@ -8687,7 +8687,7 @@
                     "title": "logos"
                   },
                   "screenshots": {
-                    "description": "An array of screenshot objects in the form `{name: 'bar', path: 'img/screenshot.png'}`",
+                    "description": "An array of screenshot objects in the form `{name: 'bar', path: 'img/screenshot.png'}`.",
                     "type": "array",
                     "items": {
                       "type": "object",
@@ -8843,7 +8843,7 @@
                 "title": "docsPath"
               },
               "enterpriseFeatures": {
-                "description": "Grafana Enterprise specific features",
+                "description": "Features specific to Grafana Enterprise.",
                 "type": "object",
                 "additionalProperties": {},
                 "properties": {
@@ -9161,6 +9161,11 @@
                 "type": "boolean",
                 "title": "skipDataQuery"
               },
+              "skipDefaultQuery": {
+                "description": "Alpha. For panel plugins, suppress the automatic starter query while allowing users to add queries explicitly. If both skipDataQuery and skipDefaultQuery are true, skipDataQuery takes precedence.",
+                "type": "boolean",
+                "title": "skipDefaultQuery"
+              },
               "state": {
                 "description": "Describes plugins life cycle status",
                 "enum": [
@@ -9429,7 +9434,7 @@
                 "title": "extensions"
               },
               "languages": {
-                "description": "The list of languages supported by the plugin. Each entry should be a locale identifier in the format `language-COUNTRY` (for example `en-US`, `es-ES`, `de-DE`).",
+                "description": "The list of languages supported by the plugin. Each entry should be a locale identifier in the format `language-COUNTRY`, for example `en-US`, `es-ES`, or `de-DE`.",
                 "type": "array",
                 "items": {
                   "type": "string"
