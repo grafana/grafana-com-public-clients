@@ -11,6 +11,7 @@ API version: public
 package gcom
 
 import (
+	"bytes"
 	"encoding/json"
 )
 
@@ -19,11 +20,14 @@ var _ MappedNullable = &ServiceAccountSearchResponse{}
 
 // ServiceAccountSearchResponse struct for ServiceAccountSearchResponse
 type ServiceAccountSearchResponse struct {
-	TotalCount           float32                `json:"totalCount"`
-	ServiceAccounts      []ServiceAccountsInner `json:"serviceAccounts"`
-	Page                 float32                `json:"page"`
-	PerPage              float32                `json:"perPage"`
-	AdditionalProperties map[string]interface{}
+	// the current page number
+	Page int64 `json:"page"`
+	// the number of service accounts per page
+	PerPage int64 `json:"perPage"`
+	// service accounts on this page
+	ServiceAccounts []ServiceAccountDTO `json:"serviceAccounts"`
+	// total number of service accounts matching the query
+	TotalCount int64 `json:"totalCount"`
 }
 
 type _ServiceAccountSearchResponse ServiceAccountSearchResponse
@@ -32,12 +36,12 @@ type _ServiceAccountSearchResponse ServiceAccountSearchResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewServiceAccountSearchResponse(totalCount float32, serviceAccounts []ServiceAccountsInner, page float32, perPage float32) *ServiceAccountSearchResponse {
+func NewServiceAccountSearchResponse(page int64, perPage int64, serviceAccounts []ServiceAccountDTO, totalCount int64) *ServiceAccountSearchResponse {
 	this := ServiceAccountSearchResponse{}
-	this.TotalCount = totalCount
-	this.ServiceAccounts = serviceAccounts
 	this.Page = page
 	this.PerPage = perPage
+	this.ServiceAccounts = serviceAccounts
+	this.TotalCount = totalCount
 	return &this
 }
 
@@ -49,58 +53,10 @@ func NewServiceAccountSearchResponseWithDefaults() *ServiceAccountSearchResponse
 	return &this
 }
 
-// GetTotalCount returns the TotalCount field value
-func (o *ServiceAccountSearchResponse) GetTotalCount() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.TotalCount
-}
-
-// GetTotalCountOk returns a tuple with the TotalCount field value
-// and a boolean to check if the value has been set.
-func (o *ServiceAccountSearchResponse) GetTotalCountOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TotalCount, true
-}
-
-// SetTotalCount sets field value
-func (o *ServiceAccountSearchResponse) SetTotalCount(v float32) {
-	o.TotalCount = v
-}
-
-// GetServiceAccounts returns the ServiceAccounts field value
-func (o *ServiceAccountSearchResponse) GetServiceAccounts() []ServiceAccountsInner {
-	if o == nil {
-		var ret []ServiceAccountsInner
-		return ret
-	}
-
-	return o.ServiceAccounts
-}
-
-// GetServiceAccountsOk returns a tuple with the ServiceAccounts field value
-// and a boolean to check if the value has been set.
-func (o *ServiceAccountSearchResponse) GetServiceAccountsOk() ([]ServiceAccountsInner, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ServiceAccounts, true
-}
-
-// SetServiceAccounts sets field value
-func (o *ServiceAccountSearchResponse) SetServiceAccounts(v []ServiceAccountsInner) {
-	o.ServiceAccounts = v
-}
-
 // GetPage returns the Page field value
-func (o *ServiceAccountSearchResponse) GetPage() float32 {
+func (o *ServiceAccountSearchResponse) GetPage() int64 {
 	if o == nil {
-		var ret float32
+		var ret int64
 		return ret
 	}
 
@@ -109,7 +65,7 @@ func (o *ServiceAccountSearchResponse) GetPage() float32 {
 
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
-func (o *ServiceAccountSearchResponse) GetPageOk() (*float32, bool) {
+func (o *ServiceAccountSearchResponse) GetPageOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -117,14 +73,14 @@ func (o *ServiceAccountSearchResponse) GetPageOk() (*float32, bool) {
 }
 
 // SetPage sets field value
-func (o *ServiceAccountSearchResponse) SetPage(v float32) {
+func (o *ServiceAccountSearchResponse) SetPage(v int64) {
 	o.Page = v
 }
 
 // GetPerPage returns the PerPage field value
-func (o *ServiceAccountSearchResponse) GetPerPage() float32 {
+func (o *ServiceAccountSearchResponse) GetPerPage() int64 {
 	if o == nil {
-		var ret float32
+		var ret int64
 		return ret
 	}
 
@@ -133,7 +89,7 @@ func (o *ServiceAccountSearchResponse) GetPerPage() float32 {
 
 // GetPerPageOk returns a tuple with the PerPage field value
 // and a boolean to check if the value has been set.
-func (o *ServiceAccountSearchResponse) GetPerPageOk() (*float32, bool) {
+func (o *ServiceAccountSearchResponse) GetPerPageOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -141,8 +97,56 @@ func (o *ServiceAccountSearchResponse) GetPerPageOk() (*float32, bool) {
 }
 
 // SetPerPage sets field value
-func (o *ServiceAccountSearchResponse) SetPerPage(v float32) {
+func (o *ServiceAccountSearchResponse) SetPerPage(v int64) {
 	o.PerPage = v
+}
+
+// GetServiceAccounts returns the ServiceAccounts field value
+func (o *ServiceAccountSearchResponse) GetServiceAccounts() []ServiceAccountDTO {
+	if o == nil {
+		var ret []ServiceAccountDTO
+		return ret
+	}
+
+	return o.ServiceAccounts
+}
+
+// GetServiceAccountsOk returns a tuple with the ServiceAccounts field value
+// and a boolean to check if the value has been set.
+func (o *ServiceAccountSearchResponse) GetServiceAccountsOk() ([]ServiceAccountDTO, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ServiceAccounts, true
+}
+
+// SetServiceAccounts sets field value
+func (o *ServiceAccountSearchResponse) SetServiceAccounts(v []ServiceAccountDTO) {
+	o.ServiceAccounts = v
+}
+
+// GetTotalCount returns the TotalCount field value
+func (o *ServiceAccountSearchResponse) GetTotalCount() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.TotalCount
+}
+
+// GetTotalCountOk returns a tuple with the TotalCount field value
+// and a boolean to check if the value has been set.
+func (o *ServiceAccountSearchResponse) GetTotalCountOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalCount, true
+}
+
+// SetTotalCount sets field value
+func (o *ServiceAccountSearchResponse) SetTotalCount(v int64) {
+	o.TotalCount = v
 }
 
 func (o ServiceAccountSearchResponse) MarshalJSON() ([]byte, error) {
@@ -155,15 +159,10 @@ func (o ServiceAccountSearchResponse) MarshalJSON() ([]byte, error) {
 
 func (o ServiceAccountSearchResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["totalCount"] = o.TotalCount
-	toSerialize["serviceAccounts"] = o.ServiceAccounts
 	toSerialize["page"] = o.Page
 	toSerialize["perPage"] = o.PerPage
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
+	toSerialize["serviceAccounts"] = o.ServiceAccounts
+	toSerialize["totalCount"] = o.TotalCount
 	return toSerialize, nil
 }
 
@@ -178,23 +177,14 @@ func (o *ServiceAccountSearchResponse) UnmarshalJSON(data []byte) (err error) {
 
 	varServiceAccountSearchResponse := _ServiceAccountSearchResponse{}
 
-	err = json.Unmarshal(data, &varServiceAccountSearchResponse)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	err = decoder.Decode(&varServiceAccountSearchResponse)
 
 	if err != nil {
 		return err
 	}
 
 	*o = ServiceAccountSearchResponse(varServiceAccountSearchResponse)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "totalCount")
-		delete(additionalProperties, "serviceAccounts")
-		delete(additionalProperties, "page")
-		delete(additionalProperties, "perPage")
-		o.AdditionalProperties = additionalProperties
-	}
 
 	return err
 }

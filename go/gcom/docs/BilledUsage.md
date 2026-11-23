@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **float32** |  | 
+**PeriodStart** | **string** |  | 
+**PeriodEnd** | **string** |  | 
+**Notes** | **string** |  | 
 **Overage** | **float32** |  | 
 **Description** | **string** |  | 
-**Notes** | **string** |  | 
 **DimensionId** | **string** |  | 
 **OrgRates** | **interface{}** |  | 
 **AmountDue** | **float32** |  | 
 **DimensionName** | **string** |  | 
 **IncludedUsage** | **float32** |  | 
-**PeriodEnd** | **string** |  | 
-**PeriodStart** | **string** |  | 
 **TotalUsage** | **float32** |  | 
 **Unit** | **string** |  | 
 **Usages** | [**[]UsagesInner**](UsagesInner.md) |  | 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewBilledUsage
 
-`func NewBilledUsage(id float32, overage float32, description string, notes string, dimensionId string, orgRates interface{}, amountDue float32, dimensionName string, includedUsage float32, periodEnd string, periodStart string, totalUsage float32, unit string, usages []UsagesInner, ) *BilledUsage`
+`func NewBilledUsage(id float32, periodStart string, periodEnd string, notes string, overage float32, description string, dimensionId string, orgRates interface{}, amountDue float32, dimensionName string, includedUsage float32, totalUsage float32, unit string, usages []UsagesInner, ) *BilledUsage`
 
 NewBilledUsage instantiates a new BilledUsage object
 This constructor will assign default values to properties that have it defined,
@@ -56,6 +56,66 @@ and a boolean to check if the value has been set.
 `func (o *BilledUsage) SetId(v float32)`
 
 SetId sets Id field to given value.
+
+
+### GetPeriodStart
+
+`func (o *BilledUsage) GetPeriodStart() string`
+
+GetPeriodStart returns the PeriodStart field if non-nil, zero value otherwise.
+
+### GetPeriodStartOk
+
+`func (o *BilledUsage) GetPeriodStartOk() (*string, bool)`
+
+GetPeriodStartOk returns a tuple with the PeriodStart field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPeriodStart
+
+`func (o *BilledUsage) SetPeriodStart(v string)`
+
+SetPeriodStart sets PeriodStart field to given value.
+
+
+### GetPeriodEnd
+
+`func (o *BilledUsage) GetPeriodEnd() string`
+
+GetPeriodEnd returns the PeriodEnd field if non-nil, zero value otherwise.
+
+### GetPeriodEndOk
+
+`func (o *BilledUsage) GetPeriodEndOk() (*string, bool)`
+
+GetPeriodEndOk returns a tuple with the PeriodEnd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPeriodEnd
+
+`func (o *BilledUsage) SetPeriodEnd(v string)`
+
+SetPeriodEnd sets PeriodEnd field to given value.
+
+
+### GetNotes
+
+`func (o *BilledUsage) GetNotes() string`
+
+GetNotes returns the Notes field if non-nil, zero value otherwise.
+
+### GetNotesOk
+
+`func (o *BilledUsage) GetNotesOk() (*string, bool)`
+
+GetNotesOk returns a tuple with the Notes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotes
+
+`func (o *BilledUsage) SetNotes(v string)`
+
+SetNotes sets Notes field to given value.
 
 
 ### GetOverage
@@ -96,26 +156,6 @@ and a boolean to check if the value has been set.
 `func (o *BilledUsage) SetDescription(v string)`
 
 SetDescription sets Description field to given value.
-
-
-### GetNotes
-
-`func (o *BilledUsage) GetNotes() string`
-
-GetNotes returns the Notes field if non-nil, zero value otherwise.
-
-### GetNotesOk
-
-`func (o *BilledUsage) GetNotesOk() (*string, bool)`
-
-GetNotesOk returns a tuple with the Notes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNotes
-
-`func (o *BilledUsage) SetNotes(v string)`
-
-SetNotes sets Notes field to given value.
 
 
 ### GetDimensionId
@@ -226,46 +266,6 @@ and a boolean to check if the value has been set.
 `func (o *BilledUsage) SetIncludedUsage(v float32)`
 
 SetIncludedUsage sets IncludedUsage field to given value.
-
-
-### GetPeriodEnd
-
-`func (o *BilledUsage) GetPeriodEnd() string`
-
-GetPeriodEnd returns the PeriodEnd field if non-nil, zero value otherwise.
-
-### GetPeriodEndOk
-
-`func (o *BilledUsage) GetPeriodEndOk() (*string, bool)`
-
-GetPeriodEndOk returns a tuple with the PeriodEnd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPeriodEnd
-
-`func (o *BilledUsage) SetPeriodEnd(v string)`
-
-SetPeriodEnd sets PeriodEnd field to given value.
-
-
-### GetPeriodStart
-
-`func (o *BilledUsage) GetPeriodStart() string`
-
-GetPeriodStart returns the PeriodStart field if non-nil, zero value otherwise.
-
-### GetPeriodStartOk
-
-`func (o *BilledUsage) GetPeriodStartOk() (*string, bool)`
-
-GetPeriodStartOk returns a tuple with the PeriodStart field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPeriodStart
-
-`func (o *BilledUsage) SetPeriodStart(v string)`
-
-SetPeriodStart sets PeriodStart field to given value.
 
 
 ### GetTotalUsage

@@ -32,13 +32,14 @@ Name | Type | Description | Notes
 **QueryOptions** | Pointer to [**QueryOptions**](QueryOptions.md) |  | [optional] 
 **Routes** | Pointer to [**[]RoutesInner**](RoutesInner.md) | For data source plugins. Proxy routes used for plugin authentication and adding headers to HTTP requests made by the plugin. For more information, refer to [Authentication for data source plugins](https://grafana.com/developers/plugin-tools/how-to-guides/data-source-plugins/add-authentication-for-data-source-plugins). | [optional] 
 **SkipDataQuery** | Pointer to **bool** | For panel plugins. Hides the query editor. | [optional] 
+**SkipDefaultQuery** | Pointer to **bool** | Alpha. For panel plugins, suppress the automatic starter query while allowing users to add queries explicitly. If both skipDataQuery and skipDefaultQuery are true, skipDataQuery takes precedence. | [optional] 
 **State** | Pointer to **string** | Describes plugins life cycle status | [optional] 
 **Streaming** | Pointer to **bool** | For data source plugins, if the plugin supports streaming. Used in Explore to start live streaming. | [optional] 
 **Tracing** | Pointer to **bool** | For data source plugins, if the plugin supports tracing. Used for example to link logs (e.g. Loki logs) with tracing plugins. | [optional] 
 **Iam** | Pointer to [**Iam**](Iam.md) |  | [optional] 
 **Roles** | Pointer to [**[]RolesInner**](RolesInner.md) | List of RBAC roles defined by the plugin and their default assignments to basic roles (&#x60;Viewer&#x60;, &#x60;Editor&#x60;, &#x60;Admin&#x60;, &#x60;Grafana Admin&#x60;). Requires Grafana version 9.4.0 or later. | [optional] 
 **Extensions** | Pointer to [**Extensions1**](Extensions1.md) |  | [optional] 
-**Languages** | Pointer to **[]string** | The list of languages supported by the plugin. Each entry should be a locale identifier in the format &#x60;language-COUNTRY&#x60; (for example &#x60;en-US&#x60;, &#x60;es-ES&#x60;, &#x60;de-DE&#x60;). | [optional] 
+**Languages** | Pointer to **[]string** | The list of languages supported by the plugin. Each entry should be a locale identifier in the format &#x60;language-COUNTRY&#x60;, for example &#x60;en-US&#x60;, &#x60;es-ES&#x60;, or &#x60;de-DE&#x60;. | [optional] 
 
 ## Methods
 
@@ -733,6 +734,31 @@ SetSkipDataQuery sets SkipDataQuery field to given value.
 `func (o *Json) HasSkipDataQuery() bool`
 
 HasSkipDataQuery returns a boolean if a field has been set.
+
+### GetSkipDefaultQuery
+
+`func (o *Json) GetSkipDefaultQuery() bool`
+
+GetSkipDefaultQuery returns the SkipDefaultQuery field if non-nil, zero value otherwise.
+
+### GetSkipDefaultQueryOk
+
+`func (o *Json) GetSkipDefaultQueryOk() (*bool, bool)`
+
+GetSkipDefaultQueryOk returns a tuple with the SkipDefaultQuery field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSkipDefaultQuery
+
+`func (o *Json) SetSkipDefaultQuery(v bool)`
+
+SetSkipDefaultQuery sets SkipDefaultQuery field to given value.
+
+### HasSkipDefaultQuery
+
+`func (o *Json) HasSkipDefaultQuery() bool`
+
+HasSkipDefaultQuery returns a boolean if a field has been set.
 
 ### GetState
 

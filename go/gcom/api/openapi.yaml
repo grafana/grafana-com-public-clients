@@ -556,461 +556,6 @@ paths:
       x-auth-required: true
       x-permissions:
       - stacks:write
-  /instances/{instanceId}/api/serviceaccounts:
-    post:
-      operationId: postInstanceServiceAccounts
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/postInstanceServiceAccounts_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GrafanaServiceAccountDTO'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Creates a service account on a Grafana instance
-      tags:
-      - instances
-      x-auth-required: true
-      x-permissions:
-      - stack-service-accounts:write
-  /instances/{instanceId}/api/serviceaccounts/search:
-    get:
-      operationId: getInstanceServiceAccountsSearch
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: perpage
-        required: false
-        schema:
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: query
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceAccountSearchResponse'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-      summary: Search service accounts on a Grafana instance with paging
-      tags:
-      - instances
-      x-auth-required: true
-      x-permissions:
-      - stack-service-accounts:write
-  /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}:
-    delete:
-      operationId: deleteInstanceServiceAccount
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: serviceAccountId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Delete a service account on a Grafana instance
-      tags:
-      - instances
-      x-auth-required: true
-      x-permissions:
-      - stack-service-accounts:write
-    get:
-      operationId: getInstanceServiceAccount
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: serviceAccountId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GrafanaServiceAccountDTO'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-      summary: Gets a service account on a Grafana instance
-      tags:
-      - instances
-      x-auth-required: true
-      x-permissions:
-      - stack-service-accounts:write
-  /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens:
-    get:
-      operationId: getInstanceServiceAccountTokens
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: serviceAccountId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/GrafanaTokenDTO'
-                type: array
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-      summary: Get a service account's tokens on a Grafana instance
-      tags:
-      - instances
-      x-auth-required: true
-      x-permissions:
-      - stack-service-accounts:write
-    post:
-      operationId: postInstanceServiceAccountTokens
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: serviceAccountId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/postInstanceServiceAccountTokens_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GrafanaNewApiKeyResult'
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Creates a service account token on a Grafana instance
-      tags:
-      - instances
-      x-auth-required: true
-      x-permissions:
-      - stack-service-accounts:write
-  /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId}:
-    delete:
-      operationId: deleteInstanceServiceAccountToken
-      parameters:
-      - explode: false
-        in: path
-        name: instanceId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: serviceAccountId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: tokenId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: x-request-id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorInvalidCredentials'
-          description: Login Required or invalid credentials
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorForbidden'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorNotFound'
-          description: Element not found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorConflict'
-          description: "Invalid arguments: wrong or missing parameters"
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorServiceUnavailable'
-          description: Service is currently unavailable
-      summary: Delete a service account token on a Grafana instance
-      tags:
-      - instances
-      x-auth-required: true
-      x-permissions:
-      - stack-service-accounts:write
   /instances/{instanceId}/plugins:
     get:
       operationId: getInstancePlugins
@@ -2436,6 +1981,7 @@ paths:
           - gcp
           - azure
           - fedramp-palantir
+          - metal
           type: string
         style: form
       - explode: true
@@ -2510,6 +2056,7 @@ paths:
           - gcp
           - azure
           - fedramp-palantir
+          - metal
           type: string
         style: form
       responses:
@@ -3639,6 +3186,345 @@ paths:
       tags:
       - stacks
       x-auth-required: true
+  /instances/{instanceId}/api/serviceaccounts:
+    post:
+      operationId: postInstanceServiceAccounts
+      parameters:
+      - explode: false
+        in: header
+        name: x-request-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: id or slug of the instance
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: id or slug of the instance
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServiceAccountBody'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceAccountDTO'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      summary: Creates a service account on a Grafana instance
+      tags:
+      - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
+  /instances/{instanceId}/api/serviceaccounts/search:
+    get:
+      operationId: getInstanceServiceAccountsSearch
+      parameters:
+      - description: id or slug of the instance
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: id or slug of the instance
+          type: string
+        style: simple
+      - description: number of service accounts per page
+        explode: false
+        in: query
+        name: perpage
+        required: false
+        schema:
+          description: number of service accounts per page
+          format: int64
+          type: integer
+        style: form
+      - description: page number to return
+        explode: false
+        in: query
+        name: page
+        required: false
+        schema:
+          description: page number to return
+          format: int64
+          type: integer
+        style: form
+      - description: filter by service account name or login
+        explode: false
+        in: query
+        name: query
+        required: false
+        schema:
+          description: filter by service account name or login
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceAccountSearchResponse'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      summary: Search service accounts on a Grafana instance with paging
+      tags:
+      - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
+  /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}:
+    delete:
+      operationId: deleteInstanceServiceAccount
+      parameters:
+      - explode: false
+        in: header
+        name: x-request-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: id or slug of the instance
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: id or slug of the instance
+          type: string
+        style: simple
+      - description: id of the service account
+        explode: false
+        in: path
+        name: serviceAccountId
+        required: true
+        schema:
+          description: id of the service account
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      summary: Deletes a service account on a Grafana instance
+      tags:
+      - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
+    get:
+      operationId: getInstanceServiceAccount
+      parameters:
+      - description: id or slug of the instance
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: id or slug of the instance
+          type: string
+        style: simple
+      - description: id of the service account
+        explode: false
+        in: path
+        name: serviceAccountId
+        required: true
+        schema:
+          description: id of the service account
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceAccountProfileDTO'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      summary: Gets a service account on a Grafana instance
+      tags:
+      - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
+  /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens:
+    get:
+      operationId: getInstanceServiceAccountTokens
+      parameters:
+      - description: id or slug of the instance
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: id or slug of the instance
+          type: string
+        style: simple
+      - description: id of the service account
+        explode: false
+        in: path
+        name: serviceAccountId
+        required: true
+        schema:
+          description: id of the service account
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/TokenDTO'
+                type: array
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      summary: Get a service account's tokens on a Grafana instance
+      tags:
+      - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
+    post:
+      operationId: postInstanceServiceAccountTokens
+      parameters:
+      - explode: false
+        in: header
+        name: x-request-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: id or slug of the instance
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: id or slug of the instance
+          type: string
+        style: simple
+      - description: id of the service account
+        explode: false
+        in: path
+        name: serviceAccountId
+        required: true
+        schema:
+          description: id of the service account
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServiceAccountTokenBody'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewApiKeyResult'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      summary: Creates a service account token on a Grafana instance
+      tags:
+      - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
+  /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId}:
+    delete:
+      operationId: deleteInstanceServiceAccountToken
+      parameters:
+      - explode: false
+        in: header
+        name: x-request-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: id or slug of the instance
+        explode: false
+        in: path
+        name: instanceId
+        required: true
+        schema:
+          description: id or slug of the instance
+          type: string
+        style: simple
+      - description: id of the service account
+        explode: false
+        in: path
+        name: serviceAccountId
+        required: true
+        schema:
+          description: id of the service account
+          type: string
+        style: simple
+      - description: id of the service account token
+        explode: false
+        in: path
+        name: tokenId
+        required: true
+        schema:
+          description: id of the service account token
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorPayload'
+          description: Error
+      summary: Delete a service account token on a Grafana instance
+      tags:
+      - instances
+      x-auth-required: true
+      x-permissions:
+      - stack-service-accounts:write
   /instances/{instanceId}/users:
     get:
       operationId: getInstanceUsers
@@ -4088,20 +3974,26 @@ components:
           periodEnd: periodEnd
         includedUsage: 5.962133916683182
         periodStart: periodStart
-        overage: 6.027456183070403
         periodEnd: periodEnd
+        overage: 6.027456183070403
       properties:
         id:
           title: id
           type: number
+        periodStart:
+          title: periodStart
+          type: string
+        periodEnd:
+          title: periodEnd
+          type: string
+        notes:
+          title: notes
+          type: string
         overage:
           title: overage
           type: number
         description:
           title: description
-          type: string
-        notes:
-          title: notes
           type: string
         dimensionId:
           enum:
@@ -4111,6 +4003,7 @@ components:
           - assistant
           - db-o11y-hosts
           - fe-o11y
+          - fe-o11y-session-replay
           - ge-instances
           - ge-users
           - hg
@@ -4149,12 +4042,6 @@ components:
         includedUsage:
           title: includedUsage
           type: number
-        periodEnd:
-          title: periodEnd
-          type: string
-        periodStart:
-          title: periodStart
-          type: string
         totalUsage:
           title: totalUsage
           type: number
@@ -5713,6 +5600,7 @@ components:
             action: action
             type: dashboard
             addToNav: true
+          skipDefaultQuery: true
           executable: executable
           dependencies:
             extensions:
@@ -6000,7 +5888,7 @@ components:
         grafanaStaffAccess:
           publicReason: publicReason
           accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-          ticketId: 9.369310271410669
+          ticketId: ticketId
         hlUsage: 7.386281948385884
         orgUrl: orgUrl
         orgId: 6
@@ -6202,119 +6090,6 @@ components:
       - userName
       - userUsername
       type: object
-    GrafanaNewApiKeyResult:
-      example:
-        name: grafana
-        id: 1
-        key: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
-      properties:
-        id:
-          example: 1
-          format: int64
-          type: integer
-        key:
-          example: glsa_yscW25imSKJIuav8zF37RZmnbiDvB05G_fcaaf58a
-          type: string
-        name:
-          example: grafana
-          type: string
-      type: object
-    GrafanaServiceAccountDTO:
-      description: "swagger: model"
-      example:
-        accessControl:
-          serviceaccounts:delete: true
-          serviceaccounts:read: true
-          serviceaccounts:write: true
-        role: Viewer
-        isExternal: false
-        avatarUrl: /avatar/85ec38023d90823d3e5b43ef35646af9
-        name: grafana
-        tokens: 0
-        id: 0
-        isDisabled: false
-        login: sa-grafana
-        orgId: 1
-      properties:
-        accessControl:
-          additionalProperties:
-            type: boolean
-          example:
-            serviceaccounts:delete: true
-            serviceaccounts:read: true
-            serviceaccounts:write: true
-          type: object
-        avatarUrl:
-          example: /avatar/85ec38023d90823d3e5b43ef35646af9
-          type: string
-        id:
-          format: int64
-          type: integer
-        isDisabled:
-          example: false
-          type: boolean
-        isExternal:
-          example: false
-          type: boolean
-        login:
-          example: sa-grafana
-          type: string
-        name:
-          example: grafana
-          type: string
-        orgId:
-          example: 1
-          format: int64
-          type: integer
-        role:
-          example: Viewer
-          type: string
-        tokens:
-          example: 0
-          format: int64
-          type: integer
-      type: object
-    GrafanaTokenDTO:
-      example:
-        isRevoked: false
-        hasExpired: false
-        lastUsedAt: 2022-03-23T10:31:02Z
-        created: 2022-03-23T10:31:02Z
-        name: grafana
-        secondsUntilExpiration: 0
-        expiration: 2022-03-23T10:31:02Z
-        id: 1
-      properties:
-        created:
-          example: 2022-03-23T10:31:02Z
-          format: date-time
-          type: string
-        expiration:
-          example: 2022-03-23T10:31:02Z
-          format: date-time
-          type: string
-        hasExpired:
-          example: false
-          type: boolean
-        id:
-          example: 1
-          format: int64
-          type: integer
-        isRevoked:
-          example: false
-          type: boolean
-        lastUsedAt:
-          example: 2022-03-23T10:31:02Z
-          format: date-time
-          type: string
-        name:
-          example: grafana
-          type: string
-        secondsUntilExpiration:
-          example: 0
-          format: double
-          type: number
-      type: object
     MarketplaceLicenseRenewalResponse:
       example:
         token: token
@@ -6383,7 +6158,7 @@ components:
           grafanaStaffAccess:
             publicReason: publicReason
             accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-            ticketId: 9.369310271410669
+            ticketId: ticketId
           hlUsage: 4.965218492984954
           orgUrl: orgUrl
           orgId: 3
@@ -6436,7 +6211,7 @@ components:
           grafanaStaffAccess:
             publicReason: publicReason
             accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-            ticketId: 9.369310271410669
+            ticketId: ticketId
           hlUsage: 4.965218492984954
           orgUrl: orgUrl
           orgId: 3
@@ -6511,37 +6286,6 @@ components:
       - items
       - links
       type: object
-    ServiceAccountSearchResponse:
-      example:
-        serviceAccounts:
-        - name: name
-          id: 6
-        - name: name
-          id: 6
-        perPage: 5.962133916683182
-        page: 1.4658129805029452
-        totalCount: 0.8008281904610115
-      properties:
-        totalCount:
-          title: totalCount
-          type: number
-        serviceAccounts:
-          items:
-            $ref: '#/components/schemas/serviceAccounts_inner'
-          title: serviceAccounts
-          type: array
-        page:
-          title: page
-          type: number
-        perPage:
-          title: perPage
-          type: number
-      required:
-      - page
-      - perPage
-      - serviceAccounts
-      - totalCount
-      type: object
     APIListResponseStackRegionV1:
       additionalProperties: false
       properties:
@@ -6604,6 +6348,41 @@ components:
           type: string
         serviceName:
           type: string
+      type: object
+    CreateServiceAccountBody:
+      additionalProperties: false
+      example:
+        role: role
+        name: name
+        isDisabled: true
+      properties:
+        isDisabled:
+          $ref: '#/components/schemas/CreateServiceAccountBody_isDisabled'
+        name:
+          description: service account name
+          type: string
+        role:
+          description: the service account's role
+          type: string
+      required:
+      - name
+      - role
+      type: object
+    CreateServiceAccountTokenBody:
+      additionalProperties: false
+      example:
+        name: name
+        secondsToLive: 0
+      properties:
+        name:
+          description: service account token name
+          type: string
+        secondsToLive:
+          description: seconds until expiry; omit for no expiry
+          format: int64
+          type: integer
+      required:
+      - name
       type: object
     ErrorPayload:
       additionalProperties: false
@@ -7009,6 +6788,28 @@ components:
       required:
       - items
       type: object
+    NewApiKeyResult:
+      additionalProperties: false
+      example:
+        name: name
+        id: 0
+        key: key
+      properties:
+        id:
+          description: service account token id
+          format: int64
+          type: integer
+        key:
+          description: the generated service account token secret
+          type: string
+        name:
+          description: service account token name
+          type: string
+      required:
+      - id
+      - key
+      - name
+      type: object
     PaginatedResponseStackV1:
       additionalProperties: false
       example:
@@ -7068,6 +6869,212 @@ components:
       - pageSize
       - pages
       - total
+      type: object
+    ServiceAccountDTO:
+      additionalProperties: false
+      example:
+        accessControl:
+          key: true
+        uid: uid
+        role: role
+        isExternal: true
+        avatarUrl: avatarUrl
+        name: name
+        tokens: 1
+        id: 0
+        isDisabled: true
+        login: login
+        orgId: 6
+      properties:
+        accessControl:
+          additionalProperties:
+            type: boolean
+          description: resolved access control permissions
+          type: object
+        avatarUrl:
+          description: the service account's avatar url
+          type: string
+        id:
+          description: service account id
+          format: int64
+          type: integer
+        isDisabled:
+          description: whether the service account is disabled
+          type: boolean
+        isExternal:
+          description: whether the service account is externally managed
+          type: boolean
+        login:
+          description: service account login
+          type: string
+        name:
+          description: service account name
+          type: string
+        orgId:
+          description: grafana org id the service account belongs to
+          format: int64
+          type: integer
+        role:
+          description: the service account's role
+          type: string
+        tokens:
+          description: number of tokens on the service account
+          format: int64
+          type: integer
+        uid:
+          description: service account uid
+          type: string
+      required:
+      - avatarUrl
+      - id
+      - isDisabled
+      - login
+      - name
+      - orgId
+      - role
+      - tokens
+      type: object
+    ServiceAccountProfileDTO:
+      additionalProperties: false
+      example:
+        accessControl:
+          key: true
+        requiredBy: requiredBy
+        role: role
+        isExternal: true
+        teams:
+        - teams
+        - teams
+        avatarUrl: avatarUrl
+        login: login
+        orgId: 6
+        createdAt: createdAt
+        uid: uid
+        name: name
+        tokens: 1
+        id: 0
+        isDisabled: true
+        updatedAt: updatedAt
+      properties:
+        accessControl:
+          additionalProperties:
+            type: boolean
+          description: resolved access control permissions
+          type: object
+        avatarUrl:
+          description: the service account's avatar url
+          type: string
+        createdAt:
+          description: when the service account was created (RFC3339)
+          type: string
+        id:
+          description: service account id
+          format: int64
+          type: integer
+        isDisabled:
+          description: whether the service account is disabled
+          type: boolean
+        isExternal:
+          description: whether the service account is externally managed
+          type: boolean
+        login:
+          description: service account login
+          type: string
+        name:
+          description: service account name
+          type: string
+        orgId:
+          description: grafana org id the service account belongs to
+          format: int64
+          type: integer
+        requiredBy:
+          description: the external service requiring this service account
+          type: string
+        role:
+          description: the service account's role
+          type: string
+        teams:
+          description: names of the teams the service account belongs to
+          items:
+            type: string
+          nullable: true
+          type: array
+        tokens:
+          description: number of tokens on the service account
+          format: int64
+          type: integer
+        uid:
+          description: service account uid
+          type: string
+        updatedAt:
+          description: when the service account was last updated (RFC3339)
+          type: string
+      required:
+      - avatarUrl
+      - createdAt
+      - id
+      - isDisabled
+      - login
+      - name
+      - orgId
+      - role
+      - teams
+      - updatedAt
+      type: object
+    ServiceAccountSearchResponse:
+      additionalProperties: false
+      example:
+        perPage: 6
+        serviceAccounts:
+        - accessControl:
+            key: true
+          uid: uid
+          role: role
+          isExternal: true
+          avatarUrl: avatarUrl
+          name: name
+          tokens: 1
+          id: 0
+          isDisabled: true
+          login: login
+          orgId: 6
+        - accessControl:
+            key: true
+          uid: uid
+          role: role
+          isExternal: true
+          avatarUrl: avatarUrl
+          name: name
+          tokens: 1
+          id: 0
+          isDisabled: true
+          login: login
+          orgId: 6
+        page: 0
+        totalCount: 1
+      properties:
+        page:
+          description: the current page number
+          format: int64
+          type: integer
+        perPage:
+          description: the number of service accounts per page
+          format: int64
+          type: integer
+        serviceAccounts:
+          description: service accounts on this page
+          items:
+            $ref: '#/components/schemas/ServiceAccountDTO'
+          type: array
+        totalCount:
+          description: total number of service accounts matching the query
+          format: int64
+          type: integer
+      required:
+      - page
+      - perPage
+      - serviceAccounts
+      - totalCount
       type: object
     StackCheckReadinessV1:
       additionalProperties: false
@@ -7593,6 +7600,62 @@ components:
       - slug
       - url
       type: object
+    TokenDTO:
+      additionalProperties: false
+      example:
+        isRevoked: true
+        hasExpired: true
+        lastUsedAt: 2000-01-23T04:56:07.000+00:00
+        created: 2000-01-23T04:56:07.000+00:00
+        name: name
+        secondsUntilExpiration: 6.027456183070403
+        expiration: 2000-01-23T04:56:07.000+00:00
+        id: 0
+      properties:
+        created:
+          description: when the token was created (RFC3339)
+          format: date-time
+          nullable: true
+          type: string
+        expiration:
+          description: when the token expires (RFC3339)
+          format: date-time
+          nullable: true
+          type: string
+        hasExpired:
+          description: whether the token has expired
+          type: boolean
+        id:
+          description: service account token id
+          format: int64
+          type: integer
+        isRevoked:
+          description: whether the token has been revoked
+          nullable: true
+          type: boolean
+        lastUsedAt:
+          description: when the token was last used (RFC3339)
+          format: date-time
+          nullable: true
+          type: string
+        name:
+          description: service account token name
+          type: string
+        secondsUntilExpiration:
+          description: seconds until the token expires
+          format: double
+          nullable: true
+          type: number
+      required:
+      - created
+      - expiration
+      - hasExpired
+      - id
+      - isRevoked
+      - lastUsedAt
+      - name
+      - secondsUntilExpiration
+      type: object
     FormattedApiApiKey:
       properties:
         id:
@@ -7908,8 +7971,12 @@ components:
       properties:
         adminUserInstance:
           type: boolean
+        agmCluster:
+          type: string
         alerts:
           type: boolean
+        amCluster:
+          type: string
         cluster:
           type: string
         deleteProtection:
@@ -7917,12 +7984,24 @@ components:
           type: boolean
         description:
           type: string
+        eventsCluster:
+          type: string
+        grafanaSqlCluster:
+          type: string
         graphite:
           type: boolean
-        hlInstanceId:
-          type: integer
+        hlCluster:
+          type: string
+        hmGraphiteCluster:
+          type: string
+        hmPromCluster:
+          type: string
         hosted:
           type: boolean
+        hpCluster:
+          type: string
+        htCluster:
+          type: string
         issueLink:
           type: string
         k6OrgId:
@@ -8001,8 +8080,6 @@ components:
           type: string
         graphite:
           type: boolean
-        hlInstanceId:
-          type: integer
         issueLink:
           type: string
         k6OrgId:
@@ -8054,27 +8131,6 @@ components:
         waitForReadiness:
           default: true
           type: boolean
-      type: object
-    postInstanceServiceAccounts_request:
-      properties:
-        isDisabled:
-          type: boolean
-        name:
-          type: string
-        role:
-          type: string
-      required:
-      - name
-      - role
-      type: object
-    postInstanceServiceAccountTokens_request:
-      properties:
-        name:
-          type: string
-        secondsToLive:
-          type: integer
-      required:
-      - name
       type: object
     getInstancePlugins_200_response:
       example:
@@ -8302,8 +8358,8 @@ components:
             periodEnd: periodEnd
           includedUsage: 5.962133916683182
           periodStart: periodStart
-          overage: 6.027456183070403
           periodEnd: periodEnd
+          overage: 6.027456183070403
         - notes: notes
           description: description
           dimensionName: dimensionName
@@ -8372,8 +8428,8 @@ components:
             periodEnd: periodEnd
           includedUsage: 5.962133916683182
           periodStart: periodStart
-          overage: 6.027456183070403
           periodEnd: periodEnd
+          overage: 6.027456183070403
         direction: asc
       properties:
         items:
@@ -9470,7 +9526,7 @@ components:
       title: author
       type: object
     build:
-      description: Build information
+      description: Build information.
       example:
         number: 7.386281948385884
         pr: 1.2315135367772556
@@ -9518,7 +9574,9 @@ components:
           description: "Display name of the link. Special names with predefined behavior:\
             \ <br/>• `documentation` - sets Documentation link on plugins detail page<br/>•\
             \ `repository` - used to determine and link to repository of the plugin<br/>•\
-            \ `license` - sets License link on plugins detail page<br/>• `raise issue`\
+            \ `license` - sets License link on plugins detail page. **Required for\
+            \ marketplace plugins**<br/>• `privacy` - sets Privacy link on plugins\
+            \ detail page. **Required for marketplace plugins**<br/>• `raise issue`\
             \ - sets `Raise an Issue` link on plugins detail page<br/>• `sponsorship`\
             \ - sets `Sponsor this developer` link on plugins detail page to direct\
             \ users to how they can support your work"
@@ -9572,8 +9630,9 @@ components:
           type: string
       type: object
     info:
-      description: Metadata for the plugin. Some fields are used on the plugins page
-        in Grafana and others on grafana.com if the plugin is published.
+      description: "Metadata for the plugin. **Some fields are mandatory**, since\
+        \ they're used on the plugins page in Grafana and/or on grafana.com if the\
+        \ plugin is published. Read the [info section](#info) in detail."
       example:
         keywords:
         - keywords
@@ -9627,7 +9686,9 @@ components:
           type: array
         links:
           description: "An array of link objects to be displayed on this plugin's\
-            \ project page in the form `{name: 'foo', url: 'http://example.com'}`"
+            \ project page in the form `{name: 'foo', url: 'http://example.com'}`.\
+            \ **This field is mandatory**. If you leave this field blank, you'll be\
+            \ asked to submit your plugin again."
           items:
             $ref: '#/components/schemas/links_inner_2'
           title: links
@@ -9636,7 +9697,7 @@ components:
           $ref: '#/components/schemas/logos'
         screenshots:
           description: "An array of screenshot objects in the form `{name: 'bar',\
-            \ path: 'img/screenshot.png'}`"
+            \ path: 'img/screenshot.png'}`."
           items:
             $ref: '#/components/schemas/screenshots_inner'
           title: screenshots
@@ -9741,7 +9802,7 @@ components:
       type: object
     enterpriseFeatures:
       additionalProperties: {}
-      description: Grafana Enterprise specific features
+      description: Features specific to Grafana Enterprise.
       example:
         healthDiagnosticsErrors: true
       properties:
@@ -10576,6 +10637,7 @@ components:
           action: action
           type: dashboard
           addToNav: true
+        skipDefaultQuery: true
         executable: executable
         dependencies:
           extensions:
@@ -10796,6 +10858,12 @@ components:
           description: For panel plugins. Hides the query editor.
           title: skipDataQuery
           type: boolean
+        skipDefaultQuery:
+          description: "Alpha. For panel plugins, suppress the automatic starter query\
+            \ while allowing users to add queries explicitly. If both skipDataQuery\
+            \ and skipDefaultQuery are true, skipDataQuery takes precedence."
+          title: skipDefaultQuery
+          type: boolean
         state:
           description: Describes plugins life cycle status
           enum:
@@ -10829,8 +10897,8 @@ components:
           $ref: '#/components/schemas/extensions_1'
         languages:
           description: "The list of languages supported by the plugin. Each entry\
-            \ should be a locale identifier in the format `language-COUNTRY` (for\
-            \ example `en-US`, `es-ES`, `de-DE`)."
+            \ should be a locale identifier in the format `language-COUNTRY`, for\
+            \ example `en-US`, `es-ES`, or `de-DE`."
           items:
             type: string
           title: languages
@@ -10899,6 +10967,7 @@ components:
           - azure
           - fedramp-palantir
           - gcp
+          - metal
           title: provider
           type: string
         createdAt:
@@ -11352,6 +11421,7 @@ components:
           - azure
           - fedramp-palantir
           - gcp
+          - metal
           title: provider
           type: string
         createdAt:
@@ -11464,7 +11534,7 @@ components:
       example:
         publicReason: publicReason
         accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-        ticketId: 9.369310271410669
+        ticketId: ticketId
       nullable: true
       properties:
         accessExpiresAt:
@@ -11474,7 +11544,7 @@ components:
         ticketId:
           nullable: true
           title: ticketId
-          type: number
+          type: string
         publicReason:
           nullable: true
           title: publicReason
@@ -11520,7 +11590,7 @@ components:
         grafanaStaffAccess:
           publicReason: publicReason
           accessExpiresAt: 2000-01-23T04:56:07.000+00:00
-          ticketId: 9.369310271410669
+          ticketId: ticketId
         hlUsage: 4.965218492984954
         orgUrl: orgUrl
         orgId: 3
@@ -11723,21 +11793,12 @@ components:
       - userName
       - userUsername
       type: object
-    serviceAccounts_inner:
-      example:
-        name: name
-        id: 6
-      properties:
-        id:
-          title: id
-          type: integer
-        name:
-          title: name
-          type: string
-      required:
-      - id
-      - name
-      type: object
+    CreateServiceAccountBody_isDisabled:
+      description: whether the service account is disabled
+      oneOf:
+      - type: boolean
+      - type: integer
+      - type: string
     FormattedApiApiKey_id:
       anyOf:
       - type: string

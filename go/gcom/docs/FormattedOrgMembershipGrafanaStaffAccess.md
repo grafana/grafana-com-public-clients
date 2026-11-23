@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessExpiresAt** | **time.Time** |  | 
-**TicketId** | Pointer to **NullableFloat32** |  | [optional] 
+**TicketId** | Pointer to **NullableString** |  | [optional] 
 **PublicReason** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -49,20 +49,20 @@ SetAccessExpiresAt sets AccessExpiresAt field to given value.
 
 ### GetTicketId
 
-`func (o *FormattedOrgMembershipGrafanaStaffAccess) GetTicketId() float32`
+`func (o *FormattedOrgMembershipGrafanaStaffAccess) GetTicketId() string`
 
 GetTicketId returns the TicketId field if non-nil, zero value otherwise.
 
 ### GetTicketIdOk
 
-`func (o *FormattedOrgMembershipGrafanaStaffAccess) GetTicketIdOk() (*float32, bool)`
+`func (o *FormattedOrgMembershipGrafanaStaffAccess) GetTicketIdOk() (*string, bool)`
 
 GetTicketIdOk returns a tuple with the TicketId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTicketId
 
-`func (o *FormattedOrgMembershipGrafanaStaffAccess) SetTicketId(v float32)`
+`func (o *FormattedOrgMembershipGrafanaStaffAccess) SetTicketId(v string)`
 
 SetTicketId sets TicketId field to given value.
 

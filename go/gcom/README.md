@@ -95,7 +95,7 @@ Class | Method | HTTP request | Description
 *AccesspoliciesAPI* | [**PostAccessPolicy**](docs/AccesspoliciesAPI.md#postaccesspolicy) | **Post** /v1/accesspolicies/{id} | Update an access policy
 *InstancesAPI* | [**DeleteInstance**](docs/InstancesAPI.md#deleteinstance) | **Delete** /instances/{instanceId} | Deletes an instance
 *InstancesAPI* | [**DeleteInstancePlugin**](docs/InstancesAPI.md#deleteinstanceplugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
-*InstancesAPI* | [**DeleteInstanceServiceAccount**](docs/InstancesAPI.md#deleteinstanceserviceaccount) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Delete a service account on a Grafana instance
+*InstancesAPI* | [**DeleteInstanceServiceAccount**](docs/InstancesAPI.md#deleteinstanceserviceaccount) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Deletes a service account on a Grafana instance
 *InstancesAPI* | [**DeleteInstanceServiceAccountToken**](docs/InstancesAPI.md#deleteinstanceserviceaccounttoken) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId} | Delete a service account token on a Grafana instance
 *InstancesAPI* | [**GetInstance**](docs/InstancesAPI.md#getinstance) | **Get** /instances/{instanceId} | Gets an instance
 *InstancesAPI* | [**GetInstancePlugin**](docs/InstancesAPI.md#getinstanceplugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
@@ -171,6 +171,9 @@ Class | Method | HTTP request | Description
  - [BasicPrivateConnectivityInfo](docs/BasicPrivateConnectivityInfo.md)
  - [BilledUsage](docs/BilledUsage.md)
  - [Build](docs/Build.md)
+ - [CreateServiceAccountBody](docs/CreateServiceAccountBody.md)
+ - [CreateServiceAccountBodyIsDisabled](docs/CreateServiceAccountBodyIsDisabled.md)
+ - [CreateServiceAccountTokenBody](docs/CreateServiceAccountTokenBody.md)
  - [CreditsInner](docs/CreditsInner.md)
  - [Current](docs/Current.md)
  - [Current1](docs/Current1.md)
@@ -214,9 +217,6 @@ Class | Method | HTTP request | Description
  - [GetOrgBilledUsage200Response](docs/GetOrgBilledUsage200Response.md)
  - [GetOrgStackRegions200Response](docs/GetOrgStackRegions200Response.md)
  - [GetStackRegions200Response](docs/GetStackRegions200Response.md)
- - [GrafanaNewApiKeyResult](docs/GrafanaNewApiKeyResult.md)
- - [GrafanaServiceAccountDTO](docs/GrafanaServiceAccountDTO.md)
- - [GrafanaTokenDTO](docs/GrafanaTokenDTO.md)
  - [Graphite](docs/Graphite.md)
  - [Iam](docs/Iam.md)
  - [IncludesInner](docs/IncludesInner.md)
@@ -236,6 +236,7 @@ Class | Method | HTTP request | Description
  - [MarketplaceLicenseRenewalResponse](docs/MarketplaceLicenseRenewalResponse.md)
  - [Metadata](docs/Metadata.md)
  - [Mimir](docs/Mimir.md)
+ - [NewApiKeyResult](docs/NewApiKeyResult.md)
  - [Next](docs/Next.md)
  - [OrgBilledUsageHistory](docs/OrgBilledUsageHistory.md)
  - [OrgMemberListResponse](docs/OrgMemberListResponse.md)
@@ -266,8 +267,6 @@ Class | Method | HTTP request | Description
  - [PostInstancePluginRequest](docs/PostInstancePluginRequest.md)
  - [PostInstancePluginsRequest](docs/PostInstancePluginsRequest.md)
  - [PostInstanceRequest](docs/PostInstanceRequest.md)
- - [PostInstanceServiceAccountTokensRequest](docs/PostInstanceServiceAccountTokensRequest.md)
- - [PostInstanceServiceAccountsRequest](docs/PostInstanceServiceAccountsRequest.md)
  - [PostInstancesRequest](docs/PostInstancesRequest.md)
  - [PostOrgMemberRequest](docs/PostOrgMemberRequest.md)
  - [PostOrgMembersRequest](docs/PostOrgMembersRequest.md)
@@ -283,8 +282,9 @@ Class | Method | HTTP request | Description
  - [RoutesInner](docs/RoutesInner.md)
  - [ScopesInner](docs/ScopesInner.md)
  - [ScreenshotsInner](docs/ScreenshotsInner.md)
+ - [ServiceAccountDTO](docs/ServiceAccountDTO.md)
+ - [ServiceAccountProfileDTO](docs/ServiceAccountProfileDTO.md)
  - [ServiceAccountSearchResponse](docs/ServiceAccountSearchResponse.md)
- - [ServiceAccountsInner](docs/ServiceAccountsInner.md)
  - [SetsInner](docs/SetsInner.md)
  - [StackCheckReadinessV1](docs/StackCheckReadinessV1.md)
  - [StackCheckRequestV1](docs/StackCheckRequestV1.md)
@@ -304,6 +304,7 @@ Class | Method | HTTP request | Description
  - [SubscriptionsAnyOf1](docs/SubscriptionsAnyOf1.md)
  - [SubscriptionsAnyOf2](docs/SubscriptionsAnyOf2.md)
  - [TokenAuth](docs/TokenAuth.md)
+ - [TokenDTO](docs/TokenDTO.md)
  - [UpdateOrgSettingsRequest](docs/UpdateOrgSettingsRequest.md)
  - [UrlParamsInner](docs/UrlParamsInner.md)
  - [UsagesInner](docs/UsagesInner.md)

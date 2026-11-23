@@ -17,7 +17,7 @@ import (
 // checks if the Build type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &Build{}
 
-// Build Build information
+// Build Build information.
 type Build struct {
 	// Time when the plugin was built, as a Unix timestamp.
 	Time *float32 `json:"time,omitempty"`

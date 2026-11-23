@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteInstance**](InstancesAPI.md#DeleteInstance) | **Delete** /instances/{instanceId} | Deletes an instance
 [**DeleteInstancePlugin**](InstancesAPI.md#DeleteInstancePlugin) | **Delete** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
-[**DeleteInstanceServiceAccount**](InstancesAPI.md#DeleteInstanceServiceAccount) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Delete a service account on a Grafana instance
+[**DeleteInstanceServiceAccount**](InstancesAPI.md#DeleteInstanceServiceAccount) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId} | Deletes a service account on a Grafana instance
 [**DeleteInstanceServiceAccountToken**](InstancesAPI.md#DeleteInstanceServiceAccountToken) | **Delete** /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId} | Delete a service account token on a Grafana instance
 [**GetInstance**](InstancesAPI.md#GetInstance) | **Get** /instances/{instanceId} | Gets an instance
 [**GetInstancePlugin**](InstancesAPI.md#GetInstancePlugin) | **Get** /instances/{instanceId}/plugins/{pluginSlugOrId} | 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 > DeleteInstanceServiceAccount(ctx, instanceId, serviceAccountId).XRequestId(xRequestId).Execute()
 
-Delete a service account on a Grafana instance
+Deletes a service account on a Grafana instance
 
 ### Example
 
@@ -190,9 +190,9 @@ import (
 )
 
 func main() {
-	instanceId := "instanceId_example" // string | 
-	serviceAccountId := "serviceAccountId_example" // string | 
-	xRequestId := "xRequestId_example" // string | 
+	instanceId := "instanceId_example" // string | id or slug of the instance
+	serviceAccountId := "serviceAccountId_example" // string | id of the service account
+	xRequestId := "xRequestId_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -210,8 +210,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceId** | **string** |  | 
-**serviceAccountId** | **string** |  | 
+**instanceId** | **string** | id or slug of the instance | 
+**serviceAccountId** | **string** | id of the service account | 
 
 ### Other Parameters
 
@@ -261,10 +261,10 @@ import (
 )
 
 func main() {
-	instanceId := "instanceId_example" // string | 
-	serviceAccountId := "serviceAccountId_example" // string | 
-	tokenId := "tokenId_example" // string | 
-	xRequestId := "xRequestId_example" // string | 
+	instanceId := "instanceId_example" // string | id or slug of the instance
+	serviceAccountId := "serviceAccountId_example" // string | id of the service account
+	tokenId := "tokenId_example" // string | id of the service account token
+	xRequestId := "xRequestId_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -282,9 +282,9 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceId** | **string** |  | 
-**serviceAccountId** | **string** |  | 
-**tokenId** | **string** |  | 
+**instanceId** | **string** | id or slug of the instance | 
+**serviceAccountId** | **string** | id of the service account | 
+**tokenId** | **string** | id of the service account token | 
 
 ### Other Parameters
 
@@ -599,7 +599,7 @@ Name | Type | Description  | Notes
 
 ## GetInstanceServiceAccount
 
-> GrafanaServiceAccountDTO GetInstanceServiceAccount(ctx, instanceId, serviceAccountId).Execute()
+> ServiceAccountProfileDTO GetInstanceServiceAccount(ctx, instanceId, serviceAccountId).Execute()
 
 Gets a service account on a Grafana instance
 
@@ -616,8 +616,8 @@ import (
 )
 
 func main() {
-	instanceId := "instanceId_example" // string | 
-	serviceAccountId := "serviceAccountId_example" // string | 
+	instanceId := "instanceId_example" // string | id or slug of the instance
+	serviceAccountId := "serviceAccountId_example" // string | id of the service account
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -626,7 +626,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstanceServiceAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetInstanceServiceAccount`: GrafanaServiceAccountDTO
+	// response from `GetInstanceServiceAccount`: ServiceAccountProfileDTO
 	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.GetInstanceServiceAccount`: %v\n", resp)
 }
 ```
@@ -637,8 +637,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceId** | **string** |  | 
-**serviceAccountId** | **string** |  | 
+**instanceId** | **string** | id or slug of the instance | 
+**serviceAccountId** | **string** | id of the service account | 
 
 ### Other Parameters
 
@@ -652,7 +652,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GrafanaServiceAccountDTO**](GrafanaServiceAccountDTO.md)
+[**ServiceAccountProfileDTO**](ServiceAccountProfileDTO.md)
 
 ### Authorization
 
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 ## GetInstanceServiceAccountTokens
 
-> []GrafanaTokenDTO GetInstanceServiceAccountTokens(ctx, instanceId, serviceAccountId).Execute()
+> []TokenDTO GetInstanceServiceAccountTokens(ctx, instanceId, serviceAccountId).Execute()
 
 Get a service account's tokens on a Grafana instance
 
@@ -687,8 +687,8 @@ import (
 )
 
 func main() {
-	instanceId := "instanceId_example" // string | 
-	serviceAccountId := "serviceAccountId_example" // string | 
+	instanceId := "instanceId_example" // string | id or slug of the instance
+	serviceAccountId := "serviceAccountId_example" // string | id of the service account
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -697,7 +697,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstanceServiceAccountTokens``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetInstanceServiceAccountTokens`: []GrafanaTokenDTO
+	// response from `GetInstanceServiceAccountTokens`: []TokenDTO
 	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.GetInstanceServiceAccountTokens`: %v\n", resp)
 }
 ```
@@ -708,8 +708,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceId** | **string** |  | 
-**serviceAccountId** | **string** |  | 
+**instanceId** | **string** | id or slug of the instance | 
+**serviceAccountId** | **string** | id of the service account | 
 
 ### Other Parameters
 
@@ -723,7 +723,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]GrafanaTokenDTO**](GrafanaTokenDTO.md)
+[**[]TokenDTO**](TokenDTO.md)
 
 ### Authorization
 
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 
 ## GetInstanceServiceAccountsSearch
 
-> ServiceAccountSearchResponse GetInstanceServiceAccountsSearch(ctx, instanceId).Page(page).Perpage(perpage).Query(query).Execute()
+> ServiceAccountSearchResponse GetInstanceServiceAccountsSearch(ctx, instanceId).Perpage(perpage).Page(page).Query(query).Execute()
 
 Search service accounts on a Grafana instance with paging
 
@@ -758,14 +758,14 @@ import (
 )
 
 func main() {
-	instanceId := "instanceId_example" // string | 
-	page := int32(56) // int32 |  (optional)
-	perpage := int32(56) // int32 |  (optional)
-	query := "query_example" // string |  (optional)
+	instanceId := "instanceId_example" // string | id or slug of the instance
+	perpage := int64(789) // int64 | number of service accounts per page (optional)
+	page := int64(789) // int64 | page number to return (optional)
+	query := "query_example" // string | filter by service account name or login (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.GetInstanceServiceAccountsSearch(context.Background(), instanceId).Page(page).Perpage(perpage).Query(query).Execute()
+	resp, r, err := apiClient.InstancesAPI.GetInstanceServiceAccountsSearch(context.Background(), instanceId).Perpage(perpage).Page(page).Query(query).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.GetInstanceServiceAccountsSearch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -781,7 +781,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceId** | **string** |  | 
+**instanceId** | **string** | id or slug of the instance | 
 
 ### Other Parameters
 
@@ -791,9 +791,9 @@ Other parameters are passed through a pointer to a apiGetInstanceServiceAccounts
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **page** | **int32** |  | 
- **perpage** | **int32** |  | 
- **query** | **string** |  | 
+ **perpage** | **int64** | number of service accounts per page | 
+ **page** | **int64** | page number to return | 
+ **query** | **string** | filter by service account name or login | 
 
 ### Return type
 
@@ -1239,7 +1239,7 @@ Name | Type | Description  | Notes
 
 ## PostInstanceServiceAccountTokens
 
-> GrafanaNewApiKeyResult PostInstanceServiceAccountTokens(ctx, instanceId, serviceAccountId).XRequestId(xRequestId).PostInstanceServiceAccountTokensRequest(postInstanceServiceAccountTokensRequest).Execute()
+> NewApiKeyResult PostInstanceServiceAccountTokens(ctx, instanceId, serviceAccountId).CreateServiceAccountTokenBody(createServiceAccountTokenBody).XRequestId(xRequestId).Execute()
 
 Creates a service account token on a Grafana instance
 
@@ -1256,19 +1256,19 @@ import (
 )
 
 func main() {
-	instanceId := "instanceId_example" // string | 
-	serviceAccountId := "serviceAccountId_example" // string | 
-	xRequestId := "xRequestId_example" // string | 
-	postInstanceServiceAccountTokensRequest := *openapiclient.NewPostInstanceServiceAccountTokensRequest("Name_example") // PostInstanceServiceAccountTokensRequest | 
+	instanceId := "instanceId_example" // string | id or slug of the instance
+	serviceAccountId := "serviceAccountId_example" // string | id of the service account
+	createServiceAccountTokenBody := *openapiclient.NewCreateServiceAccountTokenBody("Name_example") // CreateServiceAccountTokenBody | 
+	xRequestId := "xRequestId_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.PostInstanceServiceAccountTokens(context.Background(), instanceId, serviceAccountId).XRequestId(xRequestId).PostInstanceServiceAccountTokensRequest(postInstanceServiceAccountTokensRequest).Execute()
+	resp, r, err := apiClient.InstancesAPI.PostInstanceServiceAccountTokens(context.Background(), instanceId, serviceAccountId).CreateServiceAccountTokenBody(createServiceAccountTokenBody).XRequestId(xRequestId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstanceServiceAccountTokens``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostInstanceServiceAccountTokens`: GrafanaNewApiKeyResult
+	// response from `PostInstanceServiceAccountTokens`: NewApiKeyResult
 	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstanceServiceAccountTokens`: %v\n", resp)
 }
 ```
@@ -1279,8 +1279,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceId** | **string** |  | 
-**serviceAccountId** | **string** |  | 
+**instanceId** | **string** | id or slug of the instance | 
+**serviceAccountId** | **string** | id of the service account | 
 
 ### Other Parameters
 
@@ -1291,12 +1291,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **createServiceAccountTokenBody** | [**CreateServiceAccountTokenBody**](CreateServiceAccountTokenBody.md) |  | 
  **xRequestId** | **string** |  | 
- **postInstanceServiceAccountTokensRequest** | [**PostInstanceServiceAccountTokensRequest**](PostInstanceServiceAccountTokensRequest.md) |  | 
 
 ### Return type
 
-[**GrafanaNewApiKeyResult**](GrafanaNewApiKeyResult.md)
+[**NewApiKeyResult**](NewApiKeyResult.md)
 
 ### Authorization
 
@@ -1314,7 +1314,7 @@ Name | Type | Description  | Notes
 
 ## PostInstanceServiceAccounts
 
-> GrafanaServiceAccountDTO PostInstanceServiceAccounts(ctx, instanceId).XRequestId(xRequestId).PostInstanceServiceAccountsRequest(postInstanceServiceAccountsRequest).Execute()
+> ServiceAccountDTO PostInstanceServiceAccounts(ctx, instanceId).CreateServiceAccountBody(createServiceAccountBody).XRequestId(xRequestId).Execute()
 
 Creates a service account on a Grafana instance
 
@@ -1331,18 +1331,18 @@ import (
 )
 
 func main() {
-	instanceId := "instanceId_example" // string | 
-	xRequestId := "xRequestId_example" // string | 
-	postInstanceServiceAccountsRequest := *openapiclient.NewPostInstanceServiceAccountsRequest("Name_example", "Role_example") // PostInstanceServiceAccountsRequest | 
+	instanceId := "instanceId_example" // string | id or slug of the instance
+	createServiceAccountBody := *openapiclient.NewCreateServiceAccountBody("Name_example", "Role_example") // CreateServiceAccountBody | 
+	xRequestId := "xRequestId_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.InstancesAPI.PostInstanceServiceAccounts(context.Background(), instanceId).XRequestId(xRequestId).PostInstanceServiceAccountsRequest(postInstanceServiceAccountsRequest).Execute()
+	resp, r, err := apiClient.InstancesAPI.PostInstanceServiceAccounts(context.Background(), instanceId).CreateServiceAccountBody(createServiceAccountBody).XRequestId(xRequestId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `InstancesAPI.PostInstanceServiceAccounts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PostInstanceServiceAccounts`: GrafanaServiceAccountDTO
+	// response from `PostInstanceServiceAccounts`: ServiceAccountDTO
 	fmt.Fprintf(os.Stdout, "Response from `InstancesAPI.PostInstanceServiceAccounts`: %v\n", resp)
 }
 ```
@@ -1353,7 +1353,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceId** | **string** |  | 
+**instanceId** | **string** | id or slug of the instance | 
 
 ### Other Parameters
 
@@ -1363,12 +1363,12 @@ Other parameters are passed through a pointer to a apiPostInstanceServiceAccount
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **createServiceAccountBody** | [**CreateServiceAccountBody**](CreateServiceAccountBody.md) |  | 
  **xRequestId** | **string** |  | 
- **postInstanceServiceAccountsRequest** | [**PostInstanceServiceAccountsRequest**](PostInstanceServiceAccountsRequest.md) |  | 
 
 ### Return type
 
-[**GrafanaServiceAccountDTO**](GrafanaServiceAccountDTO.md)
+[**ServiceAccountDTO**](ServiceAccountDTO.md)
 
 ### Authorization
 

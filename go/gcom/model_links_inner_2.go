@@ -19,7 +19,7 @@ var _ MappedNullable = &LinksInner2{}
 
 // LinksInner2 struct for LinksInner2
 type LinksInner2 struct {
-	// Display name of the link. Special names with predefined behavior: <br/>• `documentation` - sets Documentation link on plugins detail page<br/>• `repository` - used to determine and link to repository of the plugin<br/>• `license` - sets License link on plugins detail page<br/>• `raise issue` - sets `Raise an Issue` link on plugins detail page<br/>• `sponsorship` - sets `Sponsor this developer` link on plugins detail page to direct users to how they can support your work
+	// Display name of the link. Special names with predefined behavior: <br/>• `documentation` - sets Documentation link on plugins detail page<br/>• `repository` - used to determine and link to repository of the plugin<br/>• `license` - sets License link on plugins detail page. **Required for marketplace plugins**<br/>• `privacy` - sets Privacy link on plugins detail page. **Required for marketplace plugins**<br/>• `raise issue` - sets `Raise an Issue` link on plugins detail page<br/>• `sponsorship` - sets `Sponsor this developer` link on plugins detail page to direct users to how they can support your work
 	Name *string `json:"name,omitempty"`
 	// URL value to use for this specific link.
 	Url *string `json:"url,omitempty"`

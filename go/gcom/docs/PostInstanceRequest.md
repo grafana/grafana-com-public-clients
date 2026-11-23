@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **DeleteProtection** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Graphite** | Pointer to **bool** |  | [optional] 
-**HlInstanceId** | Pointer to **int32** |  | [optional] 
 **IssueLink** | Pointer to **string** |  | [optional] 
 **K6OrgId** | Pointer to **NullableInt32** |  | [optional] 
 **Labels** | Pointer to **map[string]string** |  | [optional] 
@@ -140,31 +139,6 @@ SetGraphite sets Graphite field to given value.
 `func (o *PostInstanceRequest) HasGraphite() bool`
 
 HasGraphite returns a boolean if a field has been set.
-
-### GetHlInstanceId
-
-`func (o *PostInstanceRequest) GetHlInstanceId() int32`
-
-GetHlInstanceId returns the HlInstanceId field if non-nil, zero value otherwise.
-
-### GetHlInstanceIdOk
-
-`func (o *PostInstanceRequest) GetHlInstanceIdOk() (*int32, bool)`
-
-GetHlInstanceIdOk returns a tuple with the HlInstanceId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHlInstanceId
-
-`func (o *PostInstanceRequest) SetHlInstanceId(v int32)`
-
-SetHlInstanceId sets HlInstanceId field to given value.
-
-### HasHlInstanceId
-
-`func (o *PostInstanceRequest) HasHlInstanceId() bool`
-
-HasHlInstanceId returns a boolean if a field has been set.
 
 ### GetIssueLink
 

@@ -39,6 +39,9 @@ docs/Author.md
 docs/BasicPrivateConnectivityInfo.md
 docs/BilledUsage.md
 docs/Build.md
+docs/CreateServiceAccountBody.md
+docs/CreateServiceAccountBodyIsDisabled.md
+docs/CreateServiceAccountTokenBody.md
 docs/CreditsInner.md
 docs/Current.md
 docs/Current1.md
@@ -82,9 +85,6 @@ docs/GetInstances200Response.md
 docs/GetOrgBilledUsage200Response.md
 docs/GetOrgStackRegions200Response.md
 docs/GetStackRegions200Response.md
-docs/GrafanaNewApiKeyResult.md
-docs/GrafanaServiceAccountDTO.md
-docs/GrafanaTokenDTO.md
 docs/Graphite.md
 docs/Iam.md
 docs/IncludesInner.md
@@ -105,6 +105,7 @@ docs/Managed.md
 docs/MarketplaceLicenseRenewalResponse.md
 docs/Metadata.md
 docs/Mimir.md
+docs/NewApiKeyResult.md
 docs/Next.md
 docs/OrgBilledUsageHistory.md
 docs/OrgMemberListResponse.md
@@ -139,8 +140,6 @@ docs/PostAccessPolicyRequest.md
 docs/PostInstancePluginRequest.md
 docs/PostInstancePluginsRequest.md
 docs/PostInstanceRequest.md
-docs/PostInstanceServiceAccountTokensRequest.md
-docs/PostInstanceServiceAccountsRequest.md
 docs/PostInstancesRequest.md
 docs/PostOrgMemberRequest.md
 docs/PostOrgMembersRequest.md
@@ -156,8 +155,9 @@ docs/RolesInner.md
 docs/RoutesInner.md
 docs/ScopesInner.md
 docs/ScreenshotsInner.md
+docs/ServiceAccountDTO.md
+docs/ServiceAccountProfileDTO.md
 docs/ServiceAccountSearchResponse.md
-docs/ServiceAccountsInner.md
 docs/SetsInner.md
 docs/StackCheckReadinessV1.md
 docs/StackCheckRequestV1.md
@@ -179,6 +179,7 @@ docs/SubscriptionsAnyOf.md
 docs/SubscriptionsAnyOf1.md
 docs/SubscriptionsAnyOf2.md
 docs/TokenAuth.md
+docs/TokenDTO.md
 docs/TokensAPI.md
 docs/UpdateOrgSettingsRequest.md
 docs/UrlParamsInner.md
@@ -210,6 +211,9 @@ model_author.go
 model_basic_private_connectivity_info.go
 model_billed_usage.go
 model_build.go
+model_create_service_account_body.go
+model_create_service_account_body_is_disabled.go
+model_create_service_account_token_body.go
 model_credits_inner.go
 model_current.go
 model_current_1.go
@@ -253,9 +257,6 @@ model_get_instances_200_response.go
 model_get_org_billed_usage_200_response.go
 model_get_org_stack_regions_200_response.go
 model_get_stack_regions_200_response.go
-model_grafana_new_api_key_result.go
-model_grafana_service_account_dto.go
-model_grafana_token_dto.go
 model_graphite.go
 model_iam.go
 model_includes_inner.go
@@ -275,6 +276,7 @@ model_managed.go
 model_marketplace_license_renewal_response.go
 model_metadata.go
 model_mimir.go
+model_new_api_key_result.go
 model_next.go
 model_org_billed_usage_history.go
 model_org_member_list_response.go
@@ -305,8 +307,6 @@ model_post_access_policy_request.go
 model_post_instance_plugin_request.go
 model_post_instance_plugins_request.go
 model_post_instance_request.go
-model_post_instance_service_account_tokens_request.go
-model_post_instance_service_accounts_request.go
 model_post_instances_request.go
 model_post_org_member_request.go
 model_post_org_members_request.go
@@ -322,8 +322,9 @@ model_roles_inner.go
 model_routes_inner.go
 model_scopes_inner.go
 model_screenshots_inner.go
+model_service_account_dto.go
+model_service_account_profile_dto.go
 model_service_account_search_response.go
-model_service_accounts_inner.go
 model_sets_inner.go
 model_stack_check_readiness_v1.go
 model_stack_check_request_v1.go
@@ -343,6 +344,7 @@ model_subscriptions_any_of.go
 model_subscriptions_any_of_1.go
 model_subscriptions_any_of_2.go
 model_token_auth.go
+model_token_dto.go
 model_update_org_settings_request.go
 model_url_params_inner.go
 model_usages_inner.go

@@ -1,6 +1,6 @@
 module github.com/grafana/grafana-com-public-clients/go/gcom
 
-go 1.26.3
+go 1.27.3
 
 require (
 	github.com/stretchr/testify v1.12.1
