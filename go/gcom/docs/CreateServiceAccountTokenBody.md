@@ -1,73 +1,73 @@
-# PostInstanceServiceAccountTokensRequest
+# CreateServiceAccountTokenBody
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**SecondsToLive** | Pointer to **int32** |  | [optional] 
+**Name** | **string** | service account token name | 
+**SecondsToLive** | Pointer to **int64** | seconds until expiry; omit for no expiry | [optional] 
 
 ## Methods
 
-### NewPostInstanceServiceAccountTokensRequest
+### NewCreateServiceAccountTokenBody
 
-`func NewPostInstanceServiceAccountTokensRequest(name string, ) *PostInstanceServiceAccountTokensRequest`
+`func NewCreateServiceAccountTokenBody(name string, ) *CreateServiceAccountTokenBody`
 
-NewPostInstanceServiceAccountTokensRequest instantiates a new PostInstanceServiceAccountTokensRequest object
+NewCreateServiceAccountTokenBody instantiates a new CreateServiceAccountTokenBody object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewPostInstanceServiceAccountTokensRequestWithDefaults
+### NewCreateServiceAccountTokenBodyWithDefaults
 
-`func NewPostInstanceServiceAccountTokensRequestWithDefaults() *PostInstanceServiceAccountTokensRequest`
+`func NewCreateServiceAccountTokenBodyWithDefaults() *CreateServiceAccountTokenBody`
 
-NewPostInstanceServiceAccountTokensRequestWithDefaults instantiates a new PostInstanceServiceAccountTokensRequest object
+NewCreateServiceAccountTokenBodyWithDefaults instantiates a new CreateServiceAccountTokenBody object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetName
 
-`func (o *PostInstanceServiceAccountTokensRequest) GetName() string`
+`func (o *CreateServiceAccountTokenBody) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *PostInstanceServiceAccountTokensRequest) GetNameOk() (*string, bool)`
+`func (o *CreateServiceAccountTokenBody) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *PostInstanceServiceAccountTokensRequest) SetName(v string)`
+`func (o *CreateServiceAccountTokenBody) SetName(v string)`
 
 SetName sets Name field to given value.
 
 
 ### GetSecondsToLive
 
-`func (o *PostInstanceServiceAccountTokensRequest) GetSecondsToLive() int32`
+`func (o *CreateServiceAccountTokenBody) GetSecondsToLive() int64`
 
 GetSecondsToLive returns the SecondsToLive field if non-nil, zero value otherwise.
 
 ### GetSecondsToLiveOk
 
-`func (o *PostInstanceServiceAccountTokensRequest) GetSecondsToLiveOk() (*int32, bool)`
+`func (o *CreateServiceAccountTokenBody) GetSecondsToLiveOk() (*int64, bool)`
 
 GetSecondsToLiveOk returns a tuple with the SecondsToLive field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSecondsToLive
 
-`func (o *PostInstanceServiceAccountTokensRequest) SetSecondsToLive(v int32)`
+`func (o *CreateServiceAccountTokenBody) SetSecondsToLive(v int64)`
 
 SetSecondsToLive sets SecondsToLive field to given value.
 
 ### HasSecondsToLive
 
-`func (o *PostInstanceServiceAccountTokensRequest) HasSecondsToLive() bool`
+`func (o *CreateServiceAccountTokenBody) HasSecondsToLive() bool`
 
 HasSecondsToLive returns a boolean if a field has been set.
 

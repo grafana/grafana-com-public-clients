@@ -20,13 +20,21 @@ var _ MappedNullable = &PostInstancesRequest{}
 // PostInstancesRequest struct for PostInstancesRequest
 type PostInstancesRequest struct {
 	AdminUserInstance    *bool              `json:"adminUserInstance,omitempty"`
+	AgmCluster           *string            `json:"agmCluster,omitempty"`
 	Alerts               *bool              `json:"alerts,omitempty"`
+	AmCluster            *string            `json:"amCluster,omitempty"`
 	Cluster              *string            `json:"cluster,omitempty"`
 	DeleteProtection     *bool              `json:"deleteProtection,omitempty"`
 	Description          *string            `json:"description,omitempty"`
+	EventsCluster        *string            `json:"eventsCluster,omitempty"`
+	GrafanaSqlCluster    *string            `json:"grafanaSqlCluster,omitempty"`
 	Graphite             *bool              `json:"graphite,omitempty"`
-	HlInstanceId         *int32             `json:"hlInstanceId,omitempty"`
+	HlCluster            *string            `json:"hlCluster,omitempty"`
+	HmGraphiteCluster    *string            `json:"hmGraphiteCluster,omitempty"`
+	HmPromCluster        *string            `json:"hmPromCluster,omitempty"`
 	Hosted               *bool              `json:"hosted,omitempty"`
+	HpCluster            *string            `json:"hpCluster,omitempty"`
+	HtCluster            *string            `json:"htCluster,omitempty"`
 	IssueLink            *string            `json:"issueLink,omitempty"`
 	K6OrgId              *int32             `json:"k6OrgId,omitempty"`
 	Labels               *map[string]string `json:"labels,omitempty"`
@@ -112,6 +120,38 @@ func (o *PostInstancesRequest) SetAdminUserInstance(v bool) {
 	o.AdminUserInstance = &v
 }
 
+// GetAgmCluster returns the AgmCluster field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetAgmCluster() string {
+	if o == nil || IsNil(o.AgmCluster) {
+		var ret string
+		return ret
+	}
+	return *o.AgmCluster
+}
+
+// GetAgmClusterOk returns a tuple with the AgmCluster field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetAgmClusterOk() (*string, bool) {
+	if o == nil || IsNil(o.AgmCluster) {
+		return nil, false
+	}
+	return o.AgmCluster, true
+}
+
+// HasAgmCluster returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasAgmCluster() bool {
+	if o != nil && !IsNil(o.AgmCluster) {
+		return true
+	}
+
+	return false
+}
+
+// SetAgmCluster gets a reference to the given string and assigns it to the AgmCluster field.
+func (o *PostInstancesRequest) SetAgmCluster(v string) {
+	o.AgmCluster = &v
+}
+
 // GetAlerts returns the Alerts field value if set, zero value otherwise.
 func (o *PostInstancesRequest) GetAlerts() bool {
 	if o == nil || IsNil(o.Alerts) {
@@ -142,6 +182,38 @@ func (o *PostInstancesRequest) HasAlerts() bool {
 // SetAlerts gets a reference to the given bool and assigns it to the Alerts field.
 func (o *PostInstancesRequest) SetAlerts(v bool) {
 	o.Alerts = &v
+}
+
+// GetAmCluster returns the AmCluster field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetAmCluster() string {
+	if o == nil || IsNil(o.AmCluster) {
+		var ret string
+		return ret
+	}
+	return *o.AmCluster
+}
+
+// GetAmClusterOk returns a tuple with the AmCluster field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetAmClusterOk() (*string, bool) {
+	if o == nil || IsNil(o.AmCluster) {
+		return nil, false
+	}
+	return o.AmCluster, true
+}
+
+// HasAmCluster returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasAmCluster() bool {
+	if o != nil && !IsNil(o.AmCluster) {
+		return true
+	}
+
+	return false
+}
+
+// SetAmCluster gets a reference to the given string and assigns it to the AmCluster field.
+func (o *PostInstancesRequest) SetAmCluster(v string) {
+	o.AmCluster = &v
 }
 
 // GetCluster returns the Cluster field value if set, zero value otherwise.
@@ -240,6 +312,70 @@ func (o *PostInstancesRequest) SetDescription(v string) {
 	o.Description = &v
 }
 
+// GetEventsCluster returns the EventsCluster field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetEventsCluster() string {
+	if o == nil || IsNil(o.EventsCluster) {
+		var ret string
+		return ret
+	}
+	return *o.EventsCluster
+}
+
+// GetEventsClusterOk returns a tuple with the EventsCluster field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetEventsClusterOk() (*string, bool) {
+	if o == nil || IsNil(o.EventsCluster) {
+		return nil, false
+	}
+	return o.EventsCluster, true
+}
+
+// HasEventsCluster returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasEventsCluster() bool {
+	if o != nil && !IsNil(o.EventsCluster) {
+		return true
+	}
+
+	return false
+}
+
+// SetEventsCluster gets a reference to the given string and assigns it to the EventsCluster field.
+func (o *PostInstancesRequest) SetEventsCluster(v string) {
+	o.EventsCluster = &v
+}
+
+// GetGrafanaSqlCluster returns the GrafanaSqlCluster field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetGrafanaSqlCluster() string {
+	if o == nil || IsNil(o.GrafanaSqlCluster) {
+		var ret string
+		return ret
+	}
+	return *o.GrafanaSqlCluster
+}
+
+// GetGrafanaSqlClusterOk returns a tuple with the GrafanaSqlCluster field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetGrafanaSqlClusterOk() (*string, bool) {
+	if o == nil || IsNil(o.GrafanaSqlCluster) {
+		return nil, false
+	}
+	return o.GrafanaSqlCluster, true
+}
+
+// HasGrafanaSqlCluster returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasGrafanaSqlCluster() bool {
+	if o != nil && !IsNil(o.GrafanaSqlCluster) {
+		return true
+	}
+
+	return false
+}
+
+// SetGrafanaSqlCluster gets a reference to the given string and assigns it to the GrafanaSqlCluster field.
+func (o *PostInstancesRequest) SetGrafanaSqlCluster(v string) {
+	o.GrafanaSqlCluster = &v
+}
+
 // GetGraphite returns the Graphite field value if set, zero value otherwise.
 func (o *PostInstancesRequest) GetGraphite() bool {
 	if o == nil || IsNil(o.Graphite) {
@@ -272,36 +408,100 @@ func (o *PostInstancesRequest) SetGraphite(v bool) {
 	o.Graphite = &v
 }
 
-// GetHlInstanceId returns the HlInstanceId field value if set, zero value otherwise.
-func (o *PostInstancesRequest) GetHlInstanceId() int32 {
-	if o == nil || IsNil(o.HlInstanceId) {
-		var ret int32
+// GetHlCluster returns the HlCluster field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetHlCluster() string {
+	if o == nil || IsNil(o.HlCluster) {
+		var ret string
 		return ret
 	}
-	return *o.HlInstanceId
+	return *o.HlCluster
 }
 
-// GetHlInstanceIdOk returns a tuple with the HlInstanceId field value if set, nil otherwise
+// GetHlClusterOk returns a tuple with the HlCluster field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostInstancesRequest) GetHlInstanceIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.HlInstanceId) {
+func (o *PostInstancesRequest) GetHlClusterOk() (*string, bool) {
+	if o == nil || IsNil(o.HlCluster) {
 		return nil, false
 	}
-	return o.HlInstanceId, true
+	return o.HlCluster, true
 }
 
-// HasHlInstanceId returns a boolean if a field has been set.
-func (o *PostInstancesRequest) HasHlInstanceId() bool {
-	if o != nil && !IsNil(o.HlInstanceId) {
+// HasHlCluster returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasHlCluster() bool {
+	if o != nil && !IsNil(o.HlCluster) {
 		return true
 	}
 
 	return false
 }
 
-// SetHlInstanceId gets a reference to the given int32 and assigns it to the HlInstanceId field.
-func (o *PostInstancesRequest) SetHlInstanceId(v int32) {
-	o.HlInstanceId = &v
+// SetHlCluster gets a reference to the given string and assigns it to the HlCluster field.
+func (o *PostInstancesRequest) SetHlCluster(v string) {
+	o.HlCluster = &v
+}
+
+// GetHmGraphiteCluster returns the HmGraphiteCluster field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetHmGraphiteCluster() string {
+	if o == nil || IsNil(o.HmGraphiteCluster) {
+		var ret string
+		return ret
+	}
+	return *o.HmGraphiteCluster
+}
+
+// GetHmGraphiteClusterOk returns a tuple with the HmGraphiteCluster field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetHmGraphiteClusterOk() (*string, bool) {
+	if o == nil || IsNil(o.HmGraphiteCluster) {
+		return nil, false
+	}
+	return o.HmGraphiteCluster, true
+}
+
+// HasHmGraphiteCluster returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasHmGraphiteCluster() bool {
+	if o != nil && !IsNil(o.HmGraphiteCluster) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmGraphiteCluster gets a reference to the given string and assigns it to the HmGraphiteCluster field.
+func (o *PostInstancesRequest) SetHmGraphiteCluster(v string) {
+	o.HmGraphiteCluster = &v
+}
+
+// GetHmPromCluster returns the HmPromCluster field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetHmPromCluster() string {
+	if o == nil || IsNil(o.HmPromCluster) {
+		var ret string
+		return ret
+	}
+	return *o.HmPromCluster
+}
+
+// GetHmPromClusterOk returns a tuple with the HmPromCluster field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetHmPromClusterOk() (*string, bool) {
+	if o == nil || IsNil(o.HmPromCluster) {
+		return nil, false
+	}
+	return o.HmPromCluster, true
+}
+
+// HasHmPromCluster returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasHmPromCluster() bool {
+	if o != nil && !IsNil(o.HmPromCluster) {
+		return true
+	}
+
+	return false
+}
+
+// SetHmPromCluster gets a reference to the given string and assigns it to the HmPromCluster field.
+func (o *PostInstancesRequest) SetHmPromCluster(v string) {
+	o.HmPromCluster = &v
 }
 
 // GetHosted returns the Hosted field value if set, zero value otherwise.
@@ -334,6 +534,70 @@ func (o *PostInstancesRequest) HasHosted() bool {
 // SetHosted gets a reference to the given bool and assigns it to the Hosted field.
 func (o *PostInstancesRequest) SetHosted(v bool) {
 	o.Hosted = &v
+}
+
+// GetHpCluster returns the HpCluster field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetHpCluster() string {
+	if o == nil || IsNil(o.HpCluster) {
+		var ret string
+		return ret
+	}
+	return *o.HpCluster
+}
+
+// GetHpClusterOk returns a tuple with the HpCluster field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetHpClusterOk() (*string, bool) {
+	if o == nil || IsNil(o.HpCluster) {
+		return nil, false
+	}
+	return o.HpCluster, true
+}
+
+// HasHpCluster returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasHpCluster() bool {
+	if o != nil && !IsNil(o.HpCluster) {
+		return true
+	}
+
+	return false
+}
+
+// SetHpCluster gets a reference to the given string and assigns it to the HpCluster field.
+func (o *PostInstancesRequest) SetHpCluster(v string) {
+	o.HpCluster = &v
+}
+
+// GetHtCluster returns the HtCluster field value if set, zero value otherwise.
+func (o *PostInstancesRequest) GetHtCluster() string {
+	if o == nil || IsNil(o.HtCluster) {
+		var ret string
+		return ret
+	}
+	return *o.HtCluster
+}
+
+// GetHtClusterOk returns a tuple with the HtCluster field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostInstancesRequest) GetHtClusterOk() (*string, bool) {
+	if o == nil || IsNil(o.HtCluster) {
+		return nil, false
+	}
+	return o.HtCluster, true
+}
+
+// HasHtCluster returns a boolean if a field has been set.
+func (o *PostInstancesRequest) HasHtCluster() bool {
+	if o != nil && !IsNil(o.HtCluster) {
+		return true
+	}
+
+	return false
+}
+
+// SetHtCluster gets a reference to the given string and assigns it to the HtCluster field.
+func (o *PostInstancesRequest) SetHtCluster(v string) {
+	o.HtCluster = &v
 }
 
 // GetIssueLink returns the IssueLink field value if set, zero value otherwise.
@@ -917,8 +1181,14 @@ func (o PostInstancesRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AdminUserInstance) {
 		toSerialize["adminUserInstance"] = o.AdminUserInstance
 	}
+	if !IsNil(o.AgmCluster) {
+		toSerialize["agmCluster"] = o.AgmCluster
+	}
 	if !IsNil(o.Alerts) {
 		toSerialize["alerts"] = o.Alerts
+	}
+	if !IsNil(o.AmCluster) {
+		toSerialize["amCluster"] = o.AmCluster
 	}
 	if !IsNil(o.Cluster) {
 		toSerialize["cluster"] = o.Cluster
@@ -929,14 +1199,32 @@ func (o PostInstancesRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
+	if !IsNil(o.EventsCluster) {
+		toSerialize["eventsCluster"] = o.EventsCluster
+	}
+	if !IsNil(o.GrafanaSqlCluster) {
+		toSerialize["grafanaSqlCluster"] = o.GrafanaSqlCluster
+	}
 	if !IsNil(o.Graphite) {
 		toSerialize["graphite"] = o.Graphite
 	}
-	if !IsNil(o.HlInstanceId) {
-		toSerialize["hlInstanceId"] = o.HlInstanceId
+	if !IsNil(o.HlCluster) {
+		toSerialize["hlCluster"] = o.HlCluster
+	}
+	if !IsNil(o.HmGraphiteCluster) {
+		toSerialize["hmGraphiteCluster"] = o.HmGraphiteCluster
+	}
+	if !IsNil(o.HmPromCluster) {
+		toSerialize["hmPromCluster"] = o.HmPromCluster
 	}
 	if !IsNil(o.Hosted) {
 		toSerialize["hosted"] = o.Hosted
+	}
+	if !IsNil(o.HpCluster) {
+		toSerialize["hpCluster"] = o.HpCluster
+	}
+	if !IsNil(o.HtCluster) {
+		toSerialize["htCluster"] = o.HtCluster
 	}
 	if !IsNil(o.IssueLink) {
 		toSerialize["issueLink"] = o.IssueLink
@@ -1021,13 +1309,21 @@ func (o *PostInstancesRequest) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "adminUserInstance")
+		delete(additionalProperties, "agmCluster")
 		delete(additionalProperties, "alerts")
+		delete(additionalProperties, "amCluster")
 		delete(additionalProperties, "cluster")
 		delete(additionalProperties, "deleteProtection")
 		delete(additionalProperties, "description")
+		delete(additionalProperties, "eventsCluster")
+		delete(additionalProperties, "grafanaSqlCluster")
 		delete(additionalProperties, "graphite")
-		delete(additionalProperties, "hlInstanceId")
+		delete(additionalProperties, "hlCluster")
+		delete(additionalProperties, "hmGraphiteCluster")
+		delete(additionalProperties, "hmPromCluster")
 		delete(additionalProperties, "hosted")
+		delete(additionalProperties, "hpCluster")
+		delete(additionalProperties, "htCluster")
 		delete(additionalProperties, "issueLink")
 		delete(additionalProperties, "k6OrgId")
 		delete(additionalProperties, "labels")

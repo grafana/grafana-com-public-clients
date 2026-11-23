@@ -17,7 +17,7 @@ import (
 // checks if the EnterpriseFeatures type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &EnterpriseFeatures{}
 
-// EnterpriseFeatures Grafana Enterprise specific features
+// EnterpriseFeatures Features specific to Grafana Enterprise.
 type EnterpriseFeatures struct {
 	// Enable/Disable health diagnostics errors. Requires Grafana >=7.5.5.
 	HealthDiagnosticsErrors *bool `json:"healthDiagnosticsErrors,omitempty"`

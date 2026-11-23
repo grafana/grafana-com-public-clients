@@ -387,11 +387,11 @@ func (r ApiDeleteInstanceServiceAccountRequest) Execute() (*http.Response, error
 }
 
 /*
-DeleteInstanceServiceAccount Delete a service account on a Grafana instance
+DeleteInstanceServiceAccount Deletes a service account on a Grafana instance
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param instanceId
-	@param serviceAccountId
+	@param instanceId id or slug of the instance
+	@param serviceAccountId id of the service account
 	@return ApiDeleteInstanceServiceAccountRequest
 */
 func (a *InstancesAPIService) DeleteInstanceServiceAccount(ctx context.Context, instanceId string, serviceAccountId string) ApiDeleteInstanceServiceAccountRequest {
@@ -423,9 +423,6 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountExecute(r ApiDeleteIns
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.xRequestId == nil {
-		return nil, reportError("xRequestId is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -444,7 +441,9 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountExecute(r ApiDeleteIns
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	if r.xRequestId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -467,60 +466,14 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountExecute(r ApiDeleteIns
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorInvalidCredentials
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+		var v ErrorPayload
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorForbidden
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorNotFound
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorConflict
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 503 {
-			var v ErrorServiceUnavailable
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -549,9 +502,9 @@ func (r ApiDeleteInstanceServiceAccountTokenRequest) Execute() (*http.Response, 
 DeleteInstanceServiceAccountToken Delete a service account token on a Grafana instance
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param instanceId
-	@param serviceAccountId
-	@param tokenId
+	@param instanceId id or slug of the instance
+	@param serviceAccountId id of the service account
+	@param tokenId id of the service account token
 	@return ApiDeleteInstanceServiceAccountTokenRequest
 */
 func (a *InstancesAPIService) DeleteInstanceServiceAccountToken(ctx context.Context, instanceId string, serviceAccountId string, tokenId string) ApiDeleteInstanceServiceAccountTokenRequest {
@@ -585,9 +538,6 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountTokenExecute(r ApiDele
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.xRequestId == nil {
-		return nil, reportError("xRequestId is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -606,7 +556,9 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountTokenExecute(r ApiDele
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	if r.xRequestId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -629,60 +581,14 @@ func (a *InstancesAPIService) DeleteInstanceServiceAccountTokenExecute(r ApiDele
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorInvalidCredentials
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+		var v ErrorPayload
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorForbidden
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorNotFound
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorConflict
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 503 {
-			var v ErrorServiceUnavailable
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -1307,7 +1213,7 @@ type ApiGetInstanceServiceAccountRequest struct {
 	serviceAccountId string
 }
 
-func (r ApiGetInstanceServiceAccountRequest) Execute() (*GrafanaServiceAccountDTO, *http.Response, error) {
+func (r ApiGetInstanceServiceAccountRequest) Execute() (*ServiceAccountProfileDTO, *http.Response, error) {
 	return r.ApiService.GetInstanceServiceAccountExecute(r)
 }
 
@@ -1315,8 +1221,8 @@ func (r ApiGetInstanceServiceAccountRequest) Execute() (*GrafanaServiceAccountDT
 GetInstanceServiceAccount Gets a service account on a Grafana instance
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param instanceId
-	@param serviceAccountId
+	@param instanceId id or slug of the instance
+	@param serviceAccountId id of the service account
 	@return ApiGetInstanceServiceAccountRequest
 */
 func (a *InstancesAPIService) GetInstanceServiceAccount(ctx context.Context, instanceId string, serviceAccountId string) ApiGetInstanceServiceAccountRequest {
@@ -1330,13 +1236,13 @@ func (a *InstancesAPIService) GetInstanceServiceAccount(ctx context.Context, ins
 
 // Execute executes the request
 //
-//	@return GrafanaServiceAccountDTO
-func (a *InstancesAPIService) GetInstanceServiceAccountExecute(r ApiGetInstanceServiceAccountRequest) (*GrafanaServiceAccountDTO, *http.Response, error) {
+//	@return ServiceAccountProfileDTO
+func (a *InstancesAPIService) GetInstanceServiceAccountExecute(r ApiGetInstanceServiceAccountRequest) (*ServiceAccountProfileDTO, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *GrafanaServiceAccountDTO
+		localVarReturnValue *ServiceAccountProfileDTO
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetInstanceServiceAccount")
@@ -1391,49 +1297,14 @@ func (a *InstancesAPIService) GetInstanceServiceAccountExecute(r ApiGetInstanceS
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorInvalidCredentials
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+		var v ErrorPayload
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorForbidden
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorNotFound
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorConflict
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1456,7 +1327,7 @@ type ApiGetInstanceServiceAccountTokensRequest struct {
 	serviceAccountId string
 }
 
-func (r ApiGetInstanceServiceAccountTokensRequest) Execute() ([]GrafanaTokenDTO, *http.Response, error) {
+func (r ApiGetInstanceServiceAccountTokensRequest) Execute() ([]TokenDTO, *http.Response, error) {
 	return r.ApiService.GetInstanceServiceAccountTokensExecute(r)
 }
 
@@ -1464,8 +1335,8 @@ func (r ApiGetInstanceServiceAccountTokensRequest) Execute() ([]GrafanaTokenDTO,
 GetInstanceServiceAccountTokens Get a service account's tokens on a Grafana instance
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param instanceId
-	@param serviceAccountId
+	@param instanceId id or slug of the instance
+	@param serviceAccountId id of the service account
 	@return ApiGetInstanceServiceAccountTokensRequest
 */
 func (a *InstancesAPIService) GetInstanceServiceAccountTokens(ctx context.Context, instanceId string, serviceAccountId string) ApiGetInstanceServiceAccountTokensRequest {
@@ -1479,13 +1350,13 @@ func (a *InstancesAPIService) GetInstanceServiceAccountTokens(ctx context.Contex
 
 // Execute executes the request
 //
-//	@return []GrafanaTokenDTO
-func (a *InstancesAPIService) GetInstanceServiceAccountTokensExecute(r ApiGetInstanceServiceAccountTokensRequest) ([]GrafanaTokenDTO, *http.Response, error) {
+//	@return []TokenDTO
+func (a *InstancesAPIService) GetInstanceServiceAccountTokensExecute(r ApiGetInstanceServiceAccountTokensRequest) ([]TokenDTO, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue []GrafanaTokenDTO
+		localVarReturnValue []TokenDTO
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetInstanceServiceAccountTokens")
@@ -1540,49 +1411,14 @@ func (a *InstancesAPIService) GetInstanceServiceAccountTokensExecute(r ApiGetIns
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorInvalidCredentials
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+		var v ErrorPayload
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorForbidden
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorNotFound
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorConflict
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1602,21 +1438,24 @@ type ApiGetInstanceServiceAccountsSearchRequest struct {
 	ctx        context.Context
 	ApiService *InstancesAPIService
 	instanceId string
-	page       *int32
-	perpage    *int32
+	perpage    *int64
+	page       *int64
 	query      *string
 }
 
-func (r ApiGetInstanceServiceAccountsSearchRequest) Page(page int32) ApiGetInstanceServiceAccountsSearchRequest {
-	r.page = &page
-	return r
-}
-
-func (r ApiGetInstanceServiceAccountsSearchRequest) Perpage(perpage int32) ApiGetInstanceServiceAccountsSearchRequest {
+// number of service accounts per page
+func (r ApiGetInstanceServiceAccountsSearchRequest) Perpage(perpage int64) ApiGetInstanceServiceAccountsSearchRequest {
 	r.perpage = &perpage
 	return r
 }
 
+// page number to return
+func (r ApiGetInstanceServiceAccountsSearchRequest) Page(page int64) ApiGetInstanceServiceAccountsSearchRequest {
+	r.page = &page
+	return r
+}
+
+// filter by service account name or login
 func (r ApiGetInstanceServiceAccountsSearchRequest) Query(query string) ApiGetInstanceServiceAccountsSearchRequest {
 	r.query = &query
 	return r
@@ -1630,7 +1469,7 @@ func (r ApiGetInstanceServiceAccountsSearchRequest) Execute() (*ServiceAccountSe
 GetInstanceServiceAccountsSearch Search service accounts on a Grafana instance with paging
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param instanceId
+	@param instanceId id or slug of the instance
 	@return ApiGetInstanceServiceAccountsSearchRequest
 */
 func (a *InstancesAPIService) GetInstanceServiceAccountsSearch(ctx context.Context, instanceId string) ApiGetInstanceServiceAccountsSearchRequest {
@@ -1664,11 +1503,11 @@ func (a *InstancesAPIService) GetInstanceServiceAccountsSearchExecute(r ApiGetIn
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
-	}
 	if r.perpage != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "perpage", r.perpage, "")
+	}
+	if r.page != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "")
 	}
 	if r.query != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
@@ -1712,49 +1551,14 @@ func (a *InstancesAPIService) GetInstanceServiceAccountsSearchExecute(r ApiGetIn
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorInvalidCredentials
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+		var v ErrorPayload
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorForbidden
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorNotFound
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorConflict
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2922,12 +2726,17 @@ func (a *InstancesAPIService) PostInstancePluginsExecute(r ApiPostInstancePlugin
 }
 
 type ApiPostInstanceServiceAccountTokensRequest struct {
-	ctx                                     context.Context
-	ApiService                              *InstancesAPIService
-	instanceId                              string
-	serviceAccountId                        string
-	xRequestId                              *string
-	postInstanceServiceAccountTokensRequest *PostInstanceServiceAccountTokensRequest
+	ctx                           context.Context
+	ApiService                    *InstancesAPIService
+	instanceId                    string
+	serviceAccountId              string
+	createServiceAccountTokenBody *CreateServiceAccountTokenBody
+	xRequestId                    *string
+}
+
+func (r ApiPostInstanceServiceAccountTokensRequest) CreateServiceAccountTokenBody(createServiceAccountTokenBody CreateServiceAccountTokenBody) ApiPostInstanceServiceAccountTokensRequest {
+	r.createServiceAccountTokenBody = &createServiceAccountTokenBody
+	return r
 }
 
 func (r ApiPostInstanceServiceAccountTokensRequest) XRequestId(xRequestId string) ApiPostInstanceServiceAccountTokensRequest {
@@ -2935,12 +2744,7 @@ func (r ApiPostInstanceServiceAccountTokensRequest) XRequestId(xRequestId string
 	return r
 }
 
-func (r ApiPostInstanceServiceAccountTokensRequest) PostInstanceServiceAccountTokensRequest(postInstanceServiceAccountTokensRequest PostInstanceServiceAccountTokensRequest) ApiPostInstanceServiceAccountTokensRequest {
-	r.postInstanceServiceAccountTokensRequest = &postInstanceServiceAccountTokensRequest
-	return r
-}
-
-func (r ApiPostInstanceServiceAccountTokensRequest) Execute() (*GrafanaNewApiKeyResult, *http.Response, error) {
+func (r ApiPostInstanceServiceAccountTokensRequest) Execute() (*NewApiKeyResult, *http.Response, error) {
 	return r.ApiService.PostInstanceServiceAccountTokensExecute(r)
 }
 
@@ -2948,8 +2752,8 @@ func (r ApiPostInstanceServiceAccountTokensRequest) Execute() (*GrafanaNewApiKey
 PostInstanceServiceAccountTokens Creates a service account token on a Grafana instance
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param instanceId
-	@param serviceAccountId
+	@param instanceId id or slug of the instance
+	@param serviceAccountId id of the service account
 	@return ApiPostInstanceServiceAccountTokensRequest
 */
 func (a *InstancesAPIService) PostInstanceServiceAccountTokens(ctx context.Context, instanceId string, serviceAccountId string) ApiPostInstanceServiceAccountTokensRequest {
@@ -2963,13 +2767,13 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokens(ctx context.Conte
 
 // Execute executes the request
 //
-//	@return GrafanaNewApiKeyResult
-func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostInstanceServiceAccountTokensRequest) (*GrafanaNewApiKeyResult, *http.Response, error) {
+//	@return NewApiKeyResult
+func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostInstanceServiceAccountTokensRequest) (*NewApiKeyResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *GrafanaNewApiKeyResult
+		localVarReturnValue *NewApiKeyResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.PostInstanceServiceAccountTokens")
@@ -2984,11 +2788,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.xRequestId == nil {
-		return localVarReturnValue, nil, reportError("xRequestId is required and must be specified")
-	}
-	if r.postInstanceServiceAccountTokensRequest == nil {
-		return localVarReturnValue, nil, reportError("postInstanceServiceAccountTokensRequest is required and must be specified")
+	if r.createServiceAccountTokenBody == nil {
+		return localVarReturnValue, nil, reportError("createServiceAccountTokenBody is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -3008,9 +2809,11 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	if r.xRequestId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	}
 	// body params
-	localVarPostBody = r.postInstanceServiceAccountTokensRequest
+	localVarPostBody = r.createServiceAccountTokenBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3033,60 +2836,14 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorInvalidCredentials
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+		var v ErrorPayload
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorForbidden
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorNotFound
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorConflict
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 503 {
-			var v ErrorServiceUnavailable
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3103,11 +2860,16 @@ func (a *InstancesAPIService) PostInstanceServiceAccountTokensExecute(r ApiPostI
 }
 
 type ApiPostInstanceServiceAccountsRequest struct {
-	ctx                                context.Context
-	ApiService                         *InstancesAPIService
-	instanceId                         string
-	xRequestId                         *string
-	postInstanceServiceAccountsRequest *PostInstanceServiceAccountsRequest
+	ctx                      context.Context
+	ApiService               *InstancesAPIService
+	instanceId               string
+	createServiceAccountBody *CreateServiceAccountBody
+	xRequestId               *string
+}
+
+func (r ApiPostInstanceServiceAccountsRequest) CreateServiceAccountBody(createServiceAccountBody CreateServiceAccountBody) ApiPostInstanceServiceAccountsRequest {
+	r.createServiceAccountBody = &createServiceAccountBody
+	return r
 }
 
 func (r ApiPostInstanceServiceAccountsRequest) XRequestId(xRequestId string) ApiPostInstanceServiceAccountsRequest {
@@ -3115,12 +2877,7 @@ func (r ApiPostInstanceServiceAccountsRequest) XRequestId(xRequestId string) Api
 	return r
 }
 
-func (r ApiPostInstanceServiceAccountsRequest) PostInstanceServiceAccountsRequest(postInstanceServiceAccountsRequest PostInstanceServiceAccountsRequest) ApiPostInstanceServiceAccountsRequest {
-	r.postInstanceServiceAccountsRequest = &postInstanceServiceAccountsRequest
-	return r
-}
-
-func (r ApiPostInstanceServiceAccountsRequest) Execute() (*GrafanaServiceAccountDTO, *http.Response, error) {
+func (r ApiPostInstanceServiceAccountsRequest) Execute() (*ServiceAccountDTO, *http.Response, error) {
 	return r.ApiService.PostInstanceServiceAccountsExecute(r)
 }
 
@@ -3128,7 +2885,7 @@ func (r ApiPostInstanceServiceAccountsRequest) Execute() (*GrafanaServiceAccount
 PostInstanceServiceAccounts Creates a service account on a Grafana instance
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param instanceId
+	@param instanceId id or slug of the instance
 	@return ApiPostInstanceServiceAccountsRequest
 */
 func (a *InstancesAPIService) PostInstanceServiceAccounts(ctx context.Context, instanceId string) ApiPostInstanceServiceAccountsRequest {
@@ -3141,13 +2898,13 @@ func (a *InstancesAPIService) PostInstanceServiceAccounts(ctx context.Context, i
 
 // Execute executes the request
 //
-//	@return GrafanaServiceAccountDTO
-func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstanceServiceAccountsRequest) (*GrafanaServiceAccountDTO, *http.Response, error) {
+//	@return ServiceAccountDTO
+func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstanceServiceAccountsRequest) (*ServiceAccountDTO, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *GrafanaServiceAccountDTO
+		localVarReturnValue *ServiceAccountDTO
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.PostInstanceServiceAccounts")
@@ -3161,11 +2918,8 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.xRequestId == nil {
-		return localVarReturnValue, nil, reportError("xRequestId is required and must be specified")
-	}
-	if r.postInstanceServiceAccountsRequest == nil {
-		return localVarReturnValue, nil, reportError("postInstanceServiceAccountsRequest is required and must be specified")
+	if r.createServiceAccountBody == nil {
+		return localVarReturnValue, nil, reportError("createServiceAccountBody is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -3185,9 +2939,11 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	if r.xRequestId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", r.xRequestId, "")
+	}
 	// body params
-	localVarPostBody = r.postInstanceServiceAccountsRequest
+	localVarPostBody = r.createServiceAccountBody
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3210,60 +2966,14 @@ func (a *InstancesAPIService) PostInstanceServiceAccountsExecute(r ApiPostInstan
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorInvalidCredentials
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+		var v ErrorPayload
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorForbidden
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ErrorNotFound
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorConflict
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 503 {
-			var v ErrorServiceUnavailable
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
-		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

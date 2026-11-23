@@ -20,9 +20,9 @@ var _ MappedNullable = &FormattedOrgMembershipGrafanaStaffAccess{}
 
 // FormattedOrgMembershipGrafanaStaffAccess struct for FormattedOrgMembershipGrafanaStaffAccess
 type FormattedOrgMembershipGrafanaStaffAccess struct {
-	AccessExpiresAt      time.Time       `json:"accessExpiresAt"`
-	TicketId             NullableFloat32 `json:"ticketId,omitempty"`
-	PublicReason         NullableString  `json:"publicReason,omitempty"`
+	AccessExpiresAt      time.Time      `json:"accessExpiresAt"`
+	TicketId             NullableString `json:"ticketId,omitempty"`
+	PublicReason         NullableString `json:"publicReason,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -71,9 +71,9 @@ func (o *FormattedOrgMembershipGrafanaStaffAccess) SetAccessExpiresAt(v time.Tim
 }
 
 // GetTicketId returns the TicketId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *FormattedOrgMembershipGrafanaStaffAccess) GetTicketId() float32 {
+func (o *FormattedOrgMembershipGrafanaStaffAccess) GetTicketId() string {
 	if o == nil || IsNil(o.TicketId.Get()) {
-		var ret float32
+		var ret string
 		return ret
 	}
 	return *o.TicketId.Get()
@@ -82,7 +82,7 @@ func (o *FormattedOrgMembershipGrafanaStaffAccess) GetTicketId() float32 {
 // GetTicketIdOk returns a tuple with the TicketId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *FormattedOrgMembershipGrafanaStaffAccess) GetTicketIdOk() (*float32, bool) {
+func (o *FormattedOrgMembershipGrafanaStaffAccess) GetTicketIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,8 +98,8 @@ func (o *FormattedOrgMembershipGrafanaStaffAccess) HasTicketId() bool {
 	return false
 }
 
-// SetTicketId gets a reference to the given NullableFloat32 and assigns it to the TicketId field.
-func (o *FormattedOrgMembershipGrafanaStaffAccess) SetTicketId(v float32) {
+// SetTicketId gets a reference to the given NullableString and assigns it to the TicketId field.
+func (o *FormattedOrgMembershipGrafanaStaffAccess) SetTicketId(v string) {
 	o.TicketId.Set(&v)
 }
 

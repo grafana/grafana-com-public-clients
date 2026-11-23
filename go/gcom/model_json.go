@@ -71,6 +71,8 @@ type Json struct {
 	Routes []RoutesInner `json:"routes,omitempty"`
 	// For panel plugins. Hides the query editor.
 	SkipDataQuery *bool `json:"skipDataQuery,omitempty"`
+	// Alpha. For panel plugins, suppress the automatic starter query while allowing users to add queries explicitly. If both skipDataQuery and skipDefaultQuery are true, skipDataQuery takes precedence.
+	SkipDefaultQuery *bool `json:"skipDefaultQuery,omitempty"`
 	// Describes plugins life cycle status
 	State *string `json:"state,omitempty"`
 	// For data source plugins, if the plugin supports streaming. Used in Explore to start live streaming.
@@ -81,7 +83,7 @@ type Json struct {
 	// List of RBAC roles defined by the plugin and their default assignments to basic roles (`Viewer`, `Editor`, `Admin`, `Grafana Admin`). Requires Grafana version 9.4.0 or later.
 	Roles      []RolesInner `json:"roles,omitempty"`
 	Extensions *Extensions1 `json:"extensions,omitempty"`
-	// The list of languages supported by the plugin. Each entry should be a locale identifier in the format `language-COUNTRY` (for example `en-US`, `es-ES`, `de-DE`).
+	// The list of languages supported by the plugin. Each entry should be a locale identifier in the format `language-COUNTRY`, for example `en-US`, `es-ES`, or `de-DE`.
 	Languages            []string `json:"languages,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -966,6 +968,38 @@ func (o *Json) SetSkipDataQuery(v bool) {
 	o.SkipDataQuery = &v
 }
 
+// GetSkipDefaultQuery returns the SkipDefaultQuery field value if set, zero value otherwise.
+func (o *Json) GetSkipDefaultQuery() bool {
+	if o == nil || IsNil(o.SkipDefaultQuery) {
+		var ret bool
+		return ret
+	}
+	return *o.SkipDefaultQuery
+}
+
+// GetSkipDefaultQueryOk returns a tuple with the SkipDefaultQuery field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Json) GetSkipDefaultQueryOk() (*bool, bool) {
+	if o == nil || IsNil(o.SkipDefaultQuery) {
+		return nil, false
+	}
+	return o.SkipDefaultQuery, true
+}
+
+// HasSkipDefaultQuery returns a boolean if a field has been set.
+func (o *Json) HasSkipDefaultQuery() bool {
+	if o != nil && !IsNil(o.SkipDefaultQuery) {
+		return true
+	}
+
+	return false
+}
+
+// SetSkipDefaultQuery gets a reference to the given bool and assigns it to the SkipDefaultQuery field.
+func (o *Json) SetSkipDefaultQuery(v bool) {
+	o.SkipDefaultQuery = &v
+}
+
 // GetState returns the State field value if set, zero value otherwise.
 func (o *Json) GetState() string {
 	if o == nil || IsNil(o.State) {
@@ -1274,6 +1308,9 @@ func (o Json) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SkipDataQuery) {
 		toSerialize["skipDataQuery"] = o.SkipDataQuery
 	}
+	if !IsNil(o.SkipDefaultQuery) {
+		toSerialize["skipDefaultQuery"] = o.SkipDefaultQuery
+	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
@@ -1353,6 +1390,7 @@ func (o *Json) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "queryOptions")
 		delete(additionalProperties, "routes")
 		delete(additionalProperties, "skipDataQuery")
+		delete(additionalProperties, "skipDefaultQuery")
 		delete(additionalProperties, "state")
 		delete(additionalProperties, "streaming")
 		delete(additionalProperties, "tracing")

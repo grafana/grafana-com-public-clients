@@ -17,7 +17,7 @@ import (
 // checks if the Info type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &Info{}
 
-// Info Metadata for the plugin. Some fields are used on the plugins page in Grafana and others on grafana.com if the plugin is published.
+// Info Metadata for the plugin. **Some fields are mandatory**, since they're used on the plugins page in Grafana and/or on grafana.com if the plugin is published. Read the [info section](#info) in detail.
 type Info struct {
 	Author *Author `json:"author,omitempty"`
 	Build  *Build  `json:"build,omitempty"`
@@ -25,10 +25,10 @@ type Info struct {
 	Description *string `json:"description,omitempty"`
 	// Array of plugin keywords. Used for search on grafana.com.
 	Keywords []string `json:"keywords"`
-	// An array of link objects to be displayed on this plugin's project page in the form `{name: 'foo', url: 'http://example.com'}`
+	// An array of link objects to be displayed on this plugin's project page in the form `{name: 'foo', url: 'http://example.com'}`. **This field is mandatory**. If you leave this field blank, you'll be asked to submit your plugin again.
 	Links []LinksInner2 `json:"links,omitempty"`
 	Logos Logos         `json:"logos"`
-	// An array of screenshot objects in the form `{name: 'bar', path: 'img/screenshot.png'}`
+	// An array of screenshot objects in the form `{name: 'bar', path: 'img/screenshot.png'}`.
 	Screenshots []ScreenshotsInner `json:"screenshots,omitempty"`
 	// Date when this plugin was built.
 	Updated string `json:"updated"`

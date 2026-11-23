@@ -23,7 +23,6 @@ type PostInstanceRequest struct {
 	DeleteProtection     *bool              `json:"deleteProtection,omitempty"`
 	Description          *string            `json:"description,omitempty"`
 	Graphite             *bool              `json:"graphite,omitempty"`
-	HlInstanceId         *int32             `json:"hlInstanceId,omitempty"`
 	IssueLink            *string            `json:"issueLink,omitempty"`
 	K6OrgId              NullableInt32      `json:"k6OrgId,omitempty"`
 	Labels               *map[string]string `json:"labels,omitempty"`
@@ -188,38 +187,6 @@ func (o *PostInstanceRequest) HasGraphite() bool {
 // SetGraphite gets a reference to the given bool and assigns it to the Graphite field.
 func (o *PostInstanceRequest) SetGraphite(v bool) {
 	o.Graphite = &v
-}
-
-// GetHlInstanceId returns the HlInstanceId field value if set, zero value otherwise.
-func (o *PostInstanceRequest) GetHlInstanceId() int32 {
-	if o == nil || IsNil(o.HlInstanceId) {
-		var ret int32
-		return ret
-	}
-	return *o.HlInstanceId
-}
-
-// GetHlInstanceIdOk returns a tuple with the HlInstanceId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostInstanceRequest) GetHlInstanceIdOk() (*int32, bool) {
-	if o == nil || IsNil(o.HlInstanceId) {
-		return nil, false
-	}
-	return o.HlInstanceId, true
-}
-
-// HasHlInstanceId returns a boolean if a field has been set.
-func (o *PostInstanceRequest) HasHlInstanceId() bool {
-	if o != nil && !IsNil(o.HlInstanceId) {
-		return true
-	}
-
-	return false
-}
-
-// SetHlInstanceId gets a reference to the given int32 and assigns it to the HlInstanceId field.
-func (o *PostInstanceRequest) SetHlInstanceId(v int32) {
-	o.HlInstanceId = &v
 }
 
 // GetIssueLink returns the IssueLink field value if set, zero value otherwise.
@@ -639,9 +606,6 @@ func (o PostInstanceRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Graphite) {
 		toSerialize["graphite"] = o.Graphite
 	}
-	if !IsNil(o.HlInstanceId) {
-		toSerialize["hlInstanceId"] = o.HlInstanceId
-	}
 	if !IsNil(o.IssueLink) {
 		toSerialize["issueLink"] = o.IssueLink
 	}
@@ -704,7 +668,6 @@ func (o *PostInstanceRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "deleteProtection")
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "graphite")
-		delete(additionalProperties, "hlInstanceId")
 		delete(additionalProperties, "issueLink")
 		delete(additionalProperties, "k6OrgId")
 		delete(additionalProperties, "labels")

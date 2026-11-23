@@ -5,13 +5,21 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdminUserInstance** | Pointer to **bool** |  | [optional] 
+**AgmCluster** | Pointer to **string** |  | [optional] 
 **Alerts** | Pointer to **bool** |  | [optional] 
+**AmCluster** | Pointer to **string** |  | [optional] 
 **Cluster** | Pointer to **string** |  | [optional] 
 **DeleteProtection** | Pointer to **bool** |  | [optional] [default to false]
 **Description** | Pointer to **string** |  | [optional] 
+**EventsCluster** | Pointer to **string** |  | [optional] 
+**GrafanaSqlCluster** | Pointer to **string** |  | [optional] 
 **Graphite** | Pointer to **bool** |  | [optional] 
-**HlInstanceId** | Pointer to **int32** |  | [optional] 
+**HlCluster** | Pointer to **string** |  | [optional] 
+**HmGraphiteCluster** | Pointer to **string** |  | [optional] 
+**HmPromCluster** | Pointer to **string** |  | [optional] 
 **Hosted** | Pointer to **bool** |  | [optional] 
+**HpCluster** | Pointer to **string** |  | [optional] 
+**HtCluster** | Pointer to **string** |  | [optional] 
 **IssueLink** | Pointer to **string** |  | [optional] 
 **K6OrgId** | Pointer to **int32** |  | [optional] 
 **Labels** | Pointer to **map[string]string** |  | [optional] 
@@ -75,6 +83,31 @@ SetAdminUserInstance sets AdminUserInstance field to given value.
 
 HasAdminUserInstance returns a boolean if a field has been set.
 
+### GetAgmCluster
+
+`func (o *PostInstancesRequest) GetAgmCluster() string`
+
+GetAgmCluster returns the AgmCluster field if non-nil, zero value otherwise.
+
+### GetAgmClusterOk
+
+`func (o *PostInstancesRequest) GetAgmClusterOk() (*string, bool)`
+
+GetAgmClusterOk returns a tuple with the AgmCluster field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAgmCluster
+
+`func (o *PostInstancesRequest) SetAgmCluster(v string)`
+
+SetAgmCluster sets AgmCluster field to given value.
+
+### HasAgmCluster
+
+`func (o *PostInstancesRequest) HasAgmCluster() bool`
+
+HasAgmCluster returns a boolean if a field has been set.
+
 ### GetAlerts
 
 `func (o *PostInstancesRequest) GetAlerts() bool`
@@ -99,6 +132,31 @@ SetAlerts sets Alerts field to given value.
 `func (o *PostInstancesRequest) HasAlerts() bool`
 
 HasAlerts returns a boolean if a field has been set.
+
+### GetAmCluster
+
+`func (o *PostInstancesRequest) GetAmCluster() string`
+
+GetAmCluster returns the AmCluster field if non-nil, zero value otherwise.
+
+### GetAmClusterOk
+
+`func (o *PostInstancesRequest) GetAmClusterOk() (*string, bool)`
+
+GetAmClusterOk returns a tuple with the AmCluster field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmCluster
+
+`func (o *PostInstancesRequest) SetAmCluster(v string)`
+
+SetAmCluster sets AmCluster field to given value.
+
+### HasAmCluster
+
+`func (o *PostInstancesRequest) HasAmCluster() bool`
+
+HasAmCluster returns a boolean if a field has been set.
 
 ### GetCluster
 
@@ -175,6 +233,56 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetEventsCluster
+
+`func (o *PostInstancesRequest) GetEventsCluster() string`
+
+GetEventsCluster returns the EventsCluster field if non-nil, zero value otherwise.
+
+### GetEventsClusterOk
+
+`func (o *PostInstancesRequest) GetEventsClusterOk() (*string, bool)`
+
+GetEventsClusterOk returns a tuple with the EventsCluster field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEventsCluster
+
+`func (o *PostInstancesRequest) SetEventsCluster(v string)`
+
+SetEventsCluster sets EventsCluster field to given value.
+
+### HasEventsCluster
+
+`func (o *PostInstancesRequest) HasEventsCluster() bool`
+
+HasEventsCluster returns a boolean if a field has been set.
+
+### GetGrafanaSqlCluster
+
+`func (o *PostInstancesRequest) GetGrafanaSqlCluster() string`
+
+GetGrafanaSqlCluster returns the GrafanaSqlCluster field if non-nil, zero value otherwise.
+
+### GetGrafanaSqlClusterOk
+
+`func (o *PostInstancesRequest) GetGrafanaSqlClusterOk() (*string, bool)`
+
+GetGrafanaSqlClusterOk returns a tuple with the GrafanaSqlCluster field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGrafanaSqlCluster
+
+`func (o *PostInstancesRequest) SetGrafanaSqlCluster(v string)`
+
+SetGrafanaSqlCluster sets GrafanaSqlCluster field to given value.
+
+### HasGrafanaSqlCluster
+
+`func (o *PostInstancesRequest) HasGrafanaSqlCluster() bool`
+
+HasGrafanaSqlCluster returns a boolean if a field has been set.
+
 ### GetGraphite
 
 `func (o *PostInstancesRequest) GetGraphite() bool`
@@ -200,30 +308,80 @@ SetGraphite sets Graphite field to given value.
 
 HasGraphite returns a boolean if a field has been set.
 
-### GetHlInstanceId
+### GetHlCluster
 
-`func (o *PostInstancesRequest) GetHlInstanceId() int32`
+`func (o *PostInstancesRequest) GetHlCluster() string`
 
-GetHlInstanceId returns the HlInstanceId field if non-nil, zero value otherwise.
+GetHlCluster returns the HlCluster field if non-nil, zero value otherwise.
 
-### GetHlInstanceIdOk
+### GetHlClusterOk
 
-`func (o *PostInstancesRequest) GetHlInstanceIdOk() (*int32, bool)`
+`func (o *PostInstancesRequest) GetHlClusterOk() (*string, bool)`
 
-GetHlInstanceIdOk returns a tuple with the HlInstanceId field if it's non-nil, zero value otherwise
+GetHlClusterOk returns a tuple with the HlCluster field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHlInstanceId
+### SetHlCluster
 
-`func (o *PostInstancesRequest) SetHlInstanceId(v int32)`
+`func (o *PostInstancesRequest) SetHlCluster(v string)`
 
-SetHlInstanceId sets HlInstanceId field to given value.
+SetHlCluster sets HlCluster field to given value.
 
-### HasHlInstanceId
+### HasHlCluster
 
-`func (o *PostInstancesRequest) HasHlInstanceId() bool`
+`func (o *PostInstancesRequest) HasHlCluster() bool`
 
-HasHlInstanceId returns a boolean if a field has been set.
+HasHlCluster returns a boolean if a field has been set.
+
+### GetHmGraphiteCluster
+
+`func (o *PostInstancesRequest) GetHmGraphiteCluster() string`
+
+GetHmGraphiteCluster returns the HmGraphiteCluster field if non-nil, zero value otherwise.
+
+### GetHmGraphiteClusterOk
+
+`func (o *PostInstancesRequest) GetHmGraphiteClusterOk() (*string, bool)`
+
+GetHmGraphiteClusterOk returns a tuple with the HmGraphiteCluster field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHmGraphiteCluster
+
+`func (o *PostInstancesRequest) SetHmGraphiteCluster(v string)`
+
+SetHmGraphiteCluster sets HmGraphiteCluster field to given value.
+
+### HasHmGraphiteCluster
+
+`func (o *PostInstancesRequest) HasHmGraphiteCluster() bool`
+
+HasHmGraphiteCluster returns a boolean if a field has been set.
+
+### GetHmPromCluster
+
+`func (o *PostInstancesRequest) GetHmPromCluster() string`
+
+GetHmPromCluster returns the HmPromCluster field if non-nil, zero value otherwise.
+
+### GetHmPromClusterOk
+
+`func (o *PostInstancesRequest) GetHmPromClusterOk() (*string, bool)`
+
+GetHmPromClusterOk returns a tuple with the HmPromCluster field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHmPromCluster
+
+`func (o *PostInstancesRequest) SetHmPromCluster(v string)`
+
+SetHmPromCluster sets HmPromCluster field to given value.
+
+### HasHmPromCluster
+
+`func (o *PostInstancesRequest) HasHmPromCluster() bool`
+
+HasHmPromCluster returns a boolean if a field has been set.
 
 ### GetHosted
 
@@ -249,6 +407,56 @@ SetHosted sets Hosted field to given value.
 `func (o *PostInstancesRequest) HasHosted() bool`
 
 HasHosted returns a boolean if a field has been set.
+
+### GetHpCluster
+
+`func (o *PostInstancesRequest) GetHpCluster() string`
+
+GetHpCluster returns the HpCluster field if non-nil, zero value otherwise.
+
+### GetHpClusterOk
+
+`func (o *PostInstancesRequest) GetHpClusterOk() (*string, bool)`
+
+GetHpClusterOk returns a tuple with the HpCluster field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHpCluster
+
+`func (o *PostInstancesRequest) SetHpCluster(v string)`
+
+SetHpCluster sets HpCluster field to given value.
+
+### HasHpCluster
+
+`func (o *PostInstancesRequest) HasHpCluster() bool`
+
+HasHpCluster returns a boolean if a field has been set.
+
+### GetHtCluster
+
+`func (o *PostInstancesRequest) GetHtCluster() string`
+
+GetHtCluster returns the HtCluster field if non-nil, zero value otherwise.
+
+### GetHtClusterOk
+
+`func (o *PostInstancesRequest) GetHtClusterOk() (*string, bool)`
+
+GetHtClusterOk returns a tuple with the HtCluster field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHtCluster
+
+`func (o *PostInstancesRequest) SetHtCluster(v string)`
+
+SetHtCluster sets HtCluster field to given value.
+
+### HasHtCluster
+
+`func (o *PostInstancesRequest) HasHtCluster() bool`
+
+HasHtCluster returns a boolean if a field has been set.
 
 ### GetIssueLink
 

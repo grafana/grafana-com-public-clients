@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Display name of the link. Special names with predefined behavior: &lt;br/&gt;• &#x60;documentation&#x60; - sets Documentation link on plugins detail page&lt;br/&gt;• &#x60;repository&#x60; - used to determine and link to repository of the plugin&lt;br/&gt;• &#x60;license&#x60; - sets License link on plugins detail page&lt;br/&gt;• &#x60;raise issue&#x60; - sets &#x60;Raise an Issue&#x60; link on plugins detail page&lt;br/&gt;• &#x60;sponsorship&#x60; - sets &#x60;Sponsor this developer&#x60; link on plugins detail page to direct users to how they can support your work | [optional] 
+**Name** | Pointer to **string** | Display name of the link. Special names with predefined behavior: &lt;br/&gt;• &#x60;documentation&#x60; - sets Documentation link on plugins detail page&lt;br/&gt;• &#x60;repository&#x60; - used to determine and link to repository of the plugin&lt;br/&gt;• &#x60;license&#x60; - sets License link on plugins detail page. **Required for marketplace plugins**&lt;br/&gt;• &#x60;privacy&#x60; - sets Privacy link on plugins detail page. **Required for marketplace plugins**&lt;br/&gt;• &#x60;raise issue&#x60; - sets &#x60;Raise an Issue&#x60; link on plugins detail page&lt;br/&gt;• &#x60;sponsorship&#x60; - sets &#x60;Sponsor this developer&#x60; link on plugins detail page to direct users to how they can support your work | [optional] 
 **Url** | Pointer to **string** | URL value to use for this specific link. | [optional] 
 **Target** | Pointer to **string** | A string that indicates where to display the linked resource | [optional] 
 

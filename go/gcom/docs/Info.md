@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **Build** | Pointer to [**Build**](Build.md) |  | [optional] 
 **Description** | Pointer to **string** | Description of plugin. Used on the plugins page in Grafana and for search on grafana.com. | [optional] 
 **Keywords** | **[]string** | Array of plugin keywords. Used for search on grafana.com. | 
-**Links** | Pointer to [**[]LinksInner2**](LinksInner2.md) | An array of link objects to be displayed on this plugin&#39;s project page in the form &#x60;{name: &#39;foo&#39;, url: &#39;http://example.com&#39;}&#x60; | [optional] 
+**Links** | Pointer to [**[]LinksInner2**](LinksInner2.md) | An array of link objects to be displayed on this plugin&#39;s project page in the form &#x60;{name: &#39;foo&#39;, url: &#39;http://example.com&#39;}&#x60;. **This field is mandatory**. If you leave this field blank, you&#39;ll be asked to submit your plugin again. | [optional] 
 **Logos** | [**Logos**](Logos.md) |  | 
-**Screenshots** | Pointer to [**[]ScreenshotsInner**](ScreenshotsInner.md) | An array of screenshot objects in the form &#x60;{name: &#39;bar&#39;, path: &#39;img/screenshot.png&#39;}&#x60; | [optional] 
+**Screenshots** | Pointer to [**[]ScreenshotsInner**](ScreenshotsInner.md) | An array of screenshot objects in the form &#x60;{name: &#39;bar&#39;, path: &#39;img/screenshot.png&#39;}&#x60;. | [optional] 
 **Updated** | **string** | Date when this plugin was built. | 
 **Version** | **string** | [SemVer](https://semver.org/) version of this commit, e.g. &#x60;6.7.1&#x60;. | 
 
