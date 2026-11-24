@@ -6447,13 +6447,13 @@
             "type": "string",
             "title": "notes"
           },
-          "overage": {
-            "type": "number",
-            "title": "overage"
-          },
           "description": {
             "type": "string",
             "title": "description"
+          },
+          "overage": {
+            "type": "number",
+            "title": "overage"
           },
           "dimensionId": {
             "enum": [
@@ -6496,6 +6496,10 @@
           "orgRates": {
             "title": "orgRates"
           },
+          "totalUsage": {
+            "type": "number",
+            "title": "totalUsage"
+          },
           "amountDue": {
             "type": "number",
             "title": "amountDue"
@@ -6507,10 +6511,6 @@
           "includedUsage": {
             "type": "number",
             "title": "includedUsage"
-          },
-          "totalUsage": {
-            "type": "number",
-            "title": "totalUsage"
           },
           "unit": {
             "type": "string",
