@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **PeriodStart** | **string** |  | 
 **PeriodEnd** | **string** |  | 
 **Notes** | **string** |  | 
-**Overage** | **float32** |  | 
 **Description** | **string** |  | 
+**Overage** | **float32** |  | 
 **DimensionId** | **string** |  | 
 **OrgRates** | **interface{}** |  | 
+**TotalUsage** | **float32** |  | 
 **AmountDue** | **float32** |  | 
 **DimensionName** | **string** |  | 
 **IncludedUsage** | **float32** |  | 
-**TotalUsage** | **float32** |  | 
 **Unit** | **string** |  | 
 **Usages** | [**[]UsagesInner**](UsagesInner.md) |  | 
 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewBilledUsage
 
-`func NewBilledUsage(id float32, periodStart string, periodEnd string, notes string, overage float32, description string, dimensionId string, orgRates interface{}, amountDue float32, dimensionName string, includedUsage float32, totalUsage float32, unit string, usages []UsagesInner, ) *BilledUsage`
+`func NewBilledUsage(id float32, periodStart string, periodEnd string, notes string, description string, overage float32, dimensionId string, orgRates interface{}, totalUsage float32, amountDue float32, dimensionName string, includedUsage float32, unit string, usages []UsagesInner, ) *BilledUsage`
 
 NewBilledUsage instantiates a new BilledUsage object
 This constructor will assign default values to properties that have it defined,
@@ -118,26 +118,6 @@ and a boolean to check if the value has been set.
 SetNotes sets Notes field to given value.
 
 
-### GetOverage
-
-`func (o *BilledUsage) GetOverage() float32`
-
-GetOverage returns the Overage field if non-nil, zero value otherwise.
-
-### GetOverageOk
-
-`func (o *BilledUsage) GetOverageOk() (*float32, bool)`
-
-GetOverageOk returns a tuple with the Overage field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOverage
-
-`func (o *BilledUsage) SetOverage(v float32)`
-
-SetOverage sets Overage field to given value.
-
-
 ### GetDescription
 
 `func (o *BilledUsage) GetDescription() string`
@@ -156,6 +136,26 @@ and a boolean to check if the value has been set.
 `func (o *BilledUsage) SetDescription(v string)`
 
 SetDescription sets Description field to given value.
+
+
+### GetOverage
+
+`func (o *BilledUsage) GetOverage() float32`
+
+GetOverage returns the Overage field if non-nil, zero value otherwise.
+
+### GetOverageOk
+
+`func (o *BilledUsage) GetOverageOk() (*float32, bool)`
+
+GetOverageOk returns a tuple with the Overage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOverage
+
+`func (o *BilledUsage) SetOverage(v float32)`
+
+SetOverage sets Overage field to given value.
 
 
 ### GetDimensionId
@@ -208,6 +208,26 @@ SetOrgRates sets OrgRates field to given value.
 `func (o *BilledUsage) UnsetOrgRates()`
 
 UnsetOrgRates ensures that no value is present for OrgRates, not even an explicit nil
+### GetTotalUsage
+
+`func (o *BilledUsage) GetTotalUsage() float32`
+
+GetTotalUsage returns the TotalUsage field if non-nil, zero value otherwise.
+
+### GetTotalUsageOk
+
+`func (o *BilledUsage) GetTotalUsageOk() (*float32, bool)`
+
+GetTotalUsageOk returns a tuple with the TotalUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalUsage
+
+`func (o *BilledUsage) SetTotalUsage(v float32)`
+
+SetTotalUsage sets TotalUsage field to given value.
+
+
 ### GetAmountDue
 
 `func (o *BilledUsage) GetAmountDue() float32`
@@ -266,26 +286,6 @@ and a boolean to check if the value has been set.
 `func (o *BilledUsage) SetIncludedUsage(v float32)`
 
 SetIncludedUsage sets IncludedUsage field to given value.
-
-
-### GetTotalUsage
-
-`func (o *BilledUsage) GetTotalUsage() float32`
-
-GetTotalUsage returns the TotalUsage field if non-nil, zero value otherwise.
-
-### GetTotalUsageOk
-
-`func (o *BilledUsage) GetTotalUsageOk() (*float32, bool)`
-
-GetTotalUsageOk returns a tuple with the TotalUsage field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalUsage
-
-`func (o *BilledUsage) SetTotalUsage(v float32)`
-
-SetTotalUsage sets TotalUsage field to given value.
 
 
 ### GetUnit

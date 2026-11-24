@@ -3909,11 +3909,11 @@ components:
         notes: notes
         description: description
         dimensionName: dimensionName
-        amountDue: 1.4658129805029452
+        amountDue: 5.962133916683182
         orgRates: ""
         unit: unit
         dimensionId: agent-generations
-        totalUsage: 5.637376656633329
+        totalUsage: 1.4658129805029452
         id: 0.8008281904610115
         usages:
         - dpm: 1.2315135367772556
@@ -3972,7 +3972,7 @@ components:
           periodStart: periodStart
           isProrated: true
           periodEnd: periodEnd
-        includedUsage: 5.962133916683182
+        includedUsage: 5.637376656633329
         periodStart: periodStart
         periodEnd: periodEnd
         overage: 6.027456183070403
@@ -3989,12 +3989,12 @@ components:
         notes:
           title: notes
           type: string
-        overage:
-          title: overage
-          type: number
         description:
           title: description
           type: string
+        overage:
+          title: overage
+          type: number
         dimensionId:
           enum:
           - agent-generations
@@ -4033,6 +4033,9 @@ components:
           type: string
         orgRates:
           title: orgRates
+        totalUsage:
+          title: totalUsage
+          type: number
         amountDue:
           title: amountDue
           type: number
@@ -4041,9 +4044,6 @@ components:
           type: string
         includedUsage:
           title: includedUsage
-          type: number
-        totalUsage:
-          title: totalUsage
           type: number
         unit:
           title: unit
@@ -8293,11 +8293,11 @@ components:
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 1.4658129805029452
+          amountDue: 5.962133916683182
           orgRates: ""
           unit: unit
           dimensionId: agent-generations
-          totalUsage: 5.637376656633329
+          totalUsage: 1.4658129805029452
           id: 0.8008281904610115
           usages:
           - dpm: 1.2315135367772556
@@ -8356,18 +8356,18 @@ components:
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          includedUsage: 5.962133916683182
+          includedUsage: 5.637376656633329
           periodStart: periodStart
           periodEnd: periodEnd
           overage: 6.027456183070403
         - notes: notes
           description: description
           dimensionName: dimensionName
-          amountDue: 1.4658129805029452
+          amountDue: 5.962133916683182
           orgRates: ""
           unit: unit
           dimensionId: agent-generations
-          totalUsage: 5.637376656633329
+          totalUsage: 1.4658129805029452
           id: 0.8008281904610115
           usages:
           - dpm: 1.2315135367772556
@@ -8426,7 +8426,7 @@ components:
             periodStart: periodStart
             isProrated: true
             periodEnd: periodEnd
-          includedUsage: 5.962133916683182
+          includedUsage: 5.637376656633329
           periodStart: periodStart
           periodEnd: periodEnd
           overage: 6.027456183070403
